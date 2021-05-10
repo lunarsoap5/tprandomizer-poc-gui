@@ -8,19 +8,19 @@
     "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\justin\\.nuget\\packages\\": {}
+    "C:\\Users\\JC071094\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\justin\\Downloads\\rando-gui\\rando-gui\\WinFormsApp1\\WinFormsApp1.csproj",
+      "projectUniqueName": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\WinFormsApp1.csproj",
       "projectName": "WinFormsApp1",
-      "projectPath": "C:\\Users\\justin\\Downloads\\rando-gui\\rando-gui\\WinFormsApp1\\WinFormsApp1.csproj",
-      "packagesPath": "C:\\Users\\justin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\justin\\Downloads\\rando-gui\\rando-gui\\WinFormsApp1\\obj\\",
+      "projectPath": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\WinFormsApp1.csproj",
+      "packagesPath": "C:\\Users\\JC071094\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\justin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\JC071094\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
