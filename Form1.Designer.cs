@@ -29,386 +29,863 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.optionsMenu = new System.Windows.Forms.TabControl();
+            this.randomizationSettingsTabPage = new System.Windows.Forms.TabPage();
+            this.randomizationSettingsBox = new System.Windows.Forms.GroupBox();
+            this.logicRulesBox = new System.Windows.Forms.ComboBox();
+            this.logicRulesLabel = new System.Windows.Forms.Label();
+            this.itemPoolOptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.itemCategoriesGroupBox = new System.Windows.Forms.GroupBox();
+            this.shopItemsCheckBox = new System.Windows.Forms.CheckBox();
+            this.treasureChestCheckBox = new System.Windows.Forms.CheckBox();
+            this.giftFromNPCsCheckBox = new System.Windows.Forms.CheckBox();
+            this.goldenBugsCheckBox = new System.Windows.Forms.CheckBox();
+            this.dungeonItemsGroupBox = new System.Windows.Forms.GroupBox();
+            this.smallKeyShuffleComboBox = new System.Windows.Forms.ComboBox();
+            this.mapsAndCompassesComboBox = new System.Windows.Forms.ComboBox();
+            this.smallKeyShuffleLabel = new System.Windows.Forms.Label();
+            this.bossKeyShuffleComboBox = new System.Windows.Forms.ComboBox();
+            this.bossKeyShuffleLabel = new System.Windows.Forms.Label();
+            this.mapsAndCompassesLabel = new System.Windows.Forms.Label();
+            this.accessOptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.faronWoodsLogicComboBox = new System.Windows.Forms.ComboBox();
+            this.faronWoodsLogicLabel = new System.Windows.Forms.Label();
+            this.mdhCheckBox = new System.Windows.Forms.CheckBox();
+            this.palaceLogicComboBox = new System.Windows.Forms.ComboBox();
+            this.palaceLogicLabel = new System.Windows.Forms.Label();
+            this.castleLogicLabel = new System.Windows.Forms.Label();
+            this.castleLogicComboBox = new System.Windows.Forms.ComboBox();
+            this.gameplaySettingsTabPage = new System.Windows.Forms.TabPage();
+            this.cutsceneMundaneSkipsGroupBox = new System.Windows.Forms.GroupBox();
+            this.skipMasterSwordPuzzleCheckBox = new System.Windows.Forms.CheckBox();
+            this.skipMinorCutscenesCheckBox = new System.Windows.Forms.CheckBox();
+            this.clearedTwilightsGroupBox = new System.Windows.Forms.GroupBox();
+            this.lanayruTwilightClearedCheckBox = new System.Windows.Forms.CheckBox();
+            this.eldinTwilightClearedCheckBox = new System.Windows.Forms.CheckBox();
+            this.faronTwilightClearedCheckBox = new System.Windows.Forms.CheckBox();
+            this.excludedChecksTabPage = new System.Windows.Forms.TabPage();
+            this.excludedChecksLabel = new System.Windows.Forms.Label();
+            this.listofChecksLabel = new System.Windows.Forms.Label();
+            this.moveExcludedToCheckButton = new System.Windows.Forms.Button();
+            this.excludedChecksListView = new System.Windows.Forms.ListView();
+            this.moveCheckToExcludedButton = new System.Windows.Forms.Button();
+            this.listofChecksListView = new System.Windows.Forms.ListView();
+            this.inventoryTabPage = new System.Windows.Forms.TabPage();
+            this.cosmeticsTabPage = new System.Windows.Forms.TabPage();
+            this.transformAnywhereCheckBox = new System.Windows.Forms.CheckBox();
+            this.quickTransformCheckBox = new System.Windows.Forms.CheckBox();
+            this.midnaHairColorComboBox = new System.Windows.Forms.ComboBox();
+            this.midnaHairColorLabel = new System.Windows.Forms.Label();
+            this.lanternColorComboBox = new System.Windows.Forms.ComboBox();
+            this.lanternColorLabel = new System.Windows.Forms.Label();
+            this.tunicColorComboBox = new System.Windows.Forms.ComboBox();
+            this.fastIronBootsCheckBox = new System.Windows.Forms.CheckBox();
+            this.tunicColorLabel = new System.Windows.Forms.Label();
+            this.generateButton = new System.Windows.Forms.Button();
+            this.settingsStringTextBox = new System.Windows.Forms.TextBox();
+            this.settingsStringLabel = new System.Windows.Forms.Label();
+            this.generateSpoilerLogCheckBox = new System.Windows.Forms.CheckBox();
+            this.settingPresetsLabel = new System.Windows.Forms.Label();
+            this.settingsPresetsComboBox = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.optionsMenu.SuspendLayout();
+            this.randomizationSettingsTabPage.SuspendLayout();
+            this.randomizationSettingsBox.SuspendLayout();
+            this.itemPoolOptionsGroupBox.SuspendLayout();
+            this.itemCategoriesGroupBox.SuspendLayout();
+            this.dungeonItemsGroupBox.SuspendLayout();
+            this.accessOptionsGroupBox.SuspendLayout();
+            this.gameplaySettingsTabPage.SuspendLayout();
+            this.cutsceneMundaneSkipsGroupBox.SuspendLayout();
+            this.clearedTwilightsGroupBox.SuspendLayout();
+            this.excludedChecksTabPage.SuspendLayout();
+            this.cosmeticsTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // optionsMenu
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(10, 9);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(679, 344);
-            this.tabControl1.TabIndex = 1;
+            this.optionsMenu.Controls.Add(this.randomizationSettingsTabPage);
+            this.optionsMenu.Controls.Add(this.gameplaySettingsTabPage);
+            this.optionsMenu.Controls.Add(this.excludedChecksTabPage);
+            this.optionsMenu.Controls.Add(this.inventoryTabPage);
+            this.optionsMenu.Controls.Add(this.cosmeticsTabPage);
+            this.optionsMenu.Location = new System.Drawing.Point(10, 9);
+            this.optionsMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.optionsMenu.Name = "optionsMenu";
+            this.optionsMenu.SelectedIndex = 0;
+            this.optionsMenu.Size = new System.Drawing.Size(679, 344);
+            this.optionsMenu.TabIndex = 1;
             // 
-            // tabPage1
+            // randomizationSettingsTabPage
             // 
-            this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(671, 316);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Randomization Settings";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.randomizationSettingsTabPage.Controls.Add(this.randomizationSettingsBox);
+            this.randomizationSettingsTabPage.Controls.Add(this.itemPoolOptionsGroupBox);
+            this.randomizationSettingsTabPage.Controls.Add(this.accessOptionsGroupBox);
+            this.randomizationSettingsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.randomizationSettingsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.randomizationSettingsTabPage.Name = "randomizationSettingsTabPage";
+            this.randomizationSettingsTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.randomizationSettingsTabPage.Size = new System.Drawing.Size(671, 316);
+            this.randomizationSettingsTabPage.TabIndex = 0;
+            this.randomizationSettingsTabPage.Text = "Randomization Settings";
+            this.randomizationSettingsTabPage.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // randomizationSettingsBox
             // 
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(671, 316);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Gameplay Settings";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.randomizationSettingsBox.Controls.Add(this.logicRulesBox);
+            this.randomizationSettingsBox.Controls.Add(this.logicRulesLabel);
+            this.randomizationSettingsBox.Location = new System.Drawing.Point(8, 3);
+            this.randomizationSettingsBox.Name = "randomizationSettingsBox";
+            this.randomizationSettingsBox.Size = new System.Drawing.Size(332, 62);
+            this.randomizationSettingsBox.TabIndex = 3;
+            this.randomizationSettingsBox.TabStop = false;
+            this.randomizationSettingsBox.Text = "Logic Settings";
+            this.randomizationSettingsBox.Enter += new System.EventHandler(this.groupBox6_Enter);
             // 
-            // groupBox1
+            // logicRulesBox
             // 
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(647, 94);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cleared Twilights";
+            this.logicRulesBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.logicRulesBox.FormattingEnabled = true;
+            this.logicRulesBox.Items.AddRange(new object[] {
+            "Glitchess",
+            "Glitched",
+            "No Logic"});
+            this.logicRulesBox.Location = new System.Drawing.Point(82, 19);
+            this.logicRulesBox.Name = "logicRulesBox";
+            this.logicRulesBox.Size = new System.Drawing.Size(121, 23);
+            this.logicRulesBox.TabIndex = 1;
             // 
-            // checkBox3
+            // logicRulesLabel
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(5, 64);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(155, 19);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Lanayru Twilight Cleared";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.logicRulesLabel.AutoSize = true;
+            this.logicRulesLabel.Location = new System.Drawing.Point(6, 22);
+            this.logicRulesLabel.Name = "logicRulesLabel";
+            this.logicRulesLabel.Size = new System.Drawing.Size(70, 15);
+            this.logicRulesLabel.TabIndex = 0;
+            this.logicRulesLabel.Text = "Logic Rules:";
+            this.logicRulesLabel.Click += new System.EventHandler(this.label9_Click);
             // 
-            // checkBox2
+            // itemPoolOptionsGroupBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(5, 42);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(139, 19);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "Eldin Twilight Cleared";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.itemPoolOptionsGroupBox.Controls.Add(this.itemCategoriesGroupBox);
+            this.itemPoolOptionsGroupBox.Controls.Add(this.dungeonItemsGroupBox);
+            this.itemPoolOptionsGroupBox.Location = new System.Drawing.Point(346, 3);
+            this.itemPoolOptionsGroupBox.Name = "itemPoolOptionsGroupBox";
+            this.itemPoolOptionsGroupBox.Size = new System.Drawing.Size(316, 310);
+            this.itemPoolOptionsGroupBox.TabIndex = 2;
+            this.itemPoolOptionsGroupBox.TabStop = false;
+            this.itemPoolOptionsGroupBox.Text = "Item Pool Options";
             // 
-            // checkBox1
+            // itemCategoriesGroupBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(5, 20);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(143, 19);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Faron Twilight Cleared";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.itemCategoriesGroupBox.Controls.Add(this.shopItemsCheckBox);
+            this.itemCategoriesGroupBox.Controls.Add(this.treasureChestCheckBox);
+            this.itemCategoriesGroupBox.Controls.Add(this.giftFromNPCsCheckBox);
+            this.itemCategoriesGroupBox.Controls.Add(this.goldenBugsCheckBox);
+            this.itemCategoriesGroupBox.Location = new System.Drawing.Point(7, 128);
+            this.itemCategoriesGroupBox.Name = "itemCategoriesGroupBox";
+            this.itemCategoriesGroupBox.Size = new System.Drawing.Size(303, 176);
+            this.itemCategoriesGroupBox.TabIndex = 7;
+            this.itemCategoriesGroupBox.TabStop = false;
+            this.itemCategoriesGroupBox.Text = "Item Categories";
             // 
-            // tabPage3
+            // shopItemsCheckBox
             // 
-            this.tabPage3.Controls.Add(this.label3);
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.button4);
-            this.tabPage3.Controls.Add(this.listView2);
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.listView1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(671, 316);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Excluded Checks";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.shopItemsCheckBox.AutoSize = true;
+            this.shopItemsCheckBox.Location = new System.Drawing.Point(13, 102);
+            this.shopItemsCheckBox.Name = "shopItemsCheckBox";
+            this.shopItemsCheckBox.Size = new System.Drawing.Size(85, 19);
+            this.shopItemsCheckBox.TabIndex = 3;
+            this.shopItemsCheckBox.Text = "Shop Items";
+            this.shopItemsCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // treasureChestCheckBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(410, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Excluded Checks";
+            this.treasureChestCheckBox.AutoSize = true;
+            this.treasureChestCheckBox.Location = new System.Drawing.Point(13, 76);
+            this.treasureChestCheckBox.Name = "treasureChestCheckBox";
+            this.treasureChestCheckBox.Size = new System.Drawing.Size(107, 19);
+            this.treasureChestCheckBox.TabIndex = 2;
+            this.treasureChestCheckBox.Text = "Treasure Chests";
+            this.treasureChestCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // giftFromNPCsCheckBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "List of Checks";
+            this.giftFromNPCsCheckBox.AutoSize = true;
+            this.giftFromNPCsCheckBox.Location = new System.Drawing.Point(13, 50);
+            this.giftFromNPCsCheckBox.Name = "giftFromNPCsCheckBox";
+            this.giftFromNPCsCheckBox.Size = new System.Drawing.Size(113, 19);
+            this.giftFromNPCsCheckBox.TabIndex = 1;
+            this.giftFromNPCsCheckBox.Text = "Gifts From NPCs";
+            this.giftFromNPCsCheckBox.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // goldenBugsCheckBox
             // 
-            this.button4.Location = new System.Drawing.Point(284, 207);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(101, 56);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "<";
-            this.button4.UseVisualStyleBackColor = true;
+            this.goldenBugsCheckBox.AutoSize = true;
+            this.goldenBugsCheckBox.Location = new System.Drawing.Point(13, 24);
+            this.goldenBugsCheckBox.Name = "goldenBugsCheckBox";
+            this.goldenBugsCheckBox.Size = new System.Drawing.Size(93, 19);
+            this.goldenBugsCheckBox.TabIndex = 0;
+            this.goldenBugsCheckBox.Text = "Golden Bugs";
+            this.goldenBugsCheckBox.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // dungeonItemsGroupBox
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(410, 35);
-            this.listView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(252, 248);
-            this.listView2.TabIndex = 3;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.dungeonItemsGroupBox.Controls.Add(this.smallKeyShuffleComboBox);
+            this.dungeonItemsGroupBox.Controls.Add(this.mapsAndCompassesComboBox);
+            this.dungeonItemsGroupBox.Controls.Add(this.smallKeyShuffleLabel);
+            this.dungeonItemsGroupBox.Controls.Add(this.bossKeyShuffleComboBox);
+            this.dungeonItemsGroupBox.Controls.Add(this.bossKeyShuffleLabel);
+            this.dungeonItemsGroupBox.Controls.Add(this.mapsAndCompassesLabel);
+            this.dungeonItemsGroupBox.Location = new System.Drawing.Point(7, 22);
+            this.dungeonItemsGroupBox.Name = "dungeonItemsGroupBox";
+            this.dungeonItemsGroupBox.Size = new System.Drawing.Size(303, 100);
+            this.dungeonItemsGroupBox.TabIndex = 6;
+            this.dungeonItemsGroupBox.TabStop = false;
+            this.dungeonItemsGroupBox.Text = "Dungeon Items";
             // 
-            // button3
+            // smallKeyShuffleComboBox
             // 
-            this.button3.Location = new System.Drawing.Point(284, 76);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 56);
-            this.button3.TabIndex = 1;
-            this.button3.Text = ">";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.smallKeyShuffleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.smallKeyShuffleComboBox.FormattingEnabled = true;
+            this.smallKeyShuffleComboBox.Items.AddRange(new object[] {
+            "Vanilla",
+            "Overworld",
+            "Own Dungeon",
+            "Any Dungeon",
+            "Keysanity",
+            "Keysey"});
+            this.smallKeyShuffleComboBox.Location = new System.Drawing.Point(140, 17);
+            this.smallKeyShuffleComboBox.Name = "smallKeyShuffleComboBox";
+            this.smallKeyShuffleComboBox.Size = new System.Drawing.Size(121, 23);
+            this.smallKeyShuffleComboBox.TabIndex = 0;
+            this.smallKeyShuffleComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
-            // listView1
+            // mapsAndCompassesComboBox
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(11, 35);
-            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(252, 248);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.mapsAndCompassesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mapsAndCompassesComboBox.FormattingEnabled = true;
+            this.mapsAndCompassesComboBox.Items.AddRange(new object[] {
+            "Vanilla",
+            "Overworld",
+            "Own Dungeon",
+            "Any Dungeon",
+            "Anywhere",
+            "Start With"});
+            this.mapsAndCompassesComboBox.Location = new System.Drawing.Point(140, 75);
+            this.mapsAndCompassesComboBox.Name = "mapsAndCompassesComboBox";
+            this.mapsAndCompassesComboBox.Size = new System.Drawing.Size(121, 23);
+            this.mapsAndCompassesComboBox.TabIndex = 5;
             // 
-            // tabPage4
+            // smallKeyShuffleLabel
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(671, 316);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Inventory";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.smallKeyShuffleLabel.AutoSize = true;
+            this.smallKeyShuffleLabel.Location = new System.Drawing.Point(6, 20);
+            this.smallKeyShuffleLabel.Name = "smallKeyShuffleLabel";
+            this.smallKeyShuffleLabel.Size = new System.Drawing.Size(101, 15);
+            this.smallKeyShuffleLabel.TabIndex = 1;
+            this.smallKeyShuffleLabel.Text = "Small Key Shuffle:";
             // 
-            // tabPage5
+            // bossKeyShuffleComboBox
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage5.Size = new System.Drawing.Size(671, 316);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Cosmetics and Effects";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.bossKeyShuffleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bossKeyShuffleComboBox.FormattingEnabled = true;
+            this.bossKeyShuffleComboBox.Items.AddRange(new object[] {
+            "Vanilla",
+            "Overworld",
+            "Own Dungeon",
+            "Any Dungeon",
+            "Keysanity",
+            "Keysey"});
+            this.bossKeyShuffleComboBox.Location = new System.Drawing.Point(140, 46);
+            this.bossKeyShuffleComboBox.Name = "bossKeyShuffleComboBox";
+            this.bossKeyShuffleComboBox.Size = new System.Drawing.Size(121, 23);
+            this.bossKeyShuffleComboBox.TabIndex = 4;
             // 
-            // button2
+            // bossKeyShuffleLabel
             // 
-            this.button2.Location = new System.Drawing.Point(308, 497);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 22);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Generate";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bossKeyShuffleLabel.AutoSize = true;
+            this.bossKeyShuffleLabel.Location = new System.Drawing.Point(6, 49);
+            this.bossKeyShuffleLabel.Name = "bossKeyShuffleLabel";
+            this.bossKeyShuffleLabel.Size = new System.Drawing.Size(96, 15);
+            this.bossKeyShuffleLabel.TabIndex = 2;
+            this.bossKeyShuffleLabel.Text = "Boss Key Shuffle:";
             // 
-            // textBox1
+            // mapsAndCompassesLabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 430);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(576, 23);
-            this.textBox1.TabIndex = 3;
+            this.mapsAndCompassesLabel.AutoSize = true;
+            this.mapsAndCompassesLabel.Location = new System.Drawing.Point(6, 78);
+            this.mapsAndCompassesLabel.Name = "mapsAndCompassesLabel";
+            this.mapsAndCompassesLabel.Size = new System.Drawing.Size(125, 15);
+            this.mapsAndCompassesLabel.TabIndex = 3;
+            this.mapsAndCompassesLabel.Text = "Maps and Compasses:";
             // 
-            // label1
+            // accessOptionsGroupBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 433);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Settings String:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.accessOptionsGroupBox.Controls.Add(this.faronWoodsLogicComboBox);
+            this.accessOptionsGroupBox.Controls.Add(this.faronWoodsLogicLabel);
+            this.accessOptionsGroupBox.Controls.Add(this.mdhCheckBox);
+            this.accessOptionsGroupBox.Controls.Add(this.palaceLogicComboBox);
+            this.accessOptionsGroupBox.Controls.Add(this.palaceLogicLabel);
+            this.accessOptionsGroupBox.Controls.Add(this.castleLogicLabel);
+            this.accessOptionsGroupBox.Controls.Add(this.castleLogicComboBox);
+            this.accessOptionsGroupBox.Location = new System.Drawing.Point(8, 71);
+            this.accessOptionsGroupBox.Name = "accessOptionsGroupBox";
+            this.accessOptionsGroupBox.Size = new System.Drawing.Size(332, 237);
+            this.accessOptionsGroupBox.TabIndex = 1;
+            this.accessOptionsGroupBox.TabStop = false;
+            this.accessOptionsGroupBox.Text = "Access Options";
             // 
-            // checkBox4
+            // faronWoodsLogicComboBox
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(14, 380);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(135, 19);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Generate Spoiler Log";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.faronWoodsLogicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.faronWoodsLogicComboBox.FormattingEnabled = true;
+            this.faronWoodsLogicComboBox.Items.AddRange(new object[] {
+            "Open ",
+            "Closed"});
+            this.faronWoodsLogicComboBox.Location = new System.Drawing.Point(118, 82);
+            this.faronWoodsLogicComboBox.Name = "faronWoodsLogicComboBox";
+            this.faronWoodsLogicComboBox.Size = new System.Drawing.Size(121, 23);
+            this.faronWoodsLogicComboBox.TabIndex = 6;
             // 
-            // groupBox2
+            // faronWoodsLogicLabel
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Location = new System.Drawing.Point(8, 132);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(332, 176);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Access Options";
+            this.faronWoodsLogicLabel.AutoSize = true;
+            this.faronWoodsLogicLabel.Location = new System.Drawing.Point(0, 87);
+            this.faronWoodsLogicLabel.Name = "faronWoodsLogicLabel";
+            this.faronWoodsLogicLabel.Size = new System.Drawing.Size(112, 15);
+            this.faronWoodsLogicLabel.TabIndex = 5;
+            this.faronWoodsLogicLabel.Text = "Faron Woods Logic:";
             // 
-            // comboBox1
+            // mdhCheckBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.mdhCheckBox.AutoSize = true;
+            this.mdhCheckBox.Location = new System.Drawing.Point(6, 120);
+            this.mdhCheckBox.Name = "mdhCheckBox";
+            this.mdhCheckBox.Size = new System.Drawing.Size(178, 19);
+            this.mdhCheckBox.TabIndex = 4;
+            this.mdhCheckBox.Text = "Skip Midna\'s Desperate Hour";
+            this.mdhCheckBox.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.mdhCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // palaceLogicComboBox
+            // 
+            this.palaceLogicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.palaceLogicComboBox.FormattingEnabled = true;
+            this.palaceLogicComboBox.Items.AddRange(new object[] {
+            "Open (Mirror is Assembled)",
+            "All Fused Shadows",
+            "All Mirror Shards",
+            "Vanilla"});
+            this.palaceLogicComboBox.Location = new System.Drawing.Point(184, 49);
+            this.palaceLogicComboBox.Name = "palaceLogicComboBox";
+            this.palaceLogicComboBox.Size = new System.Drawing.Size(121, 23);
+            this.palaceLogicComboBox.TabIndex = 3;
+            // 
+            // palaceLogicLabel
+            // 
+            this.palaceLogicLabel.AutoSize = true;
+            this.palaceLogicLabel.Location = new System.Drawing.Point(0, 52);
+            this.palaceLogicLabel.Name = "palaceLogicLabel";
+            this.palaceLogicLabel.Size = new System.Drawing.Size(178, 15);
+            this.palaceLogicLabel.TabIndex = 2;
+            this.palaceLogicLabel.Text = "Palace of Twilight Requirements:";
+            // 
+            // castleLogicLabel
+            // 
+            this.castleLogicLabel.AutoSize = true;
+            this.castleLogicLabel.Location = new System.Drawing.Point(0, 22);
+            this.castleLogicLabel.Name = "castleLogicLabel";
+            this.castleLogicLabel.Size = new System.Drawing.Size(156, 15);
+            this.castleLogicLabel.TabIndex = 1;
+            this.castleLogicLabel.Text = "Hyrule Castle Requirements:";
+            // 
+            // castleLogicComboBox
+            // 
+            this.castleLogicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.castleLogicComboBox.FormattingEnabled = true;
+            this.castleLogicComboBox.Items.AddRange(new object[] {
             "Open (Barrier is removed)",
             "All Fused Shadows",
             "All Mirror Shards",
             "All Dungeons",
             "Random Dungeons",
             "Vanilla"});
-            this.comboBox1.Location = new System.Drawing.Point(162, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.castleLogicComboBox.Location = new System.Drawing.Point(162, 19);
+            this.castleLogicComboBox.Name = "castleLogicComboBox";
+            this.castleLogicComboBox.Size = new System.Drawing.Size(121, 23);
+            this.castleLogicComboBox.TabIndex = 0;
+            this.castleLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label4
+            // gameplaySettingsTabPage
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(156, 15);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Hyrule Castle Requirements:";
+            this.gameplaySettingsTabPage.Controls.Add(this.cutsceneMundaneSkipsGroupBox);
+            this.gameplaySettingsTabPage.Controls.Add(this.clearedTwilightsGroupBox);
+            this.gameplaySettingsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.gameplaySettingsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gameplaySettingsTabPage.Name = "gameplaySettingsTabPage";
+            this.gameplaySettingsTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gameplaySettingsTabPage.Size = new System.Drawing.Size(671, 316);
+            this.gameplaySettingsTabPage.TabIndex = 1;
+            this.gameplaySettingsTabPage.Text = "Gameplay Settings";
+            this.gameplaySettingsTabPage.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // cutsceneMundaneSkipsGroupBox
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(178, 15);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Palace of Twilight Requirements:";
+            this.cutsceneMundaneSkipsGroupBox.Controls.Add(this.skipMasterSwordPuzzleCheckBox);
+            this.cutsceneMundaneSkipsGroupBox.Controls.Add(this.skipMinorCutscenesCheckBox);
+            this.cutsceneMundaneSkipsGroupBox.Location = new System.Drawing.Point(11, 125);
+            this.cutsceneMundaneSkipsGroupBox.Name = "cutsceneMundaneSkipsGroupBox";
+            this.cutsceneMundaneSkipsGroupBox.Size = new System.Drawing.Size(647, 100);
+            this.cutsceneMundaneSkipsGroupBox.TabIndex = 3;
+            this.cutsceneMundaneSkipsGroupBox.TabStop = false;
+            this.cutsceneMundaneSkipsGroupBox.Text = "Cutscene/Mundane Skips";
             // 
-            // comboBox2
+            // skipMasterSwordPuzzleCheckBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Open (Mirror is Assembled)",
-            "All Fused Shadows",
-            "All Mirror Shards",
-            "Vanilla"});
-            this.comboBox2.Location = new System.Drawing.Point(184, 65);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 3;
+            this.skipMasterSwordPuzzleCheckBox.AutoSize = true;
+            this.skipMasterSwordPuzzleCheckBox.Location = new System.Drawing.Point(7, 48);
+            this.skipMasterSwordPuzzleCheckBox.Name = "skipMasterSwordPuzzleCheckBox";
+            this.skipMasterSwordPuzzleCheckBox.Size = new System.Drawing.Size(159, 19);
+            this.skipMasterSwordPuzzleCheckBox.TabIndex = 1;
+            this.skipMasterSwordPuzzleCheckBox.Text = "Skip Master Sword Puzzle";
+            this.skipMasterSwordPuzzleCheckBox.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // skipMinorCutscenesCheckBox
             // 
-            this.groupBox3.Location = new System.Drawing.Point(346, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(316, 232);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Item Pool Options";
+            this.skipMinorCutscenesCheckBox.AutoSize = true;
+            this.skipMinorCutscenesCheckBox.Location = new System.Drawing.Point(7, 23);
+            this.skipMinorCutscenesCheckBox.Name = "skipMinorCutscenesCheckBox";
+            this.skipMinorCutscenesCheckBox.Size = new System.Drawing.Size(140, 19);
+            this.skipMinorCutscenesCheckBox.TabIndex = 0;
+            this.skipMinorCutscenesCheckBox.Text = "Skip Minor Cutscenes";
+            this.skipMinorCutscenesCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // clearedTwilightsGroupBox
+            // 
+            this.clearedTwilightsGroupBox.Controls.Add(this.lanayruTwilightClearedCheckBox);
+            this.clearedTwilightsGroupBox.Controls.Add(this.eldinTwilightClearedCheckBox);
+            this.clearedTwilightsGroupBox.Controls.Add(this.faronTwilightClearedCheckBox);
+            this.clearedTwilightsGroupBox.Location = new System.Drawing.Point(11, 15);
+            this.clearedTwilightsGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.clearedTwilightsGroupBox.Name = "clearedTwilightsGroupBox";
+            this.clearedTwilightsGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.clearedTwilightsGroupBox.Size = new System.Drawing.Size(647, 94);
+            this.clearedTwilightsGroupBox.TabIndex = 2;
+            this.clearedTwilightsGroupBox.TabStop = false;
+            this.clearedTwilightsGroupBox.Text = "Cleared Twilights";
+            // 
+            // lanayruTwilightClearedCheckBox
+            // 
+            this.lanayruTwilightClearedCheckBox.AutoSize = true;
+            this.lanayruTwilightClearedCheckBox.Location = new System.Drawing.Point(5, 64);
+            this.lanayruTwilightClearedCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lanayruTwilightClearedCheckBox.Name = "lanayruTwilightClearedCheckBox";
+            this.lanayruTwilightClearedCheckBox.Size = new System.Drawing.Size(155, 19);
+            this.lanayruTwilightClearedCheckBox.TabIndex = 2;
+            this.lanayruTwilightClearedCheckBox.Text = "Lanayru Twilight Cleared";
+            this.lanayruTwilightClearedCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // eldinTwilightClearedCheckBox
+            // 
+            this.eldinTwilightClearedCheckBox.AutoSize = true;
+            this.eldinTwilightClearedCheckBox.Location = new System.Drawing.Point(5, 42);
+            this.eldinTwilightClearedCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eldinTwilightClearedCheckBox.Name = "eldinTwilightClearedCheckBox";
+            this.eldinTwilightClearedCheckBox.Size = new System.Drawing.Size(139, 19);
+            this.eldinTwilightClearedCheckBox.TabIndex = 2;
+            this.eldinTwilightClearedCheckBox.Text = "Eldin Twilight Cleared";
+            this.eldinTwilightClearedCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // faronTwilightClearedCheckBox
+            // 
+            this.faronTwilightClearedCheckBox.AutoSize = true;
+            this.faronTwilightClearedCheckBox.Location = new System.Drawing.Point(5, 20);
+            this.faronTwilightClearedCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.faronTwilightClearedCheckBox.Name = "faronTwilightClearedCheckBox";
+            this.faronTwilightClearedCheckBox.Size = new System.Drawing.Size(143, 19);
+            this.faronTwilightClearedCheckBox.TabIndex = 0;
+            this.faronTwilightClearedCheckBox.Text = "Faron Twilight Cleared";
+            this.faronTwilightClearedCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // excludedChecksTabPage
+            // 
+            this.excludedChecksTabPage.Controls.Add(this.excludedChecksLabel);
+            this.excludedChecksTabPage.Controls.Add(this.listofChecksLabel);
+            this.excludedChecksTabPage.Controls.Add(this.moveExcludedToCheckButton);
+            this.excludedChecksTabPage.Controls.Add(this.excludedChecksListView);
+            this.excludedChecksTabPage.Controls.Add(this.moveCheckToExcludedButton);
+            this.excludedChecksTabPage.Controls.Add(this.listofChecksListView);
+            this.excludedChecksTabPage.Location = new System.Drawing.Point(4, 24);
+            this.excludedChecksTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.excludedChecksTabPage.Name = "excludedChecksTabPage";
+            this.excludedChecksTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.excludedChecksTabPage.Size = new System.Drawing.Size(671, 316);
+            this.excludedChecksTabPage.TabIndex = 2;
+            this.excludedChecksTabPage.Text = "Excluded Checks";
+            this.excludedChecksTabPage.UseVisualStyleBackColor = true;
+            // 
+            // excludedChecksLabel
+            // 
+            this.excludedChecksLabel.AutoSize = true;
+            this.excludedChecksLabel.Location = new System.Drawing.Point(410, 18);
+            this.excludedChecksLabel.Name = "excludedChecksLabel";
+            this.excludedChecksLabel.Size = new System.Drawing.Size(96, 15);
+            this.excludedChecksLabel.TabIndex = 6;
+            this.excludedChecksLabel.Text = "Excluded Checks";
+            // 
+            // listofChecksLabel
+            // 
+            this.listofChecksLabel.AutoSize = true;
+            this.listofChecksLabel.Location = new System.Drawing.Point(11, 18);
+            this.listofChecksLabel.Name = "listofChecksLabel";
+            this.listofChecksLabel.Size = new System.Drawing.Size(80, 15);
+            this.listofChecksLabel.TabIndex = 5;
+            this.listofChecksLabel.Text = "List of Checks";
+            // 
+            // moveExcludedToCheckButton
+            // 
+            this.moveExcludedToCheckButton.Location = new System.Drawing.Point(284, 207);
+            this.moveExcludedToCheckButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.moveExcludedToCheckButton.Name = "moveExcludedToCheckButton";
+            this.moveExcludedToCheckButton.Size = new System.Drawing.Size(101, 56);
+            this.moveExcludedToCheckButton.TabIndex = 4;
+            this.moveExcludedToCheckButton.Text = "<";
+            this.moveExcludedToCheckButton.UseVisualStyleBackColor = true;
+            // 
+            // excludedChecksListView
+            // 
+            this.excludedChecksListView.HideSelection = false;
+            this.excludedChecksListView.Location = new System.Drawing.Point(410, 35);
+            this.excludedChecksListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.excludedChecksListView.Name = "excludedChecksListView";
+            this.excludedChecksListView.Size = new System.Drawing.Size(252, 248);
+            this.excludedChecksListView.TabIndex = 3;
+            this.excludedChecksListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // moveCheckToExcludedButton
+            // 
+            this.moveCheckToExcludedButton.Location = new System.Drawing.Point(284, 76);
+            this.moveCheckToExcludedButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.moveCheckToExcludedButton.Name = "moveCheckToExcludedButton";
+            this.moveCheckToExcludedButton.Size = new System.Drawing.Size(101, 56);
+            this.moveCheckToExcludedButton.TabIndex = 1;
+            this.moveCheckToExcludedButton.Text = ">";
+            this.moveCheckToExcludedButton.UseVisualStyleBackColor = true;
+            this.moveCheckToExcludedButton.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // listofChecksListView
+            // 
+            this.listofChecksListView.HideSelection = false;
+            this.listofChecksListView.Location = new System.Drawing.Point(11, 35);
+            this.listofChecksListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listofChecksListView.Name = "listofChecksListView";
+            this.listofChecksListView.Size = new System.Drawing.Size(252, 248);
+            this.listofChecksListView.TabIndex = 0;
+            this.listofChecksListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // inventoryTabPage
+            // 
+            this.inventoryTabPage.Location = new System.Drawing.Point(4, 24);
+            this.inventoryTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inventoryTabPage.Name = "inventoryTabPage";
+            this.inventoryTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inventoryTabPage.Size = new System.Drawing.Size(671, 316);
+            this.inventoryTabPage.TabIndex = 3;
+            this.inventoryTabPage.Text = "Inventory";
+            this.inventoryTabPage.UseVisualStyleBackColor = true;
+            // 
+            // cosmeticsTabPage
+            // 
+            this.cosmeticsTabPage.Controls.Add(this.transformAnywhereCheckBox);
+            this.cosmeticsTabPage.Controls.Add(this.quickTransformCheckBox);
+            this.cosmeticsTabPage.Controls.Add(this.midnaHairColorComboBox);
+            this.cosmeticsTabPage.Controls.Add(this.midnaHairColorLabel);
+            this.cosmeticsTabPage.Controls.Add(this.lanternColorComboBox);
+            this.cosmeticsTabPage.Controls.Add(this.lanternColorLabel);
+            this.cosmeticsTabPage.Controls.Add(this.tunicColorComboBox);
+            this.cosmeticsTabPage.Controls.Add(this.fastIronBootsCheckBox);
+            this.cosmeticsTabPage.Controls.Add(this.tunicColorLabel);
+            this.cosmeticsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.cosmeticsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cosmeticsTabPage.Name = "cosmeticsTabPage";
+            this.cosmeticsTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cosmeticsTabPage.Size = new System.Drawing.Size(671, 316);
+            this.cosmeticsTabPage.TabIndex = 4;
+            this.cosmeticsTabPage.Text = "Cosmetics and Quirks";
+            this.cosmeticsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // transformAnywhereCheckBox
+            // 
+            this.transformAnywhereCheckBox.AutoSize = true;
+            this.transformAnywhereCheckBox.Location = new System.Drawing.Point(4, 170);
+            this.transformAnywhereCheckBox.Name = "transformAnywhereCheckBox";
+            this.transformAnywhereCheckBox.Size = new System.Drawing.Size(135, 19);
+            this.transformAnywhereCheckBox.TabIndex = 8;
+            this.transformAnywhereCheckBox.Text = "Transform Anywhere";
+            this.transformAnywhereCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // quickTransformCheckBox
+            // 
+            this.quickTransformCheckBox.AutoSize = true;
+            this.quickTransformCheckBox.Location = new System.Drawing.Point(4, 144);
+            this.quickTransformCheckBox.Name = "quickTransformCheckBox";
+            this.quickTransformCheckBox.Size = new System.Drawing.Size(113, 19);
+            this.quickTransformCheckBox.TabIndex = 7;
+            this.quickTransformCheckBox.Text = "Quick Transform";
+            this.quickTransformCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // midnaHairColorComboBox
+            // 
+            this.midnaHairColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.midnaHairColorComboBox.FormattingEnabled = true;
+            this.midnaHairColorComboBox.Location = new System.Drawing.Point(111, 80);
+            this.midnaHairColorComboBox.Name = "midnaHairColorComboBox";
+            this.midnaHairColorComboBox.Size = new System.Drawing.Size(121, 23);
+            this.midnaHairColorComboBox.TabIndex = 6;
+            // 
+            // midnaHairColorLabel
+            // 
+            this.midnaHairColorLabel.AutoSize = true;
+            this.midnaHairColorLabel.Location = new System.Drawing.Point(4, 83);
+            this.midnaHairColorLabel.Name = "midnaHairColorLabel";
+            this.midnaHairColorLabel.Size = new System.Drawing.Size(101, 15);
+            this.midnaHairColorLabel.TabIndex = 5;
+            this.midnaHairColorLabel.Text = "Midna Hair Color:";
+            // 
+            // lanternColorComboBox
+            // 
+            this.lanternColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.lanternColorComboBox.FormattingEnabled = true;
+            this.lanternColorComboBox.Location = new System.Drawing.Point(92, 45);
+            this.lanternColorComboBox.Name = "lanternColorComboBox";
+            this.lanternColorComboBox.Size = new System.Drawing.Size(121, 23);
+            this.lanternColorComboBox.TabIndex = 4;
+            // 
+            // lanternColorLabel
+            // 
+            this.lanternColorLabel.AutoSize = true;
+            this.lanternColorLabel.Location = new System.Drawing.Point(4, 48);
+            this.lanternColorLabel.Name = "lanternColorLabel";
+            this.lanternColorLabel.Size = new System.Drawing.Size(82, 15);
+            this.lanternColorLabel.TabIndex = 3;
+            this.lanternColorLabel.Text = "Lantern Color:";
+            // 
+            // tunicColorComboBox
+            // 
+            this.tunicColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tunicColorComboBox.FormattingEnabled = true;
+            this.tunicColorComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Red",
+            "Green",
+            "Blue",
+            "Yellow",
+            "Purple",
+            "Gray",
+            "Black",
+            "White",
+            "Random",
+            "Custom"});
+            this.tunicColorComboBox.Location = new System.Drawing.Point(81, 14);
+            this.tunicColorComboBox.Name = "tunicColorComboBox";
+            this.tunicColorComboBox.Size = new System.Drawing.Size(121, 23);
+            this.tunicColorComboBox.TabIndex = 2;
+            // 
+            // fastIronBootsCheckBox
+            // 
+            this.fastIronBootsCheckBox.AutoSize = true;
+            this.fastIronBootsCheckBox.Location = new System.Drawing.Point(4, 118);
+            this.fastIronBootsCheckBox.Name = "fastIronBootsCheckBox";
+            this.fastIronBootsCheckBox.Size = new System.Drawing.Size(104, 19);
+            this.fastIronBootsCheckBox.TabIndex = 1;
+            this.fastIronBootsCheckBox.Text = "Fast Iron Boots";
+            this.fastIronBootsCheckBox.UseVisualStyleBackColor = true;
+            this.fastIronBootsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox12_CheckedChanged);
+            // 
+            // tunicColorLabel
+            // 
+            this.tunicColorLabel.AutoSize = true;
+            this.tunicColorLabel.Location = new System.Drawing.Point(4, 17);
+            this.tunicColorLabel.Name = "tunicColorLabel";
+            this.tunicColorLabel.Size = new System.Drawing.Size(71, 15);
+            this.tunicColorLabel.TabIndex = 0;
+            this.tunicColorLabel.Text = "Tunic Color:";
+            // 
+            // generateButton
+            // 
+            this.generateButton.Location = new System.Drawing.Point(308, 497);
+            this.generateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.generateButton.Name = "generateButton";
+            this.generateButton.Size = new System.Drawing.Size(82, 22);
+            this.generateButton.TabIndex = 2;
+            this.generateButton.Text = "Generate";
+            this.generateButton.UseVisualStyleBackColor = true;
+            // 
+            // settingsStringTextBox
+            // 
+            this.settingsStringTextBox.Location = new System.Drawing.Point(100, 430);
+            this.settingsStringTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.settingsStringTextBox.Name = "settingsStringTextBox";
+            this.settingsStringTextBox.Size = new System.Drawing.Size(576, 23);
+            this.settingsStringTextBox.TabIndex = 3;
+            this.settingsStringTextBox.TextChanged += new System.EventHandler(this.settingsStringTextBox_TextChanged);
+            // 
+            // settingsStringLabel
+            // 
+            this.settingsStringLabel.AutoSize = true;
+            this.settingsStringLabel.Location = new System.Drawing.Point(10, 433);
+            this.settingsStringLabel.Name = "settingsStringLabel";
+            this.settingsStringLabel.Size = new System.Drawing.Size(86, 15);
+            this.settingsStringLabel.TabIndex = 4;
+            this.settingsStringLabel.Text = "Settings String:";
+            this.settingsStringLabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // generateSpoilerLogCheckBox
+            // 
+            this.generateSpoilerLogCheckBox.AutoSize = true;
+            this.generateSpoilerLogCheckBox.Location = new System.Drawing.Point(10, 407);
+            this.generateSpoilerLogCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.generateSpoilerLogCheckBox.Name = "generateSpoilerLogCheckBox";
+            this.generateSpoilerLogCheckBox.Size = new System.Drawing.Size(135, 19);
+            this.generateSpoilerLogCheckBox.TabIndex = 5;
+            this.generateSpoilerLogCheckBox.Text = "Generate Spoiler Log";
+            this.generateSpoilerLogCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // settingPresetsLabel
+            // 
+            this.settingPresetsLabel.AutoSize = true;
+            this.settingPresetsLabel.Location = new System.Drawing.Point(14, 372);
+            this.settingPresetsLabel.Name = "settingPresetsLabel";
+            this.settingPresetsLabel.Size = new System.Drawing.Size(92, 15);
+            this.settingPresetsLabel.TabIndex = 6;
+            this.settingPresetsLabel.Text = "Settings Presets:";
+            // 
+            // settingsPresetsComboBox
+            // 
+            this.settingsPresetsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.settingsPresetsComboBox.FormattingEnabled = true;
+            this.settingsPresetsComboBox.Items.AddRange(new object[] {
+            "Beginner",
+            "Experienced",
+            "Insanity (Cheese Logic)"});
+            this.settingsPresetsComboBox.Location = new System.Drawing.Point(112, 369);
+            this.settingsPresetsComboBox.Name = "settingsPresetsComboBox";
+            this.settingsPresetsComboBox.Size = new System.Drawing.Size(121, 23);
+            this.settingsPresetsComboBox.TabIndex = 7;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Location = new System.Drawing.Point(-9, 22);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 94);
+            this.listBox1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 530);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.settingsPresetsComboBox);
+            this.Controls.Add(this.settingPresetsLabel);
+            this.Controls.Add(this.generateSpoilerLogCheckBox);
+            this.Controls.Add(this.settingsStringLabel);
+            this.Controls.Add(this.settingsStringTextBox);
+            this.Controls.Add(this.generateButton);
+            this.Controls.Add(this.optionsMenu);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Twilight Princess Randomizer - Version 1.0";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.optionsMenu.ResumeLayout(false);
+            this.randomizationSettingsTabPage.ResumeLayout(false);
+            this.randomizationSettingsBox.ResumeLayout(false);
+            this.randomizationSettingsBox.PerformLayout();
+            this.itemPoolOptionsGroupBox.ResumeLayout(false);
+            this.itemCategoriesGroupBox.ResumeLayout(false);
+            this.itemCategoriesGroupBox.PerformLayout();
+            this.dungeonItemsGroupBox.ResumeLayout(false);
+            this.dungeonItemsGroupBox.PerformLayout();
+            this.accessOptionsGroupBox.ResumeLayout(false);
+            this.accessOptionsGroupBox.PerformLayout();
+            this.gameplaySettingsTabPage.ResumeLayout(false);
+            this.cutsceneMundaneSkipsGroupBox.ResumeLayout(false);
+            this.cutsceneMundaneSkipsGroupBox.PerformLayout();
+            this.clearedTwilightsGroupBox.ResumeLayout(false);
+            this.clearedTwilightsGroupBox.PerformLayout();
+            this.excludedChecksTabPage.ResumeLayout(false);
+            this.excludedChecksTabPage.PerformLayout();
+            this.cosmeticsTabPage.ResumeLayout(false);
+            this.cosmeticsTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabControl optionsMenu;
+        private System.Windows.Forms.TabPage randomizationSettingsTabPage;
+        private System.Windows.Forms.TabPage gameplaySettingsTabPage;
+        private System.Windows.Forms.Button generateButton;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label settingsStringLabel;
+        private System.Windows.Forms.TabPage excludedChecksTabPage;
+        private System.Windows.Forms.TabPage inventoryTabPage;
+        private System.Windows.Forms.GroupBox clearedTwilightsGroupBox;
+        private System.Windows.Forms.CheckBox lanayruTwilightClearedCheckBox;
+        private System.Windows.Forms.CheckBox eldinTwilightClearedCheckBox;
+        private System.Windows.Forms.CheckBox faronTwilightClearedCheckBox;
+        private System.Windows.Forms.Button moveCheckToExcludedButton;
+        private System.Windows.Forms.ListView listofChecksListView;
+        private System.Windows.Forms.Label excludedChecksLabel;
+        private System.Windows.Forms.Label listofChecksLabel;
+        private System.Windows.Forms.Button moveExcludedToCheckButton;
+        private System.Windows.Forms.ListView excludedChecksListView;
+        private System.Windows.Forms.TabPage cosmeticsTabPage;
+        private System.Windows.Forms.CheckBox generateSpoilerLogCheckBox;
+        private System.Windows.Forms.GroupBox accessOptionsGroupBox;
+        private System.Windows.Forms.Label castleLogicLabel;
+        private System.Windows.Forms.ComboBox castleLogicComboBox;
+        private System.Windows.Forms.ComboBox palaceLogicComboBox;
+        private System.Windows.Forms.Label palaceLogicLabel;
+        private System.Windows.Forms.GroupBox itemPoolOptionsGroupBox;
+        private System.Windows.Forms.GroupBox dungeonItemsGroupBox;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox mapsAndCompassesComboBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox bossKeyShuffleComboBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label mapsAndCompassesLabel;
+        private System.Windows.Forms.GroupBox randomizationSettingsBox;
+        private System.Windows.Forms.Label logicRulesLabel;
+        private System.Windows.Forms.GroupBox itemCategoriesGroupBox;
+        private System.Windows.Forms.CheckBox shopItemsCheckBox;
+        private System.Windows.Forms.CheckBox treasureChestCheckBox;
+        private System.Windows.Forms.CheckBox giftFromNPCsCheckBox;
+        private System.Windows.Forms.CheckBox goldenBugsCheckBox;
+        private System.Windows.Forms.Label settingPresetsLabel;
+        private System.Windows.Forms.ComboBox settingsPresetsComboBox;
+        private System.Windows.Forms.ComboBox faronWoodsLogicComboBox;
+        private System.Windows.Forms.Label faronWoodsLogicLabel;
+        private System.Windows.Forms.CheckBox mdhCheckBox;
+        private System.Windows.Forms.GroupBox cutsceneMundaneSkipsGroupBox;
+        private System.Windows.Forms.CheckBox skipMasterSwordPuzzleCheckBox;
+        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.ComboBox midnaHairColorComboBox;
+        private System.Windows.Forms.Label midnaHairColorLabel;
+        private System.Windows.Forms.ComboBox lanternColorComboBox;
+        private System.Windows.Forms.Label lanternColorLabel;
+        private System.Windows.Forms.ComboBox tunicColorComboBox;
+        private System.Windows.Forms.CheckBox fastIronBootsCheckBox;
+        private System.Windows.Forms.Label tunicColorLabel;
+        private System.Windows.Forms.CheckBox transformAnywhereCheckBox;
+        private System.Windows.Forms.CheckBox quickTransformCheckBox;
+        private System.Windows.Forms.ComboBox logicRulesBox;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label smallKeyShuffleLabel;
+        private System.Windows.Forms.ComboBox smallKeyShuffleComboBox;
+        private System.Windows.Forms.Label bossKeyShuffleLabel;
+        private System.Windows.Forms.TextBox settingsStringTextBox;
+        private System.Windows.Forms.CheckBox skipMinorCutscenesCheckBox;
     }
 }
 
