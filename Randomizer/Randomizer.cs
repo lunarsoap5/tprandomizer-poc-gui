@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
@@ -16,8 +17,10 @@ namespace TPRandomizer
         LogicFunctions Logic = new LogicFunctions();
         RoomFunctions Rooms = new RoomFunctions();
         CheckFunctions Checks = new CheckFunctions();
-        public void start()
+        public void start(string SettingsString)
         {
+            //Read in the settings string and set the settings values accordingly
+            interpretSettingsString(SettingsString);
             begin:
             //Generate the dictionary that contains all of the checks.
             Checks.InitializeChecks();
@@ -51,6 +54,121 @@ namespace TPRandomizer
             generateSpoilerLog(startingRoom);
         }
 
+        public void interpretSettingsString(string SettingsString)
+        {
+            String flags = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz1234567890!@#$";
+            String flagText = BackendFunctions.Base64Decode(SettingsString);
+
+            while (flagText.Length < 19)
+            {
+                flagText += "A";
+            }
+
+            BitArray v = new BitArray(new int[] { flags.IndexOf(flagText[0]) });
+            int[] array = new int[1];
+
+            BitArray w = new BitArray(3);
+            w[0] = v[0];
+            w[1] = v[1];
+            w[2] = v[2];
+            w.CopyTo(array, 0);
+            switch (array[0])
+            {
+                case 0:
+                    Singleton.getInstance().Logic.logicRules = "Glitchless";
+                    break;
+                case 1:
+                    Singleton.getInstance().Logic.logicRules = "Glitched";
+                    break;
+                case 2:
+                    Singleton.getInstance().Logic.logicRules = "No_Logic";
+                    break;
+            }
+            w = new BitArray(6);
+            w[0] = v[3];
+            w[1] = v[4];
+            w[2] = v[5];
+
+            v = new BitArray(new int[] { flags.IndexOf(flagText[1]) });
+            w[3] = v[0];
+            w[4] = v[1];
+            w[5] = v[2];
+            w.CopyTo(array, 0);
+            castleLogicComboBox.SelectedIndex = array[0];
+            w = new BitArray(4);
+            w[0] = v[3];
+            w[1] = v[4];
+            w[2] = v[5];
+
+            v = new BitArray(new int[] { flags.IndexOf(flagText[2]) });
+
+            w[3] = v[0];
+            w.CopyTo(array, 0);
+            palaceLogicComboBox.SelectedIndex = array[0];
+            w = new BitArray(2);
+            w[0] = v[1];
+            w[1] = v[2];
+            w.CopyTo(array, 0);
+            faronWoodsLogicComboBox.SelectedIndex = array[0];
+            mdhCheckBox.Checked = v[3];
+            w = new BitArray(6);
+            w[0] = v[4];
+            w[1] = v[5];
+
+            v = new BitArray(new int[] { flags.IndexOf(flagText[3]) });
+
+            w[2] = v[0];
+            w[3] = v[1];
+            w[4] = v[2];
+            w[5] = v[3];
+            w.CopyTo(array, 0);
+            smallKeyShuffleComboBox.SelectedIndex = array[0];
+            w = new BitArray(6);
+            w[0] = v[4];
+            w[1] = v[5];
+
+            v = new BitArray(new int[] { flags.IndexOf(flagText[4]) });
+
+            w[2] = v[0];
+            w[3] = v[1];
+            w[4] = v[2];
+            w[5] = v[3];
+            w.CopyTo(array, 0);
+            bossKeyShuffleComboBox.SelectedIndex = array[0];
+            w = new BitArray(6);
+            w[0] = v[4];
+            w[1] = v[5];
+
+            v = new BitArray(new int[] { flags.IndexOf(flagText[5]) });
+
+            w[2] = v[0];
+            w[3] = v[1];
+            w[4] = v[2];
+            w[5] = v[3];
+            w.CopyTo(array, 0);
+            mapsAndCompassesComboBox.SelectedIndex = array[0];
+            goldenBugsCheckBox.Checked = v[4];
+            giftFromNPCsCheckBox.Checked = v[5];
+
+            v = new BitArray(new int[] { flags.IndexOf(flagText[6]) });
+
+            treasureChestCheckBox.Checked = v[0];
+            shopItemsCheckBox.Checked = v[1];
+            faronTwilightClearedCheckBox.Checked = v[2];
+            eldinTwilightClearedCheckBox.Checked = v[3];
+            lanayruTwilightClearedCheckBox.Checked = v[4];
+            skipMinorCutscenesCheckBox.Checked = v[5];
+
+            v = new BitArray(new int[] { flags.IndexOf(flagText[7]) });
+
+            skipMasterSwordPuzzleCheckBox.Checked = v[0];
+            fastIronBootsCheckBox.Checked = v[1];
+            quickTransformCheckBox.Checked = v[2];
+            transformAnywhereCheckBox.Checked = v[3];
+            skipIntroCheckBox.Checked = v[4];
+
+            oldFlags = settingsStringTextBox.Text;
+        }
         public Room setupGraph()
         {
             //We want to be safe and make sure that the room classes are prepped and ready to be linked together. Then we define our starting room.

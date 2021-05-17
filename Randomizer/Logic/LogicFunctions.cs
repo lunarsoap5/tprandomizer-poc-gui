@@ -7,6 +7,19 @@ namespace TPRandomizer
     {
 		public int fusedShadowCount = 0;
 		public int mirrorShardCount = 0;
+        public string logicRules;
+        public string castleRequirements;
+        public string palaceRequirements;
+        public string faronWoodsLogic;
+        public string mdhSkipped;
+        public string introSkipped;
+        public string smallKeySettings;
+        public string bossKeySettings;
+        public string mapsAndCompassessSettings;
+        public string goldenBugsShuffled;
+        public string treasureChestsShuffled;
+        public string npcItemsShuffled;
+        public string shopItemsShuffled;
 
 
 
@@ -14,16 +27,26 @@ namespace TPRandomizer
 
         public Dictionary<Token, string> TokenDict = new Dictionary<Token, String>();
 
-        public class RandomizerSettings
-        {
-            public string settingName {get; set;}
-            public string settingValue {get; set;}
-        }
-        
-
+        //Evaluate the tokenized settings to their respective values that are set by the settings string.
         public static bool evaluateSetting(string setting, string value)
         {
+            setting = setting.Replace("Setting.", "");
             bool isEqual = false;
+            switch(setting)
+            {
+                case nameof(castleRequirements):
+                    if (value == Singleton.getInstance().Logic.castleRequirements)
+                    {
+                        isEqual = true;
+                    }
+                    break;
+                case nameof(palaceRequirements):
+                    if (value == Singleton.getInstance().Logic.palaceRequirements)
+                    {
+                        isEqual = true;
+                    }
+                    break;
+            }
             return isEqual;
         }
 

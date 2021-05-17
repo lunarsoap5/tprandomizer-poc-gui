@@ -13,13 +13,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Settings string based on code by DigShake https://bitbucket.org/digshake/z2randomizer/src/master/WindowsFormsApplication1/Form1.cs
-
-namespace TPRandomizer
+namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        Randomizer randomizer = new Randomizer();
         bool dontrunhandler;
         private readonly String flags = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz1234567890!@#$";
         private String oldFlags;
@@ -48,7 +45,6 @@ namespace TPRandomizer
             fastIronBootsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            skipIntroCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
         }
 
         private void updateFlags(object sender, EventArgs e)
@@ -135,13 +131,14 @@ namespace TPRandomizer
                 v[1] = fastIronBootsCheckBox.Checked;
                 v[2] = quickTransformCheckBox.Checked;
                 v[3] = transformAnywhereCheckBox.Checked;
-                v[4] = skipIntroCheckBox.Checked;
+                v[4] = false;
                 v[5] = false;
 
                 v.CopyTo(array, 0);
                 flagStr = flagStr + flags[array[0]];
 
-                settingsStringTextBox.Text = BackendFunctions.Base64Encode(flagStr);
+                settingsStringTextBox.Text = flagStr;
+                Console.WriteLine(flagStr);
             }
         }
 
@@ -185,14 +182,12 @@ namespace TPRandomizer
 
         }
 
-        
-
         private void settingsStringTextBox_TextChanged(object sender, EventArgs e)
         {
             dontrunhandler = true;
             try
             {
-                String flagText = BackendFunctions.Base64Decode(settingsStringTextBox.Text);
+                String flagText = settingsStringTextBox.Text;
 
                 while (flagText.Length < 19)
                 {
@@ -289,7 +284,6 @@ namespace TPRandomizer
                 fastIronBootsCheckBox.Checked = v[1];
                 quickTransformCheckBox.Checked = v[2];
                 transformAnywhereCheckBox.Checked = v[3];
-                skipIntroCheckBox.Checked = v[4];
 
                 oldFlags = settingsStringTextBox.Text;
 
@@ -298,30 +292,9 @@ namespace TPRandomizer
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Invalid flags entered!");
+                MessageBox.Show("Invalid flags entered!");
             }
             dontrunhandler = false;
-        }
-
-        
-
-        private void generateButton_Click(object sender, EventArgs e)
-        {
-            randomizer.start(settingsStringTextBox.Text);
-            MessageBox.Show("Seed Generated! Check the folder for the randomizer gci and spoiler log!");
-        }
-
-        private void settingsPresetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string currentItem = settingsPresetsComboBox.SelectedItem.ToString();
-            switch (currentItem)
-            {
-                case "Standard":
-                    logicRulesBox.SelectedIndex = 1;
-                    faronWoodsLogicComboBox.SelectedIndex = 1;
-                    break;
-            }
-            
         }
     }
 }

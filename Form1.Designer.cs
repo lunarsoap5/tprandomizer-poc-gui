@@ -1,5 +1,5 @@
-﻿using System.Windows;
-namespace TPRandomizer
+﻿
+namespace WinFormsApp1
 {
     partial class Form1
     {
@@ -27,7 +27,7 @@ namespace TPRandomizer
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        public void InitializeComponent()
+        private void InitializeComponent()
         {
             this.optionsMenu = new System.Windows.Forms.TabControl();
             this.randomizationSettingsTabPage = new System.Windows.Forms.TabPage();
@@ -88,9 +88,6 @@ namespace TPRandomizer
             this.settingPresetsLabel = new System.Windows.Forms.Label();
             this.settingsPresetsComboBox = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.outputTextBox = new System.Windows.Forms.TextBox();
-            this.skipIntroCheckBox = new System.Windows.Forms.CheckBox();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -325,7 +322,6 @@ namespace TPRandomizer
             // 
             // accessOptionsGroupBox
             // 
-            this.accessOptionsGroupBox.Controls.Add(this.skipIntroCheckBox);
             this.accessOptionsGroupBox.Controls.Add(this.faronWoodsLogicComboBox);
             this.accessOptionsGroupBox.Controls.Add(this.faronWoodsLogicLabel);
             this.accessOptionsGroupBox.Controls.Add(this.mdhCheckBox);
@@ -725,7 +721,6 @@ namespace TPRandomizer
             this.generateButton.TabIndex = 2;
             this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = true;
-            this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
             // settingsStringTextBox
             // 
@@ -771,7 +766,6 @@ namespace TPRandomizer
             this.settingsPresetsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.settingsPresetsComboBox.FormattingEnabled = true;
             this.settingsPresetsComboBox.Items.AddRange(new object[] {
-            "Standard",
             "Beginner",
             "Experienced",
             "Insanity (Cheese Logic)"});
@@ -779,7 +773,6 @@ namespace TPRandomizer
             this.settingsPresetsComboBox.Name = "settingsPresetsComboBox";
             this.settingsPresetsComboBox.Size = new System.Drawing.Size(121, 23);
             this.settingsPresetsComboBox.TabIndex = 7;
-            this.settingsPresetsComboBox.SelectedIndexChanged += new System.EventHandler(this.settingsPresetsComboBox_SelectedIndexChanged);
             // 
             // listBox1
             // 
@@ -788,39 +781,11 @@ namespace TPRandomizer
             this.listBox1.Size = new System.Drawing.Size(120, 94);
             this.listBox1.TabIndex = 0;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(6, 531);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(679, 23);
-            this.progressBar1.TabIndex = 8;
-            // 
-            // outputTextBox
-            // 
-            this.outputTextBox.Location = new System.Drawing.Point(6, 570);
-            this.outputTextBox.Multiline = true;
-            this.outputTextBox.Name = "outputTextBox";
-            this.outputTextBox.ReadOnly = true;
-            this.outputTextBox.Size = new System.Drawing.Size(679, 86);
-            this.outputTextBox.TabIndex = 9;
-            // 
-            // skipIntroCheckBox
-            // 
-            this.skipIntroCheckBox.AutoSize = true;
-            this.skipIntroCheckBox.Location = new System.Drawing.Point(6, 145);
-            this.skipIntroCheckBox.Name = "skipIntroCheckBox";
-            this.skipIntroCheckBox.Size = new System.Drawing.Size(76, 19);
-            this.skipIntroCheckBox.TabIndex = 7;
-            this.skipIntroCheckBox.Text = "Skip Intro";
-            this.skipIntroCheckBox.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 658);
-            this.Controls.Add(this.outputTextBox);
-            this.Controls.Add(this.progressBar1);
+            this.ClientSize = new System.Drawing.Size(700, 530);
             this.Controls.Add(this.settingsPresetsComboBox);
             this.Controls.Add(this.settingPresetsLabel);
             this.Controls.Add(this.generateSpoilerLogCheckBox);
@@ -921,9 +886,6 @@ namespace TPRandomizer
         private System.Windows.Forms.Label bossKeyShuffleLabel;
         private System.Windows.Forms.TextBox settingsStringTextBox;
         private System.Windows.Forms.CheckBox skipMinorCutscenesCheckBox;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        public System.Windows.Forms.TextBox outputTextBox;
-        private System.Windows.Forms.CheckBox skipIntroCheckBox;
     }
 }
 

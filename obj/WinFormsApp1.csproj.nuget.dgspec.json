@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj": {}
+    "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\WinFormsApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj": {
+    "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\WinFormsApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj",
-        "projectName": "TPRandomizer",
-        "projectPath": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj",
+        "projectUniqueName": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\WinFormsApp1.csproj",
+        "projectName": "WinFormsApp1",
+        "projectPath": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\WinFormsApp1.csproj",
         "packagesPath": "C:\\Users\\JC071094\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\obj\\",
         "projectStyle": "PackageReference",
@@ -39,16 +39,6 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "dependencies": {
-            "Microsoft.CodeAnalysis.CSharp": {
-              "target": "Package",
-              "version": "[3.9.0, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
