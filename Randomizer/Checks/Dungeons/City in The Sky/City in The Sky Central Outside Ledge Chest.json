@@ -1,0 +1,9 @@
+{
+    "checkName": "City in The Sky Central Outside Ledge Chest",
+    "requirements": "canDefeatDinalfos and canDefeatWalltula and canDefeatKargarok and Shadow_Crystal",
+    "hash": "6441",
+    "isExcluded": false,
+    "category": ["Chest", "Dungeon", "City in The Sky"],
+    "itemId": "Red_Rupee",
+    "itemWasPlaced": false
+}

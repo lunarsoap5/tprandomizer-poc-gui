@@ -1,0 +1,17 @@
+{ 
+    "name": "Cave of Ordeals 12 21",
+    "neighbours": 
+    [
+        "Ordon Province", 
+        "Cave of Ordeals 22 31"
+    ],
+    "neighbourRequirements":
+    [
+        "(Progressive_Clawshot, 1)",
+        "canDefeatHelmasaur and canDefeatRat and Spinner and canDefeatChu and canDefeatChuWorm and canDefeatBubble and canDefeatBublin and canDefeatKeese and canDefeatRat and canDefeatStalhound and canDefeatPoe and canDefeatLeever"
+    ],
+    "isStartingRoom": "false",
+    "checks": [""], 
+    "visited": "false",
+    "region": "Cave of Ordeals"
+}

@@ -1,0 +1,15 @@
+{ 
+    "name": "Ganondorf Castle",
+    "neighbours": 
+    [
+        "Hyrule Castle 12"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "isStartingRoom": "false",
+    "checks": ["Ganondorf Defeated"], 
+    "visited": "false",
+    "region": "Ganondorf"
+}

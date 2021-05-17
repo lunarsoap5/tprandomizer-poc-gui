@@ -1,0 +1,15 @@
+{
+    "name": "Diababa",
+    "neighbours": 
+    [
+        "South Faron Woods"
+    ],
+    "neighbourRequirements":
+    [
+        "canDefeatDiababa"
+    ],
+    "isStartingRoom": "false",
+    "checks": ["Forest Temple Diababa Heart Container"], 
+    "visited": "false",
+    "region": "Forest Temple"
+}

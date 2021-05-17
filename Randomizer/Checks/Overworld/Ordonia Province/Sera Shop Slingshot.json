@@ -1,0 +1,8 @@
+{
+    "checkName": "Sera Shop Slingshot",
+    "requirements": "(Progressive_Fishing_Rod, 1)",
+    "isExcluded": false,
+    "category": ["Chest"],
+    "itemId": "Slingshot",
+    "itemWasPlaced": false
+}

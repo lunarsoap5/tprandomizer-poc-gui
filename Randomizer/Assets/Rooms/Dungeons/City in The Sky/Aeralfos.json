@@ -1,0 +1,18 @@
+{ 
+    "name": "Aeralfos",
+    "neighbours": 
+    [
+        "City in The Sky 05"
+    ],
+    "neighbourRequirements":
+    [
+        "(Progressive_Clawshot, 2) and canDefeatAeralfos"
+    ],
+    "isStartingRoom": "false",
+    "checks": 
+    [
+        "City in The Sky Aeralfos Chest"
+    ],
+    "visited": "false",
+    "region": "City in The Sky"
+}

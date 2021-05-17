@@ -1,0 +1,20 @@
+{ 
+    "name": "Hyrule Castle 13",
+    "neighbours": 
+    [
+        "Hyrule Castle 11"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "isStartingRoom": "false",
+    "checks": 
+    [
+        "Hyrule Castle West Courtyard North Small Chest",
+        "Hyrule Castle West Courtyard Central Small Chest",
+        "Hyrule Castle King Bublin Key"
+    ],
+    "visited": "false",
+    "region": "Hyrule Castle"
+}

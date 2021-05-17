@@ -1,0 +1,9 @@
+{
+    "checkName": "Sera Cat Fishing Reward",
+    "requirements": "(Progressive_Fishing_Rod, 1)",
+    "hash": "null",
+    "isExcluded": false,
+    "category": ["Chest"],
+    "itemId": "Sera_Bottle",
+    "itemWasPlaced": false
+}

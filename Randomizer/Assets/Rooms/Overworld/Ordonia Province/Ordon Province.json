@@ -1,0 +1,28 @@
+{
+    "name": "Ordon Province",
+    "neighbours": 
+    [
+        "South Faron Woods",
+        "Grotto 1 2"
+    ],
+    "neighbourRequirements":
+    [
+        "(Progressive_Sword, 1)",
+        "Shadow_Crystal"
+    ],
+    "isStartingRoom": "false",
+    "checks": 
+    [
+        "Uli Cradle Delivery",
+        "Ordon Cat Rescue",
+        "Sera Shop Slingshot",
+        "Gift From Rusl",
+        "Links Basement Chest",
+        "Ordon Shield",
+        "Ordon Sword",
+        "Wrestling With Bo",
+        "Herding Goats Reward"
+    ],
+    "visited": "false",
+    "region": "Ordonia Province"
+}

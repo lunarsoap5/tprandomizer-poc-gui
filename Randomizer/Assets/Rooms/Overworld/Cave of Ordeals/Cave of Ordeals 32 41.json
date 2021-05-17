@@ -1,0 +1,17 @@
+{ 
+    "name": "Cave of Ordeals 32 41",
+    "neighbours": 
+    [
+        "Kakariko Village", 
+        "Cave of Ordeals 42 50"
+    ],
+    "neighbourRequirements":
+    [
+        "(Progressive_Clawshot, 1)",
+        "canDefeatBeamos and canDefeatKeese and (Progressive_Dominion_Rod, 2) and canDefeatTorchSlug and canDefeatFireKeese and canDefeatDodongo and canDefeatFireBubble and canDefeatRedeadKnight and canDefeatPoe and canDefeatGhoulRat and canDefeatChu and canDefeatIceKeese and canDefeatFreezard and canDefeatChilfos and canDefeatIceBubble and canDefeatLeever and canDefeatDarknut"
+    ],
+    "isStartingRoom": "false",
+    "checks": [""], 
+    "visited": "false",
+    "region": "Cave of Ordeals"
+}

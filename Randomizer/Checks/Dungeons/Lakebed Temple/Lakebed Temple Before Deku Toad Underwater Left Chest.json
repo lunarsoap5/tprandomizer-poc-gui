@@ -1,0 +1,9 @@
+{
+    "checkName": "Lakebed Temple Before Deku Toad Underwater Left Chest",
+    "requirements": "Zora_Armor and Iron_Boots",
+    "hash": "6189",
+    "isExcluded": false,
+    "category": ["Chest", "Dungeon", "Lakebed Temple"],
+    "itemId": "Red_Rupee",
+    "itemWasPlaced": false
+}

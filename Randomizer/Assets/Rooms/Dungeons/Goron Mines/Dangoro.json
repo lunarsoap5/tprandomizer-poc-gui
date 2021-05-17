@@ -1,0 +1,17 @@
+{
+    "name": "Dangoro",
+    "neighbours": 
+    [
+        "Goron Mines 09 17", 
+        "Goron Mines 11"
+    ],
+    "neighbourRequirements":
+    [
+        "canDefeatDangoro",
+        "canDefeatDangoro"
+    ],
+    "isStartingRoom": "false",
+    "checks": [""], 
+    "visited": "false",
+    "region": "Goron Mines"
+}

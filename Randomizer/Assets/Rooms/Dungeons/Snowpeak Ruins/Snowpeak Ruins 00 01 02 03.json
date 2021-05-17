@@ -1,0 +1,27 @@
+{
+    "name": "Snowpeak Ruins 00 01 02 03",
+    "neighbours": 
+    [
+        "Snowpeak Summit", 
+        "Snowpeak Ruins 07", 
+        "Snowpeak Ruins 04 W", 
+        "Snowpeak Ruins 04 E"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "Ordon_Goat_Cheese",
+        "Ordon_Pumpkin",
+        "Shadow_Crystal or Ball_and_Chain"
+    ],
+    "isStartingRoom": "false",
+    "checks": 
+    [
+        "Snowpeak Ruins Lobby Chandelier Chest",
+        "Snowpeak Ruins Lobby West Armor Chest",
+        "Snowpeak Ruins Lobby East Armor Chest",
+        "Snowpeak Ruins Mansion Map"
+    ],
+    "visited": "false",
+    "region": "Snowpeak Ruins"
+}

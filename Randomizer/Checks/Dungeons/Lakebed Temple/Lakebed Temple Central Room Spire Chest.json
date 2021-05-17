@@ -1,0 +1,9 @@
+{
+    "checkName": "Lakebed Temple Central Room Spire Chest",
+    "requirements": "(Lakebed_Temple_Small_Key, 3) and Iron_Boots and canLaunchBombs",
+    "hash": "7F1C",
+    "isExcluded": false,
+    "category": ["Chest", "Dungeon", "Lakebed Temple"],
+    "itemId": "Red_Rupee",
+    "itemWasPlaced": false
+}

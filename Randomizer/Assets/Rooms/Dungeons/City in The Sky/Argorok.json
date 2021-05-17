@@ -1,0 +1,15 @@
+{ 
+    "name": "Argorok",
+    "neighbours": 
+    [
+        "City in The Sky 00 16"
+    ],
+    "neighbourRequirements":
+    [
+        "canDefeatArgorok"
+    ],
+    "isStartingRoom": "false",
+    "checks": ["City in The Sky Argorok Heart Container"], 
+    "visited": "false",
+    "region": "City in The Sky"
+}

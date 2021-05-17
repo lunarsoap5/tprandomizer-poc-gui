@@ -1,0 +1,28 @@
+{ 
+    "name": "Lake Hylia Bridge",
+    "neighbours": 
+    [
+        "Faron Field", 
+        "Lake Hylia", 
+        "Lanayru Field", 
+        "Outside Castle Town West", 
+        "Grotto 4 0"
+    ],
+    "neighbourRequirements": 
+    [
+        "Gate_Keys",
+        "true",
+        "canSmash",
+        "true",
+        "Shadow_Crystal and canLaunchBombs and (Progressive_Clawshot, 1)"
+    ],
+    "isStartingRoom": "false",
+    "checks": 
+    [
+        "Lake Hylia Bridge Vines Chest",
+        "Lake Hylia Bridge Cliff Chest",
+        "Lake Hylia Bridge Owl Statue Chest"
+    ],
+    "visited": "false",
+    "region": "Hyrule Field"
+}

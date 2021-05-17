@@ -1,0 +1,9 @@
+{
+    "checkName": "City in The Sky Central Outside Poe Island Chest",
+    "requirements": "canDefeatDinalfos and canDefeatWalltula and canDefeatKargarok and Shadow_Crystal",
+    "hash": "5722",
+    "isExcluded": false,
+    "category": ["Chest", "Dungeon", "City in The Sky"],
+    "itemId": "Purple_Rupee",
+    "itemWasPlaced": false
+}

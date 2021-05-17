@@ -1,0 +1,21 @@
+{ 
+    "name": "South Faron Woods",
+    "neighbours": 
+    [
+        "Ordon Province", 
+        "Faron Field", 
+        "South Faron Woods Cave", 
+        "Faron Mist Area"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "canLeaveForest",
+        "true",
+        "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal"
+    ],
+    "isStartingRoom": "false",
+    "checks": ["Coro Lantern", "Coro Bottle"], 
+    "visited": "false",
+    "region": "Faron Woods"
+}

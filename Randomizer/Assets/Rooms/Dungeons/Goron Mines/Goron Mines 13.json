@@ -1,0 +1,17 @@
+{ 
+    "name": "Goron Mines 13",
+    "neighbours": 
+    [
+        "Goron Mines 11", 
+        "Goron Mines 03"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "Iron_Boots and (Progressive_Bow, 1)"
+    ],
+    "isStartingRoom": "false",
+    "checks": [""],
+    "visited": "false",
+    "region": "Goron Mines"
+}

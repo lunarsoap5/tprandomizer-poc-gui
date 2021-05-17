@@ -1,0 +1,9 @@
+{
+    "checkName": "Arbiters Grounds West Stalfos Southeast Chest",
+    "requirements": "Shadow_Crystal or hasSword or Ball_and_Chain or hasBombs",
+    "hash": "36DB",
+    "isExcluded": false,
+    "category": ["Chest", "Dungeon", "Arbiters Grounds"],
+    "itemId": "Bombs_5",
+    "itemWasPlaced": false
+}

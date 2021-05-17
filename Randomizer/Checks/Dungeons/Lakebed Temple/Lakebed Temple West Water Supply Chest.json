@@ -1,0 +1,9 @@
+{
+    "checkName": "Lakebed Temple West Water Supply Chest",
+    "requirements": "(Progressive_Clawshot, 1)",
+    "hash": "EE15",
+    "isExcluded": false,
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "Dungeon Items", "Compass"],
+    "itemId": "Compass",
+    "itemWasPlaced": false
+}

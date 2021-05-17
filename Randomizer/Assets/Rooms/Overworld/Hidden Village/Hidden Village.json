@@ -1,0 +1,19 @@
+{
+    "name": "Hidden Village",
+    "neighbours": 
+    [
+        "Lanayru Field"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "isStartingRoom": "false",
+    "checks": 
+    [
+        "Cats Hide and Seek Minigame",
+        "Ilia Charm"
+    ],
+    "visited": "false",
+    "region": "Hidden Village"
+}

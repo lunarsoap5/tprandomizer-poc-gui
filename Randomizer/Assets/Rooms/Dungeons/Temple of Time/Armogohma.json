@@ -1,0 +1,15 @@
+{
+    "name": "Armogohma",
+    "neighbours": 
+    [
+        "Sacred Grove Temple of Time"
+    ],
+    "neighbourRequirements":
+    [
+        "canDefeatArmogohma"
+    ],
+    "isStartingRoom": "false",
+    "checks": ["Temple of Time Armogohma Heart Container"], 
+    "visited": "false",
+    "region": "Temple of Time"
+}

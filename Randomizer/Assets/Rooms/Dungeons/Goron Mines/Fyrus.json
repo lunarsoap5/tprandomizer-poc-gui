@@ -1,0 +1,15 @@
+{ 
+    "name": "Fyrus",
+    "neighbours": 
+    [
+        "Kakariko Village"
+    ],
+    "neighbourRequirements": 
+    [
+        "canDefeatFyrus"
+    ],
+    "isStartingRoom": "false",
+    "checks": ["Goron Mines Fyrus Heart Container"], 
+    "visited": "false",
+    "region": "Goron Mines"
+}
