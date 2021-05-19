@@ -15,11 +15,19 @@ namespace TPRandomizer
         public string introSkipped;
         public string smallKeySettings;
         public string bossKeySettings;
-        public string mapsAndCompassessSettings;
+        public string mapAndCompassSettings;
         public string goldenBugsShuffled;
         public string treasureChestsShuffled;
         public string npcItemsShuffled;
         public string shopItemsShuffled;
+        public string faronTwilightCleared;
+        public string eldinTwilightCleared;
+        public string lanayruTwilightCleared;
+        public string skipMinorCutscenes;
+        public string skipMasterSwordPuzzle;
+        public string fastIronBoots;
+        public string quickTransform;
+        public string transformAnywhere;
 
 
 

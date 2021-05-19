@@ -572,7 +572,6 @@ namespace WinFormsApp1
             this.moveCheckToExcludedButton.TabIndex = 1;
             this.moveCheckToExcludedButton.Text = ">";
             this.moveCheckToExcludedButton.UseVisualStyleBackColor = true;
-            this.moveCheckToExcludedButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // listofChecksListView
             // 

@@ -48,6 +48,7 @@ namespace TPRandomizer
             this.bossKeyShuffleLabel = new System.Windows.Forms.Label();
             this.mapsAndCompassesLabel = new System.Windows.Forms.Label();
             this.accessOptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.skipIntroCheckBox = new System.Windows.Forms.CheckBox();
             this.faronWoodsLogicComboBox = new System.Windows.Forms.ComboBox();
             this.faronWoodsLogicLabel = new System.Windows.Forms.Label();
             this.mdhCheckBox = new System.Windows.Forms.CheckBox();
@@ -64,12 +65,12 @@ namespace TPRandomizer
             this.eldinTwilightClearedCheckBox = new System.Windows.Forms.CheckBox();
             this.faronTwilightClearedCheckBox = new System.Windows.Forms.CheckBox();
             this.excludedChecksTabPage = new System.Windows.Forms.TabPage();
+            this.excludedChecksListBox = new System.Windows.Forms.ListBox();
+            this.listofChecksListBox = new System.Windows.Forms.ListBox();
             this.excludedChecksLabel = new System.Windows.Forms.Label();
             this.listofChecksLabel = new System.Windows.Forms.Label();
             this.moveExcludedToCheckButton = new System.Windows.Forms.Button();
-            this.excludedChecksListView = new System.Windows.Forms.ListView();
             this.moveCheckToExcludedButton = new System.Windows.Forms.Button();
-            this.listofChecksListView = new System.Windows.Forms.ListView();
             this.inventoryTabPage = new System.Windows.Forms.TabPage();
             this.cosmeticsTabPage = new System.Windows.Forms.TabPage();
             this.transformAnywhereCheckBox = new System.Windows.Forms.CheckBox();
@@ -90,7 +91,12 @@ namespace TPRandomizer
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.outputTextBox = new System.Windows.Forms.TextBox();
-            this.skipIntroCheckBox = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.itemPoolListBox = new System.Windows.Forms.ListBox();
+            this.startingItemsListBox = new System.Windows.Forms.ListBox();
+            this.startingItemsLabel = new System.Windows.Forms.Label();
+            this.addItemToStartingItemsButton = new System.Windows.Forms.Button();
+            this.removeItemFromStartingItemsButton = new System.Windows.Forms.Button();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -102,6 +108,7 @@ namespace TPRandomizer
             this.cutsceneMundaneSkipsGroupBox.SuspendLayout();
             this.clearedTwilightsGroupBox.SuspendLayout();
             this.excludedChecksTabPage.SuspendLayout();
+            this.inventoryTabPage.SuspendLayout();
             this.cosmeticsTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -340,6 +347,16 @@ namespace TPRandomizer
             this.accessOptionsGroupBox.TabStop = false;
             this.accessOptionsGroupBox.Text = "Access Options";
             // 
+            // skipIntroCheckBox
+            // 
+            this.skipIntroCheckBox.AutoSize = true;
+            this.skipIntroCheckBox.Location = new System.Drawing.Point(6, 145);
+            this.skipIntroCheckBox.Name = "skipIntroCheckBox";
+            this.skipIntroCheckBox.Size = new System.Drawing.Size(76, 19);
+            this.skipIntroCheckBox.TabIndex = 7;
+            this.skipIntroCheckBox.Text = "Skip Intro";
+            this.skipIntroCheckBox.UseVisualStyleBackColor = true;
+            // 
             // faronWoodsLogicComboBox
             // 
             this.faronWoodsLogicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -514,12 +531,12 @@ namespace TPRandomizer
             // 
             // excludedChecksTabPage
             // 
+            this.excludedChecksTabPage.Controls.Add(this.excludedChecksListBox);
+            this.excludedChecksTabPage.Controls.Add(this.listofChecksListBox);
             this.excludedChecksTabPage.Controls.Add(this.excludedChecksLabel);
             this.excludedChecksTabPage.Controls.Add(this.listofChecksLabel);
             this.excludedChecksTabPage.Controls.Add(this.moveExcludedToCheckButton);
-            this.excludedChecksTabPage.Controls.Add(this.excludedChecksListView);
             this.excludedChecksTabPage.Controls.Add(this.moveCheckToExcludedButton);
-            this.excludedChecksTabPage.Controls.Add(this.listofChecksListView);
             this.excludedChecksTabPage.Location = new System.Drawing.Point(4, 24);
             this.excludedChecksTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.excludedChecksTabPage.Name = "excludedChecksTabPage";
@@ -528,6 +545,24 @@ namespace TPRandomizer
             this.excludedChecksTabPage.TabIndex = 2;
             this.excludedChecksTabPage.Text = "Excluded Checks";
             this.excludedChecksTabPage.UseVisualStyleBackColor = true;
+            // 
+            // excludedChecksListBox
+            // 
+            this.excludedChecksListBox.FormattingEnabled = true;
+            this.excludedChecksListBox.ItemHeight = 15;
+            this.excludedChecksListBox.Location = new System.Drawing.Point(410, 35);
+            this.excludedChecksListBox.Name = "excludedChecksListBox";
+            this.excludedChecksListBox.Size = new System.Drawing.Size(252, 274);
+            this.excludedChecksListBox.TabIndex = 8;
+            // 
+            // listofChecksListBox
+            // 
+            this.listofChecksListBox.FormattingEnabled = true;
+            this.listofChecksListBox.ItemHeight = 15;
+            this.listofChecksListBox.Location = new System.Drawing.Point(11, 35);
+            this.listofChecksListBox.Name = "listofChecksListBox";
+            this.listofChecksListBox.Size = new System.Drawing.Size(253, 274);
+            this.listofChecksListBox.TabIndex = 7;
             // 
             // excludedChecksLabel
             // 
@@ -556,40 +591,27 @@ namespace TPRandomizer
             this.moveExcludedToCheckButton.TabIndex = 4;
             this.moveExcludedToCheckButton.Text = "<";
             this.moveExcludedToCheckButton.UseVisualStyleBackColor = true;
-            // 
-            // excludedChecksListView
-            // 
-            this.excludedChecksListView.HideSelection = false;
-            this.excludedChecksListView.Location = new System.Drawing.Point(410, 35);
-            this.excludedChecksListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.excludedChecksListView.Name = "excludedChecksListView";
-            this.excludedChecksListView.Size = new System.Drawing.Size(252, 248);
-            this.excludedChecksListView.TabIndex = 3;
-            this.excludedChecksListView.UseCompatibleStateImageBehavior = false;
+            this.moveExcludedToCheckButton.Click += new System.EventHandler(this.moveExcludedToCheckButton_Click);
             // 
             // moveCheckToExcludedButton
             // 
-            this.moveCheckToExcludedButton.Location = new System.Drawing.Point(284, 76);
+            this.moveCheckToExcludedButton.Location = new System.Drawing.Point(284, 80);
             this.moveCheckToExcludedButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.moveCheckToExcludedButton.Name = "moveCheckToExcludedButton";
             this.moveCheckToExcludedButton.Size = new System.Drawing.Size(101, 56);
             this.moveCheckToExcludedButton.TabIndex = 1;
             this.moveCheckToExcludedButton.Text = ">";
             this.moveCheckToExcludedButton.UseVisualStyleBackColor = true;
-            this.moveCheckToExcludedButton.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // listofChecksListView
-            // 
-            this.listofChecksListView.HideSelection = false;
-            this.listofChecksListView.Location = new System.Drawing.Point(11, 35);
-            this.listofChecksListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listofChecksListView.Name = "listofChecksListView";
-            this.listofChecksListView.Size = new System.Drawing.Size(252, 248);
-            this.listofChecksListView.TabIndex = 0;
-            this.listofChecksListView.UseCompatibleStateImageBehavior = false;
+            this.moveCheckToExcludedButton.Click += new System.EventHandler(this.moveCheckToExcludedButton_Click);
             // 
             // inventoryTabPage
             // 
+            this.inventoryTabPage.Controls.Add(this.removeItemFromStartingItemsButton);
+            this.inventoryTabPage.Controls.Add(this.addItemToStartingItemsButton);
+            this.inventoryTabPage.Controls.Add(this.startingItemsLabel);
+            this.inventoryTabPage.Controls.Add(this.startingItemsListBox);
+            this.inventoryTabPage.Controls.Add(this.itemPoolListBox);
+            this.inventoryTabPage.Controls.Add(this.label1);
             this.inventoryTabPage.Location = new System.Drawing.Point(4, 24);
             this.inventoryTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inventoryTabPage.Name = "inventoryTabPage";
@@ -804,15 +826,59 @@ namespace TPRandomizer
             this.outputTextBox.Size = new System.Drawing.Size(679, 86);
             this.outputTextBox.TabIndex = 9;
             // 
-            // skipIntroCheckBox
+            // label1
             // 
-            this.skipIntroCheckBox.AutoSize = true;
-            this.skipIntroCheckBox.Location = new System.Drawing.Point(6, 145);
-            this.skipIntroCheckBox.Name = "skipIntroCheckBox";
-            this.skipIntroCheckBox.Size = new System.Drawing.Size(76, 19);
-            this.skipIntroCheckBox.TabIndex = 7;
-            this.skipIntroCheckBox.Text = "Skip Intro";
-            this.skipIntroCheckBox.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Item Pool";
+            // 
+            // itemPoolListBox
+            // 
+            this.itemPoolListBox.FormattingEnabled = true;
+            this.itemPoolListBox.ItemHeight = 15;
+            this.itemPoolListBox.Location = new System.Drawing.Point(12, 40);
+            this.itemPoolListBox.Name = "itemPoolListBox";
+            this.itemPoolListBox.Size = new System.Drawing.Size(231, 259);
+            this.itemPoolListBox.TabIndex = 1;
+            // 
+            // startingItemsListBox
+            // 
+            this.startingItemsListBox.FormattingEnabled = true;
+            this.startingItemsListBox.ItemHeight = 15;
+            this.startingItemsListBox.Location = new System.Drawing.Point(431, 40);
+            this.startingItemsListBox.Name = "startingItemsListBox";
+            this.startingItemsListBox.Size = new System.Drawing.Size(231, 259);
+            this.startingItemsListBox.TabIndex = 2;
+            // 
+            // startingItemsLabel
+            // 
+            this.startingItemsLabel.AutoSize = true;
+            this.startingItemsLabel.Location = new System.Drawing.Point(431, 19);
+            this.startingItemsLabel.Name = "startingItemsLabel";
+            this.startingItemsLabel.Size = new System.Drawing.Size(80, 15);
+            this.startingItemsLabel.TabIndex = 3;
+            this.startingItemsLabel.Text = "Starting Items";
+            // 
+            // addItemToStartingItemsButton
+            // 
+            this.addItemToStartingItemsButton.Location = new System.Drawing.Point(301, 70);
+            this.addItemToStartingItemsButton.Name = "addItemToStartingItemsButton";
+            this.addItemToStartingItemsButton.Size = new System.Drawing.Size(75, 65);
+            this.addItemToStartingItemsButton.TabIndex = 4;
+            this.addItemToStartingItemsButton.Text = ">";
+            this.addItemToStartingItemsButton.UseVisualStyleBackColor = true;
+            // 
+            // removeItemFromStartingItemsButton
+            // 
+            this.removeItemFromStartingItemsButton.Location = new System.Drawing.Point(301, 214);
+            this.removeItemFromStartingItemsButton.Name = "removeItemFromStartingItemsButton";
+            this.removeItemFromStartingItemsButton.Size = new System.Drawing.Size(75, 65);
+            this.removeItemFromStartingItemsButton.TabIndex = 5;
+            this.removeItemFromStartingItemsButton.Text = "<";
+            this.removeItemFromStartingItemsButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -849,6 +915,8 @@ namespace TPRandomizer
             this.clearedTwilightsGroupBox.PerformLayout();
             this.excludedChecksTabPage.ResumeLayout(false);
             this.excludedChecksTabPage.PerformLayout();
+            this.inventoryTabPage.ResumeLayout(false);
+            this.inventoryTabPage.PerformLayout();
             this.cosmeticsTabPage.ResumeLayout(false);
             this.cosmeticsTabPage.PerformLayout();
             this.ResumeLayout(false);
@@ -870,11 +938,9 @@ namespace TPRandomizer
         private System.Windows.Forms.CheckBox eldinTwilightClearedCheckBox;
         private System.Windows.Forms.CheckBox faronTwilightClearedCheckBox;
         private System.Windows.Forms.Button moveCheckToExcludedButton;
-        private System.Windows.Forms.ListView listofChecksListView;
         private System.Windows.Forms.Label excludedChecksLabel;
         private System.Windows.Forms.Label listofChecksLabel;
         private System.Windows.Forms.Button moveExcludedToCheckButton;
-        private System.Windows.Forms.ListView excludedChecksListView;
         private System.Windows.Forms.TabPage cosmeticsTabPage;
         private System.Windows.Forms.CheckBox generateSpoilerLogCheckBox;
         private System.Windows.Forms.GroupBox accessOptionsGroupBox;
@@ -924,6 +990,14 @@ namespace TPRandomizer
         private System.Windows.Forms.ProgressBar progressBar1;
         public System.Windows.Forms.TextBox outputTextBox;
         private System.Windows.Forms.CheckBox skipIntroCheckBox;
+        private System.Windows.Forms.ListBox listofChecksListBox;
+        private System.Windows.Forms.ListBox excludedChecksListBox;
+        private System.Windows.Forms.Button removeItemFromStartingItemsButton;
+        private System.Windows.Forms.Button addItemToStartingItemsButton;
+        private System.Windows.Forms.Label startingItemsLabel;
+        private System.Windows.Forms.ListBox startingItemsListBox;
+        private System.Windows.Forms.ListBox itemPoolListBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

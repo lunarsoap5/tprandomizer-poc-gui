@@ -356,6 +356,7 @@ namespace TPRandomizer
             CheckDict.Add("Hyrule Castle Treasure Room Third Chest", new Check());
             CheckDict.Add("Hyrule Castle Treasure Room Second Chest", new Check());
             CheckDict.Add("Hyrule Castle Treasure Room First Chest", new Check());
+            CheckDict.Add("Herding Goats Reward", new Check());
             CheckDict.Add("Kakariko Village Bomb Rock Spire Heart Piece", new Check());
             CheckDict.Add("Faron Field Tree Heart Piece", new Check());
             CheckDict.Add("Kakariko Gorge Spire Heart Piece", new Check());

@@ -276,6 +276,10 @@ namespace TPRandomizer
 
 		public List<Item> miscItems = new List<Item>();
 
+		public List<Item> ItemPool = new List<Item>();
+
+		public List<Item> BossKeys = new List<Item>();
+
 
 
 		public List<Item> ImportantItems = new List<Item>();
@@ -387,28 +391,34 @@ namespace TPRandomizer
 			miscItems.AddRange(Enumerable.Repeat(Item.Bomblings_5, 2));
 			miscItems.AddRange(Enumerable.Repeat(Item.Bomblings_10, 2));
 
-			RegionKeys.AddRange(Enumerable.Repeat(Item.Forest_Temple_Small_Key, 4));
-			RegionKeys.AddRange(Enumerable.Repeat(Item.Goron_Mines_Small_Key, 3));
-			RegionKeys.AddRange(Enumerable.Repeat(Item.Lakebed_Temple_Small_Key, 3));
-			RegionKeys.AddRange(Enumerable.Repeat(Item.Arbiters_Grounds_Small_Key, 5));
-			RegionKeys.AddRange(Enumerable.Repeat(Item.Snowpeak_Ruins_Small_Key, 4));
+			if (Singleton.getInstance().Logic.smallKeySettings != "Keysey")
+			{
+				RegionKeys.AddRange(Enumerable.Repeat(Item.Forest_Temple_Small_Key, 4));
+				RegionKeys.AddRange(Enumerable.Repeat(Item.Goron_Mines_Small_Key, 3));
+				RegionKeys.AddRange(Enumerable.Repeat(Item.Lakebed_Temple_Small_Key, 3));
+				RegionKeys.AddRange(Enumerable.Repeat(Item.Arbiters_Grounds_Small_Key, 5));
+				RegionKeys.AddRange(Enumerable.Repeat(Item.Snowpeak_Ruins_Small_Key, 4));
+				RegionKeys.AddRange(Enumerable.Repeat(Item.Temple_of_Time_Small_Key, 3));
+				RegionKeys.AddRange(Enumerable.Repeat(Item.City_in_The_Sky_Small_Key, 1));
+				RegionKeys.AddRange(Enumerable.Repeat(Item.Palace_of_Twilight_Small_Key, 7));
+				RegionKeys.AddRange(Enumerable.Repeat(Item.Hyrule_Castle_Small_Key, 3));
+			}
+			if (Singleton.getInstance().Logic.bossKeySettings != "Keysey")
+			{
+				BossKeys.Add(Item.Forest_Temple_Big_Key);
+				BossKeys.Add(Item.Goron_Mines_Key_Shard_1);
+				BossKeys.Add(Item.Goron_Mines_Key_Shard_2);
+				BossKeys.Add(Item.Goron_Mines_Big_Key);
+				BossKeys.Add(Item.Lakebed_Temple_Big_Key);
+				BossKeys.Add(Item.Arbiters_Grounds_Big_Key);
+				BossKeys.Add(Item.Temple_of_Time_Big_Key);
+				BossKeys.Add(Item.Snowpeak_Ruins_Bedroom_Key);
+				BossKeys.Add(Item.City_in_The_Sky_Big_Key);
+				BossKeys.Add(Item.Palace_of_Twilight_Big_Key);
+				BossKeys.Add(Item.Hyrule_Castle_Big_Key);
+			}
 			RegionKeys.Add(Item.Ordon_Pumpkin);
 			RegionKeys.Add(Item.Ordon_Goat_Cheese);
-			RegionKeys.AddRange(Enumerable.Repeat(Item.Temple_of_Time_Small_Key, 3));
-			RegionKeys.AddRange(Enumerable.Repeat(Item.City_in_The_Sky_Small_Key, 1));
-			RegionKeys.AddRange(Enumerable.Repeat(Item.Palace_of_Twilight_Small_Key, 7));
-			RegionKeys.AddRange(Enumerable.Repeat(Item.Hyrule_Castle_Small_Key, 3));
-			RegionKeys.Add(Item.Forest_Temple_Big_Key);
-			RegionKeys.Add(Item.Goron_Mines_Key_Shard_1);
-			RegionKeys.Add(Item.Goron_Mines_Key_Shard_2);
-			RegionKeys.Add(Item.Goron_Mines_Big_Key);
-			RegionKeys.Add(Item.Lakebed_Temple_Big_Key);
-			RegionKeys.Add(Item.Arbiters_Grounds_Big_Key);
-			RegionKeys.Add(Item.Temple_of_Time_Big_Key);
-			RegionKeys.Add(Item.Snowpeak_Ruins_Bedroom_Key);
-			RegionKeys.Add(Item.City_in_The_Sky_Big_Key);
-			RegionKeys.Add(Item.Palace_of_Twilight_Big_Key);
-			RegionKeys.Add(Item.Hyrule_Castle_Big_Key);
 			ImportantItems.Add(Item.Gate_Keys);
 			ImportantItems.Add(Item.Small_Key_N_Faron_Gate);
 			regionItems.AddRange(RegionKeys);

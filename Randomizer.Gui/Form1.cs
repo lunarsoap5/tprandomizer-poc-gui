@@ -49,6 +49,15 @@ namespace TPRandomizer
             quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             skipIntroCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+
+            foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+            {
+                string currentCheckName = check.Key;
+                Check currentCheck = check.Value;
+                listofChecksListBox.Items.Add(currentCheckName);
+                itemPoolListBox.Items.Add(currentCheck.itemId);
+            }
+            
         }
 
         private void updateFlags(object sender, EventArgs e)
@@ -150,9 +159,10 @@ namespace TPRandomizer
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void moveCheckToExcludedButton_Click(object sender, EventArgs e)
         {
-
+            excludedChecksListBox.Items.Add(listofChecksListBox.SelectedItem);
+            listofChecksListBox.Items.Remove(listofChecksListBox.SelectedItem);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -322,6 +332,17 @@ namespace TPRandomizer
                     break;
             }
             
+        }
+
+        private void listofChecksListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void moveExcludedToCheckButton_Click(object sender, EventArgs e)
+        {
+            listofChecksListBox.Items.Add(excludedChecksListBox.SelectedItem);
+            excludedChecksListBox.Items.Remove(excludedChecksListBox.SelectedItem);
         }
     }
 }

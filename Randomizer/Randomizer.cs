@@ -94,7 +94,27 @@ namespace TPRandomizer
             w[4] = v[1];
             w[5] = v[2];
             w.CopyTo(array, 0);
-            castleLogicComboBox.SelectedIndex = array[0];
+            switch (array[0])
+            {
+                case 0:
+                    Singleton.getInstance().Logic.castleRequirements = "Open";
+                    break;
+                case 1:
+                    Singleton.getInstance().Logic.castleRequirements = "Fused_Shadows";
+                    break;
+                case 2:
+                    Singleton.getInstance().Logic.castleRequirements = "Mirror_Shards";
+                    break;
+                case 3:
+                    Singleton.getInstance().Logic.castleRequirements = "All_Dungeons";
+                    break;
+                case 4:
+                    Singleton.getInstance().Logic.castleRequirements = "Random_Dungeons";
+                    break;
+                case 5:
+                    Singleton.getInstance().Logic.castleRequirements = "Vanilla";
+                    break;
+            }
             w = new BitArray(4);
             w[0] = v[3];
             w[1] = v[4];
@@ -104,13 +124,35 @@ namespace TPRandomizer
 
             w[3] = v[0];
             w.CopyTo(array, 0);
-            palaceLogicComboBox.SelectedIndex = array[0];
+            switch (array[0])
+            {
+                case 0:
+                    Singleton.getInstance().Logic.palaceRequirements = "Open";
+                    break;
+                case 1:
+                    Singleton.getInstance().Logic.palaceRequirements = "Fused_Shadows";
+                    break;
+                case 2:
+                    Singleton.getInstance().Logic.palaceRequirements = "Mirror_Shards";
+                    break;
+                case 3:
+                    Singleton.getInstance().Logic.palaceRequirements = "Vanilla";
+                    break;
+            }
             w = new BitArray(2);
             w[0] = v[1];
             w[1] = v[2];
             w.CopyTo(array, 0);
-            faronWoodsLogicComboBox.SelectedIndex = array[0];
-            mdhCheckBox.Checked = v[3];
+            switch(array[0])
+            {
+                case 0:
+                    Singleton.getInstance().Logic.faronWoodsLogic = "Open";
+                    break;
+                case 1:
+                    Singleton.getInstance().Logic.faronWoodsLogic = "Closed";
+                    break;
+            }
+            Singleton.getInstance().Logic.mdhSkipped = v[3].ToString();
             w = new BitArray(6);
             w[0] = v[4];
             w[1] = v[5];
@@ -122,7 +164,27 @@ namespace TPRandomizer
             w[4] = v[2];
             w[5] = v[3];
             w.CopyTo(array, 0);
-            smallKeyShuffleComboBox.SelectedIndex = array[0];
+            switch (array[0])
+            {
+                case 0:
+                    Singleton.getInstance().Logic.smallKeySettings = "Vanilla";
+                    break;
+                case 1:
+                    Singleton.getInstance().Logic.smallKeySettings = "Overworld";
+                    break;
+                case 2:
+                    Singleton.getInstance().Logic.smallKeySettings = "Own_Dungeon";
+                    break;
+                case 3:
+                    Singleton.getInstance().Logic.smallKeySettings = "Any_Dungeon";
+                    break;
+                case 4:
+                    Singleton.getInstance().Logic.smallKeySettings = "Keysanity";
+                    break;
+                case 5:
+                    Singleton.getInstance().Logic.smallKeySettings = "Keysey";
+                    break;
+            }
             w = new BitArray(6);
             w[0] = v[4];
             w[1] = v[5];
@@ -134,7 +196,27 @@ namespace TPRandomizer
             w[4] = v[2];
             w[5] = v[3];
             w.CopyTo(array, 0);
-            bossKeyShuffleComboBox.SelectedIndex = array[0];
+            switch (array[0])
+            {
+                case 0:
+                    Singleton.getInstance().Logic.bossKeySettings = "Vanilla";
+                    break;
+                case 1:
+                    Singleton.getInstance().Logic.bossKeySettings = "Overworld";
+                    break;
+                case 2:
+                    Singleton.getInstance().Logic.bossKeySettings = "Own_Dungeon";
+                    break;
+                case 3:
+                    Singleton.getInstance().Logic.bossKeySettings = "Any_Dungeon";
+                    break;
+                case 4:
+                    Singleton.getInstance().Logic.bossKeySettings = "Keysanity";
+                    break;
+                case 5:
+                    Singleton.getInstance().Logic.bossKeySettings = "Keysey";
+                    break;
+            }
             w = new BitArray(6);
             w[0] = v[4];
             w[1] = v[5];
@@ -146,28 +228,47 @@ namespace TPRandomizer
             w[4] = v[2];
             w[5] = v[3];
             w.CopyTo(array, 0);
-            mapsAndCompassesComboBox.SelectedIndex = array[0];
-            goldenBugsCheckBox.Checked = v[4];
-            giftFromNPCsCheckBox.Checked = v[5];
+            switch (array[0])
+            {
+                case 0:
+                    Singleton.getInstance().Logic.mapAndCompassSettings = "Vanilla";
+                    break;
+                case 1:
+                    Singleton.getInstance().Logic.mapAndCompassSettings = "Overworld";
+                    break;
+                case 2:
+                    Singleton.getInstance().Logic.mapAndCompassSettings = "Own_Dungeon";
+                    break;
+                case 3:
+                    Singleton.getInstance().Logic.mapAndCompassSettings = "Any_Dungeon";
+                    break;
+                case 4:
+                    Singleton.getInstance().Logic.mapAndCompassSettings = "Anywhere";
+                    break;
+                case 5:
+                    Singleton.getInstance().Logic.mapAndCompassSettings = "Start_With";
+                    break;
+            }
+
+            Singleton.getInstance().Logic.goldenBugsShuffled = v[4].ToString();
+            Singleton.getInstance().Logic.npcItemsShuffled = v[5].ToString();
 
             v = new BitArray(new int[] { flags.IndexOf(flagText[6]) });
 
-            treasureChestCheckBox.Checked = v[0];
-            shopItemsCheckBox.Checked = v[1];
-            faronTwilightClearedCheckBox.Checked = v[2];
-            eldinTwilightClearedCheckBox.Checked = v[3];
-            lanayruTwilightClearedCheckBox.Checked = v[4];
-            skipMinorCutscenesCheckBox.Checked = v[5];
+            Singleton.getInstance().Logic.treasureChestsShuffled = v[0].ToString();
+            Singleton.getInstance().Logic.shopItemsShuffled = v[1].ToString();
+            Singleton.getInstance().Logic.faronTwilightCleared = v[2].ToString();
+            Singleton.getInstance().Logic.eldinTwilightCleared = v[3].ToString();
+            Singleton.getInstance().Logic.lanayruTwilightCleared = v[4].ToString();
+            Singleton.getInstance().Logic.skipMinorCutscenes = v[5].ToString();
 
             v = new BitArray(new int[] { flags.IndexOf(flagText[7]) });
 
-            skipMasterSwordPuzzleCheckBox.Checked = v[0];
-            fastIronBootsCheckBox.Checked = v[1];
-            quickTransformCheckBox.Checked = v[2];
-            transformAnywhereCheckBox.Checked = v[3];
-            skipIntroCheckBox.Checked = v[4];
-
-            oldFlags = settingsStringTextBox.Text;
+            Singleton.getInstance().Logic.skipMasterSwordPuzzle = v[0].ToString();
+            Singleton.getInstance().Logic.fastIronBoots = v[1].ToString();
+            Singleton.getInstance().Logic.quickTransform = v[2].ToString();
+            Singleton.getInstance().Logic.transformAnywhere = v[3].ToString();
+            Singleton.getInstance().Logic.introSkipped = v[4].ToString();
         }
         public Room setupGraph()
         {
