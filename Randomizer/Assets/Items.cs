@@ -271,6 +271,7 @@ namespace TPRandomizer
 	{
 		
 		public List<Item> heldItems = new List<Item>();
+		public List<Item> RandomizedImportantItems = new List<Item>();
 
 		public List<Item> regionItems = new List<Item>();
 
@@ -282,7 +283,54 @@ namespace TPRandomizer
 
 
 
-		public List<Item> ImportantItems = new List<Item>();
+		public List<Item> ImportantItems = new List<Item>()
+		{
+			Item.Progressive_Sword,
+			Item.Progressive_Sword,
+			Item.Progressive_Sword,
+			Item.Progressive_Sword,
+			Item.Boomerang,
+			Item.Lantern,
+			Item.Slingshot,
+            Item.Progressive_Fishing_Rod, 
+			Item.Progressive_Fishing_Rod,
+            Item.Iron_Boots,
+            Item.Progressive_Bow,
+			Item.Progressive_Bow,
+			Item.Progressive_Bow,
+			Item.Empty_Bomb_Bag,
+            Item.Zora_Armor,
+            Item.Progressive_Clawshot,
+			Item.Progressive_Clawshot,
+            Item.Shadow_Crystal,
+            Item.Aurus_Memo,
+			Item.Asheis_Sketch,
+            Item.Spinner,
+            Item.Ball_and_Chain,
+            Item.Progressive_Dominion_Rod,
+			Item.Progressive_Dominion_Rod,
+			Item.Progressive_Sky_Book,
+			Item.Progressive_Sky_Book,
+			Item.Progressive_Sky_Book,
+			Item.Progressive_Sky_Book,
+			Item.Progressive_Sky_Book,
+			Item.Progressive_Sky_Book,
+			Item.Progressive_Sky_Book,
+			Item.Renardos_Letter,
+			Item.Invoice,
+			Item.Ilias_Charm,
+			Item.Horse_Call,
+			Item.Gate_Keys,
+			Item.Small_Key_N_Faron_Gate,
+			Item.Bomb_Bag_And_Bombs,
+			Item.Bomb_Bag_And_Bombs,
+			Item.Giant_Bomb_Bag,
+			Item.Progressive_Wallet,
+			Item.Progressive_Wallet,
+			Item.Empty_Bottle,
+			Item.Sera_Bottle,
+			Item.Coro_Bottle
+		};
 
 		public List<Item> goldenBugs = new List<Item>()
 		{
@@ -336,28 +384,8 @@ namespace TPRandomizer
 			alwaysItems.Clear();
 			RegionKeys.Clear();
 			heldItems.Clear();
-			ImportantItems.Clear();
-			ImportantItems.AddRange(Enumerable.Repeat(Item.Progressive_Sword, 4));
-			ImportantItems.Add(Item.Boomerang);
-			ImportantItems.Add(Item.Lantern);
-			ImportantItems.Add(Item.Slingshot);
-            ImportantItems.AddRange(Enumerable.Repeat(Item.Progressive_Fishing_Rod, 2));
-            ImportantItems.Add(Item.Iron_Boots);
-            ImportantItems.AddRange(Enumerable.Repeat(Item.Progressive_Bow, 3));
-            ImportantItems.Add(Item.Empty_Bomb_Bag);
-            ImportantItems.Add(Item.Zora_Armor);
-            ImportantItems.AddRange(Enumerable.Repeat(Item.Progressive_Clawshot, 2));
-            ImportantItems.Add(Item.Shadow_Crystal);
-            ImportantItems.Add(Item.Aurus_Memo);
-			ImportantItems.Add(Item.Asheis_Sketch);
-            ImportantItems.Add(Item.Spinner);
-            ImportantItems.Add(Item.Ball_and_Chain);
-            ImportantItems.AddRange(Enumerable.Repeat(Item.Progressive_Dominion_Rod, 2));
-            ImportantItems.AddRange(Enumerable.Repeat(Item.Progressive_Sky_Book, 7));
-			ImportantItems.Add(Item.Renardos_Letter);
-			ImportantItems.Add(Item.Invoice);
-			ImportantItems.Add(Item.Ilias_Charm);
-			ImportantItems.Add(Item.Horse_Call);
+			RandomizedImportantItems.Clear();
+			
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Piece_of_Heart, 45));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Heart_Container, 8));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Green_Rupee, 2));
@@ -367,13 +395,8 @@ namespace TPRandomizer
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Purple_Rupee, 49));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Orange_Rupee, 44));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Silver_Rupee, 3));
-			ImportantItems.Add(Item.Bomb_Bag_And_Bombs);
-			ImportantItems.Add(Item.Bomb_Bag_And_Bombs);
-			ImportantItems.Add(Item.Giant_Bomb_Bag);
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Progressive_Wallet, 2));
-			alwaysItems.Add(Item.Empty_Bottle);
-			alwaysItems.Add(Item.Sera_Bottle);
-			alwaysItems.Add(Item.Coro_Bottle);
+			
+			
 			heldItems.Add(Item.Ganon_Defeated);
 
 
@@ -402,6 +425,8 @@ namespace TPRandomizer
 				RegionKeys.AddRange(Enumerable.Repeat(Item.City_in_The_Sky_Small_Key, 1));
 				RegionKeys.AddRange(Enumerable.Repeat(Item.Palace_of_Twilight_Small_Key, 7));
 				RegionKeys.AddRange(Enumerable.Repeat(Item.Hyrule_Castle_Small_Key, 3));
+				RegionKeys.Add(Item.Ordon_Pumpkin);
+				RegionKeys.Add(Item.Ordon_Goat_Cheese);
 			}
 			if (Singleton.getInstance().Logic.bossKeySettings != "Keysey")
 			{
@@ -417,10 +442,9 @@ namespace TPRandomizer
 				BossKeys.Add(Item.Palace_of_Twilight_Big_Key);
 				BossKeys.Add(Item.Hyrule_Castle_Big_Key);
 			}
-			RegionKeys.Add(Item.Ordon_Pumpkin);
-			RegionKeys.Add(Item.Ordon_Goat_Cheese);
-			ImportantItems.Add(Item.Gate_Keys);
-			ImportantItems.Add(Item.Small_Key_N_Faron_Gate);
+			
+			
+			RandomizedImportantItems.AddRange(ImportantItems);
 			regionItems.AddRange(RegionKeys);
 			heldItems.AddRange(ImportantItems);
 			heldItems.AddRange(RegionKeys);

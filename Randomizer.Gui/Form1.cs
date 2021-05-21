@@ -53,9 +53,14 @@ namespace TPRandomizer
             foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
             {
                 string currentCheckName = check.Key;
-                Check currentCheck = check.Value;
                 listofChecksListBox.Items.Add(currentCheckName);
-                itemPoolListBox.Items.Add(currentCheck.itemId);
+                
+            }
+            foreach (var item in Singleton.getInstance().Items.ImportantItems)
+            {
+                string itemName = item.ToString();
+                itemName = itemName.Replace("_", " ");
+                itemPoolListBox.Items.Add(itemName);
             }
             
         }
