@@ -383,6 +383,9 @@ namespace TPRandomizer
 		{
 			alwaysItems.Clear();
 			RegionKeys.Clear();
+			regionItems.Clear();
+			BossKeys.Clear();
+			miscItems.Clear();
 			heldItems.Clear();
 			RandomizedImportantItems.Clear();
 			
@@ -442,8 +445,8 @@ namespace TPRandomizer
 				BossKeys.Add(Item.Palace_of_Twilight_Big_Key);
 				BossKeys.Add(Item.Hyrule_Castle_Big_Key);
 			}
-			
-			
+
+			RegionKeys.AddRange(BossKeys);
 			RandomizedImportantItems.AddRange(ImportantItems);
 			regionItems.AddRange(RegionKeys);
 			heldItems.AddRange(ImportantItems);

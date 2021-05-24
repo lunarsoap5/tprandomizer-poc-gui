@@ -181,7 +181,7 @@ namespace TPRandomizer
                         var text = new StringBuilder();
                         if (Char.IsLetter(_reader[i]))
                         {
-                            while (Char.IsLetter(_reader[i]) || (_reader[i] == '_') || (_reader[i] == '.'))
+                            while ((Char.IsLetter(_reader[i]) || (_reader[i] == '_') || (_reader[i] == '.')))
                             {
                                 text.Append(_reader[i]);
                                 i++;

@@ -6,7 +6,7 @@
     ],
     "neighbourRequirements": 
     [
-        "true"
+        "(true)"
     ],
     "isStartingRoom": "false",
     "checks": 

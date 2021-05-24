@@ -6,7 +6,7 @@
     ],
     "neighbourRequirements":
     [
-        "Logic.canDefeatZant()"
+        "canDefeatZant"
     ],
     "isStartingRoom": "false",
     "checks": 

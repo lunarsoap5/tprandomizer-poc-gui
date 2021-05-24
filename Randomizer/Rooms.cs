@@ -13,7 +13,6 @@ namespace TPRandomizer
 			public string name { get; set;} //Name we give the room to identify it (it can be a series of rooms that don't have requirements between each other to make the algorithm go faster)
 			public List<string> neighbours { get; set;} //Refers to the rooms of the same stage that can be accesed from this room
 			public List<string> neighbourRequirements { get; set;} //List of list of requirements to enter each neighbouring room
-            public string accessRequirements { get; set;}
 			public bool isStartingRoom { get; set;} //Defines if it is the stage you start the game in
 			public List<string> checks { get; set;} //Checks contained inside the room
 			public bool visited { get; set;}

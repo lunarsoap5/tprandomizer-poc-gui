@@ -277,62 +277,6 @@ namespace TPRandomizer
             Room startingRoom = Rooms.RoomDict["Ordon Province"];
             startingRoom.isStartingRoom = true;
             Rooms.RoomDict["Ordon Province"] = startingRoom;
-
-            List<string> roomChecks = new List<string>();
-            List<Item> playthroughItems = new List<Item>();
-            List<Room> roomsToExplore = new List<Room>();
-            startingRoom.visited = true;
-            roomsToExplore.Add(startingRoom);
-
-            //Build the world by parsing through each room, linking their neighbours, and setting the logic for the checks in the room to reflect the world.
-            //This saves us from having to re-check the logic for each check every time we want to check if we can get it.  
-            while (roomsToExplore.Count() > 0)
-            {
-                if (roomsToExplore[0].visited)
-                {
-                    Console.WriteLine("Currently exploring: " + roomsToExplore[0].name);
-                    
-                    for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
-                    {
-                    //Parse the neighbour's requirements to find out if we can access it
-                        if ((Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
-                        {
-                            Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
-                            currentNeighbour.visited = true;
-                            Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
-                            if (roomsToExplore[0].accessRequirements != null)
-                            {
-                                currentNeighbour.accessRequirements = "(" + roomsToExplore[0].accessRequirements + ")" +  " and " +  "(" + roomsToExplore[0].neighbourRequirements[i] + ")";
-                            }
-                            else
-                            {
-                                currentNeighbour.accessRequirements = "(" + roomsToExplore[0].neighbourRequirements[i] + ")";
-                            }
-                            for (int j = 0; j < currentNeighbour.checks.Count(); j++)
-                            {
-                                Check currentCheck;
-                                if (!Checks.CheckDict.TryGetValue(currentNeighbour.checks[j], out currentCheck)) 
-                                {
-                                    Console.WriteLine("Room has no checks, continuing on....");
-                                }
-                                if (!(currentNeighbour.checks[j].ToString() == ""))
-                                {
-                                    currentCheck.requirements = "(" + currentCheck.requirements + ")" +  " and " +  "(" + currentNeighbour.accessRequirements + ")";
-                                }
-                                
-                            }
-                            roomsToExplore.Add(currentNeighbour);
-                        }
-                    }
-                    roomsToExplore.Remove(roomsToExplore[0]);
-                }
-            }
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
-            {
-                Check currentCheck = checkList.Value;
-                currentCheck.requirements = "(" + currentCheck.requirements + ")";
-                Checks.CheckDict[checkList.Key] = currentCheck;
-            }
             return startingRoom;
         }
 
@@ -428,8 +372,6 @@ namespace TPRandomizer
             Item itemToPlace;
             Check checkToReciveItem;
             
-            
-
 
             while (ItemsToBeRandomized.Count() > 0)
             {
@@ -448,12 +390,76 @@ namespace TPRandomizer
         }
       public List<string> listAllAvailableDungeonChecks(Room startingRoom, Item itemToPlace)
         {
-            resetAllChecksVisited();
-            List<string> roomChecks = new List<string>();
             List<Item> playthroughItems = new List<Item>();
-    
-            restart: 
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
+            restart:
+            resetAllRoomsVisited();
+            List<string> roomChecks = new List<string>();
+            List<Room> roomsToExplore = new List<Room>();
+            startingRoom.visited = true;
+            roomsToExplore.Add(startingRoom);
+
+            //Build the world by parsing through each room, linking their neighbours, and setting the logic for the checks in the room to reflect the world.
+            while (roomsToExplore.Count() > 0)
+            {
+                for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
+                {
+                    //Create reference to the dictionary entry of the room we are evaluating
+
+                    //Parse the neighbour's requirements to find out if we can access it
+                    var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                    //If you can access the neighbour and it hasnt been visited yet.
+                    if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                    {
+                        Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                        currentNeighbour.visited = true;
+                        Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                        roomsToExplore.Add(currentNeighbour);
+                    }
+                }
+                for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
+                {
+                    //Create reference to the dictionary entry of the check whose logic we are evaluating
+                    Check currentCheck;
+                    if (!Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                    {
+                        if (roomsToExplore[0].checks[i].ToString() == "")
+                        {
+                            Console.WriteLine("Room has no checks, continuing on....");
+                            break;
+                        }
+                        Console.WriteLine("Check: " + roomsToExplore[0].checks[i] + " does not exist.");
+                    }
+                    if (!currentCheck.hasBeenReached)
+                    {
+                        //Parse the requirements to see if we can get the check
+                        var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
+                        //Confirms that we can get the check and checks to see if an item was placed in it.
+                        if (((bool)areCheckRequirementsMet == true) && isDungeonCheck(itemToPlace.ToString(), roomsToExplore[0]))
+                        {
+                            if (currentCheck.itemWasPlaced)
+                            {
+                                Singleton.getInstance().Items.heldItems.Add(currentCheck.itemId);
+                                playthroughItems.Add(currentCheck.itemId);
+                                currentCheck.hasBeenReached = true;
+                                goto restart;
+                            }
+                            else
+                            {
+                                roomChecks.Add(currentCheck.checkName);
+                            }
+
+                        }
+                    }
+                }
+                roomsToExplore.Remove(roomsToExplore[0]);
+            }
+            foreach (var newItem in playthroughItems)
+            {
+                Singleton.getInstance().Items.heldItems.Remove(newItem);
+            }
+
+
+            /*foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
             {
                 //Parse through every check to see if an item has been placed in it
                 Check currentCheck = checkList.Value;
@@ -490,7 +496,7 @@ namespace TPRandomizer
             foreach (var newItem in playthroughItems)
             {
                 Singleton.getInstance().Items.heldItems.Remove(newItem);
-            }
+            }*/
             return roomChecks;
         }  
 
@@ -647,7 +653,7 @@ namespace TPRandomizer
                 string fileName = Path.GetFileNameWithoutExtension(file);
                 Checks.CheckDict[fileName] = JsonConvert.DeserializeObject<Check>(contents);
                 Check currentCheck = Checks.CheckDict[fileName];
-                currentCheck.requirements = Regex.Replace(currentCheck.requirements, @"\bLogic\b", "LogicFunctions");
+                currentCheck.requirements = "(" + currentCheck.requirements +")";
                 Checks.CheckDict[fileName] = currentCheck;
                 Console.WriteLine("Check File Loaded " + fileName);
             }
@@ -663,49 +669,53 @@ namespace TPRandomizer
                 string fileName = Path.GetFileNameWithoutExtension(file);
                 Rooms.RoomDict[fileName] = JsonConvert.DeserializeObject<Room>(contents);
                 Room currentRoom = Rooms.RoomDict[fileName];
-                var newList = currentRoom.neighbourRequirements.Select(s => s.Replace("Logic", "LogicFunctions")).ToList();
-                currentRoom.neighbourRequirements = newList;
+                for (int i = 0; i < currentRoom.neighbourRequirements.Count(); i++)
+                {
+                    string newRequirement = currentRoom.neighbourRequirements[i];
+                    currentRoom.neighbourRequirements[i] = "(" + currentRoom.neighbourRequirements[i] + ")";
+                    Console.WriteLine(currentRoom.neighbourRequirements[i]);
+                }
                 Rooms.RoomDict[fileName] = currentRoom;
                 Console.WriteLine("Room File Loaded " + fileName);
             }
             return;
         }
 
-        bool isDungeonCheck( string itemToPlace, Check currentCheck)
+        bool isDungeonCheck( string itemToPlace, Room currentRoom)
         {
-            if (itemToPlace.Contains("Forest_Temple") && (currentCheck.category.Contains("Forest Temple")))
+            if (itemToPlace.Contains("Forest_Temple") && (currentRoom.region == "Forest Temple"))
             {
                 return true;
             }
-            else if (itemToPlace.Contains("Goron_Mines") && (currentCheck.category.Contains("Goron Mines")))
+            else if (itemToPlace.Contains("Goron_Mines") && (currentRoom.region =="Goron Mines"))
             {
               return true;
             }
-            else if (itemToPlace.Contains("Lakebed_Temple") && (currentCheck.category.Contains("Lakebed Temple")))
+            else if (itemToPlace.Contains("Lakebed_Temple") && (currentRoom.region =="Lakebed Temple"))
             {
                 return true;
             }
-            else if (itemToPlace.Contains("Arbiters_Grounds") && (currentCheck.category.Contains("Arbiters Grounds")))
+            else if (itemToPlace.Contains("Arbiters_Grounds") && (currentRoom.region == "Arbiters Grounds"))
             {
                 return true;
             }
-            else if ((itemToPlace.Contains("Snowpeak_Ruins") || itemToPlace.Contains("Ordon_Pumpkin") || itemToPlace.Contains("Ordon_Goat_Cheese")) && (currentCheck.category.Contains("Snowpeak Ruins")))
+            else if ((itemToPlace.Contains("Snowpeak_Ruins") || itemToPlace.Contains("Ordon_Pumpkin") || itemToPlace.Contains("Ordon_Goat_Cheese")) && (currentRoom.region == "Snowpeak Ruins"))
             {
                 return true;
             }
-            else if (itemToPlace.Contains("Temple_of_Time") && (currentCheck.category.Contains("Temple of Time")))
+            else if (itemToPlace.Contains("Temple_of_Time") && (currentRoom.region == "Temple of Time"))
             {
                return true;
             }
-            else if (itemToPlace.Contains("City_in_The_Sky") && (currentCheck.category.Contains("City in The Sky")))
+            else if (itemToPlace.Contains("City_in_The_Sky") && (currentRoom.region == "City in The Sky"))
             {
                 return true;
             }
-            else if (itemToPlace.Contains("Palace_of_Twilight") && (currentCheck.category.Contains("Palace of Twilight")))
+            else if (itemToPlace.Contains("Palace_of_Twilight") && (currentRoom.region == "Palace of Twilight"))
             {
                 return true;
             }
-            else if (itemToPlace.Contains("Hyrule_Castle") && (currentCheck.category.Contains("Hyrule Castle")))
+            else if (itemToPlace.Contains("Hyrule_Castle") && (currentRoom.region == "Hyrule Castle"))
             {
                 return true;
             }
