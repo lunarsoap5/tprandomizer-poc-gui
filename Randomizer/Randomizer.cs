@@ -51,7 +51,7 @@ namespace TPRandomizer
                 goto begin;
             }
 
-            generateSpoilerLog(startingRoom);
+            generateSpoilerLog(startingRoom, SettingsString);
         }
 
         public void interpretSettingsString(string SettingsString)
@@ -74,14 +74,15 @@ namespace TPRandomizer
             w.CopyTo(array, 0);
             switch (array[0])
             {
+                //Logic Rules
                 case 0:
-                    Singleton.getInstance().Logic.logicRules = "Glitchless";
+                    Singleton.getInstance().Logic.SettingsList[0,1] = "Glitchless";
                     break;
                 case 1:
-                    Singleton.getInstance().Logic.logicRules = "Glitched";
+                    Singleton.getInstance().Logic.SettingsList[0,1] = "Glitched";
                     break;
                 case 2:
-                    Singleton.getInstance().Logic.logicRules = "No_Logic";
+                    Singleton.getInstance().Logic.SettingsList[0,1] = "No_Logic";
                     break;
             }
             w = new BitArray(6);
@@ -96,23 +97,24 @@ namespace TPRandomizer
             w.CopyTo(array, 0);
             switch (array[0])
             {
+                //Hyrule Castle Access Requirements
                 case 0:
-                    Singleton.getInstance().Logic.castleRequirements = "Open";
+                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Open";
                     break;
                 case 1:
-                    Singleton.getInstance().Logic.castleRequirements = "Fused_Shadows";
+                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Fused_Shadows";
                     break;
                 case 2:
-                    Singleton.getInstance().Logic.castleRequirements = "Mirror_Shards";
+                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Mirror_Shards";
                     break;
                 case 3:
-                    Singleton.getInstance().Logic.castleRequirements = "All_Dungeons";
+                    Singleton.getInstance().Logic.SettingsList[1, 1] = "All_Dungeons";
                     break;
                 case 4:
-                    Singleton.getInstance().Logic.castleRequirements = "Random_Dungeons";
+                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Random_Dungeons";
                     break;
                 case 5:
-                    Singleton.getInstance().Logic.castleRequirements = "Vanilla";
+                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Vanilla";
                     break;
             }
             w = new BitArray(4);
@@ -126,17 +128,18 @@ namespace TPRandomizer
             w.CopyTo(array, 0);
             switch (array[0])
             {
+                //Palace of Twilight Access Requirements
                 case 0:
-                    Singleton.getInstance().Logic.palaceRequirements = "Open";
+                    Singleton.getInstance().Logic.SettingsList[2, 1] = "Open";
                     break;
                 case 1:
-                    Singleton.getInstance().Logic.palaceRequirements = "Fused_Shadows";
+                    Singleton.getInstance().Logic.SettingsList[2, 1] = "Fused_Shadows";
                     break;
                 case 2:
-                    Singleton.getInstance().Logic.palaceRequirements = "Mirror_Shards";
+                    Singleton.getInstance().Logic.SettingsList[2, 1] = "Mirror_Shards";
                     break;
                 case 3:
-                    Singleton.getInstance().Logic.palaceRequirements = "Vanilla";
+                    Singleton.getInstance().Logic.SettingsList[2, 1] = "Vanilla";
                     break;
             }
             w = new BitArray(2);
@@ -145,14 +148,15 @@ namespace TPRandomizer
             w.CopyTo(array, 0);
             switch(array[0])
             {
+                //Faron Woods Logic
                 case 0:
-                    Singleton.getInstance().Logic.faronWoodsLogic = "Open";
+                    Singleton.getInstance().Logic.SettingsList[3, 1] = "Open";
                     break;
                 case 1:
-                    Singleton.getInstance().Logic.faronWoodsLogic = "Closed";
+                    Singleton.getInstance().Logic.SettingsList[3, 1] = "Closed";
                     break;
             }
-            Singleton.getInstance().Logic.mdhSkipped = v[3].ToString();
+            Singleton.getInstance().Logic.SettingsList[4, 1] = v[3].ToString();
             w = new BitArray(6);
             w[0] = v[4];
             w[1] = v[5];
@@ -166,23 +170,24 @@ namespace TPRandomizer
             w.CopyTo(array, 0);
             switch (array[0])
             {
+                //Small Key Settings
                 case 0:
-                    Singleton.getInstance().Logic.smallKeySettings = "Vanilla";
+                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Vanilla";
                     break;
                 case 1:
-                    Singleton.getInstance().Logic.smallKeySettings = "Overworld";
+                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Overworld";
                     break;
                 case 2:
-                    Singleton.getInstance().Logic.smallKeySettings = "Own_Dungeon";
+                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Own_Dungeon";
                     break;
                 case 3:
-                    Singleton.getInstance().Logic.smallKeySettings = "Any_Dungeon";
+                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Any_Dungeon";
                     break;
                 case 4:
-                    Singleton.getInstance().Logic.smallKeySettings = "Keysanity";
+                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Keysanity";
                     break;
                 case 5:
-                    Singleton.getInstance().Logic.smallKeySettings = "Keysey";
+                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Keysey";
                     break;
             }
             w = new BitArray(6);
@@ -198,23 +203,24 @@ namespace TPRandomizer
             w.CopyTo(array, 0);
             switch (array[0])
             {
+                //Boss Key Settings
                 case 0:
-                    Singleton.getInstance().Logic.bossKeySettings = "Vanilla";
+                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Vanilla";
                     break;
                 case 1:
-                    Singleton.getInstance().Logic.bossKeySettings = "Overworld";
+                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Overworld";
                     break;
                 case 2:
-                    Singleton.getInstance().Logic.bossKeySettings = "Own_Dungeon";
+                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Own_Dungeon";
                     break;
                 case 3:
-                    Singleton.getInstance().Logic.bossKeySettings = "Any_Dungeon";
+                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Any_Dungeon";
                     break;
                 case 4:
-                    Singleton.getInstance().Logic.bossKeySettings = "Keysanity";
+                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Keysanity";
                     break;
                 case 5:
-                    Singleton.getInstance().Logic.bossKeySettings = "Keysey";
+                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Keysey";
                     break;
             }
             w = new BitArray(6);
@@ -230,45 +236,47 @@ namespace TPRandomizer
             w.CopyTo(array, 0);
             switch (array[0])
             {
+                //Map and Compass Settings
                 case 0:
-                    Singleton.getInstance().Logic.mapAndCompassSettings = "Vanilla";
+                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Vanilla";
                     break;
                 case 1:
-                    Singleton.getInstance().Logic.mapAndCompassSettings = "Overworld";
+                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Overworld";
                     break;
                 case 2:
-                    Singleton.getInstance().Logic.mapAndCompassSettings = "Own_Dungeon";
+                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Own_Dungeon";
                     break;
                 case 3:
-                    Singleton.getInstance().Logic.mapAndCompassSettings = "Any_Dungeon";
+                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Any_Dungeon";
                     break;
                 case 4:
-                    Singleton.getInstance().Logic.mapAndCompassSettings = "Anywhere";
+                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Anywhere";
                     break;
                 case 5:
-                    Singleton.getInstance().Logic.mapAndCompassSettings = "Start_With";
+                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Start_With";
                     break;
             }
 
-            Singleton.getInstance().Logic.goldenBugsShuffled = v[4].ToString();
-            Singleton.getInstance().Logic.npcItemsShuffled = v[5].ToString();
+
+            Singleton.getInstance().Logic.SettingsList[9, 1] = v[4].ToString(); //Golden Bug Shuffled?
+            Singleton.getInstance().Logic.SettingsList[10, 1] = v[5].ToString(); //Gift from NPCs
 
             v = new BitArray(new int[] { flags.IndexOf(flagText[6]) });
 
-            Singleton.getInstance().Logic.treasureChestsShuffled = v[0].ToString();
-            Singleton.getInstance().Logic.shopItemsShuffled = v[1].ToString();
-            Singleton.getInstance().Logic.faronTwilightCleared = v[2].ToString();
-            Singleton.getInstance().Logic.eldinTwilightCleared = v[3].ToString();
-            Singleton.getInstance().Logic.lanayruTwilightCleared = v[4].ToString();
-            Singleton.getInstance().Logic.skipMinorCutscenes = v[5].ToString();
+            Singleton.getInstance().Logic.SettingsList[11, 1] = v[0].ToString(); //Treasure Chests
+            Singleton.getInstance().Logic.SettingsList[12, 1] = v[1].ToString(); //Shop Items Shuffled
+            Singleton.getInstance().Logic.SettingsList[13, 1] = v[2].ToString(); //Faron Twilight Cleared
+            Singleton.getInstance().Logic.SettingsList[14, 1] = v[3].ToString(); //Eldin Twilight Cleared
+            Singleton.getInstance().Logic.SettingsList[15, 1] = v[4].ToString(); //Lanayru Twilight Cleared
+            Singleton.getInstance().Logic.SettingsList[16, 1] = v[5].ToString(); //Skip Minor Cutscenes
 
             v = new BitArray(new int[] { flags.IndexOf(flagText[7]) });
 
-            Singleton.getInstance().Logic.skipMasterSwordPuzzle = v[0].ToString();
-            Singleton.getInstance().Logic.fastIronBoots = v[1].ToString();
-            Singleton.getInstance().Logic.quickTransform = v[2].ToString();
-            Singleton.getInstance().Logic.transformAnywhere = v[3].ToString();
-            Singleton.getInstance().Logic.introSkipped = v[4].ToString();
+            Singleton.getInstance().Logic.SettingsList[17, 1] = v[0].ToString(); //Skip Master Sword Puzzle
+            Singleton.getInstance().Logic.SettingsList[18, 1] = v[1].ToString(); //Fast Iron Boots
+            Singleton.getInstance().Logic.SettingsList[19, 1] = v[2].ToString(); //Quick Transform
+            Singleton.getInstance().Logic.SettingsList[20, 1] = v[3].ToString(); //Transform Anywhere
+            Singleton.getInstance().Logic.SettingsList[5, 1] = v[4].ToString(); // Intro Skipped
         }
         public Room setupGraph()
         {
@@ -338,7 +346,7 @@ namespace TPRandomizer
             placeDungeonItems (startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.regionItems);
 
             //Next we want to place items that can lock locations
-            placeItemsUnrestricted(startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.ImportantItems);
+            placeItemsUnrestricted(startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.RandomizedImportantItems);
 
             //Next we will place the "always" items. Basically the constants in every seed, so Heart Pieces, Heart Containers, etc.
             placeNonImpactItems(startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.alwaysItems);
@@ -391,6 +399,7 @@ namespace TPRandomizer
       public List<string> listAllAvailableDungeonChecks(Room startingRoom, Item itemToPlace)
         {
             List<Item> playthroughItems = new List<Item>();
+            resetAllChecksVisited();
             restart:
             resetAllRoomsVisited();
             List<string> roomChecks = new List<string>();
@@ -412,7 +421,7 @@ namespace TPRandomizer
                     {
                         Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
                         currentNeighbour.visited = true;
-                        Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                        //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
                         roomsToExplore.Add(currentNeighbour);
                     }
                 }
@@ -424,7 +433,7 @@ namespace TPRandomizer
                     {
                         if (roomsToExplore[0].checks[i].ToString() == "")
                         {
-                            Console.WriteLine("Room has no checks, continuing on....");
+                            //Console.WriteLine("Room has no checks, continuing on....");
                             break;
                         }
                         Console.WriteLine("Check: " + roomsToExplore[0].checks[i] + " does not exist.");
@@ -434,18 +443,22 @@ namespace TPRandomizer
                         //Parse the requirements to see if we can get the check
                         var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
                         //Confirms that we can get the check and checks to see if an item was placed in it.
-                        if (((bool)areCheckRequirementsMet == true) && isDungeonCheck(itemToPlace.ToString(), roomsToExplore[0]))
+                        if (((bool)areCheckRequirementsMet == true))
                         {
                             if (currentCheck.itemWasPlaced)
                             {
                                 Singleton.getInstance().Items.heldItems.Add(currentCheck.itemId);
                                 playthroughItems.Add(currentCheck.itemId);
                                 currentCheck.hasBeenReached = true;
+                                Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
                                 goto restart;
                             }
                             else
                             {
-                                roomChecks.Add(currentCheck.checkName);
+                                if (isDungeonCheck(itemToPlace.ToString(), roomsToExplore[0]))
+                                {
+                                    roomChecks.Add(currentCheck.checkName);
+                                }
                             }
 
                         }
@@ -568,7 +581,78 @@ namespace TPRandomizer
         
         public List<string> listAllAvailableChecks(Room startingRoom, Item itemToPlace)
         {
+            List<Item> playthroughItems = new List<Item>();
             resetAllChecksVisited();
+            restart:
+            resetAllRoomsVisited();
+            List<string> roomChecks = new List<string>();
+            List<Room> roomsToExplore = new List<Room>();
+            startingRoom.visited = true;
+            roomsToExplore.Add(startingRoom);
+
+            //Build the world by parsing through each room, linking their neighbours, and setting the logic for the checks in the room to reflect the world.
+            while (roomsToExplore.Count() > 0)
+            {
+                for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
+                {
+                    //Create reference to the dictionary entry of the room we are evaluating
+
+                    //Parse the neighbour's requirements to find out if we can access it
+                    var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                    //If you can access the neighbour and it hasnt been visited yet.
+                    if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                    {
+                        Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                        currentNeighbour.visited = true;
+                        //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                        roomsToExplore.Add(currentNeighbour);
+                    }
+                }
+                for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
+                {
+                    //Create reference to the dictionary entry of the check whose logic we are evaluating
+                    Check currentCheck;
+                    if (!Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                    {
+                        if (roomsToExplore[0].checks[i].ToString() == "")
+                        {
+                            //Console.WriteLine("Room has no checks, continuing on....");
+                            break;
+                        }
+                        Console.WriteLine("Check: " + roomsToExplore[0].checks[i] + " does not exist.");
+                    }
+                    if (!currentCheck.hasBeenReached)
+                    {
+                        //Parse the requirements to see if we can get the check
+                        var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
+                        //Confirms that we can get the check and checks to see if an item was placed in it.
+                        if (((bool)areCheckRequirementsMet == true))
+                        {
+                            if (currentCheck.itemWasPlaced)
+                            {
+                                Singleton.getInstance().Items.heldItems.Add(currentCheck.itemId);
+                                playthroughItems.Add(currentCheck.itemId);
+                                currentCheck.hasBeenReached = true;
+                                //Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
+                                goto restart;
+                            }
+                            else
+                            {
+                                roomChecks.Add(currentCheck.checkName);
+                            }
+
+                        }
+                    }
+                }
+                roomsToExplore.Remove(roomsToExplore[0]);
+            }
+            foreach (var newItem in playthroughItems)
+            {
+                Singleton.getInstance().Items.heldItems.Remove(newItem);
+            }
+            return roomChecks;
+
+            /*resetAllChecksVisited();
             List<string> roomChecks = new List<string>();
             List<Item> playthroughItems = new List<Item>();
             Check currentCheck;
@@ -615,7 +699,7 @@ namespace TPRandomizer
                 Singleton.getInstance().Items.heldItems.Remove(newItem);
             }
             GC.Collect();
-            return roomChecks;
+            return roomChecks;*/
         }
 
         public List<string> listNonPlacedChecks(Room startingRoom, Item itemToPlace)
@@ -673,7 +757,6 @@ namespace TPRandomizer
                 {
                     string newRequirement = currentRoom.neighbourRequirements[i];
                     currentRoom.neighbourRequirements[i] = "(" + currentRoom.neighbourRequirements[i] + ")";
-                    Console.WriteLine(currentRoom.neighbourRequirements[i]);
                 }
                 Rooms.RoomDict[fileName] = currentRoom;
                 Console.WriteLine("Room File Loaded " + fileName);
@@ -730,7 +813,7 @@ namespace TPRandomizer
             return parse.Parse();
         }
 
-        public void generateSpoilerLog(Room startingRoom)
+        public void generateSpoilerLog(Room startingRoom, string SettingsString)
         {
             Check currentCheck;
             Random rnd = new Random();
@@ -738,6 +821,15 @@ namespace TPRandomizer
             //Once everything is complete, we want to write the results to a spoiler log.
             using (StreamWriter file = new(fileHash))
             {
+                file.WriteLine("Randomizer Version: 1.0b");
+                file.WriteLine("Settings String: " + SettingsString);
+                file.WriteLine("Settings: ");
+                for (int i = 0; i < Singleton.getInstance().Logic.SettingsList.GetLength(0); i++)
+                {
+                    file.WriteLine(Singleton.getInstance().Logic.SettingsList[i,0] + ": " + Singleton.getInstance().Logic.SettingsList[i,1]);
+                }
+                file.WriteLine("");
+                file.WriteLine("Item Locations: ");
                 foreach (KeyValuePair<string, Check> check in  Checks.CheckDict)
                 {
                     currentCheck = check.Value;
@@ -755,15 +847,74 @@ namespace TPRandomizer
                 file.WriteLine("");
                 file.WriteLine("Playthrough: ");
                 resetAllChecksVisited();
+                
                 Singleton.getInstance().Items.generateItemPool();
                 Singleton.getInstance().Items.heldItems.Clear();
                 Singleton.getInstance().Items.ImportantItems.Add(Item.Ganon_Defeated);
+                
                 List<Item> playthroughItems = new List<Item>();
                 int sphereCount = 0;
                 while (!Singleton.getInstance().Items.heldItems.Contains(Item.Ganon_Defeated))
                 {
+                    resetAllRoomsVisited();
+                    List<Room> roomsToExplore = new List<Room>();
+                    startingRoom.visited = true;
+                    roomsToExplore.Add(startingRoom);
                     file.WriteLine("Sphere: " + sphereCount);
-                    foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict)
+                    while (roomsToExplore.Count() > 0)
+                    {
+                        for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
+                        {
+                            //Create reference to the dictionary entry of the room we are evaluating
+
+                            //Parse the neighbour's requirements to find out if we can access it
+                            var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                            //If you can access the neighbour and it hasnt been visited yet.
+                            if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                            {
+                                Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                                currentNeighbour.visited = true;
+                                Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                                roomsToExplore.Add(currentNeighbour);
+                            }
+                        }
+                        for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
+                        {
+                            //Create reference to the dictionary entry of the check whose logic we are evaluating
+                            if (!Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                            {
+                                if (roomsToExplore[0].checks[i].ToString() == "")
+                                {
+                                    //Console.WriteLine("Room has no checks, continuing on....");
+                                    break;
+                                }
+                                Console.WriteLine("Check: " + roomsToExplore[0].checks[i] + " does not exist.");
+                            }
+                            if (!currentCheck.hasBeenReached)
+                            {
+                                //Parse the requirements to see if we can get the check
+                                var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
+                                //Confirms that we can get the check and checks to see if an item was placed in it.
+                                if (((bool)areCheckRequirementsMet == true))
+                                {
+                                    if (currentCheck.itemWasPlaced)
+                                    {
+                                        Singleton.getInstance().Items.heldItems.Add(currentCheck.itemId);
+                                        playthroughItems.Add(currentCheck.itemId);
+                                        currentCheck.hasBeenReached = true;
+                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.RegionKeys.Contains(currentCheck.itemId))
+                                        {
+                                            file.WriteLine("    " + currentCheck.checkName + ": " + currentCheck.itemId);
+                                        }
+                                        
+                                    }
+
+                                }
+                            }
+                        }
+                        roomsToExplore.Remove(roomsToExplore[0]);
+                    }
+                    /*foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict)
                     {
                         //Parse through every check to see if an item has been placed in it
                         currentCheck = checkList.Value;
@@ -787,7 +938,7 @@ namespace TPRandomizer
                     foreach (var newItem in playthroughItems)
                     {
                         Singleton.getInstance().Items.heldItems.Add(newItem);
-                    }
+                    }*/
                     sphereCount++; 
                 }
             }

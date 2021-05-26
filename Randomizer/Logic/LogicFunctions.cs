@@ -28,6 +28,30 @@ namespace TPRandomizer
         public string fastIronBoots;
         public string quickTransform;
         public string transformAnywhere;
+        public string[,] SettingsList = new string[,]
+        {
+            { "logicRules", null },
+            { "castleRequirements", null },
+            { "palaceRequirements", null },
+            { "faronWoodsLogic", null },
+            { "mdhSkipped", null },
+            { "introSkipped", null },
+            { "smallKeySettings", null },
+            { "bossKeySettings", null },
+            { "mapAndCompassSettings", null },
+            { "goldenBugsShuffled", null },
+            { "npcItemsShuffled", null },
+            { "treasureChestsShuffled", null },
+            { "shopItemsShuffled", null },
+            { "faronTwilightCleared", null },
+            { "eldinTwilightCleared", null },
+            { "lanayruTwilightCleared", null },
+            { "skipMinorCutscenes", null },
+            { "skipMasterSwordPuzzle", null },
+            { "fastIronBoots", null },
+            { "quickTransform", null },
+            { "transformAnywhere", null }
+        };
 
 
 
@@ -42,14 +66,14 @@ namespace TPRandomizer
             bool isEqual = false;
             switch(setting)
             {
-                case nameof(castleRequirements):
-                    if (value == Singleton.getInstance().Logic.castleRequirements)
+                case "castleRequirements":
+                    if (value == Singleton.getInstance().Logic.SettingsList[1, 1])
                     {
                         isEqual = true;
                     }
                     break;
-                case nameof(palaceRequirements):
-                    if (value == Singleton.getInstance().Logic.palaceRequirements)
+                case "palaceRequirements":
+                    if (value == Singleton.getInstance().Logic.SettingsList[2, 1])
                     {
                         isEqual = true;
                     }
