@@ -142,29 +142,29 @@ namespace TPRandomizer
 		Wooden_Statue	=	0x82,
 		Ilias_Charm	=	0x83,
 		Horse_Call	=	0x84,
-		Forest_Temple_Small_Key	=	0x85,
-		Goron_Mines_Small_Key=	0x86,
-		Lakebed_Temple_Small_Key	=	0x87,
-		Arbiters_Grounds_Small_Key	=	0x88,
-		Snowpeak_Ruins_Small_Key	=	0x89,
-		Temple_of_Time_Small_Key	=	0x8A,
-		City_in_The_Sky_Small_Key	=	0x8B,
-		Palace_of_Twilight_Small_Key	=	0x8C,
-		Hyrule_Castle_Small_Key	=	0x8D,
+		Forest_Temple_Small_Key	=	0x85, /*custom*/
+		Goron_Mines_Small_Key =	0x86, /*custom*/
+		Lakebed_Temple_Small_Key	=	0x87, /*custom*/
+		Arbiters_Grounds_Small_Key	=	0x88, /*custom*/
+		Snowpeak_Ruins_Small_Key	=	0x89, /*custom*/
+		Temple_of_Time_Small_Key	=	0x8A, /*custom*/
+		City_in_The_Sky_Small_Key	=	0x8B, /*custom*/
+		Palace_of_Twilight_Small_Key	=	0x8C, /*custom*/
+		Hyrule_Castle_Small_Key	=	0x8D, /*custom*/
 		/*?	=	0x8E,*/
-		/*?	=	0x8F,*/
+		Foolish_Item	=	0x8F, /*custom*/
 		Aurus_Memo	=	0x90,
 		Asheis_Sketch	=	0x91,
-		Forest_Temple_Big_Key	=	0x92,
-		Lakebed_Temple_Big_Key	=	0x93,
-		Arbiters_Grounds_Big_Key	=	0x94,
-		Temple_of_Time_Big_Key	=	0x95,
-		City_in_The_Sky_Big_Key	=	0x96,
-		Palace_of_Twilight_Big_Key	=	0x97,
-		Hyrule_Castle_Big_Key	=	0x98,
-		/*?	=	0x99,*/
-		/*?	=	0x9A,*/
-		/*?	=	0x9B,*/
+		Forest_Temple_Big_Key	=	0x92, /*custom*/
+		Lakebed_Temple_Big_Key	=	0x93, /*custom*/
+		Arbiters_Grounds_Big_Key	=	0x94, /*custom*/
+		Temple_of_Time_Big_Key	=	0x95, /*custom*/
+		City_in_The_Sky_Big_Key	=	0x96, /*custom*/
+		Palace_of_Twilight_Big_Key	=	0x97, /*custom*/
+		Hyrule_Castle_Big_Key	=	0x98, /*custom*/
+		Forest_Temple_Compass = 0x99, /*custom*/
+		Goron_Mines_Compass = 0x9A, /*custom*/
+		Lakebed_Temple_Compass = 0x9B, /*custom*/
 		Lantern_Yellow_Chu_Chu	=	0x9C,
 		Coro_Bottle	=	0x9D,
 		Bee_Larva_Shop	=	0x9E,
@@ -177,12 +177,12 @@ namespace TPRandomizer
 		/*?	=	0xA5,*/
 		/*?	=	0xA6,*/
 		/*?	=	0xA7,*/
-		/*?	=	0xA8,*/
-		/*?	=	0xA9,*/
-		/*?	=	0xAA,*/
-		/*?	=	0xAB,*/
-		/*?	=	0xAC,*/
-		/*?	=	0xAD,*/
+		Arbiters_Grounds_Compass	=	0xA8, /*custom*/
+		Snowpeak_Ruins_Compass	=	0xA9, /*custom*/
+		Temple_of_Time_Compass	=	0xAA, /*custom*/
+		City_in_The_Sky_Compass	=	0xAB, /*custom*/
+		Palace_of_Twilight_Compass	=	0xAC, /*custom*/
+		Hyrule_Castle_Compass	=	0xAD, /*custom*/
 		/*?	=	0xAE,*/
 		/*?	=	0xAF,*/
 		Ilias_Scent	=	0xB0,
@@ -191,15 +191,15 @@ namespace TPRandomizer
 		Reekfish_Scent	=	0xB3,
 		Youths_Scent	=	0xB4,
 		Medicine_Scent	=	0xB5,
-		/*?	=	0xB6,*/
-		/*?	=	0xB7,*/
-		/*?	=	0xB8,*/
-		/*?	=	0xB9,*/
-		/*?	=	0xBA,*/
-		/*?	=	0xBB,*/
-		/*?	=	0xBC,*/
-		/*?	=	0xBD,*/
-		/*?	=	0xBE,*/
+		Forest_Temple_Dungeon_Map	=	0xB6,
+		Goron_Mines_Dungeon_Map	=	0xB7,
+		Lakebed_Temple_Dungeon_Map	=	0xB8,
+		Arbiters_Grounds_Dungeon_Map	=	0xB9,
+		Snowpeak_Ruins_Dungeon_Map	=	0xBA,
+		Temple_of_Time_Dungeon_Map	=	0xBB,
+		City_in_The_Sky_Dungeon_Map	=	0xBC,
+		Palace_of_Twilight_Dungeon_Map	=	0xBD,
+		Hyrule_Castle_Dungeon_Map	=	0xBE,
 		/*Bottle_Insides?	=	0xBF,*/
 		Male_Beetle	=	0xC0,
 		Female_Beetle	=	0xC1,
@@ -228,11 +228,11 @@ namespace TPRandomizer
 		/*?	=	0xD8,*/
 		/*?	=	0xD9,*/
 		/*?	=	0xDA,*/
-		Ancient_Sky_Book_First_Character	=	0xDB,
-		Ancient_Sky_Book_Second_Character	=	0xDC,
-		Ancient_Sky_Book_Third_Character	=	0xDD,
-		Ancient_Sky_Book_Fourth_Character	=	0xDE,
-		Ancient_Sky_Book_Fifth_Character	=	0xDF,
+		Ancient_Sky_Book_First_Character	=	0xDB, /*custom*/
+		Ancient_Sky_Book_Second_Character	=	0xDC, /*custom*/
+		Ancient_Sky_Book_Third_Character	=	0xDD, /*custom*/
+		Ancient_Sky_Book_Fourth_Character	=	0xDE, /*custom*/
+		Ancient_Sky_Book_Fifth_Character	=	0xDF, /*custom*/
 		Poe_Soul	=	0xE0,
 		Ending_Blow	=	0xE1,
 		Shield_Attack	=	0xE2,
@@ -273,13 +273,65 @@ namespace TPRandomizer
 		public List<Item> heldItems = new List<Item>();
 		public List<Item> RandomizedImportantItems = new List<Item>();
 
-		public List<Item> regionItems = new List<Item>();
+		public List<Item> RandomizedRegionItems = new List<Item>();
 
 		public List<Item> miscItems = new List<Item>();
 
 		public List<Item> ItemPool = new List<Item>();
 
-		public List<Item> BossKeys = new List<Item>();
+		public List<Item> DungeonSmallKeys = new List<Item>()
+		{
+			Item.Forest_Temple_Small_Key,
+			Item.Forest_Temple_Small_Key,
+			Item.Forest_Temple_Small_Key,
+			Item.Forest_Temple_Small_Key,
+			Item.Goron_Mines_Small_Key,
+			Item.Goron_Mines_Small_Key,
+			Item.Goron_Mines_Small_Key,
+			Item.Lakebed_Temple_Small_Key,
+			Item.Lakebed_Temple_Small_Key,
+			Item.Lakebed_Temple_Small_Key,
+			Item.Arbiters_Grounds_Small_Key,
+			Item.Arbiters_Grounds_Small_Key,
+			Item.Arbiters_Grounds_Small_Key,
+			Item.Arbiters_Grounds_Small_Key,
+			Item.Arbiters_Grounds_Small_Key,
+			Item.Snowpeak_Ruins_Small_Key,
+			Item.Snowpeak_Ruins_Small_Key,
+			Item.Snowpeak_Ruins_Small_Key,
+			Item.Snowpeak_Ruins_Small_Key,
+			Item.Temple_of_Time_Small_Key,
+			Item.Temple_of_Time_Small_Key,
+			Item.Temple_of_Time_Small_Key,
+			Item.City_in_The_Sky_Small_Key,
+			Item.Palace_of_Twilight_Small_Key,
+			Item.Palace_of_Twilight_Small_Key,
+			Item.Palace_of_Twilight_Small_Key,
+			Item.Palace_of_Twilight_Small_Key,
+			Item.Palace_of_Twilight_Small_Key,
+			Item.Palace_of_Twilight_Small_Key,
+			Item.Palace_of_Twilight_Small_Key,
+			Item.Hyrule_Castle_Small_Key,
+			Item.Hyrule_Castle_Small_Key,
+			Item.Hyrule_Castle_Small_Key,
+			Item.Ordon_Pumpkin,
+			Item.Ordon_Goat_Cheese
+		};
+
+		public List<Item> DungeonBossKeys = new List<Item>()
+		{
+			Item.Forest_Temple_Big_Key,
+			Item.Goron_Mines_Key_Shard_1,
+			Item.Goron_Mines_Key_Shard_2,
+			Item.Goron_Mines_Big_Key,
+			Item.Lakebed_Temple_Big_Key,
+			Item.Arbiters_Grounds_Big_Key,
+			Item.Temple_of_Time_Big_Key,
+			Item.Snowpeak_Ruins_Bedroom_Key,
+			Item.City_in_The_Sky_Big_Key,
+			Item.Palace_of_Twilight_Big_Key,
+			Item.Hyrule_Castle_Big_Key
+		};
 
 
 
@@ -383,8 +435,8 @@ namespace TPRandomizer
 		{
 			alwaysItems.Clear();
 			RegionKeys.Clear();
-			regionItems.Clear();
-			BossKeys.Clear();
+			RandomizedRegionItems.Clear();
+			DungeonBossKeys.Clear();
 			miscItems.Clear();
 			heldItems.Clear();
 			RandomizedImportantItems.Clear();
@@ -417,38 +469,10 @@ namespace TPRandomizer
 			miscItems.AddRange(Enumerable.Repeat(Item.Bomblings_5, 2));
 			miscItems.AddRange(Enumerable.Repeat(Item.Bomblings_10, 2));
 
-			if (Singleton.getInstance().Logic.smallKeySettings != "Keysey")
-			{
-				RegionKeys.AddRange(Enumerable.Repeat(Item.Forest_Temple_Small_Key, 4));
-				RegionKeys.AddRange(Enumerable.Repeat(Item.Goron_Mines_Small_Key, 3));
-				RegionKeys.AddRange(Enumerable.Repeat(Item.Lakebed_Temple_Small_Key, 3));
-				RegionKeys.AddRange(Enumerable.Repeat(Item.Arbiters_Grounds_Small_Key, 5));
-				RegionKeys.AddRange(Enumerable.Repeat(Item.Snowpeak_Ruins_Small_Key, 4));
-				RegionKeys.AddRange(Enumerable.Repeat(Item.Temple_of_Time_Small_Key, 3));
-				RegionKeys.AddRange(Enumerable.Repeat(Item.City_in_The_Sky_Small_Key, 1));
-				RegionKeys.AddRange(Enumerable.Repeat(Item.Palace_of_Twilight_Small_Key, 7));
-				RegionKeys.AddRange(Enumerable.Repeat(Item.Hyrule_Castle_Small_Key, 3));
-				RegionKeys.Add(Item.Ordon_Pumpkin);
-				RegionKeys.Add(Item.Ordon_Goat_Cheese);
-			}
-			if (Singleton.getInstance().Logic.bossKeySettings != "Keysey")
-			{
-				BossKeys.Add(Item.Forest_Temple_Big_Key);
-				BossKeys.Add(Item.Goron_Mines_Key_Shard_1);
-				BossKeys.Add(Item.Goron_Mines_Key_Shard_2);
-				BossKeys.Add(Item.Goron_Mines_Big_Key);
-				BossKeys.Add(Item.Lakebed_Temple_Big_Key);
-				BossKeys.Add(Item.Arbiters_Grounds_Big_Key);
-				BossKeys.Add(Item.Temple_of_Time_Big_Key);
-				BossKeys.Add(Item.Snowpeak_Ruins_Bedroom_Key);
-				BossKeys.Add(Item.City_in_The_Sky_Big_Key);
-				BossKeys.Add(Item.Palace_of_Twilight_Big_Key);
-				BossKeys.Add(Item.Hyrule_Castle_Big_Key);
-			}
-
-			RegionKeys.AddRange(BossKeys);
+			//TO DO: Add conditional for Boss Keys, small keys, and dungeon items
+			RegionKeys.AddRange(DungeonBossKeys);
 			RandomizedImportantItems.AddRange(ImportantItems);
-			regionItems.AddRange(RegionKeys);
+			RandomizedRegionItems.AddRange(RegionKeys);
 			heldItems.AddRange(ImportantItems);
 			heldItems.AddRange(RegionKeys);
 			heldItems.AddRange(alwaysItems);
@@ -456,7 +480,7 @@ namespace TPRandomizer
 
 			Singleton.getInstance().Items.heldItems = heldItems;
 			Singleton.getInstance().Items.ImportantItems = ImportantItems;
-			Singleton.getInstance().Items.regionItems = regionItems;
+			Singleton.getInstance().Items.RandomizedRegionItems = RandomizedRegionItems;
 			Singleton.getInstance().Items.alwaysItems = alwaysItems;
 			Singleton.getInstance().Items.miscItems = miscItems;
 			return;
