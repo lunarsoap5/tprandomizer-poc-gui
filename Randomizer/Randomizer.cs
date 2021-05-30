@@ -325,7 +325,7 @@ namespace TPRandomizer
         {
             Console.WriteLine("Starting Over.");
             Singleton.getInstance().Items.heldItems.Clear();
-            Singleton.getInstance().Items.regionItems.Clear();
+            Singleton.getInstance().Items.RandomizedRegionItems.Clear();
             Singleton.getInstance().Items.alwaysItems.Clear();
             Singleton.getInstance().Items.miscItems.Clear();
             resetAllChecksVisited();
@@ -343,7 +343,7 @@ namespace TPRandomizer
             //Shop Items
 
             //Next we want to replace items that are locked in their respective region
-            placeDungeonItems (startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.regionItems);
+            placeDungeonItems (startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.RandomizedRegionItems);
 
             //Next we want to place items that can lock locations
             placeItemsUnrestricted(startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.RandomizedImportantItems);

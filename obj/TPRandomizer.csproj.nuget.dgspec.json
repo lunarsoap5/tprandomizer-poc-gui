@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj": {}
+    "C:\\Users\\Justin\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj": {
+    "C:\\Users\\Justin\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj",
+        "projectUniqueName": "C:\\Users\\Justin\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj",
         "projectName": "TPRandomizer",
-        "projectPath": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj",
-        "packagesPath": "C:\\Users\\JC071094\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\obj\\",
+        "projectPath": "C:\\Users\\Justin\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj",
+        "packagesPath": "C:\\Users\\Justin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Justin\\Documents\\GitHub\\tprandomizer-poc-gui\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\JC071094\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Justin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows7.0"
+          "net5.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
