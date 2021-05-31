@@ -274,7 +274,9 @@ namespace TPRandomizer
 		public List<Item> StartingItems = new List<Item>();
 		public List<Item> RandomizedImportantItems = new List<Item>();
 
-		public List<Item> RandomizedRegionItems = new List<Item>();
+		public List<Item> RandomizedOverworldRegionItems = new List<Item>();
+		public List<Item> RandomizedDungeonRegionItems = new List<Item>();
+		public List<Item> RandomizedLocalRegionItems = new List<Item>();
 
 		public List<Item> miscItems = new List<Item>();
 
@@ -319,7 +321,7 @@ namespace TPRandomizer
 			Item.Ordon_Goat_Cheese
 		};
 
-		public List<Item> DungeonBossKeys = new List<Item>()
+		public List<Item> DungeonBigKeys = new List<Item>()
 		{
 			Item.Forest_Temple_Big_Key,
 			Item.Goron_Mines_Key_Shard_1,
@@ -434,7 +436,9 @@ namespace TPRandomizer
 		public void generateItemPool()
 		{
 			alwaysItems.Clear();
-			RandomizedRegionItems.Clear();
+			RandomizedOverworldRegionItems.Clear();
+			RandomizedDungeonRegionItems.Clear();
+			RandomizedLocalRegionItems.Clear();
 			miscItems.Clear();
 			heldItems.Clear();
 			RandomizedImportantItems.Clear();
@@ -467,34 +471,76 @@ namespace TPRandomizer
 			miscItems.Add(Item.Bomblings_5);
 			miscItems.Add(Item.Bomblings_10);
 
-			//TO DO: Add conditional for Boss Keys, small keys, and dungeon items
-			if (Singleton.getInstance().Logic.smallKeySettings != "Keysey")
-			{
-				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Forest_Temple_Small_Key, 4));
-				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Goron_Mines_Small_Key, 3));
-				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Lakebed_Temple_Small_Key, 3));
-				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Arbiters_Grounds_Small_Key, 5));
-				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Snowpeak_Ruins_Small_Key, 4));
-				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Temple_of_Time_Small_Key, 3));
-				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.City_in_The_Sky_Small_Key, 1));
-				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Palace_of_Twilight_Small_Key, 7));
-				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Hyrule_Castle_Small_Key, 3));
-				RandomizedRegionItems.Add(Item.Ordon_Pumpkin);
-				RandomizedRegionItems.Add(Item.Ordon_Goat_Cheese);
+			switch (Singleton.getInstance().Logic.SettingsList[6, 1]) //Small Key Settings
+            {
+				case ("Vanilla"):
+                    {
+						foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+						{
+							Check currentCheck = check.Value;
+							if (currentCheck.category.Contains("Small Key"))
+                            {
+								Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
+                            }
+						}
+						break;
+                    }
+				case ("Overworld"):
+					{
+						RandomizedOverworldRegionItems.AddRange(DungeonSmallKeys);
+						break;
+					}
+				case ("Own_Dungeon"):
+                    {
+						RandomizedLocalRegionItems.AddRange(DungeonSmallKeys);
+						break;
+					}
+				case ("Any_Dungeon"):
+					{
+						RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
+						break;
+					}
+				case ("Keysanity"):
+                    {
+						RandomizedImportantItems.AddRange(DungeonSmallKeys);
+						break;
+                    }
 			}
-			if (Singleton.getInstance().Logic.bossKeySettings != "Keysey")
+
+			switch (Singleton.getInstance().Logic.SettingsList[7, 1]) //Big Key Settings
 			{
-				RandomizedRegionItems.Add(Item.Forest_Temple_Big_Key);
-				RandomizedRegionItems.Add(Item.Goron_Mines_Key_Shard_1);
-				RandomizedRegionItems.Add(Item.Goron_Mines_Key_Shard_2);
-				RandomizedRegionItems.Add(Item.Goron_Mines_Big_Key);
-				RandomizedRegionItems.Add(Item.Lakebed_Temple_Big_Key);
-				RandomizedRegionItems.Add(Item.Arbiters_Grounds_Big_Key);
-				RandomizedRegionItems.Add(Item.Temple_of_Time_Big_Key);
-				RandomizedRegionItems.Add(Item.Snowpeak_Ruins_Bedroom_Key);
-				RandomizedRegionItems.Add(Item.City_in_The_Sky_Big_Key);
-				RandomizedRegionItems.Add(Item.Palace_of_Twilight_Big_Key);
-				RandomizedRegionItems.Add(Item.Hyrule_Castle_Big_Key);
+				case ("Vanilla"):
+					{
+						foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+						{
+							Check currentCheck = check.Value;
+							if (currentCheck.category.Contains("Big Key"))
+							{
+								Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
+							}
+						}
+						break;
+					}
+				case ("Overworld"):
+					{
+						RandomizedOverworldRegionItems.AddRange(DungeonBigKeys);
+						break;
+					}
+				case ("Own_Dungeon"):
+					{
+						RandomizedLocalRegionItems.AddRange(DungeonBigKeys);
+						break;
+					}
+				case ("Any_Dungeon"):
+					{
+						RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
+						break;
+					}
+				case ("Keysanity"):
+					{
+						RandomizedImportantItems.AddRange(DungeonBigKeys);
+						break;
+					}
 			}
 
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Bombs_5, 8));
@@ -514,7 +560,7 @@ namespace TPRandomizer
 
 
 			RandomizedImportantItems.AddRange(ImportantItems);
-			heldItems.AddRange(DungeonBossKeys);
+			heldItems.AddRange(DungeonBigKeys);
 			heldItems.AddRange(DungeonSmallKeys);
 			heldItems.AddRange(ImportantItems);
 			heldItems.AddRange(alwaysItems);
@@ -522,7 +568,9 @@ namespace TPRandomizer
 
 			Singleton.getInstance().Items.heldItems = heldItems;
 			Singleton.getInstance().Items.ImportantItems = ImportantItems;
-			Singleton.getInstance().Items.RandomizedRegionItems = RandomizedRegionItems;
+			Singleton.getInstance().Items.RandomizedLocalRegionItems = RandomizedLocalRegionItems;
+			Singleton.getInstance().Items.RandomizedDungeonRegionItems = RandomizedDungeonRegionItems;
+			Singleton.getInstance().Items.RandomizedOverworldRegionItems = RandomizedOverworldRegionItems;
 			Singleton.getInstance().Items.alwaysItems = alwaysItems;
 			Singleton.getInstance().Items.miscItems = miscItems;
 			return;

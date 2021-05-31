@@ -24,13 +24,10 @@ namespace TPRandomizer
         begin:
             //Generate the dictionary that contains all of the checks.
             Checks.InitializeChecks();
-            Form1.SetProgress(10);
             //Generate the dictionary that contains all of the rooms.
             Rooms.InitializeRooms();
-            Form1.SetProgress(20);
             //Read in the information from the .json files and place them into the classes defined in the dictionary.
             deserializeChecks();
-            Form1.SetProgress(30);
             //Read in the information from the .json files and place them in to the classes defined in the dictionary.
             deserializeRooms();
             Form1.SetProgress(40);
@@ -208,7 +205,7 @@ namespace TPRandomizer
             w.CopyTo(array, 0);
             switch (array[0])
             {
-                //Boss Key Settings
+                //Big Key Settings
                 case 0:
                     Singleton.getInstance().Logic.SettingsList[7, 1] = "Vanilla";
                     break;
@@ -329,10 +326,6 @@ namespace TPRandomizer
         void startOver()
         {
             Console.WriteLine("Starting Over.");
-            Singleton.getInstance().Items.heldItems.Clear();
-            Singleton.getInstance().Items.RandomizedRegionItems.Clear();
-            Singleton.getInstance().Items.alwaysItems.Clear();
-            Singleton.getInstance().Items.miscItems.Clear();
             resetAllChecksVisited();
             resetAllRoomsVisited();
             resetAllChecks();
@@ -348,7 +341,7 @@ namespace TPRandomizer
             //Shop Items
 
             //Next we want to replace items that are locked in their respective region
-            placeDungeonItems (startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.RandomizedRegionItems);
+            placeDungeonItems(startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.RandomizedDungeonRegionItems);
 
             //Next we want to place items that can lock locations
             placeItemsUnrestricted(startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.RandomizedImportantItems);
@@ -904,7 +897,7 @@ namespace TPRandomizer
                                     {
                                         playthroughItems.Add(currentCheck.itemId);
                                         currentCheck.hasBeenReached = true;
-                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonBossKeys.Contains(currentCheck.itemId))
+                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonBigKeys.Contains(currentCheck.itemId))
                                         {
                                             file.WriteLine("    " + currentCheck.checkName + ": " + currentCheck.itemId);
                                         }
