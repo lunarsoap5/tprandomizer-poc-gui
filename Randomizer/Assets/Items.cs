@@ -271,6 +271,7 @@ namespace TPRandomizer
 	{
 		
 		public List<Item> heldItems = new List<Item>();
+		public List<Item> StartingItems = new List<Item>();
 		public List<Item> RandomizedImportantItems = new List<Item>();
 
 		public List<Item> RandomizedRegionItems = new List<Item>();
@@ -415,7 +416,6 @@ namespace TPRandomizer
 		public List<Item> alwaysItems = new List<Item>();
 
 
-		public List<Item> RegionKeys = new List<Item>();
 
 		bool checkIfItemIsInList(Item item, List<Item> itemList)
 		{
@@ -434,9 +434,7 @@ namespace TPRandomizer
 		public void generateItemPool()
 		{
 			alwaysItems.Clear();
-			RegionKeys.Clear();
 			RandomizedRegionItems.Clear();
-			DungeonBossKeys.Clear();
 			miscItems.Clear();
 			heldItems.Clear();
 			RandomizedImportantItems.Clear();
@@ -447,34 +445,78 @@ namespace TPRandomizer
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Blue_Rupee, 3));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Yellow_Rupee, 20));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Red_Rupee, 49));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Purple_Rupee, 49));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Orange_Rupee, 44));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Purple_Rupee, 38));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Orange_Rupee, 33));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Silver_Rupee, 3));
 			
 			
 			heldItems.Add(Item.Ganon_Defeated);
 
 
-			miscItems.AddRange(Enumerable.Repeat(Item.Bombs_5, 8));
-			miscItems.AddRange(Enumerable.Repeat(Item.Bombs_10, 2));
+			miscItems.Add(Item.Bombs_5);
+			miscItems.Add(Item.Bombs_10);
 			miscItems.Add(Item.Bombs_20);
 			miscItems.Add(Item.Bombs_30);
-			miscItems.AddRange(Enumerable.Repeat(Item.Arrows_10, 5));
-			miscItems.AddRange(Enumerable.Repeat(Item.Arrows_20, 6));
-			miscItems.AddRange(Enumerable.Repeat(Item.Arrows_30, 2));
-			miscItems.AddRange(Enumerable.Repeat(Item.Seeds_50, 2));
-			miscItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_5, 3));
-			miscItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_10, 5));
-			miscItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_15, 3));
-			miscItems.AddRange(Enumerable.Repeat(Item.Bomblings_5, 2));
-			miscItems.AddRange(Enumerable.Repeat(Item.Bomblings_10, 2));
+			miscItems.Add(Item.Arrows_10);
+			miscItems.Add(Item.Arrows_20);
+			miscItems.Add(Item.Arrows_30);
+			miscItems.Add(Item.Seeds_50);
+			miscItems.Add(Item.Water_Bombs_5);
+			miscItems.Add(Item.Water_Bombs_10);
+			miscItems.Add(Item.Water_Bombs_15);
+			miscItems.Add(Item.Bomblings_5);
+			miscItems.Add(Item.Bomblings_10);
 
 			//TO DO: Add conditional for Boss Keys, small keys, and dungeon items
-			RegionKeys.AddRange(DungeonBossKeys);
+			if (Singleton.getInstance().Logic.smallKeySettings != "Keysey")
+			{
+				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Forest_Temple_Small_Key, 4));
+				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Goron_Mines_Small_Key, 3));
+				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Lakebed_Temple_Small_Key, 3));
+				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Arbiters_Grounds_Small_Key, 5));
+				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Snowpeak_Ruins_Small_Key, 4));
+				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Temple_of_Time_Small_Key, 3));
+				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.City_in_The_Sky_Small_Key, 1));
+				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Palace_of_Twilight_Small_Key, 7));
+				RandomizedRegionItems.AddRange(Enumerable.Repeat(Item.Hyrule_Castle_Small_Key, 3));
+				RandomizedRegionItems.Add(Item.Ordon_Pumpkin);
+				RandomizedRegionItems.Add(Item.Ordon_Goat_Cheese);
+			}
+			if (Singleton.getInstance().Logic.bossKeySettings != "Keysey")
+			{
+				RandomizedRegionItems.Add(Item.Forest_Temple_Big_Key);
+				RandomizedRegionItems.Add(Item.Goron_Mines_Key_Shard_1);
+				RandomizedRegionItems.Add(Item.Goron_Mines_Key_Shard_2);
+				RandomizedRegionItems.Add(Item.Goron_Mines_Big_Key);
+				RandomizedRegionItems.Add(Item.Lakebed_Temple_Big_Key);
+				RandomizedRegionItems.Add(Item.Arbiters_Grounds_Big_Key);
+				RandomizedRegionItems.Add(Item.Temple_of_Time_Big_Key);
+				RandomizedRegionItems.Add(Item.Snowpeak_Ruins_Bedroom_Key);
+				RandomizedRegionItems.Add(Item.City_in_The_Sky_Big_Key);
+				RandomizedRegionItems.Add(Item.Palace_of_Twilight_Big_Key);
+				RandomizedRegionItems.Add(Item.Hyrule_Castle_Big_Key);
+			}
+
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Bombs_5, 8));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Bombs_10, 2));
+			alwaysItems.Add(Item.Bombs_20);
+			alwaysItems.Add(Item.Bombs_30);
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Arrows_10, 5));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Arrows_20, 6));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Arrows_30, 2));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Seeds_50, 2));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_5, 3));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_10, 5));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_15, 3));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Bomblings_5, 2));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Bomblings_10, 2));
+
+
+
 			RandomizedImportantItems.AddRange(ImportantItems);
-			RandomizedRegionItems.AddRange(RegionKeys);
+			heldItems.AddRange(DungeonBossKeys);
+			heldItems.AddRange(DungeonSmallKeys);
 			heldItems.AddRange(ImportantItems);
-			heldItems.AddRange(RegionKeys);
 			heldItems.AddRange(alwaysItems);
 			heldItems.AddRange(miscItems);
 

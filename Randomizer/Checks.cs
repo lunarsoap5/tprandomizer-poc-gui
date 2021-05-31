@@ -325,6 +325,7 @@ namespace TPRandomizer
             CheckDict.Add("Palace of Twilight East Wing Second Room Southeast Chest", new Check());
             CheckDict.Add("Palace of Twilight East Wing First Room East Alcove", new Check());
             CheckDict.Add("Palace of Twilight East Wing First Room West Alcove", new Check());
+            CheckDict.Add("Palace of Twilight Collect Both Sols", new Check());
             CheckDict.Add("Palace of Twilight Central First Room Chest", new Check());
             CheckDict.Add("Palace of Twilight Big Key Chest", new Check());
             CheckDict.Add("Palace of Twilight Central Outdoor Chest", new Check());

@@ -49,6 +49,7 @@ namespace TPRandomizer
             quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             skipIntroCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            progressBar1.Maximum = 100;
 
             foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
             {
@@ -348,6 +349,16 @@ namespace TPRandomizer
         {
             listofChecksListBox.Items.Add(excludedChecksListBox.SelectedItem);
             excludedChecksListBox.Items.Remove(excludedChecksListBox.SelectedItem);
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public static void SetProgress(int progress)
+        {
+            progressBar1.Value = progress;
         }
     }
 }

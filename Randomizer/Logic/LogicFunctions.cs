@@ -28,6 +28,8 @@ namespace TPRandomizer
         public string fastIronBoots;
         public string quickTransform;
         public string transformAnywhere;
+        public string iceTrapSettings;
+
         public string[,] SettingsList = new string[,]
         {
             { "logicRules", null },
@@ -50,7 +52,8 @@ namespace TPRandomizer
             { "skipMasterSwordPuzzle", null },
             { "fastIronBoots", null },
             { "quickTransform", null },
-            { "transformAnywhere", null }
+            { "transformAnywhere", null },
+            { "iceTrapSettings", null}
         };
 
 

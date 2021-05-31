@@ -21,22 +21,26 @@ namespace TPRandomizer
         {
             //Read in the settings string and set the settings values accordingly
             interpretSettingsString(SettingsString);
-            begin:
+        begin:
             //Generate the dictionary that contains all of the checks.
             Checks.InitializeChecks();
+            Form1.SetProgress(10);
             //Generate the dictionary that contains all of the rooms.
             Rooms.InitializeRooms();
+            Form1.SetProgress(20);
             //Read in the information from the .json files and place them into the classes defined in the dictionary.
             deserializeChecks();
+            Form1.SetProgress(30);
             //Read in the information from the .json files and place them in to the classes defined in the dictionary.
             deserializeRooms();
+            Form1.SetProgress(40);
 
             //Generate the item pool based on user settings/input.           
             Singleton.getInstance().Items.generateItemPool();
-
+            Form1.SetProgress(50);
             //Generate the world based on the room class values and their neighbour values. If we want to randomize entrances, we would do it before this step.
             Room startingRoom = setupGraph();
-
+            Form1.SetProgress(60);
             try 
             {
             //Place the items in the world based on the starting room.
@@ -50,8 +54,9 @@ namespace TPRandomizer
                 startOver();
                 goto begin;
             }
-
+            Form1.SetProgress(90);
             generateSpoilerLog(startingRoom, SettingsString);
+            Form1.SetProgress(100);
         }
 
         public void interpretSettingsString(string SettingsString)
@@ -351,7 +356,7 @@ namespace TPRandomizer
             //Next we will place the "always" items. Basically the constants in every seed, so Heart Pieces, Heart Containers, etc.
             placeNonImpactItems(startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.alwaysItems);
             
-            placeMiscItems(startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.miscItems);
+            placeJunkItems(startingRoom, Singleton.getInstance().Items.heldItems, Singleton.getInstance().Items.miscItems);
 
             return;
         }
@@ -561,11 +566,9 @@ namespace TPRandomizer
             return;
         }
 
-        void placeMiscItems (Room startingRoom, List<Item> heldItems, List<Item> ItemsToBeRandomized)
+        void placeJunkItems (Room startingRoom, List<Item> heldItems, List<Item> ItemsToBeRandomized)
         {
             Random rnd = new Random();
-            List<string> availableChecks = new List<string>();
-            List<Check> remainingChecks = new List<Check>();
             foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
@@ -899,10 +902,9 @@ namespace TPRandomizer
                                 {
                                     if (currentCheck.itemWasPlaced)
                                     {
-                                        Singleton.getInstance().Items.heldItems.Add(currentCheck.itemId);
                                         playthroughItems.Add(currentCheck.itemId);
                                         currentCheck.hasBeenReached = true;
-                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.RegionKeys.Contains(currentCheck.itemId))
+                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonBossKeys.Contains(currentCheck.itemId))
                                         {
                                             file.WriteLine("    " + currentCheck.checkName + ": " + currentCheck.itemId);
                                         }
@@ -939,6 +941,8 @@ namespace TPRandomizer
                     {
                         Singleton.getInstance().Items.heldItems.Add(newItem);
                     }*/
+                    Singleton.getInstance().Items.heldItems.AddRange(playthroughItems);
+                    playthroughItems.Clear();
                     sphereCount++; 
                 }
             }

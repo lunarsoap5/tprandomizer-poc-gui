@@ -72,6 +72,12 @@ namespace TPRandomizer
             this.moveExcludedToCheckButton = new System.Windows.Forms.Button();
             this.moveCheckToExcludedButton = new System.Windows.Forms.Button();
             this.inventoryTabPage = new System.Windows.Forms.TabPage();
+            this.removeItemFromStartingItemsButton = new System.Windows.Forms.Button();
+            this.addItemToStartingItemsButton = new System.Windows.Forms.Button();
+            this.startingItemsLabel = new System.Windows.Forms.Label();
+            this.startingItemsListBox = new System.Windows.Forms.ListBox();
+            this.itemPoolListBox = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cosmeticsTabPage = new System.Windows.Forms.TabPage();
             this.transformAnywhereCheckBox = new System.Windows.Forms.CheckBox();
             this.quickTransformCheckBox = new System.Windows.Forms.CheckBox();
@@ -89,14 +95,8 @@ namespace TPRandomizer
             this.settingPresetsLabel = new System.Windows.Forms.Label();
             this.settingsPresetsComboBox = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            Form1.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.outputTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.itemPoolListBox = new System.Windows.Forms.ListBox();
-            this.startingItemsListBox = new System.Windows.Forms.ListBox();
-            this.startingItemsLabel = new System.Windows.Forms.Label();
-            this.addItemToStartingItemsButton = new System.Windows.Forms.Button();
-            this.removeItemFromStartingItemsButton = new System.Windows.Forms.Button();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -621,6 +621,60 @@ namespace TPRandomizer
             this.inventoryTabPage.Text = "Inventory";
             this.inventoryTabPage.UseVisualStyleBackColor = true;
             // 
+            // removeItemFromStartingItemsButton
+            // 
+            this.removeItemFromStartingItemsButton.Location = new System.Drawing.Point(301, 214);
+            this.removeItemFromStartingItemsButton.Name = "removeItemFromStartingItemsButton";
+            this.removeItemFromStartingItemsButton.Size = new System.Drawing.Size(75, 65);
+            this.removeItemFromStartingItemsButton.TabIndex = 5;
+            this.removeItemFromStartingItemsButton.Text = "<";
+            this.removeItemFromStartingItemsButton.UseVisualStyleBackColor = true;
+            // 
+            // addItemToStartingItemsButton
+            // 
+            this.addItemToStartingItemsButton.Location = new System.Drawing.Point(301, 70);
+            this.addItemToStartingItemsButton.Name = "addItemToStartingItemsButton";
+            this.addItemToStartingItemsButton.Size = new System.Drawing.Size(75, 65);
+            this.addItemToStartingItemsButton.TabIndex = 4;
+            this.addItemToStartingItemsButton.Text = ">";
+            this.addItemToStartingItemsButton.UseVisualStyleBackColor = true;
+            // 
+            // startingItemsLabel
+            // 
+            this.startingItemsLabel.AutoSize = true;
+            this.startingItemsLabel.Location = new System.Drawing.Point(431, 19);
+            this.startingItemsLabel.Name = "startingItemsLabel";
+            this.startingItemsLabel.Size = new System.Drawing.Size(80, 15);
+            this.startingItemsLabel.TabIndex = 3;
+            this.startingItemsLabel.Text = "Starting Items";
+            // 
+            // startingItemsListBox
+            // 
+            this.startingItemsListBox.FormattingEnabled = true;
+            this.startingItemsListBox.ItemHeight = 15;
+            this.startingItemsListBox.Location = new System.Drawing.Point(431, 40);
+            this.startingItemsListBox.Name = "startingItemsListBox";
+            this.startingItemsListBox.Size = new System.Drawing.Size(231, 259);
+            this.startingItemsListBox.TabIndex = 2;
+            // 
+            // itemPoolListBox
+            // 
+            this.itemPoolListBox.FormattingEnabled = true;
+            this.itemPoolListBox.ItemHeight = 15;
+            this.itemPoolListBox.Location = new System.Drawing.Point(12, 40);
+            this.itemPoolListBox.Name = "itemPoolListBox";
+            this.itemPoolListBox.Size = new System.Drawing.Size(231, 259);
+            this.itemPoolListBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Item Pool";
+            // 
             // cosmeticsTabPage
             // 
             this.cosmeticsTabPage.Controls.Add(this.transformAnywhereCheckBox);
@@ -812,10 +866,11 @@ namespace TPRandomizer
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(6, 531);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(679, 23);
-            this.progressBar1.TabIndex = 8;
+            Form1.progressBar1.Location = new System.Drawing.Point(6, 531);
+            Form1.progressBar1.Name = "progressBar1";
+            Form1.progressBar1.Size = new System.Drawing.Size(679, 23);
+            Form1.progressBar1.TabIndex = 8;
+            Form1.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // outputTextBox
             // 
@@ -826,67 +881,13 @@ namespace TPRandomizer
             this.outputTextBox.Size = new System.Drawing.Size(679, 86);
             this.outputTextBox.TabIndex = 9;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Item Pool";
-            // 
-            // itemPoolListBox
-            // 
-            this.itemPoolListBox.FormattingEnabled = true;
-            this.itemPoolListBox.ItemHeight = 15;
-            this.itemPoolListBox.Location = new System.Drawing.Point(12, 40);
-            this.itemPoolListBox.Name = "itemPoolListBox";
-            this.itemPoolListBox.Size = new System.Drawing.Size(231, 259);
-            this.itemPoolListBox.TabIndex = 1;
-            // 
-            // startingItemsListBox
-            // 
-            this.startingItemsListBox.FormattingEnabled = true;
-            this.startingItemsListBox.ItemHeight = 15;
-            this.startingItemsListBox.Location = new System.Drawing.Point(431, 40);
-            this.startingItemsListBox.Name = "startingItemsListBox";
-            this.startingItemsListBox.Size = new System.Drawing.Size(231, 259);
-            this.startingItemsListBox.TabIndex = 2;
-            // 
-            // startingItemsLabel
-            // 
-            this.startingItemsLabel.AutoSize = true;
-            this.startingItemsLabel.Location = new System.Drawing.Point(431, 19);
-            this.startingItemsLabel.Name = "startingItemsLabel";
-            this.startingItemsLabel.Size = new System.Drawing.Size(80, 15);
-            this.startingItemsLabel.TabIndex = 3;
-            this.startingItemsLabel.Text = "Starting Items";
-            // 
-            // addItemToStartingItemsButton
-            // 
-            this.addItemToStartingItemsButton.Location = new System.Drawing.Point(301, 70);
-            this.addItemToStartingItemsButton.Name = "addItemToStartingItemsButton";
-            this.addItemToStartingItemsButton.Size = new System.Drawing.Size(75, 65);
-            this.addItemToStartingItemsButton.TabIndex = 4;
-            this.addItemToStartingItemsButton.Text = ">";
-            this.addItemToStartingItemsButton.UseVisualStyleBackColor = true;
-            // 
-            // removeItemFromStartingItemsButton
-            // 
-            this.removeItemFromStartingItemsButton.Location = new System.Drawing.Point(301, 214);
-            this.removeItemFromStartingItemsButton.Name = "removeItemFromStartingItemsButton";
-            this.removeItemFromStartingItemsButton.Size = new System.Drawing.Size(75, 65);
-            this.removeItemFromStartingItemsButton.TabIndex = 5;
-            this.removeItemFromStartingItemsButton.Text = "<";
-            this.removeItemFromStartingItemsButton.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 658);
             this.Controls.Add(this.outputTextBox);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(Form1.progressBar1);
             this.Controls.Add(this.settingsPresetsComboBox);
             this.Controls.Add(this.settingPresetsLabel);
             this.Controls.Add(this.generateSpoilerLogCheckBox);
@@ -987,7 +988,7 @@ namespace TPRandomizer
         private System.Windows.Forms.Label bossKeyShuffleLabel;
         private System.Windows.Forms.TextBox settingsStringTextBox;
         private System.Windows.Forms.CheckBox skipMinorCutscenesCheckBox;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private static System.Windows.Forms.ProgressBar progressBar1;
         public System.Windows.Forms.TextBox outputTextBox;
         private System.Windows.Forms.CheckBox skipIntroCheckBox;
         private System.Windows.Forms.ListBox listofChecksListBox;

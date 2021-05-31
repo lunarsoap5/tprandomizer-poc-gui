@@ -9,7 +9,6 @@ namespace TPRandomizer
         public RoomFunctions Rooms = new RoomFunctions();
 
         public LogicFunctions Logic = new LogicFunctions();
-        public Randomizer Randomizer = new Randomizer();
 
         private static Singleton instance;
         
