@@ -20,7 +20,7 @@ namespace TPRandomizer
         public void start(string SettingsString)
         {
             //Read in the settings string and set the settings values accordingly
-            interpretSettingsString(SettingsString);
+            BackendFunctions.interpretSettingsString(SettingsString);
         begin:
             //Generate the dictionary that contains all of the checks.
             Checks.InitializeChecks();
@@ -56,230 +56,7 @@ namespace TPRandomizer
             Form1.SetProgress(100);
         }
 
-        public void interpretSettingsString(string SettingsString)
-        {
-            String flags = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz1234567890!@#$";
-            String flagText = BackendFunctions.Base64Decode(SettingsString);
-
-            while (flagText.Length < 19)
-            {
-                flagText += "A";
-            }
-
-            BitArray v = new BitArray(new int[] { flags.IndexOf(flagText[0]) });
-            int[] array = new int[1];
-
-            BitArray w = new BitArray(3);
-            w[0] = v[0];
-            w[1] = v[1];
-            w[2] = v[2];
-            w.CopyTo(array, 0);
-            switch (array[0])
-            {
-                //Logic Rules
-                case 0:
-                    Singleton.getInstance().Logic.SettingsList[0,1] = "Glitchless";
-                    break;
-                case 1:
-                    Singleton.getInstance().Logic.SettingsList[0,1] = "Glitched";
-                    break;
-                case 2:
-                    Singleton.getInstance().Logic.SettingsList[0,1] = "No_Logic";
-                    break;
-            }
-            w = new BitArray(6);
-            w[0] = v[3];
-            w[1] = v[4];
-            w[2] = v[5];
-
-            v = new BitArray(new int[] { flags.IndexOf(flagText[1]) });
-            w[3] = v[0];
-            w[4] = v[1];
-            w[5] = v[2];
-            w.CopyTo(array, 0);
-            switch (array[0])
-            {
-                //Hyrule Castle Access Requirements
-                case 0:
-                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Open";
-                    break;
-                case 1:
-                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Fused_Shadows";
-                    break;
-                case 2:
-                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Mirror_Shards";
-                    break;
-                case 3:
-                    Singleton.getInstance().Logic.SettingsList[1, 1] = "All_Dungeons";
-                    break;
-                case 4:
-                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Random_Dungeons";
-                    break;
-                case 5:
-                    Singleton.getInstance().Logic.SettingsList[1, 1] = "Vanilla";
-                    break;
-            }
-            w = new BitArray(4);
-            w[0] = v[3];
-            w[1] = v[4];
-            w[2] = v[5];
-
-            v = new BitArray(new int[] { flags.IndexOf(flagText[2]) });
-
-            w[3] = v[0];
-            w.CopyTo(array, 0);
-            switch (array[0])
-            {
-                //Palace of Twilight Access Requirements
-                case 0:
-                    Singleton.getInstance().Logic.SettingsList[2, 1] = "Open";
-                    break;
-                case 1:
-                    Singleton.getInstance().Logic.SettingsList[2, 1] = "Fused_Shadows";
-                    break;
-                case 2:
-                    Singleton.getInstance().Logic.SettingsList[2, 1] = "Mirror_Shards";
-                    break;
-                case 3:
-                    Singleton.getInstance().Logic.SettingsList[2, 1] = "Vanilla";
-                    break;
-            }
-            w = new BitArray(2);
-            w[0] = v[1];
-            w[1] = v[2];
-            w.CopyTo(array, 0);
-            switch(array[0])
-            {
-                //Faron Woods Logic
-                case 0:
-                    Singleton.getInstance().Logic.SettingsList[3, 1] = "Open";
-                    break;
-                case 1:
-                    Singleton.getInstance().Logic.SettingsList[3, 1] = "Closed";
-                    break;
-            }
-            Singleton.getInstance().Logic.SettingsList[4, 1] = v[3].ToString();
-            w = new BitArray(6);
-            w[0] = v[4];
-            w[1] = v[5];
-
-            v = new BitArray(new int[] { flags.IndexOf(flagText[3]) });
-
-            w[2] = v[0];
-            w[3] = v[1];
-            w[4] = v[2];
-            w[5] = v[3];
-            w.CopyTo(array, 0);
-            switch (array[0])
-            {
-                //Small Key Settings
-                case 0:
-                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Vanilla";
-                    break;
-                case 1:
-                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Overworld";
-                    break;
-                case 2:
-                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Own_Dungeon";
-                    break;
-                case 3:
-                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Any_Dungeon";
-                    break;
-                case 4:
-                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Keysanity";
-                    break;
-                case 5:
-                    Singleton.getInstance().Logic.SettingsList[6, 1] = "Keysey";
-                    break;
-            }
-            w = new BitArray(6);
-            w[0] = v[4];
-            w[1] = v[5];
-
-            v = new BitArray(new int[] { flags.IndexOf(flagText[4]) });
-
-            w[2] = v[0];
-            w[3] = v[1];
-            w[4] = v[2];
-            w[5] = v[3];
-            w.CopyTo(array, 0);
-            switch (array[0])
-            {
-                //Big Key Settings
-                case 0:
-                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Vanilla";
-                    break;
-                case 1:
-                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Overworld";
-                    break;
-                case 2:
-                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Own_Dungeon";
-                    break;
-                case 3:
-                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Any_Dungeon";
-                    break;
-                case 4:
-                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Keysanity";
-                    break;
-                case 5:
-                    Singleton.getInstance().Logic.SettingsList[7, 1] = "Keysey";
-                    break;
-            }
-            w = new BitArray(6);
-            w[0] = v[4];
-            w[1] = v[5];
-
-            v = new BitArray(new int[] { flags.IndexOf(flagText[5]) });
-
-            w[2] = v[0];
-            w[3] = v[1];
-            w[4] = v[2];
-            w[5] = v[3];
-            w.CopyTo(array, 0);
-            switch (array[0])
-            {
-                //Map and Compass Settings
-                case 0:
-                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Vanilla";
-                    break;
-                case 1:
-                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Overworld";
-                    break;
-                case 2:
-                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Own_Dungeon";
-                    break;
-                case 3:
-                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Any_Dungeon";
-                    break;
-                case 4:
-                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Anywhere";
-                    break;
-                case 5:
-                    Singleton.getInstance().Logic.SettingsList[8, 1] = "Start_With";
-                    break;
-            }
-
-
-            Singleton.getInstance().Logic.SettingsList[9, 1] = v[4].ToString(); //Golden Bug Shuffled?
-            Singleton.getInstance().Logic.SettingsList[10, 1] = v[5].ToString(); //Gift from NPCs
-
-            v = new BitArray(new int[] { flags.IndexOf(flagText[6]) });
-
-            Singleton.getInstance().Logic.SettingsList[11, 1] = v[0].ToString(); //Treasure Chests
-            Singleton.getInstance().Logic.SettingsList[12, 1] = v[1].ToString(); //Shop Items Shuffled
-            Singleton.getInstance().Logic.SettingsList[13, 1] = v[2].ToString(); //Faron Twilight Cleared
-            Singleton.getInstance().Logic.SettingsList[14, 1] = v[3].ToString(); //Eldin Twilight Cleared
-            Singleton.getInstance().Logic.SettingsList[15, 1] = v[4].ToString(); //Lanayru Twilight Cleared
-            Singleton.getInstance().Logic.SettingsList[16, 1] = v[5].ToString(); //Skip Minor Cutscenes
-
-            v = new BitArray(new int[] { flags.IndexOf(flagText[7]) });
-
-            Singleton.getInstance().Logic.SettingsList[17, 1] = v[0].ToString(); //Skip Master Sword Puzzle
-            Singleton.getInstance().Logic.SettingsList[18, 1] = v[1].ToString(); //Fast Iron Boots
-            Singleton.getInstance().Logic.SettingsList[19, 1] = v[2].ToString(); //Quick Transform
-            Singleton.getInstance().Logic.SettingsList[20, 1] = v[3].ToString(); //Transform Anywhere
-            Singleton.getInstance().Logic.SettingsList[5, 1] = v[4].ToString(); // Intro Skipped
-        }
+        
         public Room setupGraph()
         {
             //We want to be safe and make sure that the room classes are prepped and ready to be linked together. Then we define our starting room.
@@ -337,7 +114,7 @@ namespace TPRandomizer
             //Any vanilla checks will be placed first for the sake of logic. Even if they aren't available to be randomized in the game yet, we may need to logically account for their placement.
             placeVanillaChecks (Singleton.getInstance().Items.heldItems, Singleton.getInstance().Checks.vanillaChecks);
             //Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.)
-            
+            placeExcludedChecks();
             //Shop Items
 
             //Next we want to replace items that are locked in their respective region
@@ -369,6 +146,19 @@ namespace TPRandomizer
                 placeItemInCheck(itemToPlace, checkToReciveItem);
             }
             return;
+        }
+
+        void placeExcludedChecks()
+        {
+            Random rnd = new Random();
+            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
+            {
+                Check currentCheck = checkList.Value;
+                if (!currentCheck.itemWasPlaced && currentCheck.isExcluded)
+                {
+                    placeItemInCheck(Singleton.getInstance().Items.miscItems[rnd.Next(Singleton.getInstance().Items.miscItems.Count() - 1)], currentCheck);
+                }
+            }
         }
 
         void placeDungeonItems (Room startingRoom, List<Item> heldItems, List<Item> ItemsToBeRandomized)
@@ -410,8 +200,6 @@ namespace TPRandomizer
             {
                 for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
                 {
-                    //Create reference to the dictionary entry of the room we are evaluating
-
                     //Parse the neighbour's requirements to find out if we can access it
                     var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
                     //If you can access the neighbour and it hasnt been visited yet.
@@ -468,46 +256,6 @@ namespace TPRandomizer
             {
                 Singleton.getInstance().Items.heldItems.Remove(newItem);
             }
-
-
-            /*foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
-            {
-                //Parse through every check to see if an item has been placed in it
-                Check currentCheck = checkList.Value;
-                if (currentCheck.itemWasPlaced && (!currentCheck.hasBeenReached))
-                {
-                    //If the check has an item in it and has not been collected, we need to see if we can get the item.
-                    //var areCheckRequirementsMet = CSharpScript.EvaluateAsync(currentCheck.requirements, options).Result;
-                    var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
-                    if ((bool)areCheckRequirementsMet == true)
-                    {
-                        //If we can get the item, we add it to our inventory and restart our search since we may be able to get more placed items with our new item pool
-                        Singleton.getInstance().Items.heldItems.Add(currentCheck.itemId);
-                        playthroughItems.Add(currentCheck.itemId);
-                        currentCheck.hasBeenReached = true;
-                        GC.Collect();
-                        goto restart;
-                    }
-                }
-            }
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
-            {
-                Check currentCheck = checkList.Value;
-                //Confirms that we can get the check and checks to see if an item was placed in it.
-                if (isDungeonCheck(itemToPlace.ToString(), currentCheck))
-                {
-                   //var areCheckRequirementsMet = CSharpScript.EvaluateAsync(currentCheck.requirements, options).Result;
-                    var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
-                     if (((bool)areCheckRequirementsMet == true) && (!currentCheck.itemWasPlaced))
-                    {
-                        roomChecks.Add(currentCheck.checkName);
-                    }
-                }
-            }
-            foreach (var newItem in playthroughItems)
-            {
-                Singleton.getInstance().Items.heldItems.Remove(newItem);
-            }*/
             return roomChecks;
         }  
 

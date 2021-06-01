@@ -53,7 +53,7 @@ namespace TPRandomizer
             { "fastIronBoots", null },
             { "quickTransform", null },
             { "transformAnywhere", null },
-            { "iceTrapSettings", null}
+            { "foolishItemSettings", null}
         };
 
 
@@ -67,20 +67,11 @@ namespace TPRandomizer
         {
             setting = setting.Replace("Setting.", "");
             bool isEqual = false;
-            switch(setting)
+            
+            for (int i = 0; i < Singleton.getInstance().Logic.SettingsList.GetLength(0); i++)
             {
-                case "castleRequirements":
-                    if (value == Singleton.getInstance().Logic.SettingsList[1, 1])
-                    {
-                        isEqual = true;
-                    }
-                    break;
-                case "palaceRequirements":
-                    if (value == Singleton.getInstance().Logic.SettingsList[2, 1])
-                    {
-                        isEqual = true;
-                    }
-                    break;
+                if ((setting == Singleton.getInstance().Logic.SettingsList[i, 0]) && (value == Singleton.getInstance().Logic.SettingsList[i, 1]))
+                    isEqual = true;
             }
             return isEqual;
         }

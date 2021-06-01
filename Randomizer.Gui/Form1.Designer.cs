@@ -29,6 +29,7 @@ namespace TPRandomizer
         /// </summary>
         public void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.optionsMenu = new System.Windows.Forms.TabControl();
             this.randomizationSettingsTabPage = new System.Windows.Forms.TabPage();
             this.randomizationSettingsBox = new System.Windows.Forms.GroupBox();
@@ -36,6 +37,8 @@ namespace TPRandomizer
             this.logicRulesLabel = new System.Windows.Forms.Label();
             this.itemPoolOptionsGroupBox = new System.Windows.Forms.GroupBox();
             this.itemCategoriesGroupBox = new System.Windows.Forms.GroupBox();
+            this.foolishItemsComboBox = new System.Windows.Forms.ComboBox();
+            this.foolishItemsLabel = new System.Windows.Forms.Label();
             this.shopItemsCheckBox = new System.Windows.Forms.CheckBox();
             this.treasureChestCheckBox = new System.Windows.Forms.CheckBox();
             this.giftFromNPCsCheckBox = new System.Windows.Forms.CheckBox();
@@ -95,8 +98,9 @@ namespace TPRandomizer
             this.settingPresetsLabel = new System.Windows.Forms.Label();
             this.settingsPresetsComboBox = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            Form1.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.outputTextBox = new System.Windows.Forms.TextBox();
+            this.logicTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.randoProgressBar = new System.Windows.Forms.ProgressBar();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -188,6 +192,8 @@ namespace TPRandomizer
             // 
             // itemCategoriesGroupBox
             // 
+            this.itemCategoriesGroupBox.Controls.Add(this.foolishItemsComboBox);
+            this.itemCategoriesGroupBox.Controls.Add(this.foolishItemsLabel);
             this.itemCategoriesGroupBox.Controls.Add(this.shopItemsCheckBox);
             this.itemCategoriesGroupBox.Controls.Add(this.treasureChestCheckBox);
             this.itemCategoriesGroupBox.Controls.Add(this.giftFromNPCsCheckBox);
@@ -198,6 +204,29 @@ namespace TPRandomizer
             this.itemCategoriesGroupBox.TabIndex = 7;
             this.itemCategoriesGroupBox.TabStop = false;
             this.itemCategoriesGroupBox.Text = "Item Categories";
+            // 
+            // foolishItemsComboBox
+            // 
+            this.foolishItemsComboBox.FormattingEnabled = true;
+            this.foolishItemsComboBox.Items.AddRange(new object[] {
+            "None",
+            "Few ",
+            "Extra",
+            "Mayhem",
+            "Nightmare"});
+            this.foolishItemsComboBox.Location = new System.Drawing.Point(99, 125);
+            this.foolishItemsComboBox.Name = "foolishItemsComboBox";
+            this.foolishItemsComboBox.Size = new System.Drawing.Size(121, 23);
+            this.foolishItemsComboBox.TabIndex = 5;
+            // 
+            // foolishItemsLabel
+            // 
+            this.foolishItemsLabel.AutoSize = true;
+            this.foolishItemsLabel.Location = new System.Drawing.Point(13, 128);
+            this.foolishItemsLabel.Name = "foolishItemsLabel";
+            this.foolishItemsLabel.Size = new System.Drawing.Size(80, 15);
+            this.foolishItemsLabel.TabIndex = 4;
+            this.foolishItemsLabel.Text = "Foolish Items:";
             // 
             // shopItemsCheckBox
             // 
@@ -864,14 +893,6 @@ namespace TPRandomizer
             this.listBox1.Size = new System.Drawing.Size(120, 94);
             this.listBox1.TabIndex = 0;
             // 
-            // progressBar1
-            // 
-            Form1.progressBar1.Location = new System.Drawing.Point(6, 531);
-            Form1.progressBar1.Name = "progressBar1";
-            Form1.progressBar1.Size = new System.Drawing.Size(679, 23);
-            Form1.progressBar1.TabIndex = 8;
-            Form1.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
-            // 
             // outputTextBox
             // 
             this.outputTextBox.Location = new System.Drawing.Point(6, 570);
@@ -881,13 +902,20 @@ namespace TPRandomizer
             this.outputTextBox.Size = new System.Drawing.Size(679, 86);
             this.outputTextBox.TabIndex = 9;
             // 
+            // randoProgressBar
+            // 
+            this.randoProgressBar.Location = new System.Drawing.Point(14, 541);
+            this.randoProgressBar.Name = "randoProgressBar";
+            this.randoProgressBar.Size = new System.Drawing.Size(671, 23);
+            this.randoProgressBar.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 658);
+            this.Controls.Add(this.randoProgressBar);
             this.Controls.Add(this.outputTextBox);
-            this.Controls.Add(Form1.progressBar1);
             this.Controls.Add(this.settingsPresetsComboBox);
             this.Controls.Add(this.settingPresetsLabel);
             this.Controls.Add(this.generateSpoilerLogCheckBox);
@@ -898,6 +926,7 @@ namespace TPRandomizer
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Twilight Princess Randomizer - Version 1.0";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.optionsMenu.ResumeLayout(false);
             this.randomizationSettingsTabPage.ResumeLayout(false);
             this.randomizationSettingsBox.ResumeLayout(false);
@@ -999,6 +1028,10 @@ namespace TPRandomizer
         private System.Windows.Forms.ListBox startingItemsListBox;
         private System.Windows.Forms.ListBox itemPoolListBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox foolishItemsComboBox;
+        private System.Windows.Forms.Label foolishItemsLabel;
+        private System.Windows.Forms.ToolTip logicTooltip;
+        private System.Windows.Forms.ProgressBar randoProgressBar;
     }
 }
 

@@ -269,17 +269,17 @@ namespace TPRandomizer
 
 	public class ItemFunctions
 	{
-		
-		public List<Item> heldItems = new List<Item>();
-		public List<Item> StartingItems = new List<Item>();
-		public List<Item> RandomizedImportantItems = new List<Item>();
+		public List<Item> alwaysItems = new List<Item>(); //Items from the vanilla pool that are guaranteed to be in every seed
+		public List<Item> vanillaJunkItems = new List<Item>(); //Junk items from the vanilla pool 
+		public List<Item> heldItems = new List<Item>(); //The items that will be used by the randomizer to serve as a mock of the player's inventory
+		public List<Item> StartingItems = new List<Item>(); //Any items that the player starts with as selected by the gui
+		public List<Item> RandomizedImportantItems = new List<Item>(); //Important Items that have been added to the item pool
 
-		public List<Item> RandomizedOverworldRegionItems = new List<Item>();
-		public List<Item> RandomizedDungeonRegionItems = new List<Item>();
-		public List<Item> RandomizedLocalRegionItems = new List<Item>();
+		public List<Item> RandomizedOverworldRegionItems = new List<Item>(); //Items that are only shuffled in the overworld
+		public List<Item> RandomizedDungeonRegionItems = new List<Item>(); //Items that are shuffled among dungeons
+		public List<Item> RandomizedLocalRegionItems = new List<Item>(); //Items that are shuffled within their respective vanilla dungeon
 
-		public List<Item> miscItems = new List<Item>();
-
+		public List<Item> miscItems = new List<Item>(); //Extra junk items that are put in the pool if there are checks left and all items have been placed.
 		public List<Item> ItemPool = new List<Item>();
 
 		public List<Item> DungeonSmallKeys = new List<Item>()
@@ -415,7 +415,7 @@ namespace TPRandomizer
 			Item.Female_Snail
 		};
 
-		public List<Item> alwaysItems = new List<Item>();
+		
 
 
 
@@ -436,6 +436,7 @@ namespace TPRandomizer
 		public void generateItemPool()
 		{
 			alwaysItems.Clear();
+			vanillaJunkItems.Clear();
 			RandomizedOverworldRegionItems.Clear();
 			RandomizedDungeonRegionItems.Clear();
 			RandomizedLocalRegionItems.Clear();
@@ -456,20 +457,8 @@ namespace TPRandomizer
 			
 			heldItems.Add(Item.Ganon_Defeated);
 
-
-			miscItems.Add(Item.Bombs_5);
-			miscItems.Add(Item.Bombs_10);
-			miscItems.Add(Item.Bombs_20);
-			miscItems.Add(Item.Bombs_30);
-			miscItems.Add(Item.Arrows_10);
-			miscItems.Add(Item.Arrows_20);
-			miscItems.Add(Item.Arrows_30);
-			miscItems.Add(Item.Seeds_50);
-			miscItems.Add(Item.Water_Bombs_5);
-			miscItems.Add(Item.Water_Bombs_10);
-			miscItems.Add(Item.Water_Bombs_15);
-			miscItems.Add(Item.Bomblings_5);
-			miscItems.Add(Item.Bomblings_10);
+			
+			
 
 			switch (Singleton.getInstance().Logic.SettingsList[6, 1]) //Small Key Settings
             {
@@ -543,20 +532,52 @@ namespace TPRandomizer
 					}
 			}
 
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Bombs_5, 8));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Bombs_10, 2));
-			alwaysItems.Add(Item.Bombs_20);
-			alwaysItems.Add(Item.Bombs_30);
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Arrows_10, 5));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Arrows_20, 6));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Arrows_30, 2));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Seeds_50, 2));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_5, 3));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_10, 5));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_15, 3));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Bomblings_5, 2));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Bomblings_10, 2));
+			
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Bombs_5, 8));
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Bombs_10, 2));
+			vanillaJunkItems.Add(Item.Bombs_20);
+			vanillaJunkItems.Add(Item.Bombs_30);
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Arrows_10, 5));
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Arrows_20, 6));
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Arrows_30, 2));
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Seeds_50, 2));
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_5, 3));
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_10, 5));
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_15, 3));
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Bomblings_5, 2));
+			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Bomblings_10, 2));
 
+
+			//Modifying Item Pool based on ice trap settings
+			//If we have Ice Trap Mayhem or Nightmare, extra junk items are replaced with Foolish Items
+			if ((Singleton.getInstance().Logic.SettingsList[21, 1] == "Mayhem") || (Singleton.getInstance().Logic.SettingsList[21, 1] == "Nighmare"))
+			{
+				miscItems.Add(Item.Foolish_Item);
+			}
+			else
+			{
+				miscItems.Add(Item.Bombs_5);
+				miscItems.Add(Item.Bombs_10);
+				miscItems.Add(Item.Bombs_20);
+				miscItems.Add(Item.Bombs_30);
+				miscItems.Add(Item.Arrows_10);
+				miscItems.Add(Item.Arrows_20);
+				miscItems.Add(Item.Arrows_30);
+				miscItems.Add(Item.Seeds_50);
+				miscItems.Add(Item.Water_Bombs_5);
+				miscItems.Add(Item.Water_Bombs_10);
+				miscItems.Add(Item.Water_Bombs_15);
+				miscItems.Add(Item.Bomblings_5);
+				miscItems.Add(Item.Bomblings_10);
+			}
+			//If we have Ice Trap Nightmare, all junk items are replaced, even the vanilla ones.
+			if (Singleton.getInstance().Logic.SettingsList[21, 1] == "Nighmare")
+            {
+				for(int i = 0; i < vanillaJunkItems.Count() -1; i++)
+                {
+					vanillaJunkItems[i] = Item.Foolish_Item;
+                }
+            }
 
 
 			RandomizedImportantItems.AddRange(ImportantItems);

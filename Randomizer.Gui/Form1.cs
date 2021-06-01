@@ -49,7 +49,7 @@ namespace TPRandomizer
             quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             skipIntroCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            progressBar1.Maximum = 100;
+            randoProgressBar.Maximum = 100;
 
             foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
             {
@@ -63,7 +63,10 @@ namespace TPRandomizer
                 itemName = itemName.Replace("_", " ");
                 itemPoolListBox.Items.Add(itemName);
             }
+
+
             
+
         }
 
         private void updateFlags(object sender, EventArgs e)
@@ -151,8 +154,17 @@ namespace TPRandomizer
                 v[2] = quickTransformCheckBox.Checked;
                 v[3] = transformAnywhereCheckBox.Checked;
                 v[4] = skipIntroCheckBox.Checked;
-                v[5] = false;
+                w = new BitArray(new int[] { foolishItemsComboBox.SelectedIndex });
+                v[5] = w[0];
+                v.CopyTo(array, 0);
+                flagStr = flagStr + flags[array[0]];
 
+                v[0] = w[1];
+                v[1] = w[2];
+                v[2] = w[3];
+                v[3] = w[4];
+                v[4] = false;
+                v[5] = false;
                 v.CopyTo(array, 0);
                 flagStr = flagStr + flags[array[0]];
 
@@ -306,6 +318,17 @@ namespace TPRandomizer
                 quickTransformCheckBox.Checked = v[2];
                 transformAnywhereCheckBox.Checked = v[3];
                 skipIntroCheckBox.Checked = v[4];
+                w = new BitArray(6);
+                w[0] = v[5];
+
+                v = new BitArray(new int[] { flags.IndexOf(flagText[8]) });
+
+                w[1] = v[0];
+                w[2] = v[1];
+                w[3] = v[2];
+                w[4] = v[3];
+                w.CopyTo(array, 0);
+                foolishItemsComboBox.SelectedIndex = array[0];
 
                 oldFlags = settingsStringTextBox.Text;
 
@@ -333,7 +356,8 @@ namespace TPRandomizer
             switch (currentItem)
             {
                 case "Standard":
-                    logicRulesBox.SelectedIndex = 1;
+                    logicRulesBox.SelectedIndex = 0;
+                    castleLogicComboBox.SelectedIndex = 1;
                     faronWoodsLogicComboBox.SelectedIndex = 1;
                     break;
             }
@@ -359,6 +383,20 @@ namespace TPRandomizer
         public static void SetProgress(int progress)
         {
             progressBar1.Value = progress;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            logicTooltip.SetToolTip(logicRulesBox,
+                "Sets the main logic rules for the seed:" + Environment.NewLine +
+                "'Glitchless' does not require any glitches, tricks, etc. Recommended for beginners." + Environment.NewLine +
+                "'Glitched' assumes most glitches are in logic. Consult the Wiki for a complete list." + Environment.NewLine +
+                "'No Logic' generates a seed without using logic, meaning it may not be beatable.");
         }
     }
 }
