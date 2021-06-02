@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Collections.Generic;
 namespace TPRandomizer
 {
     partial class Form1

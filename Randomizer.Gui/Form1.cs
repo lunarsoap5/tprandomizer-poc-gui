@@ -63,10 +63,6 @@ namespace TPRandomizer
                 itemName = itemName.Replace("_", " ");
                 itemPoolListBox.Items.Add(itemName);
             }
-
-
-            
-
         }
 
         private void updateFlags(object sender, EventArgs e)
