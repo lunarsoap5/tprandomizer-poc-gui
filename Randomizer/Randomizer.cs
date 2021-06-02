@@ -115,6 +115,9 @@ namespace TPRandomizer
             placeVanillaChecks (Singleton.getInstance().Items.heldItems, Singleton.getInstance().Checks.vanillaChecks);
             //Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.)
             placeExcludedChecks();
+
+            //Dungeon rewards
+            
             //Shop Items
 
             //Next we want to replace items that are locked in their respective region
@@ -395,55 +398,6 @@ namespace TPRandomizer
                 Singleton.getInstance().Items.heldItems.Remove(newItem);
             }
             return roomChecks;
-
-            /*resetAllChecksVisited();
-            List<string> roomChecks = new List<string>();
-            List<Item> playthroughItems = new List<Item>();
-            Check currentCheck;
-    
-            restart: 
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
-            {
-                //Parse through every check to see if an item has been placed in it
-                currentCheck = checkList.Value;
-                if (currentCheck.itemWasPlaced && (!currentCheck.hasBeenReached))
-                {
-                    //If the check has an item in it and has not been collected, we need to see if we can get the item.
-                    //areCheckRequirementsMet = (bool)CSharpScript.EvaluateAsync(currentCheck.requirements, options).Result;
-                    var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
-                    if (areCheckRequirementsMet == true)
-                    {
-                        //If we can get the item, we add it to our inventory and restart our search since we may be able to get more placed items with our new item pool
-                        Singleton.getInstance().Items.heldItems.Add(currentCheck.itemId);
-                        playthroughItems.Add(currentCheck.itemId);
-                        currentCheck.hasBeenReached = true;
-                        GC.Collect();
-                        goto restart;
-                    }
-                }
-            }
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
-            {
-                currentCheck = checkList.Value;
-                if (!currentCheck.itemWasPlaced)
-                {
-                    //If the check is empty, we want to see if we can get it
-                    //areCheckRequirementsMet = (bool)CSharpScript.EvaluateAsync(currentCheck.requirements, options).Result;
-                    var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
-                    if (areCheckRequirementsMet == true)
-                    {
-                        //If we can get the check, we want to add it to the list of available checks
-                        roomChecks.Add(currentCheck.checkName);
-                    }
-                }
-                GC.Collect();
-            }
-            foreach (var newItem in playthroughItems)
-            {
-                Singleton.getInstance().Items.heldItems.Remove(newItem);
-            }
-            GC.Collect();
-            return roomChecks;*/
         }
 
         public List<string> listNonPlacedChecks(Room startingRoom, Item itemToPlace)

@@ -12,7 +12,7 @@
         "true",
         "true",
         "true",
-        "canCompletePalaceofTwilight and canCompleteLakebedTemple"
+        "((Setting.castleRequirements equals Open) or ((Setting.castleRequirements equals Vanilla) and canCompletePalaceofTwilight) or ((Setting.castleRequirements equals All_Fused_Shadows) and (Progressive_Fused_Shadow, 3)) or ((Setting.castleRequirements equals All_Mirror_Shards) and (Progressive_Mirror_Shard, 4)) or ((Setting.castleRequirements equals All_Dungeons) and canCompleteAllDungeons) or ((Setting.castleRequirements equals Random_Dungeons) and randomDungeonsCompleted)) and (canCompleteLakebedTemple or (Setting.mdhSkipped equals true))"
     ],
     "isStartingRoom": "false",
     "checks": 
