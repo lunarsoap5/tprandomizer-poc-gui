@@ -378,7 +378,7 @@ namespace TPRandomizer
 
         public static void SetProgress(int progress)
         {
-            progressBar1.Value = progress;
+            randoProgressBar.Value = progress;
         }
 
         private void label2_Click(object sender, EventArgs e)

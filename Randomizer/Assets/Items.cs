@@ -271,16 +271,24 @@ namespace TPRandomizer
 	{
 		public List<Item> alwaysItems = new List<Item>(); //Items from the vanilla pool that are guaranteed to be in every seed
 		public List<Item> vanillaJunkItems = new List<Item>(); //Junk items from the vanilla pool 
-		public List<Item> heldItems = new List<Item>(); //The items that will be used by the randomizer to serve as a mock of the player's inventory
 		public List<Item> StartingItems = new List<Item>(); //Any items that the player starts with as selected by the gui
 		public List<Item> RandomizedImportantItems = new List<Item>(); //Important Items that have been added to the item pool
-
-		public List<Item> RandomizedOverworldRegionItems = new List<Item>(); //Items that are only shuffled in the overworld
 		public List<Item> RandomizedDungeonRegionItems = new List<Item>(); //Items that are shuffled among dungeons
-		public List<Item> RandomizedLocalRegionItems = new List<Item>(); //Items that are shuffled within their respective vanilla dungeon
 
 		public List<Item> miscItems = new List<Item>(); //Extra junk items that are put in the pool if there are checks left and all items have been placed.
-		public List<Item> ItemPool = new List<Item>();
+		public List<Item> ItemPool = new List<Item>(); //The list of Items that have yet to be randomized.
+		public List<Item> heldItems = new List<Item>(); //The list of items that the player currently has. This is to be used when emulating the playthrough.
+
+		public List<Item> VanillaDungeonRewards = new List<Item>()
+		{
+			Item.Progressive_Fused_Shadow,
+			Item.Progressive_Fused_Shadow,
+			Item.Progressive_Fused_Shadow,
+			Item.Progressive_Mirror_Shard,
+			Item.Progressive_Mirror_Shard,
+			Item.Progressive_Mirror_Shard,
+			Item.Progressive_Mirror_Shard
+		};
 
 		public List<Item> DungeonSmallKeys = new List<Item>()
 		{
@@ -334,6 +342,26 @@ namespace TPRandomizer
 			Item.City_in_The_Sky_Big_Key,
 			Item.Palace_of_Twilight_Big_Key,
 			Item.Hyrule_Castle_Big_Key
+		};
+
+		public List<Item> DungeonMapsAndCompasses = new List<Item>()
+		{
+			Item.Forest_Temple_Dungeon_Map,
+			Item.Forest_Temple_Compass,
+			Item.Goron_Mines_Dungeon_Map,
+			Item.Goron_Mines_Compass,
+			Item.Lakebed_Temple_Dungeon_Map,
+			Item.Lakebed_Temple_Compass,
+			Item.Arbiters_Grounds_Dungeon_Map,
+			Item.Arbiters_Grounds_Compass,
+			Item.Snowpeak_Ruins_Dungeon_Map,
+			Item.Snowpeak_Ruins_Compass,
+			Item.City_in_The_Sky_Dungeon_Map,
+			Item.City_in_The_Sky_Compass,
+			Item.Palace_of_Twilight_Dungeon_Map,
+			Item.Palace_of_Twilight_Compass,
+			Item.Hyrule_Castle_Dungeon_Map,
+			Item.Hyrule_Castle_Compass
 		};
 
 
@@ -437,11 +465,9 @@ namespace TPRandomizer
 		{
 			alwaysItems.Clear();
 			vanillaJunkItems.Clear();
-			RandomizedOverworldRegionItems.Clear();
 			RandomizedDungeonRegionItems.Clear();
-			RandomizedLocalRegionItems.Clear();
 			miscItems.Clear();
-			heldItems.Clear();
+			ItemPool.Clear();
 			RandomizedImportantItems.Clear();
 			
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Piece_of_Heart, 45));
@@ -455,7 +481,7 @@ namespace TPRandomizer
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Silver_Rupee, 3));
 			
 			
-			heldItems.Add(Item.Ganon_Defeated);
+			ItemPool.Add(Item.Ganon_Defeated);
 
 			
 			
@@ -463,37 +489,31 @@ namespace TPRandomizer
 			switch (Singleton.getInstance().Logic.SettingsList[6, 1]) //Small Key Settings
             {
 				case ("Vanilla"):
-                    {
-						foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+				{
+					foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+					{
+						Check currentCheck = check.Value;
+						if (currentCheck.category.Contains("Small Key"))
 						{
-							Check currentCheck = check.Value;
-							if (currentCheck.category.Contains("Small Key"))
-                            {
-								Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
-                            }
+							Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
 						}
-						break;
-                    }
-				case ("Overworld"):
-					{
-						RandomizedOverworldRegionItems.AddRange(DungeonSmallKeys);
-						break;
 					}
-				case ("Own_Dungeon"):
-                    {
-						RandomizedLocalRegionItems.AddRange(DungeonSmallKeys);
-						break;
-					}
-				case ("Any_Dungeon"):
-					{
-						RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
-						break;
-					}
+					break;
+				}
 				case ("Keysanity"):
-                    {
-						RandomizedImportantItems.AddRange(DungeonSmallKeys);
-						break;
-                    }
+				{
+					RandomizedImportantItems.AddRange(DungeonSmallKeys);
+					break;
+				}
+				case ("Keysey"):
+				{
+					break;
+				}
+				default:
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
+					break;
+				}
 			}
 
 			switch (Singleton.getInstance().Logic.SettingsList[7, 1]) //Big Key Settings
@@ -510,26 +530,50 @@ namespace TPRandomizer
 						}
 						break;
 					}
-				case ("Overworld"):
-					{
-						RandomizedOverworldRegionItems.AddRange(DungeonBigKeys);
-						break;
-					}
-				case ("Own_Dungeon"):
-					{
-						RandomizedLocalRegionItems.AddRange(DungeonBigKeys);
-						break;
-					}
-				case ("Any_Dungeon"):
-					{
-						RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
-						break;
-					}
 				case ("Keysanity"):
+				{
+					RandomizedImportantItems.AddRange(DungeonBigKeys);
+					break;
+				}
+				case ("Keysey"):
+				{
+					break;
+				}
+				default:
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
+					break;
+				}
+			}
+
+			switch (Singleton.getInstance().Logic.SettingsList[8, 1]) //Map and Compass Settings
+			{
+				case ("Vanilla"):
 					{
-						RandomizedImportantItems.AddRange(DungeonBigKeys);
+						foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+						{
+							Check currentCheck = check.Value;
+							if (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass"))
+							{
+								Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
+							}
+						}
 						break;
 					}
+				case ("Anywhere"):
+				{
+					RandomizedImportantItems.AddRange(DungeonMapsAndCompasses);
+					break;
+				}
+				case ("Start_With"):
+				{
+					break;
+				}
+				default:
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
+					break;
+				}
 			}
 
 			
@@ -581,17 +625,16 @@ namespace TPRandomizer
 
 
 			RandomizedImportantItems.AddRange(ImportantItems);
-			heldItems.AddRange(DungeonBigKeys);
-			heldItems.AddRange(DungeonSmallKeys);
-			heldItems.AddRange(ImportantItems);
-			heldItems.AddRange(alwaysItems);
-			heldItems.AddRange(miscItems);
+			ItemPool.AddRange(DungeonBigKeys);
+			ItemPool.AddRange(DungeonSmallKeys);
+			ItemPool.AddRange(DungeonMapsAndCompasses);
+			ItemPool.AddRange(ImportantItems);
+			ItemPool.AddRange(alwaysItems);
+			ItemPool.AddRange(miscItems);
 
-			Singleton.getInstance().Items.heldItems = heldItems;
+			Singleton.getInstance().Items.ItemPool = ItemPool;
 			Singleton.getInstance().Items.ImportantItems = ImportantItems;
-			Singleton.getInstance().Items.RandomizedLocalRegionItems = RandomizedLocalRegionItems;
 			Singleton.getInstance().Items.RandomizedDungeonRegionItems = RandomizedDungeonRegionItems;
-			Singleton.getInstance().Items.RandomizedOverworldRegionItems = RandomizedOverworldRegionItems;
 			Singleton.getInstance().Items.alwaysItems = alwaysItems;
 			Singleton.getInstance().Items.miscItems = miscItems;
 			return;

@@ -47,7 +47,6 @@ C:\Users\Justin\source\repos\TPRandomizer\obj\Debug\net5.0-windows\TPRandomizer.
 C:\Users\Justin\source\repos\TPRandomizer\obj\Debug\net5.0-windows\TPRandomizer.genruntimeconfig.cache
 C:\Users\Justin\source\repos\TPRandomizer\obj\Debug\net5.0-windows\TPRandomizer.csprojAssemblyReference.cache
 C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.csprojAssemblyReference.cache
-C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\WinFormsApp1.Form1.resources
 C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.Form1.resources
 C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.csproj.GenerateResource.cache
 C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.GeneratedMSBuildEditorConfig.editorconfig

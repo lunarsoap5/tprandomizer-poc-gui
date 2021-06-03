@@ -416,6 +416,18 @@ namespace TPRandomizer
             "Agitha Twelfth Single Bug Reward",
             "Ganondorf Defeated"
         };
+
+        public List<string> dungeonRewardChecks = new List<string>()
+        {
+            "Forest Temple Diababa Heart Container",
+            "Goron Mines Fyrus Heart Container",
+            "Lakebed Temple Morpheel Heart Container",
+            "Arbiters Grounds Stallord Heart Container",
+            "Snowpeak Ruins Blizzeta Heart Container", 
+            "Temple of Time Armogohma Heart Container",
+            "City in The Sky Argorok Heart Container",
+            "Palace of Twilight Zant Heart Container"
+        };
     } 
 
 }

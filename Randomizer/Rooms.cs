@@ -204,5 +204,190 @@ namespace TPRandomizer
             RoomDict.Add("Death Mountain Interiors", new Room());
             return;
         }
+
+         public bool isDungeonCheck(Item itemToPlace, Room currentRoom)
+        {
+            if (Singleton.getInstance().Items.DungeonSmallKeys.Contains(itemToPlace))
+            {
+                if (Singleton.getInstance().Logic.SettingsList[6, 1] == "Own_Dungeon")
+                {
+                    if (itemToPlace.ToString().Contains("Forest_Temple") && (currentRoom.region == "Forest Temple"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Goron_Mines") && (currentRoom.region =="Goron Mines"))
+                    {
+                    return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Lakebed_Temple") && (currentRoom.region =="Lakebed Temple"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Arbiters_Grounds") && (currentRoom.region == "Arbiters Grounds"))
+                    {
+                        return true;
+                    }
+                    else if ((itemToPlace.ToString().Contains("Snowpeak_Ruins") || itemToPlace.ToString().Contains("Ordon_Pumpkin") || itemToPlace.ToString().Contains("Ordon_Goat_Cheese")) && (currentRoom.region == "Snowpeak Ruins"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Temple_of_Time") && (currentRoom.region == "Temple of Time"))
+                    {
+                    return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("City_in_The_Sky") && (currentRoom.region == "City in The Sky"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Palace_of_Twilight") && (currentRoom.region == "Palace of Twilight"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Hyrule_Castle") && (currentRoom.region == "Hyrule Castle"))
+                    {
+                        return true;
+                    }
+                }
+                else if (Singleton.getInstance().Logic.SettingsList[6, 1] == "Any_Dungeon")
+                {
+                    if ((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
+                        (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
+                        (currentRoom.region == "City in The Sky") || (currentRoom.region == "Palace of Twilight") || (currentRoom.region == "Hyrule Castle"))
+                    {
+                        return true;
+                    }
+                }
+                else if (Singleton.getInstance().Logic.SettingsList[6, 1] == "Overworld")
+                {
+                    if (!((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
+                        (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
+                        (currentRoom.region == "City in The Sky") || (currentRoom.region == "Palace of Twilight") || (currentRoom.region == "Hyrule Castle")))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (Singleton.getInstance().Items.DungeonBigKeys.Contains(itemToPlace))
+            {
+                if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Own_Dungeon")
+                {
+                    if (itemToPlace.ToString().Contains("Forest_Temple") && (currentRoom.region == "Forest Temple"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Goron_Mines") && (currentRoom.region =="Goron Mines"))
+                    {
+                    return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Lakebed_Temple") && (currentRoom.region =="Lakebed Temple"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Arbiters_Grounds") && (currentRoom.region == "Arbiters Grounds"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Snowpeak_Ruins") && (currentRoom.region == "Snowpeak Ruins"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Temple_of_Time") && (currentRoom.region == "Temple of Time"))
+                    {
+                    return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("City_in_The_Sky") && (currentRoom.region == "City in The Sky"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Palace_of_Twilight") && (currentRoom.region == "Palace of Twilight"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Hyrule_Castle") && (currentRoom.region == "Hyrule Castle"))
+                    {
+                        return true;
+                    }
+                }
+                else if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Any_Dungeon")
+                {
+                    if ((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
+                        (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
+                        (currentRoom.region == "City in The Sky") || (currentRoom.region == "Palace of Twilight") || (currentRoom.region == "Hyrule Castle"))
+                    {
+                        return true;
+                    }
+                }
+                else if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Overworld")
+                {
+                    if (!((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
+                        (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
+                        (currentRoom.region == "City in The Sky") || (currentRoom.region == "Palace of Twilight") || (currentRoom.region == "Hyrule Castle")))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (Singleton.getInstance().Items.DungeonMapsAndCompasses.Contains(itemToPlace))
+            {
+                if (Singleton.getInstance().Logic.SettingsList[8, 1] == "Own_Dungeon")
+                {
+                    if (itemToPlace.ToString().Contains("Forest_Temple") && (currentRoom.region == "Forest Temple"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Goron_Mines") && (currentRoom.region =="Goron Mines"))
+                    {
+                    return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Lakebed_Temple") && (currentRoom.region =="Lakebed Temple"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Arbiters_Grounds") && (currentRoom.region == "Arbiters Grounds"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Snowpeak_Ruins") && (currentRoom.region == "Snowpeak Ruins"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Temple_of_Time") && (currentRoom.region == "Temple of Time"))
+                    {
+                    return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("City_in_The_Sky") && (currentRoom.region == "City in The Sky"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Palace_of_Twilight") && (currentRoom.region == "Palace of Twilight"))
+                    {
+                        return true;
+                    }
+                    else if (itemToPlace.ToString().Contains("Hyrule_Castle") && (currentRoom.region == "Hyrule Castle"))
+                    {
+                        return true;
+                    }
+                }
+                else if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Any_Dungeon")
+                {
+                    if ((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
+                        (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
+                        (currentRoom.region == "City in The Sky") || (currentRoom.region == "Palace of Twilight") || (currentRoom.region == "Hyrule Castle"))
+                    {
+                        return true;
+                    }
+                }
+                else if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Overworld")
+                {
+                    if (!((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
+                        (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
+                        (currentRoom.region == "City in The Sky") || (currentRoom.region == "Palace of Twilight") || (currentRoom.region == "Hyrule Castle")))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

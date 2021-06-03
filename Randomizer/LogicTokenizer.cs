@@ -127,6 +127,7 @@ namespace TPRandomizer
                 {
                     tokenValue++;
                     parseBool = LogicFunctions.evaluateSetting(evaluatedItem, Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Value.ToString());
+                    tokenValue++;
                 }
                 return parseBool;
             }

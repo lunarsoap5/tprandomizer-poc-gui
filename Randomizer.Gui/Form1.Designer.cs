@@ -101,7 +101,7 @@ namespace TPRandomizer
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.outputTextBox = new System.Windows.Forms.TextBox();
             this.logicTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.randoProgressBar = new System.Windows.Forms.ProgressBar();
+            Form1.randoProgressBar = new System.Windows.Forms.ProgressBar();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -905,17 +905,17 @@ namespace TPRandomizer
             // 
             // randoProgressBar
             // 
-            this.randoProgressBar.Location = new System.Drawing.Point(14, 541);
-            this.randoProgressBar.Name = "randoProgressBar";
-            this.randoProgressBar.Size = new System.Drawing.Size(671, 23);
-            this.randoProgressBar.TabIndex = 6;
+            Form1.randoProgressBar.Location = new System.Drawing.Point(14, 541);
+            Form1.randoProgressBar.Name = "randoProgressBar";
+            Form1.randoProgressBar.Size = new System.Drawing.Size(671, 23);
+            Form1.randoProgressBar.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 658);
-            this.Controls.Add(this.randoProgressBar);
+            this.Controls.Add(Form1.randoProgressBar);
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.settingsPresetsComboBox);
             this.Controls.Add(this.settingPresetsLabel);
@@ -1018,7 +1018,6 @@ namespace TPRandomizer
         private System.Windows.Forms.Label bossKeyShuffleLabel;
         private System.Windows.Forms.TextBox settingsStringTextBox;
         private System.Windows.Forms.CheckBox skipMinorCutscenesCheckBox;
-        private static System.Windows.Forms.ProgressBar progressBar1;
         public System.Windows.Forms.TextBox outputTextBox;
         private System.Windows.Forms.CheckBox skipIntroCheckBox;
         private System.Windows.Forms.ListBox listofChecksListBox;
@@ -1032,7 +1031,7 @@ namespace TPRandomizer
         private System.Windows.Forms.ComboBox foolishItemsComboBox;
         private System.Windows.Forms.Label foolishItemsLabel;
         private System.Windows.Forms.ToolTip logicTooltip;
-        private System.Windows.Forms.ProgressBar randoProgressBar;
+        private static System.Windows.Forms.ProgressBar randoProgressBar;
     }
 }
 
