@@ -914,6 +914,11 @@ namespace TPRandomizer
             return ((getItemCount(Item.Lakebed_Temple_Small_Key) >=3) && canDefeatDekuToad() && canDefeatMorpheel() && (getItemCount(Item.Progressive_Clawshot) >= 1) && canLaunchBombs() && canUseWaterBombs() && canUse(Item.Lakebed_Temple_Big_Key));
         }
 
+        public static bool canCompleteArbitersGrounds()
+        {
+            return ((getItemCount(Item.Arbiters_Grounds_Small_Key) >=5) && canUse(Item.Arbiters_Grounds_Big_Key) && canUse(Item.Lantern) && canDefeatPoe() && canUse(Item.Shadow_Crystal) && (getItemCount(Item.Progressive_Clawshot)>= 1) && canDefeatRedeadKnight() && canDefeatStalchild() && canDefeatBubble() && canDefeatGhoulRat() && canDefeatStalfos() && canUse(Item.Spinner) && canDefeatStallord());
+        }
+
         public static bool canCompleteSnowpeakRuins()
         {
             return (canDefeatBlizzeta() && canUse(Item.Ordon_Goat_Cheese) && canUse(Item.Ordon_Pumpkin) && canUse(Item.Ball_and_Chain) && canDefeatChilfos() && canDefeatMiniFreezard() && canDefeatFreezard() && (getItemCount(Item.Snowpeak_Ruins_Small_Key) >= 4) && hasBombs() && canUse(Item.Snowpeak_Ruins_Bedroom_Key));
@@ -923,9 +928,26 @@ namespace TPRandomizer
         {
             return ((getItemCount(Item.Progressive_Dominion_Rod) >= 1) && (getItemCount(Item.Progressive_Bow) >= 1) && canUse(Item.Spinner) && canDefeatLizalfos() && canDefeatDinalfos() && canDefeatDarknut() && canDefeatArmogohma() && canUse(Item.Temple_of_Time_Big_Key) && (getItemCount(Item.Temple_of_Time_Small_Key) >= 3));
         }
+
+        public static bool canCompleteCityinTheSky()
+        {
+            return ((getItemCount(Item.Progressive_Clawshot) >= 2) && canUse(Item.Spinner) && canDefeatKargarok() && canDefeatDinalfos() && (getItemCount(Item.City_in_The_Sky_Small_Key) >= 1) && canUse(Item.City_in_The_Sky_Big_Key) && canDefeatBabaSerpent() && canDefeatArgorok());
+        }
         public static bool canCompletePalaceofTwilight()
         {
             return ((getItemCount(Item.Palace_of_Twilight_Small_Key) >=7) && (getItemCount(Item.Progressive_Sword) >= 4) && canDefeatZantHead() && canDefeatShadowBeast() && (getItemCount(Item.Progressive_Clawshot) >= 2) && canDefeatPhantomZant() && canDefeatZant() && canUse(Item.Shadow_Crystal) && canUse(Item.Palace_of_Twilight_Big_Key));
+        }
+
+        public static bool canCompleteAllDungeons()
+        {
+            return(canCompleteForestTemple() && canCompleteGoronMines() && canCompleteLakebedTemple() && canCompleteArbitersGrounds() && canCompleteSnowpeakRuins() &&
+                    canCompleteTempleofTime() && canCompleteCityinTheSky() && canCompletePalaceofTwilight());
+        }
+
+        public static bool randomDungeonsCompleted()
+        {
+            //This is placeholder until I figure out how I want to do random dungeons. may remove it completely. Idk yet.
+            return true;
         }
 
         public static int getItemCount(Item itemToBeCounted)

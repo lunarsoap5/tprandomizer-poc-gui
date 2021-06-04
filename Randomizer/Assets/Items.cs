@@ -279,6 +279,7 @@ namespace TPRandomizer
 		public List<Item> ItemPool = new List<Item>(); //The list of Items that have yet to be randomized.
 		public List<Item> heldItems = new List<Item>(); //The list of items that the player currently has. This is to be used when emulating the playthrough.
 
+		public List<Item> ShuffledDungeonRewards = new List<Item>();
 		public List<Item> VanillaDungeonRewards = new List<Item>()
 		{
 			Item.Progressive_Fused_Shadow,
@@ -623,7 +624,7 @@ namespace TPRandomizer
                 }
             }
 
-
+			ShuffledDungeonRewards.AddRange(VanillaDungeonRewards);
 			RandomizedImportantItems.AddRange(ImportantItems);
 			ItemPool.AddRange(DungeonBigKeys);
 			ItemPool.AddRange(DungeonSmallKeys);
@@ -631,6 +632,7 @@ namespace TPRandomizer
 			ItemPool.AddRange(ImportantItems);
 			ItemPool.AddRange(alwaysItems);
 			ItemPool.AddRange(miscItems);
+			ItemPool.AddRange(VanillaDungeonRewards);
 
 			Singleton.getInstance().Items.ItemPool = ItemPool;
 			Singleton.getInstance().Items.ImportantItems = ImportantItems;

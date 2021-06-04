@@ -26,7 +26,6 @@ namespace TPRandomizer
             Checks.InitializeChecks();
             //Generate the dictionary that contains all of the rooms.
             Rooms.InitializeRooms();
-            Singleton.getInstance().Rooms.RoomDict = Rooms.RoomDict;
             //Read in the information from the .json files and place them into the classes defined in the dictionary.
             deserializeChecks();
             //Read in the information from the .json files and place them in to the classes defined in the dictionary.
@@ -119,7 +118,7 @@ namespace TPRandomizer
             placeExcludedChecks();
             
             //Dungeon rewards
-            placeItemsRestricted(startingRoom, Checks.dungeonRewardChecks, Singleton.getInstance().Items.VanillaDungeonRewards, Singleton.getInstance().Items.ItemPool); //starting room, list of checks to be randomized, items to be randomized, item pool.
+            placeItemsRestricted(startingRoom, Checks.dungeonRewardChecks, Singleton.getInstance().Items.ShuffledDungeonRewards, Singleton.getInstance().Items.ItemPool); //starting room, list of checks to be randomized, items to be randomized, item pool.
             
             //Next we want to replace items that are locked in their respective region
             placeRegionItems(startingRoom, Singleton.getInstance().Items.ItemPool, Singleton.getInstance().Items.RandomizedDungeonRegionItems);
@@ -190,7 +189,7 @@ namespace TPRandomizer
         }
       public List<string> listAllAvailableDungeonChecks(Room startingRoom, Item itemToPlace)
         {
-            Singleton.getInstance().Items.heldItems = Singleton.getInstance().Items.ItemPool;
+            Singleton.getInstance().Items.heldItems.AddRange(Singleton.getInstance().Items.ItemPool);
             resetAllChecksVisited();
             restart:
             resetAllRoomsVisited();
@@ -207,9 +206,9 @@ namespace TPRandomizer
                     //Parse the neighbour's requirements to find out if we can access it
                     var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
                     //If you can access the neighbour and it hasnt been visited yet.
-                    if ((((bool)areNeighbourRequirementsMet == true)) && (Singleton.getInstance().Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                    if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
                     {
-                        Room currentNeighbour = Singleton.getInstance().Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                        Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
                         currentNeighbour.visited = true;
                         //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
                         roomsToExplore.Add(currentNeighbour);
@@ -346,7 +345,7 @@ namespace TPRandomizer
 
         public List<string> listAvailableRestrictedChecks(Room startingRoom, List<string> checksToBeRandomized, List<Item> currentItemPool)
         {
-            Singleton.getInstance().Items.heldItems = currentItemPool;
+            Singleton.getInstance().Items.heldItems.AddRange(currentItemPool);
             resetAllChecksVisited();
             restart:
             resetAllRoomsVisited();
@@ -363,11 +362,11 @@ namespace TPRandomizer
                     //Parse the neighbour's requirements to find out if we can access it
                     var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
                     //If you can access the neighbour and it hasnt been visited yet.
-                    if ((((bool)areNeighbourRequirementsMet == true)) && (Singleton.getInstance().Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                    if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
                     {
-                        Room currentNeighbour = Singleton.getInstance().Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                        Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
                         currentNeighbour.visited = true;
-                        //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                        Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
                         roomsToExplore.Add(currentNeighbour);
                     }
                 }
@@ -414,7 +413,7 @@ namespace TPRandomizer
         
         public List<string> listAllAvailableChecks(Room startingRoom, Item itemToPlace)
         {
-            Singleton.getInstance().Items.heldItems = Singleton.getInstance().Items.ItemPool;
+            Singleton.getInstance().Items.heldItems.AddRange(Singleton.getInstance().Items.ItemPool);
             resetAllChecksVisited();
             restart:
             resetAllRoomsVisited();
@@ -433,9 +432,9 @@ namespace TPRandomizer
                     //Parse the neighbour's requirements to find out if we can access it
                     var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
                     //If you can access the neighbour and it hasnt been visited yet.
-                    if ((((bool)areNeighbourRequirementsMet == true)) && (Singleton.getInstance().Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                    if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
                     {
-                        Room currentNeighbour = Singleton.getInstance().Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                        Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
                         currentNeighbour.visited = true;
                         //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
                         roomsToExplore.Add(currentNeighbour);
@@ -609,9 +608,9 @@ namespace TPRandomizer
                             //Parse the neighbour's requirements to find out if we can access it
                             var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
                             //If you can access the neighbour and it hasnt been visited yet.
-                            if ((((bool)areNeighbourRequirementsMet == true)) && (Singleton.getInstance().Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                            if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
                             {
-                                Room currentNeighbour = Singleton.getInstance().Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                                Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
                                 currentNeighbour.visited = true;
                                 Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
                                 roomsToExplore.Add(currentNeighbour);
