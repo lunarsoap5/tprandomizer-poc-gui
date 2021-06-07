@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 //Settings string based on code by DigShake https://bitbucket.org/digshake/z2randomizer/src/master/WindowsFormsApplication1/Form1.cs
 
@@ -20,9 +21,8 @@ namespace TPRandomizer
     public partial class Form1 : Form
     {
         Randomizer randomizer = new Randomizer();
+        GuiSetting settings = new GuiSetting();
         bool dontrunhandler;
-        private readonly String flags = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz1234567890!@#$";
-        private String oldFlags;
 
         public Form1()
         {
@@ -49,7 +49,6 @@ namespace TPRandomizer
             quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             skipIntroCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            randoProgressBar.Maximum = 100;
 
             foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
             {
@@ -69,102 +68,38 @@ namespace TPRandomizer
         {
             if (!dontrunhandler)
             {
-                String flagStr = "";
-                BitArray v = new BitArray(6);
-                int[] array = new int[1];
+                try
+                {
+                    settings.logicRules = logicRulesBox.Text;
+                    settings.castleRequirements = castleLogicComboBox.Text;
+                    settings.palaceRequirements = palaceLogicComboBox.Text;
+                    settings.faronWoodsLogic = faronWoodsLogicComboBox.Text;
+                    settings.mdhSkipped = mdhCheckBox.Checked;
+                    settings.smallKeySettings = smallKeyShuffleComboBox.Text;
+                    settings.bossKeySettings = bossKeyShuffleComboBox.Text;
+                    settings.mapAndCompassSettings = mapsAndCompassesComboBox.Text;
+                    settings.goldenBugsShuffled = goldenBugsCheckBox.Checked;
+                    settings.npcItemsShuffled = giftFromNPCsCheckBox.Checked;
+                    settings.treasureChestsShuffled = treasureChestCheckBox.Checked;
+                    settings.shopItemsShuffled = shopItemsCheckBox.Checked;
+                    settings.faronTwilightCleared = faronTwilightClearedCheckBox.Checked;
+                    settings.eldinTwilightCleared = eldinTwilightClearedCheckBox.Checked;
+                    settings.lanayruTwilightCleared = lanayruTwilightClearedCheckBox.Checked;
+                    settings.skipMinorCutscenes = skipMinorCutscenesCheckBox.Checked;
+                    settings.skipMasterSwordPuzzle = skipMasterSwordPuzzleCheckBox.Checked;
+                    settings.fastIronBoots = fastIronBootsCheckBox.Checked;
+                    settings.quickTransform = quickTransformCheckBox.Checked;
+                    settings.transformAnywhere = transformAnywhereCheckBox.Checked;
+                    settings.introSkipped = skipIntroCheckBox.Checked;
+                    settings.iceTrapSettings = foolishItemsComboBox.Text;
+                    settings.StartingItems = startingItemsListBox.Items.OfType<string>().ToList();
+                    settings.ExcludedChecks = excludedChecksListBox.Items.OfType<string>().ToList();
+                }
+                catch (NullReferenceException ex)
+                {
 
-                BitArray w = new BitArray(new int[] { logicRulesBox.SelectedIndex });
-                v[0] = w[0];
-                v[1] = w[1];
-                v[2] = w[2];
-                w = new BitArray(new int[] { castleLogicComboBox.SelectedIndex });
-                v[3] = w[0];
-                v[4] = w[1];
-                v[5] = w[2];
+                }
 
-                v.CopyTo(array, 0);
-                flagStr = flagStr + flags[array[0]];
-                v[0] = w[3];
-                v[1] = w[4];
-                v[2] = w[5];
-                w = new BitArray(new int[] { palaceLogicComboBox.SelectedIndex });
-                v[3] = w[0];
-                v[4] = w[1];
-                v[5] = w[2];
-
-                v.CopyTo(array, 0);
-                flagStr = flagStr + flags[array[0]];
-
-                v[0] = w[3];
-                w = new BitArray(new int[] { faronWoodsLogicComboBox.SelectedIndex });
-                v[1] = w[0];
-                v[2] = w[1];
-                v[3] = mdhCheckBox.Checked;
-                w = new BitArray(new int[] { smallKeyShuffleComboBox.SelectedIndex });
-                v[4] = w[0];
-                v[5] = w[1];
-
-                v.CopyTo(array, 0);
-                flagStr = flagStr + flags[array[0]];
-
-                v[0] = w[2];
-                v[1] = w[3];
-                v[2] = w[4];
-                v[3] = w[5];
-                w = new BitArray(new int[] { bossKeyShuffleComboBox.SelectedIndex });
-                v[4] = w[0];
-                v[5] = w[1];
-
-                v.CopyTo(array, 0);
-                flagStr = flagStr + flags[array[0]];
-                v[0] = w[2];
-                v[1] = w[3];
-                v[2] = w[4];
-                v[3] = w[5];
-                w = new BitArray(new int[] { mapsAndCompassesComboBox.SelectedIndex });
-                v[4] = w[0];
-                v[5] = w[1];
-                v.CopyTo(array, 0);
-                flagStr = flagStr + flags[array[0]];
-
-                v[0] = w[2];
-                v[1] = w[3];
-                v[2] = w[4];
-                v[3] = w[5];
-                v[4] = goldenBugsCheckBox.Checked;
-                v[5] = giftFromNPCsCheckBox.Checked;
-                v.CopyTo(array, 0);
-                flagStr = flagStr + flags[array[0]];
-
-                v[0] = treasureChestCheckBox.Checked;
-                v[1] = shopItemsCheckBox.Checked;
-                v[2] = faronTwilightClearedCheckBox.Checked;
-                v[3] = eldinTwilightClearedCheckBox.Checked;
-                v[4] = lanayruTwilightClearedCheckBox.Checked;
-                v[5] = skipMinorCutscenesCheckBox.Checked;
-                v.CopyTo(array, 0);
-                flagStr = flagStr + flags[array[0]];
-
-                v[0] = skipMasterSwordPuzzleCheckBox.Checked;
-                v[1] = fastIronBootsCheckBox.Checked;
-                v[2] = quickTransformCheckBox.Checked;
-                v[3] = transformAnywhereCheckBox.Checked;
-                v[4] = skipIntroCheckBox.Checked;
-                w = new BitArray(new int[] { foolishItemsComboBox.SelectedIndex });
-                v[5] = w[0];
-                v.CopyTo(array, 0);
-                flagStr = flagStr + flags[array[0]];
-
-                v[0] = w[1];
-                v[1] = w[2];
-                v[2] = w[3];
-                v[3] = w[4];
-                v[4] = false;
-                v[5] = false;
-                v.CopyTo(array, 0);
-                flagStr = flagStr + flags[array[0]];
-
-                settingsStringTextBox.Text = BackendFunctions.Base64Encode(flagStr);
             }
         }
 
@@ -213,136 +148,21 @@ namespace TPRandomizer
 
         private void settingsStringTextBox_TextChanged(object sender, EventArgs e)
         {
-            dontrunhandler = true;
-            try
-            {
-                String flagText = BackendFunctions.Base64Decode(settingsStringTextBox.Text);
-
-                while (flagText.Length < 19)
-                {
-                    flagText += "A";
-                }
-
-                BitArray v = new BitArray(new int[] { flags.IndexOf(flagText[0]) });
-                int[] array = new int[1];
-
-                BitArray w = new BitArray(3);
-                w[0] = v[0];
-                w[1] = v[1];
-                w[2] = v[2];
-                w.CopyTo(array, 0);
-                logicRulesBox.SelectedIndex = array[0];
-                w = new BitArray(6);
-                w[0] = v[3];
-                w[1] = v[4];
-                w[2] = v[5];
-
-                v = new BitArray(new int[] { flags.IndexOf(flagText[1]) });
-                w[3] = v[0];
-                w[4] = v[1];
-                w[5] = v[2];
-                w.CopyTo(array, 0);
-                castleLogicComboBox.SelectedIndex = array[0];
-                w = new BitArray(4);
-                w[0] = v[3];
-                w[1] = v[4];
-                w[2] = v[5];
-
-                v = new BitArray(new int[] { flags.IndexOf(flagText[2]) });
-
-                w[3] = v[0];
-                w.CopyTo(array, 0);
-                palaceLogicComboBox.SelectedIndex = array[0];
-                w = new BitArray(2);
-                w[0] = v[1];
-                w[1] = v[2];
-                w.CopyTo(array, 0);
-                faronWoodsLogicComboBox.SelectedIndex = array[0];
-                mdhCheckBox.Checked = v[3];
-                w = new BitArray(6);
-                w[0] = v[4];
-                w[1] = v[5];
-
-                v = new BitArray(new int[] { flags.IndexOf(flagText[3]) });
-
-                w[2] = v[0];
-                w[3] = v[1];
-                w[4] = v[2];
-                w[5] = v[3];
-                w.CopyTo(array, 0);
-                smallKeyShuffleComboBox.SelectedIndex = array[0];
-                w = new BitArray(6);
-                w[0] = v[4];
-                w[1] = v[5];
-
-                v = new BitArray(new int[] { flags.IndexOf(flagText[4]) });
-
-                w[2] = v[0];
-                w[3] = v[1];
-                w[4] = v[2];
-                w[5] = v[3];
-                w.CopyTo(array, 0);
-                bossKeyShuffleComboBox.SelectedIndex = array[0];
-                w = new BitArray(6);
-                w[0] = v[4];
-                w[1] = v[5];
-
-                v = new BitArray(new int[] { flags.IndexOf(flagText[5]) });
-
-                w[2] = v[0];
-                w[3] = v[1];
-                w[4] = v[2];
-                w[5] = v[3];
-                w.CopyTo(array, 0);
-                mapsAndCompassesComboBox.SelectedIndex = array[0];
-                goldenBugsCheckBox.Checked = v[4];
-                giftFromNPCsCheckBox.Checked = v[5];
-
-                v = new BitArray(new int[] { flags.IndexOf(flagText[6]) });
-
-                treasureChestCheckBox.Checked = v[0];
-                shopItemsCheckBox.Checked = v[1];
-                faronTwilightClearedCheckBox.Checked = v[2];
-                eldinTwilightClearedCheckBox.Checked = v[3];
-                lanayruTwilightClearedCheckBox.Checked = v[4];
-                skipMinorCutscenesCheckBox.Checked = v[5];
-
-                v = new BitArray(new int[] { flags.IndexOf(flagText[7]) });
-
-                skipMasterSwordPuzzleCheckBox.Checked = v[0];
-                fastIronBootsCheckBox.Checked = v[1];
-                quickTransformCheckBox.Checked = v[2];
-                transformAnywhereCheckBox.Checked = v[3];
-                skipIntroCheckBox.Checked = v[4];
-                w = new BitArray(6);
-                w[0] = v[5];
-
-                v = new BitArray(new int[] { flags.IndexOf(flagText[8]) });
-
-                w[1] = v[0];
-                w[2] = v[1];
-                w[3] = v[2];
-                w[4] = v[3];
-                w.CopyTo(array, 0);
-                foolishItemsComboBox.SelectedIndex = array[0];
-
-                oldFlags = settingsStringTextBox.Text;
-
-
-
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Invalid flags entered!");
-            }
-            dontrunhandler = false;
+            
         }
 
         
 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            randomizer.start(settingsStringTextBox.Text);
+            // serialize JSON directly to a file
+            using (StreamWriter file = File.CreateText("SeedSettings.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, settings);
+            }
+            Singleton.getInstance().Checks.CheckDict.Clear();
+            randomizer.start();
             MessageBox.Show("Seed Generated! Check the folder for the randomizer gci and spoiler log!");
         }
 
@@ -376,11 +196,6 @@ namespace TPRandomizer
 
         }
 
-        public static void SetProgress(int progress)
-        {
-            randoProgressBar.Value = progress;
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -393,6 +208,23 @@ namespace TPRandomizer
                 "'Glitchless' does not require any glitches, tricks, etc. Recommended for beginners." + Environment.NewLine +
                 "'Glitched' assumes most glitches are in logic. Consult the Wiki for a complete list." + Environment.NewLine +
                 "'No Logic' generates a seed without using logic, meaning it may not be beatable.");
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void addItemToStartingItemsButton_Click(object sender, EventArgs e)
+        {
+            startingItemsListBox.Items.Add(itemPoolListBox.SelectedItem);
+            itemPoolListBox.Items.Remove(itemPoolListBox.SelectedItem);
+        }
+
+        private void removeItemFromStartingItemsButton_Click(object sender, EventArgs e)
+        {
+            itemPoolListBox.Items.Add(startingItemsListBox.SelectedItem);
+            startingItemsListBox.Items.Remove(startingItemsListBox.SelectedItem);
         }
     }
 }

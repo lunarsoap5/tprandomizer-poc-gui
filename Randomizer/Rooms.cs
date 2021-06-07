@@ -207,9 +207,10 @@ namespace TPRandomizer
 
          public bool isDungeonCheck(Item itemToPlace, Room currentRoom)
         {
+            RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
             if (Singleton.getInstance().Items.DungeonSmallKeys.Contains(itemToPlace))
             {
-                if (Singleton.getInstance().Logic.SettingsList[6, 1] == "Own_Dungeon")
+                if (parseSetting.smallKeySettings == "Own_Dungeon")
                 {
                     if (itemToPlace.ToString().Contains("Forest_Temple") && (currentRoom.region == "Forest Temple"))
                     {
@@ -248,7 +249,7 @@ namespace TPRandomizer
                         return true;
                     }
                 }
-                else if (Singleton.getInstance().Logic.SettingsList[6, 1] == "Any_Dungeon")
+                else if (parseSetting.smallKeySettings == "Any_Dungeon")
                 {
                     if ((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
                         (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
@@ -257,7 +258,7 @@ namespace TPRandomizer
                         return true;
                     }
                 }
-                else if (Singleton.getInstance().Logic.SettingsList[6, 1] == "Overworld")
+                else if (parseSetting.smallKeySettings == "Overworld")
                 {
                     if (!((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
                         (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
@@ -269,7 +270,7 @@ namespace TPRandomizer
             }
             else if (Singleton.getInstance().Items.DungeonBigKeys.Contains(itemToPlace))
             {
-                if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Own_Dungeon")
+                if (parseSetting.bossKeySettings == "Own_Dungeon")
                 {
                     if (itemToPlace.ToString().Contains("Forest_Temple") && (currentRoom.region == "Forest Temple"))
                     {
@@ -308,7 +309,7 @@ namespace TPRandomizer
                         return true;
                     }
                 }
-                else if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Any_Dungeon")
+                else if (parseSetting.bossKeySettings == "Any_Dungeon")
                 {
                     if ((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
                         (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
@@ -317,7 +318,7 @@ namespace TPRandomizer
                         return true;
                     }
                 }
-                else if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Overworld")
+                else if (parseSetting.bossKeySettings == "Overworld")
                 {
                     if (!((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
                         (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
@@ -329,7 +330,7 @@ namespace TPRandomizer
             }
             else if (Singleton.getInstance().Items.DungeonMapsAndCompasses.Contains(itemToPlace))
             {
-                if (Singleton.getInstance().Logic.SettingsList[8, 1] == "Own_Dungeon")
+                if (parseSetting.mapAndCompassSettings == "Own_Dungeon")
                 {
                     if (itemToPlace.ToString().Contains("Forest_Temple") && (currentRoom.region == "Forest Temple"))
                     {
@@ -368,7 +369,7 @@ namespace TPRandomizer
                         return true;
                     }
                 }
-                else if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Any_Dungeon")
+                else if (parseSetting.mapAndCompassSettings == "Any_Dungeon")
                 {
                     if ((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
                         (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||
@@ -377,7 +378,7 @@ namespace TPRandomizer
                         return true;
                     }
                 }
-                else if (Singleton.getInstance().Logic.SettingsList[7, 1] == "Overworld")
+                else if (parseSetting.mapAndCompassSettings == "Overworld")
                 {
                     if (!((currentRoom.region == "Forest Temple") || (currentRoom.region == "Goron Mines") || (currentRoom.region == "Lakebed Temple") ||
                         (currentRoom.region == "Arbiters Grounds") || (currentRoom.region == "Snowpeak Ruins") || (currentRoom.region == "Temple of Time") ||

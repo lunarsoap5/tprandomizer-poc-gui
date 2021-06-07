@@ -464,6 +464,7 @@ namespace TPRandomizer
 
 		public void generateItemPool()
 		{
+			RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
 			alwaysItems.Clear();
 			vanillaJunkItems.Clear();
 			RandomizedDungeonRegionItems.Clear();
@@ -487,50 +488,18 @@ namespace TPRandomizer
 			
 			
 
-			switch (Singleton.getInstance().Logic.SettingsList[6, 1]) //Small Key Settings
+			if (parseSetting.smallKeySettings == "Keysanity")
             {
-				case ("Vanilla"):
-				{
-					foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
-					{
-						Check currentCheck = check.Value;
-						if (currentCheck.category.Contains("Small Key"))
-						{
-							Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
-						}
-					}
-					break;
-				}
-				case ("Keysanity"):
-				{
 					RandomizedImportantItems.AddRange(DungeonSmallKeys);
-					break;
-				}
-				case ("Keysey"):
-				{
-					break;
-				}
-				default:
-				{
+			}
+			else if ((parseSetting.smallKeySettings == "Own Dungeon") || parseSetting.smallKeySettings == "Any Dungeon")
+			{
 					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
-					break;
-				}
 			}
 
-			switch (Singleton.getInstance().Logic.SettingsList[7, 1]) //Big Key Settings
+			switch (parseSetting.bossKeySettings) 
 			{
-				case ("Vanilla"):
-					{
-						foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
-						{
-							Check currentCheck = check.Value;
-							if (currentCheck.category.Contains("Big Key"))
-							{
-								Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
-							}
-						}
-						break;
-					}
+				
 				case ("Keysanity"):
 				{
 					RandomizedImportantItems.AddRange(DungeonBigKeys);
@@ -547,20 +516,8 @@ namespace TPRandomizer
 				}
 			}
 
-			switch (Singleton.getInstance().Logic.SettingsList[8, 1]) //Map and Compass Settings
+			switch (parseSetting.mapAndCompassSettings) 
 			{
-				case ("Vanilla"):
-					{
-						foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
-						{
-							Check currentCheck = check.Value;
-							if (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass"))
-							{
-								Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
-							}
-						}
-						break;
-					}
 				case ("Anywhere"):
 				{
 					RandomizedImportantItems.AddRange(DungeonMapsAndCompasses);
@@ -595,7 +552,7 @@ namespace TPRandomizer
 
 			//Modifying Item Pool based on ice trap settings
 			//If we have Ice Trap Mayhem or Nightmare, extra junk items are replaced with Foolish Items
-			if ((Singleton.getInstance().Logic.SettingsList[21, 1] == "Mayhem") || (Singleton.getInstance().Logic.SettingsList[21, 1] == "Nighmare"))
+			if ((parseSetting.iceTrapSettings == "Mayhem") || (parseSetting.iceTrapSettings == "Nighmare"))
 			{
 				miscItems.Add(Item.Foolish_Item);
 			}
@@ -616,7 +573,7 @@ namespace TPRandomizer
 				miscItems.Add(Item.Bomblings_10);
 			}
 			//If we have Ice Trap Nightmare, all junk items are replaced, even the vanilla ones.
-			if (Singleton.getInstance().Logic.SettingsList[21, 1] == "Nighmare")
+			if (parseSetting.iceTrapSettings == "Nightmare")
             {
 				for(int i = 0; i < vanillaJunkItems.Count() -1; i++)
                 {
@@ -624,8 +581,7 @@ namespace TPRandomizer
                 }
             }
 
-			ShuffledDungeonRewards.AddRange(VanillaDungeonRewards);
-			RandomizedImportantItems.AddRange(ImportantItems);
+			
 			ItemPool.AddRange(DungeonBigKeys);
 			ItemPool.AddRange(DungeonSmallKeys);
 			ItemPool.AddRange(DungeonMapsAndCompasses);
@@ -634,8 +590,9 @@ namespace TPRandomizer
 			ItemPool.AddRange(miscItems);
 			ItemPool.AddRange(VanillaDungeonRewards);
 
+			Singleton.getInstance().Items.ShuffledDungeonRewards = VanillaDungeonRewards;
+			Singleton.getInstance().Items.RandomizedImportantItems = ImportantItems;
 			Singleton.getInstance().Items.ItemPool = ItemPool;
-			Singleton.getInstance().Items.ImportantItems = ImportantItems;
 			Singleton.getInstance().Items.RandomizedDungeonRegionItems = RandomizedDungeonRegionItems;
 			Singleton.getInstance().Items.alwaysItems = alwaysItems;
 			Singleton.getInstance().Items.miscItems = miscItems;

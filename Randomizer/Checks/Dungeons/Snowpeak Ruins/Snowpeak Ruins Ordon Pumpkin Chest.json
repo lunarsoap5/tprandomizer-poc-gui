@@ -3,7 +3,7 @@
     "requirements": "canDefeatChilfos",
     "hash": "F5CA",
     "isExcluded": false,
-    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Dungeon Items", "Ordon Pumpkin"],
+    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Dungeon Items", "Ordon Pumpkin", "Small Key"],
     "itemId": "Ordon_Pumpkin",
     "itemWasPlaced": false
 }

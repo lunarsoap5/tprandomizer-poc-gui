@@ -7,56 +7,6 @@ namespace TPRandomizer
     {
 		public int fusedShadowCount = 0;
 		public int mirrorShardCount = 0;
-        public string logicRules;
-        public string castleRequirements;
-        public string palaceRequirements;
-        public string faronWoodsLogic;
-        public string mdhSkipped;
-        public string introSkipped;
-        public string smallKeySettings;
-        public string bossKeySettings;
-        public string mapAndCompassSettings;
-        public string goldenBugsShuffled;
-        public string treasureChestsShuffled;
-        public string npcItemsShuffled;
-        public string shopItemsShuffled;
-        public string faronTwilightCleared;
-        public string eldinTwilightCleared;
-        public string lanayruTwilightCleared;
-        public string skipMinorCutscenes;
-        public string skipMasterSwordPuzzle;
-        public string fastIronBoots;
-        public string quickTransform;
-        public string transformAnywhere;
-        public string iceTrapSettings;
-
-        public string[,] SettingsList = new string[,]
-        {
-            { "logicRules", null },
-            { "castleRequirements", null },
-            { "palaceRequirements", null },
-            { "faronWoodsLogic", null },
-            { "mdhSkipped", null },
-            { "introSkipped", null },
-            { "smallKeySettings", null },
-            { "bossKeySettings", null },
-            { "mapAndCompassSettings", null },
-            { "goldenBugsShuffled", null },
-            { "npcItemsShuffled", null },
-            { "treasureChestsShuffled", null },
-            { "shopItemsShuffled", null },
-            { "faronTwilightCleared", null },
-            { "eldinTwilightCleared", null },
-            { "lanayruTwilightCleared", null },
-            { "skipMinorCutscenes", null },
-            { "skipMasterSwordPuzzle", null },
-            { "fastIronBoots", null },
-            { "quickTransform", null },
-            { "transformAnywhere", null },
-            { "foolishItemSettings", null}
-        };
-
-
 
 		public bool mdhComplete;
 
@@ -65,13 +15,52 @@ namespace TPRandomizer
         //Evaluate the tokenized settings to their respective values that are set by the settings string.
         public static bool evaluateSetting(string setting, string value)
         {
+            RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
             setting = setting.Replace("Setting.", "");
             bool isEqual = false;
-            
-            for (int i = 0; i < Singleton.getInstance().Logic.SettingsList.GetLength(0); i++)
+            switch(setting)
             {
-                if ((setting == Singleton.getInstance().Logic.SettingsList[i, 0]) && (value == Singleton.getInstance().Logic.SettingsList[i, 1]))
-                    isEqual = true;
+                //These are the only settings that affect logic currently
+                case("castleRequirements"):
+                {
+                    if (value == parseSetting.castleRequirements)
+                    {
+                        isEqual = true;
+                    }
+                    break;
+                }
+                case("palaceRequirements"):
+                {
+                    if (value == parseSetting.palaceRequirements)
+                    {
+                        isEqual = true;
+                    }
+                    break;
+                }
+                case("faronWoodsLogic"):
+                {
+                    if (value == parseSetting.faronWoodsLogic)
+                    {
+                        isEqual = true;
+                    }
+                    break;
+                }
+                case("mdhSkipped"):
+                {
+                    if (value == parseSetting.mdhSkipped.ToString())
+                    {
+                        isEqual = true;
+                    }
+                    break;
+                }
+                case("introSkipped"):
+                {
+                    if (value == parseSetting.introSkipped.ToString())
+                    {
+                        isEqual = true;
+                    }
+                    break;
+                }
             }
             return isEqual;
         }

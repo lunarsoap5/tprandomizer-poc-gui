@@ -2,7 +2,7 @@
     "checkName": "Hyrule Castle King Bublin Key",
     "requirements": "canDefeatKingBublinCastle",
     "isExcluded": false,
-    "category": ["Chest"],
+    "category": ["Chest", "Small Key"],
     "itemId": "Hyrule_Castle_Small_Key",
     "itemWasPlaced": false
 }

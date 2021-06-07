@@ -9,6 +9,7 @@ namespace TPRandomizer
         public RoomFunctions Rooms = new RoomFunctions();
 
         public LogicFunctions Logic = new LogicFunctions();
+        public RandomizerSetting RandoSetting = new RandomizerSetting();
 
         private static Singleton instance;
         

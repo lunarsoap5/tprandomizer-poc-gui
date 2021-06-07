@@ -390,7 +390,8 @@ namespace TPRandomizer
             CheckDict.Add("Ganondorf Defeated", new Check());
         }
 
-        public List<string> vanillaChecks = new List<string>()
+        public List<string> vanillaChecks = new List<string>();
+        public List<string> nonRandomizedChecks = new List<string>()
         {
             "Agitha First Bug Pair Reward",
             "Agitha Second Bug Pair Reward",
@@ -428,6 +429,49 @@ namespace TPRandomizer
             "City in The Sky Argorok Heart Container",
             "Palace of Twilight Zant Heart Container"
         };
-    } 
+
+        public void generateCheckList()
+        {
+            Singleton.getInstance().Checks.vanillaChecks.Clear();
+            Singleton.getInstance().Checks.vanillaChecks.AddRange(nonRandomizedChecks);
+
+            RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
+            if (parseSetting.smallKeySettings == "Vanilla")
+            {
+                foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+                {
+                    Check currentCheck = check.Value;
+                    if (currentCheck.category.Contains("Small Key"))
+                    {
+                        Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
+                    }
+                }
+            }
+
+            if ( parseSetting.bossKeySettings == "Vanilla")
+            {
+                foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+                {
+                    Check currentCheck = check.Value;
+                    if (currentCheck.category.Contains("Big Key"))
+                    {
+                        Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
+                    }
+                }
+            }
+
+            if (parseSetting.mapAndCompassSettings == "Vanilla")
+            {
+                foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+                {
+                    Check currentCheck = check.Value;
+                    if (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass"))
+                    {
+                        Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
+                    }
+                }
+            }
+        } 
+    }
 
 }

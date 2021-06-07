@@ -31,6 +31,7 @@ namespace TPRandomizer
         public void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.optionsMenu = new System.Windows.Forms.TabControl();
             this.randomizationSettingsTabPage = new System.Windows.Forms.TabPage();
             this.randomizationSettingsBox = new System.Windows.Forms.GroupBox();
@@ -93,15 +94,23 @@ namespace TPRandomizer
             this.fastIronBootsCheckBox = new System.Windows.Forms.CheckBox();
             this.tunicColorLabel = new System.Windows.Forms.Label();
             this.generateButton = new System.Windows.Forms.Button();
-            this.settingsStringTextBox = new System.Windows.Forms.TextBox();
-            this.settingsStringLabel = new System.Windows.Forms.Label();
             this.generateSpoilerLogCheckBox = new System.Windows.Forms.CheckBox();
             this.settingPresetsLabel = new System.Windows.Forms.Label();
             this.settingsPresetsComboBox = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.outputTextBox = new System.Windows.Forms.TextBox();
             this.logicTooltip = new System.Windows.Forms.ToolTip(this.components);
-            Form1.randoProgressBar = new System.Windows.Forms.ProgressBar();
+            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WikiMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -115,6 +124,7 @@ namespace TPRandomizer
             this.excludedChecksTabPage.SuspendLayout();
             this.inventoryTabPage.SuspendLayout();
             this.cosmeticsTabPage.SuspendLayout();
+            this.MainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // optionsMenu
@@ -124,7 +134,7 @@ namespace TPRandomizer
             this.optionsMenu.Controls.Add(this.excludedChecksTabPage);
             this.optionsMenu.Controls.Add(this.inventoryTabPage);
             this.optionsMenu.Controls.Add(this.cosmeticsTabPage);
-            this.optionsMenu.Location = new System.Drawing.Point(10, 9);
+            this.optionsMenu.Location = new System.Drawing.Point(10, 32);
             this.optionsMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.optionsMenu.Name = "optionsMenu";
             this.optionsMenu.SelectedIndex = 0;
@@ -424,9 +434,9 @@ namespace TPRandomizer
             this.palaceLogicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.palaceLogicComboBox.FormattingEnabled = true;
             this.palaceLogicComboBox.Items.AddRange(new object[] {
-            "Open (Mirror is Assembled)",
-            "All Fused Shadows",
-            "All Mirror Shards",
+            "Open",
+            "Fused Shadows",
+            "Mirror Shards",
             "Vanilla"});
             this.palaceLogicComboBox.Location = new System.Drawing.Point(184, 49);
             this.palaceLogicComboBox.Name = "palaceLogicComboBox";
@@ -456,9 +466,9 @@ namespace TPRandomizer
             this.castleLogicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.castleLogicComboBox.FormattingEnabled = true;
             this.castleLogicComboBox.Items.AddRange(new object[] {
-            "Open (Barrier is removed)",
-            "All Fused Shadows",
-            "All Mirror Shards",
+            "Open",
+            "Fused Shadows",
+            "Mirror Shards",
             "All Dungeons",
             "Random Dungeons",
             "Vanilla"});
@@ -659,6 +669,7 @@ namespace TPRandomizer
             this.removeItemFromStartingItemsButton.TabIndex = 5;
             this.removeItemFromStartingItemsButton.Text = "<";
             this.removeItemFromStartingItemsButton.UseVisualStyleBackColor = true;
+            this.removeItemFromStartingItemsButton.Click += new System.EventHandler(this.removeItemFromStartingItemsButton_Click);
             // 
             // addItemToStartingItemsButton
             // 
@@ -668,6 +679,7 @@ namespace TPRandomizer
             this.addItemToStartingItemsButton.TabIndex = 4;
             this.addItemToStartingItemsButton.Text = ">";
             this.addItemToStartingItemsButton.UseVisualStyleBackColor = true;
+            this.addItemToStartingItemsButton.Click += new System.EventHandler(this.addItemToStartingItemsButton_Click);
             // 
             // startingItemsLabel
             // 
@@ -824,7 +836,7 @@ namespace TPRandomizer
             // 
             // generateButton
             // 
-            this.generateButton.Location = new System.Drawing.Point(308, 497);
+            this.generateButton.Location = new System.Drawing.Point(308, 463);
             this.generateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.generateButton.Name = "generateButton";
             this.generateButton.Size = new System.Drawing.Size(82, 22);
@@ -833,29 +845,10 @@ namespace TPRandomizer
             this.generateButton.UseVisualStyleBackColor = true;
             this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
-            // settingsStringTextBox
-            // 
-            this.settingsStringTextBox.Location = new System.Drawing.Point(100, 430);
-            this.settingsStringTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.settingsStringTextBox.Name = "settingsStringTextBox";
-            this.settingsStringTextBox.Size = new System.Drawing.Size(576, 23);
-            this.settingsStringTextBox.TabIndex = 3;
-            this.settingsStringTextBox.TextChanged += new System.EventHandler(this.settingsStringTextBox_TextChanged);
-            // 
-            // settingsStringLabel
-            // 
-            this.settingsStringLabel.AutoSize = true;
-            this.settingsStringLabel.Location = new System.Drawing.Point(10, 433);
-            this.settingsStringLabel.Name = "settingsStringLabel";
-            this.settingsStringLabel.Size = new System.Drawing.Size(86, 15);
-            this.settingsStringLabel.TabIndex = 4;
-            this.settingsStringLabel.Text = "Settings String:";
-            this.settingsStringLabel.Click += new System.EventHandler(this.label1_Click);
-            // 
             // generateSpoilerLogCheckBox
             // 
             this.generateSpoilerLogCheckBox.AutoSize = true;
-            this.generateSpoilerLogCheckBox.Location = new System.Drawing.Point(10, 407);
+            this.generateSpoilerLogCheckBox.Location = new System.Drawing.Point(10, 423);
             this.generateSpoilerLogCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.generateSpoilerLogCheckBox.Name = "generateSpoilerLogCheckBox";
             this.generateSpoilerLogCheckBox.Size = new System.Drawing.Size(135, 19);
@@ -866,7 +859,7 @@ namespace TPRandomizer
             // settingPresetsLabel
             // 
             this.settingPresetsLabel.AutoSize = true;
-            this.settingPresetsLabel.Location = new System.Drawing.Point(14, 372);
+            this.settingPresetsLabel.Location = new System.Drawing.Point(10, 398);
             this.settingPresetsLabel.Name = "settingPresetsLabel";
             this.settingPresetsLabel.Size = new System.Drawing.Size(92, 15);
             this.settingPresetsLabel.TabIndex = 6;
@@ -881,7 +874,7 @@ namespace TPRandomizer
             "Beginner",
             "Experienced",
             "Insanity (Cheese Logic)"});
-            this.settingsPresetsComboBox.Location = new System.Drawing.Point(112, 369);
+            this.settingsPresetsComboBox.Location = new System.Drawing.Point(104, 395);
             this.settingsPresetsComboBox.Name = "settingsPresetsComboBox";
             this.settingsPresetsComboBox.Size = new System.Drawing.Size(121, 23);
             this.settingsPresetsComboBox.TabIndex = 7;
@@ -896,34 +889,110 @@ namespace TPRandomizer
             // 
             // outputTextBox
             // 
-            this.outputTextBox.Location = new System.Drawing.Point(6, 570);
+            this.outputTextBox.Location = new System.Drawing.Point(6, 500);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
-            this.outputTextBox.Size = new System.Drawing.Size(679, 86);
+            this.outputTextBox.Size = new System.Drawing.Size(679, 156);
             this.outputTextBox.TabIndex = 9;
             // 
-            // randoProgressBar
+            // MainMenuStrip
             // 
-            Form1.randoProgressBar.Location = new System.Drawing.Point(14, 541);
-            Form1.randoProgressBar.Name = "randoProgressBar";
-            Form1.randoProgressBar.Size = new System.Drawing.Size(671, 23);
-            Form1.randoProgressBar.TabIndex = 6;
+            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MainMenuStrip.Name = "MainMenuStrip";
+            this.MainMenuStrip.Size = new System.Drawing.Size(700, 24);
+            this.MainMenuStrip.TabIndex = 10;
+            this.MainMenuStrip.Text = "menuStrip1";
+            this.MainMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.toolStripSeparator,
+            this.saveToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
+            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.openToolStripMenuItem.Text = "&Open Settings File..";
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(215, 6);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
+            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.saveToolStripMenuItem.Text = "&Save Settings File..";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(215, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.WikiMenuItem,
+            this.toolStripSeparator5,
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // WikiMenuItem
+            // 
+            this.WikiMenuItem.Name = "WikiMenuItem";
+            this.WikiMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.WikiMenuItem.Text = "&Wiki";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(113, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 658);
-            this.Controls.Add(Form1.randoProgressBar);
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.settingsPresetsComboBox);
             this.Controls.Add(this.settingPresetsLabel);
             this.Controls.Add(this.generateSpoilerLogCheckBox);
-            this.Controls.Add(this.settingsStringLabel);
-            this.Controls.Add(this.settingsStringTextBox);
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.optionsMenu);
+            this.Controls.Add(this.MainMenuStrip);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Twilight Princess Randomizer - Version 1.0";
@@ -950,6 +1019,8 @@ namespace TPRandomizer
             this.inventoryTabPage.PerformLayout();
             this.cosmeticsTabPage.ResumeLayout(false);
             this.cosmeticsTabPage.PerformLayout();
+            this.MainMenuStrip.ResumeLayout(false);
+            this.MainMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -961,7 +1032,6 @@ namespace TPRandomizer
         private System.Windows.Forms.TabPage gameplaySettingsTabPage;
         private System.Windows.Forms.Button generateButton;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label settingsStringLabel;
         private System.Windows.Forms.TabPage excludedChecksTabPage;
         private System.Windows.Forms.TabPage inventoryTabPage;
         private System.Windows.Forms.GroupBox clearedTwilightsGroupBox;
@@ -1016,7 +1086,6 @@ namespace TPRandomizer
         private System.Windows.Forms.Label smallKeyShuffleLabel;
         private System.Windows.Forms.ComboBox smallKeyShuffleComboBox;
         private System.Windows.Forms.Label bossKeyShuffleLabel;
-        private System.Windows.Forms.TextBox settingsStringTextBox;
         private System.Windows.Forms.CheckBox skipMinorCutscenesCheckBox;
         public System.Windows.Forms.TextBox outputTextBox;
         private System.Windows.Forms.CheckBox skipIntroCheckBox;
@@ -1031,7 +1100,17 @@ namespace TPRandomizer
         private System.Windows.Forms.ComboBox foolishItemsComboBox;
         private System.Windows.Forms.Label foolishItemsLabel;
         private System.Windows.Forms.ToolTip logicTooltip;
-        private static System.Windows.Forms.ProgressBar randoProgressBar;
+        private System.Windows.Forms.MenuStrip MainMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WikiMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

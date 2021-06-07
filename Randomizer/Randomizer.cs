@@ -16,28 +16,25 @@ namespace TPRandomizer
     {
         LogicFunctions Logic = new LogicFunctions();
         RoomFunctions Rooms = new RoomFunctions();
-        CheckFunctions Checks = new CheckFunctions();
-        public void start(string SettingsString)
+        public void start()
         {
             //Read in the settings string and set the settings values accordingly
-            BackendFunctions.interpretSettingsString(SettingsString);
+            BackendFunctions.interpretSettingsString();
         begin:
             //Generate the dictionary that contains all of the checks.
-            Checks.InitializeChecks();
+            Singleton.getInstance().Checks.InitializeChecks();
             //Generate the dictionary that contains all of the rooms.
             Rooms.InitializeRooms();
             //Read in the information from the .json files and place them into the classes defined in the dictionary.
             deserializeChecks();
             //Read in the information from the .json files and place them in to the classes defined in the dictionary.
             deserializeRooms();
-            Form1.SetProgress(40);
 
+            Singleton.getInstance().Checks.generateCheckList();
             //Generate the item pool based on user settings/input.           
             Singleton.getInstance().Items.generateItemPool();
-            Form1.SetProgress(50);
             //Generate the world based on the room class values and their neighbour values. If we want to randomize entrances, we would do it before this step.
             Room startingRoom = setupGraph();
-            Form1.SetProgress(60);
             try 
             {
             //Place the items in the world based on the starting room.
@@ -51,9 +48,7 @@ namespace TPRandomizer
                 startOver();
                 goto begin;
             }
-            Form1.SetProgress(90);
-            generateSpoilerLog(startingRoom, SettingsString);
-            Form1.SetProgress(100);
+            generateSpoilerLog(startingRoom);
         }
 
         
@@ -85,18 +80,18 @@ namespace TPRandomizer
 
         public void resetAllChecksVisited()
         {
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
                 currentCheck.hasBeenReached = false;
-                Checks.CheckDict[currentCheck.checkName] = currentCheck;
+                Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
             }
             return;
         }
 
         public void resetAllChecks()
         {
-            Checks.CheckDict.Clear();
+            Singleton.getInstance().Checks.CheckDict.Clear();
             return;
         }
 
@@ -112,13 +107,13 @@ namespace TPRandomizer
         void placeItemsInWorld(Room startingRoom)
         {
             //Any vanilla checks will be placed first for the sake of logic. Even if they aren't available to be randomized in the game yet, we may need to logically account for their placement.
-            placeVanillaChecks (Singleton.getInstance().Items.ItemPool, Checks.vanillaChecks);
+            placeVanillaChecks (Singleton.getInstance().Items.ItemPool, Singleton.getInstance().Checks.vanillaChecks);
             
             //Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.)
             placeExcludedChecks();
             
             //Dungeon rewards
-            placeItemsRestricted(startingRoom, Checks.dungeonRewardChecks, Singleton.getInstance().Items.ShuffledDungeonRewards, Singleton.getInstance().Items.ItemPool); //starting room, list of checks to be randomized, items to be randomized, item pool.
+            placeItemsRestricted(startingRoom, Singleton.getInstance().Checks.dungeonRewardChecks, Singleton.getInstance().Items.ShuffledDungeonRewards, Singleton.getInstance().Items.ItemPool); //starting room, list of checks to be randomized, items to be randomized, item pool.
             
             //Next we want to replace items that are locked in their respective region
             placeRegionItems(startingRoom, Singleton.getInstance().Items.ItemPool, Singleton.getInstance().Items.RandomizedDungeonRegionItems);
@@ -143,7 +138,7 @@ namespace TPRandomizer
             
             foreach (var check in vanillaChecks)
             {
-                checkToReciveItem = Checks.CheckDict[check];
+                checkToReciveItem = Singleton.getInstance().Checks.CheckDict[check];
                 itemToPlace = checkToReciveItem.itemId;
                 heldItems.Remove(itemToPlace);
                 placeItemInCheck(itemToPlace, checkToReciveItem);
@@ -154,7 +149,7 @@ namespace TPRandomizer
         void placeExcludedChecks()
         {
             Random rnd = new Random();
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
                 if (!currentCheck.itemWasPlaced && currentCheck.isExcluded)
@@ -179,7 +174,7 @@ namespace TPRandomizer
                 heldItems.Remove(itemToPlace);
                 ItemsToBeRandomized.Remove(itemToPlace);
                 availableChecks = listAllAvailableDungeonChecks(startingRoom, itemToPlace);
-                checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
+                checkToReciveItem = Singleton.getInstance().Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
                 
                 placeItemInCheck(itemToPlace,checkToReciveItem);
 
@@ -218,7 +213,7 @@ namespace TPRandomizer
                 {
                     //Create reference to the dictionary entry of the check whose logic we are evaluating
                     Check currentCheck;
-                    if (!Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                    if (!Singleton.getInstance().Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
                     {
                         if (roomsToExplore[0].checks[i].ToString() == "")
                         {
@@ -273,7 +268,7 @@ namespace TPRandomizer
                     ItemsToBeRandomized.Remove(itemToPlace);
                     availableChecks = listAvailableRestrictedChecks(startingRoom, checksToBeRandomized, currentItemPool);
                     
-                    checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
+                    checkToReciveItem = Singleton.getInstance().Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
                     placeItemInCheck(itemToPlace,checkToReciveItem);
 
                     availableChecks.Clear();
@@ -297,7 +292,7 @@ namespace TPRandomizer
                     ItemsToBeRandomized.Remove(itemToPlace);
                     availableChecks = listAllAvailableChecks(startingRoom, itemToPlace);
                     
-                    checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
+                    checkToReciveItem = Singleton.getInstance().Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
                     placeItemInCheck(itemToPlace,checkToReciveItem);
 
                     availableChecks.Clear();
@@ -321,7 +316,7 @@ namespace TPRandomizer
                 ItemsToBeRandomized.Remove(itemToPlace);
                 availableChecks = listNonPlacedChecks(startingRoom, itemToPlace);
                 
-                checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
+                checkToReciveItem = Singleton.getInstance().Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
                 placeItemInCheck(itemToPlace,checkToReciveItem);
 
                 availableChecks.Clear();
@@ -332,7 +327,7 @@ namespace TPRandomizer
         void placeJunkItems (Room startingRoom, List<Item> ItemsToBeRandomized)
         {
             Random rnd = new Random();
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
                 if (!currentCheck.itemWasPlaced)
@@ -374,7 +369,7 @@ namespace TPRandomizer
                 {
                     //Create reference to the dictionary entry of the check whose logic we are evaluating
                     Check currentCheck;
-                    if (!Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                    if (!Singleton.getInstance().Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
                     {
                         if (roomsToExplore[0].checks[i].ToString() == "")
                         {
@@ -394,7 +389,7 @@ namespace TPRandomizer
                             {
                                 Singleton.getInstance().Items.heldItems.Add(currentCheck.itemId);
                                 currentCheck.hasBeenReached = true;
-                                //Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
+                                Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
                                 goto restart;
                             }
                             else if (checksToBeRandomized.Contains(currentCheck.checkName))
@@ -444,7 +439,7 @@ namespace TPRandomizer
                 {
                     //Create reference to the dictionary entry of the check whose logic we are evaluating
                     Check currentCheck;
-                    if (!Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                    if (!Singleton.getInstance().Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
                     {
                         if (roomsToExplore[0].checks[i].ToString() == "")
                         {
@@ -488,7 +483,7 @@ namespace TPRandomizer
             List<Item> playthroughItems = new List<Item>();
             Check currentCheck;
     
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
             {
                 currentCheck = checkList.Value;
                 if (!currentCheck.itemWasPlaced)
@@ -514,10 +509,10 @@ namespace TPRandomizer
             {
                 string contents = File.ReadAllText(file);
                 string fileName = Path.GetFileNameWithoutExtension(file);
-                Checks.CheckDict[fileName] = JsonConvert.DeserializeObject<Check>(contents);
-                Check currentCheck = Checks.CheckDict[fileName];
+                Singleton.getInstance().Checks.CheckDict[fileName] = JsonConvert.DeserializeObject<Check>(contents);
+                Check currentCheck = Singleton.getInstance().Checks.CheckDict[fileName];
                 currentCheck.requirements = "(" + currentCheck.requirements +")";
-                Checks.CheckDict[fileName] = currentCheck;
+                Singleton.getInstance().Checks.CheckDict[fileName] = currentCheck;
                 Console.WriteLine("Check File Loaded " + fileName);
             }
             return;
@@ -551,7 +546,7 @@ namespace TPRandomizer
             return parse.Parse();
         }
 
-        public void generateSpoilerLog(Room startingRoom, string SettingsString)
+        public void generateSpoilerLog(Room startingRoom)
         {
             Check currentCheck;
             Random rnd = new Random();
@@ -560,15 +555,11 @@ namespace TPRandomizer
             using (StreamWriter file = new(fileHash))
             {
                 file.WriteLine("Randomizer Version: 1.0b");
-                file.WriteLine("Settings String: " + SettingsString);
                 file.WriteLine("Settings: ");
-                for (int i = 0; i < Singleton.getInstance().Logic.SettingsList.GetLength(0); i++)
-                {
-                    file.WriteLine(Singleton.getInstance().Logic.SettingsList[i,0] + ": " + Singleton.getInstance().Logic.SettingsList[i,1]);
-                }
+                file.WriteLine(JsonConvert.SerializeObject(Singleton.getInstance().RandoSetting, Formatting.Indented));
                 file.WriteLine("");
                 file.WriteLine("Item Locations: ");
-                foreach (KeyValuePair<string, Check> check in  Checks.CheckDict)
+                foreach (KeyValuePair<string, Check> check in  Singleton.getInstance().Checks.CheckDict)
                 {
                     currentCheck = check.Value;
                     if (currentCheck.itemWasPlaced)
@@ -619,7 +610,7 @@ namespace TPRandomizer
                         for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
                         {
                             //Create reference to the dictionary entry of the check whose logic we are evaluating
-                            if (!Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                            if (!Singleton.getInstance().Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
                             {
                                 if (roomsToExplore[0].checks[i].ToString() == "")
                                 {

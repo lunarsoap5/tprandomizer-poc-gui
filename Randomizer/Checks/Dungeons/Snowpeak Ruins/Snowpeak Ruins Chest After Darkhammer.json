@@ -3,7 +3,7 @@
     "requirements": "canDefeatDarkhammer and Ball_and_Chain",
     "hash": "5786",
     "isExcluded": false,
-    "category": ["Chest", "Dungeon", "Snowpeak Ruins"],
+    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Small Key"],
     "itemId": "Ordon_Goat_Cheese",
     "itemWasPlaced": false
 }
