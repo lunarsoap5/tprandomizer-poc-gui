@@ -9,7 +9,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "Ball_and_Chain and (Snowpeak_Ruins_Small_Key, 4)",
+        "Ball_and_Chain and (Snowpeak_Ruins_Small_Key, 1)",
         "Ball_and_Chain"
     ],
     "isStartingRoom": "false",

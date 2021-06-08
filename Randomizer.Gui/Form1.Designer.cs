@@ -172,7 +172,7 @@ namespace TPRandomizer
             this.logicRulesBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.logicRulesBox.FormattingEnabled = true;
             this.logicRulesBox.Items.AddRange(new object[] {
-            "Glitchess",
+            "Glitchless",
             "Glitched",
             "No Logic"});
             this.logicRulesBox.Location = new System.Drawing.Point(82, 19);
@@ -218,6 +218,7 @@ namespace TPRandomizer
             // 
             // foolishItemsComboBox
             // 
+            this.foolishItemsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.foolishItemsComboBox.FormattingEnabled = true;
             this.foolishItemsComboBox.Items.AddRange(new object[] {
             "None",

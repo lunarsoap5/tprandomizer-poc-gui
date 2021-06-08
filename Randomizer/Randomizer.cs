@@ -16,6 +16,8 @@ namespace TPRandomizer
     {
         LogicFunctions Logic = new LogicFunctions();
         RoomFunctions Rooms = new RoomFunctions();
+
+        ItemFunctions Items = new ItemFunctions();
         public void start()
         {
             //Read in the settings string and set the settings values accordingly
@@ -32,7 +34,7 @@ namespace TPRandomizer
 
             Singleton.getInstance().Checks.generateCheckList();
             //Generate the item pool based on user settings/input.           
-            Singleton.getInstance().Items.generateItemPool();
+            Items.generateItemPool();
             //Generate the world based on the room class values and their neighbour values. If we want to randomize entrances, we would do it before this step.
             Room startingRoom = setupGraph();
             try 
@@ -352,6 +354,7 @@ namespace TPRandomizer
             //Build the world by parsing through each room, linking their neighbours, and setting the logic for the checks in the room to reflect the world.
             while (roomsToExplore.Count() > 0)
             {
+                //Console.WriteLine("Currently exploring " + roomsToExplore[0].name);
                 for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
                 {
                     //Parse the neighbour's requirements to find out if we can access it
@@ -361,7 +364,7 @@ namespace TPRandomizer
                     {
                         Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
                         currentNeighbour.visited = true;
-                        Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                        //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
                         roomsToExplore.Add(currentNeighbour);
                     }
                 }
@@ -603,7 +606,7 @@ namespace TPRandomizer
                             {
                                 Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
                                 currentNeighbour.visited = true;
-                                Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                                //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
                                 roomsToExplore.Add(currentNeighbour);
                             }
                         }
@@ -630,7 +633,7 @@ namespace TPRandomizer
                                     {
                                         playthroughItems.Add(currentCheck.itemId);
                                         currentCheck.hasBeenReached = true;
-                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonBigKeys.Contains(currentCheck.itemId))
+                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonBigKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
                                         {
                                             file.WriteLine("    " + currentCheck.checkName + ": " + currentCheck.itemId);
                                         }

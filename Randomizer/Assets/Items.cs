@@ -487,51 +487,34 @@ namespace TPRandomizer
 
 			
 			
-
+			//Check Small Key settings before adding them to the rando pool
 			if (parseSetting.smallKeySettings == "Keysanity")
             {
 					RandomizedImportantItems.AddRange(DungeonSmallKeys);
 			}
-			else if ((parseSetting.smallKeySettings == "Own Dungeon") || parseSetting.smallKeySettings == "Any Dungeon")
+			else if ((parseSetting.smallKeySettings == "Own_Dungeon") || parseSetting.smallKeySettings == "Any_Dungeon")
 			{
 					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
 			}
 
-			switch (parseSetting.bossKeySettings) 
+			//Check Big Key Settings before adding them to the pool
+			if (parseSetting.bossKeySettings == "Keysanity") 
 			{
-				
-				case ("Keysanity"):
-				{
 					RandomizedImportantItems.AddRange(DungeonBigKeys);
-					break;
-				}
-				case ("Keysey"):
-				{
-					break;
-				}
-				default:
-				{
+			}
+			else if (parseSetting.bossKeySettings == "Own_Dungeon" || parseSetting.bossKeySettings == "Any_Dungeon")
+			{
 					RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
-					break;
-				}
 			}
 
-			switch (parseSetting.mapAndCompassSettings) 
+			//Check Map and Compass settings before adding to pool
+			if (parseSetting.mapAndCompassSettings == "Anywhere") 
 			{
-				case ("Anywhere"):
-				{
-					RandomizedImportantItems.AddRange(DungeonMapsAndCompasses);
-					break;
-				}
-				case ("Start_With"):
-				{
-					break;
-				}
-				default:
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
-					break;
-				}
+				RandomizedImportantItems.AddRange(DungeonMapsAndCompasses);
+			}
+			else if (parseSetting.mapAndCompassSettings == "Own_Dungeon" || parseSetting.mapAndCompassSettings == "Any_Dungeon")
+			{
+				RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
 			}
 
 			
@@ -590,12 +573,19 @@ namespace TPRandomizer
 			ItemPool.AddRange(miscItems);
 			ItemPool.AddRange(VanillaDungeonRewards);
 
-			Singleton.getInstance().Items.ShuffledDungeonRewards = VanillaDungeonRewards;
-			Singleton.getInstance().Items.RandomizedImportantItems = ImportantItems;
-			Singleton.getInstance().Items.ItemPool = ItemPool;
-			Singleton.getInstance().Items.RandomizedDungeonRegionItems = RandomizedDungeonRegionItems;
-			Singleton.getInstance().Items.alwaysItems = alwaysItems;
-			Singleton.getInstance().Items.miscItems = miscItems;
+			Singleton.getInstance().Items.ShuffledDungeonRewards.Clear();
+			Singleton.getInstance().Items.RandomizedImportantItems.Clear();
+			Singleton.getInstance().Items.ItemPool.Clear();
+			Singleton.getInstance().Items.RandomizedDungeonRegionItems.Clear();
+			Singleton.getInstance().Items.alwaysItems.Clear();
+			Singleton.getInstance().Items.miscItems.Clear();
+
+			Singleton.getInstance().Items.ShuffledDungeonRewards.AddRange(VanillaDungeonRewards);
+			Singleton.getInstance().Items.RandomizedImportantItems.AddRange(ImportantItems);
+			Singleton.getInstance().Items.ItemPool.AddRange(ItemPool);
+			Singleton.getInstance().Items.RandomizedDungeonRegionItems.AddRange(RandomizedDungeonRegionItems);
+			Singleton.getInstance().Items.alwaysItems.AddRange(alwaysItems);
+			Singleton.getInstance().Items.miscItems.AddRange(miscItems);
 			return;
 		}
 	}
