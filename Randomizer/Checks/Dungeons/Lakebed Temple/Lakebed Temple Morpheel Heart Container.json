@@ -2,7 +2,7 @@
     "checkName": "Lakebed Temple Morpheel Heart Container",
     "requirements": "canDefeatMorpheel",
     "isExcluded": false,
-    "category": ["Heart Container"],
+    "category": ["Heart Container", "Dungeon", "Lakebed Temple"],
     "itemId": "Heart_Container",
     "itemWasPlaced": false
 }

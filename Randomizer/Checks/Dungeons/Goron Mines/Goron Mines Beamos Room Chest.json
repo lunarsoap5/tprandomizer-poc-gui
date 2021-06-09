@@ -4,6 +4,6 @@
     "hash": "49BD",
     "isExcluded": false,
     "category": ["Chest", "Dungeon", "Goron Mines", "Dungeon Items", "Compass"],
-    "itemId": "Compass",
+    "itemId": "Goron_Mines_Compass",
     "itemWasPlaced": false
 }

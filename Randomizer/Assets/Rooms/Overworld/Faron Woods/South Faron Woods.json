@@ -15,7 +15,12 @@
         "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal"
     ],
     "isStartingRoom": "false",
-    "checks": ["Coro Lantern", "Coro Bottle"], 
+    "checks": 
+    [
+        "Coro Lantern", 
+        "Coro Bottle",
+        "Faron Woods Owl Statue Sky Character"
+    ], 
     "visited": "false",
     "region": "Faron Woods"
 }

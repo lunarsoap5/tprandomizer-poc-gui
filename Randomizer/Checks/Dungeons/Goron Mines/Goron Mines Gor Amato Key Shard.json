@@ -1,0 +1,9 @@
+{
+    "checkName": "Goron Mines Gor Amato Key Shard",
+    "requirements": "true",
+    "hash": "null",
+    "isExcluded": false,
+    "category": ["Dungeon", "Goron Mines", "Dungeon Items", "Big Key"],
+    "itemId": "Goron_Mines_Key_Shard_1",
+    "itemWasPlaced": false
+}

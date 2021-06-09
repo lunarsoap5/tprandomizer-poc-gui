@@ -360,7 +360,7 @@ namespace TPRandomizer
             this.bossKeyShuffleLabel.Name = "bossKeyShuffleLabel";
             this.bossKeyShuffleLabel.Size = new System.Drawing.Size(96, 15);
             this.bossKeyShuffleLabel.TabIndex = 2;
-            this.bossKeyShuffleLabel.Text = "Boss Key Shuffle:";
+            this.bossKeyShuffleLabel.Text = "Big Key Shuffle:";
             // 
             // mapsAndCompassesLabel
             // 

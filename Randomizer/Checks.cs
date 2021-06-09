@@ -57,6 +57,7 @@ namespace TPRandomizer
             CheckDict.Add("Goron Mines Entrance Chest", new Check());
             CheckDict.Add("Goron Mines Main Magnet Room Bottom Chest", new Check());
             CheckDict.Add("Goron Mines Gor Amato Chest", new Check());
+            CheckDict.Add("Goron Mines Gor Amato Key Shard", new Check());
             CheckDict.Add("Goron Mines Gor Amato Small Chest", new Check());
             CheckDict.Add("Goron Mines Magnet Maze Chest", new Check());
             CheckDict.Add("Goron Mines Crystal Switch Room Underwater Chest", new Check());
@@ -64,10 +65,12 @@ namespace TPRandomizer
             CheckDict.Add("Goron Mines After Crystal Switch Room Magnet Wall Chest", new Check());
             CheckDict.Add("Goron Mines Outside Beamos Chest", new Check());
             CheckDict.Add("Goron Mines Gor Ebizo Chest", new Check());
+            CheckDict.Add("Goron Mines Gor Ebizo Key Shard", new Check());
             CheckDict.Add("Goron Mines Chest Before Dangoro", new Check());
             CheckDict.Add("Goron Mines Dangoro Chest", new Check());
             CheckDict.Add("Goron Mines Beamos Room Chest", new Check());
             CheckDict.Add("Goron Mines Gor Liggs Chest", new Check());
+            CheckDict.Add("Goron Mines Gor Liggs Key Shard", new Check());
             CheckDict.Add("Goron Mines Main Magnet Room Top Chest", new Check());
             CheckDict.Add("Goron Mines Outside Underwater Chest", new Check());
             CheckDict.Add("Barnes Bomb Bag", new Check());
@@ -284,6 +287,12 @@ namespace TPRandomizer
             CheckDict.Add("Lake Hylia Bridge Owl Statue Chest", new Check());
             CheckDict.Add("Faron Woods Owl Statue Chest", new Check());
             CheckDict.Add("Gerudo Desert Owl Statue Chest", new Check());
+            CheckDict.Add("Faron Woods Owl Statue Sky Character", new Check());
+            CheckDict.Add("Kakariko Gorge Owl Statue Sky Character", new Check());
+            CheckDict.Add("Bridge of Eldin Owl Statue Sky Character", new Check());
+            CheckDict.Add("Lake Hylia Bridge Owl Statue Sky Character", new Check());
+            CheckDict.Add("West Hyrule Field Owl Statue Sky Character", new Check());
+            CheckDict.Add("Gerudo Desert Owl Statue Sky Character", new Check());
             CheckDict.Add("City in The Sky Underwater West Chest", new Check());
             CheckDict.Add("City in The Sky Underwater East Chest", new Check());
             CheckDict.Add("City in The Sky West Wing First Chest", new Check());

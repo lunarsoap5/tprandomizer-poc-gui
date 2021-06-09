@@ -11,7 +11,8 @@
     "isStartingRoom": "false",
     "checks": 
     [
-        "Goron Mines Gor Liggs Chest"
+        "Goron Mines Gor Liggs Chest",
+        "Goron Mines Gor Liggs Key Shard"
     ],
     "visited": "false",
     "region": "Goron Mines"

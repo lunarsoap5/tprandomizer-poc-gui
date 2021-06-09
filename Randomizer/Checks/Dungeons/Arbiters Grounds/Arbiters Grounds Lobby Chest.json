@@ -1,6 +1,6 @@
 {
     "checkName": "Arbiters Grounds Lobby Chest",
-    "requirements": "Shadow_Crystal or hasSword or Ball_and_Chain or hasBombs",
+    "requirements": "Shadow_Crystal or hasSword or canSmash",
     "hash": "FC38",
     "isExcluded": false,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key"],

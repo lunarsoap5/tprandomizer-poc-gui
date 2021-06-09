@@ -2,7 +2,7 @@
     "checkName": "Forest Temple Big Baba Key",
     "requirements": "canDefeatBigBaba",
     "isExcluded": false,
-    "category": ["Small Key"],
+    "category": ["Small Key", "Dungeon", "Forest Temple"],
     "itemId": "Forest_Temple_Small_Key",
     "itemWasPlaced": false
 }

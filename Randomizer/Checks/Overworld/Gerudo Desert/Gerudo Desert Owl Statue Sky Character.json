@@ -1,0 +1,9 @@
+{
+    "checkName": "Gerudo Desert Owl Statue Sky Character",
+    "requirements": "(Progressive_Dominion_Rod, 2)",
+    "hash": "null",
+    "isExcluded": false,
+    "category": ["Gerudo Desert", "Sky Book"],
+    "itemId": "Progressive_Sky_Book",
+    "itemWasPlaced": false
+}

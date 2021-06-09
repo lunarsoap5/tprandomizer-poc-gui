@@ -4,6 +4,6 @@
     "hash": "EE15",
     "isExcluded": false,
     "category": ["Chest", "Dungeon", "Lakebed Temple", "Dungeon Items", "Compass"],
-    "itemId": "Compass",
+    "itemId": "Lakebed_Temple_Compass",
     "itemWasPlaced": false
 }

@@ -2,7 +2,7 @@
     "checkName": "Snowpeak Ruins Blizzeta Heart Container",
     "requirements": "canDefeatBlizzeta",
     "isExcluded": false,
-    "category": ["Heart Container"],
+    "category": ["Heart Container", "Dungeon", "Snowpeak Ruins"],
     "itemId": "Heart_Container",
     "itemWasPlaced": false
 }

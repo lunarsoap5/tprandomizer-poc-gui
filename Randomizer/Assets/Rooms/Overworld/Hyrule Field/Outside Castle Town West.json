@@ -17,7 +17,8 @@
     "isStartingRoom": "false",
     "checks": 
     [
-        "Hyrule Field Ampitheater Owl Statue Chest"
+        "Hyrule Field Ampitheater Owl Statue Chest",
+        "Hyrule Field Ampitheater Owl Statue Sky Character"
     ],
     "visited": "false",
     "region": "Hyrule Field"

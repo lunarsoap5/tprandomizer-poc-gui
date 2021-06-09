@@ -3,6 +3,6 @@
     "requirements": "true",
     "isExcluded": false,
     "category": ["Npc"],
-    "itemId": "Dungeon_Map",
+    "itemId": "Snowpeak_Ruins_Dungeon_Map",
     "itemWasPlaced": false
 }

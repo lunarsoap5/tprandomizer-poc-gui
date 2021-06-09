@@ -2,7 +2,7 @@
     "checkName": "Forest Temple Diababa Heart Container",
     "requirements": "canDefeatDiababa",
     "isExcluded": false,
-    "category": ["Heart Container"],
+    "category": ["Heart Container", "Dungeon", "Forest Temple"],
     "itemId": "Heart_Container",
     "itemWasPlaced": false
 }

@@ -4,6 +4,6 @@
     "hash": "6A07",
     "isExcluded": false,
     "category": ["Chest", "Dungeon", "Forest Temple", "Dungeon Items", "Compass"],
-    "itemId": "Compass",
+    "itemId": "Forest_Temple_Compass",
     "itemWasPlaced": false
 }

@@ -1,0 +1,9 @@
+{
+    "checkName": "Kakariko Gorge Owl Statue Sky Character",
+    "requirements": "(Progressive_Dominion_Rod, 2)",
+    "hash": "null",
+    "isExcluded": false,
+    "category": ["Hyrule Field", "Sky Book"],
+    "itemId": "Progressive_Sky_Book",
+    "itemWasPlaced": false
+}

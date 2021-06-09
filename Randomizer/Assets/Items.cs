@@ -380,8 +380,6 @@ namespace TPRandomizer
 			Item.Progressive_Fishing_Rod,
             Item.Iron_Boots,
             Item.Progressive_Bow,
-			Item.Progressive_Bow,
-			Item.Progressive_Bow,
 			Item.Empty_Bomb_Bag,
             Item.Zora_Armor,
             Item.Progressive_Clawshot,
@@ -406,11 +404,6 @@ namespace TPRandomizer
 			Item.Horse_Call,
 			Item.Gate_Keys,
 			Item.Small_Key_N_Faron_Gate,
-			Item.Bomb_Bag_And_Bombs,
-			Item.Bomb_Bag_And_Bombs,
-			Item.Giant_Bomb_Bag,
-			Item.Progressive_Wallet,
-			Item.Progressive_Wallet,
 			Item.Empty_Bottle,
 			Item.Sera_Bottle,
 			Item.Coro_Bottle
@@ -472,6 +465,13 @@ namespace TPRandomizer
 			ItemPool.Clear();
 			RandomizedImportantItems.Clear();
 			
+			alwaysItems.Add(Item.Progressive_Wallet);
+			alwaysItems.Add(Item.Progressive_Wallet);
+			alwaysItems.Add(Item.Progressive_Bow);
+			alwaysItems.Add(Item.Progressive_Bow);
+			alwaysItems.Add(Item.Bomb_Bag_And_Bombs);
+			alwaysItems.Add(Item.Bomb_Bag_And_Bombs);
+			alwaysItems.Add(Item.Giant_Bomb_Bag);
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Piece_of_Heart, 45));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Heart_Container, 8));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Green_Rupee, 2));
@@ -535,7 +535,7 @@ namespace TPRandomizer
 
 			//Modifying Item Pool based on ice trap settings
 			//If we have Ice Trap Mayhem or Nightmare, extra junk items are replaced with Foolish Items
-			if ((parseSetting.iceTrapSettings == "Mayhem") || (parseSetting.iceTrapSettings == "Nighmare"))
+			if ((parseSetting.iceTrapSettings == "Mayhem") || (parseSetting.iceTrapSettings == "Nightmare"))
 			{
 				miscItems.Add(Item.Foolish_Item);
 			}
