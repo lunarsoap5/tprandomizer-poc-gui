@@ -34,5 +34,7 @@ namespace TPRandomizer
         public string iceTrapSettings;
         public List<string> StartingItems;
         public List<string> ExcludedChecks;
+        public List<string> TunicColor;
+        public List<string> MidnaHairColor;
     }
 }
