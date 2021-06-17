@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using System.Reflection;
 
 using System.Collections;
 namespace TPRandomizer
@@ -72,6 +73,145 @@ namespace TPRandomizer
             }
             Singleton.getInstance().RandoSetting = parseSetting;
             Console.WriteLine("Settings File Loaded Successfully");
+
+            // WiP of new settings string formula
+            Type type = typeof(RandomizerSetting);
+			PropertyInfo[] properties = type.GetProperties();
+			foreach (PropertyInfo property in properties)
+			{
+				Console.WriteLine(property.PropertyType);
+				if(property.PropertyType == typeof(bool))
+				{
+					Console.WriteLine("true");
+				}
+			}
         }
     }
 }
+
+/* Ignore everything below. This is just a code sample that I have been testing with.
+using System;
+using System.IO;
+using System.IO.Compression;
+using System.Text;
+using System.Threading.Tasks;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using Microsoft.CodeAnalysis.CSharp.Scripting;
+using Microsoft.CodeAnalysis.Scripting;
+using System.Reflection;
+					
+
+namespace CompressString
+{
+    internal static class StringCompressor
+    {
+        /// <summary>
+        /// Compresses the string.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <returns></returns>
+        public static string CompressString(string text)
+        {
+            byte[] buffer = Encoding.UTF8.GetBytes(text);
+            var memoryStream = new MemoryStream();
+            using (var gZipStream = new GZipStream(memoryStream, CompressionMode.Compress, true))
+            {
+                gZipStream.Write(buffer, 0, buffer.Length);
+            }
+
+            memoryStream.Position = 0;
+
+            var compressedData = new byte[memoryStream.Length];
+            memoryStream.Read(compressedData, 0, compressedData.Length);
+
+            var gZipBuffer = new byte[compressedData.Length + 4];
+            Buffer.BlockCopy(compressedData, 0, gZipBuffer, 4, compressedData.Length);
+            Buffer.BlockCopy(BitConverter.GetBytes(buffer.Length), 0, gZipBuffer, 0, 4);
+            return Convert.ToBase64String(gZipBuffer);
+        }
+
+        /// <summary>
+        /// Decompresses the string.
+        /// </summary>
+        /// <param name="compressedText">The compressed text.</param>
+        /// <returns></returns>
+        public static string DecompressString(string compressedText)
+        {
+            byte[] gZipBuffer = Convert.FromBase64String(compressedText);
+            using (var memoryStream = new MemoryStream())
+            {
+                int dataLength = BitConverter.ToInt32(gZipBuffer, 0);
+                memoryStream.Write(gZipBuffer, 4, gZipBuffer.Length - 4);
+
+                var buffer = new byte[dataLength];
+
+                memoryStream.Position = 0;
+                using (var gZipStream = new GZipStream(memoryStream, CompressionMode.Decompress))
+                {
+                    gZipStream.Read(buffer, 0, buffer.Length);
+                }
+
+                return Encoding.UTF8.GetString(buffer);
+            }
+        }
+		class Person
+		{
+			private int age;
+			private string name;
+
+			public int Age
+			{
+				get { return age; }
+				set { age = value; }
+			}
+
+			public string Name
+			{
+				get { return name; }
+				set { name = value; }
+			}
+			public bool isAlive
+			{
+				get { return isAlive; }
+				set { isAlive = value; }
+			}
+		}
+		public static void Main()
+		{
+			int x = 255;
+			string y = null;
+			string s = Convert.ToString(x, 2); //Convert to binary in a string
+
+			int[] bits= s.PadLeft(8, '0') // Add 0's from left
+				 .Select(c => int.Parse(c.ToString())) // convert each char to int
+				 .ToArray(); // Convert IEnumerable from select to Array
+			foreach (var item in bits)
+			{
+				y = y + item.ToString();
+			}
+			Console.WriteLine(y);
+			y = "Gift From Rusl";
+			y = CompressString(y);
+			Console.WriteLine(y);
+			
+			Person person = new Person();
+			person.Age = 27;
+			person.Name = "Fernando Vezzali";
+
+			Type type = typeof(Person);
+			PropertyInfo[] properties = type.GetProperties();
+			foreach (PropertyInfo property in properties)
+			{
+				Console.WriteLine(property.PropertyType);
+				if(property.PropertyType == typeof(bool))
+				{
+					Console.WriteLine("true");
+				}
+			}
+		}
+    }
+}
+*/
