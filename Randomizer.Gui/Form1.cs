@@ -70,14 +70,14 @@ namespace TPRandomizer
             {
                 try
                 {
-                    settings.logicRules = logicRulesBox.Text;
-                    settings.castleRequirements = castleLogicComboBox.Text;
-                    settings.palaceRequirements = palaceLogicComboBox.Text;
-                    settings.faronWoodsLogic = faronWoodsLogicComboBox.Text;
+                    settings.logicRules = logicRulesBox.SelectedIndex;
+                    settings.castleRequirements = castleLogicComboBox.SelectedIndex;
+                    settings.palaceRequirements = palaceLogicComboBox.SelectedIndex;
+                    settings.faronWoodsLogic = faronWoodsLogicComboBox.SelectedIndex;
                     settings.mdhSkipped = mdhCheckBox.Checked;
-                    settings.smallKeySettings = smallKeyShuffleComboBox.Text;
-                    settings.bossKeySettings = bossKeyShuffleComboBox.Text;
-                    settings.mapAndCompassSettings = mapsAndCompassesComboBox.Text;
+                    settings.smallKeySettings = smallKeyShuffleComboBox.SelectedIndex;
+                    settings.bossKeySettings = bossKeyShuffleComboBox.SelectedIndex;
+                    settings.mapAndCompassSettings = mapsAndCompassesComboBox.SelectedIndex;
                     settings.goldenBugsShuffled = goldenBugsCheckBox.Checked;
                     settings.npcItemsShuffled = giftFromNPCsCheckBox.Checked;
                     settings.treasureChestsShuffled = treasureChestCheckBox.Checked;
@@ -91,8 +91,8 @@ namespace TPRandomizer
                     settings.quickTransform = quickTransformCheckBox.Checked;
                     settings.transformAnywhere = transformAnywhereCheckBox.Checked;
                     settings.introSkipped = skipIntroCheckBox.Checked;
-                    settings.iceTrapSettings = foolishItemsComboBox.Text;
-                    settings.StartingItems = startingItemsListBox.Items.OfType<string>().ToList();
+                    settings.iceTrapSettings = foolishItemsComboBox.SelectedIndex;
+                    settings.StartingItems = startingItemsListBox.Items.OfType<Item>().ToList();
                     settings.ExcludedChecks = excludedChecksListBox.Items.OfType<string>().ToList();
                 }
                 catch (NullReferenceException ex)
@@ -101,6 +101,55 @@ namespace TPRandomizer
                 }
 
             }
+        }
+        public string getSettingsString()
+        {
+            BitArray bits = null;
+            // WiP of new settings string formula - Bools are padded to 1 bit, strings to 1
+            RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
+			PropertyInfo[] properties = parseSetting.GetType().GetProperties();
+			foreach (PropertyInfo property in properties)
+			{
+                var value = property.GetValue(parseSetting, null);
+                BitArray i_bits = null;
+                if (property.PropertyType == typeof(bool))
+                {
+                    if ((bool)value == true)
+                    {
+                        i_bits.Set(1,true);
+                    }
+                    else
+                    {
+                        i_bits.Set(1,false);
+                    } 
+                }
+                if (property.PropertyType == typeof(int))
+                {
+                    value = (int)value;
+                    i_bits = new BitArray(new byte[] { (byte)value });
+                }
+                if (property.PropertyType == typeof(List<>))
+                {
+                    if (property.PropertyType == typeof(List<Item>))
+                    {
+                        List<byte> excludedItems = new List<byte>();
+                        List<Item> itemList = new List<Item>();
+                        itemList.AddRange((List<Item>)value);
+                        foreach (Item item in itemList)
+                        {
+                            if(Singleton.getInstance().Items.ImportantItems.Contains(item))
+                            {
+                                //We will use the item ID in the bit array as it takes less memory and is easier to append
+                                excludedItems.Add((byte)item);
+                            }
+                        }
+                        byte[] itemBytes = excludedItems.ToArray();
+                        i_bits = new BitArray(itemBytes);
+                    }
+                }
+                BackendFunctions.Append(i_bits, bits);
+            }
+            return BackendFunctions.bitStringToText(bits);
         }
 
         private void label1_Click(object sender, EventArgs e)

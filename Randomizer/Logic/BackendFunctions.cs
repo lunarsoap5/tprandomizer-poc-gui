@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using System.Reflection;
+using System.Linq;
 
 using System.Collections;
 namespace TPRandomizer
@@ -33,6 +34,9 @@ namespace TPRandomizer
         public string iceTrapSettings;
         public List<string> StartingItems;
         public List<string> ExcludedChecks;
+        public string TunicColor;
+        public string MidnaHairColor;
+        public bool ShuffleBackgroundMusic;
     }
     public class BackendFunctions
     {
@@ -73,19 +77,100 @@ namespace TPRandomizer
             }
             Singleton.getInstance().RandoSetting = parseSetting;
             Console.WriteLine("Settings File Loaded Successfully");
-
-            // WiP of new settings string formula
-            Type type = typeof(RandomizerSetting);
-			PropertyInfo[] properties = type.GetProperties();
-			foreach (PropertyInfo property in properties)
-			{
-				Console.WriteLine(property.PropertyType);
-				if(property.PropertyType == typeof(bool))
-				{
-					Console.WriteLine("true");
-				}
-			}
         }
+
+        public static string settingsLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789";
+        public static char index_to_letter(int index) 
+        { 
+            char c = settingsLetters[index]; 
+            return c; 
+        }
+        public static int letter_to_index(char letter)
+        { 
+            for (int i = 0; i < settingsLetters.Length; i++)
+            {
+                if (letter == settingsLetters[i])
+                {
+                    return i;
+                }
+            }
+            return 0; 
+        }
+
+        public static string bitStringToText(BitArray bits)
+        {
+            string result = "";
+            // pad the bits array to be multiple of 5
+            while (bits.Length % 5 > 0)
+            {
+                bits.Length++;
+            }
+            // convert to characters
+            string binary = null;
+            int[] intBits = bits.Cast<bool>().Select(bit => bit ? 1 : 0).ToArray();
+            for (int i = 0; i < intBits.Length; i+=5)
+            {
+                int value = 0;
+                for (int j = 0; j < 5; j++)
+                {
+                    binary = binary + intBits[i +j].ToString();
+                }
+                value = Convert.ToInt32(binary, 2);
+                result += index_to_letter(value);
+            }
+            return result;
+        }
+
+        public BitArray text_to_bit_string(string text)
+        {
+            BitArray bits = null;
+            foreach (char c in text)
+            {
+                int index = letter_to_index(c);
+                bits = new BitArray(new byte[] { (byte)index });
+                int[] intBits = bits.Cast<bool>().Select(bit => bit ? 1 : 0).ToArray();
+            }
+            return bits;
+        }
+
+        public static BitArray Append(BitArray current, BitArray after) 
+        {
+            var bools = new bool[current.Count + after.Count];
+            current.CopyTo(bools, 0);
+            after.CopyTo(bools, current.Count);
+            return new BitArray(bools);
+        }
+        
+            /* Settings string key
+            logicRules- 
+            castleRequirements- 
+            palaceRequirements-
+            faronWoodsLogic- 
+            mdhSkipped-
+            introSkipped-
+            smallKeySettings-
+            bossKeySettings-
+            mapAndCompassSettings- 
+            goldenBugsShuffled-
+            treasureChestsShuffled-
+            npcItemsShuffled-
+            shopItemsShuffled- 
+            faronTwilightCleared- 
+            eldinTwilightCleared-
+            lanayruTwilightCleared-
+            skipMinorCutscenes-
+            skipMasterSwordPuzzle- 
+            fastIronBoots-
+            quickTransform- 
+            transformAnywhere- 
+            iceTrapSettings-
+            StartingItems-
+            ExcludedChecks 
+            TunicColor-
+            MidnaHairColor-
+            ShuffleBackgroundMusic-
+            */
+        
     }
 }
 

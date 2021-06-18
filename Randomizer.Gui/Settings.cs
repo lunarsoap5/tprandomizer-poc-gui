@@ -10,15 +10,15 @@ namespace TPRandomizer
 {
     public class GuiSetting
     {
-        public string logicRules;
-        public string castleRequirements;
-        public string palaceRequirements;
-        public string faronWoodsLogic;
+        public int logicRules;
+        public int castleRequirements;
+        public int palaceRequirements;
+        public int faronWoodsLogic;
         public bool mdhSkipped;
         public bool introSkipped;
-        public string smallKeySettings;
-        public string bossKeySettings;
-        public string mapAndCompassSettings;
+        public int smallKeySettings;
+        public int bossKeySettings;
+        public int mapAndCompassSettings;
         public bool goldenBugsShuffled;
         public bool treasureChestsShuffled;
         public bool npcItemsShuffled;
@@ -31,10 +31,10 @@ namespace TPRandomizer
         public bool fastIronBoots;
         public bool quickTransform;
         public bool transformAnywhere;
-        public string iceTrapSettings;
-        public List<string> StartingItems;
-        public List<string> ExcludedChecks;
-        public List<string> TunicColor;
-        public List<string> MidnaHairColor;
+        public int iceTrapSettings;
+        public List<int> StartingItems;
+        public List<int> ExcludedChecks;
+        public List<int> TunicColor;
+        public List<int> MidnaHairColor;
     }
 }
