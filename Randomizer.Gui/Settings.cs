@@ -10,31 +10,31 @@ namespace TPRandomizer
 {
     public class GuiSetting
     {
-        public int logicRules;
-        public int castleRequirements;
-        public int palaceRequirements;
-        public int faronWoodsLogic;
-        public bool mdhSkipped;
-        public bool introSkipped;
-        public int smallKeySettings;
-        public int bossKeySettings;
-        public int mapAndCompassSettings;
-        public bool goldenBugsShuffled;
-        public bool treasureChestsShuffled;
-        public bool npcItemsShuffled;
-        public bool shopItemsShuffled;
-        public bool faronTwilightCleared;
-        public bool eldinTwilightCleared;
-        public bool lanayruTwilightCleared;
-        public bool skipMinorCutscenes;
-        public bool skipMasterSwordPuzzle;
-        public bool fastIronBoots;
-        public bool quickTransform;
-        public bool transformAnywhere;
-        public int iceTrapSettings;
-        public List<int> StartingItems;
-        public List<int> ExcludedChecks;
-        public List<int> TunicColor;
-        public List<int> MidnaHairColor;
+        public int logicRules {get; set;}
+        public int castleRequirements {get; set;}
+        public int palaceRequirements {get; set;}
+        public int faronWoodsLogic {get; set;}
+        public bool mdhSkipped {get; set;}
+        public bool introSkipped {get; set;}
+        public int smallKeySettings {get; set;}
+        public int bossKeySettings {get; set;}
+        public int mapAndCompassSettings {get; set;}
+        public bool goldenBugsShuffled {get; set;}
+        public bool treasureChestsShuffled {get; set;}
+        public bool npcItemsShuffled {get; set;}
+        public bool shopItemsShuffled {get; set;}
+        public bool faronTwilightCleared {get; set;}
+        public bool eldinTwilightCleared {get; set;}
+        public bool lanayruTwilightCleared {get; set;}
+        public bool skipMinorCutscenes {get; set;}
+        public bool skipMasterSwordPuzzle {get; set;}
+        public bool fastIronBoots {get; set;}
+        public bool quickTransform {get; set;}
+        public bool transformAnywhere {get; set;}
+        public int iceTrapSettings {get; set;}
+        public List<Item> StartingItems {get; set;}
+        public List<string> ExcludedChecks {get; set;}
+        public int TunicColor {get; set;}
+        public int MidnaHairColor {get; set;}
     }
 }

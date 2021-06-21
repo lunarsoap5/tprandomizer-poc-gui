@@ -111,6 +111,8 @@ namespace TPRandomizer
             this.WikiMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsStringLabel = new System.Windows.Forms.Label();
+            this.settingsStringTextbox = new System.Windows.Forms.TextBox();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -358,7 +360,7 @@ namespace TPRandomizer
             this.bossKeyShuffleLabel.AutoSize = true;
             this.bossKeyShuffleLabel.Location = new System.Drawing.Point(6, 49);
             this.bossKeyShuffleLabel.Name = "bossKeyShuffleLabel";
-            this.bossKeyShuffleLabel.Size = new System.Drawing.Size(96, 15);
+            this.bossKeyShuffleLabel.Size = new System.Drawing.Size(89, 15);
             this.bossKeyShuffleLabel.TabIndex = 2;
             this.bossKeyShuffleLabel.Text = "Big Key Shuffle:";
             // 
@@ -762,6 +764,11 @@ namespace TPRandomizer
             // 
             this.midnaHairColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.midnaHairColorComboBox.FormattingEnabled = true;
+            this.midnaHairColorComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Red",
+            "Blue",
+            "Cyan"});
             this.midnaHairColorComboBox.Location = new System.Drawing.Point(111, 80);
             this.midnaHairColorComboBox.Name = "midnaHairColorComboBox";
             this.midnaHairColorComboBox.Size = new System.Drawing.Size(121, 23);
@@ -837,7 +844,7 @@ namespace TPRandomizer
             // 
             // generateButton
             // 
-            this.generateButton.Location = new System.Drawing.Point(308, 463);
+            this.generateButton.Location = new System.Drawing.Point(308, 477);
             this.generateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.generateButton.Name = "generateButton";
             this.generateButton.Size = new System.Drawing.Size(82, 22);
@@ -890,11 +897,11 @@ namespace TPRandomizer
             // 
             // outputTextBox
             // 
-            this.outputTextBox.Location = new System.Drawing.Point(6, 500);
+            this.outputTextBox.Location = new System.Drawing.Point(6, 517);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
-            this.outputTextBox.Size = new System.Drawing.Size(679, 156);
+            this.outputTextBox.Size = new System.Drawing.Size(679, 139);
             this.outputTextBox.TabIndex = 9;
             // 
             // MainMenuStrip
@@ -982,11 +989,29 @@ namespace TPRandomizer
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
+            // settingsStringLabel
+            // 
+            this.settingsStringLabel.AutoSize = true;
+            this.settingsStringLabel.Location = new System.Drawing.Point(10, 453);
+            this.settingsStringLabel.Name = "settingsStringLabel";
+            this.settingsStringLabel.Size = new System.Drawing.Size(86, 15);
+            this.settingsStringLabel.TabIndex = 11;
+            this.settingsStringLabel.Text = "Settings String:";
+            // 
+            // settingsStringTextbox
+            // 
+            this.settingsStringTextbox.Location = new System.Drawing.Point(100, 450);
+            this.settingsStringTextbox.Name = "settingsStringTextbox";
+            this.settingsStringTextbox.Size = new System.Drawing.Size(585, 23);
+            this.settingsStringTextbox.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 658);
+            this.Controls.Add(this.settingsStringTextbox);
+            this.Controls.Add(this.settingsStringLabel);
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.settingsPresetsComboBox);
             this.Controls.Add(this.settingPresetsLabel);
@@ -1112,6 +1137,8 @@ namespace TPRandomizer
         private System.Windows.Forms.ToolStripMenuItem WikiMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label settingsStringLabel;
+        private System.Windows.Forms.TextBox settingsStringTextbox;
     }
 }
 

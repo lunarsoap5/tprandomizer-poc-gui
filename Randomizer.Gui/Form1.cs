@@ -28,6 +28,30 @@ namespace TPRandomizer
         {
             InitializeComponent();
             dontrunhandler = false;
+            logicRulesBox.SelectedIndex = 0;
+                    castleLogicComboBox.SelectedIndex = 1;
+                    faronWoodsLogicComboBox.SelectedIndex = 1;
+                    palaceLogicComboBox.SelectedIndex = 1;
+                    mdhCheckBox.Checked = false;
+                    smallKeyShuffleComboBox.SelectedIndex = 1;
+                    bossKeyShuffleComboBox.SelectedIndex = 1;
+                    mapsAndCompassesComboBox.SelectedIndex = 1;
+                    goldenBugsCheckBox.Checked = true;
+                    giftFromNPCsCheckBox.Checked = true;
+                    treasureChestCheckBox.Checked = true;
+                    shopItemsCheckBox.Checked = true;
+                    faronTwilightClearedCheckBox.Checked = true;
+                    eldinTwilightClearedCheckBox.Checked = true;
+                    lanayruTwilightClearedCheckBox.Checked = true;
+                    skipMinorCutscenesCheckBox.Checked = true;
+                    skipMasterSwordPuzzleCheckBox.Checked = true;
+                    fastIronBootsCheckBox.Checked = true;
+                    quickTransformCheckBox.Checked = true;
+                    transformAnywhereCheckBox.Checked = true;
+                    skipIntroCheckBox.Checked = true;
+                    foolishItemsComboBox.SelectedIndex = 1;
+                    tunicColorComboBox.SelectedIndex = 1;
+                    midnaHairColorComboBox.SelectedIndex = 1;
             logicRulesBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             castleLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             palaceLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
@@ -49,6 +73,7 @@ namespace TPRandomizer
             quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             skipIntroCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            startingItemsListBox.VisibleChanged += new System.EventHandler(this.updateFlags);
 
             foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
             {
@@ -62,14 +87,14 @@ namespace TPRandomizer
                 itemName = itemName.Replace("_", " ");
                 itemPoolListBox.Items.Add(itemName);
             }
+            
         }
 
         private void updateFlags(object sender, EventArgs e)
         {
             if (!dontrunhandler)
             {
-                try
-                {
+                
                     settings.logicRules = logicRulesBox.SelectedIndex;
                     settings.castleRequirements = castleLogicComboBox.SelectedIndex;
                     settings.palaceRequirements = palaceLogicComboBox.SelectedIndex;
@@ -94,44 +119,40 @@ namespace TPRandomizer
                     settings.iceTrapSettings = foolishItemsComboBox.SelectedIndex;
                     settings.StartingItems = startingItemsListBox.Items.OfType<Item>().ToList();
                     settings.ExcludedChecks = excludedChecksListBox.Items.OfType<string>().ToList();
-                }
-                catch (NullReferenceException ex)
-                {
 
-                }
-
+                    settingsStringTextbox.Text = getSettingsString();
+                
             }
         }
         public string getSettingsString()
         {
             BitArray bits = null;
             // WiP of new settings string formula - Bools are padded to 1 bit, strings to 1
-            RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
-			PropertyInfo[] properties = parseSetting.GetType().GetProperties();
+			PropertyInfo[] properties = settings.GetType().GetProperties();
 			foreach (PropertyInfo property in properties)
 			{
-                var value = property.GetValue(parseSetting, null);
+                var value = property.GetValue(settings, null);
+                Console.WriteLine(property.GetValue(settings, null));
                 BitArray i_bits = null;
                 if (property.PropertyType == typeof(bool))
                 {
                     if ((bool)value == true)
                     {
-                        i_bits.Set(1,true);
+                        i_bits= new BitArray(new int[] { 1 });
                     }
                     else
                     {
-                        i_bits.Set(1,false);
+                        i_bits= new BitArray(new int[] { 0 });
                     } 
                 }
                 if (property.PropertyType == typeof(int))
                 {
-                    value = (int)value;
-                    i_bits = new BitArray(new byte[] { (byte)value });
+                    value = property.GetValue(settings, null);
+                    i_bits = new BitArray(new int[] { (int)value });
                 }
-                if (property.PropertyType == typeof(List<>))
-                {
-                    if (property.PropertyType == typeof(List<Item>))
+                if (property.PropertyType == typeof(List<Item>))
                     {
+                        Console.WriteLine("test");
                         List<byte> excludedItems = new List<byte>();
                         List<Item> itemList = new List<Item>();
                         itemList.AddRange((List<Item>)value);
@@ -146,8 +167,36 @@ namespace TPRandomizer
                         byte[] itemBytes = excludedItems.ToArray();
                         i_bits = new BitArray(itemBytes);
                     }
+                if (property.PropertyType == typeof(List<string>))
+                    {
+                        Console.WriteLine("test1");
+                        List<byte> excludedItems = new List<byte>();
+                        List<string> checkList = new List<string>();
+                        checkList.AddRange((List<string>)value);
+                        foreach (string check in checkList)
+                        {
+                            int index = Singleton.getInstance().Checks.CheckDict.Keys.ToList().IndexOf(check);
+                            //We will use the item ID in the bit array as it takes less memory and is easier to append
+                            excludedItems.Add((byte)index);
+                        }
+                        byte[] itemBytes = excludedItems.ToArray();
+                        i_bits = new BitArray(itemBytes);
+                    }
+                if (bits == null)
+                {
+                    bits = i_bits;
                 }
-                BackendFunctions.Append(i_bits, bits);
+                else
+                {
+                    var next = new BitArray(bits.Count + i_bits.Count);
+                    var index = 0;
+                    for(;index < bits.Count; index++)
+                        next[index] = bits[index];
+                    var j = 0;
+                    for(;index < next.Count; index++, j++)
+                        next[index] = i_bits[j];
+                    bits = i_bits;
+                }
             }
             return BackendFunctions.bitStringToText(bits);
         }
@@ -224,6 +273,27 @@ namespace TPRandomizer
                     logicRulesBox.SelectedIndex = 0;
                     castleLogicComboBox.SelectedIndex = 1;
                     faronWoodsLogicComboBox.SelectedIndex = 1;
+                    palaceLogicComboBox.SelectedIndex = 1;
+                    mdhCheckBox.Checked = false;
+                    smallKeyShuffleComboBox.SelectedIndex = 1;
+                    bossKeyShuffleComboBox.SelectedIndex = 1;
+                    mapsAndCompassesComboBox.SelectedIndex = 1;
+                    goldenBugsCheckBox.Checked = true;
+                    giftFromNPCsCheckBox.Checked = true;
+                    treasureChestCheckBox.Checked = true;
+                    shopItemsCheckBox.Checked = true;
+                    faronTwilightClearedCheckBox.Checked = true;
+                    eldinTwilightClearedCheckBox.Checked = true;
+                    lanayruTwilightClearedCheckBox.Checked = true;
+                    skipMinorCutscenesCheckBox.Checked = true;
+                    skipMasterSwordPuzzleCheckBox.Checked = true;
+                    fastIronBootsCheckBox.Checked = true;
+                    quickTransformCheckBox.Checked = true;
+                    transformAnywhereCheckBox.Checked = true;
+                    skipIntroCheckBox.Checked = true;
+                    foolishItemsComboBox.SelectedIndex = 1;
+                    tunicColorComboBox.SelectedIndex = 1;
+                    midnaHairColorComboBox.SelectedIndex = 1;
                     break;
             }
             
