@@ -74,6 +74,7 @@ namespace TPRandomizer
             transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             skipIntroCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             startingItemsListBox.VisibleChanged += new System.EventHandler(this.updateFlags);
+            excludedChecksListBox.VisibleChanged += new System.EventHandler(this.updateFlags);
 
             foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
             {
@@ -126,29 +127,29 @@ namespace TPRandomizer
         }
         public string getSettingsString()
         {
-            BitArray bits = null;
+            List<byte> bits = new List<byte>();
             // WiP of new settings string formula - Bools are padded to 1 bit, strings to 1
 			PropertyInfo[] properties = settings.GetType().GetProperties();
 			foreach (PropertyInfo property in properties)
 			{
                 var value = property.GetValue(settings, null);
                 Console.WriteLine(property.GetValue(settings, null));
-                BitArray i_bits = null;
+                List<byte> i_bits = new List<byte>();
                 if (property.PropertyType == typeof(bool))
                 {
                     if ((bool)value == true)
                     {
-                        i_bits= new BitArray(new int[] { 1 });
+                        i_bits.Add(1);
                     }
                     else
                     {
-                        i_bits= new BitArray(new int[] { 0 });
+                        i_bits.Add(0);
                     } 
                 }
                 if (property.PropertyType == typeof(int))
                 {
                     value = property.GetValue(settings, null);
-                    i_bits = new BitArray(new int[] { (int)value });
+                    i_bits.Add(Convert.ToByte((int)value));
                 }
                 if (property.PropertyType == typeof(List<Item>))
                     {
@@ -165,7 +166,7 @@ namespace TPRandomizer
                             }
                         }
                         byte[] itemBytes = excludedItems.ToArray();
-                        i_bits = new BitArray(itemBytes);
+                        i_bits.AddRange(itemBytes);
                     }
                 if (property.PropertyType == typeof(List<string>))
                     {
@@ -180,23 +181,9 @@ namespace TPRandomizer
                             excludedItems.Add((byte)index);
                         }
                         byte[] itemBytes = excludedItems.ToArray();
-                        i_bits = new BitArray(itemBytes);
+                        i_bits.AddRange(itemBytes);
                     }
-                if (bits == null)
-                {
-                    bits = i_bits;
-                }
-                else
-                {
-                    var next = new BitArray(bits.Count + i_bits.Count);
-                    var index = 0;
-                    for(;index < bits.Count; index++)
-                        next[index] = bits[index];
-                    var j = 0;
-                    for(;index < next.Count; index++, j++)
-                        next[index] = i_bits[j];
-                    bits = i_bits;
-                }
+                bits.AddRange(i_bits);
             }
             return BackendFunctions.bitStringToText(bits);
         }
@@ -208,8 +195,11 @@ namespace TPRandomizer
 
         private void moveCheckToExcludedButton_Click(object sender, EventArgs e)
         {
-            excludedChecksListBox.Items.Add(listofChecksListBox.SelectedItem);
-            listofChecksListBox.Items.Remove(listofChecksListBox.SelectedItem);
+            if (listofChecksListBox.SelectedItem != null) //A little security feature in case the user mis-clicks
+            {
+                excludedChecksListBox.Items.Add(listofChecksListBox.SelectedItem);
+                listofChecksListBox.Items.Remove(listofChecksListBox.SelectedItem);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -97,26 +97,26 @@ namespace TPRandomizer
             return 0; 
         }
 
-        public static string bitStringToText(BitArray bits)
+        public static string bitStringToText(List<byte> bits)
         {
             string result = "";
+            string yourByteString = null;
             // pad the bits array to be multiple of 5
-            while (bits.Length % 5 > 0)
+            foreach(byte bitByte in bits)
             {
-                bits.Length++;
+               string convertedString = Convert.ToString(bitByte, 2).PadLeft(5, '0');
+               yourByteString = yourByteString + convertedString;
             }
-            // convert to characters
-            string binary = null;
-            int[] intBits = bits.Cast<bool>().Select(bit => bit ? 1 : 0).ToArray();
-            for (int i = 0; i < intBits.Length; i+=5)
+             
+            for (int i = 0; i < yourByteString.Length; i+=5)
             {
-                int value = 0;
+                string value = "";
                 for (int j = 0; j < 5; j++)
                 {
-                    binary = binary + intBits[i +j].ToString();
+                    value = value + yourByteString[i +j];
                 }
-                value = Convert.ToInt32(binary, 2);
-                result += index_to_letter(value);
+                int byteValue = Convert.ToInt32(value, 2);
+                result += index_to_letter(byteValue);
             }
             return result;
         }
