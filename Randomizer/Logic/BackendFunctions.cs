@@ -97,49 +97,45 @@ namespace TPRandomizer
             return 0; 
         }
 
-        public static string bitStringToText(List<byte> bits)
+        public static string bitStringToText(string bits)
         {
             string result = "";
-            string yourByteString = null;
-            // pad the bits array to be multiple of 5
-            foreach(byte bitByte in bits)
+            //Pad the string to a value of 5
+            while (bits.Length % 5 != 0)
             {
-               string convertedString = Convert.ToString(bitByte, 2).PadLeft(5, '0');
-               yourByteString = yourByteString + convertedString;
+                bits = bits + "0";
             }
              
-            for (int i = 0; i < yourByteString.Length; i+=5)
+            for (int i = 0; i < bits.Length; i+=5)
             {
                 string value = "";
                 for (int j = 0; j < 5; j++)
                 {
-                    value = value + yourByteString[i +j];
+                    value = value + bits[i +j];
                 }
                 int byteValue = Convert.ToInt32(value, 2);
                 result += index_to_letter(byteValue);
             }
+            Console.WriteLine(bits);
             return result;
         }
 
-        public BitArray text_to_bit_string(string text)
+        public static string textToBitString(string text)
         {
-            BitArray bits = null;
+            string byteToBinary = "";
             foreach (char c in text)
             {
                 int index = letter_to_index(c);
-                bits = new BitArray(new byte[] { (byte)index });
-                int[] intBits = bits.Cast<bool>().Select(bit => bit ? 1 : 0).ToArray();
+                byteToBinary = byteToBinary + Convert.ToString(index, 2).PadLeft(5, '0');
             }
-            return bits;
+            while (byteToBinary.Length % 5 != 0)
+            {
+                byteToBinary.TrimEnd('0');
+            }
+            Console.WriteLine("Read in settings string: " + byteToBinary);
+            return byteToBinary;
         }
 
-        public static BitArray Append(BitArray current, BitArray after) 
-        {
-            var bools = new bool[current.Count + after.Count];
-            current.CopyTo(bools, 0);
-            after.CopyTo(bools, current.Count);
-            return new BitArray(bools);
-        }
         
             /* Settings string key
             logicRules- 

@@ -113,6 +113,7 @@ namespace TPRandomizer
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsStringLabel = new System.Windows.Forms.Label();
             this.settingsStringTextbox = new System.Windows.Forms.TextBox();
+            this.importButton = new System.Windows.Forms.Button();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -1002,14 +1003,26 @@ namespace TPRandomizer
             // 
             this.settingsStringTextbox.Location = new System.Drawing.Point(100, 450);
             this.settingsStringTextbox.Name = "settingsStringTextbox";
-            this.settingsStringTextbox.Size = new System.Drawing.Size(585, 23);
+            this.settingsStringTextbox.Size = new System.Drawing.Size(497, 23);
             this.settingsStringTextbox.TabIndex = 12;
+            this.settingsStringTextbox.TextChanged += new System.EventHandler(this.settingsStringTextbox_TextChanged_1);
+            // 
+            // importButton
+            // 
+            this.importButton.Location = new System.Drawing.Point(614, 450);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(75, 23);
+            this.importButton.TabIndex = 13;
+            this.importButton.Text = "Import";
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 658);
+            this.Controls.Add(this.importButton);
             this.Controls.Add(this.settingsStringTextbox);
             this.Controls.Add(this.settingsStringLabel);
             this.Controls.Add(this.outputTextBox);
@@ -1021,7 +1034,7 @@ namespace TPRandomizer
             this.Controls.Add(this.MainMenuStrip);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
-            this.Text = "Twilight Princess Randomizer - Version 1.0";
+            this.Text = "Import";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.optionsMenu.ResumeLayout(false);
             this.randomizationSettingsTabPage.ResumeLayout(false);
@@ -1139,6 +1152,7 @@ namespace TPRandomizer
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label settingsStringLabel;
         private System.Windows.Forms.TextBox settingsStringTextbox;
+        private System.Windows.Forms.Button importButton;
     }
 }
 
