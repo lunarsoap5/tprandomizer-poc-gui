@@ -18,10 +18,10 @@ namespace TPRandomizer
         RoomFunctions Rooms = new RoomFunctions();
 
         ItemFunctions Items = new ItemFunctions();
-        public void start()
+        public void start(string settingsString)
         {
             //Read in the settings string and set the settings values accordingly
-            BackendFunctions.interpretSettingsString();
+            BackendFunctions.interpretSettingsString(settingsString);
         begin:
             //Generate the dictionary that contains all of the checks.
             Singleton.getInstance().Checks.InitializeChecks();

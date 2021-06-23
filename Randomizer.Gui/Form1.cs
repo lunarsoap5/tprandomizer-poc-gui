@@ -146,75 +146,79 @@ namespace TPRandomizer
         private void updateInterface()
         {
             startingItemsListBox.Items.Clear();
-                excludedChecksListBox.Items.Clear();
-                listofChecksListBox.Items.Clear();
-                itemPoolListBox.Items.Clear();
+            excludedChecksListBox.Items.Clear();
+            listofChecksListBox.Items.Clear();
+            itemPoolListBox.Items.Clear();
 
-                foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
-                {
-                    string currentCheckName = check.Key;
-                    listofChecksListBox.Items.Add(currentCheckName);
-                    
-                }
+            foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+            {
+                string currentCheckName = check.Key;
+                listofChecksListBox.Items.Add(currentCheckName);
                 
-                foreach (var item in Singleton.getInstance().Items.ImportantItems)
-                {
-                    string itemName = item.ToString();
-                    itemName = itemName.Replace("_", " ");
-                    itemPoolListBox.Items.Add(itemName);
-                }
-                getSettingsDisplay();
-                
-                    logicRulesBox.SelectedIndex = settings.logicRules;
-                    castleLogicComboBox.SelectedIndex = settings.castleRequirements;
-                    palaceLogicComboBox.SelectedIndex = settings.palaceRequirements;
-                    faronWoodsLogicComboBox.SelectedIndex = settings.faronWoodsLogic;
-                    mdhCheckBox.Checked = settings.mdhSkipped;
-                    smallKeyShuffleComboBox.SelectedIndex = settings.smallKeySettings;
-                    bossKeyShuffleComboBox.SelectedIndex = settings.bossKeySettings;
-                    mapsAndCompassesComboBox.SelectedIndex = settings.mapAndCompassSettings;
-                    goldenBugsCheckBox.Checked = settings.goldenBugsShuffled;
-                    giftFromNPCsCheckBox.Checked = settings.npcItemsShuffled;
-                    treasureChestCheckBox.Checked = settings.treasureChestsShuffled;
-                    shopItemsCheckBox.Checked = settings.shopItemsShuffled;
-                    faronTwilightClearedCheckBox.Checked = settings.faronTwilightCleared;
-                    eldinTwilightClearedCheckBox.Checked = settings.eldinTwilightCleared;
-                    lanayruTwilightClearedCheckBox.Checked = settings.lanayruTwilightCleared;
-                    skipMinorCutscenesCheckBox.Checked = settings.skipMinorCutscenes;
-                    skipMasterSwordPuzzleCheckBox.Checked = settings.skipMasterSwordPuzzle;
-                    fastIronBootsCheckBox.Checked = settings.fastIronBoots;
-                    quickTransformCheckBox.Checked = settings.quickTransform;
-                    transformAnywhereCheckBox.Checked = settings.transformAnywhere;
-                    skipIntroCheckBox.Checked = settings.introSkipped;
-                    foolishItemsComboBox.SelectedIndex = settings.iceTrapSettings;
-                    foreach (Item startingItem in settings.StartingItems)
-                    {
-                        string itemName = startingItem.ToString();
-                        itemName = itemName.Replace("_", " ");
-                        startingItemsListBox.Items.Add(itemName);
-                        itemPoolListBox.Items.Remove(itemName);
-                    }
-                    foreach (string excludedCheck in settings.ExcludedChecks)
-                    {
-                        excludedChecksListBox.Items.Add(excludedCheck);
-                        listofChecksListBox.Items.Remove(excludedCheck);
-                    }
-                    tunicColorComboBox.SelectedIndex = settings.TunicColor;
-                    midnaHairColorComboBox.SelectedIndex = settings.MidnaHairColor;
+            }
+            foreach (var item in Singleton.getInstance().Items.ImportantItems)
+            {
+                string itemName = item.ToString();
+                itemName = itemName.Replace("_", " ");
+                itemPoolListBox.Items.Add(itemName);
+            }
 
-                    settingsStringTextbox.Text = getSettingsString();
-                
+            parseSettingsString(settingsStringTextbox.Text);
+        
+            logicRulesBox.SelectedIndex = settings.logicRules;
+            castleLogicComboBox.SelectedIndex = settings.castleRequirements;
+            palaceLogicComboBox.SelectedIndex = settings.palaceRequirements;
+            faronWoodsLogicComboBox.SelectedIndex = settings.faronWoodsLogic;
+            mdhCheckBox.Checked = settings.mdhSkipped;
+            smallKeyShuffleComboBox.SelectedIndex = settings.smallKeySettings;
+            bossKeyShuffleComboBox.SelectedIndex = settings.bossKeySettings;
+            mapsAndCompassesComboBox.SelectedIndex = settings.mapAndCompassSettings;
+            goldenBugsCheckBox.Checked = settings.goldenBugsShuffled;
+            giftFromNPCsCheckBox.Checked = settings.npcItemsShuffled;
+            treasureChestCheckBox.Checked = settings.treasureChestsShuffled;
+            shopItemsCheckBox.Checked = settings.shopItemsShuffled;
+            faronTwilightClearedCheckBox.Checked = settings.faronTwilightCleared;
+            eldinTwilightClearedCheckBox.Checked = settings.eldinTwilightCleared;
+            lanayruTwilightClearedCheckBox.Checked = settings.lanayruTwilightCleared;
+            skipMinorCutscenesCheckBox.Checked = settings.skipMinorCutscenes;
+            skipMasterSwordPuzzleCheckBox.Checked = settings.skipMasterSwordPuzzle;
+            fastIronBootsCheckBox.Checked = settings.fastIronBoots;
+            quickTransformCheckBox.Checked = settings.quickTransform;
+            transformAnywhereCheckBox.Checked = settings.transformAnywhere;
+            skipIntroCheckBox.Checked = settings.introSkipped;
+            foolishItemsComboBox.SelectedIndex = settings.iceTrapSettings;
+            foreach (Item startingItem in settings.StartingItems)
+            {
+                string itemName = startingItem.ToString();
+                itemName = itemName.Replace("_", " ");
+                startingItemsListBox.Items.Add(itemName);
+                itemPoolListBox.Items.Remove(itemName);
+            }
+            foreach (string excludedCheck in settings.ExcludedChecks)
+            {
+                excludedChecksListBox.Items.Add(excludedCheck);
+                listofChecksListBox.Items.Remove(excludedCheck);
+            }
+            tunicColorComboBox.SelectedIndex = settings.TunicColor;
+            midnaHairColorComboBox.SelectedIndex = settings.MidnaHairColor;
+
+            settingsStringTextbox.Text = getSettingsString();  
         }
 
+        /// <summary>
+        /// Generates a settings string based on the current settings
+        /// </summary>
+        /// <returns> A string, representing the Settings String that is visible to the user.</returns>
         public string getSettingsString()
         {
             string bits = "";
-			PropertyInfo[] properties = settings.GetType().GetProperties();
+            //Get the properties of the class that contains the settings values so we can iterate through them.
+			PropertyInfo[] properties = settings.GetType().GetProperties(); 
 			foreach (PropertyInfo property in properties)
 			{
                 var value = property.GetValue(settings, null);
                 string i_bits = "";
-                if (property.PropertyType == typeof(bool))
+                if (property.PropertyType == typeof(bool)) //Settings that only have two options (Shuffle Golden Bugs, etc.)
                 {
                     if ((bool)value == true)
                     {
@@ -225,34 +229,29 @@ namespace TPRandomizer
                         i_bits = "0";
                     } 
                 }
-                if (property.PropertyType == typeof(int))
+                if (property.PropertyType == typeof(int)) //Settings that have multiple options (Hyrule Castle Requirements, etc.)
                 {
                     value = property.GetValue(settings, null);
-                    i_bits = Convert.ToString((int)value, 2).PadLeft(4, '0');
+                    //Pad the integer value to 4 bits. No drop down menu uses more than 8 options so this is a safe bet.
+                    i_bits = Convert.ToString((int)value, 2).PadLeft(4, '0'); 
                 }
-                if (property.PropertyType == typeof(List<Item>))
+                if (property.PropertyType == typeof(List<Item>)) //Starting Items list
                     {
                         if ((List<Item>)value != null)
                         {
-                            Console.WriteLine("Current Item List: " + value);
                             List<Item> itemList = new List<Item>();
                             itemList.AddRange((List<Item>)value);
                             foreach (Item item in itemList)
                             {
-                                Console.WriteLine("Current Item: " + item);
-                                if(Singleton.getInstance().Items.ImportantItems.Contains(item))
-                                {
-                                    Console.WriteLine("Current Item: " + item);
-                                    //We will use the item ID in the bit array as it takes less memory and is easier to append
-                                    i_bits = i_bits + Convert.ToString((byte)item, 2).PadLeft(8, '0');
-                                }
+                                //We pad the byte to 8 bits since item IDs don't go over 0xFF
+                                i_bits = i_bits + Convert.ToString((byte)item, 2).PadLeft(8, '0');
                             }
                         }
-                        i_bits = i_bits + "11111111"; //Let the function know that we have reached the end
+                        //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
+                        i_bits = i_bits + "11111111"; 
                     }
-                if (property.PropertyType == typeof(List<string>))
+                if (property.PropertyType == typeof(List<string>)) //List of Excluded Checks
                     {
-                        List<byte> excludedItems = new List<byte>();
                         List<string> checkList = new List<string>();
                         checkList.AddRange((List<string>)value);
                         foreach (string check in checkList)
@@ -261,6 +260,7 @@ namespace TPRandomizer
                             //We have to pad to 9 bits here because there are hundreds of checks. Will need to be changed to 10 if we go over 512 checks though.
                             i_bits = i_bits + Convert.ToString(index, 2).PadLeft(9, '0');
                         }
+                        //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
                         i_bits = i_bits + "111111111";
                     }
                 bits = bits + i_bits;
@@ -268,9 +268,14 @@ namespace TPRandomizer
             return BackendFunctions.bitStringToText(bits);
         }
 
-        public void getSettingsDisplay()
+        /// <summary>
+        /// Sets the appropriate settings based off of an inputted settings string.
+        /// </summary>
+        /// <param name="settingsString"> The Settings String that is to be deciphered. </param>
+        public void parseSettingsString(string settingsString)
         {
-            string bitString = BackendFunctions.textToBitString(settingsStringTextbox.Text);
+            //Convert the settings string into a binary string to be interpreted.
+            string bitString = BackendFunctions.textToBitString(settingsString);
             List<byte> bits = new List<byte>();
 			PropertyInfo[] properties = settings.GetType().GetProperties();
 			foreach (PropertyInfo property in properties)
@@ -294,7 +299,7 @@ namespace TPRandomizer
                 if (property.PropertyType == typeof(int))
                 {
                     settingBitWidth = 4;
-                    //We want to get the binary values in the string in 8-bit pieces
+                    //We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
                     for (int j = 0; j < settingBitWidth; j++)
                     {
                         evaluatedByteString = evaluatedByteString + bitString[0];
@@ -305,6 +310,7 @@ namespace TPRandomizer
                 if (property.PropertyType == typeof(List<Item>))
                 {
                     List<Item> startingItems = new List<Item>();
+                    //We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
                     settingBitWidth = 8;
                     while (!reachedEndofList)
                     {
@@ -314,7 +320,7 @@ namespace TPRandomizer
                             bitString = bitString.Remove(0,1);
                         }
                         int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
-                        if (itemIndex != 255)
+                        if (itemIndex != 255) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
                             foreach (Item item in Singleton.getInstance().Items.ImportantItems)
                             {
@@ -336,6 +342,7 @@ namespace TPRandomizer
                 if (property.PropertyType == typeof(List<string>))
                 {
                     List<string> excludedChecks = new List<string>();
+                    //We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
                     settingBitWidth = 9;
                     while (!reachedEndofList)
                     {
@@ -345,7 +352,7 @@ namespace TPRandomizer
                             bitString = bitString.Remove(0,1);
                         }
                         int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
-                        if (checkIndex != 511)
+                        if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
                             excludedChecks.Add(Singleton.getInstance().Checks.CheckDict.ElementAt(checkIndex).Key);
                         }
@@ -375,10 +382,6 @@ namespace TPRandomizer
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -410,14 +413,8 @@ namespace TPRandomizer
 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            // serialize JSON directly to a file
-            using (StreamWriter file = File.CreateText("SeedSettings.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, settings);
-            }
             Singleton.getInstance().Checks.CheckDict.Clear();
-            randomizer.start();
+            randomizer.start(settingsStringTextbox.Text);
             MessageBox.Show("Seed Generated! Check the folder for the randomizer gci and spoiler log!");
         }
 

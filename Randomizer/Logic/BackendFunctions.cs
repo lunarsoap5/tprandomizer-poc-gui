@@ -8,36 +8,6 @@ using System.Linq;
 using System.Collections;
 namespace TPRandomizer
 {
-    public class RandomizerSetting
-    {
-        public string logicRules;
-        public string castleRequirements;
-        public string palaceRequirements;
-        public string faronWoodsLogic;
-        public bool mdhSkipped;
-        public bool introSkipped;
-        public string smallKeySettings;
-        public string bossKeySettings;
-        public string mapAndCompassSettings;
-        public bool goldenBugsShuffled;
-        public bool treasureChestsShuffled;
-        public bool npcItemsShuffled;
-        public bool shopItemsShuffled;
-        public bool faronTwilightCleared;
-        public bool eldinTwilightCleared;
-        public bool lanayruTwilightCleared;
-        public bool skipMinorCutscenes;
-        public bool skipMasterSwordPuzzle;
-        public bool fastIronBoots;
-        public bool quickTransform;
-        public bool transformAnywhere;
-        public string iceTrapSettings;
-        public List<string> StartingItems;
-        public List<string> ExcludedChecks;
-        public string TunicColor;
-        public string MidnaHairColor;
-        public bool ShuffleBackgroundMusic;
-    }
     public class BackendFunctions
     {
         //Encode the settings string. 
@@ -54,29 +24,101 @@ namespace TPRandomizer
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
-        public static void interpretSettingsString()
+        public static void interpretSettingsString(string settingsString)
         {
-            string contents = File.ReadAllText("SeedSettings.json");
-            Singleton.getInstance().RandoSetting = JsonConvert.DeserializeObject<RandomizerSetting>(contents);
-            RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
-            parseSetting.logicRules = parseSetting.logicRules.Replace(" ", "_");
-            parseSetting.castleRequirements = parseSetting.castleRequirements.Replace(" ", "_");
-            parseSetting.palaceRequirements = parseSetting.palaceRequirements.Replace(" ", "_");
-            parseSetting.faronWoodsLogic = parseSetting.faronWoodsLogic.Replace(" ", "_");
-            parseSetting.smallKeySettings = parseSetting.smallKeySettings.Replace(" ", "_");
-            parseSetting.bossKeySettings = parseSetting.bossKeySettings.Replace(" ", "_");
-            parseSetting.mapAndCompassSettings = parseSetting.mapAndCompassSettings.Replace(" ", "_");
-            parseSetting.iceTrapSettings = parseSetting.iceTrapSettings.Replace(" ", "_");
-            for (int i = 0; i < parseSetting.StartingItems.Count; i++)
-            {
-                parseSetting.StartingItems[i] = parseSetting.StartingItems[i].Replace(" ", "_");
+            //Convert the settings string into a binary string to be interpreted.
+            string bitString = BackendFunctions.textToBitString(settingsString);
+            List<byte> bits = new List<byte>();
+			PropertyInfo[] properties = Singleton.getInstance().RandoSetting.GetType().GetProperties();
+			foreach (PropertyInfo property in properties)
+			{
+                string evaluatedByteString = "";
+                int settingBitWidth = 0;
+                bool reachedEndofList = false;
+                if (property.PropertyType == typeof(bool))
+                {
+                    int value = Convert.ToInt32(bitString[0].ToString(), 2);
+                    if (value == 1)
+                    {
+                        property.SetValue(Singleton.getInstance().RandoSetting, true, null);
+                    } 
+                    else
+                    {
+                        property.SetValue(Singleton.getInstance().RandoSetting, false, null);
+                    }
+                    bitString = bitString.Remove(0,1);
+                }
+                if (property.PropertyType == typeof(int))
+                {
+                    settingBitWidth = 4;
+                    //We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
+                    for (int j = 0; j < settingBitWidth; j++)
+                    {
+                        evaluatedByteString = evaluatedByteString + bitString[0];
+                        bitString = bitString.Remove(0,1);
+                    }
+                    property.SetValue(Singleton.getInstance().RandoSetting, Convert.ToInt32(evaluatedByteString, 2), null);
+                }
+                if (property.PropertyType == typeof(List<Item>))
+                {
+                    List<Item> startingItems = new List<Item>();
+                    //We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
+                    settingBitWidth = 8;
+                    while (!reachedEndofList)
+                    {
+                        for (int j = 0; j < settingBitWidth; j++)
+                        {
+                            evaluatedByteString = evaluatedByteString + bitString[0];
+                            bitString = bitString.Remove(0,1);
+                        }
+                        int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
+                        if (itemIndex != 255) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
+                        {
+                            foreach (Item item in Singleton.getInstance().Items.ImportantItems)
+                            {
+                                if (itemIndex == (byte)item)
+                                {
+                                    startingItems.Add(item);
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            reachedEndofList = true;
+                        }
+                        evaluatedByteString = "";
+                    }
+                    property.SetValue(Singleton.getInstance().RandoSetting, startingItems, null);
+                }
+                if (property.PropertyType == typeof(List<string>))
+                {
+                    List<string> excludedChecks = new List<string>();
+                    //We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
+                    settingBitWidth = 9;
+                    while (!reachedEndofList)
+                    {
+                        for (int j = 0; j < settingBitWidth; j++)
+                        {
+                            evaluatedByteString = evaluatedByteString + bitString[0];
+                            bitString = bitString.Remove(0,1);
+                        }
+                        int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
+                        if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
+                        {
+                            excludedChecks.Add(Singleton.getInstance().Checks.CheckDict.ElementAt(checkIndex).Key);
+                        }
+                        else
+                        {
+                            reachedEndofList = true;
+                        }
+                        evaluatedByteString = "";
+                    }
+                    property.SetValue(Singleton.getInstance().RandoSetting, excludedChecks, null);
+                }
             }
-            for (int i = 0; i < parseSetting.ExcludedChecks.Count; i++)
-            {
-                parseSetting.ExcludedChecks[i] = parseSetting.ExcludedChecks[i].Replace(" ", "_");
-            }
-            Singleton.getInstance().RandoSetting = parseSetting;
-            Console.WriteLine("Settings File Loaded Successfully");
+            return;
+        
         }
 
         public static string settingsLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789";
@@ -134,165 +176,6 @@ namespace TPRandomizer
             }
             Console.WriteLine("Read in settings string: " + byteToBinary);
             return byteToBinary;
-        }
-
-        
-            /* Settings string key
-            logicRules- 
-            castleRequirements- 
-            palaceRequirements-
-            faronWoodsLogic- 
-            mdhSkipped-
-            introSkipped-
-            smallKeySettings-
-            bossKeySettings-
-            mapAndCompassSettings- 
-            goldenBugsShuffled-
-            treasureChestsShuffled-
-            npcItemsShuffled-
-            shopItemsShuffled- 
-            faronTwilightCleared- 
-            eldinTwilightCleared-
-            lanayruTwilightCleared-
-            skipMinorCutscenes-
-            skipMasterSwordPuzzle- 
-            fastIronBoots-
-            quickTransform- 
-            transformAnywhere- 
-            iceTrapSettings-
-            StartingItems-
-            ExcludedChecks 
-            TunicColor-
-            MidnaHairColor-
-            ShuffleBackgroundMusic-
-            */
-        
+        }    
     }
 }
-
-/* Ignore everything below. This is just a code sample that I have been testing with.
-using System;
-using System.IO;
-using System.IO.Compression;
-using System.Text;
-using System.Threading.Tasks;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Collections;
-using Microsoft.CodeAnalysis.CSharp.Scripting;
-using Microsoft.CodeAnalysis.Scripting;
-using System.Reflection;
-					
-
-namespace CompressString
-{
-    internal static class StringCompressor
-    {
-        /// <summary>
-        /// Compresses the string.
-        /// </summary>
-        /// <param name="text">The text.</param>
-        /// <returns></returns>
-        public static string CompressString(string text)
-        {
-            byte[] buffer = Encoding.UTF8.GetBytes(text);
-            var memoryStream = new MemoryStream();
-            using (var gZipStream = new GZipStream(memoryStream, CompressionMode.Compress, true))
-            {
-                gZipStream.Write(buffer, 0, buffer.Length);
-            }
-
-            memoryStream.Position = 0;
-
-            var compressedData = new byte[memoryStream.Length];
-            memoryStream.Read(compressedData, 0, compressedData.Length);
-
-            var gZipBuffer = new byte[compressedData.Length + 4];
-            Buffer.BlockCopy(compressedData, 0, gZipBuffer, 4, compressedData.Length);
-            Buffer.BlockCopy(BitConverter.GetBytes(buffer.Length), 0, gZipBuffer, 0, 4);
-            return Convert.ToBase64String(gZipBuffer);
-        }
-
-        /// <summary>
-        /// Decompresses the string.
-        /// </summary>
-        /// <param name="compressedText">The compressed text.</param>
-        /// <returns></returns>
-        public static string DecompressString(string compressedText)
-        {
-            byte[] gZipBuffer = Convert.FromBase64String(compressedText);
-            using (var memoryStream = new MemoryStream())
-            {
-                int dataLength = BitConverter.ToInt32(gZipBuffer, 0);
-                memoryStream.Write(gZipBuffer, 4, gZipBuffer.Length - 4);
-
-                var buffer = new byte[dataLength];
-
-                memoryStream.Position = 0;
-                using (var gZipStream = new GZipStream(memoryStream, CompressionMode.Decompress))
-                {
-                    gZipStream.Read(buffer, 0, buffer.Length);
-                }
-
-                return Encoding.UTF8.GetString(buffer);
-            }
-        }
-		class Person
-		{
-			private int age;
-			private string name;
-
-			public int Age
-			{
-				get { return age; }
-				set { age = value; }
-			}
-
-			public string Name
-			{
-				get { return name; }
-				set { name = value; }
-			}
-			public bool isAlive
-			{
-				get { return isAlive; }
-				set { isAlive = value; }
-			}
-		}
-		public static void Main()
-		{
-			int x = 255;
-			string y = null;
-			string s = Convert.ToString(x, 2); //Convert to binary in a string
-
-			int[] bits= s.PadLeft(8, '0') // Add 0's from left
-				 .Select(c => int.Parse(c.ToString())) // convert each char to int
-				 .ToArray(); // Convert IEnumerable from select to Array
-			foreach (var item in bits)
-			{
-				y = y + item.ToString();
-			}
-			Console.WriteLine(y);
-			y = "Gift From Rusl";
-			y = CompressString(y);
-			Console.WriteLine(y);
-			
-			Person person = new Person();
-			person.Age = 27;
-			person.Name = "Fernando Vezzali";
-
-			Type type = typeof(Person);
-			PropertyInfo[] properties = type.GetProperties();
-			foreach (PropertyInfo property in properties)
-			{
-				Console.WriteLine(property.PropertyType);
-				if(property.PropertyType == typeof(bool))
-				{
-					Console.WriteLine("true");
-				}
-			}
-		}
-    }
-}
-*/
