@@ -73,8 +73,10 @@ namespace TPRandomizer
             quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             skipIntroCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            startingItemsListBox.VisibleChanged += new System.EventHandler(this.updateFlags);
-            excludedChecksListBox.VisibleChanged += new System.EventHandler(this.updateFlags);
+            startingItemsListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            excludedChecksListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            listofChecksListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            itemPoolListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
 
             foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
             {
@@ -119,6 +121,19 @@ namespace TPRandomizer
                     settings.introSkipped = skipIntroCheckBox.Checked;
                     settings.iceTrapSettings = foolishItemsComboBox.SelectedIndex;
                     settings.StartingItems = startingItemsListBox.Items.OfType<Item>().ToList();
+                    foreach (string startingItem in startingItemsListBox.Items)
+                    {
+                        string itemName = startingItem;
+                        itemName = itemName.Replace(" ", "_");
+                        foreach (Item item in Singleton.getInstance().Items.ImportantItems)
+                        {
+                            if (item.ToString() == itemName)
+                            {
+                                settings.StartingItems.Add(item);
+                                break;
+                            }
+                        }
+                    }
                     settings.ExcludedChecks = excludedChecksListBox.Items.OfType<string>().ToList();
                     settings.TunicColor = tunicColorComboBox.SelectedIndex;
                     settings.MidnaHairColor = midnaHairColorComboBox.SelectedIndex;
@@ -172,13 +187,13 @@ namespace TPRandomizer
                     transformAnywhereCheckBox.Checked = settings.transformAnywhere;
                     skipIntroCheckBox.Checked = settings.introSkipped;
                     foolishItemsComboBox.SelectedIndex = settings.iceTrapSettings;
-                    settings.StartingItems = startingItemsListBox.Items.OfType<Item>().ToList();
                     foreach (Item startingItem in settings.StartingItems)
                     {
-                        startingItemsListBox.Items.Add(startingItem);
-                        itemPoolListBox.Items.Remove(startingItem);
+                        string itemName = startingItem.ToString();
+                        itemName = itemName.Replace("_", " ");
+                        startingItemsListBox.Items.Add(itemName);
+                        itemPoolListBox.Items.Remove(itemName);
                     }
-                    settings.ExcludedChecks = excludedChecksListBox.Items.OfType<string>().ToList();
                     foreach (string excludedCheck in settings.ExcludedChecks)
                     {
                         excludedChecksListBox.Items.Add(excludedCheck);
@@ -217,14 +232,20 @@ namespace TPRandomizer
                 }
                 if (property.PropertyType == typeof(List<Item>))
                     {
-                        List<Item> itemList = new List<Item>();
-                        itemList.AddRange((List<Item>)value);
-                        foreach (Item item in itemList)
+                        if ((List<Item>)value != null)
                         {
-                            if(Singleton.getInstance().Items.ImportantItems.Contains(item))
+                            Console.WriteLine("Current Item List: " + value);
+                            List<Item> itemList = new List<Item>();
+                            itemList.AddRange((List<Item>)value);
+                            foreach (Item item in itemList)
                             {
-                                //We will use the item ID in the bit array as it takes less memory and is easier to append
-                                i_bits = i_bits + Convert.ToString((byte)value, 2).PadLeft(8, '0');
+                                Console.WriteLine("Current Item: " + item);
+                                if(Singleton.getInstance().Items.ImportantItems.Contains(item))
+                                {
+                                    Console.WriteLine("Current Item: " + item);
+                                    //We will use the item ID in the bit array as it takes less memory and is easier to append
+                                    i_bits = i_bits + Convert.ToString((byte)item, 2).PadLeft(8, '0');
+                                }
                             }
                         }
                         i_bits = i_bits + "11111111"; //Let the function know that we have reached the end
@@ -256,11 +277,10 @@ namespace TPRandomizer
 			{
                 string evaluatedByteString = "";
                 int settingBitWidth = 0;
-                byte value = 0;
                 bool reachedEndofList = false;
                 if (property.PropertyType == typeof(bool))
                 {
-                    value = Convert.ToByte(bitString[0]);
+                    int value = Convert.ToInt32(bitString[0].ToString(), 2);
                     if (value == 1)
                     {
                         property.SetValue(settings, true, null);
@@ -284,7 +304,6 @@ namespace TPRandomizer
                 }
                 if (property.PropertyType == typeof(List<Item>))
                 {
-                    
                     List<Item> startingItems = new List<Item>();
                     settingBitWidth = 8;
                     while (!reachedEndofList)
@@ -297,7 +316,14 @@ namespace TPRandomizer
                         int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
                         if (itemIndex != 255)
                         {
-                            startingItems.Add(Singleton.getInstance().Items.ImportantItems[itemIndex]);
+                            foreach (Item item in Singleton.getInstance().Items.ImportantItems)
+                            {
+                                if (itemIndex == (byte)item)
+                                {
+                                    startingItems.Add(item);
+                                    break;
+                                }
+                            }
                         }
                         else
                         {
