@@ -27,98 +27,111 @@ namespace TPRandomizer
         public static void interpretSettingsString(string settingsString)
         {
             //Convert the settings string into a binary string to be interpreted.
-            string bitString = BackendFunctions.textToBitString(settingsString);
+            string bitString = textToBitString(settingsString);
             List<byte> bits = new List<byte>();
-			PropertyInfo[] properties = Singleton.getInstance().RandoSetting.GetType().GetProperties();
-			foreach (PropertyInfo property in properties)
-			{
-                string evaluatedByteString = "";
-                int settingBitWidth = 0;
-                bool reachedEndofList = false;
-                if (property.PropertyType == typeof(bool))
+			PropertyInfo[] randoSettingProperties = Singleton.getInstance().RandoSetting.GetType().GetProperties();
+            PropertyInfo[] settingDataProperties = Singleton.getInstance().RandoSettingData.GetType().GetProperties();
+                foreach (PropertyInfo settingProperty in randoSettingProperties)
                 {
-                    int value = Convert.ToInt32(bitString[0].ToString(), 2);
-                    if (value == 1)
+                    string evaluatedByteString = "";
+                    int settingBitWidth = 0;
+                    bool reachedEndofList = false;
+                    if (settingProperty.PropertyType == typeof(bool))
                     {
-                        property.SetValue(Singleton.getInstance().RandoSetting, true, null);
-                    } 
-                    else
-                    {
-                        property.SetValue(Singleton.getInstance().RandoSetting, false, null);
-                    }
-                    bitString = bitString.Remove(0,1);
-                }
-                if (property.PropertyType == typeof(int))
-                {
-                    settingBitWidth = 4;
-                    //We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
-                    for (int j = 0; j < settingBitWidth; j++)
-                    {
-                        evaluatedByteString = evaluatedByteString + bitString[0];
+                        int value = Convert.ToInt32(bitString[0].ToString(), 2);
+                        if (value == 1)
+                        {
+                            settingProperty.SetValue(Singleton.getInstance().RandoSetting, true, null);
+                        } 
+                        else
+                        {
+                            settingProperty.SetValue(Singleton.getInstance().RandoSetting, false, null);
+                        }
                         bitString = bitString.Remove(0,1);
                     }
-                    property.SetValue(Singleton.getInstance().RandoSetting, Convert.ToInt32(evaluatedByteString, 2), null);
-                }
-                if (property.PropertyType == typeof(List<Item>))
-                {
-                    List<Item> startingItems = new List<Item>();
-                    //We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
-                    settingBitWidth = 8;
-                    while (!reachedEndofList)
+                    if (settingProperty.PropertyType == typeof(string))
                     {
-                        for (int j = 0; j < settingBitWidth; j++)
-                        {
-                            evaluatedByteString = evaluatedByteString + bitString[0];
-                            bitString = bitString.Remove(0,1);
-                        }
-                        int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
-                        if (itemIndex != 255) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
-                        {
-                            foreach (Item item in Singleton.getInstance().Items.ImportantItems)
+                        //We loop through the Settings Data to match the index with the appropriate value.
+                        foreach (PropertyInfo dataProperty in settingDataProperties)
+			            {
+                            var dataValue = dataProperty.GetValue(Singleton.getInstance().RandoSettingData, null);
+                            Console.WriteLine(settingProperty.Name + " " + dataProperty.Name);
+                            if (settingProperty.Name == dataProperty.Name)
                             {
-                                if (itemIndex == (byte)item)
+                                settingBitWidth = 4;
+                                //We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
+                                for (int j = 0; j < settingBitWidth; j++)
                                 {
-                                    startingItems.Add(item);
-                                    break;
+                                    evaluatedByteString = evaluatedByteString + bitString[0];
+                                    bitString = bitString.Remove(0,1);
                                 }
+                                
+                                string[] dataArray = (string[])dataValue;
+                                settingProperty.SetValue(Singleton.getInstance().RandoSetting, dataArray[Convert.ToInt32(evaluatedByteString, 2)], null);
+                                break;
                             }
                         }
-                        else
-                        {
-                            reachedEndofList = true;
-                        }
-                        evaluatedByteString = "";
                     }
-                    property.SetValue(Singleton.getInstance().RandoSetting, startingItems, null);
-                }
-                if (property.PropertyType == typeof(List<string>))
-                {
-                    List<string> excludedChecks = new List<string>();
-                    //We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
-                    settingBitWidth = 9;
-                    while (!reachedEndofList)
+                    if (settingProperty.PropertyType == typeof(List<Item>))
                     {
-                        for (int j = 0; j < settingBitWidth; j++)
+                        List<Item> startingItems = new List<Item>();
+                        //We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
+                        settingBitWidth = 8;
+                        while (!reachedEndofList)
                         {
-                            evaluatedByteString = evaluatedByteString + bitString[0];
-                            bitString = bitString.Remove(0,1);
+                            for (int j = 0; j < settingBitWidth; j++)
+                            {
+                                evaluatedByteString = evaluatedByteString + bitString[0];
+                                bitString = bitString.Remove(0,1);
+                            }
+                            int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
+                            if (itemIndex != 255) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
+                            {
+                                foreach (Item item in Singleton.getInstance().Items.ImportantItems)
+                                {
+                                    if (itemIndex == (byte)item)
+                                    {
+                                        startingItems.Add(item);
+                                        break;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                reachedEndofList = true;
+                            }
+                            evaluatedByteString = "";
                         }
-                        int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
-                        if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
-                        {
-                            excludedChecks.Add(Singleton.getInstance().Checks.CheckDict.ElementAt(checkIndex).Key);
-                        }
-                        else
-                        {
-                            reachedEndofList = true;
-                        }
-                        evaluatedByteString = "";
+                        settingProperty.SetValue(Singleton.getInstance().RandoSetting, startingItems, null);
                     }
-                    property.SetValue(Singleton.getInstance().RandoSetting, excludedChecks, null);
-                }
+                    if (settingProperty.PropertyType == typeof(List<string>))
+                    {
+                        List<string> excludedChecks = new List<string>();
+                        //We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
+                        settingBitWidth = 9;
+                        while (!reachedEndofList)
+                        {
+                            for (int j = 0; j < settingBitWidth; j++)
+                            {
+                                evaluatedByteString = evaluatedByteString + bitString[0];
+                                bitString = bitString.Remove(0,1);
+                            }
+                            int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
+                            if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
+                            {
+                                excludedChecks.Add(Singleton.getInstance().Checks.CheckDict.ElementAt(checkIndex).Key);
+                            }
+                            else
+                            {
+                                reachedEndofList = true;
+                            }
+                            evaluatedByteString = "";
+                        }
+                        settingProperty.SetValue(Singleton.getInstance().RandoSetting, excludedChecks, null);
+                    }
+                    Console.WriteLine(settingProperty.Name + settingProperty.GetValue(Singleton.getInstance().RandoSetting, null));
             }
             return;
-        
         }
 
         public static string settingsLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789";

@@ -413,7 +413,6 @@ namespace TPRandomizer
 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            Singleton.getInstance().Checks.CheckDict.Clear();
             randomizer.start(settingsStringTextbox.Text);
             MessageBox.Show("Seed Generated! Check the folder for the randomizer gci and spoiler log!");
         }

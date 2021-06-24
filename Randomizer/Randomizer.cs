@@ -22,7 +22,14 @@ namespace TPRandomizer
         {
             //Read in the settings string and set the settings values accordingly
             BackendFunctions.interpretSettingsString(settingsString);
-        begin:
+
+            // serialize JSON directly to a file
+            using (StreamWriter file = File.CreateText("SeedSettings.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, Singleton.getInstance().RandoSetting);
+            }
+        /*begin:
             //Generate the dictionary that contains all of the checks.
             Singleton.getInstance().Checks.InitializeChecks();
             //Generate the dictionary that contains all of the rooms.
@@ -50,7 +57,7 @@ namespace TPRandomizer
                 startOver();
                 goto begin;
             }
-            generateSpoilerLog(startingRoom);
+            generateSpoilerLog(startingRoom);*/
         }
 
         

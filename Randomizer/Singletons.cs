@@ -11,6 +11,8 @@ namespace TPRandomizer
         public LogicFunctions Logic = new LogicFunctions();
         public RandomizerSetting RandoSetting = new RandomizerSetting();
 
+        public SettingData RandoSettingData = new SettingData();
+
         private static Singleton instance;
         
         
