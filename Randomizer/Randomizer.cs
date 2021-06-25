@@ -18,18 +18,14 @@ namespace TPRandomizer
         RoomFunctions Rooms = new RoomFunctions();
 
         ItemFunctions Items = new ItemFunctions();
+
+        /// <summary>
+        /// Generates a randomizer seed given a settings string
+        /// </summary>
+        /// <param name="settingsString"> The Settings String to be read in. </param>
         public void start(string settingsString)
         {
-            //Read in the settings string and set the settings values accordingly
-            BackendFunctions.interpretSettingsString(settingsString);
-
-            // serialize JSON directly to a file
-            using (StreamWriter file = File.CreateText("SeedSettings.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, Singleton.getInstance().RandoSetting);
-            }
-        /*begin:
+            begin:
             //Generate the dictionary that contains all of the checks.
             Singleton.getInstance().Checks.InitializeChecks();
             //Generate the dictionary that contains all of the rooms.
@@ -39,6 +35,9 @@ namespace TPRandomizer
             //Read in the information from the .json files and place them in to the classes defined in the dictionary.
             deserializeRooms();
 
+            //Read in the settings string and set the settings values accordingly
+            BackendFunctions.interpretSettingsString(settingsString);
+
             Singleton.getInstance().Checks.generateCheckList();
             //Generate the item pool based on user settings/input.           
             Items.generateItemPool();
@@ -46,8 +45,8 @@ namespace TPRandomizer
             Room startingRoom = setupGraph();
             try 
             {
-            //Place the items in the world based on the starting room.
-            placeItemsInWorld(startingRoom);
+                //Place the items in the world based on the starting room.
+                placeItemsInWorld(startingRoom);
             }
             
             //If for some reason the assumed fill fails, we want to dump everything and start over.
@@ -57,7 +56,7 @@ namespace TPRandomizer
                 startOver();
                 goto begin;
             }
-            generateSpoilerLog(startingRoom);*/
+            generateSpoilerLog(startingRoom);
         }
 
         
@@ -515,7 +514,7 @@ namespace TPRandomizer
 
         public void deserializeChecks()
         {
-            foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/", "*",SearchOption.AllDirectories))
+            foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Checks/", "*",SearchOption.AllDirectories))
             {
                 string contents = File.ReadAllText(file);
                 string fileName = Path.GetFileNameWithoutExtension(file);

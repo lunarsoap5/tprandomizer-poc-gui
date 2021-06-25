@@ -168,7 +168,6 @@ namespace TPRandomizer
             this.randomizationSettingsBox.TabIndex = 3;
             this.randomizationSettingsBox.TabStop = false;
             this.randomizationSettingsBox.Text = "Logic Settings";
-            this.randomizationSettingsBox.Enter += new System.EventHandler(this.groupBox6_Enter);
             // 
             // logicRulesBox
             // 
@@ -191,7 +190,6 @@ namespace TPRandomizer
             this.logicRulesLabel.Size = new System.Drawing.Size(70, 15);
             this.logicRulesLabel.TabIndex = 0;
             this.logicRulesLabel.Text = "Logic Rules:";
-            this.logicRulesLabel.Click += new System.EventHandler(this.label9_Click);
             // 
             // itemPoolOptionsGroupBox
             // 
@@ -313,7 +311,6 @@ namespace TPRandomizer
             this.smallKeyShuffleComboBox.Name = "smallKeyShuffleComboBox";
             this.smallKeyShuffleComboBox.Size = new System.Drawing.Size(121, 23);
             this.smallKeyShuffleComboBox.TabIndex = 0;
-            this.smallKeyShuffleComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // mapsAndCompassesComboBox
             // 
@@ -480,7 +477,6 @@ namespace TPRandomizer
             this.castleLogicComboBox.Name = "castleLogicComboBox";
             this.castleLogicComboBox.Size = new System.Drawing.Size(121, 23);
             this.castleLogicComboBox.TabIndex = 0;
-            this.castleLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // gameplaySettingsTabPage
             // 
@@ -832,7 +828,6 @@ namespace TPRandomizer
             this.fastIronBootsCheckBox.TabIndex = 1;
             this.fastIronBootsCheckBox.Text = "Fast Iron Boots";
             this.fastIronBootsCheckBox.UseVisualStyleBackColor = true;
-            this.fastIronBootsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox12_CheckedChanged);
             // 
             // tunicColorLabel
             // 
@@ -1005,7 +1000,6 @@ namespace TPRandomizer
             this.settingsStringTextbox.Name = "settingsStringTextbox";
             this.settingsStringTextbox.Size = new System.Drawing.Size(497, 23);
             this.settingsStringTextbox.TabIndex = 12;
-            this.settingsStringTextbox.TextChanged += new System.EventHandler(this.settingsStringTextbox_TextChanged_1);
             // 
             // importButton
             // 

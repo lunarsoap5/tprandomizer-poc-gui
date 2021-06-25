@@ -381,6 +381,13 @@ namespace TPRandomizer
             Item.Iron_Boots,
             Item.Progressive_Bow,
 			Item.Empty_Bomb_Bag,
+			Item.Progressive_Wallet,
+			Item.Progressive_Wallet,
+			Item.Progressive_Bow,
+			Item.Progressive_Bow,
+			Item.Bomb_Bag_And_Bombs,
+			Item.Bomb_Bag_And_Bombs,
+			Item.Giant_Bomb_Bag,
             Item.Zora_Armor,
             Item.Progressive_Clawshot,
 			Item.Progressive_Clawshot,
@@ -465,13 +472,7 @@ namespace TPRandomizer
 			ItemPool.Clear();
 			RandomizedImportantItems.Clear();
 			
-			alwaysItems.Add(Item.Progressive_Wallet);
-			alwaysItems.Add(Item.Progressive_Wallet);
-			alwaysItems.Add(Item.Progressive_Bow);
-			alwaysItems.Add(Item.Progressive_Bow);
-			alwaysItems.Add(Item.Bomb_Bag_And_Bombs);
-			alwaysItems.Add(Item.Bomb_Bag_And_Bombs);
-			alwaysItems.Add(Item.Giant_Bomb_Bag);
+			
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Piece_of_Heart, 45));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Heart_Container, 8));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Green_Rupee, 2));

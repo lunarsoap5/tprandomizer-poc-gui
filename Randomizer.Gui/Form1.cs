@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
-//Settings string based on code by DigShake https://bitbucket.org/digshake/z2randomizer/src/master/WindowsFormsApplication1/Form1.cs
+//Settings string formula based on the Ocarina of Time Randomizer https://github.com/TestRunnerSRL/OoT-Randomizer/blob/Dev/Settings.py
 
 namespace TPRandomizer
 {
@@ -29,29 +29,15 @@ namespace TPRandomizer
             InitializeComponent();
             dontrunhandler = false;
             logicRulesBox.SelectedIndex = 0;
-                    castleLogicComboBox.SelectedIndex = 1;
-                    faronWoodsLogicComboBox.SelectedIndex = 1;
-                    palaceLogicComboBox.SelectedIndex = 1;
-                    mdhCheckBox.Checked = false;
-                    smallKeyShuffleComboBox.SelectedIndex = 1;
-                    bossKeyShuffleComboBox.SelectedIndex = 1;
-                    mapsAndCompassesComboBox.SelectedIndex = 1;
-                    goldenBugsCheckBox.Checked = true;
-                    giftFromNPCsCheckBox.Checked = true;
-                    treasureChestCheckBox.Checked = true;
-                    shopItemsCheckBox.Checked = true;
-                    faronTwilightClearedCheckBox.Checked = true;
-                    eldinTwilightClearedCheckBox.Checked = true;
-                    lanayruTwilightClearedCheckBox.Checked = true;
-                    skipMinorCutscenesCheckBox.Checked = true;
-                    skipMasterSwordPuzzleCheckBox.Checked = true;
-                    fastIronBootsCheckBox.Checked = true;
-                    quickTransformCheckBox.Checked = true;
-                    transformAnywhereCheckBox.Checked = true;
-                    skipIntroCheckBox.Checked = true;
-                    foolishItemsComboBox.SelectedIndex = 1;
-                    tunicColorComboBox.SelectedIndex = 1;
-                    midnaHairColorComboBox.SelectedIndex = 1;
+            castleLogicComboBox.SelectedIndex = 0;
+            faronWoodsLogicComboBox.SelectedIndex = 0;
+            palaceLogicComboBox.SelectedIndex = 0;
+            smallKeyShuffleComboBox.SelectedIndex = 0;
+            bossKeyShuffleComboBox.SelectedIndex = 0;
+            mapsAndCompassesComboBox.SelectedIndex = 0;
+            foolishItemsComboBox.SelectedIndex = 0;
+            tunicColorComboBox.SelectedIndex = 0;
+            midnaHairColorComboBox.SelectedIndex = 0;
             logicRulesBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             castleLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             palaceLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
@@ -93,56 +79,62 @@ namespace TPRandomizer
             
         }
 
+        /// <summary>
+        /// Updates all of the backend settings to be reflective of the values displayed by the GUI.
+        /// </summary>
+        /// <param name="sender"> The object parameter triggering the function. </param>
+        /// <param name="e"> The event being triggered. </param>
         private void updateFlags(object sender, EventArgs e)
         {
+            //We have this small gatekeep to allow us to run functions against the senders without triggering this event.
             if (!dontrunhandler)
-            {
-                
-                    settings.logicRules = logicRulesBox.SelectedIndex;
-                    settings.castleRequirements = castleLogicComboBox.SelectedIndex;
-                    settings.palaceRequirements = palaceLogicComboBox.SelectedIndex;
-                    settings.faronWoodsLogic = faronWoodsLogicComboBox.SelectedIndex;
-                    settings.mdhSkipped = mdhCheckBox.Checked;
-                    settings.smallKeySettings = smallKeyShuffleComboBox.SelectedIndex;
-                    settings.bossKeySettings = bossKeyShuffleComboBox.SelectedIndex;
-                    settings.mapAndCompassSettings = mapsAndCompassesComboBox.SelectedIndex;
-                    settings.goldenBugsShuffled = goldenBugsCheckBox.Checked;
-                    settings.npcItemsShuffled = giftFromNPCsCheckBox.Checked;
-                    settings.treasureChestsShuffled = treasureChestCheckBox.Checked;
-                    settings.shopItemsShuffled = shopItemsCheckBox.Checked;
-                    settings.faronTwilightCleared = faronTwilightClearedCheckBox.Checked;
-                    settings.eldinTwilightCleared = eldinTwilightClearedCheckBox.Checked;
-                    settings.lanayruTwilightCleared = lanayruTwilightClearedCheckBox.Checked;
-                    settings.skipMinorCutscenes = skipMinorCutscenesCheckBox.Checked;
-                    settings.skipMasterSwordPuzzle = skipMasterSwordPuzzleCheckBox.Checked;
-                    settings.fastIronBoots = fastIronBootsCheckBox.Checked;
-                    settings.quickTransform = quickTransformCheckBox.Checked;
-                    settings.transformAnywhere = transformAnywhereCheckBox.Checked;
-                    settings.introSkipped = skipIntroCheckBox.Checked;
-                    settings.iceTrapSettings = foolishItemsComboBox.SelectedIndex;
-                    settings.StartingItems = startingItemsListBox.Items.OfType<Item>().ToList();
-                    foreach (string startingItem in startingItemsListBox.Items)
+            { 
+                settings.logicRules = logicRulesBox.SelectedIndex;
+                settings.castleRequirements = castleLogicComboBox.SelectedIndex;
+                settings.palaceRequirements = palaceLogicComboBox.SelectedIndex;
+                settings.faronWoodsLogic = faronWoodsLogicComboBox.SelectedIndex;
+                settings.mdhSkipped = mdhCheckBox.Checked;
+                settings.smallKeySettings = smallKeyShuffleComboBox.SelectedIndex;
+                settings.bossKeySettings = bossKeyShuffleComboBox.SelectedIndex;
+                settings.mapAndCompassSettings = mapsAndCompassesComboBox.SelectedIndex;
+                settings.goldenBugsShuffled = goldenBugsCheckBox.Checked;
+                settings.npcItemsShuffled = giftFromNPCsCheckBox.Checked;
+                settings.treasureChestsShuffled = treasureChestCheckBox.Checked;
+                settings.shopItemsShuffled = shopItemsCheckBox.Checked;
+                settings.faronTwilightCleared = faronTwilightClearedCheckBox.Checked;
+                settings.eldinTwilightCleared = eldinTwilightClearedCheckBox.Checked;
+                settings.lanayruTwilightCleared = lanayruTwilightClearedCheckBox.Checked;
+                settings.skipMinorCutscenes = skipMinorCutscenesCheckBox.Checked;
+                settings.skipMasterSwordPuzzle = skipMasterSwordPuzzleCheckBox.Checked;
+                settings.fastIronBoots = fastIronBootsCheckBox.Checked;
+                settings.quickTransform = quickTransformCheckBox.Checked;
+                settings.transformAnywhere = transformAnywhereCheckBox.Checked;
+                settings.introSkipped = skipIntroCheckBox.Checked;
+                settings.iceTrapSettings = foolishItemsComboBox.SelectedIndex;
+                settings.StartingItems = startingItemsListBox.Items.OfType<Item>().ToList();
+                foreach (string startingItem in startingItemsListBox.Items)
+                {
+                    string itemName = startingItem;
+                    itemName = itemName.Replace(" ", "_");
+                    foreach (Item item in Singleton.getInstance().Items.ImportantItems)
                     {
-                        string itemName = startingItem;
-                        itemName = itemName.Replace(" ", "_");
-                        foreach (Item item in Singleton.getInstance().Items.ImportantItems)
+                        if (item.ToString() == itemName)
                         {
-                            if (item.ToString() == itemName)
-                            {
-                                settings.StartingItems.Add(item);
-                                break;
-                            }
+                            settings.StartingItems.Add(item);
+                            break;
                         }
                     }
-                    settings.ExcludedChecks = excludedChecksListBox.Items.OfType<string>().ToList();
-                    settings.TunicColor = tunicColorComboBox.SelectedIndex;
-                    settings.MidnaHairColor = midnaHairColorComboBox.SelectedIndex;
-
-                    settingsStringTextbox.Text = getSettingsString();
-                
+                }
+                settings.ExcludedChecks = excludedChecksListBox.Items.OfType<string>().ToList();
+                settings.TunicColor = tunicColorComboBox.SelectedIndex;
+                settings.MidnaHairColor = midnaHairColorComboBox.SelectedIndex;
+                settingsStringTextbox.Text = getSettingsString();
             }
         }
 
+        /// <summary>
+        /// Decrypts the Settings string and updates the GUI with the appropriate settings.
+        /// </summary>
         private void updateInterface()
         {
             startingItemsListBox.Items.Clear();
@@ -368,11 +360,6 @@ namespace TPRandomizer
             return;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void moveCheckToExcludedButton_Click(object sender, EventArgs e)
         {
             if (listofChecksListBox.SelectedItem != null) //A little security feature in case the user mis-clicks
@@ -382,37 +369,9 @@ namespace TPRandomizer
             }
         }
 
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox6_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox12_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        
-
         private void generateButton_Click(object sender, EventArgs e)
         {
+            Singleton.getInstance().Checks.CheckDict.Clear();
             randomizer.start(settingsStringTextbox.Text);
             MessageBox.Show("Seed Generated! Check the folder for the randomizer gci and spoiler log!");
         }
@@ -452,17 +411,11 @@ namespace TPRandomizer
             
         }
 
-        private void listofChecksListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void moveExcludedToCheckButton_Click(object sender, EventArgs e)
         {
             listofChecksListBox.Items.Add(excludedChecksListBox.SelectedItem);
             excludedChecksListBox.Items.Remove(excludedChecksListBox.SelectedItem);
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -490,10 +443,6 @@ namespace TPRandomizer
             startingItemsListBox.Items.Remove(startingItemsListBox.SelectedItem);
         }
 
-        private void settingsStringTextbox_TextChanged_1(object sender, EventArgs e)
-        {
-            
-        }
 
         private void importButton_Click(object sender, EventArgs e)
         {

@@ -55,7 +55,6 @@ namespace TPRandomizer
                         foreach (PropertyInfo dataProperty in settingDataProperties)
 			            {
                             var dataValue = dataProperty.GetValue(Singleton.getInstance().RandoSettingData, null);
-                            Console.WriteLine(settingProperty.Name + " " + dataProperty.Name);
                             if (settingProperty.Name == dataProperty.Name)
                             {
                                 settingBitWidth = 4;
