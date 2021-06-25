@@ -291,7 +291,7 @@ namespace TPRandomizer
             CheckDict.Add("Kakariko Gorge Owl Statue Sky Character", new Check());
             CheckDict.Add("Bridge of Eldin Owl Statue Sky Character", new Check());
             CheckDict.Add("Lake Hylia Bridge Owl Statue Sky Character", new Check());
-            CheckDict.Add("West Hyrule Field Owl Statue Sky Character", new Check());
+            CheckDict.Add("Hyrule Field Ampitheater Owl Statue Sky Character", new Check());
             CheckDict.Add("Gerudo Desert Owl Statue Sky Character", new Check());
             CheckDict.Add("City in The Sky Underwater West Chest", new Check());
             CheckDict.Add("City in The Sky Underwater East Chest", new Check());
