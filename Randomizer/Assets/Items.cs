@@ -573,6 +573,7 @@ namespace TPRandomizer
 			ItemPool.AddRange(alwaysItems);
 			ItemPool.AddRange(miscItems);
 			ItemPool.AddRange(VanillaDungeonRewards);
+			ItemPool.AddRange(vanillaJunkItems);
 
 			Singleton.getInstance().Items.ShuffledDungeonRewards.Clear();
 			Singleton.getInstance().Items.RandomizedImportantItems.Clear();

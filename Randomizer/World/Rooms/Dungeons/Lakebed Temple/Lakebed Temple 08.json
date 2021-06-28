@@ -8,7 +8,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "(Lakebed_Temple_Small_Key, 3) and canLaunchBombs"
+        "(Lakebed_Temple_Small_Key, 2) and canLaunchBombs"
     ],
     "isStartingRoom": "false",
     "checks": 

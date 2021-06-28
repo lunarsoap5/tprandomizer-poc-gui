@@ -15,6 +15,7 @@ namespace TPRandomizer
     public class Randomizer
     {
         LogicFunctions Logic = new LogicFunctions();
+        CheckFunctions Checks = new CheckFunctions();
         RoomFunctions Rooms = new RoomFunctions();
 
         ItemFunctions Items = new ItemFunctions();
@@ -86,29 +87,14 @@ namespace TPRandomizer
             return;
         }
 
-        public void resetAllChecksVisited()
-        {
-            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
-            {
-                Check currentCheck = checkList.Value;
-                currentCheck.hasBeenReached = false;
-                Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
-            }
-            return;
-        }
-
-        public void resetAllChecks()
-        {
-            Singleton.getInstance().Checks.CheckDict.Clear();
-            return;
-        }
+        
 
         void startOver()
         {
             Console.WriteLine("Starting Over.");
-            resetAllChecksVisited();
+            Checks.resetAllChecksVisited();
             resetAllRoomsVisited();
-            resetAllChecks();
+            Checks.resetAllChecks();
             resetAllRooms();
         }
 
@@ -193,7 +179,7 @@ namespace TPRandomizer
       public List<string> listAllAvailableDungeonChecks(Room startingRoom, Item itemToPlace)
         {
             Singleton.getInstance().Items.heldItems.AddRange(Singleton.getInstance().Items.ItemPool);
-            resetAllChecksVisited();
+            Checks.resetAllChecksVisited();
             restart:
             resetAllRoomsVisited();
             List<string> roomChecks = new List<string>();
@@ -349,7 +335,7 @@ namespace TPRandomizer
         public List<string> listAvailableRestrictedChecks(Room startingRoom, List<string> checksToBeRandomized, List<Item> currentItemPool)
         {
             Singleton.getInstance().Items.heldItems.AddRange(currentItemPool);
-            resetAllChecksVisited();
+            Checks.resetAllChecksVisited();
             restart:
             resetAllRoomsVisited();
             List<string> roomChecks = new List<string>();
@@ -418,7 +404,7 @@ namespace TPRandomizer
         public List<string> listAllAvailableChecks(Room startingRoom, Item itemToPlace)
         {
             Singleton.getInstance().Items.heldItems.AddRange(Singleton.getInstance().Items.ItemPool);
-            resetAllChecksVisited();
+            Checks.resetAllChecksVisited();
             restart:
             resetAllRoomsVisited();
             List<string> roomChecks = new List<string>();
@@ -487,7 +473,7 @@ namespace TPRandomizer
 
         public List<string> listNonPlacedChecks(Room startingRoom, Item itemToPlace)
         {
-            resetAllChecksVisited();
+            Checks.resetAllChecksVisited();
             List<string> roomChecks = new List<string>();
             List<Item> playthroughItems = new List<Item>();
             Check currentCheck;
@@ -584,7 +570,7 @@ namespace TPRandomizer
                 file.WriteLine("");
                 file.WriteLine("");
                 file.WriteLine("Playthrough: ");
-                resetAllChecksVisited();
+                Checks.resetAllChecksVisited();
                 
                 Singleton.getInstance().Items.generateItemPool();
                 Singleton.getInstance().Items.heldItems.Clear();

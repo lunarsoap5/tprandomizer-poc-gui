@@ -885,7 +885,7 @@ namespace TPRandomizer
 
         public static bool canLeaveForest()
         {
-            return (canCompleteForestTemple());
+            return ((canCompleteForestTemple() || (Singleton.getInstance().RandoSetting.faronWoodsLogic == "Open")));
         }
 
         public static bool canCompleteForestTemple()
