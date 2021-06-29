@@ -1084,5 +1084,13 @@ namespace TPRandomizer
             }
             return isQuantity;
 		}
+
+        public bool evaluateRequirements(string expression)
+        {
+            Parser parse = new Parser();
+            parse.ParserReset();
+            Singleton.getInstance().Logic.TokenDict = new Tokenizer(expression).Tokenize();
+            return parse.Parse();
+        }
     }
 }

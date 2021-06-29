@@ -481,22 +481,6 @@ namespace TPRandomizer
                 }
             }
         } 
-        public void resetAllChecksVisited()
-        {
-            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
-            {
-                Check currentCheck = checkList.Value;
-                currentCheck.hasBeenReached = false;
-                Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
-            }
-            return;
-        }
-
-        public void resetAllChecks()
-        {
-            Singleton.getInstance().Checks.CheckDict.Clear();
-            return;
-        }
     }
 
 }

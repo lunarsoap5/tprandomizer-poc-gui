@@ -10,6 +10,10 @@ namespace TPRandomizer
 {
     public class BackendFunctions
     {
+        LogicFunctions LogicFunc = new LogicFunctions();
+        CheckFunctions CheckFunc = new CheckFunctions();
+        RoomFunctions RoomFunc = new RoomFunctions();
+
         //Encode the settings string. 
         public static string Base64Encode(string plainText)
         {
@@ -188,6 +192,119 @@ namespace TPRandomizer
             }
             Console.WriteLine("Read in settings string: " + byteToBinary);
             return byteToBinary;
-        }    
+        }   
+
+        public static void generateSpoilerLog(Room startingRoom)
+        {
+            Check currentCheck;
+            Random rnd = new Random();
+            string fileHash = "TPR - v1.0 - " + HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + " " + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)] + ".txt";
+            //Once everything is complete, we want to write the results to a spoiler log.
+            using (StreamWriter file = new(fileHash))
+            {
+                file.WriteLine("Randomizer Version: 1.0b");
+                file.WriteLine("Settings: ");
+                file.WriteLine(JsonConvert.SerializeObject(Singleton.getInstance().RandoSetting, Formatting.Indented));
+                file.WriteLine("");
+                file.WriteLine("Item Locations: ");
+                foreach (KeyValuePair<string, Check> check in  Singleton.getInstance().Checks.CheckDict)
+                {
+                    currentCheck = check.Value;
+                    if (currentCheck.itemWasPlaced)
+                    {
+                        file.WriteLine(currentCheck.checkName + ": " + currentCheck.itemId);
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Check: " + currentCheck.checkName + " has no item.");
+                    }
+                }
+                file.WriteLine("");
+                file.WriteLine("");
+                file.WriteLine("");
+                file.WriteLine("Playthrough: ");
+                foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+                {
+                    Check listedCheck = checkList.Value;
+                    listedCheck.hasBeenReached = false;
+                    Singleton.getInstance().Checks.CheckDict[listedCheck.checkName] = listedCheck;
+                }
+                
+                Singleton.getInstance().Items.generateItemPool();
+                Singleton.getInstance().Items.heldItems.Clear();
+                Singleton.getInstance().Items.ImportantItems.Add(Item.Ganon_Defeated);
+                
+                List<Item> playthroughItems = new List<Item>();
+                int sphereCount = 0;
+                while (!Singleton.getInstance().Items.heldItems.Contains(Item.Ganon_Defeated))
+                {
+                    foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
+                    {
+                        Room currentRoom = roomList.Value;
+                        currentRoom.visited = false;
+                        Randomizer.Rooms.RoomDict[currentRoom.name] = currentRoom;
+                    }
+                    List<Room> roomsToExplore = new List<Room>();
+                    startingRoom.visited = true;
+                    roomsToExplore.Add(startingRoom);
+                    file.WriteLine("Sphere: " + sphereCount);
+                    while (roomsToExplore.Count() > 0)
+                    {
+                        for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
+                        {
+                            //Create reference to the dictionary entry of the room we are evaluating
+
+                            //Parse the neighbour's requirements to find out if we can access it
+                            var areNeighbourRequirementsMet = Randomizer.Logic.evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                            //If you can access the neighbour and it hasnt been visited yet.
+                            if ((((bool)areNeighbourRequirementsMet == true)) && (Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                            {
+                                Room currentNeighbour = Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                                currentNeighbour.visited = true;
+                                //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                                roomsToExplore.Add(currentNeighbour);
+                            }
+                        }
+                        for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
+                        {
+                            //Create reference to the dictionary entry of the check whose logic we are evaluating
+                            if (!Singleton.getInstance().Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                            {
+                                if (roomsToExplore[0].checks[i].ToString() == "")
+                                {
+                                    //Console.WriteLine("Room has no checks, continuing on....");
+                                    break;
+                                }
+                                Console.WriteLine("Check: " + roomsToExplore[0].checks[i] + " does not exist.");
+                            }
+                            if (!currentCheck.hasBeenReached)
+                            {
+                                //Parse the requirements to see if we can get the check
+                                var areCheckRequirementsMet = Randomizer.Logic.evaluateRequirements(currentCheck.requirements);
+                                //Confirms that we can get the check and checks to see if an item was placed in it.
+                                if (((bool)areCheckRequirementsMet == true))
+                                {
+                                    if (currentCheck.itemWasPlaced)
+                                    {
+                                        playthroughItems.Add(currentCheck.itemId);
+                                        currentCheck.hasBeenReached = true;
+                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonBigKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
+                                        {
+                                            file.WriteLine("    " + currentCheck.checkName + ": " + currentCheck.itemId);
+                                        }
+                                        
+                                    }
+
+                                }
+                            }
+                        }
+                        roomsToExplore.Remove(roomsToExplore[0]);
+                    }
+                    Singleton.getInstance().Items.heldItems.AddRange(playthroughItems);
+                    playthroughItems.Clear();
+                    sphereCount++; 
+                }
+            }
+        } 
     }
 }

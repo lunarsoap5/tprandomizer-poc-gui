@@ -14,11 +14,11 @@ namespace TPRandomizer
 { 
     public class Randomizer
     {
-        LogicFunctions Logic = new LogicFunctions();
-        CheckFunctions Checks = new CheckFunctions();
-        RoomFunctions Rooms = new RoomFunctions();
+        public static LogicFunctions Logic = new LogicFunctions();
+        public static CheckFunctions Checks = new CheckFunctions();
+        public static RoomFunctions Rooms = new RoomFunctions();
 
-        ItemFunctions Items = new ItemFunctions();
+        public ItemFunctions Items = new ItemFunctions();
 
         /// <summary>
         /// Generates a randomizer seed given a settings string
@@ -57,45 +57,45 @@ namespace TPRandomizer
                 startOver();
                 goto begin;
             }
-            generateSpoilerLog(startingRoom);
+            BackendFunctions.generateSpoilerLog(startingRoom);
         }
 
         
         public Room setupGraph()
         {
             //We want to be safe and make sure that the room classes are prepped and ready to be linked together. Then we define our starting room.
-            resetAllRoomsVisited();
-            Room startingRoom = Rooms.RoomDict["Ordon Province"];
-            startingRoom.isStartingRoom = true;
-            Rooms.RoomDict["Ordon Province"] = startingRoom;
-            return startingRoom;
-        }
-
-        public void resetAllRoomsVisited()
-        {
             foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
             {
                 Room currentRoom = roomList.Value;
                 currentRoom.visited = false;
                 Rooms.RoomDict[currentRoom.name] = currentRoom;
             }
-            return;
+            Room startingRoom = Rooms.RoomDict["Ordon Province"];
+            startingRoom.isStartingRoom = true;
+            Rooms.RoomDict["Ordon Province"] = startingRoom;
+            return startingRoom;
         }
-        public void resetAllRooms()
-        {
-            Rooms.RoomDict.Clear();
-            return;
-        }
+
 
         
 
         void startOver()
         {
             Console.WriteLine("Starting Over.");
-            Checks.resetAllChecksVisited();
-            resetAllRoomsVisited();
-            Checks.resetAllChecks();
-            resetAllRooms();
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+            {
+                Check currentCheck = checkList.Value;
+                currentCheck.hasBeenReached = false;
+                Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
+            }
+            foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                currentRoom.visited = false;
+                Rooms.RoomDict[currentRoom.name] = currentRoom;
+            }
+            Singleton.getInstance().Checks.CheckDict.Clear();
+            Rooms.RoomDict.Clear();
         }
 
         void placeItemsInWorld(Room startingRoom)
@@ -167,7 +167,7 @@ namespace TPRandomizer
                 Console.WriteLine("Item to place: " + itemToPlace);
                 heldItems.Remove(itemToPlace);
                 ItemsToBeRandomized.Remove(itemToPlace);
-                availableChecks = listAllAvailableDungeonChecks(startingRoom, itemToPlace);
+                availableChecks = listAllAvailableRegionChecks(startingRoom, itemToPlace);
                 checkToReciveItem = Singleton.getInstance().Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
                 
                 placeItemInCheck(itemToPlace,checkToReciveItem);
@@ -176,12 +176,22 @@ namespace TPRandomizer
             }
             return;
         }
-      public List<string> listAllAvailableDungeonChecks(Room startingRoom, Item itemToPlace)
+      List<string> listAllAvailableRegionChecks(Room startingRoom, Item itemToPlace)
         {
             Singleton.getInstance().Items.heldItems.AddRange(Singleton.getInstance().Items.ItemPool);
-            Checks.resetAllChecksVisited();
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+            {
+                Check currentCheck = checkList.Value;
+                currentCheck.hasBeenReached = false;
+                Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
+            }
             restart:
-            resetAllRoomsVisited();
+            foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                currentRoom.visited = false;
+                Rooms.RoomDict[currentRoom.name] = currentRoom;
+            }
             List<string> roomChecks = new List<string>();
             List<Room> roomsToExplore = new List<Room>();
             startingRoom.visited = true;
@@ -193,7 +203,7 @@ namespace TPRandomizer
                 for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
                 {
                     //Parse the neighbour's requirements to find out if we can access it
-                    var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                    var areNeighbourRequirementsMet = Logic.evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
                     //If you can access the neighbour and it hasnt been visited yet.
                     if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
                     {
@@ -219,7 +229,7 @@ namespace TPRandomizer
                     if (!currentCheck.hasBeenReached)
                     {
                         //Parse the requirements to see if we can get the check
-                        var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
+                        var areCheckRequirementsMet = Logic.evaluateRequirements(currentCheck.requirements);
                         //Confirms that we can get the check and checks to see if an item was placed in it.
                         if (((bool)areCheckRequirementsMet == true))
                         {
@@ -232,7 +242,7 @@ namespace TPRandomizer
                             }
                             else
                             {
-                                if (Rooms.isDungeonCheck(itemToPlace, roomsToExplore[0]))
+                                if (Rooms.isRegionCheck(itemToPlace, currentCheck))
                                 {
                                     roomChecks.Add(currentCheck.checkName);
                                 }
@@ -335,9 +345,19 @@ namespace TPRandomizer
         public List<string> listAvailableRestrictedChecks(Room startingRoom, List<string> checksToBeRandomized, List<Item> currentItemPool)
         {
             Singleton.getInstance().Items.heldItems.AddRange(currentItemPool);
-            Checks.resetAllChecksVisited();
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+            {
+                Check currentCheck = checkList.Value;
+                currentCheck.hasBeenReached = false;
+                Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
+            }
             restart:
-            resetAllRoomsVisited();
+            foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                currentRoom.visited = false;
+                Rooms.RoomDict[currentRoom.name] = currentRoom;
+            }
             List<string> roomChecks = new List<string>();
             List<Room> roomsToExplore = new List<Room>();
             startingRoom.visited = true;
@@ -350,7 +370,7 @@ namespace TPRandomizer
                 for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
                 {
                     //Parse the neighbour's requirements to find out if we can access it
-                    var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                    var areNeighbourRequirementsMet = Logic.evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
                     //If you can access the neighbour and it hasnt been visited yet.
                     if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
                     {
@@ -376,7 +396,7 @@ namespace TPRandomizer
                     if (!currentCheck.hasBeenReached)
                     {
                         //Parse the requirements to see if we can get the check
-                        var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
+                        var areCheckRequirementsMet = Logic.evaluateRequirements(currentCheck.requirements);
                         //Confirms that we can get the check and checks to see if an item was placed in it.
                         if (((bool)areCheckRequirementsMet == true))
                         {
@@ -404,9 +424,19 @@ namespace TPRandomizer
         public List<string> listAllAvailableChecks(Room startingRoom, Item itemToPlace)
         {
             Singleton.getInstance().Items.heldItems.AddRange(Singleton.getInstance().Items.ItemPool);
-            Checks.resetAllChecksVisited();
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+            {
+                Check currentCheck = checkList.Value;
+                currentCheck.hasBeenReached = false;
+                Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
+            }
             restart:
-            resetAllRoomsVisited();
+            foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                currentRoom.visited = false;
+                Rooms.RoomDict[currentRoom.name] = currentRoom;
+            }
             List<string> roomChecks = new List<string>();
             List<Room> roomsToExplore = new List<Room>();
             startingRoom.visited = true;
@@ -420,7 +450,7 @@ namespace TPRandomizer
                     //Create reference to the dictionary entry of the room we are evaluating
 
                     //Parse the neighbour's requirements to find out if we can access it
-                    var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                    var areNeighbourRequirementsMet = Logic.evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
                     //If you can access the neighbour and it hasnt been visited yet.
                     if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
                     {
@@ -446,7 +476,7 @@ namespace TPRandomizer
                     if (!currentCheck.hasBeenReached)
                     {
                         //Parse the requirements to see if we can get the check
-                        var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
+                        var areCheckRequirementsMet = Logic.evaluateRequirements(currentCheck.requirements);
                         //Confirms that we can get the check and checks to see if an item was placed in it.
                         if (((bool)areCheckRequirementsMet == true))
                         {
@@ -473,7 +503,12 @@ namespace TPRandomizer
 
         public List<string> listNonPlacedChecks(Room startingRoom, Item itemToPlace)
         {
-            Checks.resetAllChecksVisited();
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+            {
+                Check listedCheck = checkList.Value;
+                listedCheck.hasBeenReached = false;
+                Singleton.getInstance().Checks.CheckDict[listedCheck.checkName] = listedCheck;
+            }
             List<string> roomChecks = new List<string>();
             List<Item> playthroughItems = new List<Item>();
             Check currentCheck;
@@ -533,115 +568,6 @@ namespace TPRandomizer
             return;
         }
 
-        public bool evaluateRequirements(string expression)
-        {
-            Parser parse = new Parser();
-            parse.ParserReset();
-            Singleton.getInstance().Logic.TokenDict = new Tokenizer(expression).Tokenize();
-            return parse.Parse();
-        }
-
-        public void generateSpoilerLog(Room startingRoom)
-        {
-            Check currentCheck;
-            Random rnd = new Random();
-            string fileHash = "TPR - v1.0 - " + HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + " " + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)] + ".txt";
-            //Once everything is complete, we want to write the results to a spoiler log.
-            using (StreamWriter file = new(fileHash))
-            {
-                file.WriteLine("Randomizer Version: 1.0b");
-                file.WriteLine("Settings: ");
-                file.WriteLine(JsonConvert.SerializeObject(Singleton.getInstance().RandoSetting, Formatting.Indented));
-                file.WriteLine("");
-                file.WriteLine("Item Locations: ");
-                foreach (KeyValuePair<string, Check> check in  Singleton.getInstance().Checks.CheckDict)
-                {
-                    currentCheck = check.Value;
-                    if (currentCheck.itemWasPlaced)
-                    {
-                        file.WriteLine(currentCheck.checkName + ": " + currentCheck.itemId);
-                    }
-                    else 
-                    {
-                        Console.WriteLine("Check: " + currentCheck.checkName + " has no item.");
-                    }
-                }
-                file.WriteLine("");
-                file.WriteLine("");
-                file.WriteLine("");
-                file.WriteLine("Playthrough: ");
-                Checks.resetAllChecksVisited();
-                
-                Singleton.getInstance().Items.generateItemPool();
-                Singleton.getInstance().Items.heldItems.Clear();
-                Singleton.getInstance().Items.ImportantItems.Add(Item.Ganon_Defeated);
-                
-                List<Item> playthroughItems = new List<Item>();
-                int sphereCount = 0;
-                while (!Singleton.getInstance().Items.heldItems.Contains(Item.Ganon_Defeated))
-                {
-                    resetAllRoomsVisited();
-                    List<Room> roomsToExplore = new List<Room>();
-                    startingRoom.visited = true;
-                    roomsToExplore.Add(startingRoom);
-                    file.WriteLine("Sphere: " + sphereCount);
-                    while (roomsToExplore.Count() > 0)
-                    {
-                        for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
-                        {
-                            //Create reference to the dictionary entry of the room we are evaluating
-
-                            //Parse the neighbour's requirements to find out if we can access it
-                            var areNeighbourRequirementsMet = evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
-                            //If you can access the neighbour and it hasnt been visited yet.
-                            if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
-                            {
-                                Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
-                                currentNeighbour.visited = true;
-                                //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
-                                roomsToExplore.Add(currentNeighbour);
-                            }
-                        }
-                        for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
-                        {
-                            //Create reference to the dictionary entry of the check whose logic we are evaluating
-                            if (!Singleton.getInstance().Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
-                            {
-                                if (roomsToExplore[0].checks[i].ToString() == "")
-                                {
-                                    //Console.WriteLine("Room has no checks, continuing on....");
-                                    break;
-                                }
-                                Console.WriteLine("Check: " + roomsToExplore[0].checks[i] + " does not exist.");
-                            }
-                            if (!currentCheck.hasBeenReached)
-                            {
-                                //Parse the requirements to see if we can get the check
-                                var areCheckRequirementsMet = evaluateRequirements(currentCheck.requirements);
-                                //Confirms that we can get the check and checks to see if an item was placed in it.
-                                if (((bool)areCheckRequirementsMet == true))
-                                {
-                                    if (currentCheck.itemWasPlaced)
-                                    {
-                                        playthroughItems.Add(currentCheck.itemId);
-                                        currentCheck.hasBeenReached = true;
-                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonBigKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
-                                        {
-                                            file.WriteLine("    " + currentCheck.checkName + ": " + currentCheck.itemId);
-                                        }
-                                        
-                                    }
-
-                                }
-                            }
-                        }
-                        roomsToExplore.Remove(roomsToExplore[0]);
-                    }
-                    Singleton.getInstance().Items.heldItems.AddRange(playthroughItems);
-                    playthroughItems.Clear();
-                    sphereCount++; 
-                }
-            }
-        }
+        
     } 
 }
