@@ -2,7 +2,7 @@
     "checkName": "Ilia Charm",
     "requirements": "(Progressive_Bow, 1)",
     "isExcluded": false,
-    "category": ["Npc"],
+    "category": ["Overworld", "Npc", "Hidden Village"],
     "itemId": "Ilias_Charm",
     "itemWasPlaced": false
 }

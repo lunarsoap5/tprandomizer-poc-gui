@@ -3,7 +3,7 @@
     "requirements": "Lantern",
     "hash": "7D3A",
     "isExcluded": false,
-    "category": ["Chest", "Kakariko Village"],
+    "category": ["Overworld", "Chest", "Eldin Province"],
     "itemId": "Purple_Rupee",
     "itemWasPlaced": false
 }

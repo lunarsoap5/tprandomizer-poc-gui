@@ -3,7 +3,7 @@
     "requirements": "(Progressive_Clawshot, 2)",
     "hash": "A2E9",
     "isExcluded": false,
-    "category": ["Chest", "Lanayru Province"],
+    "category": ["Overworld", "Chest", "Lanayru Province"],
     "itemId": "Orange_Rupee",
     "itemWasPlaced": false
 }

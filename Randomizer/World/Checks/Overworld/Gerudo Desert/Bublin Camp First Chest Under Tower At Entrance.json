@@ -3,7 +3,7 @@
     "requirements": "true",
     "hash": "C193",
     "isExcluded": false,
-    "category": ["Chest", "Bublin Camp"],
+    "category": ["Overworld", "Chest", "Bublin Camp"],
     "itemId": "Arrows_20",
     "itemWasPlaced": false
 }

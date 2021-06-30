@@ -3,7 +3,7 @@
     "requirements": "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal",
     "hash": "558A",
     "isExcluded": false,
-    "category": ["Chest", "Faron Woods"],
+    "category": ["Overworld", "Chest", "Faron Woods"],
     "itemId": "Piece_of_Heart",
     "itemWasPlaced": false
 }

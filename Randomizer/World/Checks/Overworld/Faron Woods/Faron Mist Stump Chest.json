@@ -3,7 +3,7 @@
     "requirements": "Lantern",
     "hash": "411C",
     "isExcluded": false,
-    "category": ["Chest", "Faron Woods"],
+    "category": ["Overworld", "Chest", "Faron Woods"],
     "itemId": "Red_Rupee",
     "itemWasPlaced": false
 }

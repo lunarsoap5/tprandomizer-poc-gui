@@ -2,7 +2,7 @@
     "checkName": "Iza Raging Rapids Minigame",
     "requirements": "(Progressive_Bow, 1) and hasBombs",
     "isExcluded": false,
-    "category": ["Npc"],
+    "category": ["Overworld", "Npc", "Lanayru Province"],
     "itemId": "Giant_Bomb_Bag",
     "itemWasPlaced": false
 }

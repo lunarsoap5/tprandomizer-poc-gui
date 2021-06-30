@@ -3,7 +3,7 @@
     "requirements": "canDefeatBomskit and Lantern",
     "hash": "D3C9",
     "isExcluded": false,
-    "category": ["Chest", "Hyrule Field"],
+    "category": ["Overworld", "Chest", "Hyrule Field"],
     "itemId": "Purple_Rupee",
     "itemWasPlaced": false
 }

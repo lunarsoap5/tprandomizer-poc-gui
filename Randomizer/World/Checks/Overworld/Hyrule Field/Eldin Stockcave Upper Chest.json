@@ -3,7 +3,7 @@
     "requirements": "Iron_Boots",
     "hash": "B84B",
     "isExcluded": false,
-    "category": ["Chest", "Hyrule Field"],
+    "category": ["Overworld", "Chest", "Hyrule Field"],
     "itemId": "Red_Rupee",
     "itemWasPlaced": false
 }

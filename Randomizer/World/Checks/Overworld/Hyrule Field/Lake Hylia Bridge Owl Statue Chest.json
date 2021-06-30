@@ -3,7 +3,7 @@
     "requirements": "(Progressive_Dominion_Rod, 2) and (Progressive_Clawshot, 1)",
     "hash": "0ADD",
     "isExcluded": false,
-    "category": ["Chest", "Hyrule Field"],
+    "category": ["Overworld", "Chest", "Hyrule Field"],
     "itemId": "Orange_Rupee",
     "itemWasPlaced": false
 }

@@ -3,7 +3,7 @@
     "requirements": "true",
     "hash": "326F",
     "isExcluded": false,
-    "category": ["Chest", "Lake Hylia"],
+    "category": ["Overworld", "Chest", "Lake Hylia"],
     "itemId": "Purple_Rupee",
     "itemWasPlaced": false
 }

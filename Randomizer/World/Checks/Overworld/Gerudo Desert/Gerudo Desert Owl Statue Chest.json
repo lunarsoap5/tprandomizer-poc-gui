@@ -3,7 +3,7 @@
     "requirements": "(Progressive_Dominion_Rod, 2)",
     "hash": "8F1F",
     "isExcluded": false,
-    "category": ["Chest", "Gerudo Desert"],
+    "category": ["Overworld", "Chest", "Gerudo Desert"],
     "itemId": "Orange_Rupee",
     "itemWasPlaced": false
 }

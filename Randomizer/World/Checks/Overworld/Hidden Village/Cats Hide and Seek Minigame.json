@@ -3,7 +3,7 @@
     "requirements": "Ilias_Charm",
     "hash": "9E3C",
     "isExcluded": false,
-    "category": ["Chest", "Hidden Village"],
+    "category": ["Overworld", "Npc", "Hidden Village"],
     "itemId": "Piece_of_Heart",
     "itemWasPlaced": false
 }

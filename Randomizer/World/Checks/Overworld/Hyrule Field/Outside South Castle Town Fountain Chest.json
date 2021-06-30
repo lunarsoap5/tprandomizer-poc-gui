@@ -3,7 +3,7 @@
     "requirements": "Spinner and (Progressive_Clawshot, 1)",
     "hash": "25C6",
     "isExcluded": false,
-    "category": ["Chest", "Hyrule Field"],
+    "category": ["Overworld", "Chest", "Hyrule Field"],
     "itemId": "Orange_Rupee",
     "itemWasPlaced": false
 }

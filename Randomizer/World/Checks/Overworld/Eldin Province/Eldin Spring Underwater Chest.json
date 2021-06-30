@@ -3,7 +3,7 @@
     "requirements": "canSmash and Iron_Boots",
     "hash": "6C58",
     "isExcluded": false,
-    "category": ["Chest", "Eldin Province"],
+    "category": ["Overworld", "Chest", "Eldin Province"],
     "itemId": "Piece_of_Heart",
     "itemWasPlaced": false
 }

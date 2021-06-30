@@ -3,7 +3,7 @@
     "requirements": "canDefeatBublin",
     "hash": "F2F6",
     "isExcluded": false,
-    "category": ["Chest", "Gerudo Desert"],
+    "category": ["Overworld", "Chest", "Gerudo Desert"],
     "itemId": "Arrows_10",
     "itemWasPlaced": false
 }

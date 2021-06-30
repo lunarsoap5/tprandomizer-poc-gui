@@ -3,7 +3,7 @@
     "requirements": "canDefeatWaterToadpoli",
     "hash": "4F3E",
     "isExcluded": false,
-    "category": ["Chest", "Lanayru Province"],
+    "category": ["Overworld", "Chest", "Lanayru Province"],
     "itemId": "Orange_Rupee",
     "itemWasPlaced": false
 }

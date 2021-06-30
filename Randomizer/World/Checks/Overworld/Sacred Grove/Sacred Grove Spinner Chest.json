@@ -3,7 +3,7 @@
     "requirements": "Spinner",
     "hash": "4A9B",
     "isExcluded": false,
-    "category": ["Chest", "Sacred Grove"],
+    "category": ["Overworld", "Chest", "Sacred Grove"],
     "itemId": "Orange_Rupee",
     "itemWasPlaced": false
 }

@@ -2,7 +2,7 @@
     "checkName": "Ordon Shield",
     "requirements": "(Progressive_Sword, 1) and Lantern",
     "isExcluded": false,
-    "category": ["Chest"],
+    "category": ["Overworld", "Ordonia Province"],
     "itemId": "Ordon_Shield",
     "itemWasPlaced": false
 }

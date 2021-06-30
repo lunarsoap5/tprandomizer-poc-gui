@@ -2,7 +2,7 @@
     "checkName": "Agitha Third Single Bug Reward",
     "requirements": "(getSingleBugCount, 3)",
     "isExcluded": false,
-    "category": ["Chest", "Castle Town"],
+    "category": ["Overworld", "Npc", "Castle Town"],
     "itemId": "Purple_Rupee",
     "itemWasPlaced": false
 }

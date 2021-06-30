@@ -3,7 +3,7 @@
     "requirements": "true",
     "hash": "3E7D",
     "isExcluded": false,
-    "category": ["Chest", "Hyrule Field"],
+    "category": ["Overworld", "Chest", "Hyrule Field"],
     "itemId": "Purple_Rupee",
     "itemWasPlaced": false
 }

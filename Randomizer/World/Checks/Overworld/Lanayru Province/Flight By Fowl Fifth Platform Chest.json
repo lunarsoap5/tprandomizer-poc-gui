@@ -3,7 +3,7 @@
     "requirements": "true",
     "hash": "6633",
     "isExcluded": false,
-    "category": ["Chest", "Lanayru Province"],
+    "category": ["Overworld", "Chest", "Lanayru Province"],
     "itemId": "Yellow_Rupee",
     "itemWasPlaced": false
 }

@@ -3,7 +3,7 @@
     "requirements": "true",
     "hash": "null",
     "isExcluded": false,
-    "category": ["Chest"],
+    "category": ["Overworld", "Npc", "Faron Woods"],
     "itemId": "Lantern",
     "itemWasPlaced": false
 }

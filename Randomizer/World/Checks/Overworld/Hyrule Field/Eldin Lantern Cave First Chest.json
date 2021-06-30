@@ -3,7 +3,7 @@
     "requirements": "canBurnWebs",
     "hash": "6168",
     "isExcluded": false,
-    "category": ["Chest", "Hyrule Field"],
+    "category": ["Overworld", "Chest", "Hyrule Field"],
     "itemId": "Red_Rupee",
     "itemWasPlaced": false
 }

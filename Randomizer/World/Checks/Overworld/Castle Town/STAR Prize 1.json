@@ -2,7 +2,7 @@
     "checkName": "STAR Prize 1",
     "requirements": "(Progressive_Clawshot, 1)",
     "isExcluded": false,
-    "category": ["Chest"],
+    "category": ["Overworld", "Npc", "Castle Town"],
     "itemId": "Progressive_Bow",
     "itemWasPlaced": false
 }

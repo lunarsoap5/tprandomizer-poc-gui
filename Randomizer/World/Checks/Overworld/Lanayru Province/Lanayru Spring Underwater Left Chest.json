@@ -3,7 +3,7 @@
     "requirements": "Iron_Boots",
     "hash": "008C",
     "isExcluded": false,
-    "category": ["Chest", "Lanayru Province"],
+    "category": ["Overworld", "Chest", "Lanayru Province"],
     "itemId": "Blue_Rupee",
     "itemWasPlaced": false
 }

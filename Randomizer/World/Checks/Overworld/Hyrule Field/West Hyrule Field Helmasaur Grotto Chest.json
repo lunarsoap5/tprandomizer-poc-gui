@@ -3,7 +3,7 @@
     "requirements": "canDefeatHelmasaur",
     "hash": "4904",
     "isExcluded": false,
-    "category": ["Chest", "Hyrule Field"],
+    "category": ["Overworld", "Chest", "Hyrule Field"],
     "itemId": "Orange_Rupee",
     "itemWasPlaced": false
 }

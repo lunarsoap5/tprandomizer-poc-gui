@@ -3,7 +3,7 @@
     "requirements": "canSmash and (Progressive_Dominion_Rod, 2)",
     "hash": "null",
     "isExcluded": false,
-    "category": ["Faron Woods", "Sky Book"],
+    "category": ["Overworld", "Faron Woods", "Sky Book"],
     "itemId": "Progressive_Sky_Book",
     "itemWasPlaced": false
 }

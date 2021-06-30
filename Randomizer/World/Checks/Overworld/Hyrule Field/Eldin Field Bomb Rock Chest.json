@@ -3,7 +3,7 @@
     "requirements": "canSmash",
     "hash": "BBAC",
     "isExcluded": false,
-    "category": ["Chest", "Hyrule Field"],
+    "category": ["Overworld", "Chest", "Hyrule Field"],
     "itemId": "Piece_of_Heart",
     "itemWasPlaced": false
 }

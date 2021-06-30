@@ -2,7 +2,7 @@
     "checkName": "Herding Goats Reward",
     "requirements": "canLeaveForest",
     "isExcluded": false,
-    "category": ["Npc"],
+    "category": ["Overworld", "Npc", "Ordonia Province"],
     "itemId": "Piece_of_Heart",
     "itemWasPlaced": false
 }

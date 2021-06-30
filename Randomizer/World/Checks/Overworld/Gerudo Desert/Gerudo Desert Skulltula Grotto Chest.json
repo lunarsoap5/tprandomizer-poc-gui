@@ -3,7 +3,7 @@
     "requirements": "canDefeatSkulltula",
     "hash": "421A",
     "isExcluded": false,
-    "category": ["Chest", "Gerudo Desert"],
+    "category": ["Overworld", "Chest", "Gerudo Desert"],
     "itemId": "Orange_Rupee",
     "itemWasPlaced": false
 }

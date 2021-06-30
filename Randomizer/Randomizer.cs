@@ -276,7 +276,6 @@ namespace TPRandomizer
                     placeItemInCheck(itemToPlace,checkToReciveItem);
 
                     availableChecks.Clear();
-                    GC.Collect();
                 }
             return;
         }

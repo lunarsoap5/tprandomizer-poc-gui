@@ -3,7 +3,7 @@
     "requirements": "canSmash",
     "hash": "0C13",
     "isExcluded": false,
-    "category": ["Chest", "Kakariko Village"],
+    "category": ["Overworld", "Chest", "Eldin Province"],
     "itemId": "Orange_Rupee",
     "itemWasPlaced": false
 }

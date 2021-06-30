@@ -2,7 +2,7 @@
     "checkName": "Wooden Statue",
     "requirements": "true",
     "isExcluded": false,
-    "category": ["Npc"],
+    "category": ["Overworld", "Npc", "Hyrule Field"],
     "itemId": "Wooden_Statue",
     "itemWasPlaced": false
 }

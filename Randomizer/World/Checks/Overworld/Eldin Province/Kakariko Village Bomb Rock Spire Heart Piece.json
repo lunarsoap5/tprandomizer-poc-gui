@@ -3,7 +3,7 @@
     "requirements": "canLaunchBombs and Boomerang",
     "hash": "A573",
     "isExcluded": false,
-    "category": ["Chest", "Kakariko Village"],
+    "category": ["Overworld", "Chest", "Eldin Province"],
     "itemId": "Piece_of_Heart",
     "itemWasPlaced": false
 }

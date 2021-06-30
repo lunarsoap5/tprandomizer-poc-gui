@@ -2,7 +2,7 @@
     "checkName": "Arbiters Grounds Stallord Heart Container",
     "requirements": "canDefeatStallord",
     "isExcluded": false,
-    "category": ["Heart Container"],
+    "category": ["Heart Container", "Arbiters Grounds", "Dungeon"],
     "itemId": "Heart_Container",
     "itemWasPlaced": false
 }

@@ -3,7 +3,7 @@
     "requirements": "true",
     "hash": "583B",
     "isExcluded": false,
-    "category": ["Chest", "Gerudo Desert"],
+    "category": ["Overworld", "Chest", "Gerudo Desert"],
     "itemId": "Red_Rupee",
     "itemWasPlaced": false
 }

@@ -3,7 +3,7 @@
     "requirements": "(Progressive_Clawshot, 1)",
     "hash": "0FAA",
     "isExcluded": false,
-    "category": ["Chest", "Lanayru Province"],
+    "category": ["Overworld", "Lanayru Province"],
     "itemId": "Piece_of_Heart",
     "itemWasPlaced": false
 }

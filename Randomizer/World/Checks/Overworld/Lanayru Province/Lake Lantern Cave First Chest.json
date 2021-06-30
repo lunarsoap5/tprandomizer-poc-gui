@@ -3,7 +3,7 @@
     "requirements": "canSmash and Lantern",
     "hash": "9E56",
     "isExcluded": false,
-    "category": ["Chest", "Lanayru Province"],
+    "category": ["Overworld", "Chest", "Lanayru Province"],
     "itemId": "Bomblings_5",
     "itemWasPlaced": false
 }

@@ -2,7 +2,7 @@
     "checkName": "Charlo Donation Blessing",
     "requirements": "true",
     "isExcluded": false,
-    "category": ["Npc"],
+    "category": ["Overworld", "Npc", "Castle Town"],
     "itemId": "Piece_of_Heart",
     "itemWasPlaced": false
 }

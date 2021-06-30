@@ -2,7 +2,7 @@
     "checkName": "Gift From Ralis",
     "requirements": "Asheis_Sketch",
     "isExcluded": false,
-    "category": ["Npc"],
+    "category": ["Overworld", "Npc", "Eldin Province"],
     "itemId": "Progressive_Fishing_Rod",
     "itemWasPlaced": false
 }

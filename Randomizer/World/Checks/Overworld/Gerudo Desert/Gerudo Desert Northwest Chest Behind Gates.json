@@ -3,7 +3,7 @@
     "requirements": "canDefeatBublin",
     "hash": "9F29",
     "isExcluded": false,
-    "category": ["Chest", "Gerudo Desert"],
+    "category": ["Overworld", "Chest", "Gerudo Desert"],
     "itemId": "Red_Rupee",
     "itemWasPlaced": false
 }

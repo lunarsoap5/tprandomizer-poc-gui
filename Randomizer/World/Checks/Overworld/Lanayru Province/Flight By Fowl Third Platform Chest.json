@@ -3,7 +3,7 @@
     "requirements": "true",
     "hash": "FAEB",
     "isExcluded": false,
-    "category": ["Chest", "Lanayru Province"],
+    "category": ["Overworld", "Chest", "Lanayru Province"],
     "itemId": "Purple_Rupee",
     "itemWasPlaced": false
 }

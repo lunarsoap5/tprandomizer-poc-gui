@@ -2,7 +2,7 @@
     "checkName": "Goron Springwater Rush",
     "requirements": "Gate_Keys or canSmash",
     "isExcluded": false,
-    "category": ["Npc"],
+    "category": ["Overworld", "Npc", "Hyrule Field"],
     "itemId": "Piece_of_Heart",
     "itemWasPlaced": false
 }

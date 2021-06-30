@@ -2,7 +2,7 @@
     "checkName": "Zoras Domain Underwater Goron",
     "requirements": "canUseWaterBombs and Iron_Boots",
     "isExcluded": false,
-    "category": ["Npc"],
+    "category": ["Overworld", "Npc", "Lanayru Province"],
     "itemId": "Bomb_Bag_And_Bombs",
     "itemWasPlaced": false
 }

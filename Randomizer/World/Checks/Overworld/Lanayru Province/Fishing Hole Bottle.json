@@ -2,7 +2,7 @@
     "checkName": "Fishing Hole Bottle",
     "requirements": "(Progressive_Fishing_Rod, 1)",
     "isExcluded": false,
-    "category": ["Npc"],
+    "category": ["Overworld", "Lanayru Province"],
     "itemId": "Empty_Bottle",
     "itemWasPlaced": false
 }
