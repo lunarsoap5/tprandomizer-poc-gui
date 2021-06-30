@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace TPRandomizer
 {
@@ -16,50 +17,15 @@ namespace TPRandomizer
         public static bool evaluateSetting(string setting, string value)
         {
             RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
+            PropertyInfo[] settingProperties = Singleton.getInstance().RandoSetting.GetType().GetProperties();
             setting = setting.Replace("Setting.", "");
             bool isEqual = false;
-            switch(setting)
-            {
-                //These are the only settings that affect logic currently
-                case("castleRequirements"):
+            foreach (PropertyInfo property in settingProperties)
+			{
+                var settingValue = property.GetValue(Singleton.getInstance().RandoSetting, null);
+                if ((property.Name == setting) && (value == settingValue.ToString()))
                 {
-                    if (value == parseSetting.castleRequirements)
-                    {
-                        isEqual = true;
-                    }
-                    break;
-                }
-                case("palaceRequirements"):
-                {
-                    if (value == parseSetting.palaceRequirements)
-                    {
-                        isEqual = true;
-                    }
-                    break;
-                }
-                case("faronWoodsLogic"):
-                {
-                    if (value == parseSetting.faronWoodsLogic)
-                    {
-                        isEqual = true;
-                    }
-                    break;
-                }
-                case("mdhSkipped"):
-                {
-                    if (value == parseSetting.mdhSkipped.ToString())
-                    {
-                        isEqual = true;
-                    }
-                    break;
-                }
-                case("introSkipped"):
-                {
-                    if (value == parseSetting.introSkipped.ToString())
-                    {
-                        isEqual = true;
-                    }
-                    break;
+                    isEqual = true;
                 }
             }
             return isEqual;
@@ -86,13 +52,6 @@ namespace TPRandomizer
                     break;
                 }
             }
-			return canUseItem;
-		}
-
-        public static bool hasItem(int item)
-		{
-			bool canUseItem = false;
-			
 			return canUseItem;
 		}
 
