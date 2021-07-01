@@ -107,6 +107,7 @@ namespace TPRandomizer
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WikiMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -916,9 +917,10 @@ namespace TPRandomizer
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.toolStripSeparator,
             this.saveToolStripMenuItem,
             this.toolStripSeparator1,
+            this.darkModeToolStripMenuItem,
+            this.toolStripSeparator,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -957,6 +959,13 @@ namespace TPRandomizer
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
+            // 
+            // darkModeToolStripMenuItem
+            // 
+            this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
+            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.darkModeToolStripMenuItem.Text = "Dark Mode";
+            this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.darkModeToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1147,6 +1156,7 @@ namespace TPRandomizer
         private System.Windows.Forms.Label settingsStringLabel;
         private System.Windows.Forms.TextBox settingsStringTextbox;
         private System.Windows.Forms.Button importButton;
+        private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
     }
 }
 
