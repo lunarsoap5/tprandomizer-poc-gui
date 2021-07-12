@@ -142,6 +142,3 @@ C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\bin\Debug\net5.0-windows\z
 C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\bin\Debug\net5.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.csproj.CopyComplete
 C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.genruntimeconfig.cache
-C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\bin\Debug\net5.0-windows\MetroFramework.Design.dll
-C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\bin\Debug\net5.0-windows\MetroFramework.Fonts.dll
-C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\bin\Debug\net5.0-windows\MetroFramework.dll

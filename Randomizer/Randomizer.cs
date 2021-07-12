@@ -58,45 +58,7 @@ namespace TPRandomizer
                 goto begin;
             }
             BackendFunctions.generateSpoilerLog(startingRoom);
-        }
-
-        
-        public Room setupGraph()
-        {
-            //We want to be safe and make sure that the room classes are prepped and ready to be linked together. Then we define our starting room.
-            foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
-            {
-                Room currentRoom = roomList.Value;
-                currentRoom.visited = false;
-                Rooms.RoomDict[currentRoom.name] = currentRoom;
-            }
-            Room startingRoom = Rooms.RoomDict["Ordon Province"];
-            startingRoom.isStartingRoom = true;
-            Rooms.RoomDict["Ordon Province"] = startingRoom;
-            return startingRoom;
-        }
-
-
-        
-
-        void startOver()
-        {
-            Console.WriteLine("Starting Over.");
-            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
-            {
-                Check currentCheck = checkList.Value;
-                currentCheck.hasBeenReached = false;
-                Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
-            }
-            foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
-            {
-                Room currentRoom = roomList.Value;
-                currentRoom.visited = false;
-                Rooms.RoomDict[currentRoom.name] = currentRoom;
-            }
-            Singleton.getInstance().Checks.CheckDict.Clear();
-            Rooms.RoomDict.Clear();
-        }
+        } 
 
         void placeItemsInWorld(Room startingRoom)
         {
@@ -242,7 +204,7 @@ namespace TPRandomizer
                             }
                             else
                             {
-                                if (Rooms.isRegionCheck(itemToPlace, currentCheck))
+                                if (Rooms.isRegionCheck(itemToPlace, currentCheck, roomsToExplore[0]))
                                 {
                                     roomChecks.Add(currentCheck.checkName);
                                 }
@@ -530,6 +492,40 @@ namespace TPRandomizer
             check.itemId = item;
             Console.WriteLine("Placed " + check.itemId + " in check " + check.checkName);
             return;
+        }
+
+         void startOver()
+        {
+            Console.WriteLine("Starting Over.");
+            foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+            {
+                Check currentCheck = checkList.Value;
+                currentCheck.hasBeenReached = false;
+                Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
+            }
+            foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                currentRoom.visited = false;
+                Rooms.RoomDict[currentRoom.name] = currentRoom;
+            }
+            Singleton.getInstance().Checks.CheckDict.Clear();
+            Rooms.RoomDict.Clear();
+        }
+
+        public Room setupGraph()
+        {
+            //We want to be safe and make sure that the room classes are prepped and ready to be linked together. Then we define our starting room.
+            foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                currentRoom.visited = false;
+                Rooms.RoomDict[currentRoom.name] = currentRoom;
+            }
+            Room startingRoom = Rooms.RoomDict["Ordon Province"];
+            startingRoom.isStartingRoom = true;
+            Rooms.RoomDict["Ordon Province"] = startingRoom;
+            return startingRoom;
         }
 
         public void deserializeChecks()

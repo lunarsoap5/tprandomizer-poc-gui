@@ -78,7 +78,6 @@ namespace TPRandomizer
                 itemName = itemName.Replace("_", " ");
                 itemPoolListBox.Items.Add(itemName);
             }
-            
         }
 
         /// <summary>

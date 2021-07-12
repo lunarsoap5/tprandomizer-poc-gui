@@ -205,46 +205,16 @@ namespace TPRandomizer
             return;
         }
 
-         public bool isRegionCheck(Item itemToPlace, Check currentCheck)
+         public bool isRegionCheck(Item itemToPlace, Check currentCheck, Room currentRoom)
         {
             RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
+            string itemName = itemToPlace.ToString();
+            itemName = itemName.Replace("_", " ");
             if (Singleton.getInstance().Items.DungeonSmallKeys.Contains(itemToPlace))
             {
                 if (parseSetting.smallKeySettings == "Own_Dungeon")
                 {
-                    if (itemToPlace.ToString().Contains("Forest_Temple") && currentCheck.category.Contains("Forest Temple"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Goron_Mines") && currentCheck.category.Contains("Goron Mines"))
-                    {
-                    return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Lakebed_Temple") && currentCheck.category.Contains("Goron Mines"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Arbiters_Grounds") && currentCheck.category.Contains("Arbiters Grounds"))
-                    {
-                        return true;
-                    }
-                    else if ((itemToPlace.ToString().Contains("Snowpeak_Ruins") || itemToPlace.ToString().Contains("Ordon_Pumpkin") || itemToPlace.ToString().Contains("Ordon_Goat_Cheese")) && currentCheck.category.Contains("Snowpeak Ruins"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Temple_of_Time") && currentCheck.category.Contains("Temple of Time"))
-                    {
-                    return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("City_in_The_Sky") && currentCheck.category.Contains("City in The Sky"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Palace_of_Twilight") && currentCheck.category.Contains("Palace of Twilight"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Hyrule_Castle") && currentCheck.category.Contains("Hyrule Castle"))
+                    if (itemName.Contains(currentRoom.region))
                     {
                         return true;
                     }
@@ -268,39 +238,7 @@ namespace TPRandomizer
             {
                 if (parseSetting.bossKeySettings == "Own_Dungeon")
                 {
-                    if (itemToPlace.ToString().Contains("Forest_Temple") && currentCheck.category.Contains("Forest Temple"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Goron_Mines") && currentCheck.category.Contains("Goron Mines"))
-                    {
-                    return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Lakebed_Temple") && currentCheck.category.Contains("Goron Mines"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Arbiters_Grounds") && currentCheck.category.Contains("Arbiters Grounds"))
-                    {
-                        return true;
-                    }
-                    else if ((itemToPlace.ToString().Contains("Snowpeak_Ruins") || itemToPlace.ToString().Contains("Ordon_Pumpkin") || itemToPlace.ToString().Contains("Ordon_Goat_Cheese")) && currentCheck.category.Contains("Snowpeak Ruins"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Temple_of_Time") && currentCheck.category.Contains("Temple of Time"))
-                    {
-                    return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("City_in_The_Sky") && currentCheck.category.Contains("City in The Sky"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Palace_of_Twilight") && currentCheck.category.Contains("Palace of Twilight"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Hyrule_Castle") && currentCheck.category.Contains("Hyrule Castle"))
+                    if (itemName.Contains(currentRoom.region))
                     {
                         return true;
                     }
@@ -324,39 +262,7 @@ namespace TPRandomizer
             {
                 if (parseSetting.mapAndCompassSettings == "Own_Dungeon")
                 {
-                    if (itemToPlace.ToString().Contains("Forest_Temple") && currentCheck.category.Contains("Forest Temple"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Goron_Mines") && currentCheck.category.Contains("Goron Mines"))
-                    {
-                    return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Lakebed_Temple") && currentCheck.category.Contains("Goron Mines"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Arbiters_Grounds") && currentCheck.category.Contains("Arbiters Grounds"))
-                    {
-                        return true;
-                    }
-                    else if ((itemToPlace.ToString().Contains("Snowpeak_Ruins") || itemToPlace.ToString().Contains("Ordon_Pumpkin") || itemToPlace.ToString().Contains("Ordon_Goat_Cheese")) && currentCheck.category.Contains("Snowpeak Ruins"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Temple_of_Time") && currentCheck.category.Contains("Temple of Time"))
-                    {
-                    return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("City_in_The_Sky") && currentCheck.category.Contains("City in The Sky"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Palace_of_Twilight") && currentCheck.category.Contains("Palace of Twilight"))
-                    {
-                        return true;
-                    }
-                    else if (itemToPlace.ToString().Contains("Hyrule_Castle") && currentCheck.category.Contains("Hyrule Castle"))
+                    if (itemName.Contains(currentRoom.region))
                     {
                         return true;
                     }

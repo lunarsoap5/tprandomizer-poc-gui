@@ -869,7 +869,7 @@ namespace TPRandomizer
 
         public static bool canCompleteSnowpeakRuins()
         {
-            return (canDefeatBlizzeta() && canUse(Item.Ordon_Goat_Cheese) && canUse(Item.Ordon_Pumpkin) && canUse(Item.Ball_and_Chain) && canDefeatChilfos() && canDefeatMiniFreezard() && canDefeatFreezard() && (getItemCount(Item.Snowpeak_Ruins_Small_Key) >= 4) && hasBombs() && canUse(Item.Snowpeak_Ruins_Bedroom_Key));
+            return (canDefeatBlizzeta() && canUse(Item.Snowpeak_Ruins_Ordon_Goat_Cheese) && canUse(Item.Snowpeak_Ruins_Ordon_Pumpkin) && canUse(Item.Ball_and_Chain) && canDefeatChilfos() && canDefeatMiniFreezard() && canDefeatFreezard() && (getItemCount(Item.Snowpeak_Ruins_Small_Key) >= 4) && hasBombs() && canUse(Item.Snowpeak_Ruins_Bedroom_Key));
         }
 
         public static bool canCompleteTempleofTime()

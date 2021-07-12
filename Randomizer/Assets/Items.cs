@@ -253,8 +253,8 @@ namespace TPRandomizer
 		/*Blue_Fire?	=	0xF1,*/
 		/*Blue_Fire?	=	0xF2,*/
 		Gate_Keys	=	0xF3,
-		Ordon_Pumpkin	=	0xF4,
-		Ordon_Goat_Cheese	=	0xF5,
+		Snowpeak_Ruins_Ordon_Pumpkin	=	0xF4,
+		Snowpeak_Ruins_Ordon_Goat_Cheese	=	0xF5,
 		Snowpeak_Ruins_Bedroom_Key	=	0xF6,
 		/*Shield?	=	0xF7,*/
 		Got_Lantern_Back	=	0xF8,
@@ -326,8 +326,8 @@ namespace TPRandomizer
 			Item.Hyrule_Castle_Small_Key,
 			Item.Hyrule_Castle_Small_Key,
 			Item.Hyrule_Castle_Small_Key,
-			Item.Ordon_Pumpkin,
-			Item.Ordon_Goat_Cheese
+			Item.Snowpeak_Ruins_Ordon_Pumpkin,
+			Item.Snowpeak_Ruins_Ordon_Goat_Cheese
 		};
 
 		public List<Item> DungeonBigKeys = new List<Item>()

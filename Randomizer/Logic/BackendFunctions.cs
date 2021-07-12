@@ -134,6 +134,19 @@ namespace TPRandomizer
                     }
                     Console.WriteLine(settingProperty.Name + settingProperty.GetValue(Singleton.getInstance().RandoSetting, null));
             }
+
+            foreach (string excludedCheck in Singleton.getInstance().RandoSetting.ExcludedChecks)
+            {
+                foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+                {
+                    Check currentCheck = checkList.Value;
+                    if (excludedCheck == currentCheck.checkName)
+                    {
+                        currentCheck.isExcluded = true;
+                        Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
+                    }
+                }
+            }
             return;
         }
 

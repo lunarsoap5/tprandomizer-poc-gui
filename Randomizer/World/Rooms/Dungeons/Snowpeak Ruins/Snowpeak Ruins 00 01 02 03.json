@@ -10,8 +10,8 @@
     "neighbourRequirements": 
     [
         "true",
-        "Ordon_Goat_Cheese",
-        "Ordon_Pumpkin",
+        "Snowpeak_Ruins_Ordon_Goat_Cheese",
+        "Snowpeak_Ruins_Ordon_Pumpkin",
         "Shadow_Crystal or Ball_and_Chain"
     ],
     "isStartingRoom": "false",
