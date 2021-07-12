@@ -493,7 +493,7 @@ namespace TPRandomizer
             {
 					RandomizedImportantItems.AddRange(DungeonSmallKeys);
 			}
-			else if ((parseSetting.smallKeySettings == "Own_Dungeon") || parseSetting.smallKeySettings == "Any_Dungeon")
+			else if ((parseSetting.smallKeySettings == "Own_Dungeon") || parseSetting.smallKeySettings == "Any_Dungeon" || parseSetting.smallKeySettings == "Overworld")
 			{
 					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
 			}
@@ -503,7 +503,7 @@ namespace TPRandomizer
 			{
 					RandomizedImportantItems.AddRange(DungeonBigKeys);
 			}
-			else if (parseSetting.bossKeySettings == "Own_Dungeon" || parseSetting.bossKeySettings == "Any_Dungeon")
+			else if (parseSetting.bossKeySettings == "Own_Dungeon" || parseSetting.bossKeySettings == "Any_Dungeon" || parseSetting.bossKeySettings == "Overworld")
 			{
 					RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
 			}
@@ -513,7 +513,7 @@ namespace TPRandomizer
 			{
 				RandomizedImportantItems.AddRange(DungeonMapsAndCompasses);
 			}
-			else if (parseSetting.mapAndCompassSettings == "Own_Dungeon" || parseSetting.mapAndCompassSettings == "Any_Dungeon")
+			else if (parseSetting.mapAndCompassSettings == "Own_Dungeon" || parseSetting.mapAndCompassSettings == "Any_Dungeon" || parseSetting.mapAndCompassSettings == "Overworld")
 			{
 				RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
 			}

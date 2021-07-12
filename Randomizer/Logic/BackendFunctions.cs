@@ -209,6 +209,7 @@ namespace TPRandomizer
 
         public static void generateSpoilerLog(Room startingRoom)
         {
+            bool hasCompletedSphere;
             Check currentCheck;
             Random rnd = new Random();
             string fileHash = "TPR - v1.0 - " + HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + " " + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)] + ".txt";
@@ -251,6 +252,7 @@ namespace TPRandomizer
                 int sphereCount = 0;
                 while (!Singleton.getInstance().Items.heldItems.Contains(Item.Ganon_Defeated))
                 {
+                    hasCompletedSphere = false;
                     foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
                     {
                         Room currentRoom = roomList.Value;
@@ -305,7 +307,7 @@ namespace TPRandomizer
                                         {
                                             file.WriteLine("    " + currentCheck.checkName + ": " + currentCheck.itemId);
                                         }
-                                        
+                                        hasCompletedSphere = true;
                                     }
 
                                 }
@@ -316,6 +318,11 @@ namespace TPRandomizer
                     Singleton.getInstance().Items.heldItems.AddRange(playthroughItems);
                     playthroughItems.Clear();
                     sphereCount++; 
+                    if (hasCompletedSphere == false)
+                    {
+                        file.WriteLine("Could not validate playthrough. Most likely there is an error in logic. Please debug and try again.");
+                        break;
+                    }
                 }
             }
         } 
