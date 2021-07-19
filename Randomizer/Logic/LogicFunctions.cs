@@ -16,13 +16,13 @@ namespace TPRandomizer
         //Evaluate the tokenized settings to their respective values that are set by the settings string.
         public static bool evaluateSetting(string setting, string value)
         {
-            RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
-            PropertyInfo[] settingProperties = Singleton.getInstance().RandoSetting.GetType().GetProperties();
+            RandomizerSetting parseSetting = Randomizer.RandoSetting;
+            PropertyInfo[] settingProperties = Randomizer.RandoSetting.GetType().GetProperties();
             setting = setting.Replace("Setting.", "");
             bool isEqual = false;
             foreach (PropertyInfo property in settingProperties)
 			{
-                var settingValue = property.GetValue(Singleton.getInstance().RandoSetting, null);
+                var settingValue = property.GetValue(Randomizer.RandoSetting, null);
                 if ((property.Name == setting) && (value == settingValue.ToString()))
                 {
                     isEqual = true;
@@ -34,7 +34,7 @@ namespace TPRandomizer
         public static bool canUse(Item item)
 		{
             bool canUseItem = false;
-            if (Singleton.getInstance().Items.heldItems.Contains(item))
+            if (Randomizer.Items.heldItems.Contains(item))
                 {
                     canUseItem = true;
                 }
@@ -44,7 +44,7 @@ namespace TPRandomizer
         public static bool canUseTest(string item)
 		{
             bool canUseItem = false;
-            foreach (var listItem in Singleton.getInstance().Items.heldItems)
+            foreach (var listItem in Randomizer.Items.heldItems)
             {
                 if (listItem.ToString() == item)
                 {
@@ -844,7 +844,7 @@ namespace TPRandomizer
 
         public static bool canLeaveForest()
         {
-            return ((canCompleteForestTemple() || (Singleton.getInstance().RandoSetting.faronWoodsLogic == "Open")));
+            return ((canCompleteForestTemple() || (Randomizer.RandoSetting.faronWoodsLogic == "Open")));
         }
 
         public static bool canCompleteForestTemple()
@@ -900,7 +900,7 @@ namespace TPRandomizer
 
         public static int getItemCount(Item itemToBeCounted)
 		{
-            List<Item> itemList = Singleton.getInstance().Items.heldItems;
+            List<Item> itemList = Randomizer.Items.heldItems;
 			int itemQuantity = 0;
 			foreach (var item in itemList)
 			{
@@ -914,7 +914,7 @@ namespace TPRandomizer
 
         public static int getSingleBugCount()
 		{
-            List<Item> itemList = Singleton.getInstance().Items.heldItems;
+            List<Item> itemList = Randomizer.Items.heldItems;
 			int itemQuantity = 0;
 
             if (itemList.Contains(Item.Male_Ant) || itemList.Contains(Item.Female_Ant))
@@ -970,7 +970,7 @@ namespace TPRandomizer
 
         public static int getBugPairCount()
 		{
-            List<Item> itemList = Singleton.getInstance().Items.heldItems;
+            List<Item> itemList = Randomizer.Items.heldItems;
 			int itemQuantity = 0;
 
             if (itemList.Contains(Item.Male_Ant) && itemList.Contains(Item.Female_Ant))
@@ -1026,7 +1026,7 @@ namespace TPRandomizer
 
         public static bool verifyItemQuantity(string itemToBeCounted, int quantity)
 		{
-            List<Item> itemList = Singleton.getInstance().Items.heldItems;
+            List<Item> itemList = Randomizer.Items.heldItems;
 			int itemQuantity = 0;
             bool isQuantity = false;
             
@@ -1048,7 +1048,7 @@ namespace TPRandomizer
         {
             Parser parse = new Parser();
             parse.ParserReset();
-            Singleton.getInstance().Logic.TokenDict = new Tokenizer(expression).Tokenize();
+            Randomizer.Logic.TokenDict = new Tokenizer(expression).Tokenize();
             return parse.Parse();
         }
     }

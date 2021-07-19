@@ -17,16 +17,16 @@ namespace TPRandomizer
         public void ParserReset()
         {
             tokenValue = 0;
-            Singleton.getInstance().Logic.TokenDict.Clear();
+            Randomizer.Logic.TokenDict.Clear();
         }
         public bool Parse()
         {
-            while (Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key != null && !(tokenValue > Singleton.getInstance().Logic.TokenDict.Count()-1))
+            while (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key != null && !(tokenValue > Randomizer.Logic.TokenDict.Count()-1))
             {
                 var boolean = ParseBoolean();
-                while ((tokenValue <= Singleton.getInstance().Logic.TokenDict.Count()-1) && Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is OperandToken)
+                while ((tokenValue <= Randomizer.Logic.TokenDict.Count()-1) && Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is OperandToken)
                 {
-                    var operand = Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key;
+                    var operand = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key;
                     tokenValue++;
                     var nextBoolean = ParseBoolean();
                     if (operand is AndToken)
@@ -44,9 +44,9 @@ namespace TPRandomizer
         private bool ParseBoolean()
         {
             
-            if (Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is BooleanValueToken)
+            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is BooleanValueToken)
             {
-                var current = Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key;
+                var current = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key;
                 tokenValue++;
 
                 if (current is TrueToken)
@@ -56,38 +56,38 @@ namespace TPRandomizer
             }
             var parseBool = false;
 
-            if (Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is OpenParenthesisToken)
+            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is OpenParenthesisToken)
             {
                 tokenValue++;
 
                 var expInPars = Parse();
 
                 //If there are no more characters and we have a hanging parenthesis, throw an error
-                if (!(Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is ClosedParenthesisToken))
+                if (!(Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is ClosedParenthesisToken))
                 {
-                    for (int i = tokenValue; i < Singleton.getInstance().Logic.TokenDict.Count(); i++)
+                    for (int i = tokenValue; i < Randomizer.Logic.TokenDict.Count(); i++)
                     {
-                        Console.WriteLine("Stack Trace: " + Singleton.getInstance().Logic.TokenDict.ElementAt(i).Value);
+                        Console.WriteLine("Stack Trace: " + Randomizer.Logic.TokenDict.ElementAt(i).Value);
                     }
-                    throw new Exception("Expecting Closing Parenthesis but got: " + Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key);
+                    throw new Exception("Expecting Closing Parenthesis but got: " + Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key);
                 }
 
                 tokenValue++; 
 
                 return expInPars;
             }
-            if (Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is ClosedParenthesisToken)
+            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is ClosedParenthesisToken)
             {
                 throw new Exception("Unexpected Closed Parenthesis");
             }
-            if (Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is itemToken)
+            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is itemToken)
             {
-                string evaluatedItem = Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Value; 
+                string evaluatedItem = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value; 
                 tokenValue++;
-                if((Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is CommaToken))
+                if((Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is CommaToken))
                 {
                     tokenValue++;
-                    parseBool = LogicFunctions.verifyItemQuantity(evaluatedItem, Int16.Parse(Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Value));
+                    parseBool = LogicFunctions.verifyItemQuantity(evaluatedItem, Int16.Parse(Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value));
                     tokenValue++;
                 }
                 else
@@ -96,17 +96,17 @@ namespace TPRandomizer
                 }
                 return parseBool;
             }
-            if (Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is logicFunctionToken)
+            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is logicFunctionToken)
             {
-                string evaluatedFunction = Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Value; 
+                string evaluatedFunction = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value; 
                 tokenValue++;
                 //If a comma follows a function, we assume it is needing to be compared to an integer
-                if((Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is CommaToken))
+                if((Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is CommaToken))
                 {
                     tokenValue++;
                     int getQuantity = 0;
                     getQuantity = (int)typeof(LogicFunctions).GetMethod(evaluatedFunction).Invoke(this, null);
-                    if (getQuantity >= Int16.Parse(Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Value))
+                    if (getQuantity >= Int16.Parse(Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value))
                     {
                         parseBool = true;
                     }
@@ -119,14 +119,14 @@ namespace TPRandomizer
                 }
                 return parseBool;
             }
-            if (Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is settingsToken)
+            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is settingsToken)
             {
-                string evaluatedItem = Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Value; 
+                string evaluatedItem = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value; 
                 tokenValue++;
-                if (Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Key is EqualsToken)
+                if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is EqualsToken)
                 {
                     tokenValue++;
-                    parseBool = LogicFunctions.evaluateSetting(evaluatedItem, Singleton.getInstance().Logic.TokenDict.ElementAt(tokenValue).Value.ToString());
+                    parseBool = LogicFunctions.evaluateSetting(evaluatedItem, Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value.ToString());
                     tokenValue++;
                 }
                 return parseBool;

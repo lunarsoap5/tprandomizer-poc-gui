@@ -441,42 +441,69 @@ namespace TPRandomizer
 
         public void generateCheckList()
         {
-            Singleton.getInstance().Checks.vanillaChecks.Clear();
-            Singleton.getInstance().Checks.vanillaChecks.AddRange(nonRandomizedChecks);
+            Randomizer.Checks.vanillaChecks.Clear();
+            Randomizer.Checks.vanillaChecks.AddRange(nonRandomizedChecks);
 
-            RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
+            RandomizerSetting parseSetting = Randomizer.RandoSetting;
             if (parseSetting.smallKeySettings == "Vanilla")
             {
-                foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
                 {
                     Check currentCheck = check.Value;
                     if (currentCheck.category.Contains("Small Key"))
                     {
-                        Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
+                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
                     }
                 }
             }
 
             if ( parseSetting.bossKeySettings == "Vanilla")
             {
-                foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
                 {
                     Check currentCheck = check.Value;
                     if (currentCheck.category.Contains("Big Key"))
                     {
-                        Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
+                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
                     }
                 }
             }
-
             if (parseSetting.mapAndCompassSettings == "Vanilla")
             {
-                foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
                 {
                     Check currentCheck = check.Value;
                     if (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass"))
                     {
-                        Singleton.getInstance().Checks.vanillaChecks.Add(currentCheck.checkName);
+                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                    }
+                }
+            }
+            if (!parseSetting.introSkipped)
+            {
+                Check currentCheck = Randomizer.Checks.CheckDict["Uli Cradle Delivery"];
+                Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                Randomizer.Items.ImportantItems.Remove(Item.Progressive_Fishing_Rod);
+            }
+            if (!parseSetting.npcItemsShuffled)
+            {
+                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
+                {
+                    Check currentCheck = check.Value;
+                    if (currentCheck.category.Contains("Npc"))
+                    {
+                        currentCheck.isExcluded = true;
+                    }
+                }
+            }
+            if (!parseSetting.treasureChestsShuffled)
+            {
+                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
+                {
+                    Check currentCheck = check.Value;
+                    if (currentCheck.category.Contains("Chest"))
+                    {
+                        currentCheck.isExcluded = true;
                     }
                 }
             }

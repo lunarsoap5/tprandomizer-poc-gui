@@ -21,7 +21,6 @@ namespace TPRandomizer
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Singleton.getInstance().Checks.InitializeChecks();
             Application.Run(new Form1());
         }
     }

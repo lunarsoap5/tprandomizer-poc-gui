@@ -207,10 +207,10 @@ namespace TPRandomizer
 
          public bool isRegionCheck(Item itemToPlace, Check currentCheck, Room currentRoom)
         {
-            RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
+            RandomizerSetting parseSetting = Randomizer.RandoSetting;
             string itemName = itemToPlace.ToString();
             itemName = itemName.Replace("_", " ");
-            if (Singleton.getInstance().Items.DungeonSmallKeys.Contains(itemToPlace))
+            if (Randomizer.Items.DungeonSmallKeys.Contains(itemToPlace))
             {
                 if (parseSetting.smallKeySettings == "Own_Dungeon")
                 {
@@ -234,7 +234,7 @@ namespace TPRandomizer
                     }
                 }
             }
-            else if (Singleton.getInstance().Items.DungeonBigKeys.Contains(itemToPlace))
+            else if (Randomizer.Items.DungeonBigKeys.Contains(itemToPlace))
             {
                 if (parseSetting.bossKeySettings == "Own_Dungeon")
                 {
@@ -258,7 +258,7 @@ namespace TPRandomizer
                     }
                 }
             }
-            else if (Singleton.getInstance().Items.DungeonMapsAndCompasses.Contains(itemToPlace))
+            else if (Randomizer.Items.DungeonMapsAndCompasses.Contains(itemToPlace))
             {
                 if (parseSetting.mapAndCompassSettings == "Own_Dungeon")
                 {

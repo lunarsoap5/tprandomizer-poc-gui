@@ -381,13 +381,6 @@ namespace TPRandomizer
             Item.Iron_Boots,
             Item.Progressive_Bow,
 			Item.Empty_Bomb_Bag,
-			Item.Progressive_Wallet,
-			Item.Progressive_Wallet,
-			Item.Progressive_Bow,
-			Item.Progressive_Bow,
-			Item.Bomb_Bag_And_Bombs,
-			Item.Bomb_Bag_And_Bombs,
-			Item.Giant_Bomb_Bag,
             Item.Zora_Armor,
             Item.Progressive_Clawshot,
 			Item.Progressive_Clawshot,
@@ -412,8 +405,6 @@ namespace TPRandomizer
 			Item.Gate_Keys,
 			Item.Small_Key_N_Faron_Gate,
 			Item.Empty_Bottle,
-			Item.Sera_Bottle,
-			Item.Coro_Bottle
 		};
 
 		public List<Item> goldenBugs = new List<Item>()
@@ -464,7 +455,7 @@ namespace TPRandomizer
 
 		public void generateItemPool()
 		{
-			RandomizerSetting parseSetting = Singleton.getInstance().RandoSetting;
+			RandomizerSetting parseSetting = Randomizer.RandoSetting;
 			alwaysItems.Clear();
 			vanillaJunkItems.Clear();
 			RandomizedDungeonRegionItems.Clear();
@@ -475,6 +466,7 @@ namespace TPRandomizer
 			
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Piece_of_Heart, 45));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Heart_Container, 8));
+			alwaysItems.Add(Item.Purple_Rupee_Links_House);
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Green_Rupee, 2));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Blue_Rupee, 3));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Yellow_Rupee, 20));
@@ -482,6 +474,12 @@ namespace TPRandomizer
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Purple_Rupee, 38));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Orange_Rupee, 33));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Silver_Rupee, 3));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Progressive_Wallet, 2));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Progressive_Bow, 2));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Bomb_Bag_And_Bombs, 2));
+			alwaysItems.Add(Item.Giant_Bomb_Bag);
+			alwaysItems.Add(Item.Sera_Bottle);
+			alwaysItems.Add(Item.Coro_Bottle);
 			
 			
 			ItemPool.Add(Item.Ganon_Defeated);
@@ -570,24 +568,11 @@ namespace TPRandomizer
 			ItemPool.AddRange(DungeonSmallKeys);
 			ItemPool.AddRange(DungeonMapsAndCompasses);
 			ItemPool.AddRange(ImportantItems);
-			ItemPool.AddRange(alwaysItems);
-			ItemPool.AddRange(miscItems);
 			ItemPool.AddRange(VanillaDungeonRewards);
 			ItemPool.AddRange(vanillaJunkItems);
 
-			Singleton.getInstance().Items.ShuffledDungeonRewards.Clear();
-			Singleton.getInstance().Items.RandomizedImportantItems.Clear();
-			Singleton.getInstance().Items.ItemPool.Clear();
-			Singleton.getInstance().Items.RandomizedDungeonRegionItems.Clear();
-			Singleton.getInstance().Items.alwaysItems.Clear();
-			Singleton.getInstance().Items.miscItems.Clear();
-
-			Singleton.getInstance().Items.ShuffledDungeonRewards.AddRange(VanillaDungeonRewards);
-			Singleton.getInstance().Items.RandomizedImportantItems.AddRange(ImportantItems);
-			Singleton.getInstance().Items.ItemPool.AddRange(ItemPool);
-			Singleton.getInstance().Items.RandomizedDungeonRegionItems.AddRange(RandomizedDungeonRegionItems);
-			Singleton.getInstance().Items.alwaysItems.AddRange(alwaysItems);
-			Singleton.getInstance().Items.miscItems.AddRange(miscItems);
+			Randomizer.Items.ShuffledDungeonRewards.AddRange(VanillaDungeonRewards);
+			Randomizer.Items.RandomizedImportantItems.AddRange(ImportantItems);
 			return;
 		}
 	}

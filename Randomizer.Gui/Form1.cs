@@ -22,11 +22,14 @@ namespace TPRandomizer
     {
         Randomizer randomizer = new Randomizer();
         GuiSetting settings = new GuiSetting();
+        CheckFunctions Checks = new CheckFunctions();
+        ItemFunctions Items = new ItemFunctions();
         bool dontrunhandler;
         bool isDarkModeEnabled;
 
         public Form1()
         {
+            Checks.InitializeChecks();
             InitializeComponent();
             dontrunhandler = false;
             isDarkModeEnabled = false;
@@ -66,13 +69,13 @@ namespace TPRandomizer
             listofChecksListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             itemPoolListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
 
-            foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+            foreach (KeyValuePair<string, Check> check in Checks.CheckDict)
             {
                 string currentCheckName = check.Key;
                 listofChecksListBox.Items.Add(currentCheckName);
                 
             }
-            foreach (var item in Singleton.getInstance().Items.ImportantItems)
+            foreach (var item in Items.ImportantItems)
             {
                 string itemName = item.ToString();
                 itemName = itemName.Replace("_", " ");
@@ -117,7 +120,7 @@ namespace TPRandomizer
                 {
                     string itemName = startingItem;
                     itemName = itemName.Replace(" ", "_");
-                    foreach (Item item in Singleton.getInstance().Items.ImportantItems)
+                    foreach (Item item in Items.ImportantItems)
                     {
                         if (item.ToString() == itemName)
                         {
@@ -143,13 +146,13 @@ namespace TPRandomizer
             listofChecksListBox.Items.Clear();
             itemPoolListBox.Items.Clear();
 
-            foreach (KeyValuePair<string, Check> check in Singleton.getInstance().Checks.CheckDict)
+            foreach (KeyValuePair<string, Check> check in Checks.CheckDict)
             {
                 string currentCheckName = check.Key;
                 listofChecksListBox.Items.Add(currentCheckName);
                 
             }
-            foreach (var item in Singleton.getInstance().Items.ImportantItems)
+            foreach (var item in Items.ImportantItems)
             {
                 string itemName = item.ToString();
                 itemName = itemName.Replace("_", " ");
@@ -249,7 +252,7 @@ namespace TPRandomizer
                         checkList.AddRange((List<string>)value);
                         foreach (string check in checkList)
                         {
-                            int index = Singleton.getInstance().Checks.CheckDict.Keys.ToList().IndexOf(check);
+                            int index = Checks.CheckDict.Keys.ToList().IndexOf(check);
                             //We have to pad to 9 bits here because there are hundreds of checks. Will need to be changed to 10 if we go over 512 checks though.
                             i_bits = i_bits + Convert.ToString(index, 2).PadLeft(9, '0');
                         }
@@ -315,7 +318,7 @@ namespace TPRandomizer
                         int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
                         if (itemIndex != 255) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
-                            foreach (Item item in Singleton.getInstance().Items.ImportantItems)
+                            foreach (Item item in Items.ImportantItems)
                             {
                                 if (itemIndex == (byte)item)
                                 {
@@ -347,7 +350,7 @@ namespace TPRandomizer
                         int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
                         if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
-                            excludedChecks.Add(Singleton.getInstance().Checks.CheckDict.ElementAt(checkIndex).Key);
+                            excludedChecks.Add(Checks.CheckDict.ElementAt(checkIndex).Key);
                         }
                         else
                         {
@@ -372,7 +375,6 @@ namespace TPRandomizer
 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            Singleton.getInstance().Checks.CheckDict.Clear();
             randomizer.start(settingsStringTextbox.Text);
             MessageBox.Show("Seed Generated! Check the folder for the randomizer gci and spoiler log!");
         }

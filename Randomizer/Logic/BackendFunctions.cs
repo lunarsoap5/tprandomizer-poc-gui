@@ -33,8 +33,8 @@ namespace TPRandomizer
             //Convert the settings string into a binary string to be interpreted.
             string bitString = textToBitString(settingsString);
             List<byte> bits = new List<byte>();
-			PropertyInfo[] randoSettingProperties = Singleton.getInstance().RandoSetting.GetType().GetProperties();
-            PropertyInfo[] settingDataProperties = Singleton.getInstance().RandoSettingData.GetType().GetProperties();
+			PropertyInfo[] randoSettingProperties = Randomizer.RandoSetting.GetType().GetProperties();
+            PropertyInfo[] settingDataProperties = Randomizer.RandoSettingData.GetType().GetProperties();
                 foreach (PropertyInfo settingProperty in randoSettingProperties)
                 {
                     string evaluatedByteString = "";
@@ -45,11 +45,11 @@ namespace TPRandomizer
                         int value = Convert.ToInt32(bitString[0].ToString(), 2);
                         if (value == 1)
                         {
-                            settingProperty.SetValue(Singleton.getInstance().RandoSetting, true, null);
+                            settingProperty.SetValue(Randomizer.RandoSetting, true, null);
                         } 
                         else
                         {
-                            settingProperty.SetValue(Singleton.getInstance().RandoSetting, false, null);
+                            settingProperty.SetValue(Randomizer.RandoSetting, false, null);
                         }
                         bitString = bitString.Remove(0,1);
                     }
@@ -58,7 +58,7 @@ namespace TPRandomizer
                         //We loop through the Settings Data to match the index with the appropriate value.
                         foreach (PropertyInfo dataProperty in settingDataProperties)
 			            {
-                            var dataValue = dataProperty.GetValue(Singleton.getInstance().RandoSettingData, null);
+                            var dataValue = dataProperty.GetValue(Randomizer.RandoSettingData, null);
                             if (settingProperty.Name == dataProperty.Name)
                             {
                                 settingBitWidth = 4;
@@ -70,7 +70,7 @@ namespace TPRandomizer
                                 }
                                 
                                 string[] dataArray = (string[])dataValue;
-                                settingProperty.SetValue(Singleton.getInstance().RandoSetting, dataArray[Convert.ToInt32(evaluatedByteString, 2)], null);
+                                settingProperty.SetValue(Randomizer.RandoSetting, dataArray[Convert.ToInt32(evaluatedByteString, 2)], null);
                                 break;
                             }
                         }
@@ -90,7 +90,7 @@ namespace TPRandomizer
                             int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
                             if (itemIndex != 255) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                             {
-                                foreach (Item item in Singleton.getInstance().Items.ImportantItems)
+                                foreach (Item item in Randomizer.Items.ImportantItems)
                                 {
                                     if (itemIndex == (byte)item)
                                     {
@@ -105,7 +105,7 @@ namespace TPRandomizer
                             }
                             evaluatedByteString = "";
                         }
-                        settingProperty.SetValue(Singleton.getInstance().RandoSetting, startingItems, null);
+                        settingProperty.SetValue(Randomizer.RandoSetting, startingItems, null);
                     }
                     if (settingProperty.PropertyType == typeof(List<string>))
                     {
@@ -122,7 +122,7 @@ namespace TPRandomizer
                             int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
                             if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                             {
-                                excludedChecks.Add(Singleton.getInstance().Checks.CheckDict.ElementAt(checkIndex).Key);
+                                excludedChecks.Add(Randomizer.Checks.CheckDict.ElementAt(checkIndex).Key);
                             }
                             else
                             {
@@ -130,20 +130,20 @@ namespace TPRandomizer
                             }
                             evaluatedByteString = "";
                         }
-                        settingProperty.SetValue(Singleton.getInstance().RandoSetting, excludedChecks, null);
+                        settingProperty.SetValue(Randomizer.RandoSetting, excludedChecks, null);
                     }
-                    Console.WriteLine(settingProperty.Name + settingProperty.GetValue(Singleton.getInstance().RandoSetting, null));
+                    Console.WriteLine(settingProperty.Name + settingProperty.GetValue(Randomizer.RandoSetting, null));
             }
 
-            foreach (string excludedCheck in Singleton.getInstance().RandoSetting.ExcludedChecks)
+            foreach (string excludedCheck in Randomizer.RandoSetting.ExcludedChecks)
             {
-                foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+                foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
                 {
                     Check currentCheck = checkList.Value;
                     if (excludedCheck == currentCheck.checkName)
                     {
                         currentCheck.isExcluded = true;
-                        Singleton.getInstance().Checks.CheckDict[currentCheck.checkName] = currentCheck;
+                        Randomizer.Checks.CheckDict[currentCheck.checkName] = currentCheck;
                     }
                 }
             }
@@ -218,10 +218,10 @@ namespace TPRandomizer
             {
                 file.WriteLine("Randomizer Version: 1.0b");
                 file.WriteLine("Settings: ");
-                file.WriteLine(JsonConvert.SerializeObject(Singleton.getInstance().RandoSetting, Formatting.Indented));
+                file.WriteLine(JsonConvert.SerializeObject(Randomizer.RandoSetting, Formatting.Indented));
                 file.WriteLine("");
                 file.WriteLine("Item Locations: ");
-                foreach (KeyValuePair<string, Check> check in  Singleton.getInstance().Checks.CheckDict)
+                foreach (KeyValuePair<string, Check> check in  Randomizer.Checks.CheckDict)
                 {
                     currentCheck = check.Value;
                     if (currentCheck.itemWasPlaced)
@@ -237,20 +237,20 @@ namespace TPRandomizer
                 file.WriteLine("");
                 file.WriteLine("");
                 file.WriteLine("Playthrough: ");
-                foreach (KeyValuePair<string, Check> checkList in Singleton.getInstance().Checks.CheckDict.ToList())
+                foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
                 {
                     Check listedCheck = checkList.Value;
                     listedCheck.hasBeenReached = false;
-                    Singleton.getInstance().Checks.CheckDict[listedCheck.checkName] = listedCheck;
+                    Randomizer.Checks.CheckDict[listedCheck.checkName] = listedCheck;
                 }
                 
-                Singleton.getInstance().Items.generateItemPool();
-                Singleton.getInstance().Items.heldItems.Clear();
-                Singleton.getInstance().Items.ImportantItems.Add(Item.Ganon_Defeated);
+                Randomizer.Items.generateItemPool();
+                Randomizer.Items.heldItems.Clear();
+                Randomizer.Items.ImportantItems.Add(Item.Ganon_Defeated);
                 
                 List<Item> playthroughItems = new List<Item>();
                 int sphereCount = 0;
-                while (!Singleton.getInstance().Items.heldItems.Contains(Item.Ganon_Defeated))
+                while (!Randomizer.Items.heldItems.Contains(Item.Ganon_Defeated))
                 {
                     hasCompletedSphere = false;
                     foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
@@ -283,7 +283,7 @@ namespace TPRandomizer
                         for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
                         {
                             //Create reference to the dictionary entry of the check whose logic we are evaluating
-                            if (!Singleton.getInstance().Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                            if (!Randomizer.Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
                             {
                                 if (roomsToExplore[0].checks[i].ToString() == "")
                                 {
@@ -303,7 +303,7 @@ namespace TPRandomizer
                                     {
                                         playthroughItems.Add(currentCheck.itemId);
                                         currentCheck.hasBeenReached = true;
-                                        if (Singleton.getInstance().Items.ImportantItems.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.DungeonBigKeys.Contains(currentCheck.itemId) || Singleton.getInstance().Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
+                                        if (Randomizer.Items.ImportantItems.Contains(currentCheck.itemId) || Randomizer.Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Randomizer.Items.DungeonBigKeys.Contains(currentCheck.itemId) || Randomizer.Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
                                         {
                                             file.WriteLine("    " + currentCheck.checkName + ": " + currentCheck.itemId);
                                         }
@@ -315,7 +315,7 @@ namespace TPRandomizer
                         }
                         roomsToExplore.Remove(roomsToExplore[0]);
                     }
-                    Singleton.getInstance().Items.heldItems.AddRange(playthroughItems);
+                    Randomizer.Items.heldItems.AddRange(playthroughItems);
                     playthroughItems.Clear();
                     sphereCount++; 
                     if (hasCompletedSphere == false)
