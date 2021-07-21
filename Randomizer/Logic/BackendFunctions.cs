@@ -205,45 +205,129 @@ namespace TPRandomizer
             }
             Console.WriteLine("Read in settings string: " + byteToBinary);
             return byteToBinary;
-        }   
+        }
 
-        public static void generateSpoilerLog(Room startingRoom)
+        static bool validatePlaythrough(Room startingRoom)
+        {
+             bool areAllChecksReachable = true;
+             bool areAllRoomsReachable = true;
+            Check currentCheck;
+            
+            string[] currentPlaythrough = {};
+            foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
+            {
+                Check listedCheck = checkList.Value;
+                listedCheck.hasBeenReached = false;
+                Randomizer.Checks.CheckDict[listedCheck.checkName] = listedCheck;
+            }
+                
+            Randomizer.Items.generateItemPool();
+            Randomizer.Items.heldItems.Clear();
+            Randomizer.Items.ImportantItems.Add(Item.Ganon_Defeated);
+            
+            List<Item> playthroughItems = new List<Item>();
+            restart:
+            foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                currentRoom.visited = false;
+                Randomizer.Rooms.RoomDict[currentRoom.name] = currentRoom;
+            }
+            List<Room> roomsToExplore = new List<Room>();
+            startingRoom.visited = true;
+            roomsToExplore.Add(startingRoom);
+            while (roomsToExplore.Count() > 0)
+            {
+                for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
+                {
+                    //Create reference to the dictionary entry of the room we are evaluating
+                    //Parse the neighbour's requirements to find out if we can access it
+                    var areNeighbourRequirementsMet = Randomizer.Logic.evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                    //If you can access the neighbour and it hasnt been visited yet.
+                    if ((((bool)areNeighbourRequirementsMet == true)) && (Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                    {
+                        Room currentNeighbour = Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                        currentNeighbour.visited = true;
+                        //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                        roomsToExplore.Add(currentNeighbour);
+                    }
+                }
+                for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
+                {
+                    //Create reference to the dictionary entry of the check whose logic we are evaluating
+                    if (!Randomizer.Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                    {
+                        if (roomsToExplore[0].checks[i].ToString() == "")
+                        {
+                            //Console.WriteLine("Room has no checks, continuing on....");
+                            break;
+                        }
+                        Console.WriteLine("Check: " + roomsToExplore[0].checks[i] + " does not exist.");
+                    }
+                    if (!currentCheck.hasBeenReached)
+                    {
+                        //Parse the requirements to see if we can get the check
+                        var areCheckRequirementsMet = Randomizer.Logic.evaluateRequirements(currentCheck.requirements);
+                        //Confirms that we can get the check and checks to see if an item was placed in it.
+                        if (((bool)areCheckRequirementsMet == true))
+                        {
+                            if (currentCheck.itemWasPlaced)
+                            {
+                                Randomizer.Items.heldItems.Add(currentCheck.itemId);
+                                currentCheck.hasBeenReached = true;
+                                goto restart;
+                            }
+                        }
+                    }
+                }
+                roomsToExplore.Remove(roomsToExplore[0]);
+            }
+            foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
+            {
+                Check listedCheck = checkList.Value;
+                if (!listedCheck.hasBeenReached)
+                {
+                    areAllChecksReachable = false;
+                    Console.WriteLine(listedCheck.checkName + " is not reachable!");
+                }
+            }
+            foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                if (!currentRoom.visited)
+                {
+                    areAllRoomsReachable = false;
+                    Console.WriteLine(currentRoom.name + " is not reachable!");
+                }
+            }
+            if (areAllChecksReachable && areAllRoomsReachable)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+               
+    
+
+        static List<string> calculateOptimalPlaythrough(Room startingRoom)
         {
             bool hasCompletedSphere;
             Check currentCheck;
-            Random rnd = new Random();
-            string fileHash = "TPR - v1.0 - " + HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + " " + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)] + ".txt";
-            //Once everything is complete, we want to write the results to a spoiler log.
-            using (StreamWriter file = new(fileHash))
+            int shortestPlaythrough = 0;
+            List<List<string>> listofPlaythroughs = new List<List<string>>();
+            for (int playthroughCount = 0; playthroughCount < 15; playthroughCount++)
             {
-                file.WriteLine("Randomizer Version: 1.0b");
-                file.WriteLine("Settings: ");
-                file.WriteLine(JsonConvert.SerializeObject(Randomizer.RandoSetting, Formatting.Indented));
-                file.WriteLine("");
-                file.WriteLine("Item Locations: ");
-                foreach (KeyValuePair<string, Check> check in  Randomizer.Checks.CheckDict)
-                {
-                    currentCheck = check.Value;
-                    if (currentCheck.itemWasPlaced)
-                    {
-                        file.WriteLine(currentCheck.checkName + ": " + currentCheck.itemId);
-                    }
-                    else 
-                    {
-                        Console.WriteLine("Check: " + currentCheck.checkName + " has no item.");
-                    }
-                }
-                file.WriteLine("");
-                file.WriteLine("");
-                file.WriteLine("");
-                file.WriteLine("Playthrough: ");
+                List<string> currentPlaythrough = new List<string>();
                 foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
                 {
                     Check listedCheck = checkList.Value;
                     listedCheck.hasBeenReached = false;
                     Randomizer.Checks.CheckDict[listedCheck.checkName] = listedCheck;
                 }
-                
+                    
                 Randomizer.Items.generateItemPool();
                 Randomizer.Items.heldItems.Clear();
                 Randomizer.Items.ImportantItems.Add(Item.Ganon_Defeated);
@@ -262,7 +346,7 @@ namespace TPRandomizer
                     List<Room> roomsToExplore = new List<Room>();
                     startingRoom.visited = true;
                     roomsToExplore.Add(startingRoom);
-                    file.WriteLine("Sphere: " + sphereCount);
+                    currentPlaythrough.Add("Sphere: " + sphereCount);
                     while (roomsToExplore.Count() > 0)
                     {
                         for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
@@ -305,7 +389,7 @@ namespace TPRandomizer
                                         currentCheck.hasBeenReached = true;
                                         if (Randomizer.Items.ImportantItems.Contains(currentCheck.itemId) || Randomizer.Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Randomizer.Items.DungeonBigKeys.Contains(currentCheck.itemId) || Randomizer.Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
                                         {
-                                            file.WriteLine("    " + currentCheck.checkName + ": " + currentCheck.itemId);
+                                            currentPlaythrough.Add("    " + currentCheck.checkName + ": " + currentCheck.itemId);
                                         }
                                         hasCompletedSphere = true;
                                     }
@@ -320,11 +404,68 @@ namespace TPRandomizer
                     sphereCount++; 
                     if (hasCompletedSphere == false)
                     {
-                        file.WriteLine("Could not validate playthrough. Most likely there is an error in logic. Please debug and try again.");
+                        Console.WriteLine("Could not validate playthrough. Most likely there is an error in logic. Please debug and try again.");
                         break;
                     }
                 }
+                listofPlaythroughs.Add(currentPlaythrough);
             }
+            for (int i = 0; i < 15; i++)
+            {
+                if (i > 0 && (listofPlaythroughs[i].Count > listofPlaythroughs[i-1].Count))
+                {
+                    shortestPlaythrough = i;
+                }
+            }
+            return listofPlaythroughs[shortestPlaythrough];
+        } 
+
+        public static void generateSpoilerLog(Room startingRoom)
+        {
+            Check currentCheck;
+            bool isPlaythroughValid;
+            Random rnd = new Random();
+            string fileHash = "TPR - v1.0 - " + HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + " " + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)] + ".txt";
+            //Once everything is complete, we want to write the results to a spoiler log.
+            using (StreamWriter file = new(fileHash))
+            {
+                file.WriteLine("Randomizer Version: 1.0b");
+                file.WriteLine("Settings: ");
+                file.WriteLine(JsonConvert.SerializeObject(Randomizer.RandoSetting, Formatting.Indented));
+                file.WriteLine("");
+                file.WriteLine("Item Locations: ");
+                foreach (KeyValuePair<string, Check> check in  Randomizer.Checks.CheckDict)
+                {
+                    currentCheck = check.Value;
+                    if (currentCheck.itemWasPlaced)
+                    {
+                        file.WriteLine(currentCheck.checkName + ": " + currentCheck.itemId);
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Check: " + currentCheck.checkName + " has no item.");
+                    }
+                }
+                file.WriteLine("");
+                file.WriteLine("");
+                file.WriteLine("");
+                file.WriteLine("Playthrough: ");
+                isPlaythroughValid = validatePlaythrough(startingRoom);
+                if (isPlaythroughValid)
+                {
+                    Console.WriteLine("Playthrough Validated");
+                }
+                else
+                {
+                    Console.WriteLine("ERROR. Seed not beatable");
+                }
+                List<string> optimalPlaythrough = calculateOptimalPlaythrough(startingRoom);
+                optimalPlaythrough.ForEach(delegate(string playthroughItem)
+                {
+                    file.WriteLine(playthroughItem);
+                });
+            }
+            
         } 
     }
 }

@@ -400,6 +400,7 @@ namespace TPRandomizer
 			Item.Progressive_Sky_Book,
 			Item.Renardos_Letter,
 			Item.Invoice,
+			Item.Wooden_Statue,
 			Item.Ilias_Charm,
 			Item.Horse_Call,
 			Item.Gate_Keys,

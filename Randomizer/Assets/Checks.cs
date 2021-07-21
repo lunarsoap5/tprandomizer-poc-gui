@@ -445,37 +445,33 @@ namespace TPRandomizer
             Randomizer.Checks.vanillaChecks.AddRange(nonRandomizedChecks);
 
             RandomizerSetting parseSetting = Randomizer.RandoSetting;
-            if (parseSetting.smallKeySettings == "Vanilla")
+            foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
             {
-                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
+                Check currentCheck = check.Value;
+                if ((parseSetting.smallKeySettings == "Vanilla") && currentCheck.category.Contains("Small Key"))
                 {
-                    Check currentCheck = check.Value;
-                    if (currentCheck.category.Contains("Small Key"))
+                    Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                }
+                if ((parseSetting.bossKeySettings == "Vanilla") && currentCheck.category.Contains("Big Key"))
+                {
+                    Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                }
+                if ((parseSetting.mapAndCompassSettings == "Vanilla") && (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass")))
+                {
+                    Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                }
+                if (!parseSetting.npcItemsShuffled)
+                {
+                    if (currentCheck.category.Contains("Npc"))
                     {
-                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                        currentCheck.isExcluded = true;
                     }
                 }
-            }
-
-            if ( parseSetting.bossKeySettings == "Vanilla")
-            {
-                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
+                if (!parseSetting.treasureChestsShuffled)
                 {
-                    Check currentCheck = check.Value;
-                    if (currentCheck.category.Contains("Big Key"))
+                    if (currentCheck.category.Contains("Chest"))
                     {
-                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
-                    }
-                }
-            }
-            if (parseSetting.mapAndCompassSettings == "Vanilla")
-            {
-                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
-                {
-                    Check currentCheck = check.Value;
-                    if (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass"))
-                    {
-                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                        currentCheck.isExcluded = true;
                     }
                 }
             }
@@ -485,29 +481,6 @@ namespace TPRandomizer
                 Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
                 Randomizer.Items.ImportantItems.Remove(Item.Progressive_Fishing_Rod);
             }
-            if (!parseSetting.npcItemsShuffled)
-            {
-                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
-                {
-                    Check currentCheck = check.Value;
-                    if (currentCheck.category.Contains("Npc"))
-                    {
-                        currentCheck.isExcluded = true;
-                    }
-                }
-            }
-            if (!parseSetting.treasureChestsShuffled)
-            {
-                foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
-                {
-                    Check currentCheck = check.Value;
-                    if (currentCheck.category.Contains("Chest"))
-                    {
-                        currentCheck.isExcluded = true;
-                    }
-                }
-            }
         } 
     }
-
 }
