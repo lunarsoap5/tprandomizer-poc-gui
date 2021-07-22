@@ -22,14 +22,14 @@ namespace TPRandomizer
     {
         Randomizer randomizer = new Randomizer();
         GuiSetting settings = new GuiSetting();
-        CheckFunctions Checks = new CheckFunctions();
+        Checks AssetChecks = new Checks();
         ItemFunctions Items = new ItemFunctions();
         bool dontrunhandler;
         bool isDarkModeEnabled;
 
         public Form1()
         {
-            Checks.InitializeChecks();
+            
             InitializeComponent();
             dontrunhandler = false;
             isDarkModeEnabled = false;
@@ -69,10 +69,9 @@ namespace TPRandomizer
             listofChecksListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             itemPoolListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
 
-            foreach (KeyValuePair<string, Check> check in Checks.CheckDict)
+            foreach (string check in Checks.RandomizerChecks)
             {
-                string currentCheckName = check.Key;
-                listofChecksListBox.Items.Add(currentCheckName);
+                listofChecksListBox.Items.Add(check);
                 
             }
             foreach (var item in Items.ImportantItems)
@@ -146,10 +145,9 @@ namespace TPRandomizer
             listofChecksListBox.Items.Clear();
             itemPoolListBox.Items.Clear();
 
-            foreach (KeyValuePair<string, Check> check in Checks.CheckDict)
+            foreach (string check in Checks.RandomizerChecks)
             {
-                string currentCheckName = check.Key;
-                listofChecksListBox.Items.Add(currentCheckName);
+                listofChecksListBox.Items.Add(check);
                 
             }
             foreach (var item in Items.ImportantItems)
@@ -252,7 +250,7 @@ namespace TPRandomizer
                         checkList.AddRange((List<string>)value);
                         foreach (string check in checkList)
                         {
-                            int index = Checks.CheckDict.Keys.ToList().IndexOf(check);
+                            int index = Randomizer.Checks.CheckDict.Keys.ToList().IndexOf(check);
                             //We have to pad to 9 bits here because there are hundreds of checks. Will need to be changed to 10 if we go over 512 checks though.
                             i_bits = i_bits + Convert.ToString(index, 2).PadLeft(9, '0');
                         }
@@ -261,7 +259,7 @@ namespace TPRandomizer
                     }
                 bits = bits + i_bits;
             }
-            return BackendFunctions.bitStringToText(bits);
+            return BackendFunctions.Base64Encode(BackendFunctions.bitStringToText(bits));
         }
 
         /// <summary>
@@ -350,7 +348,7 @@ namespace TPRandomizer
                         int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
                         if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
-                            excludedChecks.Add(Checks.CheckDict.ElementAt(checkIndex).Key);
+                            excludedChecks.Add(Randomizer.Checks.CheckDict.ElementAt(checkIndex).Key);
                         }
                         else
                         {

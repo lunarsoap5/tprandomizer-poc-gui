@@ -23,7 +23,7 @@ namespace TPRandomizer
     {
         
         public Dictionary<string, Room> RoomDict = new Dictionary<string, Room>();
-        public void InitializeRooms()
+        /*public void InitializeRooms()
         {
             
             RoomDict.Add("Lakebed Temple 00 01", new Room());
@@ -203,7 +203,7 @@ namespace TPRandomizer
             RoomDict.Add("Hidden Village", new Room());
             RoomDict.Add("Death Mountain Interiors", new Room());
             return;
-        }
+        }*/
 
          public bool isRegionCheck(Item itemToPlace, Check currentCheck, Room currentRoom)
         {

@@ -31,8 +31,6 @@ namespace TPRandomizer
         {
             begin:
             //Generate the dictionary values that are needed and initialize the data for the selected logic type.
-            Checks.InitializeChecks();
-            Rooms.InitializeRooms();
             deserializeChecks();
             deserializeRooms();
 
@@ -482,12 +480,6 @@ namespace TPRandomizer
 
         public List<string> listNonPlacedChecks(Room startingRoom, Item itemToPlace)
         {
-            foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
-            {
-                Check listedCheck = checkList.Value;
-                listedCheck.hasBeenReached = false;
-                Checks.CheckDict[listedCheck.checkName] = listedCheck;
-            }
             List<string> roomChecks = new List<string>();
             List<Item> playthroughItems = new List<Item>();
             Check currentCheck;
@@ -552,6 +544,7 @@ namespace TPRandomizer
             {
                 string contents = File.ReadAllText(file);
                 string fileName = Path.GetFileNameWithoutExtension(file);
+                Checks.CheckDict.Add(fileName, new Check());
                 Checks.CheckDict[fileName] = JsonConvert.DeserializeObject<Check>(contents);
                 Check currentCheck = Checks.CheckDict[fileName];
                 currentCheck.requirements = "(" + currentCheck.requirements +")";
@@ -568,6 +561,7 @@ namespace TPRandomizer
             {
                 string contents = File.ReadAllText(file);
                 string fileName = Path.GetFileNameWithoutExtension(file);
+                Rooms.RoomDict.Add(fileName, new Room());
                 Rooms.RoomDict[fileName] = JsonConvert.DeserializeObject<Room>(contents);
                 Room currentRoom = Rooms.RoomDict[fileName];
                 for (int i = 0; i < currentRoom.neighbourRequirements.Count(); i++)

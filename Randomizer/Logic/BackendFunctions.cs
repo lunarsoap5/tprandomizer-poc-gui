@@ -10,9 +10,7 @@ namespace TPRandomizer
 {
     public class BackendFunctions
     {
-        LogicFunctions LogicFunc = new LogicFunctions();
-        CheckFunctions CheckFunc = new CheckFunctions();
-        RoomFunctions RoomFunc = new RoomFunctions();
+        public static string settingsLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789";
 
         //Encode the settings string. 
         public static string Base64Encode(string plainText)
@@ -31,7 +29,7 @@ namespace TPRandomizer
         public static void interpretSettingsString(string settingsString)
         {
             //Convert the settings string into a binary string to be interpreted.
-            string bitString = textToBitString(settingsString);
+            string bitString = textToBitString(Base64Decode(settingsString));
             List<byte> bits = new List<byte>();
 			PropertyInfo[] randoSettingProperties = Randomizer.RandoSetting.GetType().GetProperties();
             PropertyInfo[] settingDataProperties = Randomizer.RandoSettingData.GetType().GetProperties();
@@ -150,7 +148,7 @@ namespace TPRandomizer
             return;
         }
 
-        public static string settingsLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789";
+        
         public static char index_to_letter(int index) 
         { 
             char c = settingsLetters[index]; 
@@ -187,7 +185,6 @@ namespace TPRandomizer
                 int byteValue = Convert.ToInt32(value, 2);
                 result += index_to_letter(byteValue);
             }
-            Console.WriteLine(bits);
             return result;
         }
 
@@ -464,8 +461,7 @@ namespace TPRandomizer
                 {
                     file.WriteLine(playthroughItem);
                 });
-            }
-            
+            }   
         } 
     }
 }
