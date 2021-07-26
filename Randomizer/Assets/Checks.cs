@@ -28,41 +28,19 @@ namespace TPRandomizer
         public List<string> vanillaChecks = new List<string>();
         public List<string> nonRandomizedChecks = new List<string>()
         {
-            "Agitha First Bug Pair Reward",
-            "Agitha Second Bug Pair Reward",
-            "Agitha Third Bug Pair Reward",
-            "Agitha Fourth Bug Pair Reward",
-            "Agitha Fifth Bug Pair Reward",
-            "Agitha Sixth Bug Pair Reward",
-            "Agitha Seventh Bug Pair Reward",
-            "Agitha Eighth Bug Pair Reward",
-            "Agitha Ninth Bug Pair Reward",
-            "Agitha Tenth Bug Pair Reward",
-            "Agitha Eleventh Bug Pair Reward",
-            "Agitha Second Single Bug Reward",
-            "Agitha Third Single Bug Reward",
-            "Agitha Fourth Single Bug Reward",
-            "Agitha Fifth Single Bug Reward",
-            "Agitha Sixth Single Bug Reward",
-            "Agitha Seventh Single Bug Reward",
-            "Agitha Eighth Single Bug Reward",
-            "Agitha Ninth Single Bug Reward",
-            "Agitha Tenth Single Bug Reward",
-            "Agitha Eleventh Single Bug Reward",
-            "Agitha Twelfth Single Bug Reward",
             "Ganondorf Defeated"
         };
 
         public List<string> dungeonRewardChecks = new List<string>()
         {
-            "Forest Temple Diababa Heart Container",
-            "Goron Mines Fyrus Heart Container",
-            "Lakebed Temple Morpheel Heart Container",
-            "Arbiters Grounds Stallord Heart Container",
-            "Snowpeak Ruins Blizzeta Heart Container", 
-            "Temple of Time Armogohma Heart Container",
-            "City in The Sky Argorok Heart Container",
-            "Palace of Twilight Zant Heart Container"
+            "Forest Temple Dungeon Reward",
+            "Goron Mines Dungeon Reward",
+            "Lakebed Temple Dungeon Reward",
+            "Arbiters Grounds Dungeon Reward",
+            "Snowpeak Ruins Dungeon Reward", 
+            "Temple of Time Dungeon Reward",
+            "City in The Sky Dungeon Reward",
+            "Palace of Twilight Dungeon Reward"
         };
 
         public void generateCheckList()

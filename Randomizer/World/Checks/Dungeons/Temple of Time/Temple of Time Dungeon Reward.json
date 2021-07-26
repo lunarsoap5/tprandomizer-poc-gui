@@ -1,0 +1,9 @@
+{
+    "checkName": "Temple of Time Dungeon Reward",
+    "requirements": "canDefeatArmogohma",
+    "hash": "",
+    "isExcluded": false,
+    "category": ["Dungeon", "Temple of Time", "Dungeon Reward"],
+    "itemId": "Progressive_Mirror_Shard",
+    "itemWasPlaced": false
+}

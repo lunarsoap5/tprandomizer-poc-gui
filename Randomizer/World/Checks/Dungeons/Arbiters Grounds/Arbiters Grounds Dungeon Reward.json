@@ -1,0 +1,9 @@
+{
+    "checkName": "Arbiters Grounds Dungeon Reward",
+    "requirements": "canDefeatStallord",
+    "hash": "",
+    "isExcluded": false,
+    "category": ["Dungeon", "Arbiters Grounds", "Dungeon Reward"],
+    "itemId": "Progressive_Mirror_Shard",
+    "itemWasPlaced": false
+}

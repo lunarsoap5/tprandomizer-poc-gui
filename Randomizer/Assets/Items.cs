@@ -472,8 +472,8 @@ namespace TPRandomizer
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Blue_Rupee, 3));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Yellow_Rupee, 20));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Red_Rupee, 49));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Purple_Rupee, 38));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Orange_Rupee, 33));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Purple_Rupee, 49));
+			alwaysItems.AddRange(Enumerable.Repeat(Item.Orange_Rupee, 44));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Silver_Rupee, 3));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Progressive_Wallet, 2));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Progressive_Bow, 2));
