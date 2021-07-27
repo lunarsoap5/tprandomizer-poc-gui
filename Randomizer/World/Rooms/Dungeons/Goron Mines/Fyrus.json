@@ -9,7 +9,11 @@
         "canDefeatFyrus"
     ],
     "isStartingRoom": "false",
-    "checks": ["Goron Mines Fyrus Heart Container"], 
+    "checks": 
+    [
+        "Goron Mines Fyrus Heart Container",
+        "Goron Mines Dungeon Reward"
+    ], 
     "visited": "false",
     "region": "Goron Mines"
 }

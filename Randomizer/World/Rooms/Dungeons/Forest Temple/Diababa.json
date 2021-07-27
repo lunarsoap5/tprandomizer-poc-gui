@@ -9,7 +9,11 @@
         "canDefeatDiababa"
     ],
     "isStartingRoom": "false",
-    "checks": ["Forest Temple Diababa Heart Container"], 
+    "checks": 
+    [
+        "Forest Temple Diababa Heart Container",
+        "Forest Temple Dungeon Reward"
+    ], 
     "visited": "false",
     "region": "Forest Temple"
 }

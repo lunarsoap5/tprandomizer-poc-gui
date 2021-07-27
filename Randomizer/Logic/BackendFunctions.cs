@@ -315,7 +315,7 @@ namespace TPRandomizer
             Check currentCheck;
             int shortestPlaythrough = 0;
             List<List<string>> listofPlaythroughs = new List<List<string>>();
-            for (int playthroughCount = 0; playthroughCount < 15; playthroughCount++)
+            for (int playthroughCount = 0; playthroughCount < 30; playthroughCount++)
             {
                 List<string> currentPlaythrough = new List<string>();
                 foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
@@ -407,7 +407,7 @@ namespace TPRandomizer
                 }
                 listofPlaythroughs.Add(currentPlaythrough);
             }
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 30; i++)
             {
                 if (i > 0 && (listofPlaythroughs[i].Count > listofPlaythroughs[i-1].Count))
                 {
@@ -422,6 +422,8 @@ namespace TPRandomizer
             Check currentCheck;
             bool isPlaythroughValid;
             Random rnd = new Random();
+            Randomizer.Items.generateItemPool();
+
             string fileHash = "TPR - v1.0 - " + HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + " " + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)] + ".txt";
             //Once everything is complete, we want to write the results to a spoiler log.
             using (StreamWriter file = new(fileHash))

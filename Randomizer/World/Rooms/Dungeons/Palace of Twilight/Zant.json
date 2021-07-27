@@ -11,7 +11,8 @@
     "isStartingRoom": "false",
     "checks": 
     [
-        "Palace of Twilight Zant Heart Container"
+        "Palace of Twilight Zant Heart Container",
+        "Palace of Twilight Dungeon Reward"
     ],
     "visited": "false",
     "region": "Palace of Twilight"

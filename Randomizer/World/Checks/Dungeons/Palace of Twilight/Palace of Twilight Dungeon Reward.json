@@ -1,9 +1,9 @@
 {
-    "checkName": "Goron Mines Dungeon Reward",
-    "requirements": "canDefeatFyrus",
+    "checkName": "Palace of Twilight Dungeon Reward",
+    "requirements": "canDefeatZant",
     "hash": "",
     "isExcluded": false,
-    "category": ["Dungeon", "Goron Mines", "Dungeon Reward"],
+    "category": ["Dungeon", "Palace of Twilight", "Dungeon Reward"],
     "itemId": "Progressive_Fused_Shadow",
     "itemWasPlaced": false
 }

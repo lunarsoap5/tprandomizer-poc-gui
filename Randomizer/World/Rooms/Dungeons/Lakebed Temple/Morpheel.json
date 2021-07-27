@@ -9,7 +9,11 @@
         "canDefeatMorpheel"
     ],
     "isStartingRoom": "false",
-    "checks": ["Lakebed Temple Morpheel Heart Container"], 
+    "checks": 
+    [
+        "Lakebed Temple Morpheel Heart Container",
+        "Lakebed Temple Dungeon Reward"
+    ], 
     "visited": "false",
     "region": "Lakebed Temple"
 }

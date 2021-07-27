@@ -9,7 +9,11 @@
         "canDefeatArmogohma"
     ],
     "isStartingRoom": "false",
-    "checks": ["Temple of Time Armogohma Heart Container"], 
+    "checks": 
+    [
+        "Temple of Time Armogohma Heart Container",
+        "Temple of Time Dungeon Reward"
+    ], 
     "visited": "false",
     "region": "Temple of Time"
 }
