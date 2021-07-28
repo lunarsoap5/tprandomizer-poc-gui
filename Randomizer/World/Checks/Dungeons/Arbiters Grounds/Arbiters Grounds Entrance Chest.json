@@ -1,5 +1,5 @@
 {
-    "checkName": "Arbiters Grounds Lobby Chest",
+    "checkName": "Arbiters Grounds Entrance Chest",
     "requirements": "Shadow_Crystal or hasSword or canSmash",
     "hash": "FC38",
     "isExcluded": false,

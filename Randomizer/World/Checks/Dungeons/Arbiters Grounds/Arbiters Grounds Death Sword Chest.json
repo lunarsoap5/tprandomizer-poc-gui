@@ -1,6 +1,6 @@
 {
     "checkName": "Arbiters Grounds Death Sword Chest",
-    "requirements": "canDefeatDeathSword",
+    "requirements": "canDefeatDeathSword and (Progressive_Clawshot, 1) and canDefeatBubble and canDefeatStalfos and (Arbiters_Grounds_Small_Key, 5)",
     "hash": "8318",
     "isExcluded": false,
     "category": ["Chest", "Dungeon", "Arbiters Grounds"],

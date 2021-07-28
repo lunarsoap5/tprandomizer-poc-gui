@@ -564,6 +564,8 @@ namespace TPRandomizer
                 Rooms.RoomDict.Add(fileName, new Room());
                 Rooms.RoomDict[fileName] = JsonConvert.DeserializeObject<Room>(contents);
                 Room currentRoom = Rooms.RoomDict[fileName];
+                currentRoom.visited = false;
+                currentRoom.isStartingRoom = false;
                 for (int i = 0; i < currentRoom.neighbourRequirements.Count(); i++)
                 {
                     string newRequirement = currentRoom.neighbourRequirements[i];

@@ -1,6 +1,6 @@
 {
     "checkName": "Arbiters Grounds Stallord Heart Container",
-    "requirements": "canDefeatStallord",
+    "requirements": "Spinner and Arbiters_Grounds_Big_Key and canDefeatStallord",
     "isExcluded": false,
     "category": ["Heart Container", "Arbiters Grounds", "Dungeon"],
     "itemId": "Heart_Container",

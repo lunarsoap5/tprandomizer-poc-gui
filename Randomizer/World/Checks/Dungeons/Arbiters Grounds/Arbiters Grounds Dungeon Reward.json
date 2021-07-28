@@ -1,6 +1,6 @@
 {
     "checkName": "Arbiters Grounds Dungeon Reward",
-    "requirements": "canDefeatStallord",
+    "requirements": "Spinner and Arbiters_Grounds_Big_Key and canDefeatStallord",
     "hash": "",
     "isExcluded": false,
     "category": ["Dungeon", "Arbiters Grounds", "Dungeon Reward"],
