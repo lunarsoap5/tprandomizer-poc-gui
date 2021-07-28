@@ -1,0 +1,8 @@
+{
+    "checkName": "Eldin Field Male Grasshopper",
+    "requirements": "true",
+    "isExcluded": false,
+    "category": ["Overworld", "Golden Bug", "Hyrule Field"],
+    "itemId": "Male_Grasshopper",
+    "itemWasPlaced": false
+}

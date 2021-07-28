@@ -1,0 +1,8 @@
+{
+    "checkName": "Kakariko Gorge Male Pill Bug",
+    "requirements": "true",
+    "isExcluded": false,
+    "category": ["Overworld", "Golden Bug", "Hyrule Field"],
+    "itemId": "Male_Pill_Bug",
+    "itemWasPlaced": false
+}

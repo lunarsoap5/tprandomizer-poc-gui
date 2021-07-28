@@ -1,0 +1,8 @@
+{
+    "checkName": "Outside South Castle Town Female Ladybug",
+    "requirements": "true",
+    "isExcluded": false,
+    "category": ["Overworld", "Golden Bug", "Hyrule Field"],
+    "itemId": "Female_Ladybug",
+    "itemWasPlaced": false
+}
