@@ -1,0 +1,8 @@
+{
+    "checkName": "Upper Zoras River Female Dragonfly",
+    "requirements": "true",
+    "isExcluded": false,
+    "category": ["Overworld", "Golden Bug", "Lanayru Province"],
+    "itemId": "Female_Dragonfly",
+    "itemWasPlaced": false
+}

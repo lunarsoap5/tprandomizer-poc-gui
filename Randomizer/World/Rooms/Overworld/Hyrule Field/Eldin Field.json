@@ -26,7 +26,11 @@
         "Eldin Field Bomb Rock Chest",
         "Bridge of Eldin Owl Statue Chest",
         "Goron Springwater Rush",
-        "Bridge of Eldin Owl Statue Sky Character"
+        "Bridge of Eldin Owl Statue Sky Character",
+        "Eldin Field Male Grasshopper",
+        "Eldin Field Female Grasshopper",
+        "Bridge of Eldin Male Phasmid",
+        "Bridge of Eldin Female Phasmid"
     ],
     "visited": "false",
     "region": "Hyrule Field"

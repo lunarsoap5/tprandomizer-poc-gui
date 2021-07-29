@@ -78,12 +78,34 @@ namespace TPRandomizer
                         currentCheck.isExcluded = true;
                     }
                 }
+                if (!parseSetting.goldenBugsShuffled)
+                {
+                    if (currentCheck.category.Contains("Golden Bug"))
+                    {
+                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                        Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
+                    }
+                }
             }
             if (!parseSetting.introSkipped)
             {
+                //We want to set Uli Cradle Delivery vanilla if intro is skipped since a Fishing Rod has to be there in order to progress the seed.
                 Check currentCheck = Randomizer.Checks.CheckDict["Uli Cradle Delivery"];
                 Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
-                Randomizer.Items.ImportantItems.Remove(Item.Progressive_Fishing_Rod);
+                Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
+            }
+            else
+            {
+                Check currentCheck = Randomizer.Checks.CheckDict["Uli Cradle Delivery"];
+                currentCheck.isExcluded = true;
+                currentCheck = Randomizer.Checks.CheckDict["Ordon Cat Rescue"];
+                currentCheck.isExcluded = true;
+                currentCheck = Randomizer.Checks.CheckDict["Sera Shop Slingshot"];
+                currentCheck.isExcluded = true;
+                currentCheck = Randomizer.Checks.CheckDict["Ordon Sword"];
+                currentCheck.isExcluded = true;
+                currentCheck = Randomizer.Checks.CheckDict["Ordon Shield"];
+                currentCheck.isExcluded = true;
             }
         } 
     }

@@ -464,7 +464,7 @@ namespace TPRandomizer
 			ItemPool.Clear();
 			RandomizedImportantItems.Clear();
 			
-			
+			ImportantItems.AddRange(goldenBugs);
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Piece_of_Heart, 45));
 			alwaysItems.AddRange(Enumerable.Repeat(Item.Heart_Container, 8));
 			alwaysItems.Add(Item.Purple_Rupee_Links_House);

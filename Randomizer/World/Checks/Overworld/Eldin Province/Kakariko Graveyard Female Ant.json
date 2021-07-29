@@ -1,0 +1,8 @@
+{
+    "checkName": "Kakariko Graveyard Female Ant",
+    "requirements": "true",
+    "isExcluded": false,
+    "category": ["Overworld", "Golden Bug", "Eldin Province"],
+    "itemId": "Female_Ant",
+    "itemWasPlaced": false
+}

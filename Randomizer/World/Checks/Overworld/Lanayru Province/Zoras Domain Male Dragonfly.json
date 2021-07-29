@@ -1,0 +1,8 @@
+{
+    "checkName": "Zoras Domain Male Dragonfly",
+    "requirements": "true",
+    "isExcluded": false,
+    "category": ["Overworld", "Golden Bug", "Lanayru Province"],
+    "itemId": "Male_Dragonfly",
+    "itemWasPlaced": false
+}

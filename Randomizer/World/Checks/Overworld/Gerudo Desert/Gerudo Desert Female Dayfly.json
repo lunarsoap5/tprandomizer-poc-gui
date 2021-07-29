@@ -1,0 +1,8 @@
+{
+    "checkName": "Gerudo Desert Female Dayfly",
+    "requirements": "true",
+    "isExcluded": false,
+    "category": ["Overworld", "Golden Bug", "Gerudo Desert"],
+    "itemId": "Female_Dayfly",
+    "itemWasPlaced": false
+}

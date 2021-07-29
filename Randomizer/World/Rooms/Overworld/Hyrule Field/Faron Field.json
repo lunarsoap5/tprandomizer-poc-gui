@@ -20,7 +20,9 @@
     "checks": 
     [
         "Faron Field Bridge Chest",
-        "Faron Field Tree Heart Piece"
+        "Faron Field Tree Heart Piece",
+        "Faron Field Male Beetle",
+        "Faron Field Female Beetle"
     ],
     "visited": "false",
     "region": "Hyrule Field"

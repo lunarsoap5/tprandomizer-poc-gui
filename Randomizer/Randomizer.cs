@@ -37,9 +37,10 @@ namespace TPRandomizer
             //Read in the settings string and set the settings values accordingly
             BackendFunctions.interpretSettingsString(settingsString);
 
+            //Generate the item pool based on user settings/input.  
+            Randomizer.Items.generateItemPool();
             Checks.generateCheckList();
-            //Generate the item pool based on user settings/input.           
-            Items.generateItemPool();
+            
             Console.WriteLine("Remaining Items:");
                     foreach(Item leftItem in Items.alwaysItems)
                     {
