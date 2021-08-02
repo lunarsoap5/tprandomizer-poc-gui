@@ -249,82 +249,22 @@ namespace TPRandomizer
             return tokens;
         }
     }
-    public class OperandToken : Token
-        {
-            
-        }
-        public class OrToken : OperandToken
-        {
-        }
-
-        public class AndToken : OperandToken
-        {
-        }
-
-        public class BooleanValueToken : Token
-        {
-            
-        }
-        public class logicFunctionToken : Token
-        {
-            
-        }
-
-        public class IntegerToken : Token
-        {
-            
-        }
-
-        public class itemToken : Token
-        {
-            
-        }
-
-        public class FalseToken : BooleanValueToken
-        {
-        }
-
-        public class TrueToken : BooleanValueToken
-        {
-        }
-
-        public class ParenthesisToken : Token
-        {
-
-        }
-
-        public class EqualsToken : OperandToken
-        {
-        }
-
-        public class settingsToken : OperandToken
-        {
-        }
-
-        public class CommaToken : Token
-        {
-        }
-
-        public class canUseToken : Token
-        {
-        }
-
-        public class ClosedParenthesisToken : ParenthesisToken
-        {
-        }
-
-
-        public class OpenParenthesisToken : ParenthesisToken
-        {
-        }
-
-        public class NegationToken : Token
-        {
-        }
-
-        public abstract class Token
-        {
-
-        }
-
+    public class OperandToken : Token {}
+    public class OrToken : OperandToken {}
+    public class AndToken : OperandToken {}
+    public class BooleanValueToken : Token {}
+    public class logicFunctionToken : Token {}
+    public class IntegerToken : Token {}
+    public class itemToken : Token {}
+    public class FalseToken : BooleanValueToken {}
+    public class TrueToken : BooleanValueToken {}
+    public class ParenthesisToken : Token {}
+    public class EqualsToken : OperandToken {}
+    public class settingsToken : OperandToken {}
+    public class CommaToken : Token {}
+    public class canUseToken : Token {}
+    public class ClosedParenthesisToken : ParenthesisToken {}
+    public class OpenParenthesisToken : ParenthesisToken {}
+    public class NegationToken : Token {}
+    public abstract class Token {}
 }
