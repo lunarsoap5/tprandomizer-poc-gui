@@ -1,9 +1,6 @@
 {
-    "checkName": "Forest Temple East Water Cave Chest",
     "requirements": "canDefeatBombling and canBurnWebs",
     "hash": "FAE5",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Forest Temple"],
-    "itemId": "Yellow_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Yellow_Rupee"
 }

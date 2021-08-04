@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Treasure Room Fourth Chest",
     "requirements": "true",
     "hash": "2D5C",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Bomblings_10",
-    "itemWasPlaced": false
+    "itemId": "Bomblings_10"
 }

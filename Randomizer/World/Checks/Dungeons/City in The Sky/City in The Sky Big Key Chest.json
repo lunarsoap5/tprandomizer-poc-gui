@@ -1,9 +1,6 @@
 {
-    "checkName": "City in The Sky Big Key Chest",
     "requirements": "canDefeatDinalfos and canDefeatWalltula and canDefeatKargarok and Shadow_Crystal and (Progressive_Clawshot, 2) and Iron_Boots",
     "hash": "AAD2",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "City in The Sky", "Big Key"],
-    "itemId": "City_in_The_Sky_Big_Key",
-    "itemWasPlaced": false
+    "itemId": "City_in_The_Sky_Big_Key"
 }

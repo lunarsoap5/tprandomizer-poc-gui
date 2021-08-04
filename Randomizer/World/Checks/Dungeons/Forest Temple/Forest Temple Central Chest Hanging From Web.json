@@ -1,9 +1,6 @@
 {
-    "checkName": "Forest Temple Central Chest Hanging From Web",
     "requirements": "canCutHangingWeb",
     "hash": "6A07",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Forest Temple", "Dungeon Items", "Compass"],
-    "itemId": "Forest_Temple_Compass",
-    "itemWasPlaced": false
+    "itemId": "Forest_Temple_Compass"
 }

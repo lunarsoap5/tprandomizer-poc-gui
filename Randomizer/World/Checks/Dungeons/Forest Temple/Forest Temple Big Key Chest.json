@@ -1,9 +1,6 @@
 {
-    "checkName": "Forest Temple Big Key Chest",
     "requirements": "(canDefeatBombling or canBurnWebs) and Boomerang",
     "hash": "2C4F",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Forest Temple", "Big Key"],
-    "itemId": "Forest_Temple_Big_Key",
-    "itemWasPlaced": false
+    "itemId": "Forest_Temple_Big_Key"
 }

@@ -1,8 +1,5 @@
 {
-    "checkName": "City in The Sky Argorok Heart Container",
     "requirements": "canDefeatArgorok",
-    "isExcluded": false,
     "category": ["Heart Container", "Dungeon", "City in The Sky"],
-    "itemId": "Heart_Container",
-    "itemWasPlaced": false
+    "itemId": "Heart_Container"
 }

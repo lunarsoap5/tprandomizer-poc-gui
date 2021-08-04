@@ -1,9 +1,6 @@
 {
-    "checkName": "Arbiters Grounds Spinner Room Lower Central Small Chest",
     "requirements": "(Progressive_Clawshot, 1) and Spinner and canDefeatBubble and canDefeatStalfos and (Arbiters_Grounds_Small_Key, 5)",
     "hash": "8F23",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Arbiters Grounds"],
-    "itemId": "Yellow_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Yellow_Rupee"
 }

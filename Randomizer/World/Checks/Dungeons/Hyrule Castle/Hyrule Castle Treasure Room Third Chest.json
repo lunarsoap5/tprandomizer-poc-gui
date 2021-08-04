@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Treasure Room Third Chest",
     "requirements": "true",
     "hash": "6508",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Silver_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Silver_Rupee"
 }

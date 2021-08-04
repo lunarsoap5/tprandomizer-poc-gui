@@ -1,9 +1,6 @@
 {
-    "checkName": "Lakebed Temple East Second Floor Southwest Chest",
     "requirements": "true",
     "hash": "07A8",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Lakebed Temple"],
-    "itemId": "Water_Bombs_5",
-    "itemWasPlaced": false
+    "itemId": "Water_Bombs_5"
 }

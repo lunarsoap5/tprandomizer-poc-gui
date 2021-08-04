@@ -1,9 +1,6 @@
 {
-    "checkName": "Forest Temple West Tile Worm Chest Behind Stairs",
     "requirements": "Boomerang",
     "hash": "B39E",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Forest Temple"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

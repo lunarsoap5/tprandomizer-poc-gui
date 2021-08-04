@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle East Wing Balcony Chest",
     "requirements": "Boomerang",
     "hash": "592C",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Yellow_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Yellow_Rupee"
 }

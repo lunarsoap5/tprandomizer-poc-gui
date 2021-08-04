@@ -1,9 +1,6 @@
 {
-    "checkName": "Snowpeak Ruins Broken Floor Chest",
     "requirements": "canSmash",
     "hash": "569D",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Snowpeak Ruins"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

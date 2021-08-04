@@ -1,9 +1,6 @@
 {
-    "checkName": "Goron Mines After Crystal Switch Room Magnet Wall Chest",
     "requirements": "Iron_Boots",
     "hash": "3CD3",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Goron Mines"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Arbiters Grounds Ghoul Rat Room Chest",
     "requirements": "canDefeatBubble and canDefeatStalchild and canDefeatRedeadKnight and (Arbiters_Grounds_Small_Key, 3)",
     "hash": "05A6",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key"],
-    "itemId": "Arbiters_Grounds_Small_Key",
-    "itemWasPlaced": false
+    "itemId": "Arbiters_Grounds_Small_Key"
 }

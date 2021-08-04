@@ -1,9 +1,6 @@
 {
-    "checkName": "Arbiters Grounds Spinner Room First Small Chest",
     "requirements": "(Progressive_Clawshot, 1) and Spinner and canDefeatBubble and canDefeatStalfos and (Arbiters_Grounds_Small_Key, 5)",
     "hash": "477D",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Arbiters Grounds"],
-    "itemId": "Bombs_10",
-    "itemWasPlaced": false
+    "itemId": "Bombs_10"
 }

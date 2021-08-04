@@ -1,9 +1,6 @@
 {
-    "checkName": "City in The Sky Baba Tower Alcove Chest",
     "requirements": "canDefeatBabaSerpent and canDefeatBigBaba and (Progressive_Clawshot, 2)",
     "hash": "4E34",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "City in The Sky"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

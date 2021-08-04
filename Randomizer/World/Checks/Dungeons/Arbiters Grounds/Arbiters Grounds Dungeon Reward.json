@@ -1,9 +1,6 @@
 {
-    "checkName": "Arbiters Grounds Dungeon Reward",
     "requirements": "Spinner and Arbiters_Grounds_Big_Key and canDefeatStallord",
     "hash": "",
-    "isExcluded": false,
     "category": ["Dungeon", "Arbiters Grounds", "Dungeon Reward"],
-    "itemId": "Progressive_Mirror_Shard",
-    "itemWasPlaced": false
+    "itemId": "Progressive_Mirror_Shard"
 }

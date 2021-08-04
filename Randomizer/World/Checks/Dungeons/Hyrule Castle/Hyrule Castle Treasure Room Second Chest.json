@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Treasure Room Second Chest",
     "requirements": "true",
     "hash": "19D2",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Seeds_50",
-    "itemWasPlaced": false
+    "itemId": "Seeds_50"
 }

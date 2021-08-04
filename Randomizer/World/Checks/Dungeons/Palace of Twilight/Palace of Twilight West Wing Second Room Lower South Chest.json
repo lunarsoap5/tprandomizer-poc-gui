@@ -1,9 +1,6 @@
 {
-    "checkName": "Palace of Twilight West Wing Second Room Lower South Chest",
     "requirements": "canDefeatZantHead",
     "hash": "8277",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Palace of Twilight", "Dungeon Items", "Compass"],
-    "itemId": "Palace_of_Twilight_Compass",
-    "itemWasPlaced": false
+    "itemId": "Palace_of_Twilight_Compass"
 }

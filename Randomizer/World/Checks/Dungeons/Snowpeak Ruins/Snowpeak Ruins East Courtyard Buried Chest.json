@@ -1,9 +1,6 @@
 {
-    "checkName": "Snowpeak Ruins East Courtyard Buried Chest",
     "requirements": "Shadow_Crystal",
     "hash": "2725",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Snowpeak Ruins"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

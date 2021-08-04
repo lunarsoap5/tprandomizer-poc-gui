@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Graveyard Grave Switch Room Right Chest",
     "requirements": "canSmash",
     "hash": "E956",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

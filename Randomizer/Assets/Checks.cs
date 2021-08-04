@@ -26,10 +26,6 @@ namespace TPRandomizer
         public Dictionary<string, Check> DungeonRewardDict = new Dictionary<string, Check>();
 
         public List<string> vanillaChecks = new List<string>();
-        public List<string> nonRandomizedChecks = new List<string>()
-        {
-            "Ganondorf Defeated"
-        };
 
         public List<string> dungeonRewardChecks = new List<string>()
         {
@@ -46,7 +42,6 @@ namespace TPRandomizer
         public void generateCheckList()
         {
             Randomizer.Checks.vanillaChecks.Clear();
-            Randomizer.Checks.vanillaChecks.AddRange(nonRandomizedChecks);
 
             RandomizerSetting parseSetting = Randomizer.RandoSetting;
             foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)

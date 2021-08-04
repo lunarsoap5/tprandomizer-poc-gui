@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Treasure Room Seventh Small Chest",
     "requirements": "true",
     "hash": "5423",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Yellow_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Yellow_Rupee"
 }

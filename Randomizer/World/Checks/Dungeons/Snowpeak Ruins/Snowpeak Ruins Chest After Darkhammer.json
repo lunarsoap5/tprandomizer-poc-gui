@@ -1,9 +1,6 @@
 {
-    "checkName": "Snowpeak Ruins Chest After Darkhammer",
     "requirements": "canDefeatDarkhammer and Ball_and_Chain",
     "hash": "5786",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Small Key"],
-    "itemId": "Snowpeak_Ruins_Ordon_Goat_Cheese",
-    "itemWasPlaced": false
+    "itemId": "Snowpeak_Ruins_Ordon_Goat_Cheese"
 }

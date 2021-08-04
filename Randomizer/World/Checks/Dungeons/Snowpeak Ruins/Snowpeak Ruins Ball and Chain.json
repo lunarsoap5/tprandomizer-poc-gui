@@ -1,8 +1,5 @@
 {
-    "checkName": "Snowpeak Ruins Ball and Chain",
     "requirements": "canDefeatDarkhammer",
-    "isExcluded": false,
     "category": ["Dungeon", "Snowpeak Ruins"],
-    "itemId": "Ball_and_Chain",
-    "itemWasPlaced": false
+    "itemId": "Ball_and_Chain"
 }

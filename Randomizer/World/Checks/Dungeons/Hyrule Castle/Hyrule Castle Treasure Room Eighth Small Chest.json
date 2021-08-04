@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Treasure Room Eighth Small Chest",
     "requirements": "true",
     "hash": "D762",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Blue_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Blue_Rupee"
 }

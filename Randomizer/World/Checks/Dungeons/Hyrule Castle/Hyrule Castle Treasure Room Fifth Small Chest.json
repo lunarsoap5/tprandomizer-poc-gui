@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Treasure Room Fifth Small Chest",
     "requirements": "true",
     "hash": "EB62",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Water_Bombs_15",
-    "itemWasPlaced": false
+    "itemId": "Water_Bombs_15"
 }

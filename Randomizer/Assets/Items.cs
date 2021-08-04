@@ -264,7 +264,7 @@ namespace TPRandomizer
 		/*Key?	=	0xFC,*/
 		Goron_Mines_Big_Key	=	0xFD,
 		Coro_Key	=	0xFE,
-		/*Gives_Vanilla*/Ganon_Defeated	=	0xFF
+		Gives_Vanilla	=	0xFF
 	};
 
 	public class ItemFunctions
@@ -481,9 +481,6 @@ namespace TPRandomizer
 			alwaysItems.Add(Item.Giant_Bomb_Bag);
 			alwaysItems.Add(Item.Sera_Bottle);
 			alwaysItems.Add(Item.Coro_Bottle);
-			
-			
-			ItemPool.Add(Item.Ganon_Defeated);
 
 			
 			

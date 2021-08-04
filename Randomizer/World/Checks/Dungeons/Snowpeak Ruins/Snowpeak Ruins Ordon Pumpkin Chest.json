@@ -1,9 +1,6 @@
 {
-    "checkName": "Snowpeak Ruins Ordon Pumpkin Chest",
     "requirements": "canDefeatChilfos",
     "hash": "F5CA",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Dungeon Items", "Ordon Pumpkin", "Small Key"],
-    "itemId": "Snowpeak_Ruins_Ordon_Pumpkin",
-    "itemWasPlaced": false
+    "itemId": "Snowpeak_Ruins_Ordon_Pumpkin"
 }

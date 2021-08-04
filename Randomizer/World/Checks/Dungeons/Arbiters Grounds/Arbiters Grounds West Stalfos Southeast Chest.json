@@ -1,9 +1,6 @@
 {
-    "checkName": "Arbiters Grounds West Stalfos Southeast Chest",
     "requirements": "Shadow_Crystal or hasSword or Ball_and_Chain or hasBombs and (Arbiters_Grounds_Small_Key, 4) and canDefeatRedeadKnight and canDefeatStalchild and canDefeatBubble and canDefeatGhoulRat",
     "hash": "36DB",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Arbiters Grounds"],
-    "itemId": "Bombs_5",
-    "itemWasPlaced": false
+    "itemId": "Bombs_5"
 }

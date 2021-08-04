@@ -220,7 +220,6 @@ namespace TPRandomizer
                 
             Randomizer.Items.generateItemPool();
             Randomizer.Items.heldItems.Clear();
-            Randomizer.Items.ImportantItems.Add(Item.Ganon_Defeated);
             
             List<Item> playthroughItems = new List<Item>();
             restart:
@@ -324,14 +323,19 @@ namespace TPRandomizer
                     listedCheck.hasBeenReached = false;
                     Randomizer.Checks.CheckDict[listedCheck.checkName] = listedCheck;
                 }
+                foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
+                {
+                    Room currentRoom = roomList.Value;
+                    currentRoom.visited = false;
+                    Randomizer.Rooms.RoomDict[currentRoom.name] = currentRoom;
+                }
                     
                 Randomizer.Items.generateItemPool();
                 Randomizer.Items.heldItems.Clear();
-                Randomizer.Items.ImportantItems.Add(Item.Ganon_Defeated);
                 
                 List<Item> playthroughItems = new List<Item>();
                 int sphereCount = 0;
-                while (!Randomizer.Items.heldItems.Contains(Item.Ganon_Defeated))
+                while (!Randomizer.Rooms.RoomDict["Ganondorf Castle"].visited)
                 {
                     hasCompletedSphere = false;
                     foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
@@ -405,6 +409,7 @@ namespace TPRandomizer
                         break;
                     }
                 }
+                currentPlaythrough.Add("    Ganondorf Castle: Ganondorf Defeated");
                 listofPlaythroughs.Add(currentPlaythrough);
             }
             for (int i = 0; i < 30; i++)

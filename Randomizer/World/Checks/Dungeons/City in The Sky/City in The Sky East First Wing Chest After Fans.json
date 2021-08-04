@@ -1,9 +1,6 @@
 {
-    "checkName": "City in The Sky East First Wing Chest After Fans",
     "requirements": "(Progressive_Clawshot, 1)",
     "hash": "37C7",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "City in The Sky", "Dungeon Items", "Dungeon Map"],
-    "itemId": "City_in_The_Sky_Dungeon_Map",
-    "itemWasPlaced": false
+    "itemId": "City_in_The_Sky_Dungeon_Map"
 }

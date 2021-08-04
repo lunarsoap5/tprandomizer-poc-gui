@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Treasure Room Sixth Small Chest",
     "requirements": "true",
     "hash": "D2E3",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

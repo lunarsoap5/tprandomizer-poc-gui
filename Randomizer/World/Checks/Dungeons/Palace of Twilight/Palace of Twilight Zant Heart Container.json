@@ -1,9 +1,6 @@
 {
-    "checkName": "Palace of Twilight Zant Heart Container",
     "requirements": "canDefeatZant",
     "hash": "93FC",
-    "isExcluded": false,
     "category": ["Dungeon", "Palace of Twilight", "Heart Container"],
-    "itemId": "Heart_Container",
-    "itemWasPlaced": false
+    "itemId": "Heart_Container"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Temple of Time Darknut Chest",
     "requirements": "canDefeatDarknut",
     "hash": "DAD6",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Temple of Time"],
-    "itemId": "Progressive_Dominion_Rod",
-    "itemWasPlaced": false
+    "itemId": "Progressive_Dominion_Rod"
 }

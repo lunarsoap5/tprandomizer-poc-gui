@@ -1,9 +1,6 @@
 {
-    "checkName": "Snowpeak Ruins West Cannon Room Corner Chest",
     "requirements": "canSmash",
     "hash": "98E8",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Snowpeak Ruins"],
-    "itemId": "Bombs_5",
-    "itemWasPlaced": false
+    "itemId": "Bombs_5"
 }

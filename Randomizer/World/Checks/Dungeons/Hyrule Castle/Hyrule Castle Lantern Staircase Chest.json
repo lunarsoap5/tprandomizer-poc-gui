@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Lantern Staircase Chest",
     "requirements": "canDefeatDarknut and Lantern and Boomerang",
     "hash": "09D2",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

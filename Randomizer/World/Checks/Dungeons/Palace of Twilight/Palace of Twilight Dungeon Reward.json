@@ -1,9 +1,5 @@
 {
-    "checkName": "Palace of Twilight Dungeon Reward",
     "requirements": "canDefeatZant",
-    "hash": "",
-    "isExcluded": false,
     "category": ["Dungeon", "Palace of Twilight", "Dungeon Reward"],
-    "itemId": "Progressive_Fused_Shadow",
-    "itemWasPlaced": false
+    "itemId": "Progressive_Fused_Shadow"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Hyrule Castle Big Key Chest",
     "requirements": "true",
     "hash": "9553",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Hyrule Castle", "Big Key"],
-    "itemId": "Hyrule_Castle_Big_Key",
-    "itemWasPlaced": false
+    "itemId": "Hyrule_Castle_Big_Key"
 }

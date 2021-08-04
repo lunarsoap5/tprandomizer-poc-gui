@@ -1,9 +1,6 @@
 {
-    "checkName": "Snowpeak Ruins Wooden Beam Chandelier Chest",
     "requirements": "canDefeatChilfos and Snowpeak_Ruins_Ordon_Goat_Cheese and Ball_and_Chain",
     "hash": "F06A",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Small Key"],
-    "itemId": "Snowpeak_Ruins_Small_Key",
-    "itemWasPlaced": false
+    "itemId": "Snowpeak_Ruins_Small_Key"
 }

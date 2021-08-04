@@ -1,9 +1,6 @@
 {
-    "checkName": "Palace of Twilight East Wing Second Room Southwest Chest",
     "requirements": "canDefeatZantHead and canDefeatShadowBeast and (Progressive_Clawshot, 2)",
     "hash": "E301",
-    "isExcluded": false,
     "category": ["Chest", "Dungeon", "Palace of Twilight", "Dungeon Items", "Dungeon Map"],
-    "itemId": "Palace_of_Twilight_Dungeon_Map",
-    "itemWasPlaced": false
+    "itemId": "Palace_of_Twilight_Dungeon_Map"
 }

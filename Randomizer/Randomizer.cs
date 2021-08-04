@@ -548,6 +548,9 @@ namespace TPRandomizer
                 Checks.CheckDict.Add(fileName, new Check());
                 Checks.CheckDict[fileName] = JsonConvert.DeserializeObject<Check>(contents);
                 Check currentCheck = Checks.CheckDict[fileName];
+                currentCheck.checkName = fileName;
+                currentCheck.isExcluded = false;
+                currentCheck.itemWasPlaced = false;
                 currentCheck.requirements = "(" + currentCheck.requirements +")";
                 Checks.CheckDict[fileName] = currentCheck;
                 //Console.WriteLine("Check File Loaded " + fileName);
@@ -565,6 +568,7 @@ namespace TPRandomizer
                 Rooms.RoomDict.Add(fileName, new Room());
                 Rooms.RoomDict[fileName] = JsonConvert.DeserializeObject<Room>(contents);
                 Room currentRoom = Rooms.RoomDict[fileName];
+                currentRoom.name = fileName;
                 currentRoom.visited = false;
                 currentRoom.isStartingRoom = false;
                 for (int i = 0; i < currentRoom.neighbourRequirements.Count(); i++)

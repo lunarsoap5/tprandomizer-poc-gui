@@ -1,8 +1,5 @@
 {
-    "checkName": "Snowpeak Ruins Mansion Map",
     "requirements": "true",
-    "isExcluded": false,
     "category": ["Npc"],
-    "itemId": "Snowpeak_Ruins_Dungeon_Map",
-    "itemWasPlaced": false
+    "itemId": "Snowpeak_Ruins_Dungeon_Map"
 }
