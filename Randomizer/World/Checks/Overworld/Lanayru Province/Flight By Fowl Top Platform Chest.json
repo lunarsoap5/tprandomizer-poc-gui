@@ -1,9 +1,6 @@
 {
-    "checkName": "Flight By Fowl Top Platform Chest",
     "requirements": "true",
     "hash": "F3CC",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

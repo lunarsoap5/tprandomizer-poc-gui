@@ -1,9 +1,6 @@
 {
-    "checkName": "Kakariko Watchtower Chest",
     "requirements": "true",
     "hash": "64BD",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Eldin Province"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

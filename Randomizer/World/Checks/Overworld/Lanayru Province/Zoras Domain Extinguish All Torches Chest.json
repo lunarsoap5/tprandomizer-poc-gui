@@ -1,9 +1,6 @@
 {
-    "checkName": "Zoras Domain Extinguish All Torches Chest",
-    "requirements": "Boomerang",
+    "requirements": "Boomerang and Iron_Boots",
     "hash": "827F",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

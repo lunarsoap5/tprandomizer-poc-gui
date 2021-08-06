@@ -1,9 +1,6 @@
 {
-    "checkName": "Kakariko Inn Chest",
     "requirements": "true",
     "hash": "12B4",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Eldin Province"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

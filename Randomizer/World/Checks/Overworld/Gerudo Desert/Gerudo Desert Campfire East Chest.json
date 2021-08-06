@@ -1,9 +1,6 @@
 {
-    "checkName": "Gerudo Desert Campfire East Chest",
     "requirements": "canDefeatBublin",
     "hash": "1190",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Gerudo Desert"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

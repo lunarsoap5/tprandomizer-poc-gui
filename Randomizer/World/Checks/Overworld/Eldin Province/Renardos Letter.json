@@ -1,8 +1,5 @@
 {
-    "checkName": "Renardos Letter",
     "requirements": "canCompleteTempleofTime",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Eldin Province"],
-    "itemId": "Renardos_Letter",
-    "itemWasPlaced": false
+    "itemId": "Renardos_Letter"
 }

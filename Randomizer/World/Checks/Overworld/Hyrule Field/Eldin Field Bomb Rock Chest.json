@@ -1,9 +1,6 @@
 {
-    "checkName": "Eldin Field Bomb Rock Chest",
     "requirements": "canSmash",
     "hash": "BBAC",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

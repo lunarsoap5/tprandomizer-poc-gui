@@ -1,8 +1,5 @@
 {
-    "checkName": "Talo Sharpshooting",
     "requirements": "canCompleteGoronMines",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Eldin Province"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

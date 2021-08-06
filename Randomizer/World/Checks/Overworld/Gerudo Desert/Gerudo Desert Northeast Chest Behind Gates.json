@@ -1,9 +1,6 @@
 {
-    "checkName": "Gerudo Desert Northeast Chest Behind Gates",
     "requirements": "canDefeatBublin",
     "hash": "9753",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Gerudo Desert"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

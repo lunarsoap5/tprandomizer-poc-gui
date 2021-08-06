@@ -1,9 +1,6 @@
 {
-    "checkName": "Gerudo Desert East Canyon Chest",
     "requirements": "true",
     "hash": "1157",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Gerudo Desert"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Outside Arbiters Grounds Lantern Chest",
     "requirements": "Lantern",
     "hash": "27B1",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Bublin Camp"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

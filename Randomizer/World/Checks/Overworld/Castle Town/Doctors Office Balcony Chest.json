@@ -1,9 +1,6 @@
 {
-    "checkName": "Doctors Office Balcony Chest",
     "requirements": "Invoice and Shadow_Crystal",
     "hash": "0E38",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Castle Town"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

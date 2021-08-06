@@ -1,9 +1,6 @@
 {
-    "checkName": "Gerudo Desert Skulltula Grotto Chest",
     "requirements": "canDefeatSkulltula",
     "hash": "421A",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Gerudo Desert"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

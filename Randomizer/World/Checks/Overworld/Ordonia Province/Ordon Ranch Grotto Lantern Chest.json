@@ -1,9 +1,6 @@
 {
-    "checkName": "Ordon Ranch Grotto Lantern Chest",
     "requirements": "Lantern",
     "hash": "0BE9",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Ordonia Province"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

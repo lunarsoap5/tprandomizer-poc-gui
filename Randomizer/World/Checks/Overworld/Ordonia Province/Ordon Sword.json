@@ -1,8 +1,5 @@
 {
-    "checkName": "Ordon Sword",
     "requirements": "(Progressive_Sword, 1) and Lantern",
-    "isExcluded": false,
     "category": ["Overworld", "Ordonia Province"],
-    "itemId": "Progressive_Sword",
-    "itemWasPlaced": false
+    "itemId": "Progressive_Sword"
 }

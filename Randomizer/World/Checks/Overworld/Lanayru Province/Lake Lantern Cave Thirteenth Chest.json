@@ -1,9 +1,6 @@
 {
-    "checkName": "Lake Lantern Cave Thirteenth Chest",
     "requirements": "canSmash and Lantern",
     "hash": "D490",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Seeds_50",
-    "itemWasPlaced": false
+    "itemId": "Seeds_50"
 }

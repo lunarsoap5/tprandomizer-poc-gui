@@ -1,9 +1,5 @@
 {
-    "checkName": "Coro Lantern",
     "requirements": "true",
-    "hash": "null",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Faron Woods"],
-    "itemId": "Lantern",
-    "itemWasPlaced": false
+    "itemId": "Lantern"
 }

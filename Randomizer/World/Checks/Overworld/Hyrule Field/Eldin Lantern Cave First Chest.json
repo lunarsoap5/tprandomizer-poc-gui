@@ -1,9 +1,6 @@
 {
-    "checkName": "Eldin Lantern Cave First Chest",
     "requirements": "canBurnWebs",
     "hash": "6168",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

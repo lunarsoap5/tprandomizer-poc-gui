@@ -1,8 +1,5 @@
 {
-    "checkName": "Auru Gift To Fyer",
     "requirements": "true",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Lanayru Province"],
-    "itemId": "Aurus_Memo",
-    "itemWasPlaced": false
+    "itemId": "Aurus_Memo"
 }

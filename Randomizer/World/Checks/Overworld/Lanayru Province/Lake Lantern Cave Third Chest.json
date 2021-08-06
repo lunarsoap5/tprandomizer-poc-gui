@@ -1,9 +1,6 @@
 {
-    "checkName": "Lake Lantern Cave Third Chest",
     "requirements": "canSmash and Lantern",
     "hash": "F9D2",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

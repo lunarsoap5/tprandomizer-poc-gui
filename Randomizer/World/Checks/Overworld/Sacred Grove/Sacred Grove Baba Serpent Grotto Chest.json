@@ -1,9 +1,6 @@
 {
-    "checkName": "Sacred Grove Baba Serpent Grotto Chest",
     "requirements": "canDefeatBabaSerpent and canKnockDownHangingBaba",
     "hash": "F29C",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Sacred Grove"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

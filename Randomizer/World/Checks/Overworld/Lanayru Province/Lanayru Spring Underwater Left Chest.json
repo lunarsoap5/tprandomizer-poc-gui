@@ -1,9 +1,6 @@
 {
-    "checkName": "Lanayru Spring Underwater Left Chest",
     "requirements": "Iron_Boots",
     "hash": "008C",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Blue_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Blue_Rupee"
 }

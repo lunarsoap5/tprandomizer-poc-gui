@@ -1,8 +1,5 @@
 {
-    "checkName": "West Hyrule Field Male Butterfly",
     "requirements": "true",
-    "isExcluded": false,
     "category": ["Overworld", "Golden Bug", "Hyrule Field"],
-    "itemId": "Male_Butterfly",
-    "itemWasPlaced": false
+    "itemId": "Male_Butterfly"
 }

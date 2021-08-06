@@ -1,9 +1,6 @@
 {
-    "checkName": "Eldin Stockcave Lowest Chest",
     "requirements": "Iron_Boots",
     "hash": "9C80",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

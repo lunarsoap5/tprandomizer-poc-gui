@@ -1,9 +1,6 @@
 {
-    "checkName": "Snowpeak Freezard Grotto Chest",
     "requirements": "canDefeatIceKeese and canDefeatFreezard and Ball_and_Chain",
     "hash": "4584",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Snowpeak Province"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

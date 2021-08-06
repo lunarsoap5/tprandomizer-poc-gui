@@ -1,9 +1,6 @@
 {
-    "checkName": "Wrestling With Bo",
     "requirements": "(Progressive_Sword, 1) and (Progressive_Fishing_Rod, 1) and Small_Key_N_Faron_Gate",
     "hash": "CA8A",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Ordonia Province"],
-    "itemId": "Iron_Boots",
-    "itemWasPlaced": false
+    "itemId": "Iron_Boots"
 }

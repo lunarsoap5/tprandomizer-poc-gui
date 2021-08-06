@@ -1,9 +1,5 @@
 {
-    "checkName": "Barnes Bomb Bag",
     "requirements": "canCompleteGoronMines",
-    "hash": "null",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Eldin Province"],
-    "itemId": "Empty_Bomb_Bag",
-    "itemWasPlaced": false
+    "itemId": "Empty_Bomb_Bag"
 }

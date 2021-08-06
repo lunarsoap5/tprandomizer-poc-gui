@@ -1,9 +1,6 @@
 {
-    "checkName": "Lake Hylia Bridge Bubble Grotto Chest",
     "requirements": "canDefeatBubble and canDefeatFireBubble and canDefeatIceBubble",
     "hash": "6D05",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

@@ -1,8 +1,5 @@
 {
-    "checkName": "Wooden Statue",
     "requirements": "Invoice",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Hyrule Field"],
-    "itemId": "Wooden_Statue",
-    "itemWasPlaced": false
+    "itemId": "Wooden_Statue"
 }

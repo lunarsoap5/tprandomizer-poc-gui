@@ -1,8 +1,5 @@
 {
-    "checkName": "Gerudo Desert Male Dayfly",
     "requirements": "true",
-    "isExcluded": false,
     "category": ["Overworld", "Golden Bug", "Gerudo Desert"],
-    "itemId": "Male_Dayfly",
-    "itemWasPlaced": false
+    "itemId": "Male_Dayfly"
 }

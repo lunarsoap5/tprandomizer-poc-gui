@@ -1,9 +1,6 @@
 {
-    "checkName": "Lake Lantern Cave Tenth Chest",
     "requirements": "canSmash and Lantern",
     "hash": "254F",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

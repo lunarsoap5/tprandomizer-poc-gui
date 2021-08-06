@@ -1,8 +1,5 @@
 {
-    "checkName": "Kakariko Village Male Ant",
     "requirements": "true",
-    "isExcluded": false,
     "category": ["Overworld", "Golden Bug", "Eldin Province"],
-    "itemId": "Male_Ant",
-    "itemWasPlaced": false
+    "itemId": "Male_Ant"
 }

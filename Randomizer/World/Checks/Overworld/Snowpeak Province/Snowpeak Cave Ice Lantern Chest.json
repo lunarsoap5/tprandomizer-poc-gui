@@ -1,9 +1,6 @@
 {
-    "checkName": "Snowpeak Cave Ice Lantern Chest",
     "requirements": "Lantern and Ball_and_Chain",
     "hash": "7A70",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Snowpeak Province"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

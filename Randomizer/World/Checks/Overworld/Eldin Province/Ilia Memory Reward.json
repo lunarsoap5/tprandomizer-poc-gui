@@ -1,8 +1,5 @@
 {
-    "checkName": "Ilia Memory Reward",
     "requirements": "Ilias_Charm",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Eldin Province"],
-    "itemId": "Horse_Call",
-    "itemWasPlaced": false
+    "itemId": "Horse_Call"
 }

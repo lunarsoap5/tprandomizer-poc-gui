@@ -1,9 +1,6 @@
 {
-    "checkName": "Gerudo Desert South Chest Behind Wooden Gates",
     "requirements": "canDefeatBublin",
     "hash": "577F",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Gerudo Desert"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

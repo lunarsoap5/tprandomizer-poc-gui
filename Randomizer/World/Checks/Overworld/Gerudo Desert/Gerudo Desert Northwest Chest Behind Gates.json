@@ -1,9 +1,6 @@
 {
-    "checkName": "Gerudo Desert Northwest Chest Behind Gates",
     "requirements": "canDefeatBublin",
     "hash": "9F29",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Gerudo Desert"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Lanayru Field Spinner Track Chest",
     "requirements": "canSmash and Spinner",
     "hash": "2385",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

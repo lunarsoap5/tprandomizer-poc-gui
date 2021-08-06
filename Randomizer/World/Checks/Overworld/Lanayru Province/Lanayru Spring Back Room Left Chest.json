@@ -1,9 +1,6 @@
 {
-    "checkName": "Lanayru Spring Back Room Left Chest",
     "requirements": "(Progressive_Clawshot, 1)",
     "hash": "2253",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Blue_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Blue_Rupee"
 }

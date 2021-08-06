@@ -1,9 +1,6 @@
 {
-    "checkName": "Sacred Grove Past Owl Statue Chest",
     "requirements": "(Progressive_Dominion_Rod, 1)",
     "hash": "7968",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Sacred Grove"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

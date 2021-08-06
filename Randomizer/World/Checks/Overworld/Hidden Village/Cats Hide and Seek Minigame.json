@@ -1,9 +1,6 @@
 {
-    "checkName": "Cats Hide and Seek Minigame",
     "requirements": "Ilias_Charm",
     "hash": "9E3C",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Hidden Village"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

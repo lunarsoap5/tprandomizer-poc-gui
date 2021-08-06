@@ -1,9 +1,5 @@
 {
-    "checkName": "Rutelas Blessing",
     "requirements": "Gate_Keys",
-    "hash": "null",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Eldin Province"],
-    "itemId": "Zora_Armor",
-    "itemWasPlaced": false
+    "itemId": "Zora_Armor"
 }

@@ -1,8 +1,5 @@
 {
-    "checkName": "Ordon Cat Rescue",
     "requirements": "(Progressive_Fishing_Rod, 1)",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Ordonia Province"],
-    "itemId": "Sera_Bottle",
-    "itemWasPlaced": false
+    "itemId": "Sera_Bottle"
 }

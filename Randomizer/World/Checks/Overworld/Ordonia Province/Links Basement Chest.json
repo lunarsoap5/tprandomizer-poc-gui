@@ -1,9 +1,6 @@
 {
-    "checkName": "Links Basement Chest",
     "requirements": "Lantern",
     "hash": "E723",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Ordonia Province"],
-    "itemId": "Purple_Rupee_Links_House",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee_Links_House"
 }

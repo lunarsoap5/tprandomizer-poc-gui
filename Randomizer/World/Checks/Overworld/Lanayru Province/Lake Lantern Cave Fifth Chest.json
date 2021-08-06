@@ -1,9 +1,6 @@
 {
-    "checkName": "Lake Lantern Cave Fifth Chest",
     "requirements": "canSmash and Lantern",
     "hash": "BA10",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

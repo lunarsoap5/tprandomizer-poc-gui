@@ -1,8 +1,5 @@
 {
-    "checkName": "Snowboard Racing Prize",
     "requirements": "canCompleteSnowpeakRuins",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Snowpeak Province"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

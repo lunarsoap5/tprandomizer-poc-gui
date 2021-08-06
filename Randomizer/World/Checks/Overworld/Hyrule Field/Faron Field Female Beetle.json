@@ -1,8 +1,5 @@
 {
-    "checkName": "Faron Field Female Beetle",
     "requirements": "Boomerang or (Progressive_Clawshot, 1)",
-    "isExcluded": false,
     "category": ["Overworld", "Golden Bug", "Hyrule Field"],
-    "itemId": "Female_Beetle",
-    "itemWasPlaced": false
+    "itemId": "Female_Beetle"
 }

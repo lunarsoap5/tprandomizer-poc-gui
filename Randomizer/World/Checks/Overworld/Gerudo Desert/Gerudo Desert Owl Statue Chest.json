@@ -1,9 +1,6 @@
 {
-    "checkName": "Gerudo Desert Owl Statue Chest",
     "requirements": "(Progressive_Dominion_Rod, 2)",
     "hash": "8F1F",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Gerudo Desert"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Lost Woods Lantern Chest",
     "requirements": "Lantern",
     "hash": "A7D3",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Sacred Grove"],
-    "itemId": "Bombs_30",
-    "itemWasPlaced": false
+    "itemId": "Bombs_30"
 }

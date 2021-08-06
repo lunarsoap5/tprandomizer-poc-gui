@@ -1,9 +1,6 @@
 {
-    "checkName": "Lanayru Spring Back Room Right Chest",
     "requirements": "(Progressive_Clawshot, 1)",
     "hash": "8036",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Bombs_5",
-    "itemWasPlaced": false
+    "itemId": "Bombs_5"
 }

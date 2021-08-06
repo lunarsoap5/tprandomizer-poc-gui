@@ -1,9 +1,6 @@
 {
-    "checkName": "Faron Mist Stump Chest",
     "requirements": "Lantern",
     "hash": "411C",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Faron Woods"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

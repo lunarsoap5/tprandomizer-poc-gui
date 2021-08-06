@@ -1,9 +1,6 @@
 {
-    "checkName": "Lake Hylia Water Toadpoli Grotto Chest",
     "requirements": "canDefeatWaterToadpoli",
     "hash": "4F3E",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

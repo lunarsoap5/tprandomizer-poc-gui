@@ -1,9 +1,6 @@
 {
-    "checkName": "Lanayru Ice Block Puzzle Cave Chest",
     "requirements": "Ball_and_Chain",
     "hash": "3100",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

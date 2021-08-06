@@ -1,9 +1,6 @@
 {
-    "checkName": "Kakariko Graveyard Lantern Chest",
     "requirements": "Lantern",
     "hash": "7D3A",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Eldin Province"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

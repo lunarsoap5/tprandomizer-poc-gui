@@ -1,9 +1,6 @@
 {
-    "checkName": "South Faron Cave Chest",
     "requirements": "Lantern",
     "hash": "542E",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Faron Woods"],
-    "itemId": "Yellow_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Yellow_Rupee"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Zoras Domain Light All Torches Chest",
-    "requirements": "Lantern",
+    "requirements": "Lantern and Iron_Boots",
     "hash": "CB68",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

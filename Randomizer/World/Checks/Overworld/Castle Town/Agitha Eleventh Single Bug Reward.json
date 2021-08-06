@@ -1,8 +1,5 @@
 {
-    "checkName": "Agitha Eleventh Single Bug Reward",
     "requirements": "(getSingleBugCount, 11)",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Castle Town"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

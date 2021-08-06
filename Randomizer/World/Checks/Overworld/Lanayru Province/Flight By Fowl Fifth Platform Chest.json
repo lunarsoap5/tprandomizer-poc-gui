@@ -1,9 +1,6 @@
 {
-    "checkName": "Flight By Fowl Fifth Platform Chest",
     "requirements": "true",
     "hash": "6633",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Yellow_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Yellow_Rupee"
 }

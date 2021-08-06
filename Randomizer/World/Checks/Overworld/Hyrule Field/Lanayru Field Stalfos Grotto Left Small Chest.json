@@ -1,9 +1,6 @@
 {
-    "checkName": "Lanayru Field Stalfos Grotto Left Small Chest",
     "requirements": "true",
     "hash": "E854",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Bombs_5",
-    "itemWasPlaced": false
+    "itemId": "Bombs_5"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Lake Lantern Cave Ninth Chest",
     "requirements": "canSmash and Lantern",
     "hash": "DBF7",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Arrows_10",
-    "itemWasPlaced": false
+    "itemId": "Arrows_10"
 }

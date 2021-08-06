@@ -1,9 +1,6 @@
 {
-    "checkName": "Faron Mist South Chest",
     "requirements": "Lantern",
     "hash": "300D",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Faron Woods"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

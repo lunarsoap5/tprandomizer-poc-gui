@@ -1,8 +1,5 @@
 {
-    "checkName": "Agitha Fourth Bug Pair Reward",
     "requirements": "(getBugPairCount, 4)",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Castle Town"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

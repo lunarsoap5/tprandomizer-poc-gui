@@ -1,8 +1,5 @@
 {
-    "checkName": "Bublin Camp Roasted Boar",
     "requirements": "hasSword",
-    "isExcluded": false,
     "category": ["Overworld", "Bublin Camp"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

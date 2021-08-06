@@ -1,9 +1,6 @@
 {
-    "checkName": "Uli Cradle Delivery",
     "requirements": "true",
     "hash": "null",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Ordonia Province"],
-    "itemId": "Progressive_Fishing_Rod",
-    "itemWasPlaced": false
+    "itemId": "Progressive_Fishing_Rod"
 }

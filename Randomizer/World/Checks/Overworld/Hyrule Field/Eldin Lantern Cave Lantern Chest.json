@@ -1,9 +1,6 @@
 {
-    "checkName": "Eldin Lantern Cave Lantern Chest",
     "requirements": "Lantern",
     "hash": "C037",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

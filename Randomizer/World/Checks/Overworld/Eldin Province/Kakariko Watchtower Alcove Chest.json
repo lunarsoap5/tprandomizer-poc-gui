@@ -1,9 +1,6 @@
 {
-    "checkName": "Kakariko Watchtower Alcove Chest",
     "requirements": "canSmash",
     "hash": "0C13",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Eldin Province"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Lanayru Field Skulltula Grotto Chest",
     "requirements": "canDefeatSkulltula and Lantern and canBreakWoodenDoor",
     "hash": "A444",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

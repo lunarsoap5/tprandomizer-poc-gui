@@ -1,9 +1,6 @@
 {
-    "checkName": "Outside Lanayru Spring Left Statue Chest",
     "requirements": "true",
     "hash": "326F",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lake Hylia"],
-    "itemId": "Purple_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Purple_Rupee"
 }

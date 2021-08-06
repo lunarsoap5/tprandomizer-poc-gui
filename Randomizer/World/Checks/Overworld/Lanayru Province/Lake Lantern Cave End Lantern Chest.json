@@ -1,9 +1,6 @@
 {
-    "checkName": "Lake Lantern Cave End Lantern Chest",
     "requirements": "canSmash and Lantern",
     "hash": "34C1",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

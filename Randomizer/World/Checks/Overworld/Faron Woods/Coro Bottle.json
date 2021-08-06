@@ -1,8 +1,5 @@
 {
-    "checkName": "Coro Bottle",
     "requirements": "true",
-    "isExcluded": false,
     "category": ["Overworld", "Npc", "Faron Woods"],
-    "itemId": "Coro_Bottle",
-    "itemWasPlaced": false
+    "itemId": "Coro_Bottle"
 }

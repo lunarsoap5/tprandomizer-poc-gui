@@ -1,9 +1,6 @@
 {
-    "checkName": "Lanayru Spring East Double Clawshot Chest",
     "requirements": "(Progressive_Clawshot, 2)",
     "hash": "A2E9",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Orange_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Orange_Rupee"
 }

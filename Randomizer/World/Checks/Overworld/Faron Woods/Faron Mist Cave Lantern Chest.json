@@ -1,9 +1,6 @@
 {
-    "checkName": "Faron Mist Cave Lantern Chest",
     "requirements": "Lantern",
     "hash": "2247",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Faron Woods"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

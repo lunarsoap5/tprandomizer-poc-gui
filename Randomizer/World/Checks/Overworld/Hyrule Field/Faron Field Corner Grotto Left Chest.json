@@ -1,9 +1,6 @@
 {
-    "checkName": "Faron Field Corner Grotto Left Chest",
     "requirements": "true",
     "hash": "74C4",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Hyrule Field"],
-    "itemId": "Red_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Red_Rupee"
 }

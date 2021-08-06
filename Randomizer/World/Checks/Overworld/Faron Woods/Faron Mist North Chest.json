@@ -1,9 +1,6 @@
 {
-    "checkName": "Faron Mist North Chest",
     "requirements": "Lantern",
     "hash": "BF66",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Faron Woods"],
-    "itemId": "Yellow_Rupee",
-    "itemWasPlaced": false
+    "itemId": "Yellow_Rupee"
 }

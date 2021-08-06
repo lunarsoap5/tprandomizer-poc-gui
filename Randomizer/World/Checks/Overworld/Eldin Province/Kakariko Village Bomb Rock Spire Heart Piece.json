@@ -1,9 +1,6 @@
 {
-    "checkName": "Kakariko Village Bomb Rock Spire Heart Piece",
     "requirements": "canLaunchBombs and Boomerang",
     "hash": "A573",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Eldin Province"],
-    "itemId": "Piece_of_Heart",
-    "itemWasPlaced": false
+    "itemId": "Piece_of_Heart"
 }

@@ -1,9 +1,6 @@
 {
-    "checkName": "Lake Lantern Cave First Chest",
     "requirements": "canSmash and Lantern",
     "hash": "9E56",
-    "isExcluded": false,
     "category": ["Overworld", "Chest", "Lanayru Province"],
-    "itemId": "Bomblings_5",
-    "itemWasPlaced": false
+    "itemId": "Bomblings_5"
 }

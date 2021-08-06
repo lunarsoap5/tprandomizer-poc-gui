@@ -1,8 +1,5 @@
 {
-    "checkName": "Kakariko Gorge Female Pill Bug",
     "requirements": "true",
-    "isExcluded": false,
     "category": ["Overworld", "Golden Bug", "Hyrule Field"],
-    "itemId": "Female_Pill_Bug",
-    "itemWasPlaced": false
+    "itemId": "Female_Pill_Bug"
 }
