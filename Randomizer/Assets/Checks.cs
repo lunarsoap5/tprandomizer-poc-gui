@@ -23,7 +23,7 @@ namespace TPRandomizer
     public class CheckFunctions
     {
         public Dictionary<string, Check> CheckDict = new Dictionary<string, Check>();
-        public Dictionary<string, Check> DungeonRewardDict = new Dictionary<string, Check>();
+
 
         public List<string> vanillaChecks = new List<string>();
 
@@ -47,39 +47,46 @@ namespace TPRandomizer
             foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
             {
                 Check currentCheck = check.Value;
-                if ((parseSetting.smallKeySettings == "Vanilla") && currentCheck.category.Contains("Small Key"))
+                if (!parseSetting.ExcludedChecks.Contains(currentCheck.checkName))
                 {
-                    Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
-                }
-                if ((parseSetting.bossKeySettings == "Vanilla") && currentCheck.category.Contains("Big Key"))
-                {
-                    Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
-                }
-                if ((parseSetting.mapAndCompassSettings == "Vanilla") && (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass")))
-                {
-                    Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
-                }
-                if (!parseSetting.npcItemsShuffled)
-                {
-                    if (currentCheck.category.Contains("Npc"))
-                    {
-                        currentCheck.isExcluded = true;
-                    }
-                }
-                if (!parseSetting.treasureChestsShuffled)
-                {
-                    if (currentCheck.category.Contains("Chest"))
-                    {
-                        currentCheck.isExcluded = true;
-                    }
-                }
-                if (!parseSetting.goldenBugsShuffled)
-                {
-                    if (currentCheck.category.Contains("Golden Bug"))
+                    if ((parseSetting.smallKeySettings == "Vanilla") && currentCheck.category.Contains("Small Key"))
                     {
                         Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
-                        Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                     }
+                    if ((parseSetting.bossKeySettings == "Vanilla") && currentCheck.category.Contains("Big Key"))
+                    {
+                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                    }
+                    if ((parseSetting.mapAndCompassSettings == "Vanilla") && (currentCheck.category.Contains("Dungeon Map") || currentCheck.category.Contains("Compass")))
+                    {
+                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                    }
+                    if (!parseSetting.npcItemsShuffled)
+                    {
+                        if (currentCheck.category.Contains("Npc"))
+                        {
+                            currentCheck.isExcluded = true;
+                        }
+                    }
+                    if (!parseSetting.treasureChestsShuffled)
+                    {
+                        if (currentCheck.category.Contains("Chest"))
+                        {
+                            currentCheck.isExcluded = true;
+                        }
+                    }
+                    if (!parseSetting.goldenBugsShuffled)
+                    {
+                        if (currentCheck.category.Contains("Golden Bug"))
+                        {
+                            Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                            Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
+                        }
+                    }
+                }
+                else
+                {
+                    currentCheck.isExcluded = true;
                 }
             }
             if (!parseSetting.introSkipped)
