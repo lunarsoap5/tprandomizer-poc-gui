@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal or hasSword or Ball_and_Chain or hasBombs and (Arbiters_Grounds_Small_Key, 4) and canDefeatRedeadKnight and canDefeatStalchild and canDefeatBubble and canDefeatGhoulRat",
+    "requirements": "(Shadow_Crystal or hasSword or Ball_and_Chain or hasBombs) and (Arbiters_Grounds_Small_Key, 4) and canDefeatRedeadKnight and canDefeatStalchild and canDefeatBubble and canDefeatGhoulRat",
     "hash": "E296",
     "category": ["Chest", "Dungeon", "Arbiters Grounds"],
     "itemId": "Bombs_5"

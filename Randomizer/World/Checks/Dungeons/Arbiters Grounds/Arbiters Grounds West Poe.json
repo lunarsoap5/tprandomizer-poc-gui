@@ -1,0 +1,5 @@
+{
+    "requirements": "Shadow_Crystal and canSmash and (Arbiters_Grounds_Small_Key, 4) and canDefeatRedeadKnight and canDefeatStalchild and canDefeatBubble and canDefeatGhoulRat",
+    "category": ["Overworld", "Poe", "Arbiters Grounds"],
+    "itemId": "Poe_Soul"
+}

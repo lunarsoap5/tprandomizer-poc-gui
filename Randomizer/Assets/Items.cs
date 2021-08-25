@@ -151,7 +151,7 @@ namespace TPRandomizer
 		City_in_The_Sky_Small_Key	=	0x8B, /*custom*/
 		Palace_of_Twilight_Small_Key	=	0x8C, /*custom*/
 		Hyrule_Castle_Small_Key	=	0x8D, /*custom*/
-		/*?	=	0x8E,*/
+		Bublin_Camp_Key = 0x8E, /*custom*/
 		Foolish_Item	=	0x8F, /*custom*/
 		Aurus_Memo	=	0x90,
 		Asheis_Sketch	=	0x91,

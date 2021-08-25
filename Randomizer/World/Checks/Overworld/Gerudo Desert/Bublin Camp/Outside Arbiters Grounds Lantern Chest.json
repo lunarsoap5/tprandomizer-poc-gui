@@ -1,5 +1,5 @@
 {
-    "requirements": "Lantern",
+    "requirements": "Lantern and Bublin_Camp_Key",
     "hash": "27B1",
     "category": ["Overworld", "Chest", "Bublin Camp"],
     "itemId": "Purple_Rupee"
