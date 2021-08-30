@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatHelmasaur and (Progressive_Clawshot, 2)",
+    "requirements": "canDefeatHelmasaur",
     "hash": "F965",
     "category": ["Chest", "Dungeon", "City in The Sky"],
     "itemId": "Red_Rupee"

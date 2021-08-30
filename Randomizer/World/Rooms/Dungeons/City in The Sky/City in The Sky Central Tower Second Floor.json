@@ -1,21 +1,20 @@
 { 
-    "name": "City in The Sky 13",
     "neighbours": 
     [
-        "City in The Sky 12", 
-        "City in The Sky 02 03 14"
+        "City in The Sky West Wing", 
+        "City in The Sky Lobby"
     ],
     "neighbourRequirements":
     [
         "(Progressive_Clawshot, 2)",
         "true"
     ],
-    "visited": "false",
     "checks": 
     [
         "City in The Sky Central Outside Ledge Chest",
-        "City in The Sky Central Outside Poe Island Chest"
+        "City in The Sky Central Outside Poe Island Chest",
+        "City in The Sky Big Key Chest",
+        "City in The Sky Chest Below Big Key Chest"
     ],
-    "isStartingRoom": "false",
     "region": "City in The Sky"
 }

@@ -31,26 +31,17 @@ namespace TPRandomizer
             itemName = itemName.Replace("_", " ");
             if (Randomizer.Items.DungeonSmallKeys.Contains(itemToPlace))
             {
-                if (parseSetting.smallKeySettings == "Own_Dungeon")
+                if ((parseSetting.smallKeySettings == "Own_Dungeon") && itemName.Contains(currentRoom.region))
                 {
-                    if (itemName.Contains(currentRoom.region))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
-                else if (parseSetting.smallKeySettings == "Any_Dungeon")
+                else if ((parseSetting.smallKeySettings == "Any_Dungeon") && currentCheck.category.Contains("Dungeon"))
                 {
-                    if (currentCheck.category.Contains("Dungeon"))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
-                else if (parseSetting.smallKeySettings == "Overworld")
+                else if ((parseSetting.smallKeySettings == "Overworld") && currentCheck.category.Contains("Overworld"))
                 {
-                    if (currentCheck.category.Contains("Overworld"))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
             else if (Randomizer.Items.DungeonBigKeys.Contains(itemToPlace))

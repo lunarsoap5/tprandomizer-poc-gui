@@ -1,5 +1,5 @@
 {
-    "requirements": "(Progressive_Clawshot, 1)",
+    "requirements": "(Progressive_Clawshot, 1) and canDefeatTileWorm and canDefeatDinalfos",
     "hash": "8705",
     "category": ["Chest", "Dungeon", "City in The Sky"],
     "itemId": "Purple_Rupee"

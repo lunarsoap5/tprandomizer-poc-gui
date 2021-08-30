@@ -1,5 +1,5 @@
 {
-    "requirements": "true",
+    "requirements": "(Progressive_Clawshot,1)",
     "hash": "5940",
     "category": ["Chest", "Dungeon", "City in The Sky"],
     "itemId": "Yellow_Rupee"
