@@ -1,5 +1,5 @@
 {
-    "requirements": "true",
+    "requirements": "canDefeatBombling",
     "hash": "F837",
     "category": ["Chest", "Dungeon", "Forest Temple", "Small Key"],
     "itemId": "Forest_Temple_Small_Key"

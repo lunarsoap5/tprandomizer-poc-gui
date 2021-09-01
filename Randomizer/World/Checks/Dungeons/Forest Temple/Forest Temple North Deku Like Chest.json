@@ -1,5 +1,5 @@
 {
-    "requirements": "Boomerang or hasBombs",
+    "requirements": "Boomerang",
     "hash": "80A2",
     "category": ["Chest", "Dungeon", "Forest Temple", "Small Key"],
     "itemId": "Forest_Temple_Small_Key"

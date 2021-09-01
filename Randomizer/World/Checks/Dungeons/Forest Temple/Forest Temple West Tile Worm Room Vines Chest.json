@@ -1,5 +1,5 @@
 {
-    "requirements": "true",
+    "requirements": "canDefeatBombling",
     "hash": "4CBC",
     "category": ["Chest", "Dungeon", "Forest Temple"],
     "itemId": "Red_Rupee"

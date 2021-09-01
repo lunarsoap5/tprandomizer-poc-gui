@@ -1,20 +1,17 @@
 {
-    "name": "Forest Temple 22",
     "neighbours": 
     [
         "North Faron Woods", 
-        "Forest Temple 00 01"
+        "Forest Temple Lobby"
     ],
     "neighbourRequirements": 
     [
         "true",
         "canDefeatWalltula and canDefeatBokoblin and canBreakMonkeyCage"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Forest Temple Entrance Vines Chest"
     ],
-    "visited": "false",
     "region": "Forest Temple"
 }
