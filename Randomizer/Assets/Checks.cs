@@ -91,23 +91,17 @@ namespace TPRandomizer
             }
             if (!parseSetting.introSkipped)
             {
-                //We want to set Uli Cradle Delivery vanilla if intro is skipped since a Fishing Rod has to be there in order to progress the seed.
-                Check currentCheck = Randomizer.Checks.CheckDict["Uli Cradle Delivery"];
-                Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
-                Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
+                //We want to set Uli Cradle Delivery vanilla if intro is not skipped since a Fishing Rod has to be there in order to progress the seed.
+                Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkName);
+                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
             }
             else
             {
-                Check currentCheck = Randomizer.Checks.CheckDict["Uli Cradle Delivery"];
-                currentCheck.isExcluded = true;
-                currentCheck = Randomizer.Checks.CheckDict["Ordon Cat Rescue"];
-                currentCheck.isExcluded = true;
-                currentCheck = Randomizer.Checks.CheckDict["Sera Shop Slingshot"];
-                currentCheck.isExcluded = true;
-                currentCheck = Randomizer.Checks.CheckDict["Ordon Sword"];
-                currentCheck.isExcluded = true;
-                currentCheck = Randomizer.Checks.CheckDict["Ordon Shield"];
-                currentCheck.isExcluded = true;
+                Randomizer.Checks.CheckDict["Uli Cradle Delivery"].isExcluded = true;
+                Randomizer.Checks.CheckDict["Ordon Cat Rescue"].isExcluded = true;
+                Randomizer.Checks.CheckDict["Sera Shop Slingshot"].isExcluded = true;
+                Randomizer.Checks.CheckDict["Ordon Sword"].isExcluded = true;
+                Randomizer.Checks.CheckDict["Ordon Shield"].isExcluded = true;
             }
         } 
     }

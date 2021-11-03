@@ -269,8 +269,8 @@ namespace TPRandomizer
 
 	public class ItemFunctions
 	{
-		public List<Item> alwaysItems = new List<Item>(); //Items from the vanilla pool that are guaranteed to be in every seed
-		public List<Item> vanillaJunkItems = new List<Item>(); //Junk items from the vanilla pool 
+		
+		
 		public List<Item> StartingItems = new List<Item>(); //Any items that the player starts with as selected by the gui
 		public List<Item> RandomizedImportantItems = new List<Item>(); //Important Items that have been added to the item pool
 		public List<Item> RandomizedDungeonRegionItems = new List<Item>(); //Items that are shuffled among dungeons
@@ -436,28 +436,86 @@ namespace TPRandomizer
 			Item.Female_Snail
 		};
 
-		
-
-
-
-		bool checkIfItemIsInList(Item item, List<Item> itemList)
+		public List<Item> alwaysItems = new List<Item>() //Items from the vanilla pool that are guaranteed to be in every seed
 		{
-			bool isItemPresent = true;
-			for (int j = 0; j < itemList.Count(); j++)
-			{
-				if (item == itemList[j])
-				{
-					isItemPresent = true;
-					break;
-				}
-			}
-			return isItemPresent;
-		}
+			Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
+			Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
+			Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
+			Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
+			Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
+			Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
+			Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
+			Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
+			Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
+			Item.Heart_Container, Item.Heart_Container, Item.Heart_Container, Item.Heart_Container,
+			Item.Heart_Container, Item.Heart_Container, Item.Heart_Container, Item.Heart_Container,
+			Item.Purple_Rupee_Links_House,
+			Item.Green_Rupee, Item.Green_Rupee,
+			Item.Blue_Rupee, Item.Blue_Rupee, Item.Blue_Rupee,
+			Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee,
+			Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee,
+			Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee,
+			Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee, Item.Yellow_Rupee,
+			Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee,
+			Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee,
+			Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee,
+			Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee,
+			Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee,
+			Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee,
+			Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee,
+			Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee, Item.Red_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee, Item.Purple_Rupee,
+			Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee,
+			Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee,
+			Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee,
+			Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee,
+			Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee,
+			Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee,
+			Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee,
+			Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee,
+			Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee,
+			Item.Silver_Rupee, Item.Silver_Rupee,
+			Item.Progressive_Wallet, Item.Progressive_Wallet,
+			Item.Progressive_Bow, Item.Progressive_Bow,
+			Item.Bomb_Bag_And_Bombs, Item.Bomb_Bag_And_Bombs,
+			Item.Giant_Bomb_Bag,
+			Item.Sera_Bottle,
+			Item.Coro_Bottle
+		};
+
+		public List<Item> vanillaJunkItems = new List<Item>() //Junk items from the vanilla pool 
+		{
+			Item.Bombs_5, Item.Bombs_5, Item.Bombs_5, Item.Bombs_5, Item.Bombs_5, Item.Bombs_5,
+			Item.Bombs_5, Item.Bombs_5,
+			Item.Bombs_10, Item.Bombs_10,
+			Item.Bombs_20,
+			Item.Bombs_30,
+			Item.Arrows_10, Item.Arrows_10, Item.Arrows_10, Item.Arrows_10, Item.Arrows_10,
+			Item.Arrows_20, Item.Arrows_20, Item.Arrows_20, Item.Arrows_20, Item.Arrows_20,
+			Item.Arrows_20,
+			Item.Arrows_30, Item.Arrows_30,
+			Item.Seeds_50, Item.Seeds_50,
+			Item.Water_Bombs_5, Item.Water_Bombs_5, Item.Water_Bombs_5,
+			Item.Water_Bombs_10, Item.Water_Bombs_10, Item.Water_Bombs_10, Item.Water_Bombs_10,
+			Item.Water_Bombs_10,
+			Item.Water_Bombs_15, Item.Water_Bombs_15, Item.Water_Bombs_15,
+			Item.Bomblings_5, Item.Bomblings_5,
+			Item.Bomblings_10, Item.Bomblings_10
+		};
+		
 
 		public void generateItemPool()
 		{
 			RandomizerSetting parseSetting = Randomizer.RandoSetting;
-			alwaysItems.Clear();
 			vanillaJunkItems.Clear();
 			RandomizedDungeonRegionItems.Clear();
 			miscItems.Clear();
@@ -465,102 +523,121 @@ namespace TPRandomizer
 			RandomizedImportantItems.Clear();
 			
 			ImportantItems.AddRange(goldenBugs);
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Piece_of_Heart, 45));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Heart_Container, 8));
-			alwaysItems.Add(Item.Purple_Rupee_Links_House);
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Green_Rupee, 2));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Blue_Rupee, 3));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Yellow_Rupee, 20));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Red_Rupee, 49));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Purple_Rupee, 49));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Orange_Rupee, 44));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Silver_Rupee, 3));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Progressive_Wallet, 2));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Progressive_Bow, 2));
-			alwaysItems.AddRange(Enumerable.Repeat(Item.Bomb_Bag_And_Bombs, 2));
-			alwaysItems.Add(Item.Giant_Bomb_Bag);
-			alwaysItems.Add(Item.Sera_Bottle);
-			alwaysItems.Add(Item.Coro_Bottle);
+			
+			//While strings in switch cases do cost more in terms of execution, this only runs at the beginning of seed generation
+			//and the readability aspect provides more of a pro than the almost unnoticable increase in generation time.
 
-			
-			
 			//Check Small Key settings before adding them to the rando pool
-			if (parseSetting.smallKeySettings == "Keysanity")
-            {
-					RandomizedImportantItems.AddRange(DungeonSmallKeys);
-			}
-			else if ((parseSetting.smallKeySettings == "Own_Dungeon") || parseSetting.smallKeySettings == "Any_Dungeon" || parseSetting.smallKeySettings == "Overworld")
+			switch (parseSetting.smallKeySettings) 
 			{
+				case "Keysanity":
+				{
+					RandomizedImportantItems.AddRange(DungeonSmallKeys);
+					break;
+				}
+				case "Own_Dungeon":
+				{
 					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
+					break;
+				}
+				case "Any_Dungeon":
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
+					break;
+				}
+				case "Overworld":
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
+					break;
+				}
 			}
 
 			//Check Big Key Settings before adding them to the pool
-			if (parseSetting.bossKeySettings == "Keysanity") 
+			switch (parseSetting.bossKeySettings) 
 			{
+				case "Keysanity":
+				{
 					RandomizedImportantItems.AddRange(DungeonBigKeys);
-			}
-			else if (parseSetting.bossKeySettings == "Own_Dungeon" || parseSetting.bossKeySettings == "Any_Dungeon" || parseSetting.bossKeySettings == "Overworld")
-			{
+					break;
+				}
+				case "Own_Dungeon":
+				{
 					RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
+					break;
+				}
+				case "Any_Dungeon":
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
+					break;
+				}
+				case "Overworld":
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
+					break;
+				}
 			}
 
 			//Check Map and Compass settings before adding to pool
-			if (parseSetting.mapAndCompassSettings == "Anywhere") 
+			switch (parseSetting.mapAndCompassSettings) 
 			{
-				RandomizedImportantItems.AddRange(DungeonMapsAndCompasses);
+				case "Keysanity":
+				{
+					RandomizedImportantItems.AddRange(DungeonMapsAndCompasses);
+					break;
+				}
+				case "Own_Dungeon":
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
+					break;
+				}
+				case "Any_Dungeon":
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
+					break;
+				}
+				case "Overworld":
+				{
+					RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
+					break;
+				}
 			}
-			else if (parseSetting.mapAndCompassSettings == "Own_Dungeon" || parseSetting.mapAndCompassSettings == "Any_Dungeon" || parseSetting.mapAndCompassSettings == "Overworld")
-			{
-				RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
-			}
-
 			
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Bombs_5, 8));
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Bombs_10, 2));
-			vanillaJunkItems.Add(Item.Bombs_20);
-			vanillaJunkItems.Add(Item.Bombs_30);
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Arrows_10, 5));
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Arrows_20, 6));
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Arrows_30, 2));
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Seeds_50, 2));
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_5, 3));
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_10, 5));
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Water_Bombs_15, 3));
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Bomblings_5, 2));
-			vanillaJunkItems.AddRange(Enumerable.Repeat(Item.Bomblings_10, 2));
-
-
 			//Modifying Item Pool based on ice trap settings
-			//If we have Ice Trap Mayhem or Nightmare, extra junk items are replaced with Foolish Items
-			if ((parseSetting.iceTrapSettings == "Mayhem") || (parseSetting.iceTrapSettings == "Nightmare"))
+			//If we have Ice Trap Mayhem or Nightmare, alll extra junk items are replaced with Foolish Items
+			switch (parseSetting.iceTrapSettings) 
 			{
-				miscItems.Add(Item.Foolish_Item);
+				case "Mayhem":
+				{
+					miscItems.Add(Item.Foolish_Item);
+					break;
+				}
+				case "Nightmare": //If we have Ice Trap Nightmare, all junk items are replaced, even the vanilla ones.
+				{
+					miscItems.Add(Item.Foolish_Item);
+					for(int i = 0; i < vanillaJunkItems.Count() -1; i++)
+					{
+						vanillaJunkItems[i] = Item.Foolish_Item;
+					}
+					break;
+				}
+				default:
+				{
+					miscItems.Add(Item.Bombs_5);
+					miscItems.Add(Item.Bombs_10);
+					miscItems.Add(Item.Bombs_20);
+					miscItems.Add(Item.Bombs_30);
+					miscItems.Add(Item.Arrows_10);
+					miscItems.Add(Item.Arrows_20);
+					miscItems.Add(Item.Arrows_30);
+					miscItems.Add(Item.Seeds_50);
+					miscItems.Add(Item.Water_Bombs_5);
+					miscItems.Add(Item.Water_Bombs_10);
+					miscItems.Add(Item.Water_Bombs_15);
+					miscItems.Add(Item.Bomblings_5);
+					miscItems.Add(Item.Bomblings_10);
+					break;
+				}
 			}
-			else
-			{
-				miscItems.Add(Item.Bombs_5);
-				miscItems.Add(Item.Bombs_10);
-				miscItems.Add(Item.Bombs_20);
-				miscItems.Add(Item.Bombs_30);
-				miscItems.Add(Item.Arrows_10);
-				miscItems.Add(Item.Arrows_20);
-				miscItems.Add(Item.Arrows_30);
-				miscItems.Add(Item.Seeds_50);
-				miscItems.Add(Item.Water_Bombs_5);
-				miscItems.Add(Item.Water_Bombs_10);
-				miscItems.Add(Item.Water_Bombs_15);
-				miscItems.Add(Item.Bomblings_5);
-				miscItems.Add(Item.Bomblings_10);
-			}
-			//If we have Ice Trap Nightmare, all junk items are replaced, even the vanilla ones.
-			if (parseSetting.iceTrapSettings == "Nightmare")
-            {
-				for(int i = 0; i < vanillaJunkItems.Count() -1; i++)
-                {
-					vanillaJunkItems[i] = Item.Foolish_Item;
-                }
-            }
-
 			
 			ItemPool.AddRange(DungeonBigKeys);
 			ItemPool.AddRange(DungeonSmallKeys);
