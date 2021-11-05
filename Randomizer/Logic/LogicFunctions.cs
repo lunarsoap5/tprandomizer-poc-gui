@@ -6,11 +6,6 @@ namespace TPRandomizer
 {
     public class LogicFunctions
     {
-		public int fusedShadowCount = 0;
-		public int mirrorShardCount = 0;
-
-		public bool mdhComplete;
-
         public Dictionary<Token, string> TokenDict = new Dictionary<Token, String>();
 
         //Evaluate the tokenized settings to their respective values that are set by the settings string.

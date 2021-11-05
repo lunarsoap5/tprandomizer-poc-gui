@@ -27,18 +27,6 @@ namespace TPRandomizer
 
         public List<string> vanillaChecks = new List<string>();
 
-        public List<string> dungeonRewardChecks = new List<string>()
-        {
-            "Forest Temple Dungeon Reward",
-            "Goron Mines Dungeon Reward",
-            "Lakebed Temple Dungeon Reward",
-            "Arbiters Grounds Dungeon Reward",
-            "Snowpeak Ruins Dungeon Reward", 
-            "Temple of Time Dungeon Reward",
-            "City in The Sky Dungeon Reward",
-            "Palace of Twilight Dungeon Reward"
-        };
-
         public void generateCheckList()
         {
             Randomizer.Checks.vanillaChecks.Clear();
