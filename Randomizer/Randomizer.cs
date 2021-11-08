@@ -216,16 +216,15 @@ namespace TPRandomizer
                         roomsToExplore.Remove(roomsToExplore[0]);
                     }
 
-
-
-
-
-
                     availableChecks = roomChecks;
                     
                     checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
                     placeItemInCheck(itemToPlace,checkToReciveItem);
-
+                    foreach (Item item in playthroughItems)
+                    {
+                        currentItemPool.Remove(item);
+                    }
+                    playthroughItems.Clear();
                     availableChecks.Clear();
                 }
             return;
