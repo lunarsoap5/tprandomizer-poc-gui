@@ -53,14 +53,14 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Npc"))
                         {
-                            currentCheck.isExcluded = true;
+                            Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
                         }
                     }
                     if (!parseSetting.treasureChestsShuffled)
                     {
                         if (currentCheck.category.Contains("Chest"))
                         {
-                            currentCheck.isExcluded = true;
+                            Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
                         }
                     }
                     if (!parseSetting.goldenBugsShuffled)
@@ -68,7 +68,6 @@ namespace TPRandomizer
                         if (currentCheck.category.Contains("Golden Bug"))
                         {
                             Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
-                            Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                         }
                     }
                 }
@@ -81,7 +80,7 @@ namespace TPRandomizer
             {
                 //We want to set Uli Cradle Delivery vanilla if intro is not skipped since a Fishing Rod has to be there in order to progress the seed.
                 Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkName);
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
+                Randomizer.Items.ImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
             }
             else
             {

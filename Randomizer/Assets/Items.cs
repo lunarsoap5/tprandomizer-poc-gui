@@ -275,7 +275,7 @@ namespace TPRandomizer
 		public List<Item> RandomizedImportantItems = new List<Item>(); //Important Items that have been added to the item pool
 		public List<Item> RandomizedDungeonRegionItems = new List<Item>(); //Items that are shuffled among dungeons
 
-		public List<Item> miscItems = new List<Item>(); //Extra junk items that are put in the pool if there are checks left and all items have been placed.
+		public List<Item> JunkItems = new List<Item>(); //Extra junk items that are put in the pool if there are checks left and all items have been placed.
 		public List<Item> ItemPool = new List<Item>(); //The list of Items that have yet to be randomized.
 		public List<Item> heldItems = new List<Item>(); //The list of items that the player currently has. This is to be used when emulating the playthrough.
 
@@ -516,138 +516,71 @@ namespace TPRandomizer
 		public void generateItemPool()
 		{
 			RandomizerSetting parseSetting = Randomizer.RandoSetting;
-			vanillaJunkItems.Clear();
-			RandomizedDungeonRegionItems.Clear();
-			miscItems.Clear();
-			ItemPool.Clear();
-			RandomizedImportantItems.Clear();
 			
-			ImportantItems.AddRange(goldenBugs);
+			if (parseSetting.goldenBugsShuffled)
+			{
+				ImportantItems.AddRange(goldenBugs);
+			}
 			
 			//While strings in switch cases do cost more in terms of execution, this only runs at the beginning of seed generation
 			//and the readability aspect provides more of a pro than the almost unnoticable increase in generation time.
 
 			//Check Small Key settings before adding them to the rando pool
-			switch (parseSetting.smallKeySettings) 
+			ItemPool.AddRange(DungeonSmallKeys);
+			if (parseSetting.smallKeySettings != "Keysanity") 
 			{
-				case "Keysanity":
-				{
-					RandomizedImportantItems.AddRange(DungeonSmallKeys);
-					break;
-				}
-				case "Own_Dungeon":
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
-					break;
-				}
-				case "Any_Dungeon":
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
-					break;
-				}
-				case "Overworld":
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
-					break;
-				}
+				RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
 			}
 
 			//Check Big Key Settings before adding them to the pool
-			switch (parseSetting.bossKeySettings) 
+			ItemPool.AddRange(DungeonBigKeys);
+			if (parseSetting.bossKeySettings != "Keysanity") 
 			{
-				case "Keysanity":
-				{
-					RandomizedImportantItems.AddRange(DungeonBigKeys);
-					break;
-				}
-				case "Own_Dungeon":
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
-					break;
-				}
-				case "Any_Dungeon":
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
-					break;
-				}
-				case "Overworld":
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
-					break;
-				}
+				RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
 			}
 
 			//Check Map and Compass settings before adding to pool
-			switch (parseSetting.mapAndCompassSettings) 
+			ItemPool.AddRange(DungeonMapsAndCompasses);
+			if (parseSetting.mapAndCompassSettings != "Anywhere") 
 			{
-				case "Keysanity":
-				{
-					RandomizedImportantItems.AddRange(DungeonMapsAndCompasses);
-					break;
-				}
-				case "Own_Dungeon":
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
-					break;
-				}
-				case "Any_Dungeon":
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
-					break;
-				}
-				case "Overworld":
-				{
-					RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
-					break;
-				}
+				RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
 			}
 			
 			//Modifying Item Pool based on ice trap settings
 			//If we have Ice Trap Mayhem or Nightmare, alll extra junk items are replaced with Foolish Items
 			switch (parseSetting.iceTrapSettings) 
 			{
-				case "Mayhem":
+				case "Few": //There is a small chance that a Foolish Item could appear
 				{
-					miscItems.Add(Item.Foolish_Item);
+					JunkItems = vanillaJunkItems;
+					JunkItems.Add(Item.Foolish_Item);
 					break;
 				}
-				case "Nightmare": //If we have Ice Trap Nightmare, all junk items are replaced, even the vanilla ones.
+				case "Many": //There is an increased chance that a Foolish Item could appear
 				{
-					miscItems.Add(Item.Foolish_Item);
-					for(int i = 0; i < vanillaJunkItems.Count() -1; i++)
-					{
-						vanillaJunkItems[i] = Item.Foolish_Item;
-					}
+					JunkItems = vanillaJunkItems;
+					JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 4));
+					break;
+				}
+				case "Mayhem": //All junk items outside of the item pool are Foolish Items
+				{
+					JunkItems.Add(Item.Foolish_Item);
 					break;
 				}
 				default:
 				{
-					miscItems.Add(Item.Bombs_5);
-					miscItems.Add(Item.Bombs_10);
-					miscItems.Add(Item.Bombs_20);
-					miscItems.Add(Item.Bombs_30);
-					miscItems.Add(Item.Arrows_10);
-					miscItems.Add(Item.Arrows_20);
-					miscItems.Add(Item.Arrows_30);
-					miscItems.Add(Item.Seeds_50);
-					miscItems.Add(Item.Water_Bombs_5);
-					miscItems.Add(Item.Water_Bombs_10);
-					miscItems.Add(Item.Water_Bombs_15);
-					miscItems.Add(Item.Bomblings_5);
-					miscItems.Add(Item.Bomblings_10);
+					JunkItems = vanillaJunkItems;
 					break;
 				}
 			}
 			
-			ItemPool.AddRange(DungeonBigKeys);
-			ItemPool.AddRange(DungeonSmallKeys);
-			ItemPool.AddRange(DungeonMapsAndCompasses);
+			
+			
+			
 			ItemPool.AddRange(ImportantItems);
 			ItemPool.AddRange(VanillaDungeonRewards);
-			ItemPool.AddRange(vanillaJunkItems);
 
 			Randomizer.Items.ShuffledDungeonRewards.AddRange(VanillaDungeonRewards);
-			Randomizer.Items.RandomizedImportantItems.AddRange(ImportantItems);
 			return;
 		}
 	}
