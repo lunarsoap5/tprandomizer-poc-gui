@@ -80,7 +80,7 @@ namespace TPRandomizer
             placeItemsRestricted(startingRoom, Items.RandomizedDungeonRegionItems, Items.heldItems, "Region");
             
             //Next we want to place items that can lock locations
-            placeItemsUnrestricted(startingRoom, Items.heldItems, Items.ImportantItems);
+            placeItemsRestricted(startingRoom, Items.ImportantItems, Items.heldItems, "");
             
             //Next we will place the "always" items. Basically the constants in every seed, so Heart Pieces, Heart Containers, etc.
             placeNonImpactItems(startingRoom, Items.alwaysItems);
@@ -121,62 +121,40 @@ namespace TPRandomizer
             Check checkToReciveItem;
             List<Item> ItemsToBeRandomized = new List<Item>();
             List<Item> playthroughItems = new List<Item>();
+            List<Item> heldItems = new List<Item>();
             ItemsToBeRandomized.AddRange(ItemGroup);
-            playthroughItems.AddRange(currentItemPool);
 
-                while (ItemsToBeRandomized.Count() > 0)
+            while (ItemsToBeRandomized.Count() > 0)
+            {
+                itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)];
+                Console.WriteLine("Item to place: " + itemToPlace);
+                currentItemPool.Remove(itemToPlace);
+                ItemsToBeRandomized.Remove(itemToPlace);
+
+                foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
                 {
-                    itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)];
-                    Console.WriteLine("Item to place: " + itemToPlace);
-                    currentItemPool.Remove(itemToPlace);
-                    ItemsToBeRandomized.Remove(itemToPlace);
+                    Check currentCheck = checkList.Value;
+                    currentCheck.hasBeenReached = false;
+                    Checks.CheckDict[currentCheck.checkName] = currentCheck;
+                }
 
-                    foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
+                do
+                {
+                    playthroughItems.Clear();
+                    List<Room> currentPlaythroughGraph = generatePlaythroughGraph(startingRoom);
+                    foreach (Room graphRoom in currentPlaythroughGraph)
                     {
-                        Check currentCheck = checkList.Value;
-                        currentCheck.hasBeenReached = false;
-                        Checks.CheckDict[currentCheck.checkName] = currentCheck;
-                    }
-                    restart:
-                    foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
-                    {
-                        Room currentRoom = roomList.Value;
-                        currentRoom.visited = false;
-                        Rooms.RoomDict[currentRoom.name] = currentRoom;
-                    }
-                    List<string> roomChecks = new List<string>();
-                    List<Room> roomsToExplore = new List<Room>();
-                    startingRoom.visited = true;
-                    roomsToExplore.Add(startingRoom);
-
-                    //Build the world by parsing through each room, linking their neighbours, and setting the logic for the checks in the room to reflect the world.
-                    while (roomsToExplore.Count() > 0)
-                    {
-                        for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
-                        {
-                            //Parse the neighbour's requirements to find out if we can access it
-                            var areNeighbourRequirementsMet = Logic.evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
-                            //If you can access the neighbour and it hasnt been visited yet.
-                            if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
-                            {
-                                Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
-                                currentNeighbour.visited = true;
-                                //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
-                                roomsToExplore.Add(currentNeighbour);
-                            }
-                        }
-                        for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
+                        for (int i = 0; i < graphRoom.checks.Count(); i++)
                         {
                             //Create reference to the dictionary entry of the check whose logic we are evaluating
                             Check currentCheck;
-                            if (!Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
+                            if (!Checks.CheckDict.TryGetValue(graphRoom.checks[i], out currentCheck))
                             {
-                                if (roomsToExplore[0].checks[i].ToString() == "")
+                                if (graphRoom.checks[i].ToString() == "")
                                 {
                                     //Console.WriteLine("Room has no checks, continuing on....");
                                     break;
                                 }
-                                Console.WriteLine("Check: " + roomsToExplore[0].checks[i] + " does not exist.");
                             }
                             if (!currentCheck.hasBeenReached)
                             {
@@ -188,146 +166,46 @@ namespace TPRandomizer
                                     if (currentCheck.itemWasPlaced)
                                     {
                                         playthroughItems.Add(currentCheck.itemId);
-                                        currentItemPool.Add(currentCheck.itemId);
                                         currentCheck.hasBeenReached = true;
                                         Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
-                                        goto restart;
                                     }
                                     else
                                     {
                                         if (restriction == "Region")
                                         {
-                                            if (Rooms.isRegionCheck(itemToPlace, currentCheck, roomsToExplore[0]))
+                                            if (Rooms.isRegionCheck(itemToPlace, currentCheck, graphRoom))
                                             {
-                                                roomChecks.Add(currentCheck.checkName);
+                                                availableChecks.Add(currentCheck.checkName);
                                             }
                                         }
                                         else if (restriction == "Dungeon Rewards")
                                         {
                                             if (currentCheck.category.Contains("Dungeon Reward"))
                                             {
-                                                roomChecks.Add(currentCheck.checkName);
+                                                availableChecks.Add(currentCheck.checkName);
                                             }
+                                        }
+                                        else
+                                        {
+                                            availableChecks.Add(currentCheck.checkName);
                                         }
                                     }
                                 }
-                            }
+                            }    
                         }
-                        roomsToExplore.Remove(roomsToExplore[0]);
                     }
-
-                    availableChecks = roomChecks;
-                    
-                    checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
-                    placeItemInCheck(itemToPlace,checkToReciveItem);
-                    foreach (Item item in playthroughItems)
+                    if (playthroughItems != null)
                     {
-                        currentItemPool.Remove(item);
+                        heldItems.AddRange(playthroughItems);
                     }
-                    playthroughItems.Clear();
-                    availableChecks.Clear();
                 }
-            return;
-        }
+                while (playthroughItems != null);
+                
+                checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
+                placeItemInCheck(itemToPlace,checkToReciveItem);
 
-        void placeItemsUnrestricted (Room startingRoom, List<Item> heldItems, List<Item> ItemGroup)
-        {
-            Random rnd = new Random();
-            List<string> availableChecks = new List<string>();
-            Item itemToPlace;
-            Check checkToReciveItem;
-            List<Item> ItemsToBeRandomized = new List<Item> ();
-            ItemsToBeRandomized.AddRange(ItemGroup);
-
-                while (ItemsToBeRandomized.Count() > 0)
-                {
-                    itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)];
-                    Console.WriteLine("Item to place: " + itemToPlace);
-                    heldItems.Remove(itemToPlace);
-                    ItemsToBeRandomized.Remove(itemToPlace);
-                    
-                    Items.heldItems.AddRange(Items.ItemPool);
-                    foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
-                    {
-                        Check currentCheck = checkList.Value;
-                        currentCheck.hasBeenReached = false;
-                        Checks.CheckDict[currentCheck.checkName] = currentCheck;
-                    }
-                    restart:
-                    foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
-                    {
-                        Room currentRoom = roomList.Value;
-                        currentRoom.visited = false;
-                        Rooms.RoomDict[currentRoom.name] = currentRoom;
-                    }
-                    List<string> roomChecks = new List<string>();
-                    List<Room> roomsToExplore = new List<Room>();
-                    startingRoom.visited = true;
-                    roomsToExplore.Add(startingRoom);
-
-                    //Build the world by parsing through each room, linking their neighbours, and setting the logic for the checks in the room to reflect the world.
-                    while (roomsToExplore.Count() > 0)
-                    {
-                        for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
-                        {
-                            //Create reference to the dictionary entry of the room we are evaluating
-
-                            //Parse the neighbour's requirements to find out if we can access it
-                            var areNeighbourRequirementsMet = Logic.evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
-                            //If you can access the neighbour and it hasnt been visited yet.
-                            if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
-                            {
-                                Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
-                                currentNeighbour.visited = true;
-                                //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
-                                roomsToExplore.Add(currentNeighbour);
-                            }
-                        }
-                        for (int i = 0; i < roomsToExplore[0].checks.Count(); i++)
-                        {
-                            //Create reference to the dictionary entry of the check whose logic we are evaluating
-                            Check currentCheck;
-                            if (!Checks.CheckDict.TryGetValue(roomsToExplore[0].checks[i], out currentCheck))
-                            {
-                                if (roomsToExplore[0].checks[i].ToString() == "")
-                                {
-                                    //Console.WriteLine("Room has no checks, continuing on....");
-                                    break;
-                                }
-                                Console.WriteLine("Check: " + roomsToExplore[0].checks[i] + " does not exist.");
-                            }
-                            if (!currentCheck.hasBeenReached)
-                            {
-                                //Parse the requirements to see if we can get the check
-                                var areCheckRequirementsMet = Logic.evaluateRequirements(currentCheck.requirements);
-                                //Confirms that we can get the check and checks to see if an item was placed in it.
-                                if (((bool)areCheckRequirementsMet == true))
-                                {
-                                    if (currentCheck.itemWasPlaced)
-                                    {
-                                        Items.heldItems.Add(currentCheck.itemId);
-                                        currentCheck.hasBeenReached = true;
-                                        //Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
-                                        goto restart;
-                                    }
-                                    else
-                                    {
-                                        roomChecks.Add(currentCheck.checkName);
-                                    }
-
-                                }
-                            }
-                        }
-                        roomsToExplore.Remove(roomsToExplore[0]);
-                    }
-                    Items.heldItems.Clear();
-                    availableChecks = roomChecks;
-                    
-                    checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
-                    placeItemInCheck(itemToPlace,checkToReciveItem);
-
-                    availableChecks.Clear();
-                }
+                availableChecks.Clear();
+            }
             return;
         }
 
@@ -373,7 +251,6 @@ namespace TPRandomizer
             }
             return;
         }
-
 
         public void placeItemInCheck(Item item, Check check)
         {
@@ -459,6 +336,37 @@ namespace TPRandomizer
                 //Console.WriteLine("Room File Loaded " + fileName);
             }
             return;
+        }
+
+        List<Room> generatePlaythroughGraph(Room startingRoom)
+        {
+            List<Room> PlaythroughGraph = new List<Room>();
+            
+            List<string> roomChecks = new List<string>();
+            List<Room> roomsToExplore = new List<Room>();
+            startingRoom.visited = true;
+            roomsToExplore.Add(startingRoom);
+            PlaythroughGraph.Add(startingRoom);
+
+            //Build the world by parsing through each room, linking their neighbours, and setting the logic for the checks in the room to reflect the world.
+            while (roomsToExplore.Count() > 0)
+            {
+                for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
+                {
+                    //Parse the neighbour's requirements to find out if we can access it
+                    var areNeighbourRequirementsMet = Logic.evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                    //If you can access the neighbour and it hasnt been visited yet.
+                    if ((((bool)areNeighbourRequirementsMet == true)) && (Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                    {
+                        Room currentNeighbour = Rooms.RoomDict[roomsToExplore[0].neighbours[i]];
+                        currentNeighbour.visited = true;
+                        //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                        roomsToExplore.Add(currentNeighbour);
+                        PlaythroughGraph.Add(currentNeighbour);
+                    }
+                }
+            }
+            return PlaythroughGraph; 
         }
     } 
 }

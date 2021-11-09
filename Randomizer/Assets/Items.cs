@@ -272,7 +272,6 @@ namespace TPRandomizer
 		
 		
 		public List<Item> StartingItems = new List<Item>(); //Any items that the player starts with as selected by the gui
-		public List<Item> RandomizedImportantItems = new List<Item>(); //Important Items that have been added to the item pool
 		public List<Item> RandomizedDungeonRegionItems = new List<Item>(); //Items that are shuffled among dungeons
 
 		public List<Item> JunkItems = new List<Item>(); //Extra junk items that are put in the pool if there are checks left and all items have been placed.
@@ -552,13 +551,13 @@ namespace TPRandomizer
 			{
 				case "Few": //There is a small chance that a Foolish Item could appear
 				{
-					JunkItems = vanillaJunkItems;
+					JunkItems.AddRange(vanillaJunkItems);
 					JunkItems.Add(Item.Foolish_Item);
 					break;
 				}
 				case "Many": //There is an increased chance that a Foolish Item could appear
 				{
-					JunkItems = vanillaJunkItems;
+					JunkItems.AddRange(vanillaJunkItems);
 					JunkItems.AddRange(Enumerable.Repeat(Item.Foolish_Item, 4));
 					break;
 				}
@@ -569,7 +568,7 @@ namespace TPRandomizer
 				}
 				default:
 				{
-					JunkItems = vanillaJunkItems;
+					JunkItems.AddRange(vanillaJunkItems);
 					break;
 				}
 			}
