@@ -1,5 +1,5 @@
 {
-    "requirements": "(getBugPairCount, 4)",
+    "requirements": "Female_Dayfly",
     "category": ["Overworld", "Npc", "Castle Town"],
     "itemId": "Orange_Rupee"
 }

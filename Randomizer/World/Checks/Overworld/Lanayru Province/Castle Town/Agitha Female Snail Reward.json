@@ -1,5 +1,5 @@
 {
-    "requirements": "(getSingleBugCount, 6)",
+    "requirements": "Female_Snail",
     "category": ["Overworld", "Npc", "Castle Town"],
     "itemId": "Purple_Rupee"
 }

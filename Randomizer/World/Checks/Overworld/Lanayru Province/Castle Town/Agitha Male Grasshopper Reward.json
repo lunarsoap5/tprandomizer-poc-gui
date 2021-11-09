@@ -1,5 +1,5 @@
 {
-    "requirements": "(getSingleBugCount, 1)",
+    "requirements": "Male_Grasshopper",
     "category": ["Overworld", "Npc", "Castle Town"],
     "itemId": "Progressive_Wallet"
 }

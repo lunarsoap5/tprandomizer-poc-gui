@@ -217,8 +217,6 @@ namespace TPRandomizer
                 listedCheck.hasBeenReached = false;
                 Randomizer.Checks.CheckDict[listedCheck.checkName] = listedCheck;
             }
-                
-            Randomizer.Items.generateItemPool();
             Randomizer.Items.heldItems.Clear();
             
             List<Item> playthroughItems = new List<Item>();
@@ -330,7 +328,6 @@ namespace TPRandomizer
                     Randomizer.Rooms.RoomDict[currentRoom.name] = currentRoom;
                 }
                     
-                Randomizer.Items.generateItemPool();
                 Randomizer.Items.heldItems.Clear();
                 
                 List<Item> playthroughItems = new List<Item>();
@@ -384,17 +381,13 @@ namespace TPRandomizer
                                 //Confirms that we can get the check and checks to see if an item was placed in it.
                                 if (((bool)areCheckRequirementsMet == true))
                                 {
-                                    if (currentCheck.itemWasPlaced)
+                                    playthroughItems.Add(currentCheck.itemId);
+                                    currentCheck.hasBeenReached = true;
+                                    if (Randomizer.Items.ImportantItems.Contains(currentCheck.itemId) || Randomizer.Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Randomizer.Items.DungeonBigKeys.Contains(currentCheck.itemId) || Randomizer.Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
                                     {
-                                        playthroughItems.Add(currentCheck.itemId);
-                                        currentCheck.hasBeenReached = true;
-                                        if (Randomizer.Items.ImportantItems.Contains(currentCheck.itemId) || Randomizer.Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Randomizer.Items.DungeonBigKeys.Contains(currentCheck.itemId) || Randomizer.Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
-                                        {
-                                            currentPlaythrough.Add("    " + currentCheck.checkName + ": " + currentCheck.itemId);
-                                        }
-                                        hasCompletedSphere = true;
+                                        currentPlaythrough.Add("    " + currentCheck.checkName + ": " + currentCheck.itemId);
                                     }
-
+                                    hasCompletedSphere = true;
                                 }
                             }
                         }

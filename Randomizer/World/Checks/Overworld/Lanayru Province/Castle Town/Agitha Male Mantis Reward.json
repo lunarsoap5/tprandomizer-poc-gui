@@ -1,5 +1,5 @@
 {
-    "requirements": "(getSingleBugCount, 11)",
+    "requirements": "Male_Mantis",
     "category": ["Overworld", "Npc", "Castle Town"],
     "itemId": "Purple_Rupee"
 }

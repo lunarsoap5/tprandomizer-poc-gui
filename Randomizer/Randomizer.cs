@@ -44,7 +44,7 @@ namespace TPRandomizer
             Room startingRoom = setupGraph();
             while (remainingGenerationAttempts > 0)
             {
-                Items.heldItems = Items.ItemPool;
+                Randomizer.Items.heldItems.AddRange(Items.BaseItemPool);
                 remainingGenerationAttempts --;
                 try 
                 {
@@ -74,13 +74,13 @@ namespace TPRandomizer
             
             //Dungeon rewards
             //starting room, list of checks to be randomized, items to be randomized, item pool, restriction
-            placeItemsRestricted(startingRoom, Items.ShuffledDungeonRewards, Items.heldItems, "Dungeon Rewards"); 
+            placeItemsRestricted(startingRoom, Items.ShuffledDungeonRewards, Randomizer.Items.heldItems, "Dungeon Rewards"); 
             
             //Next we want to replace items that are locked in their respective region
-            placeItemsRestricted(startingRoom, Items.RandomizedDungeonRegionItems, Items.heldItems, "Region");
+            placeItemsRestricted(startingRoom, Items.RandomizedDungeonRegionItems, Randomizer.Items.heldItems, "Region");
             
             //Next we want to place items that can lock locations
-            placeItemsRestricted(startingRoom, Items.ImportantItems, Items.heldItems, "");
+            placeItemsRestricted(startingRoom, Items.ImportantItems, Randomizer.Items.heldItems, "");
             
             //Next we will place the "always" items. Basically the constants in every seed, so Heart Pieces, Heart Containers, etc.
             placeNonImpactItems(startingRoom, Items.alwaysItems);
@@ -95,6 +95,7 @@ namespace TPRandomizer
         {
             foreach (var check in vanillaChecks)
             {
+                Randomizer.Items.heldItems.Remove(Checks.CheckDict[check.ToString()].itemId);
                 placeItemInCheck(Checks.CheckDict[check].itemId, Checks.CheckDict[check]);
             }
             return;
@@ -113,98 +114,111 @@ namespace TPRandomizer
             }
         }
 
-        void placeItemsRestricted (Room startingRoom, List<Item> ItemGroup, List<Item> currentItemPool, string restriction)
+        void placeItemsRestricted (Room startingRoom, List<Item> ItemGroup, List<Item> itemPool, string restriction)
         {
-            Random rnd = new Random();
-            List<string> availableChecks = new List<string>();
-            Item itemToPlace;
-            Check checkToReciveItem;
-            List<Item> ItemsToBeRandomized = new List<Item>();
-            List<Item> playthroughItems = new List<Item>();
-            List<Item> heldItems = new List<Item>();
-            ItemsToBeRandomized.AddRange(ItemGroup);
-
-            while (ItemsToBeRandomized.Count() > 0)
+            //Essentially we want to do the following: make a copy of our item pool for safe keeping so we can modify
+            //the current item pool as the playthrough happens. We ONLY modify our copied item pool if we place an item.
+            //Once all of the items in ItemGroup have been placed, we dump our item pool and restore it with the copy we have.
+            if (ItemGroup.Count() > 0)
             {
-                itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)];
-                Console.WriteLine("Item to place: " + itemToPlace);
-                currentItemPool.Remove(itemToPlace);
-                ItemsToBeRandomized.Remove(itemToPlace);
+                Random rnd = new Random();
+                List<string> availableChecks = new List<string>();
+                Item itemToPlace;
+                Check checkToReciveItem;
+                List<Item> ItemsToBeRandomized = new List<Item>();
+                List<Item> playthroughItems = new List<Item>();
+                List<Item> currentItemPool = new List<Item>();
+                currentItemPool.AddRange(itemPool);
+                ItemsToBeRandomized.AddRange(ItemGroup);
 
-                foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
+                while (ItemsToBeRandomized.Count() > 0)
                 {
-                    Check currentCheck = checkList.Value;
-                    currentCheck.hasBeenReached = false;
-                    Checks.CheckDict[currentCheck.checkName] = currentCheck;
-                }
-
-                do
-                {
-                    playthroughItems.Clear();
-                    List<Room> currentPlaythroughGraph = generatePlaythroughGraph(startingRoom);
-                    foreach (Room graphRoom in currentPlaythroughGraph)
+                    //NEEDS WORK: currently we have to dump the item pool and then refill it with the copy because if not,
+                    //the item pool will compound and be way too big affecting both memory and logic.
+                    itemPool.Clear();
+                    itemPool.AddRange(currentItemPool);
+                    itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)];
+                    Console.WriteLine("Item to place: " + itemToPlace);
+                    itemPool.Remove(itemToPlace);
+                    ItemsToBeRandomized.Remove(itemToPlace);
+                    foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
                     {
-                        for (int i = 0; i < graphRoom.checks.Count(); i++)
+                        Check currentCheck = checkList.Value;
+                        currentCheck.hasBeenReached = false;
+                        Checks.CheckDict[currentCheck.checkName] = currentCheck;
+                    }
+
+                    //Walk through the current graph and get a list of rooms that we can currently access
+                    //If we collect any items during the playthrough, we add them to the player's inventory
+                    //and try walking through the graph again until we have collected every item that we can.
+                    do
+                    {
+                        playthroughItems.Clear();
+                        List<Room> currentPlaythroughGraph = generatePlaythroughGraph(startingRoom);
+                        foreach (Room graphRoom in currentPlaythroughGraph)
                         {
-                            //Create reference to the dictionary entry of the check whose logic we are evaluating
-                            Check currentCheck;
-                            if (!Checks.CheckDict.TryGetValue(graphRoom.checks[i], out currentCheck))
+                            for (int i = 0; i < graphRoom.checks.Count(); i++)
                             {
-                                if (graphRoom.checks[i].ToString() == "")
+                                //Create reference to the dictionary entry of the check whose logic we are evaluating
+                                Check currentCheck;
+                                if (!Checks.CheckDict.TryGetValue(graphRoom.checks[i], out currentCheck))
                                 {
-                                    //Console.WriteLine("Room has no checks, continuing on....");
-                                    break;
-                                }
-                            }
-                            if (!currentCheck.hasBeenReached)
-                            {
-                                //Parse the requirements to see if we can get the check
-                                var areCheckRequirementsMet = Logic.evaluateRequirements(currentCheck.requirements);
-                                //Confirms that we can get the check and checks to see if an item was placed in it.
-                                if (((bool)areCheckRequirementsMet == true))
-                                {
-                                    if (currentCheck.itemWasPlaced)
+                                    if (graphRoom.checks[i].ToString() == "")
                                     {
-                                        playthroughItems.Add(currentCheck.itemId);
-                                        currentCheck.hasBeenReached = true;
-                                        Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
+                                        //Console.WriteLine("Room has no checks, continuing on....");
+                                        break;
                                     }
-                                    else
+                                }
+                                if (!currentCheck.hasBeenReached)
+                                {
+                                    var areCheckRequirementsMet = Logic.evaluateRequirements(currentCheck.requirements);
+                                    if (((bool)areCheckRequirementsMet == true))
                                     {
-                                        if (restriction == "Region")
+                                        if (currentCheck.itemWasPlaced)
                                         {
-                                            if (Rooms.isRegionCheck(itemToPlace, currentCheck, graphRoom))
-                                            {
-                                                availableChecks.Add(currentCheck.checkName);
-                                            }
-                                        }
-                                        else if (restriction == "Dungeon Rewards")
-                                        {
-                                            if (currentCheck.category.Contains("Dungeon Reward"))
-                                            {
-                                                availableChecks.Add(currentCheck.checkName);
-                                            }
+                                            playthroughItems.Add(currentCheck.itemId);
+                                            Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
                                         }
                                         else
                                         {
-                                            availableChecks.Add(currentCheck.checkName);
+                                            if (restriction == "Region")
+                                            {
+                                                if (Rooms.isRegionCheck(itemToPlace, currentCheck, graphRoom))
+                                                {
+                                                    Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
+                                                    availableChecks.Add(currentCheck.checkName);
+                                                }
+                                            }
+                                            else if (restriction == "Dungeon Rewards")
+                                            {
+                                                if (currentCheck.category.Contains("Dungeon Reward"))
+                                                {
+                                                    Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
+                                                    availableChecks.Add(currentCheck.checkName);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
+                                                availableChecks.Add(currentCheck.checkName);
+                                            }
                                         }
+                                        currentCheck.hasBeenReached = true;
                                     }
-                                }
-                            }    
+                                }    
+                            }
                         }
+                        itemPool.AddRange(playthroughItems);
                     }
-                    if (playthroughItems != null)
-                    {
-                        heldItems.AddRange(playthroughItems);
-                    }
+                    while (playthroughItems.Count() > 0);
+                    
+                    checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
+                    currentItemPool.Remove(itemToPlace);
+                    placeItemInCheck(itemToPlace,checkToReciveItem);
+                    availableChecks.Clear();
                 }
-                while (playthroughItems != null);
-                
-                checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
-                placeItemInCheck(itemToPlace,checkToReciveItem);
-
-                availableChecks.Clear();
+                itemPool.Clear();
+                itemPool.AddRange(currentItemPool);
             }
             return;
         }
@@ -255,7 +269,6 @@ namespace TPRandomizer
         public void placeItemInCheck(Item item, Check check)
         {
             Console.WriteLine("Placing item in check.");
-            Items.heldItems.Remove(Checks.CheckDict[check.checkName].itemId);
             check.itemWasPlaced = true;
             check.itemId = item;
             Console.WriteLine("Placed " + check.itemId + " in check " + check.checkName);
@@ -264,6 +277,7 @@ namespace TPRandomizer
 
          void startOver()
         {
+            Randomizer.Items.heldItems.Clear();
             Console.WriteLine("Starting Over.");
             foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
             {
@@ -344,6 +358,14 @@ namespace TPRandomizer
             
             List<string> roomChecks = new List<string>();
             List<Room> roomsToExplore = new List<Room>();
+            
+            foreach (KeyValuePair<string, Room> roomList in Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                currentRoom.visited = false;
+                Rooms.RoomDict[currentRoom.name] = currentRoom;
+            }
+
             startingRoom.visited = true;
             roomsToExplore.Add(startingRoom);
             PlaythroughGraph.Add(startingRoom);
@@ -365,6 +387,7 @@ namespace TPRandomizer
                         PlaythroughGraph.Add(currentNeighbour);
                     }
                 }
+                roomsToExplore.Remove(roomsToExplore[0]);
             }
             return PlaythroughGraph; 
         }

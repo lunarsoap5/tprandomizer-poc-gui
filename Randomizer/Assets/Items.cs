@@ -275,7 +275,7 @@ namespace TPRandomizer
 		public List<Item> RandomizedDungeonRegionItems = new List<Item>(); //Items that are shuffled among dungeons
 
 		public List<Item> JunkItems = new List<Item>(); //Extra junk items that are put in the pool if there are checks left and all items have been placed.
-		public List<Item> ItemPool = new List<Item>(); //The list of Items that have yet to be randomized.
+		public List<Item> BaseItemPool = new List<Item>(); //The list of Items that have yet to be randomized.
 		public List<Item> heldItems = new List<Item>(); //The list of items that the player currently has. This is to be used when emulating the playthrough.
 
 		public List<Item> ShuffledDungeonRewards = new List<Item>();
@@ -525,22 +525,22 @@ namespace TPRandomizer
 			//and the readability aspect provides more of a pro than the almost unnoticable increase in generation time.
 
 			//Check Small Key settings before adding them to the rando pool
-			ItemPool.AddRange(DungeonSmallKeys);
-			if (parseSetting.smallKeySettings != "Keysanity") 
+			BaseItemPool.AddRange(DungeonSmallKeys);
+			if ((parseSetting.smallKeySettings != "Keysanity") && (parseSetting.smallKeySettings != "Vanilla")) 
 			{
 				RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
 			}
 
 			//Check Big Key Settings before adding them to the pool
-			ItemPool.AddRange(DungeonBigKeys);
-			if (parseSetting.bossKeySettings != "Keysanity") 
+			BaseItemPool.AddRange(DungeonBigKeys);
+			if ((parseSetting.bossKeySettings != "Keysanity") && (parseSetting.bossKeySettings != "Vanilla")) 
 			{
 				RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
 			}
 
 			//Check Map and Compass settings before adding to pool
-			ItemPool.AddRange(DungeonMapsAndCompasses);
-			if (parseSetting.mapAndCompassSettings != "Anywhere") 
+			BaseItemPool.AddRange(DungeonMapsAndCompasses);
+			if ((parseSetting.mapAndCompassSettings != "Anywhere") && (parseSetting.mapAndCompassSettings != "Vanilla")) 
 			{
 				RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
 			}
@@ -576,8 +576,8 @@ namespace TPRandomizer
 			
 			
 			
-			ItemPool.AddRange(ImportantItems);
-			ItemPool.AddRange(VanillaDungeonRewards);
+			BaseItemPool.AddRange(ImportantItems);
+			BaseItemPool.AddRange(VanillaDungeonRewards);
 
 			Randomizer.Items.ShuffledDungeonRewards.AddRange(VanillaDungeonRewards);
 			return;

@@ -1,5 +1,5 @@
 {
-    "requirements": "(getSingleBugCount, 3)",
+    "requirements": "Male_Dayfly",
     "category": ["Overworld", "Npc", "Castle Town"],
     "itemId": "Purple_Rupee"
 }

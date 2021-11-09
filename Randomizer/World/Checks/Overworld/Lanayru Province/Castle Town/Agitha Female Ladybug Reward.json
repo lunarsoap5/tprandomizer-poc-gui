@@ -1,5 +1,5 @@
 {
-    "requirements": "(getBugPairCount, 5)",
+    "requirements": "Female_Ladybug",
     "category": ["Overworld", "Npc", "Castle Town"],
     "itemId": "Orange_Rupee"
 }
