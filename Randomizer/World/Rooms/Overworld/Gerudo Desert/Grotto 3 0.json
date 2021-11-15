@@ -11,7 +11,9 @@
     "isStartingRoom": "false",
     "checks": 
     [
-        "Gerudo Desert Rock Grotto Lantern Chest"
+        "Gerudo Desert Rock Grotto Lantern Chest",
+        "Gerudo Desert Rock Grotto First Poe",
+        "Gerudo Desert Rock Grotto Second Poe"
     ],
     "visited": "false",
     "region": "Gerudo Desert"

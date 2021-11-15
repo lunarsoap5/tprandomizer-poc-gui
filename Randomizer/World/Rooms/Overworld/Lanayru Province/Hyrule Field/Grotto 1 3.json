@@ -9,7 +9,11 @@
         "true"
     ],
     "isStartingRoom": "false",
-    "checks": [""], 
+    "checks": 
+    [
+        "Lanayru Field Grotto Left Poe",
+        "Lanayru Field Grotto Right Poe"
+    ], 
     "visited": "false",
     "region": "Hyrule Field"
 }

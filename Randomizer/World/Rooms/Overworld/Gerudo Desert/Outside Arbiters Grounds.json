@@ -13,7 +13,8 @@
     "isStartingRoom": "false",
     "checks": 
     [
-        "Outside Arbiters Grounds Lantern Chest"
+        "Outside Arbiters Grounds Lantern Chest",
+        "Outside Arbiters Grounds Poe"
     ],
     "visited": "false",
     "region": "Gerudo Desert"

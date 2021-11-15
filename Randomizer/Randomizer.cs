@@ -44,7 +44,7 @@ namespace TPRandomizer
             Room startingRoom = setupGraph();
             while (remainingGenerationAttempts > 0)
             {
-                Randomizer.Items.heldItems.AddRange(Items.BaseItemPool);
+                Randomizer.Items.heldItems.AddRange(Randomizer.Items.BaseItemPool);
                 remainingGenerationAttempts --;
                 try 
                 {
@@ -63,34 +63,47 @@ namespace TPRandomizer
             }
         } 
 
+        /// <summary>
+        /// Places the generated item pool's items into the world graph that has been created
+        /// </summary>
+        /// <param name="startingRoom"> The room node that the generation algorithm will begin with. </param>
         void placeItemsInWorld(Room startingRoom)
         {
             //Any vanilla checks will be placed first for the sake of logic. Even if they aren't available to be randomized in the game yet, 
             //we may need to logically account for their placement.
             placeVanillaChecks (Checks.vanillaChecks);
             
-            //Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.)
+            //Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.). This is to
+            //prevent important items from being placed in checks that the player or randomizer has requested to be not
+            //considered in logic.
             placeExcludedChecks();
             
-            //Dungeon rewards
+            //Dungeon rewards have a very limited item pool, so we want to place them first to prevent the generator from putting
+            //an unnecessary item in one of the checks.
             //starting room, list of checks to be randomized, items to be randomized, item pool, restriction
             placeItemsRestricted(startingRoom, Items.ShuffledDungeonRewards, Randomizer.Items.heldItems, "Dungeon Rewards"); 
             
-            //Next we want to replace items that are locked in their respective region
+            //Next we want to place items that are locked to a specific region such as keys, maps, compasses, etc.
             placeItemsRestricted(startingRoom, Items.RandomizedDungeonRegionItems, Randomizer.Items.heldItems, "Region");
             
-            //Next we want to place items that can lock locations
+            //Once all of the items that have some restriction on their placement are placed, we then place all of the items that can
+            //be logically important (swords, clawshot, bow, etc.)
             placeItemsRestricted(startingRoom, Items.ImportantItems, Randomizer.Items.heldItems, "");
             
             //Next we will place the "always" items. Basically the constants in every seed, so Heart Pieces, Heart Containers, etc.
+            //These items do not affect logic at all so there is very little contraint to this method .
             placeNonImpactItems(startingRoom, Items.alwaysItems);
             
+            //Any extra checks that have not been filled at this point are filled with "junk" items such as ammunition, foolish items, etc.
             placeJunkItems(startingRoom, Items.JunkItems);
 
             return;
         }
 
-
+        /// <summary>
+        /// Fills locations with their original items.
+        /// </summary>
+        /// <param name="vanillaChecks"> A list of checks that will have their original item placed in them </param>
         void placeVanillaChecks (List<string> vanillaChecks)
         {
             foreach (var check in vanillaChecks)
@@ -101,6 +114,9 @@ namespace TPRandomizer
             return;
         }
 
+        /// <summary>
+        /// Places junk items in checks that have been labeled as excluded.
+        /// </summary>
         void placeExcludedChecks()
         {
             Random rnd = new Random();
@@ -114,6 +130,13 @@ namespace TPRandomizer
             }
         }
 
+        /// <summary>
+        /// Places all items in an Item Group into the world graph based on a listed restriction.
+        /// </summary>
+        /// <param name="startingRoom"> The room node that the randomizer begins its graph building from. </param>
+        /// <param name="ItemGroup"> The group of items that are to be randomized in with the current restriction </param>
+        /// <param name="itemPool"> The current item pool. </param>
+        /// <param name="restriction"> The restriction the randomizer must follow when checking where to place items. </param>
         void placeItemsRestricted (Room startingRoom, List<Item> ItemGroup, List<Item> itemPool, string restriction)
         {
             //Essentially we want to do the following: make a copy of our item pool for safe keeping so we can modify
@@ -157,6 +180,7 @@ namespace TPRandomizer
                         List<Room> currentPlaythroughGraph = generatePlaythroughGraph(startingRoom);
                         foreach (Room graphRoom in currentPlaythroughGraph)
                         {
+                            Console.WriteLine("Currently Exploring: " + graphRoom.name);
                             for (int i = 0; i < graphRoom.checks.Count(); i++)
                             {
                                 //Create reference to the dictionary entry of the check whose logic we are evaluating
@@ -223,6 +247,11 @@ namespace TPRandomizer
             return;
         }
 
+        /// <summary>
+        /// Places all items in a list into the world with no restrictions.
+        /// </summary>
+        /// <param name="startingRoom"> The room node that the randomizer begins its graph building from. </param>
+        /// <param name="ItemsToBeRandomized"> The group of items that are to be randomized. </param>
         void placeNonImpactItems (Room startingRoom, List<Item> ItemsToBeRandomized)
         {
             Random rnd = new Random();
@@ -252,6 +281,11 @@ namespace TPRandomizer
             return;
         }
 
+        /// <summary>
+        /// Places all items in a list into the world with no restrictions. Does not empty the list of items, however.
+        /// </summary>
+        /// <param name="startingRoom"> The room node that the randomizer begins its graph building from. </param>
+        /// <param name="ItemsToBeRandomized"> The group of items that are to be randomized. </param>
         void placeJunkItems (Room startingRoom, List<Item> ItemsToBeRandomized)
         {
             Random rnd = new Random();
@@ -266,6 +300,11 @@ namespace TPRandomizer
             return;
         }
 
+        /// <summary>
+        /// Places a given item into a given check
+        /// </summary>
+        /// <param name="item"> The item to be placed in the check. </param>
+        /// <param name="check"> The check to recieve the item. </param>
         public void placeItemInCheck(Item item, Check check)
         {
             Console.WriteLine("Placing item in check.");

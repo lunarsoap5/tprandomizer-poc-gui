@@ -11,7 +11,10 @@
         "canDefeatHelmasaur and canDefeatRat and Spinner and canDefeatChu and canDefeatChuWorm and canDefeatBubble and canDefeatBublin and canDefeatKeese and canDefeatRat and canDefeatStalhound and canDefeatPoe and canDefeatLeever"
     ],
     "isStartingRoom": "false",
-    "checks": [""], 
+    "checks": 
+    [
+        "Cave of Ordeals Floor 17 Poe"
+    ], 
     "visited": "false",
     "region": "Cave of Ordeals"
 }

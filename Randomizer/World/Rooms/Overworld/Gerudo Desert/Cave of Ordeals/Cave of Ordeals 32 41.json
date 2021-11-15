@@ -11,7 +11,10 @@
         "canDefeatBeamos and canDefeatKeese and (Progressive_Dominion_Rod, 2) and canDefeatTorchSlug and canDefeatFireKeese and canDefeatDodongo and canDefeatFireBubble and canDefeatRedeadKnight and canDefeatPoe and canDefeatGhoulRat and canDefeatChu and canDefeatIceKeese and canDefeatFreezard and canDefeatChilfos and canDefeatIceBubble and canDefeatLeever and canDefeatDarknut"
     ],
     "isStartingRoom": "false",
-    "checks": [""], 
+    "checks": 
+    [
+        "Cave of Ordeals Floor 33 Poe"
+    ], 
     "visited": "false",
     "region": "Cave of Ordeals"
 }

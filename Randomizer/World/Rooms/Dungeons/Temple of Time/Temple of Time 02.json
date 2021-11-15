@@ -13,7 +13,10 @@
         "Spinner and (Temple_of_Time_Small_Key, 2)"
     ],
     "isStartingRoom": "false",
-    "checks": [""], 
+    "checks": 
+    [
+        "Temple of Time Poe Behind Gate"
+    ], 
     "visited": "false",
     "region": "Temple of Time"
 }

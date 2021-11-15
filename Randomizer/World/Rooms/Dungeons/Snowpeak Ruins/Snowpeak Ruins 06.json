@@ -15,7 +15,10 @@
         "(Snowpeak_Ruins_Small_Key, 4)"
     ],
     "isStartingRoom": "false",
-    "checks": [""], 
+    "checks": 
+    [
+        "Snowpeak Ruins Ice Room Poe"
+    ], 
     "visited": "false",
     "region": "Snowpeak Ruins"
 }

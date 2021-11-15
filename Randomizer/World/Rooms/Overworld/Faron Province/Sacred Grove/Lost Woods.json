@@ -13,7 +13,9 @@
     "isStartingRoom": "false",
     "checks": 
     [
-        "Lost Woods Lantern Chest"
+        "Lost Woods Lantern Chest",
+        "Lost Woods Boulder Poe",
+        "Lost Woods Waterfall Poe"
     ],
     "visited": "false",
     "region": "Sacred Grove"

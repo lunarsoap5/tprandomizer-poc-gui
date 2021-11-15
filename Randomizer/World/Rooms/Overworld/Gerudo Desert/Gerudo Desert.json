@@ -31,7 +31,11 @@
         "Gerudo Desert Owl Statue Chest",
         "Gerudo Desert Owl Statue Sky Character",
         "Gerudo Desert Male Dayfly",
-        "Gerudo Desert Female Dayfly"
+        "Gerudo Desert Female Dayfly",
+        "Gerudo Desert East Poe",
+        "Gerudo Desert North Peahat Poe",
+        "Gerudo Desert Poe Above Cave of Ordeals",
+        "Outside Bublin Camp Poe"
      ],
     "visited": "false",
     "region": "Gerudo Desert"

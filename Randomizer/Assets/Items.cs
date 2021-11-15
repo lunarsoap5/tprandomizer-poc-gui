@@ -151,7 +151,7 @@ namespace TPRandomizer
 		City_in_The_Sky_Small_Key	=	0x8B, /*custom*/
 		Palace_of_Twilight_Small_Key	=	0x8C, /*custom*/
 		Hyrule_Castle_Small_Key	=	0x8D, /*custom*/
-		Bublin_Camp_Key = 0x8E, /*custom*/
+		Bulblin_Camp_Key = 0x8E, /*custom*/
 		Foolish_Item	=	0x8F, /*custom*/
 		Aurus_Memo	=	0x90,
 		Asheis_Sketch	=	0x91,
@@ -525,21 +525,21 @@ namespace TPRandomizer
 			//and the readability aspect provides more of a pro than the almost unnoticable increase in generation time.
 
 			//Check Small Key settings before adding them to the rando pool
-			BaseItemPool.AddRange(DungeonSmallKeys);
+			Randomizer.Items.BaseItemPool.AddRange(DungeonSmallKeys);
 			if ((parseSetting.smallKeySettings != "Keysanity") && (parseSetting.smallKeySettings != "Vanilla")) 
 			{
 				RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
 			}
 
 			//Check Big Key Settings before adding them to the pool
-			BaseItemPool.AddRange(DungeonBigKeys);
+			Randomizer.Items.BaseItemPool.AddRange(DungeonBigKeys);
 			if ((parseSetting.bossKeySettings != "Keysanity") && (parseSetting.bossKeySettings != "Vanilla")) 
 			{
 				RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
 			}
 
 			//Check Map and Compass settings before adding to pool
-			BaseItemPool.AddRange(DungeonMapsAndCompasses);
+			Randomizer.Items.BaseItemPool.AddRange(DungeonMapsAndCompasses);
 			if ((parseSetting.mapAndCompassSettings != "Anywhere") && (parseSetting.mapAndCompassSettings != "Vanilla")) 
 			{
 				RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
@@ -576,8 +576,8 @@ namespace TPRandomizer
 			
 			
 			
-			BaseItemPool.AddRange(ImportantItems);
-			BaseItemPool.AddRange(VanillaDungeonRewards);
+			Randomizer.Items.BaseItemPool.AddRange(ImportantItems);
+			Randomizer.Items.BaseItemPool.AddRange(VanillaDungeonRewards);
 
 			Randomizer.Items.ShuffledDungeonRewards.AddRange(VanillaDungeonRewards);
 			return;

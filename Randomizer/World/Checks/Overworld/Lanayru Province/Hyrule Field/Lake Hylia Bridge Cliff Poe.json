@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal and canLaunchBombs and Clawshot",
+    "requirements": "Shadow_Crystal and canLaunchBombs and (Progressive_Clawshot,1)",
     "category": ["Overworld", "Poe", "Lanayru Province"],
     "itemId": "Poe_Soul"
 }

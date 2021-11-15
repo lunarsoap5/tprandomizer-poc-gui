@@ -22,7 +22,8 @@
         "Wooden_Statue",
         "Shadow_Crystal and Spinner",
         "Shadow_Crystal",
-        "Shadow_Crystal"
+        "Shadow_Crystal",
+        "Lanayru Field Bridge Poe"
     ],
     "isStartingRoom": "false",
     "checks": 
@@ -30,7 +31,8 @@
         "Lanayru Field Behind Gate Underwater Chest",
         "Lanayru Field Spinner Track Chest",
         "Lanayru Field Male Stag Beetle",
-        "Lanayru Field Female Stag Beetle"
+        "Lanayru Field Female Stag Beetle",
+        "Lanayru Field Bridge Poe"
     ],
     "visited": "false",
     "region": "Hyrule Field"

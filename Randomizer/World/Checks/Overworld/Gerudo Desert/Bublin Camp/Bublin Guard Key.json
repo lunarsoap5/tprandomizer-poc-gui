@@ -1,0 +1,5 @@
+{
+    "requirements": "canDefeatBublin",
+    "category": ["Overworld", "Bublin Camp", "Small Key"],
+    "itemId": "Bulblin_Camp_Key"
+}

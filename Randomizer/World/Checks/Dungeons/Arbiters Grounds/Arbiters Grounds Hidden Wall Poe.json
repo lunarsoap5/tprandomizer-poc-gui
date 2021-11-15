@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal and canDefeatRedead",
+    "requirements": "Shadow_Crystal and canDefeatRedeadKnight",
     "category": ["Overworld", "Poe", "Arbiters Grounds"],
     "itemId": "Poe_Soul"
 }
