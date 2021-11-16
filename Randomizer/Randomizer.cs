@@ -180,7 +180,7 @@ namespace TPRandomizer
                         List<Room> currentPlaythroughGraph = generatePlaythroughGraph(startingRoom);
                         foreach (Room graphRoom in currentPlaythroughGraph)
                         {
-                            Console.WriteLine("Currently Exploring: " + graphRoom.name);
+                            //Console.WriteLine("Currently Exploring: " + graphRoom.name);
                             for (int i = 0; i < graphRoom.checks.Count(); i++)
                             {
                                 //Create reference to the dictionary entry of the check whose logic we are evaluating
@@ -201,7 +201,7 @@ namespace TPRandomizer
                                         if (currentCheck.itemWasPlaced)
                                         {
                                             playthroughItems.Add(currentCheck.itemId);
-                                            Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
+                                            //Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
                                         }
                                         else
                                         {

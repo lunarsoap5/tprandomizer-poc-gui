@@ -20,7 +20,7 @@ namespace TPRandomizer
         public int bossKeySettings {get; set;}
         public int mapAndCompassSettings {get; set;}
         public bool goldenBugsShuffled {get; set;}
-        public bool treasureChestsShuffled {get; set;}
+        public bool poesShuffled {get; set;}
         public bool npcItemsShuffled {get; set;}
         public bool shopItemsShuffled {get; set;}
         public bool faronTwilightCleared {get; set;}

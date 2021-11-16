@@ -521,10 +521,10 @@ namespace TPRandomizer
 				ImportantItems.AddRange(goldenBugs);
 			}
 			
-			//While strings in switch cases do cost more in terms of execution, this only runs at the beginning of seed generation
-			//and the readability aspect provides more of a pro than the almost unnoticable increase in generation time.
+			
 
 			//Check Small Key settings before adding them to the rando pool
+			Randomizer.Items.BaseItemPool.Add(Item.Bulblin_Camp_Key);
 			Randomizer.Items.BaseItemPool.AddRange(DungeonSmallKeys);
 			if ((parseSetting.smallKeySettings != "Keysanity") && (parseSetting.smallKeySettings != "Vanilla")) 
 			{

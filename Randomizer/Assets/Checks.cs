@@ -18,6 +18,10 @@ namespace TPRandomizer
         public Item itemId { get; set;} //The original item id of the check. This allows us to make an array of all items in the item pool for randomization purposes. Also is useful for documentation purposes.
         public bool itemWasPlaced { get; set;} //Identifies if we already placed an item on this check.
         public bool hasBeenReached {get; set;} //indicates that we can get the current check. Prevents unneccesary repetitive parsing.
+        public string checkType { get; set;} //the fletcher hash that will be compared to on stage load
+        public string relID { get; set;}
+        public string relOffset { get; set;}
+        public string stage { get; set;}
     }
 
     public class CheckFunctions
@@ -56,9 +60,9 @@ namespace TPRandomizer
                             Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
                         }
                     }
-                    if (!parseSetting.treasureChestsShuffled)
+                    if (!parseSetting.poesShuffled)
                     {
-                        if (currentCheck.category.Contains("Chest"))
+                        if (currentCheck.category.Contains("Poe"))
                         {
                             Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
                         }

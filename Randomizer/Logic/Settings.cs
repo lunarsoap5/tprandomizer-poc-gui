@@ -20,7 +20,7 @@ namespace TPRandomizer
         public string bossKeySettings {get; set;}
         public string mapAndCompassSettings {get; set;}
         public bool goldenBugsShuffled {get; set;}
-        public bool treasureChestsShuffled {get; set;}
+        public bool poesShuffled {get; set;}
         public bool npcItemsShuffled {get; set;}
         public bool shopItemsShuffled {get; set;}
         public bool faronTwilightCleared {get; set;}
@@ -97,7 +97,7 @@ namespace TPRandomizer
             "Start_With"
         };
         public bool goldenBugsShuffled {get; set;}
-        public bool treasureChestsShuffled {get; set;}
+        public bool poesShuffled {get; set;}
         public bool npcItemsShuffled {get; set;}
         public bool shopItemsShuffled {get; set;}
         public bool faronTwilightCleared {get; set;}

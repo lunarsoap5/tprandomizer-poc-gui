@@ -42,7 +42,7 @@ namespace TPRandomizer
             this.foolishItemsComboBox = new System.Windows.Forms.ComboBox();
             this.foolishItemsLabel = new System.Windows.Forms.Label();
             this.shopItemsCheckBox = new System.Windows.Forms.CheckBox();
-            this.treasureChestCheckBox = new System.Windows.Forms.CheckBox();
+            this.poeCheckBox = new System.Windows.Forms.CheckBox();
             this.giftFromNPCsCheckBox = new System.Windows.Forms.CheckBox();
             this.goldenBugsCheckBox = new System.Windows.Forms.CheckBox();
             this.dungeonItemsGroupBox = new System.Windows.Forms.GroupBox();
@@ -208,7 +208,7 @@ namespace TPRandomizer
             this.itemCategoriesGroupBox.Controls.Add(this.foolishItemsComboBox);
             this.itemCategoriesGroupBox.Controls.Add(this.foolishItemsLabel);
             this.itemCategoriesGroupBox.Controls.Add(this.shopItemsCheckBox);
-            this.itemCategoriesGroupBox.Controls.Add(this.treasureChestCheckBox);
+            this.itemCategoriesGroupBox.Controls.Add(this.poeCheckBox);
             this.itemCategoriesGroupBox.Controls.Add(this.giftFromNPCsCheckBox);
             this.itemCategoriesGroupBox.Controls.Add(this.goldenBugsCheckBox);
             this.itemCategoriesGroupBox.Location = new System.Drawing.Point(7, 128);
@@ -252,15 +252,15 @@ namespace TPRandomizer
             this.shopItemsCheckBox.Text = "Shop Items";
             this.shopItemsCheckBox.UseVisualStyleBackColor = true;
             // 
-            // treasureChestCheckBox
+            // poeCheckBox
             // 
-            this.treasureChestCheckBox.AutoSize = true;
-            this.treasureChestCheckBox.Location = new System.Drawing.Point(13, 76);
-            this.treasureChestCheckBox.Name = "treasureChestCheckBox";
-            this.treasureChestCheckBox.Size = new System.Drawing.Size(107, 19);
-            this.treasureChestCheckBox.TabIndex = 2;
-            this.treasureChestCheckBox.Text = "Treasure Chests";
-            this.treasureChestCheckBox.UseVisualStyleBackColor = true;
+            this.poeCheckBox.AutoSize = true;
+            this.poeCheckBox.Location = new System.Drawing.Point(13, 76);
+            this.poeCheckBox.Name = "poeCheckBox";
+            this.poeCheckBox.Size = new System.Drawing.Size(107, 19);
+            this.poeCheckBox.TabIndex = 2;
+            this.poeCheckBox.Text = "Poes";
+            this.poeCheckBox.UseVisualStyleBackColor = true;
             // 
             // giftFromNPCsCheckBox
             // 
@@ -1103,7 +1103,7 @@ namespace TPRandomizer
         private System.Windows.Forms.Label logicRulesLabel;
         private System.Windows.Forms.GroupBox itemCategoriesGroupBox;
         private System.Windows.Forms.CheckBox shopItemsCheckBox;
-        private System.Windows.Forms.CheckBox treasureChestCheckBox;
+        private System.Windows.Forms.CheckBox poeCheckBox;
         private System.Windows.Forms.CheckBox giftFromNPCsCheckBox;
         private System.Windows.Forms.CheckBox goldenBugsCheckBox;
         private System.Windows.Forms.Label settingPresetsLabel;

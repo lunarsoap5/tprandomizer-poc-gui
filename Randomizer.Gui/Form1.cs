@@ -53,7 +53,7 @@ namespace TPRandomizer
             mapsAndCompassesComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             goldenBugsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             giftFromNPCsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            treasureChestCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            poeCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             shopItemsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             faronTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             eldinTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
@@ -102,7 +102,7 @@ namespace TPRandomizer
                 settings.mapAndCompassSettings = mapsAndCompassesComboBox.SelectedIndex;
                 settings.goldenBugsShuffled = goldenBugsCheckBox.Checked;
                 settings.npcItemsShuffled = giftFromNPCsCheckBox.Checked;
-                settings.treasureChestsShuffled = treasureChestCheckBox.Checked;
+                settings.poesShuffled = poeCheckBox.Checked;
                 settings.shopItemsShuffled = shopItemsCheckBox.Checked;
                 settings.faronTwilightCleared = faronTwilightClearedCheckBox.Checked;
                 settings.eldinTwilightCleared = eldinTwilightClearedCheckBox.Checked;
@@ -169,7 +169,7 @@ namespace TPRandomizer
             mapsAndCompassesComboBox.SelectedIndex = settings.mapAndCompassSettings;
             goldenBugsCheckBox.Checked = settings.goldenBugsShuffled;
             giftFromNPCsCheckBox.Checked = settings.npcItemsShuffled;
-            treasureChestCheckBox.Checked = settings.treasureChestsShuffled;
+            poeCheckBox.Checked = settings.poesShuffled;
             shopItemsCheckBox.Checked = settings.shopItemsShuffled;
             faronTwilightClearedCheckBox.Checked = settings.faronTwilightCleared;
             eldinTwilightClearedCheckBox.Checked = settings.eldinTwilightCleared;
@@ -393,7 +393,7 @@ namespace TPRandomizer
                     mapsAndCompassesComboBox.SelectedIndex = 1;
                     goldenBugsCheckBox.Checked = true;
                     giftFromNPCsCheckBox.Checked = true;
-                    treasureChestCheckBox.Checked = true;
+                    poeCheckBox.Checked = true;
                     shopItemsCheckBox.Checked = true;
                     faronTwilightClearedCheckBox.Checked = true;
                     eldinTwilightClearedCheckBox.Checked = true;
@@ -460,7 +460,7 @@ namespace TPRandomizer
                 foolishItemsComboBox.BackColor = Color.FromArgb(34, 36, 49); 
                 foolishItemsLabel.BackColor = Color.FromArgb(34, 36, 49); 
                 shopItemsCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
-                treasureChestCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
+                poeCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
                 giftFromNPCsCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
                 goldenBugsCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
                 dungeonItemsGroupBox.BackColor = Color.FromArgb(34, 36, 49); 
@@ -545,7 +545,7 @@ namespace TPRandomizer
                 foolishItemsComboBox.ForeColor = Color.LightGray; 
                 foolishItemsLabel.ForeColor = Color.LightGray; 
                 shopItemsCheckBox.ForeColor = Color.LightGray; 
-                treasureChestCheckBox.ForeColor = Color.LightGray; 
+                poeCheckBox.ForeColor = Color.LightGray; 
                 giftFromNPCsCheckBox.ForeColor = Color.LightGray; 
                 goldenBugsCheckBox.ForeColor = Color.LightGray; 
                 dungeonItemsGroupBox.ForeColor = Color.LightGray; 
@@ -630,7 +630,7 @@ namespace TPRandomizer
                 foolishItemsComboBox.BackColor = Color.White; 
                 foolishItemsLabel.BackColor = Color.White; 
                 shopItemsCheckBox.BackColor = Color.White; 
-                treasureChestCheckBox.BackColor = Color.White; 
+                poeCheckBox.BackColor = Color.White; 
                 giftFromNPCsCheckBox.BackColor = Color.White; 
                 goldenBugsCheckBox.BackColor = Color.White; 
                 dungeonItemsGroupBox.BackColor = Color.White; 
@@ -715,7 +715,7 @@ namespace TPRandomizer
                 foolishItemsComboBox.ForeColor = Color.Black; 
                 foolishItemsLabel.ForeColor = Color.Black; 
                 shopItemsCheckBox.ForeColor = Color.Black; 
-                treasureChestCheckBox.ForeColor = Color.Black; 
+                poeCheckBox.ForeColor = Color.Black; 
                 giftFromNPCsCheckBox.ForeColor = Color.Black; 
                 goldenBugsCheckBox.ForeColor = Color.Black; 
                 dungeonItemsGroupBox.ForeColor = Color.Black; 
