@@ -12,16 +12,14 @@ namespace TPRandomizer
     {
         public string checkName { set; get;} //the common name for the check this can be used in the randomizer to identify the check."
         public string requirements { get; set;} //List of requirements to obtain this check while inside the room (so does not include the items needed to enter the room)
-        public string hash { get; set;} //the fletcher hash that will be compared to on stage load
         public bool isExcluded { get; set;} //Identifies if the check is excluded or not. We can write the randomizer to not place important items in excluded checks
         public List<string> category { get; set;} //Allows grouping of checks to make it easier to randomize them based on their type, region, exclusion status, etc.
         public Item itemId { get; set;} //The original item id of the check. This allows us to make an array of all items in the item pool for randomization purposes. Also is useful for documentation purposes.
         public bool itemWasPlaced { get; set;} //Identifies if we already placed an item on this check.
         public bool hasBeenReached {get; set;} //indicates that we can get the current check. Prevents unneccesary repetitive parsing.
-        public string checkType { get; set;} //the fletcher hash that will be compared to on stage load
+        public string checkType { get; set;} //i.e Arc, REL, POE, etc.
         public string relID { get; set;}
-        public string relOffset { get; set;}
-        public string stage { get; set;}
+        public string offset { get; set;}
     }
 
     public class CheckFunctions
@@ -57,6 +55,11 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Npc"))
                         {
+                            if (Randomizer.Items.ImportantItems.Contains(currentCheck.itemId))
+                            {
+                                Randomizer.Items.ImportantItems.Remove(currentCheck.itemId);
+                            }
+                            
                             Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
                         }
                     }

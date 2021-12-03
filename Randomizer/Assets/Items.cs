@@ -273,7 +273,6 @@ namespace TPRandomizer
 		
 		public List<Item> StartingItems = new List<Item>(); //Any items that the player starts with as selected by the gui
 		public List<Item> RandomizedDungeonRegionItems = new List<Item>(); //Items that are shuffled among dungeons
-
 		public List<Item> JunkItems = new List<Item>(); //Extra junk items that are put in the pool if there are checks left and all items have been placed.
 		public List<Item> BaseItemPool = new List<Item>(); //The list of Items that have yet to be randomized.
 		public List<Item> heldItems = new List<Item>(); //The list of items that the player currently has. This is to be used when emulating the playthrough.

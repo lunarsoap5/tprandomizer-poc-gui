@@ -209,7 +209,7 @@ namespace TPRandomizer
                                             {
                                                 if (Rooms.isRegionCheck(itemToPlace, currentCheck, graphRoom))
                                                 {
-                                                    Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
+                                                    //Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
                                                     availableChecks.Add(currentCheck.checkName);
                                                 }
                                             }
@@ -217,13 +217,13 @@ namespace TPRandomizer
                                             {
                                                 if (currentCheck.category.Contains("Dungeon Reward"))
                                                 {
-                                                    Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
+                                                    //Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
                                                     availableChecks.Add(currentCheck.checkName);
                                                 }
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
+                                                //Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
                                                 availableChecks.Add(currentCheck.checkName);
                                             }
                                         }

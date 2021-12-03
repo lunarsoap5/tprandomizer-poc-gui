@@ -1,5 +1,4 @@
 {
-    "name": "Arbiters Grounds After Poe Gate",
     "neighbours": 
     [
         "Arbiters Grounds Lobby",
@@ -10,7 +9,6 @@
         "true",
 		"Spinner and Arbiters_Grounds_Big_Key and canDefeatStallord"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Arbiters Grounds Big Key Chest",
@@ -24,6 +22,5 @@
 		"Arbiters Grounds Stallord Heart Container",
         "Arbiters Grounds Dungeon Reward"
     ], 
-    "visited": "false",
     "region": "Arbiters Grounds"
 }
