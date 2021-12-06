@@ -3,14 +3,14 @@
     "neighbours": 
     [
         "Cave of Ordeals 01 11", 
-        "Bublin Camp", 
+        "Bulblin Camp", 
         "Grotto 3 0", 
         "Grotto 4 1"
     ],
     "neighbourRequirements":
     [
         "canDefeatShadowBeast and (Progressive_Clawshot, 1)",
-        "canDefeatBublin",
+        "canDefeatBulblin",
         "Shadow_Crystal and (Progressive_Clawshot, 1)",
         "Shadow_Crystal"
     ],
@@ -27,7 +27,7 @@
         "Gerudo Desert Campfire East Chest",
         "Gerudo Desert Campfire West Chest",
         "Gerudo Desert Northwest Chest Behind Gates",
-        "Gerudo Desert North Small Chest Before Bublin Camp",
+        "Gerudo Desert North Small Chest Before Bulblin Camp",
         "Gerudo Desert Owl Statue Chest",
         "Gerudo Desert Owl Statue Sky Character",
         "Gerudo Desert Male Dayfly",
@@ -35,7 +35,7 @@
         "Gerudo Desert East Poe",
         "Gerudo Desert North Peahat Poe",
         "Gerudo Desert Poe Above Cave of Ordeals",
-        "Outside Bublin Camp Poe"
+        "Outside Bulblin Camp Poe"
      ],
     "visited": "false",
     "region": "Gerudo Desert"

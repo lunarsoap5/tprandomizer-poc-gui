@@ -169,7 +169,7 @@ namespace TPRandomizer
             canUse(Item.Spinner) ||
             canUse(Item.Shadow_Crystal));
         }
-        public static bool canDefeatBublin()
+        public static bool canDefeatBulblin()
         {
             return (hasSword() ||
             canUse(Item.Ball_and_Chain) ||
@@ -433,7 +433,7 @@ namespace TPRandomizer
             return (hasSword() ||
             canUse(Item.Shadow_Crystal));
         }
-        public static bool canDefeatShadowBublin()
+        public static bool canDefeatShadowBulblin()
         {
             return (hasSword() ||
             canUse(Item.Ball_and_Chain) ||
@@ -638,11 +638,11 @@ namespace TPRandomizer
         {
             return (getItemCount(Item.Progressive_Bow) >= 1);
         }
-        public static bool canDefeatKingBublinBridge()
+        public static bool canDefeatKingBulblinBridge()
         {
             return (getItemCount(Item.Progressive_Bow) >= 1);
         }
-        public static bool canDefeatKingBublinDesert()
+        public static bool canDefeatKingBulblinDesert()
         {
             return (hasSword() ||
             canUse(Item.Ball_and_Chain) ||
@@ -651,7 +651,7 @@ namespace TPRandomizer
             canUse(Item.Spinner) ||
             canUse(Item.Shadow_Crystal));
         }
-        public static bool canDefeatKingBublinCastle()
+        public static bool canDefeatKingBulblinCastle()
         {
             return (hasSword() ||
             canUse(Item.Ball_and_Chain) ||

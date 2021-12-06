@@ -268,6 +268,7 @@ namespace TPRandomizer
         /// <param name="settingsString"> The Settings String that is to be deciphered. </param>
         public void parseSettingsString(string settingsString)
         {
+            settingsString = BackendFunctions.Base64Decode(settingsString);
             //Convert the settings string into a binary string to be interpreted.
             string bitString = BackendFunctions.textToBitString(settingsString);
             List<byte> bits = new List<byte>();
@@ -383,30 +384,8 @@ namespace TPRandomizer
             switch (currentItem)
             {
                 case "Standard":
-                    logicRulesBox.SelectedIndex = 0;
-                    castleLogicComboBox.SelectedIndex = 1;
-                    faronWoodsLogicComboBox.SelectedIndex = 1;
-                    palaceLogicComboBox.SelectedIndex = 1;
-                    mdhCheckBox.Checked = false;
-                    smallKeyShuffleComboBox.SelectedIndex = 1;
-                    bossKeyShuffleComboBox.SelectedIndex = 1;
-                    mapsAndCompassesComboBox.SelectedIndex = 1;
-                    goldenBugsCheckBox.Checked = true;
-                    giftFromNPCsCheckBox.Checked = true;
-                    poeCheckBox.Checked = true;
-                    shopItemsCheckBox.Checked = true;
-                    faronTwilightClearedCheckBox.Checked = true;
-                    eldinTwilightClearedCheckBox.Checked = true;
-                    lanayruTwilightClearedCheckBox.Checked = true;
-                    skipMinorCutscenesCheckBox.Checked = true;
-                    skipMasterSwordPuzzleCheckBox.Checked = true;
-                    fastIronBootsCheckBox.Checked = true;
-                    quickTransformCheckBox.Checked = true;
-                    transformAnywhereCheckBox.Checked = true;
-                    skipIntroCheckBox.Checked = true;
-                    foolishItemsComboBox.SelectedIndex = 1;
-                    tunicColorComboBox.SelectedIndex = 1;
-                    midnaHairColorComboBox.SelectedIndex = 1;
+                    settingsStringTextbox.Text = "QUVJVUlSNzdZNzc3NElR";
+                    parseSettingsString(settingsStringTextbox.Text);
                     break;
             }
             
