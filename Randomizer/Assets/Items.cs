@@ -151,7 +151,7 @@ namespace TPRandomizer
 		City_in_The_Sky_Small_Key	=	0x8B, /*custom*/
 		Palace_of_Twilight_Small_Key	=	0x8C, /*custom*/
 		Hyrule_Castle_Small_Key	=	0x8D, /*custom*/
-		Bulblin_Camp_Key = 0x8E, /*custom*/
+		Gerudo_Desert_Bulblin_Camp_Key = 0x8E, /*custom*/
 		Foolish_Item	=	0x8F, /*custom*/
 		Aurus_Memo	=	0x90,
 		Asheis_Sketch	=	0x91,
@@ -247,7 +247,7 @@ namespace TPRandomizer
 		Ancient_Sky_Book_Completed	=	0xEB,
 		Ooccoo_CitS	=	0xEC,
 		Purple_Rupee_Links_House	=	0xED,
-		Small_Key_N_Faron_Gate	=	0xEE,
+		North_Faron_Woods_Gate_Key	=	0xEE,
 		/*Blue_Fire?	=	0xEF,*/
 		/*Blue_Fire?	=	0xF0,*/
 		/*Blue_Fire?	=	0xF1,*/
@@ -289,8 +289,10 @@ namespace TPRandomizer
 			Item.Progressive_Mirror_Shard
 		};
 
-		public List<Item> DungeonSmallKeys = new List<Item>()
+		public List<Item> RegionSmallKeys = new List<Item>()
 		{
+			Item.Gerudo_Desert_Bulblin_Camp_Key,
+			Item.North_Faron_Woods_Gate_Key,
 			Item.Forest_Temple_Small_Key,
 			Item.Forest_Temple_Small_Key,
 			Item.Forest_Temple_Small_Key,
@@ -402,8 +404,7 @@ namespace TPRandomizer
 			Item.Ilias_Charm,
 			Item.Horse_Call,
 			Item.Gate_Keys,
-			Item.Small_Key_N_Faron_Gate,
-			Item.Empty_Bottle,
+			Item.Empty_Bottle
 		};
 
 		public List<Item> goldenBugs = new List<Item>()
@@ -523,11 +524,10 @@ namespace TPRandomizer
 			
 
 			//Check Small Key settings before adding them to the rando pool
-			Randomizer.Items.BaseItemPool.Add(Item.Bulblin_Camp_Key);
-			Randomizer.Items.BaseItemPool.AddRange(DungeonSmallKeys);
+			Randomizer.Items.BaseItemPool.AddRange(RegionSmallKeys);
 			if ((parseSetting.smallKeySettings != "Keysanity") && (parseSetting.smallKeySettings != "Vanilla")) 
 			{
-				RandomizedDungeonRegionItems.AddRange(DungeonSmallKeys);
+				RandomizedDungeonRegionItems.AddRange(RegionSmallKeys);
 			}
 
 			//Check Big Key Settings before adding them to the pool

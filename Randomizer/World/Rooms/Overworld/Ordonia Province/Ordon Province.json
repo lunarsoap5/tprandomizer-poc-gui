@@ -7,7 +7,7 @@
     ],
     "neighbourRequirements":
     [
-        "(Progressive_Sword, 1) or (Setting.introSkipped equals true)",
+        "(Progressive_Sword, 1) or (Setting.introSkipped equals True)",
         "Shadow_Crystal"
     ],
     "isStartingRoom": "false",

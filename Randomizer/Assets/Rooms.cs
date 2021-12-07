@@ -29,17 +29,13 @@ namespace TPRandomizer
             RandomizerSetting parseSetting = Randomizer.RandoSetting;
             string itemName = itemToPlace.ToString();
             itemName = itemName.Replace("_", " ");
-            if (Randomizer.Items.DungeonSmallKeys.Contains(itemToPlace))
+            if (Randomizer.Items.RegionSmallKeys.Contains(itemToPlace))
             {
                 if ((parseSetting.smallKeySettings == "Own_Dungeon") && itemName.Contains(currentRoom.region))
                 {
                     return true;
                 }
                 else if ((parseSetting.smallKeySettings == "Any_Dungeon") && currentCheck.category.Contains("Dungeon"))
-                {
-                    return true;
-                }
-                else if ((parseSetting.smallKeySettings == "Overworld") && currentCheck.category.Contains("Overworld"))
                 {
                     return true;
                 }
@@ -60,13 +56,6 @@ namespace TPRandomizer
                         return true;
                     }
                 }
-                else if (parseSetting.bossKeySettings == "Overworld")
-                {
-                    if (currentCheck.category.Contains("Overworld"))
-                    {
-                        return true;
-                    }
-                }
             }
             else if (Randomizer.Items.DungeonMapsAndCompasses.Contains(itemToPlace))
             {
@@ -80,13 +69,6 @@ namespace TPRandomizer
                 else if (parseSetting.mapAndCompassSettings == "Any_Dungeon")
                 {
                     if (currentCheck.category.Contains("Dungeon"))
-                    {
-                        return true;
-                    }
-                }
-                else if (parseSetting.mapAndCompassSettings == "Overworld")
-                {
-                    if (currentCheck.category.Contains("Overworld"))
                     {
                         return true;
                     }

@@ -130,7 +130,7 @@ namespace TPRandomizer
                         }
                         settingProperty.SetValue(Randomizer.RandoSetting, excludedChecks, null);
                     }
-                    Console.WriteLine(settingProperty.Name + settingProperty.GetValue(Randomizer.RandoSetting, null));
+                    Console.WriteLine(settingProperty.Name + ": " + settingProperty.GetValue(Randomizer.RandoSetting, null));
             }
 
             foreach (string excludedCheck in Randomizer.RandoSetting.ExcludedChecks)
@@ -383,7 +383,7 @@ namespace TPRandomizer
                                 {
                                     playthroughItems.Add(currentCheck.itemId);
                                     currentCheck.hasBeenReached = true;
-                                    if (Randomizer.Items.ImportantItems.Contains(currentCheck.itemId) || Randomizer.Items.DungeonSmallKeys.Contains(currentCheck.itemId) || Randomizer.Items.DungeonBigKeys.Contains(currentCheck.itemId) || Randomizer.Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
+                                    if (Randomizer.Items.ImportantItems.Contains(currentCheck.itemId) || Randomizer.Items.RegionSmallKeys.Contains(currentCheck.itemId) || Randomizer.Items.DungeonBigKeys.Contains(currentCheck.itemId) || Randomizer.Items.VanillaDungeonRewards.Contains(currentCheck.itemId))
                                     {
                                         currentPlaythrough.Add("    " + currentCheck.checkName + ": " + currentCheck.itemId);
                                     }

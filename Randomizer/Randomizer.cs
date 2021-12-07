@@ -28,7 +28,7 @@ namespace TPRandomizer
         /// <param name="settingsString"> The Settings String to be read in. </param>
         public void start(string settingsString)
         {
-            int remainingGenerationAttempts = 15;
+            int remainingGenerationAttempts = 30;
             //Generate the dictionary values that are needed and initialize the data for the selected logic type.
             deserializeChecks();
             deserializeRooms();

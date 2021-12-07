@@ -72,7 +72,6 @@ namespace TPRandomizer
         public string[] smallKeySettings {get; set;} = new string[]
         {
             "Vanilla",
-            "Overworld",
             "Own_Dungeon",
             "Any_Dungeon",
             "Keysanity",
@@ -81,7 +80,6 @@ namespace TPRandomizer
         public string[] bossKeySettings {get; set;} = new string[]
         {
             "Vanilla",
-            "Overworld",
             "Own_Dungeon",
             "Any_Dungeon",
             "Keysanity",
@@ -90,7 +88,6 @@ namespace TPRandomizer
         public string[] mapAndCompassSettings {get; set;} = new string[]
         {
             "Vanilla",
-            "Overworld",
             "Own_Dungeon",
             "Any_Dungeon",
             "Anywhere",

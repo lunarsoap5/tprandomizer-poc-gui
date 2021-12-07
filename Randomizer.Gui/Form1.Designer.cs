@@ -103,11 +103,11 @@ namespace TPRandomizer
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WikiMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -257,7 +257,7 @@ namespace TPRandomizer
             this.poeCheckBox.AutoSize = true;
             this.poeCheckBox.Location = new System.Drawing.Point(13, 76);
             this.poeCheckBox.Name = "poeCheckBox";
-            this.poeCheckBox.Size = new System.Drawing.Size(107, 19);
+            this.poeCheckBox.Size = new System.Drawing.Size(51, 19);
             this.poeCheckBox.TabIndex = 2;
             this.poeCheckBox.Text = "Poes";
             this.poeCheckBox.UseVisualStyleBackColor = true;
@@ -303,7 +303,6 @@ namespace TPRandomizer
             this.smallKeyShuffleComboBox.FormattingEnabled = true;
             this.smallKeyShuffleComboBox.Items.AddRange(new object[] {
             "Vanilla",
-            "Overworld",
             "Own Dungeon",
             "Any Dungeon",
             "Keysanity",
@@ -319,7 +318,6 @@ namespace TPRandomizer
             this.mapsAndCompassesComboBox.FormattingEnabled = true;
             this.mapsAndCompassesComboBox.Items.AddRange(new object[] {
             "Vanilla",
-            "Overworld",
             "Own Dungeon",
             "Any Dungeon",
             "Anywhere",
@@ -344,7 +342,6 @@ namespace TPRandomizer
             this.bossKeyShuffleComboBox.FormattingEnabled = true;
             this.bossKeyShuffleComboBox.Items.AddRange(new object[] {
             "Vanilla",
-            "Overworld",
             "Own Dungeon",
             "Any Dungeon",
             "Keysanity",
@@ -935,11 +932,6 @@ namespace TPRandomizer
             this.openToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.openToolStripMenuItem.Text = "&Open Settings File..";
             // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(215, 6);
-            // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
@@ -954,18 +946,23 @@ namespace TPRandomizer
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(215, 6);
             // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            // 
             // darkModeToolStripMenuItem
             // 
             this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
             this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.darkModeToolStripMenuItem.Text = "Dark Mode";
             this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.darkModeToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(215, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // helpToolStripMenuItem
             // 

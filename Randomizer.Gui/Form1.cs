@@ -22,14 +22,14 @@ namespace TPRandomizer
     {
         Randomizer randomizer = new Randomizer();
         GuiSetting settings = new GuiSetting();
-        Checks AssetChecks = new Checks();
         ItemFunctions Items = new ItemFunctions();
         bool dontrunhandler;
         bool isDarkModeEnabled;
 
+        public static List<string> RandomizerChecks = new List<string>();
+
         public Form1()
         {
-            
             InitializeComponent();
             dontrunhandler = false;
             isDarkModeEnabled = false;
@@ -69,7 +69,13 @@ namespace TPRandomizer
             listofChecksListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             itemPoolListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
 
-            foreach (string check in Checks.RandomizerChecks)
+            foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Checks/", "*",SearchOption.AllDirectories))
+            {
+                string contents = File.ReadAllText(file);
+                string fileName = Path.GetFileNameWithoutExtension(file);
+                RandomizerChecks.Add(fileName);
+            }
+            foreach (string check in RandomizerChecks)
             {
                 listofChecksListBox.Items.Add(check);
                 
@@ -145,7 +151,7 @@ namespace TPRandomizer
             listofChecksListBox.Items.Clear();
             itemPoolListBox.Items.Clear();
 
-            foreach (string check in Checks.RandomizerChecks)
+            foreach (string check in RandomizerChecks)
             {
                 listofChecksListBox.Items.Add(check);
                 
