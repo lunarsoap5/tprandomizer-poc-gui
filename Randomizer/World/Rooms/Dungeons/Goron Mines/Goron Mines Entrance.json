@@ -1,20 +1,17 @@
 {
-    "name": "Goron Mines 01",
     "neighbours": 
     [
         "Death Mountain Interiors", 
-        "Goron Mines 03"
+        "Goron Mines Magnet Room"
     ],
     "neighbourRequirements": 
     [
         "true",
         "Iron_Boots"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Goron Mines Entrance Chest"
     ],
-    "visited": "false",
     "region": "Goron Mines"
 }

@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "hash": "A994",
-    "category": ["Chest", "Dungeon", "Goron Mines", "Small Key"],
+    "arcFileName": "D_MN04/R03_00.arc",
+    "offset": "0x8805C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Goron Mines", "Small Key", "ARC"],
     "itemId": "Goron_Mines_Small_Key"
 }

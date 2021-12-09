@@ -1,24 +1,21 @@
 {
-    "name": "Goron Mines 07",
     "neighbours": 
     [
-        "Goron Mines 06", 
-        "Goron Mines 09 17", 
-        "Goron Mines 12"
+        "Goron Mines Crystal Switch Room", 
+        "Goron Mines Upper East Wing", 
+        "Goron Mines Boss Room"
     ],
     "neighbourRequirements": 
     [
         "true",
         "(Goron_Mines_Small_Key, 3)",
-        "(Progressive_Bow, 1) and Iron_Boots"
+        "(Progressive_Bow, 1) and Iron_Boots and canDefeatBulblin and Goron_Mines_Big_Key"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Goron Mines Outside Beamos Chest",
         "Goron Mines Outside Underwater Chest",
         "Goron Mines Outside Clawshot Chest"
     ],
-    "visited": "false",
     "region": "Goron Mines"
 }

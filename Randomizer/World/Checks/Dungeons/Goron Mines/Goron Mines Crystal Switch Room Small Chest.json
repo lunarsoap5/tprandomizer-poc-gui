@@ -1,6 +1,8 @@
 {
     "requirements": "Iron_Boots",
-    "hash": "F354",
-    "category": ["Chest", "Dungeon", "Goron Mines"],
+    "arcFileName": "D_MN04/R06_00.arc",
+    "offset": "0x830E8",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
     "itemId": "Red_Rupee"
 }

@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "hash": "2954",
-    "category": ["Chest", "Dungeon", "Goron Mines"],
+    "arcFileName": "D_MN04/R17_00.arc",
+    "offset": "0x8ACE8",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
     "itemId": "Yellow_Rupee"
 }

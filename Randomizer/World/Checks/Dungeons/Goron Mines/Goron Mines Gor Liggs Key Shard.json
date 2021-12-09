@@ -1,5 +1,8 @@
 {
-    "requirements": "true",
-    "category": ["Npc", "Dungeon", "Goron Mines", "Dungeon Items", "Big Key"],
+    "requirements": "Iron_Boots and canDefeatDangoro and (Progressive_Bow, 1)",
+    "arcFileName": "",
+    "offset": "",
+    "fileDirectoryType": 1,
+    "category": ["Npc", "Dungeon", "Goron Mines", "Dungeon Items", "Big Key", "ARC"],
     "itemId": "Goron_Mines_Big_Key"
 }

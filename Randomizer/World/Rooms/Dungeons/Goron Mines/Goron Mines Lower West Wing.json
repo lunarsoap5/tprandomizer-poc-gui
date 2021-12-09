@@ -1,20 +1,18 @@
-{ 
-    "name": "Goron Mines 14",
+{
     "neighbours": 
     [
-        "Goron Mines 04 05"
+        "Goron Mines Magnet Room"
     ],
     "neighbourRequirements": 
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
+        "Goron Mines Magnet Maze Chest",
         "Goron Mines Gor Amato Chest",
         "Goron Mines Gor Amato Small Chest",
         "Goron Mines Gor Amato Key Shard"
-     ],
-    "visited": "false",
+    ],
     "region": "Goron Mines"
 }

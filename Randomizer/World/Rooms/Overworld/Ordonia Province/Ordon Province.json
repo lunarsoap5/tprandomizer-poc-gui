@@ -1,5 +1,4 @@
 {
-    "name": "Ordon Province",
     "neighbours": 
     [
         "South Faron Woods",
@@ -10,7 +9,6 @@
         "(Progressive_Sword, 1) or (Setting.introSkipped equals True)",
         "Shadow_Crystal"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Uli Cradle Delivery",
@@ -23,6 +21,5 @@
         "Wrestling With Bo",
         "Herding Goats Reward"
     ],
-    "visited": "false",
     "region": "Ordonia Province"
 }

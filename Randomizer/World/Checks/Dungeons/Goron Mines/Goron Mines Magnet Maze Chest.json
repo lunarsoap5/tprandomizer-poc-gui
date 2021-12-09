@@ -1,6 +1,8 @@
 {
     "requirements": "Iron_Boots",
-    "hash": "CD65",
-    "category": ["Chest", "Dungeon", "Goron Mines"],
+    "arcFileName": "D_MN04/R04_00.arc",
+    "offset": "0x67160",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
     "itemId": "Piece_of_Heart"
 }

@@ -1,6 +1,8 @@
 {
-    "requirements": "true",
-    "hash": "F6E5",
-    "category": ["Chest", "Dungeon", "Goron Mines"],
+    "requirements": "Iron_Boots and canDefeatDangoro",
+    "arcFileName": "D_MN04/R11_00.arc",
+    "offset": "0x73858",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
     "itemId": "Progressive_Bow"
 }
