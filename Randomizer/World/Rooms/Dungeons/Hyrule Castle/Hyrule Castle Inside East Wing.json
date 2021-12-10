@@ -1,0 +1,14 @@
+{ 
+    "neighbours": 
+    [
+        "Hyrule Castle Main Hall", 
+        "Hyrule Castle Third Floor Balcony"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "Lantern and canDefeatDinalfos"
+    ],
+    "checks": [""], 
+    "region": "Hyrule Castle"
+}

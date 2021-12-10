@@ -1,14 +1,12 @@
 { 
-    "name": "Hyrule Castle 08",
     "neighbours": 
     [
-        "Hyrule Castle 12"
+        "Hyrule Castle Tower Climb"
     ],
     "neighbourRequirements": 
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Hyrule Castle Treasure Room Eighth Small Chest",
@@ -25,6 +23,5 @@
         "Hyrule Castle Treasure Room Second Chest",
         "Hyrule Castle Treasure Room First Chest"
      ],
-    "visited": "false",
     "region": "Hyrule Castle"
 }

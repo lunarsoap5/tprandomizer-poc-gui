@@ -1,20 +1,17 @@
 { 
-    "name": "Hyrule Castle 13",
     "neighbours": 
     [
-        "Hyrule Castle 11"
+        "Hyrule Castle Entrance"
     ],
     "neighbourRequirements": 
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Hyrule Castle West Courtyard North Small Chest",
         "Hyrule Castle West Courtyard Central Small Chest",
         "Hyrule Castle King Bulblin Key"
     ],
-    "visited": "false",
     "region": "Hyrule Castle"
 }

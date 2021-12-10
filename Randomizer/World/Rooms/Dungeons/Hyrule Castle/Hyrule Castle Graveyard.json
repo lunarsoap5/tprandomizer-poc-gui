@@ -1,14 +1,12 @@
 { 
-    "name": "Hyrule Castle 09",
     "neighbours": 
     [
-        "Hyrule Castle 14"
+        "Hyrule Castle Outside East Wing"
     ],
     "neighbourRequirements":
     [
         "Shadow_Crystal"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Hyrule Castle Graveyard Grave Switch Room Right Chest",
@@ -16,6 +14,5 @@
         "Hyrule Castle Graveyard Grave Switch Room Back Left Chest",
         "Hyrule Castle Graveyard Owl Statue Chest"
     ],
-    "visited": "false",
     "region": "Hyrule Castle"
 }

@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "hash": "9553",
-    "category": ["Chest", "Dungeon", "Hyrule Castle", "Big Key"],
+    "arcFileName": "D_MN09/R15_00.arc",
+    "offset": "0xAF898",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "Big Key", "ARC"],
     "itemId": "Hyrule_Castle_Big_Key"
 }

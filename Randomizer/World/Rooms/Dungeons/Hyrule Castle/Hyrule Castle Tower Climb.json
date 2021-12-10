@@ -1,9 +1,8 @@
 {
-    "name": "Hyrule Castle 12",
     "neighbours": 
     [
-        "Hyrule Castle 15", 
-        "Hyrule Castle 08", 
+        "Hyrule Castle Third Floor Balcony", 
+        "Hyrule Castle Treasure Room", 
         "Ganondorf Castle"
     ],
     "neighbourRequirements": 
@@ -12,8 +11,6 @@
         "(Hyrule_Castle_Small_Key, 3) and Spinner and (Progressive_Clawshot, 2) and canDefeatDarknut and canDefeatLizalfos",
         "Spinner and (Progressive_Clawshot, 2) and canDefeatDarknut and canDefeatLizalfos and Hyrule_Castle_Big_Key"
     ],
-    "isStartingRoom": "false",
     "checks": [""], 
-    "visited": "false",
     "region": "Hyrule Castle"
 }

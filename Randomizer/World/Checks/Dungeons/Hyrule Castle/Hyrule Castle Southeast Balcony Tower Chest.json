@@ -1,6 +1,8 @@
 {
     "requirements": "canDefeatAeralfos",
-    "hash": "8C2C",
-    "category": ["Chest", "Dungeon", "Hyrule Castle", "Small Key"],
+    "arcFileName": "D_MN09/R15_00.arc",
+    "offset": "0xAF878",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "Small Key", "ARC"],
     "itemId": "Hyrule_Castle_Small_Key"
 }

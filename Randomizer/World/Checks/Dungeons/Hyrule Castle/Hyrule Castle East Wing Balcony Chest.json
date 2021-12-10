@@ -1,6 +1,8 @@
 {
     "requirements": "Boomerang",
-    "hash": "592C",
-    "category": ["Chest", "Dungeon", "Hyrule Castle"],
+    "arcFileName": "D_MN09/R14_00.arc",
+    "offset": "0x62EB0",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
     "itemId": "Yellow_Rupee"
 }

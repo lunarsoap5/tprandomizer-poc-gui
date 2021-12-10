@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "hash": "D762",
-    "category": ["Chest", "Dungeon", "Hyrule Castle"],
+    "arcFileName": "D_MN09/R08_00.arc",
+    "offset": "0x2FC8C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
     "itemId": "Blue_Rupee"
 }

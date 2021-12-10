@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "hash": "0302",
-    "category": ["Chest", "Dungeon", "Hyrule Castle"],
+    "arcFileName": "D_MN09/R08_00.arc",
+    "offset": "0x2FCCC",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
     "itemId": "Arrows_30"
 }

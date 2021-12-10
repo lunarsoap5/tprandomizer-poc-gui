@@ -1,15 +1,12 @@
 { 
-    "name": "Ganondorf Castle",
     "neighbours": 
     [
-        "Hyrule Castle 12"
+        "Hyrule Castle Tower Climb"
     ],
     "neighbourRequirements": 
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": [""], 
-    "visited": "false",
     "region": "Ganondorf"
 }
