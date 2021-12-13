@@ -1,6 +1,8 @@
 {
-    "requirements": "(Progressive_Clawshot, 1)",
-    "hash": "BAF9",
-    "category": ["Chest", "Dungeon", "Lakebed Temple"],
+    "requirements": "(Progressive_Clawshot, 1) and canLaunchBombs",
+    "arcFileName": "D_MN01/R13_00.arc",
+    "offset": "6F358",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
     "itemId": "Water_Bombs_10"
 }

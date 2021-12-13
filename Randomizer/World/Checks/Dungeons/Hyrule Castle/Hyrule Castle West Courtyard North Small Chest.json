@@ -1,7 +1,7 @@
 {
     "requirements": "canDefeatBokoblin",
     "arcFileName": "D_MN09/R13_00.arc",
-    "offset": "0x63680",
+    "offset": "63680",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
     "itemId": "Red_Rupee"

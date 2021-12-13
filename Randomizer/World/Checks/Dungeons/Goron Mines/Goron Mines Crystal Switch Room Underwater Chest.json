@@ -1,7 +1,7 @@
 {
     "requirements": "Iron_Boots",
     "arcFileName": "D_MN04/R06_00.arc",
-    "offset": "0x830C8",
+    "offset": "830C8",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Goron Mines", "Small Key", "ARC"],
     "itemId": "Goron_Mines_Small_Key"

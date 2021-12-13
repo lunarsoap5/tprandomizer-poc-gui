@@ -1,7 +1,7 @@
 {
     "requirements": "canKnockDownHCPainting and canDefeatLizalfos and canDefeatDarknut and Boomerang and Lantern and (Progressive_Clawshot, 2)",
     "arcFileName": "D_MN09/R01_00.arc",
-    "offset": "0x83AEC",
+    "offset": "83AEC",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
     "itemId": "Orange_Rupee"

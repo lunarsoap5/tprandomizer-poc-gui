@@ -1,6 +1,8 @@
 {
     "requirements": "(Lakebed_Temple_Small_Key, 3)",
-    "hash": "81F9",
-    "category": ["Chest", "Dungeon", "Lakebed Temple"],
+    "arcFileName": "D_MN01/R10_00.arc",
+    "offset": "6E06C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
     "itemId": "Water_Bombs_10"
 }

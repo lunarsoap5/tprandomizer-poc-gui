@@ -1,6 +1,8 @@
 {
     "requirements": "canLaunchBombs",
-    "hash": "E6CB",
-    "category": ["Chest", "Dungeon", "Lakebed Temple", "Small Key"],
+    "arcFileName": "D_MN01/R07_00.arc",
+    "offset": "3E3D0",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "Small Key", "ARC"],
     "itemId": "Lakebed_Temple_Small_Key"
 }

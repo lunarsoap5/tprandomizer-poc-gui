@@ -1,7 +1,7 @@
 {
     "requirements": "Iron_Boots",
     "arcFileName": "D_MN04/R09_00.arc",
-    "offset": "0x82A54",
+    "offset": "82A54",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
     "itemId": "Yellow_Rupee"

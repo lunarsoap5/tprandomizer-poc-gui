@@ -1,7 +1,7 @@
 {
     "requirements": "true",
     "arcFileName": "D_MN09/R08_00.arc",
-    "offset": "0x2FB4C",
+    "offset": "2FB4C",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
     "itemId": "Orange_Rupee"

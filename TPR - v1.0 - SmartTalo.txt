@@ -1,0 +1,626 @@
+Randomizer Version: 1.0b
+Settings: 
+{
+  "logicRules": "Glitchless",
+  "castleRequirements": "Fused_Shadows",
+  "palaceRequirements": "Fused_Shadows",
+  "faronWoodsLogic": "Closed",
+  "mdhSkipped": false,
+  "introSkipped": true,
+  "smallKeySettings": "Own_Dungeon",
+  "bossKeySettings": "Own_Dungeon",
+  "mapAndCompassSettings": "Own_Dungeon",
+  "goldenBugsShuffled": true,
+  "poesShuffled": true,
+  "npcItemsShuffled": true,
+  "shopItemsShuffled": true,
+  "faronTwilightCleared": true,
+  "eldinTwilightCleared": true,
+  "lanayruTwilightCleared": true,
+  "skipMinorCutscenes": true,
+  "skipMasterSwordPuzzle": true,
+  "fastIronBoots": true,
+  "quickTransform": true,
+  "transformAnywhere": true,
+  "iceTrapSettings": "Few",
+  "StartingItems": [],
+  "ExcludedChecks": [],
+  "TunicColor": "Red",
+  "MidnaHairColor": "Red"
+}
+
+Item Locations: 
+Arbiters Grounds Big Key Chest: Piece_of_Heart
+Arbiters Grounds Death Sword Chest: Purple_Rupee
+Arbiters Grounds Dungeon Reward: Progressive_Fused_Shadow
+Arbiters Grounds East Lower Turnable Redead Chest: Invoice
+Arbiters Grounds East Turning Room Poe: Arbiters_Grounds_Compass
+Arbiters Grounds East Upper Turnable Chest: Arbiters_Grounds_Dungeon_Map
+Arbiters Grounds East Upper Turnable Redead Chest: Red_Rupee
+Arbiters Grounds Entrance Chest: Arbiters_Grounds_Small_Key
+Arbiters Grounds Ghoul Rat Room Chest: Arbiters_Grounds_Small_Key
+Arbiters Grounds Hidden Wall Poe: Arbiters_Grounds_Small_Key
+Arbiters Grounds North Turning Room Chest: Progressive_Clawshot
+Arbiters Grounds Spinner Room First Small Chest: Progressive_Sky_Book
+Arbiters Grounds Spinner Room Lower Central Small Chest: Red_Rupee
+Arbiters Grounds Spinner Room Lower North Chest: Purple_Rupee
+Arbiters Grounds Spinner Room Second Small Chest: Seeds_50
+Arbiters Grounds Spinner Room Stalfos Alcove Chest: Female_Mantis
+Arbiters Grounds Stallord Heart Container: Yellow_Rupee
+Arbiters Grounds Torch Room East Chest: Red_Rupee
+Arbiters Grounds Torch Room Poe: Arbiters_Grounds_Big_Key
+Arbiters Grounds Torch Room West Chest: Arbiters_Grounds_Small_Key
+Arbiters Grounds West Chandelier Chest: Orange_Rupee
+Arbiters Grounds West Poe: Empty_Bomb_Bag
+Arbiters Grounds West Small Chest Behind Block: Purple_Rupee
+Arbiters Grounds West Stalfos North Chest: Water_Bombs_10
+Arbiters Grounds West Stalfos Southeast Chest: Arbiters_Grounds_Small_Key
+City in The Sky Aeralfos Chest: Giant_Bomb_Bag
+City in The Sky Argorok Heart Container: Purple_Rupee
+City in The Sky Baba Tower Alcove Chest: City_in_The_Sky_Compass
+City in The Sky Baba Tower Narrow Ledge Chest: Piece_of_Heart
+City in The Sky Baba Tower Top Small Chest: Red_Rupee
+City in The Sky Big Key Chest: Yellow_Rupee
+City in The Sky Central Outside Ledge Chest: Wooden_Statue
+City in The Sky Central Outside Poe Island Chest: Progressive_Sword
+City in The Sky Chest Behind North Fan: Orange_Rupee
+City in The Sky Chest Below Big Key Chest: Arrows_10
+City in The Sky Dungeon Reward: Progressive_Fused_Shadow
+City in The Sky East First Wing Chest After Fans: Water_Bombs_5
+City in The Sky East Tile Worm Small Chest: Orange_Rupee
+City in The Sky East Wing After Dinalfos Alcove Chest: Arrows_10
+City in The Sky East Wing After Dinalfos Ledge Chest: Blue_Rupee
+City in The Sky East Wing Lower Level Chest: Red_Rupee
+City in The Sky Garden Island Poe: Orange_Rupee
+City in The Sky Poe Above Central Fan: Arrows_20
+City in The Sky Underwater East Chest: City_in_The_Sky_Small_Key
+City in The Sky Underwater West Chest: Piece_of_Heart
+City in The Sky West Garden Corner Chest: Water_Bombs_10
+City in The Sky West Garden Ledge Chest: Progressive_Fishing_Rod
+City in The Sky West Garden Lone Island Chest: Piece_of_Heart
+City in The Sky West Garden Lower Chest: Orange_Rupee
+City in The Sky West Wing Baba Balcony Chest: Red_Rupee
+City in The Sky West Wing First Chest: City_in_The_Sky_Big_Key
+City in The Sky West Wing Narrow Ledge Chest: Purple_Rupee
+City in The Sky West Wing Tile Worm Chest: City_in_The_Sky_Dungeon_Map
+Forest Temple Big Baba Key: Orange_Rupee
+Forest Temple Big Key Chest: Renardos_Letter
+Forest Temple Central Chest Behind Stairs: Ball_and_Chain
+Forest Temple Central Chest Hanging From Web: Forest_Temple_Dungeon_Map
+Forest Temple Central North Chest: Orange_Rupee
+Forest Temple Diababa Heart Container: Bomblings_5
+Forest Temple Dungeon Reward: Progressive_Mirror_Shard
+Forest Temple East Tile Worm Chest: Yellow_Rupee
+Forest Temple East Water Cave Chest: Progressive_Dominion_Rod
+Forest Temple Entrance Vines Chest: Forest_Temple_Compass
+Forest Temple Gale Boomerang: Male_Dragonfly
+Forest Temple North Deku Like Chest: Forest_Temple_Small_Key
+Forest Temple Second Monkey Under Bridge Chest: Male_Mantis
+Forest Temple Totem Pole Chest: Forest_Temple_Small_Key
+Forest Temple West Deku Like Chest: Forest_Temple_Small_Key
+Forest Temple West Tile Worm Chest Behind Stairs: Piece_of_Heart
+Forest Temple West Tile Worm Room Vines Chest: Forest_Temple_Small_Key
+Forest Temple Windless Bridge Chest: Forest_Temple_Big_Key
+Goron Mines After Crystal Switch Room Magnet Wall Chest: Purple_Rupee
+Goron Mines Beamos Room Chest: Heart_Container
+Goron Mines Chest Before Dangoro: Piece_of_Heart
+Goron Mines Crystal Switch Room Small Chest: Coro_Bottle
+Goron Mines Crystal Switch Room Underwater Chest: Red_Rupee
+Goron Mines Dangoro Chest: Goron_Mines_Compass
+Goron Mines Dungeon Reward: Progressive_Mirror_Shard
+Goron Mines Entrance Chest: Goron_Mines_Big_Key
+Goron Mines Fyrus Heart Container: Yellow_Rupee
+Goron Mines Gor Amato Chest: Piece_of_Heart
+Goron Mines Gor Amato Key Shard: Progressive_Bow
+Goron Mines Gor Amato Small Chest: Goron_Mines_Key_Shard_1
+Goron Mines Gor Ebizo Chest: Goron_Mines_Dungeon_Map
+Goron Mines Gor Ebizo Key Shard: Male_Dayfly
+Goron Mines Gor Liggs Chest: Male_Phasmid
+Goron Mines Gor Liggs Key Shard: Goron_Mines_Key_Shard_2
+Goron Mines Magnet Maze Chest: Goron_Mines_Small_Key
+Goron Mines Main Magnet Room Bottom Chest: Goron_Mines_Small_Key
+Goron Mines Main Magnet Room Top Chest: Purple_Rupee
+Goron Mines Outside Beamos Chest: Heart_Container
+Goron Mines Outside Clawshot Chest: Water_Bombs_10
+Goron Mines Outside Underwater Chest: Goron_Mines_Small_Key
+Hyrule Castle Big Key Chest: Red_Rupee
+Hyrule Castle East Wing Balcony Chest: Yellow_Rupee
+Hyrule Castle East Wing Boomerang Puzzle Chest: Hyrule_Castle_Small_Key
+Hyrule Castle Graveyard Grave Switch Room Back Left Chest: Hyrule_Castle_Small_Key
+Hyrule Castle Graveyard Grave Switch Room Front Left Chest: Arrows_20
+Hyrule Castle Graveyard Grave Switch Room Right Chest: Hyrule_Castle_Small_Key
+Hyrule Castle Graveyard Owl Statue Chest: Red_Rupee
+Hyrule Castle King Bulblin Key: Piece_of_Heart
+Hyrule Castle Lantern Staircase Chest: Female_Dayfly
+Hyrule Castle Main Hall Northeast Chest: Orange_Rupee
+Hyrule Castle Main Hall Northwest Chest: Arrows_20
+Hyrule Castle Main Hall Southwest Chest: Purple_Rupee
+Hyrule Castle Southeast Balcony Tower Chest: Piece_of_Heart
+Hyrule Castle Treasure Room Eighth Small Chest: Bomb_Bag_And_Bombs
+Hyrule Castle Treasure Room Fifth Chest: Hyrule_Castle_Dungeon_Map
+Hyrule Castle Treasure Room Fifth Small Chest: Red_Rupee
+Hyrule Castle Treasure Room First Chest: Piece_of_Heart
+Hyrule Castle Treasure Room First Small Chest: Hyrule_Castle_Compass
+Hyrule Castle Treasure Room Fourth Chest: Purple_Rupee
+Hyrule Castle Treasure Room Fourth Small Chest: Arrows_20
+Hyrule Castle Treasure Room Second Chest: Yellow_Rupee
+Hyrule Castle Treasure Room Second Small Chest: Yellow_Rupee
+Hyrule Castle Treasure Room Seventh Small Chest: Piece_of_Heart
+Hyrule Castle Treasure Room Sixth Small Chest: Red_Rupee
+Hyrule Castle Treasure Room Third Chest: Purple_Rupee
+Hyrule Castle Treasure Room Third Small Chest: Hyrule_Castle_Big_Key
+Hyrule Castle West Courtyard Central Small Chest: Water_Bombs_10
+Hyrule Castle West Courtyard North Small Chest: Heart_Container
+Lakebed Temple Before Deku Toad Alcove Chest: Orange_Rupee
+Lakebed Temple Before Deku Toad Underwater Left Chest: Purple_Rupee
+Lakebed Temple Before Deku Toad Underwater Right Chest: Piece_of_Heart
+Lakebed Temple Big Key Chest: Progressive_Wallet
+Lakebed Temple Central Room Chest: Purple_Rupee
+Lakebed Temple Central Room Small Chest: Female_Phasmid
+Lakebed Temple Central Room Spire Chest: Heart_Container
+Lakebed Temple Chandelier Chest: Purple_Rupee
+Lakebed Temple Deku Toad Chest: Water_Bombs_10
+Lakebed Temple Dungeon Reward: Progressive_Fused_Shadow
+Lakebed Temple East Lower Waterwheel Bridge Chest: Lakebed_Temple_Compass
+Lakebed Temple East Lower Waterwheel Stalactite Chest: Lakebed_Temple_Small_Key
+Lakebed Temple East Second Floor Southeast Chest: Lakebed_Temple_Big_Key
+Lakebed Temple East Second Floor Southwest Chest: Lakebed_Temple_Dungeon_Map
+Lakebed Temple East Water Supply Clawshot Chest: Sera_Bottle
+Lakebed Temple East Water Supply Small Chest: Orange_Rupee
+Lakebed Temple Lobby Left Chest: Lakebed_Temple_Small_Key
+Lakebed Temple Lobby Rear Chest: Lakebed_Temple_Small_Key
+Lakebed Temple Morpheel Heart Container: Purple_Rupee
+Lakebed Temple Stalactite Room Chest: Purple_Rupee
+Lakebed Temple Underwater Maze Small Chest: Male_Pill_Bug
+Lakebed Temple West Lower Small Chest: Bombs_20
+Lakebed Temple West Second Floor Central Small Chest: Green_Rupee
+Lakebed Temple West Second Floor Northeast Chest: Purple_Rupee
+Lakebed Temple West Second Floor Southeast Chest: Piece_of_Heart
+Lakebed Temple West Second Floor Southwest Underwater Chest: Orange_Rupee
+Lakebed Temple West Water Supply Chest: Red_Rupee
+Lakebed Temple West Water Supply Small Chest: Bombs_5
+Palace of Twilight Big Key Chest: Palace_of_Twilight_Small_Key
+Palace of Twilight Central First Room Chest: Piece_of_Heart
+Palace of Twilight Central Outdoor Chest: Palace_of_Twilight_Big_Key
+Palace of Twilight Central Tower Chest: Orange_Rupee
+Palace of Twilight Collect Both Sols: Palace_of_Twilight_Small_Key
+Palace of Twilight Dungeon Reward: Piece_of_Heart
+Palace of Twilight East Wing First Room East Alcove: Red_Rupee
+Palace of Twilight East Wing First Room North Small Chest: Bombs_20
+Palace of Twilight East Wing First Room West Alcove: Palace_of_Twilight_Dungeon_Map
+Palace of Twilight East Wing First Room Zant Head Chest: Heart_Container
+Palace of Twilight East Wing Second Room Northeast Chest: Palace_of_Twilight_Compass
+Palace of Twilight East Wing Second Room Northwest Chest: Palace_of_Twilight_Small_Key
+Palace of Twilight East Wing Second Room Southeast Chest: Purple_Rupee
+Palace of Twilight East Wing Second Room Southwest Chest: Palace_of_Twilight_Small_Key
+Palace of Twilight West Wing Chest Behind Wall of Darkness: Palace_of_Twilight_Small_Key
+Palace of Twilight West Wing First Room Central Chest: Female_Ladybug
+Palace of Twilight West Wing Second Room Central Chest: Palace_of_Twilight_Small_Key
+Palace of Twilight West Wing Second Room Lower South Chest: Palace_of_Twilight_Small_Key
+Palace of Twilight West Wing Second Room Southeast Chest: Water_Bombs_10
+Palace of Twilight Zant Heart Container: Purple_Rupee
+Snowpeak Ruins Ball and Chain: Snowpeak_Ruins_Small_Key
+Snowpeak Ruins Blizzeta Heart Container: Bombs_5
+Snowpeak Ruins Broken Floor Chest: Snowpeak_Ruins_Ordon_Pumpkin
+Snowpeak Ruins Chapel Chest: Orange_Rupee
+Snowpeak Ruins Chest After Darkhammer: Snowpeak_Ruins_Ordon_Goat_Cheese
+Snowpeak Ruins Courtyard Central Chest: Progressive_Sword
+Snowpeak Ruins Dungeon Reward: Progressive_Mirror_Shard
+Snowpeak Ruins East Courtyard Buried Chest: Female_Stag_Beetle
+Snowpeak Ruins East Courtyard Chest: Seeds_50
+Snowpeak Ruins Ice Room Poe: Snowpeak_Ruins_Dungeon_Map
+Snowpeak Ruins Lobby Armor Poe: Arrows_20
+Snowpeak Ruins Lobby Chandelier Chest: Red_Rupee
+Snowpeak Ruins Lobby East Armor Chest: Snowpeak_Ruins_Small_Key
+Snowpeak Ruins Lobby Poe: Snowpeak_Ruins_Compass
+Snowpeak Ruins Lobby West Armor Chest: Seeds_50
+Snowpeak Ruins Mansion Map: Red_Rupee
+Snowpeak Ruins Northeast Chandelier Chest: Orange_Rupee
+Snowpeak Ruins Ordon Pumpkin Chest: Red_Rupee
+Snowpeak Ruins West Cannon Room Central Chest: Purple_Rupee
+Snowpeak Ruins West Cannon Room Corner Chest: Snowpeak_Ruins_Small_Key
+Snowpeak Ruins West Courtyard Buried Chest: Snowpeak_Ruins_Small_Key
+Snowpeak Ruins Wooden Beam Central Chest: Snowpeak_Ruins_Bedroom_Key
+Snowpeak Ruins Wooden Beam Chandelier Chest: Bombs_5
+Snowpeak Ruins Wooden Beam Northwest Chest: Arrows_20
+Temple of Time Armogohma Heart Container: Piece_of_Heart
+Temple of Time Big Key Chest Room Upper Chest: Female_Butterfly
+Temple of Time Big Key Chest: Temple_of_Time_Small_Key
+Temple of Time Chest Before Darknut: Progressive_Fishing_Rod
+Temple of Time Darknut Chest: Orange_Rupee
+Temple of Time Dungeon Reward: Progressive_Mirror_Shard
+Temple of Time First Staircase Armos Chest: Blue_Rupee
+Temple of Time First Staircase Gohma Gate Chest: Green_Rupee
+Temple of Time First Staircase Window Chest: Piece_of_Heart
+Temple of Time Gilloutine Chest: Purple_Rupee
+Temple of Time Lobby Lantern Chest: Temple_of_Time_Small_Key
+Temple of Time Moving Wall Beamos Room Chest: Water_Bombs_5
+Temple of Time Moving Wall Dinalfos Room Chest: Ilias_Charm
+Temple of Time Poe Above Scales: Temple_of_Time_Big_Key
+Temple of Time Poe Behind Gate: Bombs_5
+Temple of Time Scales Gohma Chest: Silver_Rupee
+Temple of Time Scales Upper Chest: Arrows_20
+Temple of Time Statue Throws Room East Chest: Orange_Rupee
+Temple of Time Statue Throws Room North Chest: Temple_of_Time_Small_Key
+Temple of Time Statue Throws Room Statue Chest: Orange_Rupee
+Gerudo Desert Campfire East Chest: Arrows_10
+Gerudo Desert Campfire North Chest: Orange_Rupee
+Gerudo Desert Campfire West Chest: Yellow_Rupee
+Gerudo Desert East Canyon Chest: Orange_Rupee
+Gerudo Desert East Poe: Red_Rupee
+Gerudo Desert Female Dayfly: Purple_Rupee
+Gerudo Desert Lone Small Chest: Piece_of_Heart
+Gerudo Desert Male Dayfly: Piece_of_Heart
+Gerudo Desert North Peahat Poe: Water_Bombs_5
+Gerudo Desert North Small Chest Before Bulblin Camp: Orange_Rupee
+Gerudo Desert Northeast Chest Behind Gates: Purple_Rupee
+Gerudo Desert Northwest Chest Behind Gates: Piece_of_Heart
+Gerudo Desert Owl Statue Chest: Purple_Rupee
+Gerudo Desert Owl Statue Sky Character: Red_Rupee
+Gerudo Desert Peahat Ledge Chest: Orange_Rupee
+Gerudo Desert Poe Above Cave of Ordeals: Gerudo_Desert_Bulblin_Camp_Key
+Gerudo Desert Rock Grotto First Poe: Red_Rupee
+Gerudo Desert Rock Grotto Lantern Chest: Piece_of_Heart
+Gerudo Desert Rock Grotto Second Poe: Piece_of_Heart
+Gerudo Desert Skulltula Grotto Chest: Seeds_50
+Gerudo Desert South Chest Behind Wooden Gates: Red_Rupee
+Gerudo Desert West Canyon Chest: Arrows_30
+Outside Bulblin Camp Poe: Yellow_Rupee
+Gift From Rusl: Lantern
+Herding Goats Reward: Male_Grasshopper
+Links Basement Chest: Shadow_Crystal
+Ordon Cat Rescue: Water_Bombs_15
+Ordon Ranch Grotto Lantern Chest: Boomerang
+Ordon Shield: Bomblings_10
+Ordon Sword: Water_Bombs_5
+Sera Shop Slingshot: Water_Bombs_15
+Uli Cradle Delivery: Seeds_50
+Wrestling With Bo: Progressive_Dominion_Rod
+Ashei Sketch: Purple_Rupee
+Snowboard Racing Prize: Purple_Rupee_Links_House
+Snowpeak Above Freezard Grotto Poe: Iron_Boots
+Snowpeak Blizzard Poe: Arrows_30
+Snowpeak Cave Ice Lantern Chest: Water_Bombs_5
+Snowpeak Cave Ice Poe: Purple_Rupee
+Snowpeak Freezard Grotto Chest: Red_Rupee
+Snowpeak Icy Summit Poe: Red_Rupee
+Snowpeak Poe Among Trees: Red_Rupee
+Death Mountain Alcove Chest: Gate_Keys
+Death Mountain Trail Poe: Heart_Container
+Cats Hide and Seek Minigame: Water_Bombs_15
+Hidden Village Poe: Orange_Rupee
+Ilia Charm: Water_Bombs_15
+Bridge of Eldin Female Phasmid: Orange_Rupee
+Bridge of Eldin Male Phasmid: Orange_Rupee
+Bridge of Eldin Owl Statue Chest: Orange_Rupee
+Bridge of Eldin Owl Statue Sky Character: Arrows_10
+Eldin Field Bomb Rock Chest: Orange_Rupee
+Eldin Field Bomskit Grotto Lantern Chest: Progressive_Sky_Book
+Eldin Field Bomskit Grotto Left Chest: Red_Rupee
+Eldin Field Female Grasshopper: Piece_of_Heart
+Eldin Field Male Grasshopper: Yellow_Rupee
+Eldin Field Water Bomb Fish Grotto Chest: Piece_of_Heart
+Eldin Lantern Cave First Chest: Water_Bombs_15
+Eldin Lantern Cave Lantern Chest: Purple_Rupee
+Eldin Lantern Cave Poe: Aurus_Memo
+Eldin Lantern Cave Second Chest: Piece_of_Heart
+Eldin Spring Underwater Chest: Arrows_20
+Eldin Stockcave Lantern Chest: Yellow_Rupee
+Eldin Stockcave Lowest Chest: Bombs_10
+Eldin Stockcave Upper Chest: Orange_Rupee
+Goron Springwater Rush: Bombs_5
+Kakariko Gorge Double Clawshot Chest: Purple_Rupee
+Kakariko Gorge Female Pill Bug: Bomblings_10
+Kakariko Gorge Male Pill Bug: Red_Rupee
+Kakariko Gorge Owl Statue Chest: Bombs_5
+Kakariko Gorge Owl Statue Sky Character: Orange_Rupee
+Kakariko Gorge Poe: Bombs_30
+Kakariko Gorge Spire Heart Piece: Piece_of_Heart
+Barnes Bomb Bag: Arrows_30
+Gift From Ralis: Red_Rupee
+Ilia Memory Reward: Bombs_20
+Kakariko Graveyard Female Ant: Progressive_Sword
+Kakariko Graveyard Grave Poe: Red_Rupee
+Kakariko Graveyard Lantern Chest: Red_Rupee
+Kakariko Graveyard Open Poe: Bombs_5
+Kakariko Inn Chest: Bomb_Bag_And_Bombs
+Kakariko Village Bomb Rock Spire Heart Piece: Progressive_Sky_Book
+Kakariko Village Bomb Shop Poe: Piece_of_Heart
+Kakariko Village Male Ant: Arrows_10
+Kakariko Village Watchtower Poe: Red_Rupee
+Kakariko Watchtower Alcove Chest: Zora_Armor
+Kakariko Watchtower Chest: Arrows_20
+Renardos Letter: Progressive_Wallet
+Rutelas Blessing: Piece_of_Heart
+Talo Sharpshooting: Water_Bombs_5
+Coro Bottle: Arrows_30
+Coro Lantern: Bombs_5
+Faron Mist Cave Lantern Chest: Yellow_Rupee
+Faron Mist Cave Open Chest: Piece_of_Heart
+Faron Mist North Chest: Spinner
+Faron Mist Poe: Orange_Rupee
+Faron Mist South Chest: Purple_Rupee
+Faron Mist Stump Chest: North_Faron_Woods_Gate_Key
+Faron Woods Owl Statue Chest: Arrows_20
+Faron Woods Owl Statue Sky Character: Progressive_Clawshot
+North Faron Woods Deku Baba Chest: Yellow_Rupee
+South Faron Cave Chest: Red_Rupee
+Faron Field Bridge Chest: Orange_Rupee
+Faron Field Corner Grotto Left Chest: Bombs_5
+Faron Field Corner Grotto Rear Chest: Male_Ladybug
+Faron Field Corner Grotto Right Chest: Red_Rupee
+Faron Field Female Beetle: Arrows_10
+Faron Field Male Beetle: Purple_Rupee
+Faron Field Poe: Empty_Bottle
+Faron Field Tree Heart Piece: Bombs_20
+Lost Woods Boulder Poe: Arrows_20
+Lost Woods Lantern Chest: Bomblings_10
+Lost Woods Waterfall Poe: Purple_Rupee
+Sacred Grove Baba Serpent Grotto Chest: Seeds_50
+Sacred Grove Female Snail: Water_Bombs_10
+Sacred Grove Male Snail: Piece_of_Heart
+Sacred Grove Master Sword Poe: Piece_of_Heart
+Sacred Grove Past Owl Statue Chest: Yellow_Rupee
+Sacred Grove Spinner Chest: Progressive_Sword
+Sacred Grove Temple of Time Owl Statue Poe: Purple_Rupee
+Bulblin Camp First Chest Under Tower At Entrance: Piece_of_Heart
+Bulblin Camp Poe: Red_Rupee
+Bulblin Camp Roasted Boar: Red_Rupee
+Bulblin Camp Small Chest in Back of Camp: Bomblings_5
+Bulblin Guard Key: Male_Stag_Beetle
+Outside Arbiters Grounds Lantern Chest: Bombs_10
+Outside Arbiters Grounds Poe: Piece_of_Heart
+Cave of Ordeals Floor 17 Poe: Bomblings_5
+Cave of Ordeals Floor 33 Poe: Progressive_Bow
+Cave of Ordeals Floor 44 Poe: Purple_Rupee
+Cave of Ordeals Great Fairy Reward: Arrows_10
+Agitha Female Ant Reward: Slingshot
+Agitha Female Beetle Reward: Red_Rupee
+Agitha Female Butterfly Reward: Bombs_20
+Agitha Female Dayfly Reward: Bombs_10
+Agitha Female Dragonfly Reward: Piece_of_Heart
+Agitha Female Grasshopper Reward: Orange_Rupee
+Agitha Female Ladybug Reward: Bomblings_5
+Agitha Female Mantis Reward: Red_Rupee
+Agitha Female Phasmid Reward: Male_Butterfly
+Agitha Female Pill Bug Reward: Orange_Rupee
+Agitha Female Snail Reward: Water_Bombs_15
+Agitha Female Stag Beetle Reward: Red_Rupee
+Agitha Male Ant Reward: Purple_Rupee
+Agitha Male Beetle Reward: Red_Rupee
+Agitha Male Butterfly Reward: Purple_Rupee
+Agitha Male Dayfly Reward: Orange_Rupee
+Agitha Male Dragonfly Reward: Yellow_Rupee
+Agitha Male Grasshopper Reward: Piece_of_Heart
+Agitha Male Ladybug Reward: Water_Bombs_10
+Agitha Male Mantis Reward: Purple_Rupee
+Agitha Male Phasmid Reward: Bomblings_5
+Agitha Male Pill Bug Reward: Orange_Rupee
+Agitha Male Snail Reward: Purple_Rupee
+Agitha Male Stag Beetle Reward: Purple_Rupee
+Charlo Donation Blessing: Water_Bombs_15
+Doctors Office Balcony Chest: Red_Rupee
+East Castle Town Bridge Poe: Bomblings_10
+Jovani House Poe: Piece_of_Heart
+STAR Prize 1: Purple_Rupee
+STAR Prize 2: Piece_of_Heart
+Telma Invoice: Male_Beetle
+Hyrule Field Ampitheater Owl Statue Chest: Yellow_Rupee
+Hyrule Field Ampitheater Owl Statue Sky Character: Yellow_Rupee
+Hyrule Field Ampitheater Poe: Female_Beetle
+Lake Hylia Bridge Bubble Grotto Chest: Orange_Rupee
+Lake Hylia Bridge Cliff Chest: Red_Rupee
+Lake Hylia Bridge Cliff Poe: Horse_Call
+Lake Hylia Bridge Female Mantis: Heart_Container
+Lake Hylia Bridge Male Mantis: Female_Dragonfly
+Lake Hylia Bridge Owl Statue Chest: Heart_Container
+Lake Hylia Bridge Owl Statue Sky Character: Male_Ant
+Lake Hylia Bridge Vines Chest: Piece_of_Heart
+Lanayru Field Behind Gate Underwater Chest: Red_Rupee
+Lanayru Field Bridge Poe: Purple_Rupee
+Lanayru Field Female Stag Beetle: Red_Rupee
+Lanayru Field Grotto Left Poe: Bombs_5
+Lanayru Field Grotto Right Poe: Water_Bombs_10
+Lanayru Field Male Stag Beetle: Arrows_20
+Lanayru Field Skulltula Grotto Chest: Piece_of_Heart
+Lanayru Field Spinner Track Chest: Bombs_5
+Lanayru Field Stalfos Grotto Left Small Chest: Orange_Rupee
+Lanayru Field Stalfos Grotto Right Small Chest: Progressive_Sky_Book
+Lanayru Field Stalfos Grotto Stalfos Chest: Orange_Rupee
+Lanayru Ice Block Puzzle Cave Chest: Red_Rupee
+Outside South Castle Town Double Clawshot Chasm Chest: Seeds_50
+Outside South Castle Town Female Ladybug: Red_Rupee
+Outside South Castle Town Fountain Chest: Male_Snail
+Outside South Castle Town Male Ladybug: Red_Rupee
+Outside South Castle Town Poe: Arrows_10
+Outside South Castle Town Tetike Grotto Chest: Arrows_10
+Outside South Castle Town Tightrope Chest: Progressive_Sky_Book
+West Hyrule Field Female Butterfly: Seeds_50
+West Hyrule Field Helmasaur Grotto Chest: Arrows_10
+West Hyrule Field Male Butterfly: Purple_Rupee
+Wooden Statue: Blue_Rupee
+Auru Gift To Fyer: Piece_of_Heart
+Flight By Fowl Fifth Platform Chest: Red_Rupee
+Flight By Fowl Fourth Platform Chest: Yellow_Rupee
+Flight By Fowl Ledge Poe: Purple_Rupee
+Flight By Fowl Second Platform Chest: Yellow_Rupee
+Flight By Fowl Third Platform Chest: Purple_Rupee
+Flight By Fowl Top Platform Chest: Orange_Rupee
+Isle of Riches Poe: Arrows_20
+Iza Helping Hand: Water_Bombs_10
+Iza Raging Rapids Minigame: Piece_of_Heart
+Lake Hylia Alcove Poe: Purple_Rupee
+Lake Hylia Dock Poe: Orange_Rupee
+Lake Hylia Shell Blade Grotto Chest: Orange_Rupee
+Lake Hylia Tower Poe: Bombs_5
+Lake Hylia Underwater Chest: Water_Bombs_10
+Lake Hylia Water Toadpoli Grotto Chest: Purple_Rupee
+Lake Lantern Cave Eighth Chest: Bombs_5
+Lake Lantern Cave Eleventh Chest: Purple_Rupee
+Lake Lantern Cave End Lantern Chest: Orange_Rupee
+Lake Lantern Cave Fifth Chest: Female_Grasshopper
+Lake Lantern Cave Final Poe: Red_Rupee
+Lake Lantern Cave First Chest: Orange_Rupee
+Lake Lantern Cave First Poe: Red_Rupee
+Lake Lantern Cave Fourteenth Chest: Bombs_5
+Lake Lantern Cave Fourth Chest: Female_Snail
+Lake Lantern Cave Ninth Chest: Progressive_Sky_Book
+Lake Lantern Cave Second Chest: Purple_Rupee
+Lake Lantern Cave Second Poe: Silver_Rupee
+Lake Lantern Cave Seventh Chest: Arrows_20
+Lake Lantern Cave Sixth Chest: Bombs_10
+Lake Lantern Cave Tenth Chest: Piece_of_Heart
+Lake Lantern Cave Third Chest: Orange_Rupee
+Lake Lantern Cave Thirteenth Chest: Arrows_20
+Lake Lantern Cave Twelfth Chest: Arrows_20
+Lanayru Spring Back Room Lantern Chest: Piece_of_Heart
+Lanayru Spring Back Room Left Chest: Water_Bombs_15
+Lanayru Spring Back Room Right Chest: Red_Rupee
+Lanayru Spring East Double Clawshot Chest: Purple_Rupee
+Lanayru Spring Underwater Left Chest: Piece_of_Heart
+Lanayru Spring Underwater Right Chest: Orange_Rupee
+Lanayru Spring West Double Clawshot Chest: Red_Rupee
+Outside Lanayru Spring Left Statue Chest: Water_Bombs_5
+Outside Lanayru Spring Right Statue Chest: Piece_of_Heart
+Fishing Hole Bottle: Female_Ant
+Fishing Hole Heart Piece: Progressive_Bow
+Plumm Fruit Balloon Minigame: Purple_Rupee
+Upper Zoras River Female Dragonfly: Bombs_5
+Upper Zoras River Poe: Arrows_20
+Zoras Domain Chest Behind Waterfall: Progressive_Sky_Book
+Zoras Domain Chest By Mother and Child Isles: Bomblings_10
+Zoras Domain Extinguish All Torches Chest: Female_Pill_Bug
+Zoras Domain Light All Torches Chest: Bombs_5
+Zoras Domain Male Dragonfly: Purple_Rupee
+Zoras Domain Mother and Child Isle Poe: Asheis_Sketch
+Zoras Domain Underwater Goron: Yellow_Rupee
+Zoras Domain Waterfall Poe: Seeds_50
+
+
+
+Playthrough: 
+Sphere: 0
+    Gift From Rusl: Lantern
+    Wrestling With Bo: Progressive_Dominion_Rod
+Sphere: 1
+    Links Basement Chest: Shadow_Crystal
+    Faron Mist Stump Chest: North_Faron_Woods_Gate_Key
+    Faron Mist North Chest: Spinner
+Sphere: 2
+    Ordon Ranch Grotto Lantern Chest: Boomerang
+Sphere: 3
+    Forest Temple Central Chest Behind Stairs: Ball_and_Chain
+    Forest Temple Big Key Chest: Renardos_Letter
+    Forest Temple East Water Cave Chest: Progressive_Dominion_Rod
+    Forest Temple Windless Bridge Chest: Forest_Temple_Big_Key
+    Forest Temple North Deku Like Chest: Forest_Temple_Small_Key
+Sphere: 4
+    Faron Woods Owl Statue Sky Character: Progressive_Clawshot
+    Forest Temple Dungeon Reward: Progressive_Mirror_Shard
+Sphere: 5
+    Forest Temple West Deku Like Chest: Forest_Temple_Small_Key
+    Forest Temple Totem Pole Chest: Forest_Temple_Small_Key
+    Forest Temple West Tile Worm Room Vines Chest: Forest_Temple_Small_Key
+    Forest Temple Gale Boomerang: Male_Dragonfly
+Sphere: 6
+    Herding Goats Reward: Male_Grasshopper
+    Faron Field Poe: Empty_Bottle
+    Faron Field Corner Grotto Rear Chest: Male_Ladybug
+    Kakariko Watchtower Alcove Chest: Zora_Armor
+    Kakariko Graveyard Female Ant: Progressive_Sword
+    Eldin Lantern Cave Poe: Aurus_Memo
+    Telma Invoice: Male_Beetle
+    Eldin Field Bomskit Grotto Lantern Chest: Progressive_Sky_Book
+    Hyrule Field Ampitheater Poe: Female_Beetle
+    Outside South Castle Town Tightrope Chest: Progressive_Sky_Book
+    Outside South Castle Town Fountain Chest: Male_Snail
+    Zoras Domain Chest Behind Waterfall: Progressive_Sky_Book
+    Fishing Hole Heart Piece: Progressive_Bow
+    Zoras Domain Mother and Child Isle Poe: Asheis_Sketch
+    Lake Hylia Bridge Owl Statue Sky Character: Male_Ant
+    Lake Hylia Bridge Male Mantis: Female_Dragonfly
+    Lanayru Field Stalfos Grotto Right Small Chest: Progressive_Sky_Book
+    Forest Temple Second Monkey Under Bridge Chest: Male_Mantis
+    Snowpeak Above Freezard Grotto Poe: Iron_Boots
+    Lake Lantern Cave Fourth Chest: Female_Snail
+    Lake Lantern Cave Fifth Chest: Female_Grasshopper
+    Lake Lantern Cave Ninth Chest: Progressive_Sky_Book
+Sphere: 7
+    Kakariko Village Bomb Rock Spire Heart Piece: Progressive_Sky_Book
+    Death Mountain Alcove Chest: Gate_Keys
+    Sacred Grove Spinner Chest: Progressive_Sword
+    Zoras Domain Extinguish All Torches Chest: Female_Pill_Bug
+    Lake Hylia Bridge Cliff Poe: Horse_Call
+    Gerudo Desert Poe Above Cave of Ordeals: Gerudo_Desert_Bulblin_Camp_Key
+    Lakebed Temple Lobby Left Chest: Lakebed_Temple_Small_Key
+    Lakebed Temple Lobby Rear Chest: Lakebed_Temple_Small_Key
+    Bulblin Guard Key: Male_Stag_Beetle
+    Lakebed Temple Central Room Small Chest: Female_Phasmid
+    Goron Mines Entrance Chest: Goron_Mines_Big_Key
+    Lakebed Temple East Lower Waterwheel Stalactite Chest: Lakebed_Temple_Small_Key
+    Goron Mines Main Magnet Room Bottom Chest: Goron_Mines_Small_Key
+    Arbiters Grounds Entrance Chest: Arbiters_Grounds_Small_Key
+    Cave of Ordeals Floor 33 Poe: Progressive_Bow
+Sphere: 8
+    Agitha Female Phasmid Reward: Male_Butterfly
+    Lakebed Temple East Second Floor Southeast Chest: Lakebed_Temple_Big_Key
+    Lakebed Temple Underwater Maze Small Chest: Male_Pill_Bug
+    Arbiters Grounds Torch Room West Chest: Arbiters_Grounds_Small_Key
+    Arbiters Grounds Torch Room Poe: Arbiters_Grounds_Big_Key
+    Arbiters Grounds East Lower Turnable Redead Chest: Invoice
+    Arbiters Grounds Hidden Wall Poe: Arbiters_Grounds_Small_Key
+    Goron Mines Magnet Maze Chest: Goron_Mines_Small_Key
+    Goron Mines Gor Amato Small Chest: Goron_Mines_Key_Shard_1
+    Goron Mines Gor Amato Key Shard: Progressive_Bow
+Sphere: 9
+    Lakebed Temple Dungeon Reward: Progressive_Fused_Shadow
+    Arbiters Grounds Ghoul Rat Room Chest: Arbiters_Grounds_Small_Key
+    Goron Mines Outside Underwater Chest: Goron_Mines_Small_Key
+    Goron Mines Dungeon Reward: Progressive_Mirror_Shard
+Sphere: 10
+    Arbiters Grounds West Stalfos Southeast Chest: Arbiters_Grounds_Small_Key
+    Arbiters Grounds West Poe: Empty_Bomb_Bag
+    Arbiters Grounds North Turning Room Chest: Progressive_Clawshot
+    Arbiters Grounds Dungeon Reward: Progressive_Fused_Shadow
+    Goron Mines Gor Ebizo Key Shard: Male_Dayfly
+    Goron Mines Gor Liggs Chest: Male_Phasmid
+    Goron Mines Gor Liggs Key Shard: Goron_Mines_Key_Shard_2
+Sphere: 11
+    Arbiters Grounds Spinner Room First Small Chest: Progressive_Sky_Book
+    Arbiters Grounds Spinner Room Stalfos Alcove Chest: Female_Mantis
+Sphere: 12
+    City in The Sky Underwater East Chest: City_in_The_Sky_Small_Key
+    City in The Sky West Wing First Chest: City_in_The_Sky_Big_Key
+    City in The Sky West Garden Ledge Chest: Progressive_Fishing_Rod
+    City in The Sky Central Outside Ledge Chest: Wooden_Statue
+    City in The Sky Central Outside Poe Island Chest: Progressive_Sword
+Sphere: 13
+    Fishing Hole Bottle: Female_Ant
+    City in The Sky Dungeon Reward: Progressive_Fused_Shadow
+    Temple of Time Lobby Lantern Chest: Temple_of_Time_Small_Key
+Sphere: 14
+    Agitha Female Ant Reward: Slingshot
+    Hyrule Castle East Wing Boomerang Puzzle Chest: Hyrule_Castle_Small_Key
+    Hyrule Castle Graveyard Grave Switch Room Right Chest: Hyrule_Castle_Small_Key
+    Hyrule Castle Graveyard Grave Switch Room Back Left Chest: Hyrule_Castle_Small_Key
+    Temple of Time Statue Throws Room North Chest: Temple_of_Time_Small_Key
+    Palace of Twilight West Wing First Room Central Chest: Female_Ladybug
+Sphere: 15
+    Hyrule Castle Lantern Staircase Chest: Female_Dayfly
+    Hyrule Castle Treasure Room Third Small Chest: Hyrule_Castle_Big_Key
+    Temple of Time Moving Wall Dinalfos Room Chest: Ilias_Charm
+    Temple of Time Poe Above Scales: Temple_of_Time_Big_Key
+    Temple of Time Big Key Chest: Temple_of_Time_Small_Key
+    Temple of Time Big Key Chest Room Upper Chest: Female_Butterfly
+    Temple of Time Chest Before Darknut: Progressive_Fishing_Rod
+Sphere: 16
+    Snowpeak Ruins Lobby East Armor Chest: Snowpeak_Ruins_Small_Key
+    Snowpeak Ruins East Courtyard Buried Chest: Female_Stag_Beetle
+    Temple of Time Dungeon Reward: Progressive_Mirror_Shard
+    Snowpeak Ruins West Courtyard Buried Chest: Snowpeak_Ruins_Small_Key
+    Snowpeak Ruins Courtyard Central Chest: Progressive_Sword
+    Snowpeak Ruins West Cannon Room Corner Chest: Snowpeak_Ruins_Small_Key
+    Snowpeak Ruins Ball and Chain: Snowpeak_Ruins_Small_Key
+    Snowpeak Ruins Chest After Darkhammer: Snowpeak_Ruins_Ordon_Goat_Cheese
+    Snowpeak Ruins Wooden Beam Central Chest: Snowpeak_Ruins_Bedroom_Key
+    Ganondorf Castle: Ganondorf Defeated

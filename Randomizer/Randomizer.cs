@@ -21,6 +21,8 @@ namespace TPRandomizer
         public static RandomizerSetting RandoSetting = new RandomizerSetting();
         public static SettingData RandoSettingData = new SettingData();
 
+        public static string seedHash = null;
+
 
         /// <summary>
         /// Generates a randomizer seed given a settings string
@@ -28,6 +30,8 @@ namespace TPRandomizer
         /// <param name="settingsString"> The Settings String to be read in. </param>
         public void start(string settingsString)
         {
+            Random rnd = new Random();
+            seedHash = HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)];
             int remainingGenerationAttempts = 30;
             //Generate the dictionary values that are needed and initialize the data for the selected logic type.
             deserializeChecks();
@@ -58,6 +62,7 @@ namespace TPRandomizer
                     startOver();
                     continue;
                 }
+                BackendFunctions.generateSeedData();
                 BackendFunctions.generateSpoilerLog(startingRoom);
                 break;
             }

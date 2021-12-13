@@ -1,7 +1,7 @@
 {
     "requirements": "(Progressive_Clawshot, 1)",
     "arcFileName": "D_MN04/R07_00.arc",
-    "offset": "0x87E58",
+    "offset": "87E58",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
     "itemId": "Purple_Rupee"

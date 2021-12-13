@@ -1,7 +1,7 @@
 {
     "requirements": "true",
     "arcFileName": "D_MN04/R07_00.arc",
-    "offset": "0x87E78",
+    "offset": "87E78",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Goron Mines", "Small Key", "ARC"],
     "itemId": "Goron_Mines_Small_Key"

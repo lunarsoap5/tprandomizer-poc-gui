@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "hash": "4BCE",
-    "category": ["Chest", "Dungeon", "Lakebed Temple"],
+    "arcFileName": "D_MN01/R03_00.arc",
+    "offset": "A7D1C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
     "itemId": "Arrows_20"
 }

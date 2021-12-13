@@ -1,6 +1,8 @@
 {
     "requirements": "Zora_Armor",
-    "hash": "F526",
-    "category": ["Chest", "Dungeon", "Lakebed Temple"],
+    "arcFileName": "D_MN01/R00_00.arc",
+    "offset": "829B8",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
     "itemId": "Arrows_20"
 }

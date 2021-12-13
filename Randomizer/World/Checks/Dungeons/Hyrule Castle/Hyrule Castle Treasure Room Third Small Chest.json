@@ -1,7 +1,7 @@
 {
     "requirements": "true",
     "arcFileName": "D_MN09/R08_00.arc",
-    "offset": "0x2FBEC",
+    "offset": "2FBEC",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
     "itemId": "Bombs_20"

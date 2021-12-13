@@ -1,5 +1,5 @@
 {
     "requirements": "canDefeatMorpheel",
-    "category": ["Heart Container", "Dungeon", "Lakebed Temple"],
+    "category": ["Heart Container", "Dungeon", "Lakebed Temple", "BOSS"],
     "itemId": "Heart_Container"
 }

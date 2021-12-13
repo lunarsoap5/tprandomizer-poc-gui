@@ -1,6 +1,8 @@
 {
     "requirements": "(Progressive_Clawshot, 1)",
-    "hash": "01A0",
-    "category": ["Chest", "Dungeon", "Lakebed Temple"],
+    "arcFileName": "D_MN01/R03_00.arc",
+    "offset": "A7CDC",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
     "itemId": "Piece_of_Heart"
 }
