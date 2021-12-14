@@ -1,5 +1,8 @@
 {
     "requirements": "true",
+    "arcFileName": "",
+    "offset": "",
+    "fileDirectoryType": 1,
     "category": ["Npc"],
     "itemId": "Snowpeak_Ruins_Dungeon_Map"
 }

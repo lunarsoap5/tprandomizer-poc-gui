@@ -1,6 +1,8 @@
 {
     "requirements": "canSmash",
-    "hash": "98E8",
-    "category": ["Chest", "Dungeon", "Snowpeak Ruins"],
+    "arcFileName": "D_MN11/R09_00.arc",
+    "offset": "74918",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "ARC"],
     "itemId": "Bombs_5"
 }

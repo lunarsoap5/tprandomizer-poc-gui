@@ -1,6 +1,8 @@
 {
     "requirements": "canDefeatChilfos",
-    "hash": "9C1C",
-    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Big Key"],
+    "arcFileName": "D_MN11/R11_00.arc",
+    "offset": "62034",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Big Key", "ARC"],
     "itemId": "Snowpeak_Ruins_Bedroom_Key"
 }

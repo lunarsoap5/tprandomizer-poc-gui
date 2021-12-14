@@ -1,0 +1,20 @@
+{ 
+    "neighbours": 
+    [
+        "Palace of Twilight Entrance", 
+        "Palace of Twilight Boss Room"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "(Palace_of_Twilight_Small_Key, 7) and canDefeatZantHead and (Progressive_Sword, 4) and Palace_of_Twilight_Big_Key and canDefeatShadowBeast"
+    ],
+    "checks": 
+    [
+        "Palace of Twilight Central First Room Chest",
+        "Palace of Twilight Big Key Chest",
+        "Palace of Twilight Central Outdoor Chest",
+        "Palace of Twilight Central Tower Chest"
+    ],
+    "region": "Palace of Twilight"
+}

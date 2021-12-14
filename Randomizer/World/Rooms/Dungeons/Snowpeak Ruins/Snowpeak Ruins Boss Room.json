@@ -1,5 +1,4 @@
 {
-    "name": "Blizzeta",
     "neighbours": 
     [
         "Snowpeak Summit"
@@ -8,12 +7,10 @@
     [
         "canDefeatBlizzeta"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Snowpeak Ruins Blizzeta Heart Container",
         "Snowpeak Ruins Dungeon Reward"
     ], 
-    "visited": "false",
     "region": "Snowpeak Ruins"
 }

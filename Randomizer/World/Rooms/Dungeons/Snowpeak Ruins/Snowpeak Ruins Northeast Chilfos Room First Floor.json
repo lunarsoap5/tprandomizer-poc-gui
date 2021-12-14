@@ -1,20 +1,17 @@
 {
-    "name": "Snowpeak Ruins 05 Lower",
     "neighbours": 
     [
-        "Snowpeak Ruins 13", 
-        "Snowpeak Ruins 00 01 02 03"
+        "Snowpeak Ruins East Courtyard", 
+        "Snowpeak Ruins Yeto and Yeta"
     ],
     "neighbourRequirements": 
     [
         "true",
         "canDefeatChilfos"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Snowpeak Ruins Ordon Pumpkin Chest"
     ],
-    "visited": "false",
     "region": "Snowpeak Ruins"
 }

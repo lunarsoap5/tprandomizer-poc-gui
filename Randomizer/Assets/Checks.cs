@@ -24,7 +24,7 @@ namespace TPRandomizer
         public string hash { get; set;} //Used by DZX and SHOP checks. The hash of the actor that will be modified by a DZX-based check replacement.
         public string arcFileName { get; set;} //Used by ARC checks. The file where the item the check uses is contained.
         public byte fileDirectoryType { get; set;} //Used by ARC checks. The type of file directory where the item is stored.
-        public int relID { get; set;} //Used by REL checks. The module ID for the rel file being loaded.
+        public string relID { get; set;} //Used by REL checks. The module ID for the rel file being loaded.
         public string offset { get; set;} //Used by REL and ARC checks.
         public int relOverride { get; set;} //Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }

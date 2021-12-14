@@ -1,5 +1,5 @@
 {
     "requirements": "canDefeatBlizzeta",
-    "category": ["Heart Container", "Dungeon", "Snowpeak Ruins"],
+    "category": ["Heart Container", "Dungeon", "Snowpeak Ruins", "BOSS"],
     "itemId": "Heart_Container"
 }

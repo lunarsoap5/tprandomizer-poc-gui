@@ -1,6 +1,6 @@
 {
     "requirements": "canDefeatZant",
     "hash": "93FC",
-    "category": ["Dungeon", "Palace of Twilight", "Heart Container"],
+    "category": ["Dungeon", "Palace of Twilight", "Heart Container", "DZX"],
     "itemId": "Heart_Container"
 }

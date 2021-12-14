@@ -1,0 +1,15 @@
+{
+    "neighbours": 
+    [
+        "Palace of Twilight Entrance"
+    ],
+    "neighbourRequirements":
+    [
+        "canDefeatZant"
+    ],
+    "checks": 
+    [
+        "Palace of Twilight Zant Heart Container"
+    ],
+    "region": "Palace of Twilight"
+}

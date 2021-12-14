@@ -1,6 +1,8 @@
 {
     "requirements": "canDefeatChilfos and Ball_and_Chain",
-    "hash": "A485",
-    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Small Key"],
+    "arcFileName": "D_MN11/R05_00.arc",
+    "offset": "530AC",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Small Key", "ARC"],
     "itemId": "Snowpeak_Ruins_Small_Key"
 }

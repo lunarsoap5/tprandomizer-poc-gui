@@ -1,6 +1,8 @@
 {
-    "requirements": "canDefeatZantHead and canDefeatShadowBeast and (Progressive_Clawshot, 2)",
-    "hash": "8702",
-    "category": ["Chest", "Dungeon", "Palace of Twilight"],
+    "requirements": "canDefeatZantHead and canDefeatShadowBeast and (Progressive_Clawshot, 2) and (Palace_of_Twilight_Small_Key, 3)",
+    "arcFileName": "D_MN08/R05_00.arc",
+    "offset": "9AE00",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Palace of Twilight", "ARC"],
     "itemId": "Purple_Rupee"
 }

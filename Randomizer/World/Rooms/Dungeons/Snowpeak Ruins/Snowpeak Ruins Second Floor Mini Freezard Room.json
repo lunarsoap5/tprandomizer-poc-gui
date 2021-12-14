@@ -1,11 +1,10 @@
 {
-    "name": "Snowpeak Ruins 06",
     "neighbours": 
     [
-        "Snowpeak Ruins 00 01 02 03", 
-        "Snowpeak Ruins 04 E", 
-        "Snowpeak Ruins 05 Upper", 
-        "Snowpeak Ruins 07"
+        "Snowpeak Ruins Entrance", 
+        "Snowpeak Ruins East Courtyard", 
+        "Snowpeak Ruins Northeast Chilfos Room Second Floor", 
+        "Snowpeak Ruins Caged Freezard Room"
     ],
     "neighbourRequirements": 
     [
@@ -14,11 +13,9 @@
         "Ball_and_Chain and (Progressive_Clawshot, 1) and canDefeatChilfos",
         "(Snowpeak_Ruins_Small_Key, 4)"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Snowpeak Ruins Ice Room Poe"
     ], 
-    "visited": "false",
     "region": "Snowpeak Ruins"
 }

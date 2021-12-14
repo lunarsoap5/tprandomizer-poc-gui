@@ -1,5 +1,8 @@
 {
     "requirements": "canDefeatPhantomZant and (Progressive_Clawshot, 1) and canDefeatZantHead and Shadow_Crystal and (Palace_of_Twilight_Small_Key, 4) and (Progressive_Sword, 4)",
-    "category": ["Cutscene", "Dungeon", "Palace of Twilight"],
+    "relID": "32",
+    "offset": "C10",
+    "override": "386000000",
+    "category": ["Cutscene", "Dungeon", "Palace of Twilight", "REL"],
     "itemId": "Progressive_Sword"
 }

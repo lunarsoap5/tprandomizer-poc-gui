@@ -1,29 +1,21 @@
 {
-    "name": "Snowpeak Ruins 00 01 02 03",
     "neighbours": 
     [
         "Snowpeak Summit", 
-        "Snowpeak Ruins 07", 
-        "Snowpeak Ruins 04 W", 
-        "Snowpeak Ruins 04 E"
+        "Snowpeak Ruins Yeto and Yeta"
     ],
     "neighbourRequirements": 
     [
         "true",
-        "Snowpeak_Ruins_Ordon_Goat_Cheese",
-        "Snowpeak_Ruins_Ordon_Pumpkin",
-        "Shadow_Crystal or Ball_and_Chain"
+        "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Snowpeak Ruins Lobby Chandelier Chest",
         "Snowpeak Ruins Lobby West Armor Chest",
         "Snowpeak Ruins Lobby East Armor Chest",
-        "Snowpeak Ruins Mansion Map",
         "Snowpeak Ruins Lobby Armor Poe",
         "Snowpeak Ruins Lobby Poe"
     ],
-    "visited": "false",
     "region": "Snowpeak Ruins"
 }
