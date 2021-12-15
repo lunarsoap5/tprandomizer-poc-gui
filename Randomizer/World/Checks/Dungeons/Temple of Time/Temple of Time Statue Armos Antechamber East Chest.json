@@ -1,7 +1,7 @@
 {
-    "requirements": "true",
-    "arcFileName": "D_MN06/R07_00.arc",
-    "offset": "4D190",
+    "requirements": "canDefeatArmos",
+    "arcFileName": "D_MN06/R03_00.arc",
+    "offset": "4B78C",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Temple of Time", "Small Key", "ARC"],
     "itemId": "Temple_of_Time_Small_Key"

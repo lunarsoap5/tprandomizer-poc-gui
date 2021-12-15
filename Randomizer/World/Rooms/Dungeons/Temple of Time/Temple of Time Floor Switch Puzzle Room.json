@@ -1,19 +1,16 @@
 {
-    "name": "Temple of Time 06",
     "neighbours": 
     [
-        "Temple of Time 05"
+        "Temple of Time Scales of Time"
     ],
     "neighbourRequirements": 
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Temple of Time Big Key Chest",
-        "Temple of Time Big Key Chest Room Upper Chest"
+        "Temple of Time Floor Switch Puzzle Room Upper Chest"
      ],
-    "visited": "false",
     "region": "Temple of Time"
 }

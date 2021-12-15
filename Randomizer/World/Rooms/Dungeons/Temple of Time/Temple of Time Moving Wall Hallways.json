@@ -1,21 +1,18 @@
 {
-    "name": "Temple of Time 04",
     "neighbours": 
     [
-        "Temple of Time 02", 
-        "Temple of Time 05"
+        "Temple of Time Central Mechanical Platform", 
+        "Temple of Time Scales of Time"
     ],
     "neighbourRequirements": 
     [
         "true",
         "(Progressive_Bow, 1) and canDefeatLizalfos and canDefeatDinalfos"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Temple of Time Moving Wall Beamos Room Chest",
         "Temple of Time Moving Wall Dinalfos Room Chest"
      ],
-    "visited": "false",
     "region": "Temple of Time"
 }

@@ -1,6 +1,8 @@
 {
     "requirements": "canDefeatYoungGohma and canDefeatBabyGohma",
-    "hash": "E586",
-    "category": ["Chest", "Dungeon", "Temple of Time"],
+    "arcFileName": "D_MN06/R05_00.arc",
+    "offset": "591C4",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
     "itemId": "Purple_Rupee"
 }

@@ -1,6 +1,8 @@
 {
     "requirements": "Lantern",
-    "hash": "BC22",
-    "category": ["Chest", "Dungeon", "Temple of Time", "Small Key"],
+    "arcFileName": "D_MN06/R00_00.arc",
+    "offset": "56C2C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Temple of Time", "Small Key", "ARC"],
     "itemId": "Temple_of_Time_Small_Key"
 }

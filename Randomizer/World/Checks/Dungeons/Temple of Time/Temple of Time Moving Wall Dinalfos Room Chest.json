@@ -1,6 +1,8 @@
 {
     "requirements": "canDefeatDinalfos and (Progressive_Dominion_Rod, 1)",
-    "hash": "D3B5",
-    "category": ["Chest", "Dungeon", "Temple of Time"],
+    "arcFileName": "D_MN06/R04_00.arc",
+    "offset": "7495C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
     "itemId": "Piece_of_Heart"
 }

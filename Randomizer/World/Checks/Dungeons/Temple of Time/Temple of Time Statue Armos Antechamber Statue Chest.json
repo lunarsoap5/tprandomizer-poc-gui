@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Dominion_Rod, 1)",
+    "arcFileName": "D_MN06/R03_00.arc",
+    "offset": "4B76C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

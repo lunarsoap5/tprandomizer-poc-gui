@@ -1,7 +1,7 @@
 {
-    "requirements": "hasRangedItem",
-    "arcFileName": "D_MN06/R01_00.arc",
-    "offset": "41EF8",
+    "requirements": "(Progressive_Clawshot, 1)",
+    "arcFileName": "D_MN06/R06_00.arc",
+    "offset": "3C3F0",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
     "itemId": "Red_Rupee"

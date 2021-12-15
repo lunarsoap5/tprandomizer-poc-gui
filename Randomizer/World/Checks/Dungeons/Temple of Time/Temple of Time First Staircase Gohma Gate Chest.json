@@ -1,6 +1,8 @@
 {
     "requirements": "canDefeatYoungGohma",
-    "hash": "298C",
-    "category": ["Chest", "Dungeon", "Temple of Time"],
+    "arcFileName": "D_MN06/R01_00.arc",
+    "offset": "41ED8",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
     "itemId": "Arrows_30"
 }

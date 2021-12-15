@@ -1,22 +1,19 @@
 {
-    "name": "Temple of Time 01",
     "neighbours": 
     [
-        "Temple of Time 00", 
-        "Temple of Time 02"
+        "Temple of Time Entrance", 
+        "Temple of Time Central Mechanical Platform"
     ],
     "neighbourRequirements": 
     [
         "true",
         "hasRangedItem and canDefeatYoungGohma and canDefeatLizalfos"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Temple of Time First Staircase Gohma Gate Chest",
         "Temple of Time First Staircase Window Chest",
         "Temple of Time First Staircase Armos Chest"
      ],
-    "visited": "false",
     "region": "Temple of Time"
 }

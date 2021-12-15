@@ -1,17 +1,14 @@
 {
-    "name": "Temple of Time 08",
     "neighbours": 
     [
-        "Temple of Time 00", 
-        "Armogohma"
+        "Temple of Time Entrance", 
+        "Temple of Time Boss Room"
     ],
     "neighbourRequirements": 
     [
         "true",
         "(Progressive_Dominion_Rod, 1) and Temple_of_Time_Big_Key"
     ],
-    "isStartingRoom": "false",
     "checks": [""], 
-    "visited": "false",
     "region": "Temple of Time"
 }

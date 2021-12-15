@@ -1,6 +1,8 @@
 {
     "requirements": "canDefeatDarknut",
-    "hash": "DAD6",
-    "category": ["Chest", "Dungeon", "Temple of Time"],
+    "arcFileName": "D_MN06B/R51_00.arc",
+    "offset": "8D28C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
     "itemId": "Progressive_Dominion_Rod"
 }

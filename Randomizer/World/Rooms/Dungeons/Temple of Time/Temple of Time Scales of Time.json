@@ -1,10 +1,9 @@
 { 
-    "name": "Temple of Time 05",
     "neighbours": 
     [
-        "Temple of Time 04", 
-        "Temple of Time 06", 
-        "Temple of Time 07"
+        "Temple of Time Moving Wall Hallways", 
+        "Temple of Time Floor Switch Puzzle Room", 
+        "Temple of Time Upper Spike Trap Corridor"
     ],
     "neighbourRequirements": 
     [
@@ -12,13 +11,11 @@
         "(Progressive_Clawshot, 1) and Spinner",
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Temple of Time Scales Gohma Chest",
         "Temple of Time Scales Upper Chest",
         "Temple of Time Poe Above Scales"
      ],
-    "visited": "false",
     "region": "Temple of Time"
 }
