@@ -1,7 +1,7 @@
 {
     "requirements": "hasDamagingItem and (Arbiters_Grounds_Small_Key, 2)",
     "arcFileName": "D_MN10/R04_00.arc",
-    "offset": "0x562B4",
+    "offset": "562B4",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key", "ARC"],
     "itemId": "Arbiters_Grounds_Small_Key"

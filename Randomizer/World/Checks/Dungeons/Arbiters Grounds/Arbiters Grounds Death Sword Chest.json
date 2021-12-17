@@ -1,7 +1,7 @@
 {
     "requirements": "canDefeatDeathSword and (Progressive_Clawshot, 1) and canDefeatBubble and canDefeatStalfos and (Arbiters_Grounds_Small_Key, 5)",
     "arcFileName": "D_MN10B/R51_00.arc",
-    "offset": "0x6F1DC",
+    "offset": "6F1DC",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],
     "itemId": "Spinner"

@@ -1,7 +1,7 @@
 {
     "requirements": "true",
     "arcFileName": "D_MN10/R06_00.arc",
-    "offset": "0x53A74",
+    "offset": "53A74",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],
     "itemId": "Red_Rupee"

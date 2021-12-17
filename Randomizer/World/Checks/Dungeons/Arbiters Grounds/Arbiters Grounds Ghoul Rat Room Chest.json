@@ -1,7 +1,7 @@
 {
     "requirements": "canDefeatBubble and canDefeatStalchild and canDefeatRedeadKnight and (Arbiters_Grounds_Small_Key, 3)",
     "arcFileName": "D_MN10/R14_00.arc",
-    "offset": "0x2484C",
+    "offset": "2484C",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key", "ARC"],
     "itemId": "Arbiters_Grounds_Small_Key"
