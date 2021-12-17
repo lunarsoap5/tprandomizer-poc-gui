@@ -1,6 +1,8 @@
 {
     "requirements": "(Arbiters_Grounds_Small_Key, 2)",
-    "hash": "73DB",
-    "category": ["Chest", "Dungeon", "Arbiters Grounds", "Dungeon Items", "Compass"],
+    "arcFileName": "D_MN10/R04_00.arc",
+    "offset": "0x56294",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Arbiters Grounds", "Dungeon Items", "Compass", "ARC"],
     "itemId": "Arbiters_Grounds_Compass"
 }

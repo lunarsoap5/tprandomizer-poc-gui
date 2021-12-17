@@ -1,5 +1,4 @@
 { 
-    "name": "Grotto 5 4",
     "neighbours": 
     [
         "Lake Hylia"
@@ -8,11 +7,9 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Lake Hylia Shell Blade Grotto Chest"
     ],
-    "visited": "false",
     "region": "Lanayru Province"
 }

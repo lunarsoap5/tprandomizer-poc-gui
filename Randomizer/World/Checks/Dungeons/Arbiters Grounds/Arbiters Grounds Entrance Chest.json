@@ -1,6 +1,8 @@
 {
     "requirements": "Shadow_Crystal or hasSword or canSmash",
-    "hash": "FC38",
-    "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key"],
+    "arcFileName": "D_MN10/R00_00.arc",
+    "offset": "0x6337C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key", "ARC"],
     "itemId": "Arbiters_Grounds_Small_Key"
 }

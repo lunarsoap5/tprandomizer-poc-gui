@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "hash": "1F95",
-    "category": ["Chest", "Dungeon", "Arbiters Grounds"],
+    "arcFileName": "D_MN10/R02_00.arc",
+    "offset": "0x6F59C",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],
     "itemId": "Piece_of_Heart"
 }
