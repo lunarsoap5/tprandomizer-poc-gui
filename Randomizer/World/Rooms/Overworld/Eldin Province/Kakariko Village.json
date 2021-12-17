@@ -1,5 +1,4 @@
 { 
-    "name": "Kakariko Village",
     "neighbours": 
     [
         "Kakariko Gorge", 
@@ -14,7 +13,6 @@
         "true",
         "hasBombs and Iron_Boots"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Kakariko Inn Chest",
@@ -36,6 +34,5 @@
         "Kakariko Village Bomb Shop Poe",
         "Kakariko Village Watchtower Poe"
     ],
-    "visited": "false",
     "region": "Eldin Province"
 }

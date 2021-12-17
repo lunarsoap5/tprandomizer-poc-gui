@@ -1,5 +1,4 @@
 { 
-    "name": "Grotto 1 3",
     "neighbours": 
     [
         "Lanayru Field"
@@ -8,12 +7,10 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
-        "Lanayru Field Grotto Left Poe",
-        "Lanayru Field Grotto Right Poe"
+        "Lanayru Field Poe Grotto Left Poe",
+        "Lanayru Field Poe Grotto Right Poe"
     ], 
-    "visited": "false",
     "region": "Hyrule Field"
 }

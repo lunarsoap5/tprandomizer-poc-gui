@@ -1,5 +1,4 @@
 {
-    "name": "Faron Mist Area",
     "neighbours": 
     [
         "South Faron Woods Cave", 
@@ -12,7 +11,6 @@
         "Lantern",
         "North_Faron_Woods_Gate_Key and (Lantern or Shadow_Crystal)"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Faron Mist Stump Chest",
@@ -22,6 +20,5 @@
         "Faron Mist Poe"
 
     ],
-    "visited": "false",
     "region": "Faron Woods"
 }

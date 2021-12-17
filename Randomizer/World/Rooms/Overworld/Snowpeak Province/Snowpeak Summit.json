@@ -1,5 +1,4 @@
 { 
-    "name": "Snowpeak Summit",
     "neighbours": 
     [
         "Snowpeak Climb", 
@@ -10,7 +9,6 @@
         "Shadow_Crystal",
         "canDefeatShadowBeast"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Snowpeak Cave Ice Lantern Chest",
@@ -18,6 +16,5 @@
         "Snowpeak Cave Ice Poe",
         "Snowpeak Icy Summit Poe"
     ],
-    "visited": "false",
     "region": "Snowpeak Province"
 }

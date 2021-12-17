@@ -1,5 +1,4 @@
 { 
-    "name": "Zoras Domain",
     "neighbours": 
     [
         "Lanayru Field", 
@@ -10,7 +9,6 @@
         "true",
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Zoras Domain Chest By Mother and Child Isles",
@@ -27,6 +25,5 @@
         "Zoras Domain Mother and Child Isle Poe",
         "Zoras Domain Waterfall Poe"
      ],
-    "visited": "false",
     "region": "Lanayru Province"
 }

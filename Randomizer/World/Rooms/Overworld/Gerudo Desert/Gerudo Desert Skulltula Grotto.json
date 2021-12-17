@@ -1,5 +1,4 @@
 { 
-    "name": "Grotto 4 1",
     "neighbours": 
     [
         "Gerudo Desert"
@@ -8,11 +7,9 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Gerudo Desert Skulltula Grotto Chest"
     ],
-    "visited": "false",
     "region": "Gerudo Desert"
 }

@@ -1,5 +1,4 @@
 {
-    "name": "Lake Hylia Long Cave",
     "neighbours": 
     [
         "Lake Hylia"
@@ -8,7 +7,6 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Lake Lantern Cave First Chest",
@@ -31,6 +29,5 @@
         "Lake Lantern Cave Second Poe"
 
     ],
-    "visited": "false",
     "region": "Lanayru Province"
 }

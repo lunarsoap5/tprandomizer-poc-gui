@@ -1,5 +1,4 @@
 { 
-    "name": "Castle Town",
     "neighbours": 
     [
         "Outside Castle Town West", 
@@ -14,7 +13,6 @@
         "true",
         "((Setting.castleRequirements equals Open) or ((Setting.castleRequirements equals Vanilla) and canCompletePalaceofTwilight) or ((Setting.castleRequirements equals Fused_Shadows) and (Progressive_Fused_Shadow, 3)) or ((Setting.castleRequirements equals Mirror_Shards) and (Progressive_Mirror_Shard, 4)) or ((Setting.castleRequirements equals All_Dungeons) and canCompleteAllDungeons) or ((Setting.castleRequirements equals Random_Dungeons) and randomDungeonsCompleted)) and (canCompleteLakebedTemple or (Setting.mdhSkipped equals True))"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Doctors Office Balcony Chest",
@@ -49,6 +47,5 @@
         "East Castle Town Bridge Poe",
         "Jovani House Poe"
     ],
-    "visited": "false",
     "region": "Castle Town"
 }

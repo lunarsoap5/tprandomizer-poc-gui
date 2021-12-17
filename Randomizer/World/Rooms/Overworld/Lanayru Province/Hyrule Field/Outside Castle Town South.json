@@ -1,10 +1,9 @@
 { 
-    "name": "Outside Castle Town South",
     "neighbours": 
     [
         "Castle Town", 
         "Faron Field", 
-        "Grotto 5 0", 
+        "Outside South Castle Town Tetike Grotto", 
         "Lake Hylia"
     ],
     "neighbourRequirements": 
@@ -14,7 +13,6 @@
         "Shadow_Crystal",
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Outside South Castle Town Tightrope Chest",
@@ -25,6 +23,5 @@
         "Outside South Castle Town Female Ladybug",
         "Outside South Castle Town Poe"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }

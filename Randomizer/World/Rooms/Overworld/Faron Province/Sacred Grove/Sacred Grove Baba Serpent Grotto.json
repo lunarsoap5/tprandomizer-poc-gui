@@ -1,5 +1,4 @@
 { 
-    "name": "Grotto 2 2",
     "neighbours": 
     [
         "Sacred Grove Master Sword"
@@ -8,11 +7,9 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Sacred Grove Baba Serpent Grotto Chest"
     ],
-    "visited": "false",
     "region": "Sacred Grove"
 }

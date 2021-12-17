@@ -1,12 +1,11 @@
 { 
-    "name": "Lake Hylia Bridge",
     "neighbours": 
     [
         "Faron Field", 
         "Lake Hylia", 
         "Lanayru Field", 
         "Outside Castle Town West", 
-        "Grotto 4 0"
+        "Lake Hylia Bridge Bubble Grotto"
     ],
     "neighbourRequirements": 
     [
@@ -16,7 +15,6 @@
         "true",
         "Shadow_Crystal and canLaunchBombs and (Progressive_Clawshot, 1)"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Lake Hylia Bridge Vines Chest",
@@ -27,6 +25,5 @@
         "Lake Hylia Bridge Female Mantis",
         "Lake Hylia Bridge Cliff Poe"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }

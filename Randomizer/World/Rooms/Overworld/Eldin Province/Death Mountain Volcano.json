@@ -1,5 +1,4 @@
 { 
-    "name": "Death Mountain Volcano",
     "neighbours": 
     [
         "Death Mountain Trail", 
@@ -10,8 +9,6 @@
         "true",
         "Iron_Boots and canDefeatGoron"
     ],
-    "isStartingRoom": "false",
     "checks": [""], 
-    "visited": "false",
     "region": "Eldin Province"
 }

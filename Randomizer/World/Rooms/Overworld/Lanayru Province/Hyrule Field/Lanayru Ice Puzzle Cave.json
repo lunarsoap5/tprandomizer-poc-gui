@@ -1,5 +1,4 @@
 { 
-    "name": "Lanayru Ice Puzzle Cave",
     "neighbours": 
     [
         "Lanayru Field"
@@ -8,11 +7,9 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Lanayru Ice Block Puzzle Cave Chest"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }

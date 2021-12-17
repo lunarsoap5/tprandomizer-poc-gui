@@ -1,5 +1,4 @@
 { 
-    "name": "Grotto 4 2",
     "neighbours": 
     [
         "Snowpeak Climb"
@@ -8,11 +7,9 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Snowpeak Freezard Grotto Chest"
     ],
-    "visited": "false",
     "region": "Snowpeak Province"
 }

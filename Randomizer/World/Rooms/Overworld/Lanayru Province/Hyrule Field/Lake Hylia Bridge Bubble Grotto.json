@@ -1,5 +1,4 @@
 { 
-    "name": "Grotto 4 0",
     "neighbours": 
     [
         "Lake Hylia Bridge"
@@ -8,11 +7,9 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Lake Hylia Bridge Bubble Grotto Chest"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }

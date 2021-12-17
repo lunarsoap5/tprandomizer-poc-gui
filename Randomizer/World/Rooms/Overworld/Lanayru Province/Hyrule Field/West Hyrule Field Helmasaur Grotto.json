@@ -1,5 +1,4 @@
 { 
-    "name": "Grotto 1 0",
     "neighbours": 
     [
         "Outside Castle Town West"
@@ -8,11 +7,9 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "West Hyrule Field Helmasaur Grotto Chest"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }

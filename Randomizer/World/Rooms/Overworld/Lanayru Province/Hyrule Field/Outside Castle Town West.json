@@ -1,11 +1,10 @@
 {
-    "name": "Outside Castle Town West",
     "neighbours": 
     [
         "Lake Hylia Bridge", 
         "Lanayru Field", 
         "Castle Town", 
-        "Grotto 1 0"
+        "West Hyrule Field Helmasaur Grotto"
     ],
     "neighbourRequirements": 
     [
@@ -14,7 +13,6 @@
         "true",
         "Shadow_Crystal and (Progressive_Clawshot, 1)"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Hyrule Field Ampitheater Owl Statue Chest",
@@ -23,6 +21,5 @@
         "West Hyrule Field Female Butterfly",
         "Hyrule Field Ampitheater Poe"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }

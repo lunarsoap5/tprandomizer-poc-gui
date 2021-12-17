@@ -1,10 +1,9 @@
 { 
-    "name": "Sacred Grove Master Sword",
     "neighbours": 
     [
         "Lost Woods", 
         "Sacred Grove Temple of Time", 
-        "Grotto 2 2"
+        "Sacred Grove Baba Serpent Grotto"
     ],
     "neighbourRequirements": 
     [
@@ -12,13 +11,11 @@
         "canDefeatShadowBeast and (Progressive_Sword, 3)",
         "canSmash and Shadow_Crystal"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Sacred Grove Spinner Chest",
         "Sacred Grove Male Snail",
         "Sacred Grove Master Sword Poe"
     ],
-    "visited": "false",
     "region": "Sacred Grove"
 }

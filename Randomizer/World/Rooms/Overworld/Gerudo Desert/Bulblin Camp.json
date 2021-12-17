@@ -9,7 +9,6 @@
         "true",
         "canDefeatKingBulblinDesert"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Bulblin Camp First Chest Under Tower At Entrance",
@@ -18,6 +17,5 @@
         "Bulblin Camp Poe",
         "Bulblin Guard Key"
     ],
-    "visited": "false",
     "region": "Gerudo Desert"
 }

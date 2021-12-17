@@ -1,11 +1,10 @@
 {
-    "name": "Lake Hylia",
     "neighbours": 
     [
         "Gerudo Desert", 
         "Lake Hylia Long Cave", 
-        "Grotto 5 2", 
-        "Grotto 5 4", 
+        "Lake Hylia Water Toadpoli Grotto", 
+        "Lake Hylia Shell Blade Grotto", 
         "Lakebed Temple Entrance", 
         "City in The Sky Entrance", 
         "Lake Hylia Bridge", 
@@ -22,7 +21,6 @@
         "true",
         "Shadow_Crystal"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Lake Hylia Underwater Chest",
@@ -49,6 +47,5 @@
         "Lake Hylia Dock Poe",
         "Lake Hylia Tower Poe"
      ],
-    "visited": "false",
     "region": "Lanayru Province"
 }

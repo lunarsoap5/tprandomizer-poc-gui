@@ -1,18 +1,15 @@
 {
-    "name": "Grotto 1 2",
     "neighbours": 
     [
         "Ordon Province"
     ],
     "neighbourRequirements": 
     [
-        "(true)"
+        "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Ordon Ranch Grotto Lantern Chest"
     ],
-    "visited": "false",
     "region": "Ordonia Province"
 }

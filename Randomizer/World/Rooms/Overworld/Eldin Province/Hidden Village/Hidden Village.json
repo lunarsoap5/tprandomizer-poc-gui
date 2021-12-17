@@ -1,5 +1,4 @@
 {
-    "name": "Hidden Village",
     "neighbours": 
     [
         "Lanayru Field"
@@ -8,13 +7,11 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Cats Hide and Seek Minigame",
         "Ilia Charm",
         "Hidden Village Poe"
     ],
-    "visited": "false",
     "region": "Hidden Village"
 }

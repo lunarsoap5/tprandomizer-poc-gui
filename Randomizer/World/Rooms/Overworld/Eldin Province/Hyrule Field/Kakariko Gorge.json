@@ -1,5 +1,4 @@
 { 
-    "name": "Kakariko Gorge",
     "neighbours": 
     [
         "Eldin Field", 
@@ -14,7 +13,6 @@
         "true",
         "canSmash"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Kakariko Gorge Owl Statue Chest",
@@ -25,6 +23,5 @@
         "Kakariko Gorge Female Pill Bug",
         "Kakariko Gorge Poe"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }

@@ -1,5 +1,4 @@
 {
-    "name": "Sacred Grove Temple of Time",
     "neighbours": 
     [
         "Sacred Grove Master Sword", 
@@ -10,13 +9,11 @@
         "true",
         "(Progressive_Sword, 3)"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Sacred Grove Past Owl Statue Chest",
         "Sacred Grove Female Snail",
         "Sacred Grove Temple of Time Owl Statue Poe"
     ],
-    "visited": "false",
     "region": "Sacred Grove"
 }

@@ -1,5 +1,4 @@
 {
-    "name": "Eldin Field",
     "neighbours": 
     [
         "Kakariko Gorge", 
@@ -7,8 +6,8 @@
         "Goron Stockcave", 
         "Castle Town", 
         "Lanayru Field", 
-        "Grotto 5 3", 
-        "Grotto 1 1"
+        "Eldin Field Water Bomb Fish Grotto", 
+        "Eldin Field Bomskit Grotto"
     ],
     "neighbourRequirements": 
     [
@@ -20,7 +19,6 @@
         "Shadow_Crystal",
         "Shadow_Crystal"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Eldin Field Bomb Rock Chest",
@@ -32,6 +30,5 @@
         "Bridge of Eldin Male Phasmid",
         "Bridge of Eldin Female Phasmid"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }

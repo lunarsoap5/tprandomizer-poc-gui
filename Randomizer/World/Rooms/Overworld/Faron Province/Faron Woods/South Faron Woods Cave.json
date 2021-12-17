@@ -1,5 +1,4 @@
 {
-    "name": "South Faron Woods Cave",
     "neighbours": 
     [
         "South Faron Woods", 
@@ -10,11 +9,9 @@
         "true",
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "South Faron Cave Chest"
     ],
-    "visited": "false",
     "region": "Faron Woods"
 }

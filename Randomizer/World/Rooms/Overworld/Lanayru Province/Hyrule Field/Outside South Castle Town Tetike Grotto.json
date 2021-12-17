@@ -1,5 +1,4 @@
 { 
-    "name": "Grotto 5 0",
     "neighbours": 
     [
         "Outside Castle Town South"
@@ -8,11 +7,9 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Outside South Castle Town Tetike Grotto Chest"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }

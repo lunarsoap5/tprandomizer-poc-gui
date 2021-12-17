@@ -1,5 +1,4 @@
 { 
-    "name": "Grotto 2 1",
     "neighbours": 
     [
         "Faron Field"
@@ -8,13 +7,11 @@
     [
         "true"
     ],
-    "isStartingRoom": "false",
     "checks": 
     [
         "Faron Field Corner Grotto Right Chest",
         "Faron Field Corner Grotto Left Chest",
         "Faron Field Corner Grotto Rear Chest"
     ],
-    "visited": "false",
     "region": "Hyrule Field"
 }
