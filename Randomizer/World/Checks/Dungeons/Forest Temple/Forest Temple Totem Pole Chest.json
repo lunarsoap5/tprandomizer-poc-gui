@@ -1,6 +1,8 @@
 {
     "requirements": "canDefeatBombling",
-    "hash": "F837",
-    "category": ["Chest", "Dungeon", "Forest Temple", "Small Key"],
+    "arcFileName": "D_MN05/R05_00.arc",
+    "offset": "0x79914",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Forest Temple", "Small Key", "ARC"],
     "itemId": "Forest_Temple_Small_Key"
 }

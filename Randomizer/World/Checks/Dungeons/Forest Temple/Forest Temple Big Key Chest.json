@@ -1,6 +1,8 @@
 {
     "requirements": "(canDefeatBombling or canBurnWebs) and Boomerang",
-    "hash": "2C4F",
-    "category": ["Chest", "Dungeon", "Forest Temple", "Big Key"],
+    "arcFileName": "D_MN05/R01_00.arc",
+    "offset": "0x7ED74",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "Forest Temple", "Big Key", "ARC"],
     "itemId": "Forest_Temple_Big_Key"
 }

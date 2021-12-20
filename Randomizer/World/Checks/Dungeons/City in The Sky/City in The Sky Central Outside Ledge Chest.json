@@ -1,6 +1,8 @@
 {
     "requirements": "canDefeatDinalfos and canDefeatWalltula and canDefeatKargarok and Shadow_Crystal",
-    "hash": "6441",
-    "category": ["Chest", "Dungeon", "City in The Sky"],
+    "arcFileName": "D_MN07/R13_00.arc",
+    "offset": "0x98458",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "City in The Sky", "ARC"],
     "itemId": "Red_Rupee"
 }

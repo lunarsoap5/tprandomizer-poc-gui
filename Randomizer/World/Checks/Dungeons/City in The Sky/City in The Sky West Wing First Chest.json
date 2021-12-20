@@ -1,6 +1,8 @@
 {
     "requirements": "true",
-    "hash": "18B6",
-    "category": ["Chest", "Dungeon", "City in The Sky", "Small Key"],
+    "arcFileName": "D_MN07/R10_00.arc",
+    "offset": "0x80E38",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "City in The Sky", "Small Key", "ARC"],
     "itemId": "City_in_The_Sky_Small_Key"
 }

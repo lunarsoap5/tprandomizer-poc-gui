@@ -1,6 +1,8 @@
 {
     "requirements": "(Progressive_Clawshot, 2)",
-    "hash": "EAD5",
-    "category": ["Chest", "Dungeon", "City in The Sky"],
+    "arcFileName": "D_MN07/R12_00.arc",
+    "offset": "0x881BC",
+    "fileDirectoryType": 0,
+    "category": ["Chest", "Dungeon", "City in The Sky", "ARC"],
     "itemId": "Piece_of_Heart"
 }
