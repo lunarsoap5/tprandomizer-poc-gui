@@ -6,9 +6,10 @@ namespace TPRandomizer
     {
         public uint offset;
         uint arcFileIndex;
-        public byte item;
+        public uint replacementValue;
         public byte directory;
         public string fileName;
+        public byte replacementType;
     }
 
 }

@@ -36,5 +36,15 @@ namespace TPRandomizer
         public List<string> ExcludedChecks {get; set;}
         public int TunicColor {get; set;}
         public int MidnaHairColor {get; set;}
+        public int lanternColor {get; set;}
+        public int heartColor {get; set;}
+        public int aButtonColor {get; set;}
+        public int bButtonColor {get; set;}
+        public int xButtonColor {get; set;}
+        public int yButtonColor {get; set;}
+        public int zButtonColor {get; set;}
+        public bool shuffleBackgroundMusic {get; set;}
+        public bool shuffleItemFanfares {get; set;}
+        public bool disableEnemyBackgoundMusic {get; set;}
     }
 }

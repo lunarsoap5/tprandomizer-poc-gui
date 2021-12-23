@@ -43,6 +43,13 @@ namespace TPRandomizer
             foolishItemsComboBox.SelectedIndex = 0;
             tunicColorComboBox.SelectedIndex = 0;
             midnaHairColorComboBox.SelectedIndex = 0;
+            lanternColorComboBox.SelectedIndex = 0;
+            heartColorComboBox.SelectedIndex = 0;
+            aButtonComboBox.SelectedIndex = 0;
+            bButtonComboBox.SelectedIndex = 0;
+            xButtonComboBox.SelectedIndex = 0;
+            yButtonComboBox.SelectedIndex = 0;
+            zButtonComboBox.SelectedIndex = 0;
             logicRulesBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             castleLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             palaceLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
@@ -68,6 +75,18 @@ namespace TPRandomizer
             excludedChecksListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             listofChecksListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             itemPoolListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            tunicColorComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            midnaHairColorComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            lanternColorComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            heartColorComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            aButtonComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            bButtonComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            xButtonComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            yButtonComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            zButtonComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            bgmCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            fanfareCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            enemyBgmCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
 
             foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Checks/", "*",SearchOption.AllDirectories))
             {
@@ -121,6 +140,18 @@ namespace TPRandomizer
                 settings.introSkipped = skipIntroCheckBox.Checked;
                 settings.iceTrapSettings = foolishItemsComboBox.SelectedIndex;
                 settings.StartingItems = startingItemsListBox.Items.OfType<Item>().ToList();
+                settings.TunicColor = tunicColorComboBox.SelectedIndex;
+                settings.lanternColor = lanternColorComboBox.SelectedIndex;
+                settings.MidnaHairColor = midnaHairColorComboBox.SelectedIndex;
+                settings.heartColor = heartColorComboBox.SelectedIndex;
+                settings.aButtonColor = aButtonComboBox.SelectedIndex;
+                settings.bButtonColor = bButtonComboBox.SelectedIndex;
+                settings.xButtonColor = xButtonComboBox.SelectedIndex;
+                settings.yButtonColor = yButtonComboBox.SelectedIndex;
+                settings.zButtonColor = zButtonComboBox.SelectedIndex;
+                settings.shuffleBackgroundMusic = bgmCheckBox.Checked;
+                settings.shuffleItemFanfares = fanfareCheckBox.Checked;
+                settings.disableEnemyBackgoundMusic = enemyBgmCheckBox.Checked;
                 foreach (string startingItem in startingItemsListBox.Items)
                 {
                     string itemName = startingItem;
@@ -187,6 +218,18 @@ namespace TPRandomizer
             transformAnywhereCheckBox.Checked = settings.transformAnywhere;
             skipIntroCheckBox.Checked = settings.introSkipped;
             foolishItemsComboBox.SelectedIndex = settings.iceTrapSettings;
+            tunicColorComboBox.SelectedIndex = settings.TunicColor;
+            midnaHairColorComboBox.SelectedIndex = settings.MidnaHairColor;
+            lanternColorComboBox.SelectedIndex = settings.lanternColor;
+            heartColorComboBox.SelectedIndex = settings.heartColor;
+            aButtonComboBox.SelectedIndex = settings.aButtonColor;
+            bButtonComboBox.SelectedIndex = settings.bButtonColor;
+            xButtonComboBox.SelectedIndex = settings.xButtonColor;
+            yButtonComboBox.SelectedIndex = settings.yButtonColor;
+            zButtonComboBox.SelectedIndex = settings.zButtonColor;
+            bgmCheckBox.Checked = settings.shuffleBackgroundMusic;
+            fanfareCheckBox.Checked = settings.shuffleItemFanfares;
+            enemyBgmCheckBox.Checked = settings.disableEnemyBackgoundMusic;
             foreach (Item startingItem in settings.StartingItems)
             {
                 string itemName = startingItem.ToString();
@@ -779,6 +822,11 @@ namespace TPRandomizer
             dontrunhandler = true;
             updateInterface();
             dontrunhandler = false;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

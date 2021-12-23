@@ -84,15 +84,33 @@ namespace TPRandomizer
             this.itemPoolListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cosmeticsTabPage = new System.Windows.Forms.TabPage();
-            this.transformAnywhereCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.enemyBgmCheckBox = new System.Windows.Forms.CheckBox();
+            this.fanfareCheckBox = new System.Windows.Forms.CheckBox();
+            this.bgmCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.fastIronBootsCheckBox = new System.Windows.Forms.CheckBox();
             this.quickTransformCheckBox = new System.Windows.Forms.CheckBox();
-            this.midnaHairColorComboBox = new System.Windows.Forms.ComboBox();
-            this.midnaHairColorLabel = new System.Windows.Forms.Label();
+            this.transformAnywhereCheckBox = new System.Windows.Forms.CheckBox();
+            this.cosmeticsGroupBox = new System.Windows.Forms.GroupBox();
+            this.zButtonComboBox = new System.Windows.Forms.ComboBox();
+            this.zButtonLabel = new System.Windows.Forms.Label();
+            this.yButtonComboBox = new System.Windows.Forms.ComboBox();
+            this.yButtonLabel = new System.Windows.Forms.Label();
+            this.xButtonComboBox = new System.Windows.Forms.ComboBox();
+            this.xButtonLabel = new System.Windows.Forms.Label();
+            this.bButtonComboBox = new System.Windows.Forms.ComboBox();
+            this.bButtonLabel = new System.Windows.Forms.Label();
+            this.aButtonComboBox = new System.Windows.Forms.ComboBox();
+            this.aButtonLabel = new System.Windows.Forms.Label();
+            this.heartColorComboBox = new System.Windows.Forms.ComboBox();
+            this.tunicColorComboBox = new System.Windows.Forms.ComboBox();
+            this.heartColorLabel = new System.Windows.Forms.Label();
+            this.tunicColorLabel = new System.Windows.Forms.Label();
             this.lanternColorComboBox = new System.Windows.Forms.ComboBox();
             this.lanternColorLabel = new System.Windows.Forms.Label();
-            this.tunicColorComboBox = new System.Windows.Forms.ComboBox();
-            this.fastIronBootsCheckBox = new System.Windows.Forms.CheckBox();
-            this.tunicColorLabel = new System.Windows.Forms.Label();
+            this.midnaHairColorLabel = new System.Windows.Forms.Label();
+            this.midnaHairColorComboBox = new System.Windows.Forms.ComboBox();
             this.generateButton = new System.Windows.Forms.Button();
             this.generateSpoilerLogCheckBox = new System.Windows.Forms.CheckBox();
             this.settingPresetsLabel = new System.Windows.Forms.Label();
@@ -128,6 +146,9 @@ namespace TPRandomizer
             this.excludedChecksTabPage.SuspendLayout();
             this.inventoryTabPage.SuspendLayout();
             this.cosmeticsTabPage.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.cosmeticsGroupBox.SuspendLayout();
             this.MainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -228,7 +249,7 @@ namespace TPRandomizer
             "Extra",
             "Mayhem",
             "Nightmare"});
-            this.foolishItemsComboBox.Location = new System.Drawing.Point(99, 125);
+            this.foolishItemsComboBox.Location = new System.Drawing.Point(99, 127);
             this.foolishItemsComboBox.Name = "foolishItemsComboBox";
             this.foolishItemsComboBox.Size = new System.Drawing.Size(121, 23);
             this.foolishItemsComboBox.TabIndex = 5;
@@ -236,7 +257,7 @@ namespace TPRandomizer
             // foolishItemsLabel
             // 
             this.foolishItemsLabel.AutoSize = true;
-            this.foolishItemsLabel.Location = new System.Drawing.Point(13, 128);
+            this.foolishItemsLabel.Location = new System.Drawing.Point(11, 130);
             this.foolishItemsLabel.Name = "foolishItemsLabel";
             this.foolishItemsLabel.Size = new System.Drawing.Size(80, 15);
             this.foolishItemsLabel.TabIndex = 4;
@@ -717,15 +738,9 @@ namespace TPRandomizer
             // 
             // cosmeticsTabPage
             // 
-            this.cosmeticsTabPage.Controls.Add(this.transformAnywhereCheckBox);
-            this.cosmeticsTabPage.Controls.Add(this.quickTransformCheckBox);
-            this.cosmeticsTabPage.Controls.Add(this.midnaHairColorComboBox);
-            this.cosmeticsTabPage.Controls.Add(this.midnaHairColorLabel);
-            this.cosmeticsTabPage.Controls.Add(this.lanternColorComboBox);
-            this.cosmeticsTabPage.Controls.Add(this.lanternColorLabel);
-            this.cosmeticsTabPage.Controls.Add(this.tunicColorComboBox);
-            this.cosmeticsTabPage.Controls.Add(this.fastIronBootsCheckBox);
-            this.cosmeticsTabPage.Controls.Add(this.tunicColorLabel);
+            this.cosmeticsTabPage.Controls.Add(this.groupBox2);
+            this.cosmeticsTabPage.Controls.Add(this.groupBox1);
+            this.cosmeticsTabPage.Controls.Add(this.cosmeticsGroupBox);
             this.cosmeticsTabPage.Location = new System.Drawing.Point(4, 24);
             this.cosmeticsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cosmeticsTabPage.Name = "cosmeticsTabPage";
@@ -735,66 +750,288 @@ namespace TPRandomizer
             this.cosmeticsTabPage.Text = "Cosmetics and Quirks";
             this.cosmeticsTabPage.UseVisualStyleBackColor = true;
             // 
-            // transformAnywhereCheckBox
+            // groupBox2
             // 
-            this.transformAnywhereCheckBox.AutoSize = true;
-            this.transformAnywhereCheckBox.Location = new System.Drawing.Point(4, 170);
-            this.transformAnywhereCheckBox.Name = "transformAnywhereCheckBox";
-            this.transformAnywhereCheckBox.Size = new System.Drawing.Size(135, 19);
-            this.transformAnywhereCheckBox.TabIndex = 8;
-            this.transformAnywhereCheckBox.Text = "Transform Anywhere";
-            this.transformAnywhereCheckBox.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.enemyBgmCheckBox);
+            this.groupBox2.Controls.Add(this.fanfareCheckBox);
+            this.groupBox2.Controls.Add(this.bgmCheckBox);
+            this.groupBox2.Location = new System.Drawing.Point(4, 185);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(417, 135);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Music and SFX";
+            // 
+            // enemyBgmCheckBox
+            // 
+            this.enemyBgmCheckBox.AutoSize = true;
+            this.enemyBgmCheckBox.Location = new System.Drawing.Point(6, 79);
+            this.enemyBgmCheckBox.Name = "enemyBgmCheckBox";
+            this.enemyBgmCheckBox.Size = new System.Drawing.Size(206, 19);
+            this.enemyBgmCheckBox.TabIndex = 2;
+            this.enemyBgmCheckBox.Text = "Disable Enemy Backgound Music?";
+            this.enemyBgmCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // fanfareCheckBox
+            // 
+            this.fanfareCheckBox.AutoSize = true;
+            this.fanfareCheckBox.Location = new System.Drawing.Point(6, 54);
+            this.fanfareCheckBox.Name = "fanfareCheckBox";
+            this.fanfareCheckBox.Size = new System.Drawing.Size(137, 19);
+            this.fanfareCheckBox.TabIndex = 1;
+            this.fanfareCheckBox.Text = "Randomize Fanfares?";
+            this.fanfareCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // bgmCheckBox
+            // 
+            this.bgmCheckBox.AutoSize = true;
+            this.bgmCheckBox.Location = new System.Drawing.Point(6, 30);
+            this.bgmCheckBox.Name = "bgmCheckBox";
+            this.bgmCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bgmCheckBox.Size = new System.Drawing.Size(188, 19);
+            this.bgmCheckBox.TabIndex = 0;
+            this.bgmCheckBox.Text = "Randomize Backgound Music?";
+            this.bgmCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.fastIronBootsCheckBox);
+            this.groupBox1.Controls.Add(this.quickTransformCheckBox);
+            this.groupBox1.Controls.Add(this.transformAnywhereCheckBox);
+            this.groupBox1.Location = new System.Drawing.Point(4, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(417, 176);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Additional Settings";
+            // 
+            // fastIronBootsCheckBox
+            // 
+            this.fastIronBootsCheckBox.AutoSize = true;
+            this.fastIronBootsCheckBox.Location = new System.Drawing.Point(6, 22);
+            this.fastIronBootsCheckBox.Name = "fastIronBootsCheckBox";
+            this.fastIronBootsCheckBox.Size = new System.Drawing.Size(104, 19);
+            this.fastIronBootsCheckBox.TabIndex = 1;
+            this.fastIronBootsCheckBox.Text = "Fast Iron Boots";
+            this.fastIronBootsCheckBox.UseVisualStyleBackColor = true;
             // 
             // quickTransformCheckBox
             // 
             this.quickTransformCheckBox.AutoSize = true;
-            this.quickTransformCheckBox.Location = new System.Drawing.Point(4, 144);
+            this.quickTransformCheckBox.Location = new System.Drawing.Point(6, 47);
             this.quickTransformCheckBox.Name = "quickTransformCheckBox";
             this.quickTransformCheckBox.Size = new System.Drawing.Size(113, 19);
             this.quickTransformCheckBox.TabIndex = 7;
             this.quickTransformCheckBox.Text = "Quick Transform";
             this.quickTransformCheckBox.UseVisualStyleBackColor = true;
             // 
-            // midnaHairColorComboBox
+            // transformAnywhereCheckBox
             // 
-            this.midnaHairColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.midnaHairColorComboBox.FormattingEnabled = true;
-            this.midnaHairColorComboBox.Items.AddRange(new object[] {
+            this.transformAnywhereCheckBox.AutoSize = true;
+            this.transformAnywhereCheckBox.Location = new System.Drawing.Point(6, 72);
+            this.transformAnywhereCheckBox.Name = "transformAnywhereCheckBox";
+            this.transformAnywhereCheckBox.Size = new System.Drawing.Size(135, 19);
+            this.transformAnywhereCheckBox.TabIndex = 8;
+            this.transformAnywhereCheckBox.Text = "Transform Anywhere";
+            this.transformAnywhereCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // cosmeticsGroupBox
+            // 
+            this.cosmeticsGroupBox.Controls.Add(this.zButtonComboBox);
+            this.cosmeticsGroupBox.Controls.Add(this.zButtonLabel);
+            this.cosmeticsGroupBox.Controls.Add(this.yButtonComboBox);
+            this.cosmeticsGroupBox.Controls.Add(this.yButtonLabel);
+            this.cosmeticsGroupBox.Controls.Add(this.xButtonComboBox);
+            this.cosmeticsGroupBox.Controls.Add(this.xButtonLabel);
+            this.cosmeticsGroupBox.Controls.Add(this.bButtonComboBox);
+            this.cosmeticsGroupBox.Controls.Add(this.bButtonLabel);
+            this.cosmeticsGroupBox.Controls.Add(this.aButtonComboBox);
+            this.cosmeticsGroupBox.Controls.Add(this.aButtonLabel);
+            this.cosmeticsGroupBox.Controls.Add(this.heartColorComboBox);
+            this.cosmeticsGroupBox.Controls.Add(this.tunicColorComboBox);
+            this.cosmeticsGroupBox.Controls.Add(this.heartColorLabel);
+            this.cosmeticsGroupBox.Controls.Add(this.tunicColorLabel);
+            this.cosmeticsGroupBox.Controls.Add(this.lanternColorComboBox);
+            this.cosmeticsGroupBox.Controls.Add(this.lanternColorLabel);
+            this.cosmeticsGroupBox.Controls.Add(this.midnaHairColorLabel);
+            this.cosmeticsGroupBox.Controls.Add(this.midnaHairColorComboBox);
+            this.cosmeticsGroupBox.Location = new System.Drawing.Point(427, 5);
+            this.cosmeticsGroupBox.Name = "cosmeticsGroupBox";
+            this.cosmeticsGroupBox.Size = new System.Drawing.Size(238, 306);
+            this.cosmeticsGroupBox.TabIndex = 10;
+            this.cosmeticsGroupBox.TabStop = false;
+            this.cosmeticsGroupBox.Text = "Cosmetics";
+            // 
+            // zButtonComboBox
+            // 
+            this.zButtonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.zButtonComboBox.FormattingEnabled = true;
+            this.zButtonComboBox.Items.AddRange(new object[] {
             "Default",
-            "Red",
-            "Blue",
+            "Random",
+            "Orange",
+            "Yellow",
+            "Lime Green",
+            "Dark Green",
+            "Purple",
+            "Black",
+            "White",
             "Cyan"});
-            this.midnaHairColorComboBox.Location = new System.Drawing.Point(111, 80);
-            this.midnaHairColorComboBox.Name = "midnaHairColorComboBox";
-            this.midnaHairColorComboBox.Size = new System.Drawing.Size(121, 23);
-            this.midnaHairColorComboBox.TabIndex = 6;
+            this.zButtonComboBox.Location = new System.Drawing.Point(109, 264);
+            this.zButtonComboBox.Name = "zButtonComboBox";
+            this.zButtonComboBox.Size = new System.Drawing.Size(121, 23);
+            this.zButtonComboBox.TabIndex = 20;
             // 
-            // midnaHairColorLabel
+            // zButtonLabel
             // 
-            this.midnaHairColorLabel.AutoSize = true;
-            this.midnaHairColorLabel.Location = new System.Drawing.Point(4, 83);
-            this.midnaHairColorLabel.Name = "midnaHairColorLabel";
-            this.midnaHairColorLabel.Size = new System.Drawing.Size(101, 15);
-            this.midnaHairColorLabel.TabIndex = 5;
-            this.midnaHairColorLabel.Text = "Midna Hair Color:";
+            this.zButtonLabel.AutoSize = true;
+            this.zButtonLabel.Location = new System.Drawing.Point(6, 267);
+            this.zButtonLabel.Name = "zButtonLabel";
+            this.zButtonLabel.Size = new System.Drawing.Size(88, 15);
+            this.zButtonLabel.TabIndex = 19;
+            this.zButtonLabel.Text = "Z Button Color:";
             // 
-            // lanternColorComboBox
+            // yButtonComboBox
             // 
-            this.lanternColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.lanternColorComboBox.FormattingEnabled = true;
-            this.lanternColorComboBox.Location = new System.Drawing.Point(92, 45);
-            this.lanternColorComboBox.Name = "lanternColorComboBox";
-            this.lanternColorComboBox.Size = new System.Drawing.Size(121, 23);
-            this.lanternColorComboBox.TabIndex = 4;
+            this.yButtonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.yButtonComboBox.FormattingEnabled = true;
+            this.yButtonComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Random",
+            "Orange",
+            "Yellow",
+            "Lime Green",
+            "Dark Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "White",
+            "Cyan"});
+            this.yButtonComboBox.Location = new System.Drawing.Point(109, 235);
+            this.yButtonComboBox.Name = "yButtonComboBox";
+            this.yButtonComboBox.Size = new System.Drawing.Size(121, 23);
+            this.yButtonComboBox.TabIndex = 18;
             // 
-            // lanternColorLabel
+            // yButtonLabel
             // 
-            this.lanternColorLabel.AutoSize = true;
-            this.lanternColorLabel.Location = new System.Drawing.Point(4, 48);
-            this.lanternColorLabel.Name = "lanternColorLabel";
-            this.lanternColorLabel.Size = new System.Drawing.Size(82, 15);
-            this.lanternColorLabel.TabIndex = 3;
-            this.lanternColorLabel.Text = "Lantern Color:";
+            this.yButtonLabel.AutoSize = true;
+            this.yButtonLabel.Location = new System.Drawing.Point(6, 238);
+            this.yButtonLabel.Name = "yButtonLabel";
+            this.yButtonLabel.Size = new System.Drawing.Size(88, 15);
+            this.yButtonLabel.TabIndex = 17;
+            this.yButtonLabel.Text = "Y Button Color:";
+            // 
+            // xButtonComboBox
+            // 
+            this.xButtonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.xButtonComboBox.FormattingEnabled = true;
+            this.xButtonComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Random",
+            "Red",
+            "Orange",
+            "Yellow",
+            "Lime Green",
+            "Dark Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "White",
+            "Cyan"});
+            this.xButtonComboBox.Location = new System.Drawing.Point(109, 206);
+            this.xButtonComboBox.Name = "xButtonComboBox";
+            this.xButtonComboBox.Size = new System.Drawing.Size(121, 23);
+            this.xButtonComboBox.TabIndex = 16;
+            // 
+            // xButtonLabel
+            // 
+            this.xButtonLabel.AutoSize = true;
+            this.xButtonLabel.Location = new System.Drawing.Point(6, 209);
+            this.xButtonLabel.Name = "xButtonLabel";
+            this.xButtonLabel.Size = new System.Drawing.Size(88, 15);
+            this.xButtonLabel.TabIndex = 15;
+            this.xButtonLabel.Text = "X Button Color:";
+            // 
+            // bButtonComboBox
+            // 
+            this.bButtonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bButtonComboBox.FormattingEnabled = true;
+            this.bButtonComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Random",
+            "Orange",
+            "Yellow",
+            "Lime Green",
+            "Dark Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "White",
+            "Cyan"});
+            this.bButtonComboBox.Location = new System.Drawing.Point(109, 177);
+            this.bButtonComboBox.Name = "bButtonComboBox";
+            this.bButtonComboBox.Size = new System.Drawing.Size(121, 23);
+            this.bButtonComboBox.TabIndex = 14;
+            // 
+            // bButtonLabel
+            // 
+            this.bButtonLabel.AutoSize = true;
+            this.bButtonLabel.Location = new System.Drawing.Point(6, 180);
+            this.bButtonLabel.Name = "bButtonLabel";
+            this.bButtonLabel.Size = new System.Drawing.Size(85, 15);
+            this.bButtonLabel.TabIndex = 13;
+            this.bButtonLabel.Text = "B ButtonColor:";
+            // 
+            // aButtonComboBox
+            // 
+            this.aButtonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.aButtonComboBox.FormattingEnabled = true;
+            this.aButtonComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Random",
+            "Red",
+            "Orange",
+            "Yellow",
+            "Dark Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "White",
+            "Cyan"});
+            this.aButtonComboBox.Location = new System.Drawing.Point(109, 148);
+            this.aButtonComboBox.Name = "aButtonComboBox";
+            this.aButtonComboBox.Size = new System.Drawing.Size(121, 23);
+            this.aButtonComboBox.TabIndex = 12;
+            // 
+            // aButtonLabel
+            // 
+            this.aButtonLabel.AutoSize = true;
+            this.aButtonLabel.Location = new System.Drawing.Point(6, 151);
+            this.aButtonLabel.Name = "aButtonLabel";
+            this.aButtonLabel.Size = new System.Drawing.Size(89, 15);
+            this.aButtonLabel.TabIndex = 11;
+            this.aButtonLabel.Text = "A Button Color:";
+            // 
+            // heartColorComboBox
+            // 
+            this.heartColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.heartColorComboBox.FormattingEnabled = true;
+            this.heartColorComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Random",
+            "Rainbow",
+            "Orange",
+            "Yellow",
+            "Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "White",
+            "Cyan"});
+            this.heartColorComboBox.Location = new System.Drawing.Point(109, 119);
+            this.heartColorComboBox.Name = "heartColorComboBox";
+            this.heartColorComboBox.Size = new System.Drawing.Size(121, 23);
+            this.heartColorComboBox.TabIndex = 10;
             // 
             // tunicColorComboBox
             // 
@@ -812,29 +1049,81 @@ namespace TPRandomizer
             "White",
             "Random",
             "Custom"});
-            this.tunicColorComboBox.Location = new System.Drawing.Point(81, 14);
+            this.tunicColorComboBox.Location = new System.Drawing.Point(109, 32);
             this.tunicColorComboBox.Name = "tunicColorComboBox";
             this.tunicColorComboBox.Size = new System.Drawing.Size(121, 23);
             this.tunicColorComboBox.TabIndex = 2;
             // 
-            // fastIronBootsCheckBox
+            // heartColorLabel
             // 
-            this.fastIronBootsCheckBox.AutoSize = true;
-            this.fastIronBootsCheckBox.Location = new System.Drawing.Point(4, 118);
-            this.fastIronBootsCheckBox.Name = "fastIronBootsCheckBox";
-            this.fastIronBootsCheckBox.Size = new System.Drawing.Size(104, 19);
-            this.fastIronBootsCheckBox.TabIndex = 1;
-            this.fastIronBootsCheckBox.Text = "Fast Iron Boots";
-            this.fastIronBootsCheckBox.UseVisualStyleBackColor = true;
+            this.heartColorLabel.AutoSize = true;
+            this.heartColorLabel.Location = new System.Drawing.Point(6, 122);
+            this.heartColorLabel.Name = "heartColorLabel";
+            this.heartColorLabel.Size = new System.Drawing.Size(71, 15);
+            this.heartColorLabel.TabIndex = 9;
+            this.heartColorLabel.Text = "Heart Color:";
             // 
             // tunicColorLabel
             // 
             this.tunicColorLabel.AutoSize = true;
-            this.tunicColorLabel.Location = new System.Drawing.Point(4, 17);
+            this.tunicColorLabel.Location = new System.Drawing.Point(6, 35);
             this.tunicColorLabel.Name = "tunicColorLabel";
             this.tunicColorLabel.Size = new System.Drawing.Size(71, 15);
             this.tunicColorLabel.TabIndex = 0;
             this.tunicColorLabel.Text = "Tunic Color:";
+            // 
+            // lanternColorComboBox
+            // 
+            this.lanternColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.lanternColorComboBox.FormattingEnabled = true;
+            this.lanternColorComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Random",
+            "Orange",
+            "Yellow",
+            "Lime Green",
+            "Dark Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "White",
+            "Cyan"});
+            this.lanternColorComboBox.Location = new System.Drawing.Point(109, 61);
+            this.lanternColorComboBox.Name = "lanternColorComboBox";
+            this.lanternColorComboBox.Size = new System.Drawing.Size(121, 23);
+            this.lanternColorComboBox.TabIndex = 4;
+            // 
+            // lanternColorLabel
+            // 
+            this.lanternColorLabel.AutoSize = true;
+            this.lanternColorLabel.Location = new System.Drawing.Point(6, 65);
+            this.lanternColorLabel.Name = "lanternColorLabel";
+            this.lanternColorLabel.Size = new System.Drawing.Size(82, 15);
+            this.lanternColorLabel.TabIndex = 3;
+            this.lanternColorLabel.Text = "Lantern Color:";
+            // 
+            // midnaHairColorLabel
+            // 
+            this.midnaHairColorLabel.AutoSize = true;
+            this.midnaHairColorLabel.Location = new System.Drawing.Point(6, 93);
+            this.midnaHairColorLabel.Name = "midnaHairColorLabel";
+            this.midnaHairColorLabel.Size = new System.Drawing.Size(101, 15);
+            this.midnaHairColorLabel.TabIndex = 5;
+            this.midnaHairColorLabel.Text = "Midna Hair Color:";
+            // 
+            // midnaHairColorComboBox
+            // 
+            this.midnaHairColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.midnaHairColorComboBox.FormattingEnabled = true;
+            this.midnaHairColorComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Red",
+            "Blue",
+            "Cyan"});
+            this.midnaHairColorComboBox.Location = new System.Drawing.Point(109, 90);
+            this.midnaHairColorComboBox.Name = "midnaHairColorComboBox";
+            this.midnaHairColorComboBox.Size = new System.Drawing.Size(121, 23);
+            this.midnaHairColorComboBox.TabIndex = 6;
             // 
             // generateButton
             // 
@@ -1057,7 +1346,12 @@ namespace TPRandomizer
             this.inventoryTabPage.ResumeLayout(false);
             this.inventoryTabPage.PerformLayout();
             this.cosmeticsTabPage.ResumeLayout(false);
-            this.cosmeticsTabPage.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.cosmeticsGroupBox.ResumeLayout(false);
+            this.cosmeticsGroupBox.PerformLayout();
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -1070,7 +1364,6 @@ namespace TPRandomizer
         private System.Windows.Forms.TabPage randomizationSettingsTabPage;
         private System.Windows.Forms.TabPage gameplaySettingsTabPage;
         private System.Windows.Forms.Button generateButton;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabPage excludedChecksTabPage;
         private System.Windows.Forms.TabPage inventoryTabPage;
         private System.Windows.Forms.GroupBox clearedTwilightsGroupBox;
@@ -1154,6 +1447,24 @@ namespace TPRandomizer
         private System.Windows.Forms.TextBox settingsStringTextbox;
         private System.Windows.Forms.Button importButton;
         private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox enemyBgmCheckBox;
+        private System.Windows.Forms.CheckBox fanfareCheckBox;
+        private System.Windows.Forms.CheckBox bgmCheckBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox cosmeticsGroupBox;
+        private System.Windows.Forms.ComboBox zButtonComboBox;
+        private System.Windows.Forms.Label zButtonLabel;
+        private System.Windows.Forms.ComboBox yButtonComboBox;
+        private System.Windows.Forms.Label yButtonLabel;
+        private System.Windows.Forms.ComboBox xButtonComboBox;
+        private System.Windows.Forms.Label xButtonLabel;
+        private System.Windows.Forms.ComboBox bButtonComboBox;
+        private System.Windows.Forms.Label bButtonLabel;
+        private System.Windows.Forms.ComboBox aButtonComboBox;
+        private System.Windows.Forms.Label aButtonLabel;
+        private System.Windows.Forms.ComboBox heartColorComboBox;
+        private System.Windows.Forms.Label heartColorLabel;
     }
 }
 

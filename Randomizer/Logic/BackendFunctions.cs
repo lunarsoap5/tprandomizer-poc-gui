@@ -479,7 +479,7 @@ namespace TPRandomizer
                         ArcCheck currentArcCheck = new ArcCheck();
 
                         currentArcCheck.offset = uint.Parse(currentCheck.offset, System.Globalization.NumberStyles.HexNumber);
-                        currentArcCheck.item = (byte)currentCheck.itemId;
+                        currentArcCheck.replacementValue = (uint)currentCheck.itemId;
                         currentArcCheck.directory = currentCheck.fileDirectoryType;
                         currentArcCheck.fileName = currentCheck.arcFileName;
 
@@ -491,7 +491,7 @@ namespace TPRandomizer
             {
                 foreach (ArcCheck arcCheck in listOfArcChecks)
                 {
-                    file.WriteLine(arcCheck.offset + "," + arcCheck.item + "," + arcCheck.directory + "," + arcCheck.fileName);
+                    file.WriteLine(arcCheck.offset + "," + arcCheck.replacementValue + "," + arcCheck.directory + "," + arcCheck.fileName);
                 }
                 file.Close();
             }
