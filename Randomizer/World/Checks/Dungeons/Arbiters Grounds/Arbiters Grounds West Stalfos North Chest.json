@@ -3,6 +3,7 @@
     "arcFileName": "D_MN10/R07_00.arc",
     "offset": "30E0C",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],
     "itemId": "Bombs_5"
 }

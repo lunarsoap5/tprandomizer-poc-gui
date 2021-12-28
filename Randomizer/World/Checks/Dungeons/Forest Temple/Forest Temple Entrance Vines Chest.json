@@ -1,8 +1,9 @@
 {
     "requirements": "canDefeatWalltula",
     "arcFileName": "D_MN05/R22_00.arc",
-    "offset": "0x86960",
+    "offset": "86960",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Forest Temple", "ARC"],
     "itemId": "Yellow_Rupee"
 }

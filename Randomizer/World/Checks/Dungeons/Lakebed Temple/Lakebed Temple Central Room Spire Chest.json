@@ -3,6 +3,7 @@
     "arcFileName": "D_MN01/R03_00.arc",
     "offset": "A7CFC",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
     "itemId": "Red_Rupee"
 }

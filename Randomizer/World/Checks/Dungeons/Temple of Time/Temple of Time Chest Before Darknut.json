@@ -3,6 +3,7 @@
     "arcFileName": "D_MN06/R07_00.arc",
     "offset": "4D1B0",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
     "itemId": "Purple_Rupee"
 }

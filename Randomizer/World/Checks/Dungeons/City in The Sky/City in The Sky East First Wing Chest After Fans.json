@@ -1,7 +1,7 @@
 {
     "requirements": "(Progressive_Clawshot, 1)",
     "arcFileName": "D_MN07/R05_00.arc",
-    "offset": "0x878E4",
+    "offset": "878E4",
     "fileDirectoryType": 0,
     "category": ["Chest", "Dungeon", "City in The Sky", "Dungeon Items", "Dungeon Map", "ARC"],
     "itemId": "City_in_The_Sky_Dungeon_Map"

@@ -1,8 +1,9 @@
 {
     "requirements": "Boomerang",
     "arcFileName": "D_MN05/R10_00.arc",
-    "offset": "0x4C278",
+    "offset": "4C278",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Forest Temple", "Small Key", "ARC"],
     "itemId": "Forest_Temple_Small_Key"
 }

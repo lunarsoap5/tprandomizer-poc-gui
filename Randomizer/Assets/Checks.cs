@@ -21,10 +21,14 @@ namespace TPRandomizer
         //Data that will be stored in the rando-data .gci file.
         public Item itemId { get; set;} //The original item id of the check. This allows us to make an array of all items in the item pool for randomization purposes. Also is useful for documentation purposes.
         public byte stageIDX { get; set;} //Used by DZX, SHOP, POE, and BOSS checks. The index of the stage where the check is located
-        public string hash { get; set;} //Used by DZX and SHOP checks. The hash of the actor that will be modified by a DZX-based check replacement.
+        public byte roomIDX { get; set;} //Used by SKILL checks to determine which wolf is being learned from.
+        public string hash { get; set;} //Used by DZX checks. The hash of the actor that will be modified by a DZX-based check replacement.
+        public string[] data {get; set;} //Used by DZX checks. The data structure that will replace the current loaded ACTR.
+        public string flag {get; set;} //Used by POE and SKILL checks. The flag to check to determine which check to replace.
         public string arcFileName { get; set;} //Used by ARC checks. The file where the item the check uses is contained.
         public byte fileDirectoryType { get; set;} //Used by ARC checks. The type of file directory where the item is stored.
-        public string relID { get; set;} //Used by REL checks. The module ID for the rel file being loaded.
+        public byte replacementType { get; set;} //Used by ARC checks. The type of replacement taking place
+        public string moduleID { get; set;} //Used by REL checks. The module ID for the rel file being loaded.
         public string offset { get; set;} //Used by REL and ARC checks.
         public int relOverride { get; set;} //Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }

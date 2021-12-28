@@ -3,6 +3,7 @@
     "arcFileName": "D_MN04/R09_00.arc",
     "offset": "82A54",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
     "itemId": "Yellow_Rupee"
 }

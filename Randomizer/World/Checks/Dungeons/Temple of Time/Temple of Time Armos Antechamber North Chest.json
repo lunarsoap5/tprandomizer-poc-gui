@@ -1,6 +1,9 @@
 {
     "requirements": "true",
-    "hash": "9BC3",
-    "category": ["Chest", "Dungeon", "Temple of Time"],
+    "arcFileName": "D_MN06/R03_00.arc",
+    "offset": "4B7AC",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
     "itemId": "Red_Rupee"
 }

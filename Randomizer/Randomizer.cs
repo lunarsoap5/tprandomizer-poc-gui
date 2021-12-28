@@ -62,7 +62,7 @@ namespace TPRandomizer
                     startOver();
                     continue;
                 }
-                BackendFunctions.generateSeedData();
+                SeedData.generateSeedData();
                 BackendFunctions.generateSpoilerLog(startingRoom);
                 break;
             }
@@ -364,9 +364,9 @@ namespace TPRandomizer
                 Checks.CheckDict[fileName] = JsonConvert.DeserializeObject<Check>(contents);
                 Check currentCheck = Checks.CheckDict[fileName];
                 currentCheck.checkName = fileName;
+                currentCheck.requirements = "(" + currentCheck.requirements +")";
                 currentCheck.isExcluded = false;
                 currentCheck.itemWasPlaced = false;
-                currentCheck.requirements = "(" + currentCheck.requirements +")";
                 Checks.CheckDict[fileName] = currentCheck;
                 //Console.WriteLine("Check File Loaded " + fileName);
             }

@@ -3,6 +3,7 @@
     "arcFileName": "D_MN01/R09_00.arc",
     "offset": "684C4",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Lakebed Temple", "Small Key", "ARC"],
     "itemId": "Lakebed_Temple_Small_Key"
 }

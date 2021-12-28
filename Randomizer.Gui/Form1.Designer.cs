@@ -869,14 +869,14 @@ namespace TPRandomizer
             this.zButtonComboBox.Items.AddRange(new object[] {
             "Default",
             "Random",
+            "Red",
             "Orange",
             "Yellow",
             "Lime Green",
             "Dark Green",
             "Purple",
             "Black",
-            "White",
-            "Cyan"});
+            "Light Blue"});
             this.zButtonComboBox.Location = new System.Drawing.Point(109, 264);
             this.zButtonComboBox.Name = "zButtonComboBox";
             this.zButtonComboBox.Size = new System.Drawing.Size(121, 23);
@@ -898,6 +898,7 @@ namespace TPRandomizer
             this.yButtonComboBox.Items.AddRange(new object[] {
             "Default",
             "Random",
+            "Red",
             "Orange",
             "Yellow",
             "Lime Green",
@@ -905,7 +906,7 @@ namespace TPRandomizer
             "Blue",
             "Purple",
             "Black",
-            "White",
+            "Pink",
             "Cyan"});
             this.yButtonComboBox.Location = new System.Drawing.Point(109, 235);
             this.yButtonComboBox.Name = "yButtonComboBox";
@@ -936,7 +937,7 @@ namespace TPRandomizer
             "Blue",
             "Purple",
             "Black",
-            "White",
+            "Pink",
             "Cyan"});
             this.xButtonComboBox.Location = new System.Drawing.Point(109, 206);
             this.xButtonComboBox.Name = "xButtonComboBox";
@@ -960,14 +961,12 @@ namespace TPRandomizer
             "Default",
             "Random",
             "Orange",
-            "Yellow",
-            "Lime Green",
-            "Dark Green",
+            "Pink",
+            "Green",
             "Blue",
             "Purple",
             "Black",
-            "White",
-            "Cyan"});
+            "Teal"});
             this.bButtonComboBox.Location = new System.Drawing.Point(109, 177);
             this.bButtonComboBox.Name = "bButtonComboBox";
             this.bButtonComboBox.Size = new System.Drawing.Size(121, 23);
@@ -993,11 +992,10 @@ namespace TPRandomizer
             "Orange",
             "Yellow",
             "Dark Green",
-            "Blue",
             "Purple",
             "Black",
-            "White",
-            "Cyan"});
+            "Grey",
+            "Pink"});
             this.aButtonComboBox.Location = new System.Drawing.Point(109, 148);
             this.aButtonComboBox.Name = "aButtonComboBox";
             this.aButtonComboBox.Size = new System.Drawing.Size(121, 23);
@@ -1020,14 +1018,15 @@ namespace TPRandomizer
             "Default",
             "Random",
             "Rainbow",
+            "Teal",
+            "Pink",
             "Orange",
-            "Yellow",
-            "Green",
             "Blue",
             "Purple",
+            "Green",
             "Black",
-            "White",
-            "Cyan"});
+            "Mango",
+            "Dragon Fruit"});
             this.heartColorComboBox.Location = new System.Drawing.Point(109, 119);
             this.heartColorComboBox.Name = "heartColorComboBox";
             this.heartColorComboBox.Size = new System.Drawing.Size(121, 23);

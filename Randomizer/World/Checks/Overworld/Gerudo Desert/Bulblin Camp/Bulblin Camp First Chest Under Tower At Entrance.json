@@ -1,6 +1,8 @@
 {
     "requirements": "true",
     "hash": "C193",
-    "category": ["Overworld", "Chest", "Bulblin Camp"],
-    "itemId": "Arrows_20"
+    "stageIDX": 55,
+    "category": ["Overworld", "Chest", "Bulblin Camp", "DZX", "TRES"],
+    "itemId": "Arrows_20",
+    "data": ["74", "62", "6F", "78", "42", "30", "00", "00", "FF", "1F", "F1", "00", "BF", "D0", "1F", "EB", "00", "00", "00", "00", "C3", "4F", "7C", "F6", "00", "00", "00", "00", "3F", "FF", "FF", "FF"]
 }

@@ -3,6 +3,7 @@
     "arcFileName": "D_MN11/R04_00.arc",
     "offset": "6C510",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Snowpeak Ruins", "ARC"],
     "itemId": "Bombs_5"
 }

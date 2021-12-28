@@ -34,8 +34,18 @@ namespace TPRandomizer
         public string iceTrapSettings {get; set;}
         public List<Item> StartingItems {get; set;}
         public List<string> ExcludedChecks {get; set;}
-        public string TunicColor {get; set;}
-        public string MidnaHairColor {get; set;}
+        public int TunicColor {get; set;}
+        public int MidnaHairColor {get; set;}
+        public int lanternColor {get; set;}
+        public int heartColor {get; set;}
+        public int aButtonColor {get; set;}
+        public int bButtonColor {get; set;}
+        public int xButtonColor {get; set;}
+        public int yButtonColor {get; set;}
+        public int zButtonColor {get; set;}
+        public bool shuffleBackgroundMusic {get; set;}
+        public bool shuffleItemFanfares {get; set;}
+        public bool disableEnemyBackgoundMusic {get; set;}
     }
 
     public class SettingData
@@ -135,5 +145,106 @@ namespace TPRandomizer
             "Blue",
             "Cyan"
         };
+
+        public string[] lanternColor {get; set;} = new string[]
+        {
+            "Default",
+            "Random",
+            "Orange",
+            "Yellow",
+            "Lime Green",
+            "Dark Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "White",
+            "Cyan"
+        };
+        public string[] heartColor {get; set;} = new string[]
+        {
+            "Default",
+            "Random",
+            "Rainbow",
+            "Teal",
+            "Pink",
+            "Orange",
+            "Blue",
+            "Purple",
+            "Green",
+            "Black",
+            "Mango",
+            "Dragon Fruit"
+        };
+        public string[] aButtonColor {get; set;} = new string[]
+        {
+            "Default",
+            "Random",
+            "Red",
+            "Orange",
+            "Yellow",
+            "Dark Green",
+            "Purple",
+            "Black",
+            "Grey",
+            "Pink"
+        };
+        public string[] bButtonColor {get; set;} = new string[]
+        {
+            "Default",
+            "Random",
+            "Orange",
+            "Pink",
+            "Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "Teal"
+        };
+        public string[] xButtonColor {get; set;} = new string[]
+        {
+            "Default",
+            "Random",
+            "Red",
+            "Orange",
+            "Yellow",
+            "Lime Green",
+            "Dark Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "Pink",
+            "Cyan"
+        };
+        public string[] yButtonColor {get; set;} = new string[]
+        {
+            "Default",
+            "Random",
+            "Red",
+            "Orange",
+            "Yellow",
+            "Lime Green",
+            "Dark Green",
+            "Blue",
+            "Purple",
+            "Black",
+            "Pink",
+            "Cyan"
+        };
+        public string[] zButtonColor {get; set;} = new string[]
+        {
+            "Default",
+            "Random",
+            "Red",
+            "Orange",
+            "Yellow",
+            "Lime Green",
+            "Dark Green",
+            "Purple",
+            "Black",
+            "Light Blue"
+        };
+        public bool shuffleBackgroundMusic {get; set;}
+        public bool shuffleItemFanfares {get; set;}
+        public bool disableEnemyBackgoundMusic {get; set;}
     }
 }

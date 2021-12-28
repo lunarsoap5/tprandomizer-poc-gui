@@ -465,36 +465,5 @@ namespace TPRandomizer
             } 
             
         } 
-
-        public static void generateSeedData()
-        {
-            Random rnd = new Random();
-            List<ArcCheck> listOfArcChecks = new List<ArcCheck>();
-            string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.txt";
-            foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
-                {
-                    Check currentCheck = checkList.Value;
-                    if (currentCheck.category.Contains("ARC"))
-                    {
-                        ArcCheck currentArcCheck = new ArcCheck();
-
-                        currentArcCheck.offset = uint.Parse(currentCheck.offset, System.Globalization.NumberStyles.HexNumber);
-                        currentArcCheck.replacementValue = (uint)currentCheck.itemId;
-                        currentArcCheck.directory = currentCheck.fileDirectoryType;
-                        currentArcCheck.fileName = currentCheck.arcFileName;
-
-                        listOfArcChecks.Add(currentArcCheck);
-                    }
-                }
-            
-            using (StreamWriter file = new(fileHash))
-            {
-                foreach (ArcCheck arcCheck in listOfArcChecks)
-                {
-                    file.WriteLine(arcCheck.offset + "," + arcCheck.replacementValue + "," + arcCheck.directory + "," + arcCheck.fileName);
-                }
-                file.Close();
-            }
-        }
     }
 }

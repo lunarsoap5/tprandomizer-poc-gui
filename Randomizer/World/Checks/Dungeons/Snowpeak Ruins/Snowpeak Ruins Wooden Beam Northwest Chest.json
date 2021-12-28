@@ -3,6 +3,7 @@
     "arcFileName": "D_MN11/R08_00.arc",
     "offset": "599C0",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Dungeon Items", "Compass"],
     "itemId": "Snowpeak_Ruins_Compass"
 }

@@ -3,6 +3,7 @@
     "arcFileName": "D_MN06/R04_00.arc",
     "offset": "7493C",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Temple of Time", "Dungeon Items", "Compass", "ARC"],
     "itemId": "Temple_of_Time_Compass"
 }

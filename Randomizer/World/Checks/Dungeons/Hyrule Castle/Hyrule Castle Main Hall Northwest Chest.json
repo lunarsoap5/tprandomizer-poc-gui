@@ -3,6 +3,7 @@
     "arcFileName": "D_MN09/R01_00.arc",
     "offset": "83B2C",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
     "itemId": "Silver_Rupee"
 }

@@ -1,8 +1,9 @@
 {
     "requirements": "(Progressive_Clawshot, 2)",
     "arcFileName": "D_MN07/R10_00.arc",
-    "offset": "0x80E98",
+    "offset": "80E98",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "City in The Sky", "ARC"],
     "itemId": "Red_Rupee"
 }

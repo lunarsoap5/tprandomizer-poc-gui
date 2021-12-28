@@ -433,7 +433,7 @@ namespace TPRandomizer
             switch (currentItem)
             {
                 case "Standard":
-                    settingsStringTextbox.Text = "QUVJVUlSNzdZNzc3NElR";
+                    settingsStringTextbox.Text = "QUVRTUFBRjZRUDc3NEFBQUFBQUFB";
                     parseSettingsString(settingsStringTextbox.Text);
                     break;
             }

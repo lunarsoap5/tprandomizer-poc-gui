@@ -3,6 +3,7 @@
     "arcFileName": "D_MN10/R04_00.arc",
     "offset": "56294",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "Dungeon Items", "Compass", "ARC"],
     "itemId": "Arbiters_Grounds_Compass"
 }

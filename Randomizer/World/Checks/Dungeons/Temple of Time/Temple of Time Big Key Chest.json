@@ -3,6 +3,7 @@
     "arcFileName": "D_MN06/R06_00.arc",
     "offset": "3C3D0",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Temple of Time", "Big Key", "ARC"],
     "itemId": "Temple_of_Time_Big_Key"
 }

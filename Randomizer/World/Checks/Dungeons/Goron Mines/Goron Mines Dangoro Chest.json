@@ -3,6 +3,7 @@
     "arcFileName": "D_MN04/R11_00.arc",
     "offset": "73858",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
     "itemId": "Progressive_Bow"
 }

@@ -1,5 +1,6 @@
 {
     "requirements": "canDefeatArmogohma",
-    "category": ["Heart Container", "Dungeon", "Temple of Time", "BOSS"],
+    "stageIDX": 10,
+    "category": ["Heart Container", "Dungeon", "Temple of Time", "Boss"],
     "itemId": "Heart_Container"
 }

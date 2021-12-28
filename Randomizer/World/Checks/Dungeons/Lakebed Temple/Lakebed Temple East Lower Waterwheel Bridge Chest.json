@@ -3,6 +3,7 @@
     "arcFileName": "D_MN01/R08_00.arc",
     "offset": "5E564",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
     "itemId": "Piece_of_Heart"
 }

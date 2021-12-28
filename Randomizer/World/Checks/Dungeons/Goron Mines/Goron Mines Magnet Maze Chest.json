@@ -3,6 +3,7 @@
     "arcFileName": "D_MN04/R04_00.arc",
     "offset": "67160",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
     "itemId": "Piece_of_Heart"
 }

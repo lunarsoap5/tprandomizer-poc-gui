@@ -1,8 +1,8 @@
 {
     "requirements": "true",
-    "arcFileName": "",
-    "offset": "",
+    "arcFileName": "bmgres5.arc",
+    "offset": "1A117",
     "fileDirectoryType": 1,
-    "category": ["Npc"],
+    "category": ["Npc", "ARC"],
     "itemId": "Snowpeak_Ruins_Dungeon_Map"
 }

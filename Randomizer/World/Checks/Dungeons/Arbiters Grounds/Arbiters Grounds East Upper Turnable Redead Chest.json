@@ -3,6 +3,7 @@
     "arcFileName": "D_MN10/R04_00.arc",
     "offset": "562B4",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key", "ARC"],
     "itemId": "Arbiters_Grounds_Small_Key"
 }

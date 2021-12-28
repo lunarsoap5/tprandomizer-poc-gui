@@ -3,6 +3,7 @@
     "arcFileName": "D_MN08/R01_00.arc",
     "offset": "703C0",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Palace of Twilight", "ARC"],
     "itemId": "Piece_of_Heart"
 }

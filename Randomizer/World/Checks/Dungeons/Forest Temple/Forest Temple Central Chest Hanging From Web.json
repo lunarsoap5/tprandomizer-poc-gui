@@ -1,8 +1,9 @@
 {
     "requirements": "canCutHangingWeb",
     "arcFileName": "D_MN05/R00_00.arc",
-    "offset": "0x5E6CC",
+    "offset": "5E6CC",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Forest Temple", "Dungeon Items", "Compass", "ARC"],
     "itemId": "Forest_Temple_Compass"
 }

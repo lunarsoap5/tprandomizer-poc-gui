@@ -3,6 +3,7 @@
     "arcFileName": "D_MN11B/R51_00.arc",
     "offset": "9ECB0",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Small Key", "ARC"],
     "itemId": "Snowpeak_Ruins_Ordon_Goat_Cheese"
 }

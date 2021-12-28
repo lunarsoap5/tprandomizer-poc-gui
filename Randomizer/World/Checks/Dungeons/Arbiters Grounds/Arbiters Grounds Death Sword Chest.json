@@ -3,6 +3,7 @@
     "arcFileName": "D_MN10B/R51_00.arc",
     "offset": "6F1DC",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],
     "itemId": "Spinner"
 }

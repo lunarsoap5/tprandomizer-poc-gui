@@ -3,6 +3,7 @@
     "arcFileName": "D_MN01/R05_00.arc",
     "offset": "81AC4",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
     "itemId": "Water_Bombs_5"
 }

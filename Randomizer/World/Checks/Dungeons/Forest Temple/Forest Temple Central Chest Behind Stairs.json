@@ -1,8 +1,9 @@
 {
     "requirements": "Boomerang and canDefeatBombling",
     "arcFileName": "D_MN05/R00_00.arc",
-    "offset": "0x5E6EC",
+    "offset": "5E6EC",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Forest Temple", "ARC"],
     "itemId": "Red_Rupee"
 }

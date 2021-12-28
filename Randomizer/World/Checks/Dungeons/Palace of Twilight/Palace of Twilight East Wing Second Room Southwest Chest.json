@@ -3,6 +3,7 @@
     "arcFileName": "D_MN08/R05_00.arc",
     "offset": "9AE20",
     "fileDirectoryType": 0,
+    "replacementType": 0,
     "category": ["Chest", "Dungeon", "Palace of Twilight", "Dungeon Items", "Dungeon Map", "ARC"],
     "itemId": "Palace_of_Twilight_Dungeon_Map"
 }
