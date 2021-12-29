@@ -1,6 +1,9 @@
 {
     "requirements": "Lantern",
-    "hash": "C037",
-    "category": ["Overworld", "Chest", "Hyrule Field"],
+    "arcFileName": "D_SB02/R00_00.arc",
+    "offset": "FDC20",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
     "itemId": "Piece_of_Heart"
 }

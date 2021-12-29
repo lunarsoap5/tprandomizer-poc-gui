@@ -1,6 +1,9 @@
 {
     "requirements": "(Progressive_Dominion_Rod, 2)",
-    "hash": "773C",
-    "category": ["Overworld", "Chest", "Hyrule Field"],
+    "arcFileName": "F_SP121/R03_00.arc",
+    "offset": "BD298",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
     "itemId": "Orange_Rupee"
 }

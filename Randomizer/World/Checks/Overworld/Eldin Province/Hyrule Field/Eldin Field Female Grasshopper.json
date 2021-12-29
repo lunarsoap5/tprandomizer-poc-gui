@@ -1,5 +1,8 @@
 {
     "requirements": "true",
-    "category": ["Overworld", "Golden Bug", "Hyrule Field"],
-    "itemId": "Female_Grasshopper"
+    "hash": "B2A9",
+    "stageIDX": 56,
+    "category": ["Overworld", "Golden Bug", "Hyrule Field", "ACTR", "DZX"],
+    "itemId": "Female_Grasshopper",
+    "data": ["49", "5F", "42", "61", "74", "00", "00", "00", "00", "00", "0F", "10", "C6", "1B", "78", "00", "42", "0C", "B4", "C1", "C6", "0B", "D8", "00", "00", "00", "00", "00", "00", "00", "FF", "FF"]
 }

@@ -1,5 +1,9 @@
 {
     "requirements": "(Progressive_Bow, 1)",
-    "category": ["Overworld", "Npc", "Hidden Village"],
+    "arcFileName": "bmgres6.arc",
+    "offset": "18727",
+    "fileDirectoryType": 1,
+    "replacementType": 0,
+    "category": ["Overworld", "Npc", "Hidden Village", "ARC"],
     "itemId": "Ilias_Charm"
 }

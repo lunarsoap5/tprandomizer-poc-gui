@@ -1,6 +1,9 @@
 {
     "requirements": "canSmash",
-    "hash": "0C13",
-    "category": ["Overworld", "Chest", "Eldin Province"],
+    "arcFileName": "F_SP109/R00_00.arc",
+    "offset": "14FF4C",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Eldin Province", "ARC"],
     "itemId": "Orange_Rupee"
 }

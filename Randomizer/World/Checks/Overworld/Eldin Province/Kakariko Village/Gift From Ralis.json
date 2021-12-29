@@ -1,5 +1,9 @@
 {
     "requirements": "Asheis_Sketch",
-    "category": ["Overworld", "Npc", "Eldin Province"],
+    "arcFileName": "bmgres2.arc",
+    "offset": "19C1F",
+    "fileDirectoryType": 1,
+    "replacementType": 0,
+    "category": ["Overworld", "Npc", "Eldin Province", "ARC"],
     "itemId": "Progressive_Fishing_Rod"
 }

@@ -1,5 +1,9 @@
 {
     "requirements": "Gate_Keys",
-    "category": ["Overworld", "Npc", "Eldin Province"],
+    "arcFileName": "bmgres2.arc",
+    "offset": "184FF",
+    "fileDirectoryType": 1,
+    "replacementType": 0,
+    "category": ["Overworld", "Npc", "Eldin Province", "ARC"],
     "itemId": "Zora_Armor"
 }

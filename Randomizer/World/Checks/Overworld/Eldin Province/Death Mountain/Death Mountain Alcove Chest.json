@@ -1,6 +1,9 @@
 {
     "requirements": "canCompleteGoronMines or ((Progressive_Clawshot, 1) and Iron_Boots)",
-    "hash": "6C2E",
-    "category": ["Overworld", "Chest", "Eldin Province"],
+    "arcFileName": "F_SP110/R00_00.arc",
+    "offset": "A9C04",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Eldin Province", "ARC"],
     "itemId": "Piece_of_Heart"
 }

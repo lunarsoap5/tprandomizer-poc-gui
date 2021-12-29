@@ -1,6 +1,9 @@
 {
     "requirements": "canBurnWebs",
-    "hash": "6168",
-    "category": ["Overworld", "Chest", "Hyrule Field"],
+    "arcFileName": "D_SB02/R00_00.arc",
+    "offset": "FDC60",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
     "itemId": "Red_Rupee"
 }
