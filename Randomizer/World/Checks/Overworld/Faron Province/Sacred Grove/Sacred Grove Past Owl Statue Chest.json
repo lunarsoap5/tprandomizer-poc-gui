@@ -1,6 +1,9 @@
 {
     "requirements": "(Progressive_Dominion_Rod, 1)",
-    "hash": "7968",
-    "category": ["Overworld", "Chest", "Sacred Grove"],
+    "arcFileName": "F_SP117/R02_00.arc",
+    "offset": "BA924",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Sacred Grove", "ARC"],
     "itemId": "Piece_of_Heart"
 }
