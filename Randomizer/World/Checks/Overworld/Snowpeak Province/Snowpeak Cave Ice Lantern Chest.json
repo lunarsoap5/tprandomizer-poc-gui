@@ -1,6 +1,9 @@
 {
     "requirements": "Lantern and Ball_and_Chain",
-    "hash": "7A70",
-    "category": ["Overworld", "Chest", "Snowpeak Province"],
+    "arcFileName": "F_SP114/R02_00.arc",
+    "offset": "1D7F8",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Snowpeak Province", "ARC"],
     "itemId": "Orange_Rupee"
 }

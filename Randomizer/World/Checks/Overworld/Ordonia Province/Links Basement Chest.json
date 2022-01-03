@@ -1,6 +1,9 @@
 {
     "requirements": "Lantern",
-    "hash": "E723",
-    "category": ["Overworld", "Chest", "Ordonia Province"],
+    "arcFileName": "R_SP01/R07_00.arc",
+    "offset": "8FBAC",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Ordonia Province", "ARC"],
     "itemId": "Purple_Rupee_Links_House"
 }

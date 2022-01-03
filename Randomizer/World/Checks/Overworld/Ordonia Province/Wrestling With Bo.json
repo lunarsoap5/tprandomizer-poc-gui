@@ -1,6 +1,9 @@
 {
     "requirements": "((Progressive_Sword, 1) and (Progressive_Fishing_Rod, 1) and North_Faron_Woods_Gate_Key) or (Setting.introSkipped equals True)",
-    "hash": "CA8A",
-    "category": ["Overworld", "Chest", "Ordonia Province"],
+    "arcFileName": "R_SP01/R00_00.arc",
+    "offset": "C25C4",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Ordonia Province", "ARC"],
     "itemId": "Iron_Boots"
 }

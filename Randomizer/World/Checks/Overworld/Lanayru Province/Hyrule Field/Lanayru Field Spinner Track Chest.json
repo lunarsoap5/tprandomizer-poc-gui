@@ -1,6 +1,9 @@
 {
     "requirements": "canSmash and Spinner",
-    "hash": "2385",
-    "category": ["Overworld", "Chest", "Hyrule Field"],
+    "arcFileName": "F_SP121/R11_00.arc",
+    "offset": "19494",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
     "itemId": "Piece_of_Heart"
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DUxJT+Q5PoCEPwNWfEfgraQT2Vv9Vq3z2WGsoGdX4WOyFdtpY4dwqprmRz48vydpFhS3UC14hNxsoDsAHj+sCQ==",
+  "dgSpecHash": "IIapF5emaX/F1Bh7e1Yhmf/5QK6PB2WVw4ZYKFEQplO2uDxpXbGZwGAP+MMOylA1BZkGtLAgY3B8S1zaqPhHrg==",
   "success": true,
   "projectFilePath": "C:\\Users\\JC071094\\OneDrive - Cerner Corporation\\Documents\\GitHub\\tprandomizer-poc-gui\\TPRandomizer.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,8 @@
     "C:\\Users\\JC071094\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512",
     "C:\\Users\\JC071094\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "C:\\Users\\JC071094\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
-    "C:\\Users\\JC071094\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    "C:\\Users\\JC071094\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\JC071094\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }

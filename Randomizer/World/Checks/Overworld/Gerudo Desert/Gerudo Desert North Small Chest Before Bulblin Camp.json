@@ -1,6 +1,9 @@
 {
     "requirements": "canDefeatBulblin",
-    "hash": "F2F6",
-    "category": ["Overworld", "Chest", "Gerudo Desert"],
+    "arcFileName": "F_SP124/R00_00.arc",
+    "offset": "102378",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Gerudo Desert", "ARC"],
     "itemId": "Arrows_10"
 }

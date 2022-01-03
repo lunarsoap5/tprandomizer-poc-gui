@@ -1,5 +1,6 @@
 {
     "requirements": "Female_Dragonfly",
-    "category": ["Overworld", "Npc", "Castle Town"],
+    "flag": "D3",
+    "category": ["Overworld", "Npc", "Castle Town", "Bug Reward"],
     "itemId": "Orange_Rupee"
 }

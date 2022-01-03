@@ -1,5 +1,9 @@
 {
     "requirements": "(Progressive_Fishing_Rod, 1)",
-    "category": ["Overworld", "Shop", "Ordonia Province"],
+    "arcFileName": "bmgres1.arc",
+    "offset": "22747",
+    "fileDirectoryType": 1,
+    "replacementType": 0,
+    "category": ["Overworld", "Shop", "Ordonia Province", "ARC"],
     "itemId": "Slingshot"
 }

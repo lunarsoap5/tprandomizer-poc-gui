@@ -726,7 +726,7 @@ namespace TPRandomizer
         {
             return ((getItemCount(Item.Progressive_Clawshot) >= 2) &&
             canUse(Item.Iron_Boots) &&
-            (getItemCount(Item.Progressive_Sword) >= 3));
+            (getItemCount(Item.Progressive_Sword) >= 2));
         }
         public static bool canDefeatZant()
         {

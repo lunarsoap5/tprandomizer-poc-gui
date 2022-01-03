@@ -104,11 +104,11 @@ namespace TPRandomizer
                     {
                         dataArray[i] = byte.Parse(currentCheck.data[i], System.Globalization.NumberStyles.HexNumber);
                     }
-                    if (currentCheck.category.Contains("TRES"))
+                    if (currentCheck.dzxTag =="TRES")
                     {
                         dataArray[28] = (byte)currentCheck.itemId;
                     }
-                    else if (currentCheck.category.Contains("ACTR"))
+                    else if (currentCheck.dzxTag =="ACTR")
                     {
                         dataArray[11] = (byte)currentCheck.itemId;
                     }

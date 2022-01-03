@@ -1,6 +1,9 @@
 {
     "requirements": "Invoice and Shadow_Crystal",
-    "hash": "0E38",
-    "category": ["Overworld", "Chest", "Castle Town"],
+    "arcFileName": "F_SP116/R04_00.arc",
+    "offset": "EE5E8",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Castle Town", "ARC"],
     "itemId": "Red_Rupee"
 }

@@ -1,6 +1,9 @@
 {
     "requirements": "Shadow_Crystal",
-    "hash": "827A",
-    "category": ["Overworld", "Chest", "Lanayru Province"],
+    "arcFileName": "F_SP113/R01_00.arc",
+    "offset": "BBC30",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],
     "itemId": "Red_Rupee"
 }

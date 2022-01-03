@@ -1,6 +1,9 @@
 {
     "requirements": "true",
-    "hash": "0819",
-    "category": ["Overworld", "Chest", "Lanayru Province"],
+    "arcFileName": "F_SP113/R01_00.arc",
+    "offset": "BBC10",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],
     "itemId": "Yellow_Rupee"
 }

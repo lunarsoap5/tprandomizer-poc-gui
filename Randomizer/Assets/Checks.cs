@@ -23,6 +23,7 @@ namespace TPRandomizer
         public byte stageIDX { get; set;} //Used by DZX, SHOP, POE, and BOSS checks. The index of the stage where the check is located
         public byte roomIDX { get; set;} //Used by SKILL checks to determine which wolf is being learned from.
         public string hash { get; set;} //Used by DZX checks. The hash of the actor that will be modified by a DZX-based check replacement.
+        public string dzxTag {get; set;} //Used by DZX checks. The type of actor that will be modified.
         public string[] data {get; set;} //Used by DZX checks. The data structure that will replace the current loaded ACTR.
         public string flag {get; set;} //Used by POE and SKILL checks. The flag to check to determine which check to replace.
         public string arcFileName { get; set;} //Used by ARC checks. The file where the item the check uses is contained.

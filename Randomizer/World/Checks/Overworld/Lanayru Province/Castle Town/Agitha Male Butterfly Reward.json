@@ -1,5 +1,6 @@
 {
     "requirements": "Male_Butterfly",
-    "category": ["Overworld", "Npc", "Castle Town"],
+    "flag": "C2",
+    "category": ["Overworld", "Npc", "Castle Town", "Bug Reward"],
     "itemId": "Orange_Rupee"
 }

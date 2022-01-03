@@ -1,6 +1,9 @@
 {
     "requirements": "canSmash and Lantern",
-    "hash": "4D30",
-    "category": ["Overworld", "Chest", "Lanayru Province"],
+    "arcFileName": "D_SB03/R00_00.arc",
+    "offset": "DF37C",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],
     "itemId": "Yellow_Rupee"
 }

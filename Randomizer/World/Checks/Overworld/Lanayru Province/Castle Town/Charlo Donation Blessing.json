@@ -1,5 +1,10 @@
 {
     "requirements": "true",
-    "category": ["Overworld", "Npc", "Castle Town"],
+    "arcFileName": "Prayer.arc",
+    "offset": "D587",
+    "fileDirectoryType": 2,
+    "replacementType": 0,
+    "stageIDX": 53,
+    "category": ["Overworld", "Npc", "Castle Town", "ARC", "Boss"],
     "itemId": "Piece_of_Heart"
 }

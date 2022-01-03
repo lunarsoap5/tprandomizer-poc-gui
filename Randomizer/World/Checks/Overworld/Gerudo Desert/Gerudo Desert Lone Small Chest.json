@@ -1,6 +1,9 @@
 {
     "requirements": "true",
-    "hash": "5605",
-    "category": ["Overworld", "Chest", "Gerudo Desert"],
+    "arcFileName": "F_SP124/R00_00.arc",
+    "offset": "102458",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Gerudo Desert", "ARC"],
     "itemId": "Arrows_10"
 }

@@ -1,5 +1,6 @@
 {
     "requirements": "Male_Mantis",
-    "category": ["Overworld", "Npc", "Castle Town"],
+    "flag": "CC",
+    "category": ["Overworld", "Npc", "Castle Town", "Bug Reward"],
     "itemId": "Purple_Rupee"
 }

@@ -1,5 +1,9 @@
 {
     "requirements": "true",
-    "category": ["Overworld", "Npc", "Lanayru Province"],
+    "arcFileName": "bmgres8.arc",
+    "offset": "141B7",
+    "fileDirectoryType": 1,
+    "replacementType": 0,
+    "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],
     "itemId": "Aurus_Memo"
 }

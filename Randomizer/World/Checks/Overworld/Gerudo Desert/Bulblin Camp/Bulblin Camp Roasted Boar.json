@@ -1,5 +1,6 @@
 {
     "requirements": "hasSword",
-    "category": ["Overworld", "Bulblin Camp"],
+    "stageIDX": 55,
+    "category": ["Overworld", "Bulblin Camp", "Boss"],
     "itemId": "Piece_of_Heart"
 }

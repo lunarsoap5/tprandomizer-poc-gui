@@ -1,5 +1,9 @@
 {
     "requirements": "canDefeatArmos and (Progressive_Clawshot, 2) and canDefeatBokoblin and canDefeatBabaSerpent and canDefeatLizalfos and canDefeatBulblin and canDefeatDinalfos and canDefeatPoe and canDefeatRedeadKnight and canDefeatChu and canDefeatFreezard and canDefeatChilfos and canDefeatGhoulRat and canDefeatRat and canDefeatStalchild and canDefeatAeralfos and canDefeatDarknut",
-    "category": ["Overworld", "Npc", "Cave of Ordeals"],
+    "arcFileName": "bmgres5.arc",
+    "offset": "19327",
+    "fileDirectoryType": 1,
+    "replacementType": 0,
+    "category": ["Overworld", "Npc", "Cave of Ordeals", "ARC"],
     "itemId": "Fairy_Tears"
 }

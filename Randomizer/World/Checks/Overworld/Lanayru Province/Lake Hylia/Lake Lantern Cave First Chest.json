@@ -1,6 +1,9 @@
 {
     "requirements": "canSmash and Lantern",
-    "hash": "9E56",
-    "category": ["Overworld", "Chest", "Lanayru Province"],
+    "arcFileName": "D_SB03/R00_00.arc",
+    "offset": "DF27C",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],
     "itemId": "Bomblings_5"
 }

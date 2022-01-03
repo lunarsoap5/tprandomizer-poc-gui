@@ -1,6 +1,9 @@
 {
     "requirements": "canDefeatBulblin",
-    "hash": "577F",
-    "category": ["Overworld", "Chest", "Gerudo Desert"],
+    "arcFileName": "F_SP124/R00_00.arc",
+    "offset": "102338",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Gerudo Desert", "ARC"],
     "itemId": "Orange_Rupee"
 }

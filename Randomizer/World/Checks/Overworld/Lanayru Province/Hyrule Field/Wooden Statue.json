@@ -1,5 +1,8 @@
 {
     "requirements": "Invoice",
+    "relID": "2B3",
+    "relOverride": "38800000",
+    "offset": "F24",
     "category": ["Overworld", "Npc", "Hyrule Field"],
     "itemId": "Wooden_Statue"
 }

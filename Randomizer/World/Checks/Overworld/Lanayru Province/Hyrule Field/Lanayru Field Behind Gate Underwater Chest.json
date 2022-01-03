@@ -1,6 +1,9 @@
 {
     "requirements": "Iron_Boots",
-    "hash": "FC21",
-    "category": ["Overworld", "Chest", "Hyrule Field"],
+    "arcFileName": "F_SP121/R10_00.arc",
+    "offset": "9D3C0",
+    "fileDirectoryType": 0,
+    "replacementType": 0,
+    "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
     "itemId": "Orange_Rupee"
 }
