@@ -4,7 +4,7 @@
     "offset": "11F7FF",
     "fileDirectoryType": 0,
     "replacementType": 0,
-    "relID": "32",
+    "moduleID": "32",
     "relOverride": "38600000", 
     "category": ["Overworld", "Lanayru Province", "ARC", "REL"],
     "itemId": "Piece_of_Heart"

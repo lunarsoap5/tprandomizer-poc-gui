@@ -31,7 +31,7 @@ namespace TPRandomizer
         public byte replacementType { get; set;} //Used by ARC checks. The type of replacement taking place
         public string moduleID { get; set;} //Used by REL checks. The module ID for the rel file being loaded.
         public string offset { get; set;} //Used by REL and ARC checks.
-        public int relOverride { get; set;} //Used by REL checks. The override instruction to be used when replacing the item in the rel.
+        public string relOverride { get; set;} //Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }
 
     public class CheckFunctions

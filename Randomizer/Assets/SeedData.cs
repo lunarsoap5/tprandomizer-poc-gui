@@ -32,10 +32,10 @@ namespace TPRandomizer
 
         struct RELCheck
         {
-            uint stageIDX;
-            uint moduleID;
-            uint offset;
-            uint relOverride;
+            internal uint stageIDX;
+            internal uint moduleID;
+            internal uint offset;
+            internal uint relOverride;
         };
 
         struct POECheck
@@ -57,8 +57,8 @@ namespace TPRandomizer
 
         struct BOSSCheck
         {
-            short stageIDX;     // The stage where the replacement is taking place.
-            short item;         // New item id
+            internal short stageIDX;     // The stage where the replacement is taking place.
+            internal short item;         // New item id
         };
 
         struct HiddenSkillCheck
@@ -71,8 +71,15 @@ namespace TPRandomizer
 
         struct BugReward
         {
-            ushort bugID;
-            ushort itemID;
+            internal ushort bugID;
+            internal ushort itemID;
+        };
+
+        struct skyCharacter
+        {
+            internal ushort stageIDX;
+            internal byte roomID;
+            internal byte itemID;
         };
         public static void generateSeedData()
         {
@@ -80,6 +87,7 @@ namespace TPRandomizer
             List<ARCReplacement> listOfArcReplacements = new List<ARCReplacement>();
             List<dzxCheck> listOfDZXReplacements = new List<dzxCheck>();
             List<POECheck> listOfPOEReplacements = new List<POECheck>();
+            List<RELCheck> listOfRelReplacements = new List<RELCheck>();
             string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.txt";
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -125,6 +133,27 @@ namespace TPRandomizer
                     currentPOECheck.flag = byte.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber);
                     currentPOECheck.item = (ushort)currentCheck.itemId;
                     listOfPOEReplacements.Add(currentPOECheck);
+                }
+                if (currentCheck.category.Contains("REL"))
+                {
+                    RELCheck currentRELCheck = new RELCheck();
+                    currentRELCheck.stageIDX = currentCheck.stageIDX;
+                    currentRELCheck.moduleID = uint.Parse(currentCheck.moduleID, System.Globalization.NumberStyles.HexNumber);
+                    currentRELCheck.offset = uint.Parse(currentCheck.offset, System.Globalization.NumberStyles.HexNumber);
+                    currentRELCheck.relOverride = (uint.Parse(currentCheck.relOverride, System.Globalization.NumberStyles.HexNumber) + (byte)currentCheck.itemId);
+                    listOfRelReplacements.Add(currentRELCheck);
+                }
+                if (currentCheck.category.Contains("Boss"))
+                {
+                    BOSSCheck currentBossCheck = new BOSSCheck();
+                    currentBossCheck.stageIDX = currentCheck.stageIDX;
+                    currentBossCheck.item = (short)currentCheck.itemId; 
+                }
+                if (currentCheck.category.Contains("Bug Reward"))
+                {
+                    BugReward currentBugReward = new BugReward();
+                    currentBugReward.bugID = byte.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber);
+                    currentBugReward.itemID = (byte)currentCheck.itemId;
                 }
             }
 
