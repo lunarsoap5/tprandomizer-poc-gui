@@ -3,6 +3,6 @@
     "moduleID": "2B3",
     "relOverride": "38800000",
     "offset": "F24",
-    "category": ["Overworld", "Npc", "Hyrule Field"],
+    "category": ["Overworld", "Npc", "Hyrule Field", "REL"],
     "itemId": "Wooden_Statue"
 }

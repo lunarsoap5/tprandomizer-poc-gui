@@ -75,7 +75,7 @@ namespace TPRandomizer
             internal ushort itemID;
         };
 
-        struct skyCharacter
+        struct SkyCharacter
         {
             internal ushort stageIDX;
             internal byte roomID;
@@ -88,9 +88,13 @@ namespace TPRandomizer
             List<dzxCheck> listOfDZXReplacements = new List<dzxCheck>();
             List<POECheck> listOfPOEReplacements = new List<POECheck>();
             List<RELCheck> listOfRelReplacements = new List<RELCheck>();
+            List<BOSSCheck> listOfBossReplacements = new List<BOSSCheck>();
+            List<SkyCharacter> listOfSkyCharacters = new List<SkyCharacter>();
+            List<BugReward> listOfBugRewards = new List<BugReward>();
             string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.txt";
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
+                bool isData = false;
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("ARC"))
                 {
@@ -103,6 +107,7 @@ namespace TPRandomizer
                     currentArcCheck.fileName = currentCheck.arcFileName;
                     currentArcCheck.replacementType = currentCheck.replacementType;
                     listOfArcReplacements.Add(currentArcCheck);
+                    isData = true;
                 }
                 if (currentCheck.category.Contains("DZX"))
                 {
@@ -125,6 +130,7 @@ namespace TPRandomizer
                     currentDZXCheck.stageIDX = currentCheck.stageIDX;
 
                     listOfDZXReplacements.Add(currentDZXCheck);
+                    isData = true;
                 }
                 if (currentCheck.category.Contains("Poe"))
                 {
@@ -133,6 +139,7 @@ namespace TPRandomizer
                     currentPOECheck.flag = byte.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber);
                     currentPOECheck.item = (ushort)currentCheck.itemId;
                     listOfPOEReplacements.Add(currentPOECheck);
+                    isData = true;
                 }
                 if (currentCheck.category.Contains("REL"))
                 {
@@ -142,18 +149,36 @@ namespace TPRandomizer
                     currentRELCheck.offset = uint.Parse(currentCheck.offset, System.Globalization.NumberStyles.HexNumber);
                     currentRELCheck.relOverride = (uint.Parse(currentCheck.relOverride, System.Globalization.NumberStyles.HexNumber) + (byte)currentCheck.itemId);
                     listOfRelReplacements.Add(currentRELCheck);
+                    isData = true;
                 }
                 if (currentCheck.category.Contains("Boss"))
                 {
                     BOSSCheck currentBossCheck = new BOSSCheck();
                     currentBossCheck.stageIDX = currentCheck.stageIDX;
                     currentBossCheck.item = (short)currentCheck.itemId; 
+                    listOfBossReplacements.Add(currentBossCheck);
+                    isData = true;
                 }
                 if (currentCheck.category.Contains("Bug Reward"))
                 {
                     BugReward currentBugReward = new BugReward();
                     currentBugReward.bugID = byte.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber);
                     currentBugReward.itemID = (byte)currentCheck.itemId;
+                    listOfBugRewards.Add(currentBugReward);
+                    isData = true;
+                }
+                if (currentCheck.category.Contains("Sky Book"))
+                {
+                    SkyCharacter currentSkyCharacter = new SkyCharacter();
+                    currentSkyCharacter.stageIDX = currentCheck.stageIDX;
+                    currentSkyCharacter.roomID = currentCheck.roomIDX;
+                    currentSkyCharacter.itemID = (byte)currentCheck.itemId;
+                    listOfSkyCharacters.Add(currentSkyCharacter);
+                    isData = true;
+                }
+                if (!isData)
+                {
+                    Console.WriteLine("Unrandomized check due to missing or invalid category: " + currentCheck.checkName);
                 }
             }
 
@@ -176,6 +201,26 @@ namespace TPRandomizer
                 foreach (POECheck poeCheck in listOfPOEReplacements)
                 {
                     file.WriteLine(poeCheck.stageIDX + "," + poeCheck.flag + "," + poeCheck.item);
+                }
+                file.WriteLine("//REL");
+                foreach (RELCheck relCheck in listOfRelReplacements)
+                {
+                    file.WriteLine(relCheck.stageIDX + "," + relCheck.moduleID + "," + relCheck.offset + "," + relCheck.relOverride);
+                }
+                file.WriteLine("//Boss");
+                foreach (BOSSCheck bossCheck in listOfBossReplacements)
+                {
+                    file.WriteLine(bossCheck.stageIDX + "," + bossCheck.item);
+                }
+                file.WriteLine("//BugRewards");
+                foreach (BugReward bugReward in listOfBugRewards)
+                {
+                    file.WriteLine(bugReward.bugID + "," + bugReward.itemID);
+                }
+                file.WriteLine("//SkyCharacter");
+                foreach (SkyCharacter skyCharacter in listOfSkyCharacters)
+                {
+                    file.WriteLine(skyCharacter.stageIDX + "," + skyCharacter.roomID + "," + skyCharacter.itemID);
                 }
                 file.Close();
             }
