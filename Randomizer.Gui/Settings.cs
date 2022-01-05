@@ -46,5 +46,8 @@ namespace TPRandomizer
         public bool shuffleBackgroundMusic {get; set;}
         public bool shuffleItemFanfares {get; set;}
         public bool disableEnemyBackgoundMusic {get; set;}
+        public int gameRegion {get; set;}
+        public bool shuffleHiddenSkills {get; set;}
+        public bool shuffleSkyCharacters {get; set;}
     }
 }

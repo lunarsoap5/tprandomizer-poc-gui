@@ -31,6 +31,8 @@ namespace TPRandomizer
         public Form1()
         {
             InitializeComponent();
+            TextBoxWriter writer = new TextBoxWriter(outputTextBox);
+            Console.SetOut(writer);
             dontrunhandler = false;
             isDarkModeEnabled = false;
             logicRulesBox.SelectedIndex = 0;
@@ -50,6 +52,7 @@ namespace TPRandomizer
             xButtonComboBox.SelectedIndex = 0;
             yButtonComboBox.SelectedIndex = 0;
             zButtonComboBox.SelectedIndex = 0;
+            regionComboBox.SelectedIndex = 0;
             logicRulesBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             castleLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             palaceLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
@@ -87,6 +90,10 @@ namespace TPRandomizer
             bgmCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             fanfareCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             enemyBgmCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            regionComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            skillsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            skyCharacterCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            outputTextBox.TextChanged += new System.EventHandler(this.outputTextBox_textChanged);
 
             foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Checks/", "*",SearchOption.AllDirectories))
             {
@@ -152,6 +159,9 @@ namespace TPRandomizer
                 settings.shuffleBackgroundMusic = bgmCheckBox.Checked;
                 settings.shuffleItemFanfares = fanfareCheckBox.Checked;
                 settings.disableEnemyBackgoundMusic = enemyBgmCheckBox.Checked;
+                settings.gameRegion = regionComboBox.SelectedIndex;
+                settings.shuffleHiddenSkills = skillsCheckBox.Checked;
+                settings.shuffleSkyCharacters = skyCharacterCheckBox.Checked;
                 foreach (string startingItem in startingItemsListBox.Items)
                 {
                     string itemName = startingItem;
@@ -230,6 +240,10 @@ namespace TPRandomizer
             bgmCheckBox.Checked = settings.shuffleBackgroundMusic;
             fanfareCheckBox.Checked = settings.shuffleItemFanfares;
             enemyBgmCheckBox.Checked = settings.disableEnemyBackgoundMusic;
+            regionComboBox.SelectedIndex = settings.gameRegion;
+            skillsCheckBox.Checked = settings.shuffleHiddenSkills;
+            skyCharacterCheckBox.Checked = settings.shuffleSkyCharacters;
+
             foreach (Item startingItem in settings.StartingItems)
             {
                 string itemName = startingItem.ToString();
@@ -433,7 +447,7 @@ namespace TPRandomizer
             switch (currentItem)
             {
                 case "Standard":
-                    settingsStringTextbox.Text = "QUVRTUFBRjZRUDc3NEFBQUFBQUFB";
+                    settingsStringTextbox.Text = "QUlJTUFBRjZBUDc3NEFBQUFBQUFBQQ==";
                     parseSettingsString(settingsStringTextbox.Text);
                     break;
             }
@@ -450,9 +464,45 @@ namespace TPRandomizer
         {
             logicTooltip.SetToolTip(logicRulesBox,
                 "Sets the main logic rules for the seed:" + Environment.NewLine +
-                "'Glitchless' does not require any glitches, tricks, etc. Recommended for beginners." + Environment.NewLine +
-                "'Glitched' assumes most glitches are in logic. Consult the Wiki for a complete list." + Environment.NewLine +
-                "'No Logic' generates a seed without using logic, meaning it may not be beatable.");
+                "Glitchless: Does not require any glitches, tricks, etc. Recommended for beginners." + Environment.NewLine +
+                "Glitched: assumes most glitches are in logic. Consult the Wiki for a complete list." + Environment.NewLine +
+                "No Logic: generates a seed without using logic, meaning it may not be completable.");
+            
+            regionTooltip.SetToolTip(regionComboBox,
+                "The region of the game that you wish to play on.");
+            
+            dungeonItemsTooltip.SetToolTip(dungeonItemsGroupBox,
+                "Vanilla: Places the items in their original spot." + Environment.NewLine +
+                "Own Dungeon: Randomizes items in the same dungeon as the vanilla check." + Environment.NewLine +
+                "Any Dungeon: Randomizes items among all dungeons." + Environment.NewLine +
+                "Keysanity/Anywhere: Places items anywhere in the world." + Environment.NewLine +
+                "Keysey/Start With: Removes the locks to the respective doors and starts with the specified item.");
+            
+            categoriesTooltip.SetToolTip(itemCategoriesGroupBox,
+                "These options allow you to decide which groups of locations are to be randomized." + Environment.NewLine + 
+                "If unchecked, the location will be vanilla.");
+            
+            foolishItemsTooltip.SetToolTip(foolishItemsComboBox,
+                "Determines the number of foolish (trap) items to be placed into the item pool." + Environment.NewLine +
+                "None: No foolish items are in the item pool." + Environment.NewLine +
+                "Few: There is a small chance that a foolish item can appear." + Environment.NewLine +
+                "Many: There is an increased chance that a foolish item can appear." + Environment.NewLine +
+                "Mayhem: More than half of the junk items in the item pool are replaced with foolish items." + Environment.NewLine +
+                "Nightmare: All junk items in the item fool are foolish items.");
+            
+            settingsToolTip.SetToolTip(settingsPresetsComboBox,
+                "Standard: Whatever settings are commonly being used." + Environment.NewLine +
+                "Beginner: Designed for people who are not familiar with the game. Smaller item pool and less skips." + Environment.NewLine +
+                "Experienced: Created for players who are very familiar with the game. Expects minimal, easy to perform glitches." + Environment.NewLine +
+                "Insanity (Cheese Logic): The ultimate test of knowledge for Twilight Princess." + Environment.NewLine + 
+                "Only with skill, precision, and knowledge of the most obscure glitches will you obtain victory.");
+
+            twilightTooltip.SetToolTip(clearedTwilightsGroupBox,
+            "Clears the Twilight in the selected regions.");
+
+            cutsceneTooltip.SetToolTip(cutsceneMundaneSkipsGroupBox,
+                "Skips small events that do not usually take up much time." +Environment.NewLine +
+                "Skip Minor Cutscenes: Removes CS that plays when entering certain areas for the first time and the random Midna text prompts.");
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -540,7 +590,6 @@ namespace TPRandomizer
                 fastIronBootsCheckBox.BackColor = Color.FromArgb(34, 36, 49);
                 tunicColorLabel.BackColor = Color.FromArgb(34, 36, 49); 
                 generateButton.BackColor = Color.FromArgb(34, 36, 49);
-                generateSpoilerLogCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
                 settingPresetsLabel.BackColor = Color.FromArgb(34, 36, 49); 
                 settingsPresetsComboBox.BackColor = Color.FromArgb(34, 36, 49);
                 listBox1.BackColor = Color.FromArgb(34, 36, 49); 
@@ -621,7 +670,6 @@ namespace TPRandomizer
                 fastIronBootsCheckBox.ForeColor = Color.LightGray;
                 tunicColorLabel.ForeColor = Color.LightGray; 
                 generateButton.ForeColor = Color.LightGray;
-                generateSpoilerLogCheckBox.ForeColor = Color.LightGray; 
                 settingPresetsLabel.ForeColor = Color.LightGray; 
                 settingsPresetsComboBox.ForeColor = Color.LightGray;
                 listBox1.ForeColor = Color.LightGray; 
@@ -710,7 +758,6 @@ namespace TPRandomizer
                 fastIronBootsCheckBox.BackColor = Color.White;
                 tunicColorLabel.BackColor = Color.White; 
                 generateButton.BackColor = Color.White;
-                generateSpoilerLogCheckBox.BackColor = Color.White; 
                 settingPresetsLabel.BackColor = Color.White; 
                 settingsPresetsComboBox.BackColor = Color.White;
                 listBox1.BackColor = Color.White; 
@@ -791,7 +838,6 @@ namespace TPRandomizer
                 fastIronBootsCheckBox.ForeColor = Color.Black;
                 tunicColorLabel.ForeColor = Color.Black; 
                 generateButton.ForeColor = Color.Black;
-                generateSpoilerLogCheckBox.ForeColor = Color.Black; 
                 settingPresetsLabel.ForeColor = Color.Black; 
                 settingsPresetsComboBox.ForeColor = Color.Black;
                 listBox1.ForeColor = Color.Black; 
@@ -827,6 +873,37 @@ namespace TPRandomizer
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void outputTextBox_textChanged(object sender, EventArgs e)
+        {
+            outputTextBox.SelectionStart = outputTextBox.Text.Length;
+            outputTextBox.ScrollToCaret();
+        }
+
+        public class TextBoxWriter : TextWriter
+        {
+            // The control where we will write text.
+            private Control MyControl;
+            public TextBoxWriter(Control control)
+            {
+                MyControl = control;
+            }
+
+            public override void Write(char value)
+            {
+                MyControl.Text += value;
+            }
+
+            public override void Write(string value)
+            {
+                MyControl.Text += value;
+            }
+
+            public override Encoding Encoding
+            {
+                get { return Encoding.Unicode; }
+            }
         }
     }
 }

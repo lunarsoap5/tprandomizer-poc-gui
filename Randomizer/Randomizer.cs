@@ -62,8 +62,11 @@ namespace TPRandomizer
                     startOver();
                     continue;
                 }
+                Console.WriteLine("Generating Seed Data.");
                 SeedData.generateSeedData();
+                Console.WriteLine("Generating Spoiler Log.");
                 BackendFunctions.generateSpoilerLog(startingRoom);
+                Console.WriteLine("Generation Complete!");
                 break;
             }
         } 
@@ -76,30 +79,37 @@ namespace TPRandomizer
         {
             //Any vanilla checks will be placed first for the sake of logic. Even if they aren't available to be randomized in the game yet, 
             //we may need to logically account for their placement.
+            Console.WriteLine("Placing Vanilla Checks.");
             placeVanillaChecks (Checks.vanillaChecks);
             
             //Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.). This is to
             //prevent important items from being placed in checks that the player or randomizer has requested to be not
             //considered in logic.
+            Console.WriteLine("Placing Excluded Checks.");
             placeExcludedChecks();
             
             //Dungeon rewards have a very limited item pool, so we want to place them first to prevent the generator from putting
             //an unnecessary item in one of the checks.
             //starting room, list of checks to be randomized, items to be randomized, item pool, restriction
+            Console.WriteLine("Placing Dungeon Rewards.");
             placeItemsRestricted(startingRoom, Items.ShuffledDungeonRewards, Randomizer.Items.heldItems, "Dungeon Rewards"); 
             
             //Next we want to place items that are locked to a specific region such as keys, maps, compasses, etc.
+            Console.WriteLine("Placing Region-restriced Checks.");
             placeItemsRestricted(startingRoom, Items.RandomizedDungeonRegionItems, Randomizer.Items.heldItems, "Region");
             
             //Once all of the items that have some restriction on their placement are placed, we then place all of the items that can
             //be logically important (swords, clawshot, bow, etc.)
+            Console.WriteLine("Placing Important Items.");
             placeItemsRestricted(startingRoom, Items.ImportantItems, Randomizer.Items.heldItems, "");
             
             //Next we will place the "always" items. Basically the constants in every seed, so Heart Pieces, Heart Containers, etc.
             //These items do not affect logic at all so there is very little contraint to this method .
+            Console.WriteLine("Placing Non Impact Items.");
             placeNonImpactItems(startingRoom, Items.alwaysItems);
             
             //Any extra checks that have not been filled at this point are filled with "junk" items such as ammunition, foolish items, etc.
+            Console.WriteLine("Placing Junk Items.");
             placeJunkItems(startingRoom, Items.JunkItems);
 
             return;
@@ -166,7 +176,7 @@ namespace TPRandomizer
                     itemPool.Clear();
                     itemPool.AddRange(currentItemPool);
                     itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)];
-                    Console.WriteLine("Item to place: " + itemToPlace);
+                    //Console.WriteLine("Item to place: " + itemToPlace);
                     itemPool.Remove(itemToPlace);
                     ItemsToBeRandomized.Remove(itemToPlace);
                     foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
@@ -267,7 +277,7 @@ namespace TPRandomizer
             while (ItemsToBeRandomized.Count() > 0)
             {
                 itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)];
-                Console.WriteLine("Item to place: " + itemToPlace);
+                //Console.WriteLine("Item to place: " + itemToPlace);
                 ItemsToBeRandomized.Remove(itemToPlace);
                 foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
                 {
@@ -312,17 +322,17 @@ namespace TPRandomizer
         /// <param name="check"> The check to recieve the item. </param>
         public void placeItemInCheck(Item item, Check check)
         {
-            Console.WriteLine("Placing item in check.");
+            //Console.WriteLine("Placing item in check.");
             check.itemWasPlaced = true;
             check.itemId = item;
-            Console.WriteLine("Placed " + check.itemId + " in check " + check.checkName);
+            //Console.WriteLine("Placed " + check.itemId + " in check " + check.checkName);
             return;
         }
 
          void startOver()
         {
             Randomizer.Items.heldItems.Clear();
-            Console.WriteLine("Starting Over.");
+            Console.WriteLine("Logical error. Starting Over.");
             foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;

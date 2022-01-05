@@ -22,6 +22,8 @@ namespace TPRandomizer
             internal byte flag;
         };
 
+        List<eventFlag> seedEventFlags = new List<eventFlag>();
+
         class dzxCheck
         {
             internal ushort hash;
@@ -81,6 +83,14 @@ namespace TPRandomizer
             internal byte roomID;
             internal byte itemID;
         };
+
+        byte[,] faronTwilightEventFlags = new byte[,]
+        {
+            {0x5, 0xFF},
+            {0x6, 0x10},
+            {0xC, 0x8}
+        };
+
         public static void generateSeedData()
         {
             Random rnd = new Random();

@@ -35,10 +35,14 @@ namespace TPRandomizer
             this.optionsMenu = new System.Windows.Forms.TabControl();
             this.randomizationSettingsTabPage = new System.Windows.Forms.TabPage();
             this.randomizationSettingsBox = new System.Windows.Forms.GroupBox();
+            this.regionComboBox = new System.Windows.Forms.ComboBox();
+            this.regionLabel = new System.Windows.Forms.Label();
             this.logicRulesBox = new System.Windows.Forms.ComboBox();
             this.logicRulesLabel = new System.Windows.Forms.Label();
             this.itemPoolOptionsGroupBox = new System.Windows.Forms.GroupBox();
             this.itemCategoriesGroupBox = new System.Windows.Forms.GroupBox();
+            this.skyCharacterCheckBox = new System.Windows.Forms.CheckBox();
+            this.skillsCheckBox = new System.Windows.Forms.CheckBox();
             this.foolishItemsComboBox = new System.Windows.Forms.ComboBox();
             this.foolishItemsLabel = new System.Windows.Forms.Label();
             this.shopItemsCheckBox = new System.Windows.Forms.CheckBox();
@@ -112,7 +116,6 @@ namespace TPRandomizer
             this.midnaHairColorLabel = new System.Windows.Forms.Label();
             this.midnaHairColorComboBox = new System.Windows.Forms.ComboBox();
             this.generateButton = new System.Windows.Forms.Button();
-            this.generateSpoilerLogCheckBox = new System.Windows.Forms.CheckBox();
             this.settingPresetsLabel = new System.Windows.Forms.Label();
             this.settingsPresetsComboBox = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -133,6 +136,19 @@ namespace TPRandomizer
             this.settingsStringLabel = new System.Windows.Forms.Label();
             this.settingsStringTextbox = new System.Windows.Forms.TextBox();
             this.importButton = new System.Windows.Forms.Button();
+            this.regionTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.settingsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            this.categoriesTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.foolishItemsTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.dungeonItemsTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.additionalSettingsTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.cosmeticsTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.sfxTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.twilightTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.cutsceneTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -163,7 +179,7 @@ namespace TPRandomizer
             this.optionsMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.optionsMenu.Name = "optionsMenu";
             this.optionsMenu.SelectedIndex = 0;
-            this.optionsMenu.Size = new System.Drawing.Size(679, 344);
+            this.optionsMenu.Size = new System.Drawing.Size(679, 370);
             this.optionsMenu.TabIndex = 1;
             // 
             // randomizationSettingsTabPage
@@ -175,21 +191,45 @@ namespace TPRandomizer
             this.randomizationSettingsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.randomizationSettingsTabPage.Name = "randomizationSettingsTabPage";
             this.randomizationSettingsTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.randomizationSettingsTabPage.Size = new System.Drawing.Size(671, 316);
+            this.randomizationSettingsTabPage.Size = new System.Drawing.Size(671, 342);
             this.randomizationSettingsTabPage.TabIndex = 0;
             this.randomizationSettingsTabPage.Text = "Randomization Settings";
             this.randomizationSettingsTabPage.UseVisualStyleBackColor = true;
             // 
             // randomizationSettingsBox
             // 
+            this.randomizationSettingsBox.Controls.Add(this.regionComboBox);
+            this.randomizationSettingsBox.Controls.Add(this.regionLabel);
             this.randomizationSettingsBox.Controls.Add(this.logicRulesBox);
             this.randomizationSettingsBox.Controls.Add(this.logicRulesLabel);
             this.randomizationSettingsBox.Location = new System.Drawing.Point(8, 3);
             this.randomizationSettingsBox.Name = "randomizationSettingsBox";
-            this.randomizationSettingsBox.Size = new System.Drawing.Size(332, 62);
+            this.randomizationSettingsBox.Size = new System.Drawing.Size(332, 91);
             this.randomizationSettingsBox.TabIndex = 3;
             this.randomizationSettingsBox.TabStop = false;
             this.randomizationSettingsBox.Text = "Logic Settings";
+            // 
+            // regionComboBox
+            // 
+            this.regionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.regionComboBox.FormattingEnabled = true;
+            this.regionComboBox.Items.AddRange(new object[] {
+            "NTSC (US)",
+            "PAL (EUR)",
+            "JP (JAP)"});
+            this.regionComboBox.Location = new System.Drawing.Point(82, 48);
+            this.regionComboBox.Name = "regionComboBox";
+            this.regionComboBox.Size = new System.Drawing.Size(121, 23);
+            this.regionComboBox.TabIndex = 3;
+            // 
+            // regionLabel
+            // 
+            this.regionLabel.AutoSize = true;
+            this.regionLabel.Location = new System.Drawing.Point(6, 51);
+            this.regionLabel.Name = "regionLabel";
+            this.regionLabel.Size = new System.Drawing.Size(47, 15);
+            this.regionLabel.TabIndex = 2;
+            this.regionLabel.Text = "Region:";
             // 
             // logicRulesBox
             // 
@@ -219,25 +259,47 @@ namespace TPRandomizer
             this.itemPoolOptionsGroupBox.Controls.Add(this.dungeonItemsGroupBox);
             this.itemPoolOptionsGroupBox.Location = new System.Drawing.Point(346, 3);
             this.itemPoolOptionsGroupBox.Name = "itemPoolOptionsGroupBox";
-            this.itemPoolOptionsGroupBox.Size = new System.Drawing.Size(316, 310);
+            this.itemPoolOptionsGroupBox.Size = new System.Drawing.Size(316, 331);
             this.itemPoolOptionsGroupBox.TabIndex = 2;
             this.itemPoolOptionsGroupBox.TabStop = false;
             this.itemPoolOptionsGroupBox.Text = "Item Pool Options";
             // 
             // itemCategoriesGroupBox
             // 
+            this.itemCategoriesGroupBox.Controls.Add(this.skyCharacterCheckBox);
+            this.itemCategoriesGroupBox.Controls.Add(this.skillsCheckBox);
             this.itemCategoriesGroupBox.Controls.Add(this.foolishItemsComboBox);
             this.itemCategoriesGroupBox.Controls.Add(this.foolishItemsLabel);
             this.itemCategoriesGroupBox.Controls.Add(this.shopItemsCheckBox);
             this.itemCategoriesGroupBox.Controls.Add(this.poeCheckBox);
             this.itemCategoriesGroupBox.Controls.Add(this.giftFromNPCsCheckBox);
             this.itemCategoriesGroupBox.Controls.Add(this.goldenBugsCheckBox);
-            this.itemCategoriesGroupBox.Location = new System.Drawing.Point(7, 128);
+            this.itemCategoriesGroupBox.Location = new System.Drawing.Point(7, 132);
             this.itemCategoriesGroupBox.Name = "itemCategoriesGroupBox";
-            this.itemCategoriesGroupBox.Size = new System.Drawing.Size(303, 176);
+            this.itemCategoriesGroupBox.Size = new System.Drawing.Size(303, 193);
             this.itemCategoriesGroupBox.TabIndex = 7;
             this.itemCategoriesGroupBox.TabStop = false;
             this.itemCategoriesGroupBox.Text = "Item Categories";
+            // 
+            // skyCharacterCheckBox
+            // 
+            this.skyCharacterCheckBox.AutoSize = true;
+            this.skyCharacterCheckBox.Location = new System.Drawing.Point(160, 24);
+            this.skyCharacterCheckBox.Name = "skyCharacterCheckBox";
+            this.skyCharacterCheckBox.Size = new System.Drawing.Size(103, 19);
+            this.skyCharacterCheckBox.TabIndex = 7;
+            this.skyCharacterCheckBox.Text = "Sky Characters";
+            this.skyCharacterCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // skillsCheckBox
+            // 
+            this.skillsCheckBox.AutoSize = true;
+            this.skillsCheckBox.Location = new System.Drawing.Point(13, 127);
+            this.skillsCheckBox.Name = "skillsCheckBox";
+            this.skillsCheckBox.Size = new System.Drawing.Size(94, 19);
+            this.skillsCheckBox.TabIndex = 6;
+            this.skillsCheckBox.Text = "Hidden Skills";
+            this.skillsCheckBox.UseVisualStyleBackColor = true;
             // 
             // foolishItemsComboBox
             // 
@@ -249,7 +311,7 @@ namespace TPRandomizer
             "Extra",
             "Mayhem",
             "Nightmare"});
-            this.foolishItemsComboBox.Location = new System.Drawing.Point(99, 127);
+            this.foolishItemsComboBox.Location = new System.Drawing.Point(99, 157);
             this.foolishItemsComboBox.Name = "foolishItemsComboBox";
             this.foolishItemsComboBox.Size = new System.Drawing.Size(121, 23);
             this.foolishItemsComboBox.TabIndex = 5;
@@ -257,7 +319,7 @@ namespace TPRandomizer
             // foolishItemsLabel
             // 
             this.foolishItemsLabel.AutoSize = true;
-            this.foolishItemsLabel.Location = new System.Drawing.Point(11, 130);
+            this.foolishItemsLabel.Location = new System.Drawing.Point(11, 160);
             this.foolishItemsLabel.Name = "foolishItemsLabel";
             this.foolishItemsLabel.Size = new System.Drawing.Size(80, 15);
             this.foolishItemsLabel.TabIndex = 4;
@@ -313,7 +375,7 @@ namespace TPRandomizer
             this.dungeonItemsGroupBox.Controls.Add(this.mapsAndCompassesLabel);
             this.dungeonItemsGroupBox.Location = new System.Drawing.Point(7, 22);
             this.dungeonItemsGroupBox.Name = "dungeonItemsGroupBox";
-            this.dungeonItemsGroupBox.Size = new System.Drawing.Size(303, 100);
+            this.dungeonItemsGroupBox.Size = new System.Drawing.Size(303, 109);
             this.dungeonItemsGroupBox.TabIndex = 6;
             this.dungeonItemsGroupBox.TabStop = false;
             this.dungeonItemsGroupBox.Text = "Dungeon Items";
@@ -400,7 +462,7 @@ namespace TPRandomizer
             this.accessOptionsGroupBox.Controls.Add(this.palaceLogicLabel);
             this.accessOptionsGroupBox.Controls.Add(this.castleLogicLabel);
             this.accessOptionsGroupBox.Controls.Add(this.castleLogicComboBox);
-            this.accessOptionsGroupBox.Location = new System.Drawing.Point(8, 71);
+            this.accessOptionsGroupBox.Location = new System.Drawing.Point(8, 97);
             this.accessOptionsGroupBox.Name = "accessOptionsGroupBox";
             this.accessOptionsGroupBox.Size = new System.Drawing.Size(332, 237);
             this.accessOptionsGroupBox.TabIndex = 1;
@@ -505,7 +567,7 @@ namespace TPRandomizer
             this.gameplaySettingsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gameplaySettingsTabPage.Name = "gameplaySettingsTabPage";
             this.gameplaySettingsTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gameplaySettingsTabPage.Size = new System.Drawing.Size(671, 316);
+            this.gameplaySettingsTabPage.Size = new System.Drawing.Size(671, 342);
             this.gameplaySettingsTabPage.TabIndex = 1;
             this.gameplaySettingsTabPage.Text = "Gameplay Settings";
             this.gameplaySettingsTabPage.UseVisualStyleBackColor = true;
@@ -600,7 +662,7 @@ namespace TPRandomizer
             this.excludedChecksTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.excludedChecksTabPage.Name = "excludedChecksTabPage";
             this.excludedChecksTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.excludedChecksTabPage.Size = new System.Drawing.Size(671, 316);
+            this.excludedChecksTabPage.Size = new System.Drawing.Size(671, 342);
             this.excludedChecksTabPage.TabIndex = 2;
             this.excludedChecksTabPage.Text = "Excluded Checks";
             this.excludedChecksTabPage.UseVisualStyleBackColor = true;
@@ -675,7 +737,7 @@ namespace TPRandomizer
             this.inventoryTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inventoryTabPage.Name = "inventoryTabPage";
             this.inventoryTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inventoryTabPage.Size = new System.Drawing.Size(671, 316);
+            this.inventoryTabPage.Size = new System.Drawing.Size(671, 342);
             this.inventoryTabPage.TabIndex = 3;
             this.inventoryTabPage.Text = "Inventory";
             this.inventoryTabPage.UseVisualStyleBackColor = true;
@@ -745,7 +807,7 @@ namespace TPRandomizer
             this.cosmeticsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cosmeticsTabPage.Name = "cosmeticsTabPage";
             this.cosmeticsTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cosmeticsTabPage.Size = new System.Drawing.Size(671, 316);
+            this.cosmeticsTabPage.Size = new System.Drawing.Size(671, 342);
             this.cosmeticsTabPage.TabIndex = 4;
             this.cosmeticsTabPage.Text = "Cosmetics and Quirks";
             this.cosmeticsTabPage.UseVisualStyleBackColor = true;
@@ -1126,7 +1188,7 @@ namespace TPRandomizer
             // 
             // generateButton
             // 
-            this.generateButton.Location = new System.Drawing.Point(308, 477);
+            this.generateButton.Location = new System.Drawing.Point(308, 489);
             this.generateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.generateButton.Name = "generateButton";
             this.generateButton.Size = new System.Drawing.Size(82, 22);
@@ -1135,21 +1197,10 @@ namespace TPRandomizer
             this.generateButton.UseVisualStyleBackColor = true;
             this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
-            // generateSpoilerLogCheckBox
-            // 
-            this.generateSpoilerLogCheckBox.AutoSize = true;
-            this.generateSpoilerLogCheckBox.Location = new System.Drawing.Point(10, 423);
-            this.generateSpoilerLogCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.generateSpoilerLogCheckBox.Name = "generateSpoilerLogCheckBox";
-            this.generateSpoilerLogCheckBox.Size = new System.Drawing.Size(135, 19);
-            this.generateSpoilerLogCheckBox.TabIndex = 5;
-            this.generateSpoilerLogCheckBox.Text = "Generate Spoiler Log";
-            this.generateSpoilerLogCheckBox.UseVisualStyleBackColor = true;
-            // 
             // settingPresetsLabel
             // 
             this.settingPresetsLabel.AutoSize = true;
-            this.settingPresetsLabel.Location = new System.Drawing.Point(10, 398);
+            this.settingPresetsLabel.Location = new System.Drawing.Point(10, 430);
             this.settingPresetsLabel.Name = "settingPresetsLabel";
             this.settingPresetsLabel.Size = new System.Drawing.Size(92, 15);
             this.settingPresetsLabel.TabIndex = 6;
@@ -1164,7 +1215,7 @@ namespace TPRandomizer
             "Beginner",
             "Experienced",
             "Insanity (Cheese Logic)"});
-            this.settingsPresetsComboBox.Location = new System.Drawing.Point(104, 395);
+            this.settingsPresetsComboBox.Location = new System.Drawing.Point(104, 427);
             this.settingsPresetsComboBox.Name = "settingsPresetsComboBox";
             this.settingsPresetsComboBox.Size = new System.Drawing.Size(121, 23);
             this.settingsPresetsComboBox.TabIndex = 7;
@@ -1183,6 +1234,7 @@ namespace TPRandomizer
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
+            this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.outputTextBox.Size = new System.Drawing.Size(679, 139);
             this.outputTextBox.TabIndex = 9;
             // 
@@ -1282,7 +1334,7 @@ namespace TPRandomizer
             // settingsStringLabel
             // 
             this.settingsStringLabel.AutoSize = true;
-            this.settingsStringLabel.Location = new System.Drawing.Point(10, 453);
+            this.settingsStringLabel.Location = new System.Drawing.Point(10, 465);
             this.settingsStringLabel.Name = "settingsStringLabel";
             this.settingsStringLabel.Size = new System.Drawing.Size(86, 15);
             this.settingsStringLabel.TabIndex = 11;
@@ -1290,14 +1342,14 @@ namespace TPRandomizer
             // 
             // settingsStringTextbox
             // 
-            this.settingsStringTextbox.Location = new System.Drawing.Point(100, 450);
+            this.settingsStringTextbox.Location = new System.Drawing.Point(100, 462);
             this.settingsStringTextbox.Name = "settingsStringTextbox";
             this.settingsStringTextbox.Size = new System.Drawing.Size(497, 23);
             this.settingsStringTextbox.TabIndex = 12;
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(614, 450);
+            this.importButton.Location = new System.Drawing.Point(614, 462);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(75, 23);
             this.importButton.TabIndex = 13;
@@ -1316,7 +1368,6 @@ namespace TPRandomizer
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.settingsPresetsComboBox);
             this.Controls.Add(this.settingPresetsLabel);
-            this.Controls.Add(this.generateSpoilerLogCheckBox);
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.optionsMenu);
             this.Controls.Add(this.MainMenuStrip);
@@ -1374,7 +1425,6 @@ namespace TPRandomizer
         private System.Windows.Forms.Label listofChecksLabel;
         private System.Windows.Forms.Button moveExcludedToCheckButton;
         private System.Windows.Forms.TabPage cosmeticsTabPage;
-        private System.Windows.Forms.CheckBox generateSpoilerLogCheckBox;
         private System.Windows.Forms.GroupBox accessOptionsGroupBox;
         private System.Windows.Forms.Label castleLogicLabel;
         private System.Windows.Forms.ComboBox castleLogicComboBox;
@@ -1464,6 +1514,23 @@ namespace TPRandomizer
         private System.Windows.Forms.Label aButtonLabel;
         private System.Windows.Forms.ComboBox heartColorComboBox;
         private System.Windows.Forms.Label heartColorLabel;
+        private System.Windows.Forms.ComboBox regionComboBox;
+        private System.Windows.Forms.Label regionLabel;
+        private System.Windows.Forms.CheckBox skyCharacterCheckBox;
+        private System.Windows.Forms.CheckBox skillsCheckBox;
+        private System.Windows.Forms.ToolTip regionTooltip;
+        private System.Windows.Forms.ToolTip settingsToolTip;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
+        private System.Windows.Forms.ToolTip toolTip4;
+        private System.Windows.Forms.ToolTip categoriesTooltip;
+        private System.Windows.Forms.ToolTip foolishItemsTooltip;
+        private System.Windows.Forms.ToolTip dungeonItemsTooltip;
+        private System.Windows.Forms.ToolTip additionalSettingsTooltip;
+        private System.Windows.Forms.ToolTip cosmeticsTooltip;
+        private System.Windows.Forms.ToolTip sfxTooltip;
+        private System.Windows.Forms.ToolTip twilightTooltip;
+        private System.Windows.Forms.ToolTip cutsceneTooltip;
     }
 }
 
