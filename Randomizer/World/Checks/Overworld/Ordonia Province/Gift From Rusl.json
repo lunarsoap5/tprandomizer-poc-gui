@@ -1,9 +1,8 @@
 {
     "requirements": "(Progressive_Fishing_Rod, 1) or (Setting.introSkipped equals True)",
-    "arcFileName": "R_SP01/R04_00.arc",
-    "offset": "DB790",
-    "fileDirectoryType": 0,
-    "replacementType": 0,
+    "arcFileValues": [["R_SP01/R04_00.arc", "DB790"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
     "category": ["Overworld", "Chest", "Ordonia Province", "ARC"],
     "itemId": "Progressive_Sword"
 }

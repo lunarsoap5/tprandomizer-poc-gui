@@ -1,9 +1,8 @@
 {
     "requirements": "Renardos_Letter",
-    "arcFileName": "bmgres4.arc",
-    "offset": "1E79F",
-    "fileDirectoryType": 1,
-    "replacementType": 0,
+    "arcFileValues": [["bmgres4.arc", "1E79F"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
     "category": ["Overworld", "Npc", "Castle Town", "ARC"],
     "itemId": "Invoice"
 }

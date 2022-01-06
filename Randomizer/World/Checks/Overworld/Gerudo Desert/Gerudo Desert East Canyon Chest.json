@@ -1,9 +1,8 @@
 {
     "requirements": "true",
-    "arcFileName": "F_SP124/R00_00.arc",
-    "offset": "102438",
-    "fileDirectoryType": 0,
-    "replacementType": 0,
+    "arcFileValues": [["F_SP124/R00_00.arc", "102438"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
     "category": ["Overworld", "Chest", "Gerudo Desert", "ARC"],
     "itemId": "Red_Rupee"
 }

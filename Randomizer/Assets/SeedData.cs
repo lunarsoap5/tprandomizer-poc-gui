@@ -67,8 +67,6 @@ namespace TPRandomizer
         {
             ushort indexNumber;
             short itemID;
-            short stageIDX;
-            short roomID;
         };
 
         struct BugReward
@@ -109,14 +107,20 @@ namespace TPRandomizer
                 if (currentCheck.category.Contains("ARC"))
                 {
                     ARCReplacement currentArcCheck = new ARCReplacement();
-
-                    currentArcCheck.offset = uint.Parse(currentCheck.offset, System.Globalization.NumberStyles.HexNumber);
-                    currentArcCheck.arcFileIndex = 0;
-                    currentArcCheck.replacementValue = (uint)currentCheck.itemId;
-                    currentArcCheck.directory = currentCheck.fileDirectoryType;
-                    currentArcCheck.fileName = currentCheck.arcFileName;
-                    currentArcCheck.replacementType = currentCheck.replacementType;
-                    listOfArcReplacements.Add(currentArcCheck);
+                    for (int i = 0; i < currentCheck.arcFileValues.Count; i++)
+                    {
+                        List<string> listOfArcValues = currentCheck.arcFileValues[i];
+                        currentArcCheck.fileName = listOfArcValues[0];
+                        for (int j = 1; j < listOfArcValues.Count; j++)
+                        {
+                            currentArcCheck.offset = uint.Parse(listOfArcValues[j], System.Globalization.NumberStyles.HexNumber);
+                            currentArcCheck.arcFileIndex = 0;
+                            currentArcCheck.replacementValue = (uint)currentCheck.itemId;
+                            currentArcCheck.directory = currentCheck.fileDirectoryType[i];
+                            currentArcCheck.replacementType = currentCheck.replacementType[i]; 
+                            listOfArcReplacements.Add(currentArcCheck);
+                        }
+                    }
                     isData = true;
                 }
                 if (currentCheck.category.Contains("DZX"))
@@ -154,12 +158,15 @@ namespace TPRandomizer
                 if (currentCheck.category.Contains("REL"))
                 {
                     RELCheck currentRELCheck = new RELCheck();
-                    currentRELCheck.stageIDX = currentCheck.stageIDX;
-                    currentRELCheck.moduleID = uint.Parse(currentCheck.moduleID, System.Globalization.NumberStyles.HexNumber);
-                    currentRELCheck.offset = uint.Parse(currentCheck.offset, System.Globalization.NumberStyles.HexNumber);
-                    currentRELCheck.relOverride = (uint.Parse(currentCheck.relOverride, System.Globalization.NumberStyles.HexNumber) + (byte)currentCheck.itemId);
-                    listOfRelReplacements.Add(currentRELCheck);
-                    isData = true;
+                    for (int i = 0; i < currentCheck.offsets.Count; i++)
+                    {
+                        currentRELCheck.stageIDX = currentCheck.stageIDX;
+                        currentRELCheck.moduleID = uint.Parse(currentCheck.moduleID, System.Globalization.NumberStyles.HexNumber);
+                        currentRELCheck.offset = uint.Parse(currentCheck.offsets[i], System.Globalization.NumberStyles.HexNumber);
+                        currentRELCheck.relOverride = (uint.Parse(currentCheck.relOverride, System.Globalization.NumberStyles.HexNumber) + (byte)currentCheck.itemId);
+                        listOfRelReplacements.Add(currentRELCheck);
+                        isData = true;
+                    }
                 }
                 if (currentCheck.category.Contains("Boss"))
                 {

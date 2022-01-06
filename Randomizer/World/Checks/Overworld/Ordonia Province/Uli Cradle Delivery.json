@@ -1,9 +1,8 @@
 {
     "requirements": "true",
-    "arcFileName": "bmgres1.arc",
-    "offset": "20D2F",
-    "fileDirectoryType": 1,
-    "replacementType": 0,
+    "arcFileValues": [["bmgres1.arc", "20D2F"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
     "category": ["Overworld", "Npc", "Ordonia Province", "ARC"],
     "itemId": "Progressive_Fishing_Rod"
 }

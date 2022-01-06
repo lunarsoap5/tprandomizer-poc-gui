@@ -1,9 +1,8 @@
 {
     "requirements": "Shadow_Crystal",
-    "arcFileName": "D_MN10/R15_00.arc",
-    "offset": "50108",
-    "fileDirectoryType": 0,
-    "replacementType": 0,
+    "arcFileValues": [["D_MN10/R15_00.arc", "50108"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
     "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key", "ARC"],
     "itemId": "Arbiters_Grounds_Small_Key"
 }

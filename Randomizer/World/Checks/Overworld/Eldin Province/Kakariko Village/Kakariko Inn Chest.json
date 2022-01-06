@@ -1,9 +1,8 @@
 {
     "requirements": "true",
-    "arcFileName": "R_SP109/R02_00.arc",
-    "offset": "A2488",
-    "fileDirectoryType": 0,
-    "replacementType": 0,
+    "arcFileValues": [["R_SP109/R02_00.arc", "A2488"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
     "category": ["Overworld", "Chest", "Eldin Province", "ARC"],
     "itemId": "Red_Rupee"
 }

@@ -1,9 +1,8 @@
 {
     "requirements": "Iron_Boots",
-    "arcFileName": "D_MN07/R00_00.arc",
-    "offset": "982A4",
-    "fileDirectoryType": 0,
-    "replacementType": 0,
+    "arcFileValues": [["D_MN07/R00_00.arc", "982A4"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
     "category": ["Chest", "Dungeon", "City in The Sky", "ARC"],
     "itemId": "Water_Bombs_15"
 }

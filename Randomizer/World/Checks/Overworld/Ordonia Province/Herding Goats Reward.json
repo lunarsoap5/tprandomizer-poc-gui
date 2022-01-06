@@ -1,9 +1,8 @@
 {
     "requirements": "canLeaveForest",
-    "arcFileName": "bmgres1.arc",
-    "offset": "21ADF",
-    "fileDirectoryType": 1,
-    "replacementType": 0,
+    "arcFileValues": [["bmgres1.arc", "21ADF"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
     "category": ["Overworld", "Npc", "Ordonia Province", "ARC"],
     "itemId": "Piece_of_Heart"
 }

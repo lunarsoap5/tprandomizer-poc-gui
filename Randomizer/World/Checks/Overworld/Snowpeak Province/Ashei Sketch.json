@@ -1,9 +1,8 @@
 {
     "requirements": "true",
-    "arcFileName": "bmgres6.arc",
-    "offset": "199A7",
-    "fileDirectoryType": 1,
-    "replacementType": 0,
+    "arcFileValues": [["bmgres6.arc", "199A7"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
     "category": ["Overworld", "Npc", "Snowpeak Province", "ARC"],
     "itemId": "Asheis_Sketch"
 }

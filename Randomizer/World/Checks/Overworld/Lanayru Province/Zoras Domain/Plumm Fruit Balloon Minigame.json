@@ -1,9 +1,8 @@
 {
     "requirements": "Shadow_Crystal",
-    "arcFileName": "bmgres8.arc",
-    "offset": "14597",
-    "fileDirectoryType": 1,
-    "replacementType": 0,
+    "arcFileValues": [["bmgres8.arc", "14597"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
     "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],
     "itemId": "Piece_of_Heart"
 }

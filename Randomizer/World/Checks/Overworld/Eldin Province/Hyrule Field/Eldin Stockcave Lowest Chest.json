@@ -1,9 +1,8 @@
 {
     "requirements": "Iron_Boots",
-    "arcFileName": "D_SB04/R10_00.arc",
-    "offset": "8D990",
-    "fileDirectoryType": 0,
-    "replacementType": 0,
+    "arcFileValues": [["D_SB04/R10_00.arc", "8D990"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
     "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
     "itemId": "Piece_of_Heart"
 }

@@ -26,11 +26,11 @@ namespace TPRandomizer
         public string dzxTag {get; set;} //Used by DZX checks. The type of actor that will be modified.
         public string[] data {get; set;} //Used by DZX checks. The data structure that will replace the current loaded ACTR.
         public string flag {get; set;} //Used by POE and SKILL checks. The flag to check to determine which check to replace.
-        public string arcFileName { get; set;} //Used by ARC checks. The file where the item the check uses is contained.
-        public byte fileDirectoryType { get; set;} //Used by ARC checks. The type of file directory where the item is stored.
-        public byte replacementType { get; set;} //Used by ARC checks. The type of replacement taking place
+        public List<List<string>> arcFileValues { get; set;} //Used by ARC checks. The file where the item the check uses is contained. NEEDS CHANGED TO arcFileValues
+        public List<byte> fileDirectoryType { get; set;} //Used by ARC checks. The type of file directory where the item is stored.
+        public List<byte> replacementType { get; set;} //Used by ARC checks. The type of replacement taking place
         public string moduleID { get; set;} //Used by REL checks. The module ID for the rel file being loaded.
-        public string offset { get; set;} //Used by REL and ARC checks.
+        public List<string> offsets { get; set;} //Used by REL checks.
         public string relOverride { get; set;} //Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }
 

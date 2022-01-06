@@ -93,7 +93,6 @@ C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-po
 C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\bin\Debug\net5.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.csproj.CopyComplete
 C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.genruntimeconfig.cache
-C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.csprojAssemblyReference.cache
 C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.Form1.resources
 C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.csproj.GenerateResource.cache
 C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.GeneratedMSBuildEditorConfig.editorconfig
@@ -142,3 +141,4 @@ C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\bin\Debug\net5.0-windows\z
 C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.csproj.CopyComplete
 C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.genruntimeconfig.cache
 C:\Users\JC071094\OneDrive - Cerner Corporation\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.csproj.AssemblyReference.cache
+C:\Users\Justin\Documents\GitHub\tprandomizer-poc-gui\obj\Debug\net5.0-windows\TPRandomizer.csproj.AssemblyReference.cache
