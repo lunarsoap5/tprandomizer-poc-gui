@@ -49,6 +49,7 @@ namespace TPRandomizer
         public string gameRegion {get; set;}
         public bool shuffleHiddenSkills {get; set;}
         public bool shuffleSkyCharacters {get; set;}
+        public int seedNumber {get; set;}
     }
 
     public class SettingData
@@ -257,5 +258,18 @@ namespace TPRandomizer
         };
         public bool shuffleHiddenSkills {get; set;}
         public bool shuffleSkyCharacters {get; set;}
+        public string[] seedNumber {get; set;} = new string[]
+        {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+        };
     }
 }

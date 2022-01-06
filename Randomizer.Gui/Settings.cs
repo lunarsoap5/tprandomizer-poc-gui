@@ -49,5 +49,6 @@ namespace TPRandomizer
         public int gameRegion {get; set;}
         public bool shuffleHiddenSkills {get; set;}
         public bool shuffleSkyCharacters {get; set;}
+        public int seedNumber {get; set;}
     }
 }

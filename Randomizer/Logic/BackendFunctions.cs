@@ -73,6 +73,17 @@ namespace TPRandomizer
                             }
                         }
                     }
+                    if (settingProperty.PropertyType == typeof(int))
+                    {
+                        settingBitWidth = 4;
+                        //We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
+                        for (int j = 0; j < settingBitWidth; j++)
+                        {
+                            evaluatedByteString = evaluatedByteString + bitString[0];
+                            bitString = bitString.Remove(0,1);
+                        }
+                        settingProperty.SetValue(Randomizer.RandoSetting, Convert.ToInt32(evaluatedByteString, 2), null);
+                    }
                     if (settingProperty.PropertyType == typeof(List<Item>))
                     {
                         List<Item> startingItems = new List<Item>();
@@ -463,7 +474,24 @@ namespace TPRandomizer
                 });
                 file.Close(); 
             } 
-            
         } 
+
+        public static byte[,] concatFlagArrays(byte[,] destArray, byte[,] sourceArray)
+        {
+            byte[,] array3 = new byte[destArray.GetLength(0) + sourceArray.GetLength(0), destArray.GetLength(1) + sourceArray.GetLength(1)];
+            int j = 0;
+            for (int i=0; i < destArray.GetLength(0); i++)
+            {
+                array3[i,0] = destArray[i,0];
+                array3[i,1] = destArray[i,1];
+            }
+            for (int i=destArray.GetLength(0); i < array3.GetLength(0); i++)
+            {
+                array3[i,0] = sourceArray[j,0];
+                array3[i,1] = sourceArray[j,1];
+                j++;
+            }
+            return array3;
+        }
     }
 }

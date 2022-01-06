@@ -149,6 +149,8 @@ namespace TPRandomizer
             this.sfxTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.twilightTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.cutsceneTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.seedNumberLabel = new System.Windows.Forms.Label();
+            this.seedNumberComboBox = new System.Windows.Forms.ComboBox();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -1357,11 +1359,42 @@ namespace TPRandomizer
             this.importButton.UseVisualStyleBackColor = true;
             this.importButton.Click += new System.EventHandler(this.importButton_Click);
             // 
+            // seedNumberLabel
+            // 
+            this.seedNumberLabel.AutoSize = true;
+            this.seedNumberLabel.Location = new System.Drawing.Point(245, 430);
+            this.seedNumberLabel.Name = "seedNumberLabel";
+            this.seedNumberLabel.Size = new System.Drawing.Size(82, 15);
+            this.seedNumberLabel.TabIndex = 14;
+            this.seedNumberLabel.Text = "Seed Number:";
+            // 
+            // seedNumberComboBox
+            // 
+            this.seedNumberComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.seedNumberComboBox.FormattingEnabled = true;
+            this.seedNumberComboBox.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.seedNumberComboBox.Location = new System.Drawing.Point(333, 427);
+            this.seedNumberComboBox.Name = "seedNumberComboBox";
+            this.seedNumberComboBox.Size = new System.Drawing.Size(121, 23);
+            this.seedNumberComboBox.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 658);
+            this.Controls.Add(this.seedNumberComboBox);
+            this.Controls.Add(this.seedNumberLabel);
             this.Controls.Add(this.importButton);
             this.Controls.Add(this.settingsStringTextbox);
             this.Controls.Add(this.settingsStringLabel);
@@ -1531,6 +1564,8 @@ namespace TPRandomizer
         private System.Windows.Forms.ToolTip sfxTooltip;
         private System.Windows.Forms.ToolTip twilightTooltip;
         private System.Windows.Forms.ToolTip cutsceneTooltip;
+        private System.Windows.Forms.Label seedNumberLabel;
+        private System.Windows.Forms.ComboBox seedNumberComboBox;
     }
 }
 

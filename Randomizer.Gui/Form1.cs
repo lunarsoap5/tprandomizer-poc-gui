@@ -53,6 +53,7 @@ namespace TPRandomizer
             yButtonComboBox.SelectedIndex = 0;
             zButtonComboBox.SelectedIndex = 0;
             regionComboBox.SelectedIndex = 0;
+            seedNumberComboBox.SelectedIndex = 0;
             logicRulesBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             castleLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             palaceLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
@@ -94,6 +95,7 @@ namespace TPRandomizer
             skillsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             skyCharacterCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             outputTextBox.TextChanged += new System.EventHandler(this.outputTextBox_textChanged);
+            seedNumberComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
 
             foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Checks/", "*",SearchOption.AllDirectories))
             {
@@ -162,6 +164,7 @@ namespace TPRandomizer
                 settings.gameRegion = regionComboBox.SelectedIndex;
                 settings.shuffleHiddenSkills = skillsCheckBox.Checked;
                 settings.shuffleSkyCharacters = skyCharacterCheckBox.Checked;
+                settings.seedNumber = seedNumberComboBox.SelectedIndex;
                 foreach (string startingItem in startingItemsListBox.Items)
                 {
                     string itemName = startingItem;
@@ -243,6 +246,7 @@ namespace TPRandomizer
             regionComboBox.SelectedIndex = settings.gameRegion;
             skillsCheckBox.Checked = settings.shuffleHiddenSkills;
             skyCharacterCheckBox.Checked = settings.shuffleSkyCharacters;
+            seedNumberComboBox.SelectedIndex = settings.seedNumber;
 
             foreach (Item startingItem in settings.StartingItems)
             {
@@ -447,7 +451,7 @@ namespace TPRandomizer
             switch (currentItem)
             {
                 case "Standard":
-                    settingsStringTextbox.Text = "QUlJTUFBRjZBUDc3NEFBQUFBQUFBQQ==";
+                    settingsStringTextbox.Text = "QUlJTUFBRjZBUDc3NEFBQUFBQUFBQUE=";
                     parseSettingsString(settingsStringTextbox.Text);
                     break;
             }
