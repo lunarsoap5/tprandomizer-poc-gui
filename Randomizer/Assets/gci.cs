@@ -1,0 +1,87 @@
+using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TPRandomizer.Assets
+{
+    class gci 
+    {
+        private List<byte> GCIHeader;
+        private char regionCode;
+        private List<byte> GCIData;
+
+
+        public byte[] header
+        {
+            get
+            {
+                return GCIHeader.ToArray<byte>();
+            }
+        }
+        public int length 
+        {
+            get
+            {
+                return GCIHeader.Count + GCIData.Count;
+            }
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="length">Number of bytes to store in the gci</param>
+        /// <param name="regionCode"> E, P, or J</param>
+        public gci(byte seedNumber = 0, char regionCode = 'E')
+        {
+            switch(regionCode)
+            {
+                case 'J':
+                    this.regionCode = 'J';
+                    break;
+                case 'P':
+                    this.regionCode = 'P';
+                    break;
+                default:
+                    this.regionCode = 'E';
+                    break;
+            }
+
+            GCIHeader = new List<byte>();
+            GCIData = new List<byte>();
+
+            // Populate GCI Header
+            /*x0*/ GCIHeader.AddRange(Converter.stringBytes("GZ2"));
+            /*x3*/ GCIHeader.Add(Converter.stringBytes(regionCode));
+            /*x4*/ GCIHeader.AddRange(Converter.stringBytes("02"));
+            /*x6*/ GCIHeader.Add(Converter.gcByte(0xFF));
+            /*x7*/ GCIHeader.Add(Converter.gcByte(2));
+            /*x8*/ GCIHeader.AddRange(Converter.stringBytes($"seed-data{seedNumber}", 0x20));
+            /*x28*/ GCIHeader.AddRange(Converter.gcBytes((UInt32)(DateTime.UtcNow - new DateTime(2000,1,1)).TotalSeconds));
+            /*x2c*/ GCIHeader.AddRange(Converter.gcBytes((UInt32)0));
+            /*x30*/ GCIHeader.AddRange(Converter.gcBytes((UInt32)0x0020003));
+            /*x34*/ GCIHeader.Add(Converter.gcByte(0x04));
+            /*x35*/ GCIHeader.Add(Converter.gcByte(0x00));
+            /*x36*/ GCIHeader.AddRange(Converter.gcBytes((UInt16)0x00));
+            /*x38*/ GCIHeader.AddRange(Converter.gcBytes((UInt16)0x02)); //actual num of blocks
+            /*x3A*/ GCIHeader.AddRange(Converter.gcBytes((UInt16)0xFFFF));
+
+            // Comment offset (after seed banner; +0x40 to account for header)
+            /*x3C*/ GCIHeader.AddRange(Converter.gcBytes((UInt32)Properties.Resources.banner_seed.Length));
+
+            // Add seed banner
+            GCIHeader.AddRange(Properties.Resources.banner_seed);
+            GCIHeader.AddRange(Converter.stringBytes("TPR 1.0 Seed Data", 0x20, regionCode));
+            GCIHeader.AddRange(Converter.stringBytes("XYZ ABC DEF GHI -", 0x20, regionCode));
+
+            while (GCIHeader.Count < (2 * (0x2000)) +0x40)
+                GCIHeader.Add((byte)0x0);
+        }
+
+        public void Write(byte[] data)
+        {
+
+        }
+    }
+}

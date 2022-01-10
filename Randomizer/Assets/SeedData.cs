@@ -5,6 +5,8 @@ using Newtonsoft.Json;
 using System.Reflection;
 using System.Linq;
 using System.Text;
+using TPRandomizer.Assets;
+
 
 namespace TPRandomizer
 { 
@@ -86,6 +88,8 @@ namespace TPRandomizer
 
         public static void generateSeedData()
         {
+            var gci = new gci();
+            File.WriteAllBytes("test.gci",gci.header);
             Random rnd = new Random();
             string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.txt";
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
