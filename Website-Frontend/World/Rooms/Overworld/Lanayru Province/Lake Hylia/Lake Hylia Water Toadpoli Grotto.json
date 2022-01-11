@@ -1,0 +1,15 @@
+{
+    "neighbours": 
+    [
+        "Lake Hylia"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "checks": 
+    [
+        "Lake Hylia Water Toadpoli Grotto Chest"
+    ],
+    "region": "Lanayru Province"
+}

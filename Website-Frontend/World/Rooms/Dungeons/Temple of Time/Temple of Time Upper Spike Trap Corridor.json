@@ -1,0 +1,18 @@
+{
+    "neighbours": 
+    [
+        "Temple of Time Upper Spike Trap Corridor", 
+        "Temple of Time Darknut Arena"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "canDefeatLizalfos and canDefeatBabyGohma and canDefeatYoungGohma and canDefeatArmos and (Temple_of_Time_Small_Key, 3)"
+    ],
+    "checks": 
+    [
+        "Temple of Time Gilloutine Chest",
+        "Temple of Time Chest Before Darknut"
+    ],
+    "region": "Temple of Time"
+}

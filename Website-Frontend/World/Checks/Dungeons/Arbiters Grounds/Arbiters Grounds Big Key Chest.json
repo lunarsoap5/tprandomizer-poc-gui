@@ -1,0 +1,8 @@
+{
+    "requirements": "(Arbiters_Grounds_Small_Key, 5) and (Progressive_Clawshot, 1) and Spinner and canSmash",
+    "arcFileValues": [["D_MN10/R09_00.arc", "49ABC"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Arbiters Grounds", "Big Key", "ARC"],
+    "itemId": "Arbiters_Grounds_Big_Key"
+}

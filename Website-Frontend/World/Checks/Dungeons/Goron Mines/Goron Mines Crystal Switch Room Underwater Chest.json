@@ -1,0 +1,8 @@
+{
+    "requirements": "Iron_Boots",
+    "arcFileValues": [["D_MN04/R06_00.arc", "830C8"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Goron Mines", "Small Key", "ARC"],
+    "itemId": "Goron_Mines_Small_Key"
+}

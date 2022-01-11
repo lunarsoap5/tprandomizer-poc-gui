@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["D_MN10/R02_00.arc", "6F57C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Arbiters Grounds", "Dungeon Items", "Dungeon Map", "ARC"],
+    "itemId": "Arbiters_Grounds_Dungeon_Map"
+}

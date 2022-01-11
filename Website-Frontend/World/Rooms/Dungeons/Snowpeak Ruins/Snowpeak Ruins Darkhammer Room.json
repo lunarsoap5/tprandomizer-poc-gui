@@ -1,0 +1,16 @@
+{
+    "neighbours": 
+    [
+        "Snowpeak Ruins West Courtyard"
+    ],
+    "neighbourRequirements":
+    [
+        "canDefeatDarkhammer"
+    ],
+    "checks": 
+    [
+        "Snowpeak Ruins Ball and Chain",
+        "Snowpeak Ruins Chest After Darkhammer"
+    ],
+    "region": "Snowpeak Ruins"
+}

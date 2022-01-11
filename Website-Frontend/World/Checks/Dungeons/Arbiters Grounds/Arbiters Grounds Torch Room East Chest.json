@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["D_MN10/R02_00.arc", "6F59C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

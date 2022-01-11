@@ -1,0 +1,7 @@
+{
+    "requirements": "Shadow_Crystal and canDefeatRedeadKnight",
+    "stageIDX": 24,
+    "flag": "20",
+    "category": ["Overworld", "Poe", "Arbiters Grounds"],
+    "itemId": "Poe_Soul"
+}

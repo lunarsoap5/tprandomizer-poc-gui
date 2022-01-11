@@ -1,0 +1,5 @@
+{
+    "requirements": "canDefeatBigBaba and canDefeatWalltula",
+    "category": ["Small Key", "Dungeon", "Forest Temple"],
+    "itemId": "Forest_Temple_Small_Key"
+}

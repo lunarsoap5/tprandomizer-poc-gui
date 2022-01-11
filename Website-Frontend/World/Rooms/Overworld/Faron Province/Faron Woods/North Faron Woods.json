@@ -1,0 +1,19 @@
+{ 
+    "neighbours": 
+    [
+        "Faron Mist Area", 
+        "Forest Temple Entrance", 
+        "Lost Woods"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "Lantern",
+        "Boomerang and Shadow_Crystal"
+    ],
+    "checks": 
+    [
+        "North Faron Woods Deku Baba Chest"
+    ],
+    "region": "Faron Woods"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Fishing_Rod, 1)",
+    "arcFileValues": [["bmgres.arc", "139C8"]],
+    "fileDirectoryType": [0, 1, 1],
+    "replacementType": [0, 1, 1],
+    "category": ["Overworld", "Lanayru Province", "ARC"],
+    "itemId": "Empty_Bottle"
+}

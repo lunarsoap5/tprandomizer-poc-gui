@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatDekuToad and (Lakebed_Temple_Small_Key, 3) and Zora_Armor and hasBombs",
+    "arcFileValues": [["D_MN01B/R51_00.arc", "4BCFC"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
+    "itemId": "Progressive_Clawshot"
+}

@@ -1,0 +1,17 @@
+{
+    "neighbours": 
+    [
+        "Temple of Time Central Mechanical Platform"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "checks": 
+    [
+        "Temple of Time Armos Antechamber East Chest",
+        "Temple of Time Armos Antechamber North Chest",
+        "Temple of Time Armos Antechamber Statue Chest"
+     ],
+    "region": "Temple of Time"
+}

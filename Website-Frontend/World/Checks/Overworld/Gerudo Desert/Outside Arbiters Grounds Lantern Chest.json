@@ -1,0 +1,8 @@
+{
+    "requirements": "Lantern and Gerudo_Desert_Bulblin_Camp_Key",
+    "arcFileValues": [["F_SP118/R03_00.arc", "10143C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Bulblin Camp", "ARC"],
+    "itemId": "Purple_Rupee"
+}

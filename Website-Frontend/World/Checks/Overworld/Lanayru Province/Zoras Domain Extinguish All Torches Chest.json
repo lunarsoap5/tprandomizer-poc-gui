@@ -1,0 +1,8 @@
+{
+    "requirements": "Boomerang and Iron_Boots",
+    "arcFileValues": [["F_SP113/R00_00.arc", "B7A78"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],
+    "itemId": "Purple_Rupee"
+}

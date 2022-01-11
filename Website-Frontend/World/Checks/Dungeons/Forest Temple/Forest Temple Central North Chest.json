@@ -1,0 +1,8 @@
+{
+    "requirements": "Lantern",
+    "arcFileValues": [["D_MN05/R00_00.arc", "5E70C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Forest Temple", "Dungeon Items", "Dungeon Map", "ARC"],
+    "itemId": "Forest_Temple_Dungeon_Map"
+}

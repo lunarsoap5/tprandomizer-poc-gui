@@ -1,0 +1,17 @@
+{ 
+    "neighbours": 
+    [
+        "Snowpeak Ruins West Cannon Room"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "checks": 
+    [
+        "Snowpeak Ruins Wooden Beam Central Chest",
+        "Snowpeak Ruins Wooden Beam Northwest Chest",
+        "Snowpeak Ruins Wooden Beam Chandelier Chest"
+    ],
+    "region": "Snowpeak Ruins"
+}

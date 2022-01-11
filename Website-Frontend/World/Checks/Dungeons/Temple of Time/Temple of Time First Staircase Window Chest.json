@@ -1,0 +1,8 @@
+{
+    "requirements": "hasRangedItem",
+    "arcFileValues": [["D_MN06/R01_00.arc", "41EF8"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
+    "itemId": "Red_Rupee"
+}

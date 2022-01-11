@@ -1,0 +1,18 @@
+{ 
+    "neighbours": 
+    [
+        "Kakariko Village", 
+        "Death Mountain Volcano"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "Iron_Boots"
+    ],
+    "checks": 
+    [
+        "Death Mountain Alcove Chest",
+        "Death Mountain Trail Poe"
+    ],
+    "region": "Eldin Province"
+}

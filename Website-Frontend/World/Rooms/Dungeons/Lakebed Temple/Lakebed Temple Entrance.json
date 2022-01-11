@@ -1,0 +1,19 @@
+{
+    "neighbours": 
+    [
+        "Lake Hylia", 
+        "Lakebed Temple Central Room"
+    ],
+    "neighbourRequirements": 
+    [
+        "true", 
+        "canLaunchBombs" 
+    ],
+    "checks": 
+    [
+        "Lakebed Temple Lobby Left Chest", 
+        "Lakebed Temple Lobby Rear Chest", 
+        "Lakebed Temple Stalactite Room Chest"
+    ],
+    "region": "Lakebed Temple"
+    }

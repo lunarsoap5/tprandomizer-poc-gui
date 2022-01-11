@@ -1,0 +1,25 @@
+{
+    "neighbours": 
+    [
+        "Lakebed Temple Entrance", 
+        "Lakebed Temple East Wing Second Floor", 
+        "Lakebed Temple East Wing First Floor", 
+        "Lakebed Temple West Wing", 
+        "Lakebed Temple Boss Room"
+    ],
+    "neighbourRequirements": [
+        "true", 
+        "(Lakebed_Temple_Small_Key, 1)", 
+        "true",
+        "(Lakebed_Temple_Small_Key, 3) and canLaunchBombs",
+        "(Lakebed_Temple_Small_Key, 3) and canLaunchBombs and (Progressive_Clawshot, 1) and Lakebed_Temple_Big_Key"
+    ],
+    "checks": 
+    [
+        "Lakebed Temple Central Room Small Chest",
+        "Lakebed Temple Central Room Chest",
+        "Lakebed Temple Chandelier Chest",
+        "Lakebed Temple Central Room Spire Chest"
+    ],
+    "region": "Lakebed Temple"
+}

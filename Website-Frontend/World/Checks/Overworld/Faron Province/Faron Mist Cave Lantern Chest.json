@@ -1,0 +1,8 @@
+{
+    "requirements": "Lantern",
+    "arcFileValues": [["F_SP108/R14_00.arc", "27DF8"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Faron Woods", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

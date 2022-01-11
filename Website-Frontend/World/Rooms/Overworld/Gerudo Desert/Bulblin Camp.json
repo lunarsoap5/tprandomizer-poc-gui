@@ -1,0 +1,21 @@
+{ 
+    "neighbours": 
+    [
+        "Gerudo Desert", 
+        "Outside Arbiters Grounds"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "canDefeatKingBulblinDesert"
+    ],
+    "checks": 
+    [
+        "Bulblin Camp First Chest Under Tower At Entrance",
+        "Bulblin Camp Small Chest in Back of Camp",
+        "Bulblin Camp Roasted Boar",
+        "Bulblin Camp Poe",
+        "Bulblin Guard Key"
+    ],
+    "region": "Gerudo Desert"
+}

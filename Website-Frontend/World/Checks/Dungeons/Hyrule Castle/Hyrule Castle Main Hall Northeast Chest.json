@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatBokoblin and canDefeatLizalfos and (Progressive_Clawshot, 1)",
+    "arcFileValues": [["D_MN09/R01_00.arc", "83B0C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "Dungeon Items", "Compass", "ARC"],
+    "itemId": "Hyrule_Castle_Compass"
+}

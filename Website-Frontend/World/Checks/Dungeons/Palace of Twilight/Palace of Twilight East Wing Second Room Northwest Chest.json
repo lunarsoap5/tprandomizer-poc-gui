@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatZantHead and canDefeatShadowBeast and (Progressive_Clawshot, 2) and (Palace_of_Twilight_Small_Key, 3)",
+    "arcFileValues": [["D_MN08/R05_00.arc", "9AE00"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Palace of Twilight", "ARC"],
+    "itemId": "Purple_Rupee"
+}

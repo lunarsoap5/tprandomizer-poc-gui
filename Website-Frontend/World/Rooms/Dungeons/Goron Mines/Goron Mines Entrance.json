@@ -1,0 +1,17 @@
+{
+    "neighbours": 
+    [
+        "Death Mountain Interiors", 
+        "Goron Mines Magnet Room"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "Iron_Boots"
+    ],
+    "checks": 
+    [
+        "Goron Mines Entrance Chest"
+    ],
+    "region": "Goron Mines"
+}

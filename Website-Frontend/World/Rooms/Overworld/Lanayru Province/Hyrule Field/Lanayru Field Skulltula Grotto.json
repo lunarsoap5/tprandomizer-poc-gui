@@ -1,0 +1,15 @@
+{
+    "neighbours": 
+    [
+        "Lanayru Field"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "checks": 
+    [
+        "Lanayru Field Skulltula Grotto Chest"
+    ],
+    "region": "Hyrule Field"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatHelmasaur",
+    "arcFileValues": [["D_MN07/R02_00.arc", "7F0F4"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "City in The Sky", "ARC"],
+    "itemId": "Red_Rupee"
+}

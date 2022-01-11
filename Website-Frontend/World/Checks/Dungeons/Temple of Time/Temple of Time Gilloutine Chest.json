@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["D_MN06/R07_00.arc", "4D190"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Temple of Time", "Small Key", "ARC"],
+    "itemId": "Temple_of_Time_Small_Key"
+}

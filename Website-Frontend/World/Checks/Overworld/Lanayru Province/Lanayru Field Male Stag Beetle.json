@@ -1,0 +1,9 @@
+{
+    "requirements": "true",
+    "hash": "50A9",
+    "stageIDX": 56,
+    "dzxTag": "ACTR",
+    "category": ["Overworld", "Golden Bug", "Hyrule Field", "DZX"],
+    "itemId": "Male_Stag_Beetle",
+    "data": ["49", "5F", "4B", "75", "77", "00", "00", "00", "00", "00", "0F", "00", "C7", "75", "04", "55", "C4", "5C", "B9", "AA", "C7", "01", "6A", "6A", "00", "00", "00", "00", "00", "00", "FF", "FF"]
+}

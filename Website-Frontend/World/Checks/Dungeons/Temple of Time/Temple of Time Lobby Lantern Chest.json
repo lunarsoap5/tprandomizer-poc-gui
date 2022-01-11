@@ -1,0 +1,8 @@
+{
+    "requirements": "Lantern",
+    "arcFileValues": [["D_MN06/R00_00.arc", "56C2C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Temple of Time", "Small Key", "ARC"],
+    "itemId": "Temple_of_Time_Small_Key"
+}

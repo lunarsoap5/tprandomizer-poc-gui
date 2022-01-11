@@ -1,0 +1,19 @@
+{ 
+    "neighbours": 
+    [
+        "Palace of Twilight Entrance"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "checks": 
+    [
+        "Palace of Twilight West Wing First Room Central Chest",
+        "Palace of Twilight West Wing Chest Behind Wall of Darkness",
+        "Palace of Twilight West Wing Second Room Central Chest",
+        "Palace of Twilight West Wing Second Room Lower South Chest",
+        "Palace of Twilight West Wing Second Room Southeast Chest"
+     ],
+    "region": "Palace of Twilight"
+}

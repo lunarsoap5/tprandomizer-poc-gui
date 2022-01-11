@@ -1,0 +1,9 @@
+{
+    "requirements": "true",
+    "hash": "D00B",
+    "stageIDX": 57,
+    "dzxTag": "ACTR",
+    "category": ["Overworld", "Golden Bug", "Hyrule Field", "DZX"],
+    "itemId": "Female_Ladybug",
+    "data": ["49", "5F", "54", "65", "6E", "00", "00", "00", "00", "00", "0F", "10", "C7", "54", "6E", "2F", "C5", "AB", "4D", "0A", "46", "D6", "42", "39", "00", "00", "00", "00", "00", "00", "FF", "FF"]
+}

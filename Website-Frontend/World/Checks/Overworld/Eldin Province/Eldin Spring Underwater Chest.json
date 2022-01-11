@@ -1,0 +1,8 @@
+{
+    "requirements": "canSmash and Iron_Boots",
+    "arcFileValues": [["F_SP109/R00_00.arc", "14FF2C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Eldin Province", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

@@ -1,0 +1,19 @@
+{ 
+    "neighbours": 
+    [
+        "Sacred Grove Temple of Time", 
+        "Temple of Time Connecting Corridors", 
+        "Temple of Time Crumbling Corridor"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "(Temple_of_Time_Small_Key, 1)",
+        "(Progressive_Dominion_Rod, 1) and (Progressive_Bow, 1) and Spinner and canDefeatLizalfos and canDefeatDinalfos and canDefeatDarknut and (Temple_of_Time_Small_Key, 3)"
+    ],
+    "checks": 
+    [
+        "Temple of Time Lobby Lantern Chest"
+    ],
+    "region": "Temple of Time"
+}

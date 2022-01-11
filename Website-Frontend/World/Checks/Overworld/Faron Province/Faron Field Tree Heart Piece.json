@@ -1,0 +1,8 @@
+{
+    "requirements": "Ball_and_Chain or Boomerang or (Progressive_Clawshot, 1)",
+    "arcFileValues": [["F_SP121/R06_00.arc", "B50F7"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

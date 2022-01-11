@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["F_SP124/R00_00.arc", "102458"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Gerudo Desert", "ARC"],
+    "itemId": "Arrows_10"
+}

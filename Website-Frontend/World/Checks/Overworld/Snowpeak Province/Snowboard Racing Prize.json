@@ -1,0 +1,8 @@
+{
+    "requirements": "canCompleteSnowpeakRuins",
+    "arcFileValues": [["bmgres6.arc", "19D57"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Snowpeak Province", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

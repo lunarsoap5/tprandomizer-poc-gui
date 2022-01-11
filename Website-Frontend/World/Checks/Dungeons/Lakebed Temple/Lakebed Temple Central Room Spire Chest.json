@@ -1,0 +1,8 @@
+{
+    "requirements": "(Lakebed_Temple_Small_Key, 3) and Iron_Boots and canLaunchBombs",
+    "arcFileValues": [["D_MN01/R03_00.arc", "A7CFC"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
+    "itemId": "Red_Rupee"
+}

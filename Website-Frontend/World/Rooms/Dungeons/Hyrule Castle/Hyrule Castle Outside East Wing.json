@@ -1,0 +1,18 @@
+{ 
+    "neighbours": 
+    [
+        "Hyrule Castle Entrance", 
+        "Hyrule Castle Graveyard"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "Shadow_Crystal"
+    ],
+    "checks": 
+    [
+        "Hyrule Castle East Wing Boomerang Puzzle Chest",
+        "Hyrule Castle East Wing Balcony Chest"
+    ],
+    "region": "Hyrule Castle"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "Shadow_Crystal",
+    "arcFileValues": [["D_MN11/R04_00.arc", "6C4F0"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "ARC"],
+    "itemId": "Red_Rupee"
+}

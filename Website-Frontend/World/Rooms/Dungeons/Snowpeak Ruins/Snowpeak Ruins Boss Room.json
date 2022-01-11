@@ -1,0 +1,16 @@
+{
+    "neighbours": 
+    [
+        "Snowpeak Summit"
+    ],
+    "neighbourRequirements":
+    [
+        "canDefeatBlizzeta"
+    ],
+    "checks": 
+    [
+        "Snowpeak Ruins Blizzeta Heart Container",
+        "Snowpeak Ruins Dungeon Reward"
+    ], 
+    "region": "Snowpeak Ruins"
+}

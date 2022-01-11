@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["R_SP109/R04_00.arc", "BA45C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Eldin Province", "ARC"],
+    "itemId": "Purple_Rupee"
+}

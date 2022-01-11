@@ -1,0 +1,7 @@
+{
+    "requirements": "Shadow_Crystal and (Progressive_Dominion_Rod, 2) and canDefeatBeamos and canDefeatKeese and canDefeatDodongo and canDefeatBubble and canDefeatRedeadKnight",
+    "stageIDX": 31,
+    "flag": "46",
+    "category": ["Overworld", "Poe", "Cave of Ordeals"],
+    "itemId": "Poe_Soul"
+}

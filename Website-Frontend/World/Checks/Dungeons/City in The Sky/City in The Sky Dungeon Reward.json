@@ -1,0 +1,6 @@
+{
+    "requirements": "canDefeatArgorok and City_in_The_Sky_Big_Key",
+    "stageIDX": 13,
+    "category": ["Dungeon", "City in The Sky", "Dungeon Reward"],
+    "itemId": "Progressive_Mirror_Shard"
+}

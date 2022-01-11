@@ -1,0 +1,20 @@
+{
+    "neighbours": 
+    [
+        "Snowpeak Ruins Yeto and Yeta", 
+        "Snowpeak Ruins West Courtyard", 
+        "Snowpeak Ruins Northeast Chilfos Room First Floor"
+    ],
+    "neighbourRequirements":
+    [
+        "Shadow_Crystal or Ball_and_Chain",
+        "Ball_and_Chain",
+        "(Snowpeak_Ruins_Small_Key, 4) and canDefeatMiniFreezard"
+    ],
+    "checks": 
+    [
+        "Snowpeak Ruins East Courtyard Buried Chest",
+        "Snowpeak Ruins East Courtyard Chest"
+    ],
+    "region": "Snowpeak Ruins"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal",
+    "arcFileValues": [["F_SP108/R05_00.arc", "B1354"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Faron Woods", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

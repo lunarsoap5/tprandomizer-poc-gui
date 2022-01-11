@@ -1,0 +1,16 @@
+{
+    "neighbours": 
+    [
+        "Hyrule Castle Third Floor Balcony", 
+        "Hyrule Castle Treasure Room", 
+        "Ganondorf Castle"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "(Hyrule_Castle_Small_Key, 3) and Spinner and (Progressive_Clawshot, 2) and canDefeatDarknut and canDefeatLizalfos",
+        "Spinner and (Progressive_Clawshot, 2) and canDefeatDarknut and canDefeatLizalfos and Hyrule_Castle_Big_Key"
+    ],
+    "checks": [""], 
+    "region": "Hyrule Castle"
+}

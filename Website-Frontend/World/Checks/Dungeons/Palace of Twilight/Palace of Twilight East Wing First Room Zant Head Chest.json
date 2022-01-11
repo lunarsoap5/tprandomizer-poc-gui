@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatZantHead and (Progressive_Clawshot, 1)",
+    "arcFileValues": [["D_MN08/R04_00.arc", "7A738"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Palace of Twilight", "Small Key", "ARC"],
+    "itemId": "Palace_of_Twilight_Small_Key"
+}

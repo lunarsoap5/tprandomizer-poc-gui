@@ -1,0 +1,8 @@
+{
+    "requirements": "Lantern",
+    "arcFileValues": [["F_SP117/R03_00.arc", "12C1E0"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Sacred Grove", "ARC"],
+    "itemId": "Bombs_30"
+}

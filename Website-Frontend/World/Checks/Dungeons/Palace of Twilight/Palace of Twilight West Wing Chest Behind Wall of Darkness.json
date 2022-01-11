@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Sword, 4) and (Progressive_Clawshot, 1)",
+    "arcFileValues": [["D_MN08/R01_00.arc", "703C0"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Palace of Twilight", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["D_MN05/R09_00.arc", "5BB70"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Forest Temple", "Small Key", "ARC"],
+    "itemId": "Forest_Temple_Small_Key"
+}

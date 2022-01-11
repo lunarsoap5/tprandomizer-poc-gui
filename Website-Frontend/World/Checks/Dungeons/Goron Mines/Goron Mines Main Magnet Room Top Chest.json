@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Bow, 1) and Iron_Boots and canDefeatDangoro and (Goron_Mines_Small_Key, 3)",
+    "arcFileValues": [["D_MN04/R03_00.arc", "8807C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
+    "itemId": "Purple_Rupee"
+}

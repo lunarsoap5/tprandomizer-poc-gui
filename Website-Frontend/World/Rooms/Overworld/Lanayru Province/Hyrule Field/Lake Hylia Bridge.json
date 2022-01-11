@@ -1,0 +1,29 @@
+{ 
+    "neighbours": 
+    [
+        "Faron Field", 
+        "Lake Hylia", 
+        "Lanayru Field", 
+        "Outside Castle Town West", 
+        "Lake Hylia Bridge Bubble Grotto"
+    ],
+    "neighbourRequirements": 
+    [
+        "Gate_Keys",
+        "true",
+        "canSmash",
+        "true",
+        "Shadow_Crystal and canLaunchBombs and (Progressive_Clawshot, 1)"
+    ],
+    "checks": 
+    [
+        "Lake Hylia Bridge Vines Chest",
+        "Lake Hylia Bridge Cliff Chest",
+        "Lake Hylia Bridge Owl Statue Chest",
+        "Lake Hylia Bridge Owl Statue Sky Character",
+        "Lake Hylia Bridge Male Mantis",
+        "Lake Hylia Bridge Female Mantis",
+        "Lake Hylia Bridge Cliff Poe"
+    ],
+    "region": "Hyrule Field"
+}

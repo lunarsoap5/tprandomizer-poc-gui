@@ -1,0 +1,9 @@
+{
+    "requirements": "true",
+    "hash": "2909",
+    "stageIDX": 59,
+    "dzxTag": "ACTR",
+    "category": ["Overworld", "Golden Bug", "Gerudo Desert", "DZX"],
+    "itemId": "Female_Dayfly",
+    "data": ["49", "5F", "4B", "61", "67", "00", "00", "00", "00", "00", "0F", "1F", "46", "36", "21", "DC", "43", "0D", "2E", "13", "47", "58", "4E", "24", "00", "00", "00", "00", "00", "00", "FF", "FF"]
+}

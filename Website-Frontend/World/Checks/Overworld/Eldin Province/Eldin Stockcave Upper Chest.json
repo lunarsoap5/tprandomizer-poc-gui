@@ -1,0 +1,8 @@
+{
+    "requirements": "Iron_Boots",
+    "arcFileValues": [["D_SB04/R10_00.arc", "8D9B0"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
+    "itemId": "Red_Rupee"
+}

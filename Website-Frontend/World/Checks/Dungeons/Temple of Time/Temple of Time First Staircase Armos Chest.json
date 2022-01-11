@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatArmos and hasRangedItem",
+    "arcFileValues": [["D_MN06/R01_00.arc", "41EB8"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Temple of Time", "Dungeon Items", "Dungeon Map", "ARC"],
+    "itemId": "Temple_of_Time_Dungeon_Map"
+}

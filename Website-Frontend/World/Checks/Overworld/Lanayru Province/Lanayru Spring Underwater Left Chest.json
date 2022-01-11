@@ -1,0 +1,8 @@
+{
+    "requirements": "Iron_Boots",
+    "arcFileValues": [["F_SP115/R01_00.arc", "BFB20"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],
+    "itemId": "Blue_Rupee"
+}

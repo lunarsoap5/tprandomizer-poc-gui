@@ -1,0 +1,21 @@
+{ 
+    "neighbours": 
+    [
+        "Lost Woods", 
+        "Sacred Grove Temple of Time", 
+        "Sacred Grove Baba Serpent Grotto"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "canDefeatShadowBeast and (Progressive_Sword, 3)",
+        "canSmash and Shadow_Crystal"
+    ],
+    "checks": 
+    [
+        "Sacred Grove Spinner Chest",
+        "Sacred Grove Male Snail",
+        "Sacred Grove Master Sword Poe"
+    ],
+    "region": "Sacred Grove"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "(canDefeatBombling or canBurnWebs) and (Forest_Temple_Small_Key, 4)",
+    "arcFileValues": [["D_MN05/R02_00.arc", "61AE4"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Forest Temple", "ARC"],
+    "itemId": "Yellow_Rupee"
+}

@@ -1,0 +1,18 @@
+{
+    "neighbours": 
+    [
+        "Bulblin Camp", 
+        "Arbiters Grounds Entrance"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "true"
+    ],
+    "checks": 
+    [
+        "Outside Arbiters Grounds Lantern Chest",
+        "Outside Arbiters Grounds Poe"
+    ],
+    "region": "Gerudo Desert"
+}

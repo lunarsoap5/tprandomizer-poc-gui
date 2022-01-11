@@ -1,0 +1,19 @@
+{
+    "neighbours": 
+    [
+        "North Faron Woods", 
+        "Sacred Grove Master Sword"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "canDefeatSkullKid and Shadow_Crystal"
+    ],
+    "checks": 
+    [
+        "Lost Woods Lantern Chest",
+        "Lost Woods Boulder Poe",
+        "Lost Woods Waterfall Poe"
+    ],
+    "region": "Sacred Grove"
+}

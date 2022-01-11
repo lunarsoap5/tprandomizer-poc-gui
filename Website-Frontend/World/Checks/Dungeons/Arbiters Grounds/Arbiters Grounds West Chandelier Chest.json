@@ -1,0 +1,8 @@
+{
+    "requirements": "(Arbiters_Grounds_Small_Key, 4) and Shadow_Crystal",
+    "arcFileValues": [["D_MN10/R06_00.arc", "53A54"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],
+    "itemId": "Red_Rupee"
+}

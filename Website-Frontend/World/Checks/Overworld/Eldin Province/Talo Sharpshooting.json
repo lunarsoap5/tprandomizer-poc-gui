@@ -1,0 +1,8 @@
+{
+    "requirements": "canCompleteGoronMines",
+    "arcFileValues": [["bmgres2.arc", "18B77"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Eldin Province", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

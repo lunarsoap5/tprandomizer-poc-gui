@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatDinalfos and canDefeatWalltula and canDefeatKargarok and Shadow_Crystal and (Progressive_Clawshot, 1) and Iron_Boots",
+    "arcFileValues": [["D_MN07/R02_00.arc", "7F0D4"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "City in The Sky", "Big Key", "ARC"],
+    "itemId": "City_in_The_Sky_Big_Key"
+}

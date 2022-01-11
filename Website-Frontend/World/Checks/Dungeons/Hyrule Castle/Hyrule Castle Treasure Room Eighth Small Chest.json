@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["D_MN09/R08_00.arc", "2FC8C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
+    "itemId": "Blue_Rupee"
+}

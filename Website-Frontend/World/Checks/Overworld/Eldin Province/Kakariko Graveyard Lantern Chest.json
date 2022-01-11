@@ -1,0 +1,8 @@
+{
+    "requirements": "Lantern",
+    "arcFileValues": [["F_SP111/R00_00.arc", "101BF8"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Eldin Province", "ARC"],
+    "itemId": "Purple_Rupee"
+}

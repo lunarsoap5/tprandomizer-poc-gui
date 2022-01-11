@@ -1,0 +1,8 @@
+{
+    "requirements": "Ball_and_Chain",
+    "arcFileValues": [["D_SB00/R00_00.arc", "CF830"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Hyrule Field", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

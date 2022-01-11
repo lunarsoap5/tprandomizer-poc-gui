@@ -1,0 +1,9 @@
+{
+    "requirements": "true",
+    "hash": "7E29",
+    "stageIDX": 56,
+    "dzxTag": "ACTR",
+    "category": ["Overworld", "Golden Bug", "Hyrule Field","DZX"],
+    "itemId": "Male_Pill_Bug",
+    "data": ["49", "5F", "44", "61", "6E", "00", "00", "00", "00", "00", "0F", "00", "C6", "1C", "40", "00", "C5", "E1", "00", "00", "47", "60", "6A", "00", "00", "00", "80", "00", "00", "00", "FF", "FF"]
+}

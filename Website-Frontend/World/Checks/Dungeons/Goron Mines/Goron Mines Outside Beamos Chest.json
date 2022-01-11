@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["D_MN04/R07_00.arc", "87E78"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Goron Mines", "Small Key", "ARC"],
+    "itemId": "Goron_Mines_Small_Key"
+}

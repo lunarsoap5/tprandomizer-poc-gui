@@ -1,0 +1,8 @@
+{
+    "requirements": "Iron_Boots",
+    "arcFileValues": [["D_MN04/R06_00.arc", "830E8"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
+    "itemId": "Red_Rupee"
+}

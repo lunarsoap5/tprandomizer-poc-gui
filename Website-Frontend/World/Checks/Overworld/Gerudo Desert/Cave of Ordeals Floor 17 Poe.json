@@ -1,0 +1,7 @@
+{
+    "requirements": "Spinner and Shadow_Crystal and canDefeatHelmasaur and canDefeatRat and canDefeatChu and canDefeatChuWorm and canDefeatBubble and canDefeatKeese and canDefeatStalhound",
+    "stageIDX": 31,
+    "flag": "45",
+    "category": ["Overworld", "Poe", "Cave of Ordeals"],
+    "itemId": "Poe_Soul"
+}

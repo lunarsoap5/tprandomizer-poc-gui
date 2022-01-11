@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Clawshot, 1) or Boomerang",
+    "arcFileValues": [["F_SP121/R03_00.arc", "BD00B"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Hyrule Field", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

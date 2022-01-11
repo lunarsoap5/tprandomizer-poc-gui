@@ -1,0 +1,8 @@
+{
+    "requirements": "canSmash and Lantern",
+    "arcFileValues": [["D_SB03/R00_00.arc", "DF37C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],
+    "itemId": "Yellow_Rupee"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatKingBulblinCastle",
+    "moduleID": "E0",
+    "offsets": ["367C"],
+    "relOverride": "38000000",
+    "category": ["Npc", "Small Key", "Dungeon", "Hyrule Castle", "REL"],
+    "itemId": "Hyrule_Castle_Small_Key"
+}

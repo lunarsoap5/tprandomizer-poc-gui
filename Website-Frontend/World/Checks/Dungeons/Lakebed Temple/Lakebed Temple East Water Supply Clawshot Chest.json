@@ -1,0 +1,8 @@
+{
+    "requirements": "(Lakebed_Temple_Small_Key, 3) and (Progressive_Clawshot, 1) and canLaunchBombs",
+    "arcFileValues": [["D_MN01/R10_00.arc", "6E08C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
+    "itemId": "Purple_Rupee"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "(Lakebed_Temple_Small_Key, 2) and canLaunchBombs",
+    "arcFileValues": [["D_MN01/R09_00.arc", "684C4"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "Small Key", "ARC"],
+    "itemId": "Lakebed_Temple_Small_Key"
+}

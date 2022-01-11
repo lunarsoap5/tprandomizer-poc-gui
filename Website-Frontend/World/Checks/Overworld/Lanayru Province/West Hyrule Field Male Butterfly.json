@@ -1,0 +1,9 @@
+{
+    "requirements": "true",
+    "hash": "BB22",
+    "stageIDX": 57,
+    "dzxTag": "ACTR",
+    "category": ["Overworld", "Golden Bug", "Hyrule Field", "DZX"],
+    "itemId": "Male_Butterfly",
+    "data": ["49", "5F", "43", "68", "6F", "00", "00", "00", "00", "00", "0F", "00", "C7", "92", "9B", "BC", "C3", "D2", "92", "0A", "46", "7A", "45", "63", "00", "00", "00", "00", "00", "00", "FF", "FF"]
+}

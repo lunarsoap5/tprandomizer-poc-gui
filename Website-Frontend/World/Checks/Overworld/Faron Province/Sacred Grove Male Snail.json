@@ -1,0 +1,9 @@
+{
+    "requirements": "(Progressive_Clawshot, 1) or Boomerang",
+    "hash": "D246",
+    "stageIDX": 54,
+    "dzxTag": "ACTR",
+    "category": ["Overworld", "Golden Bug", "Sacred Grove", "DZX"],
+    "itemId": "Male_Snail",
+    "data": ["49", "5F", "4B", "61", "74", "00", "00", "00", "00", "00", "0F", "00", "44", "B4", "ED", "0F", "44", "BF", "B7", "69", "45", "DC", "6B", "C4", "00", "00", "00", "00", "00", "00", "FF", "FF"]
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "Shadow_Crystal",
+    "arcFileValues": [["D_MN11/R04_00.arc", "6C4B0"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "Small Key", "ARC"],
+    "itemId": "Snowpeak_Ruins_Small_Key"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Clawshot, 1) and (Lakebed_Temple_Small_Key, 3) and canLaunchBombs",
+    "arcFileValues": [["D_MN01/R08_00.arc", "5E564"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

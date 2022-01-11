@@ -1,0 +1,5 @@
+{
+    "requirements": "canDefeatArgorok and City_in_The_Sky_Big_Key",
+    "category": ["Heart Container", "Dungeon", "City in The Sky", "Boss"],
+    "itemId": "Heart_Container"
+}

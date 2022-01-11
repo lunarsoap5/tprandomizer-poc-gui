@@ -1,0 +1,8 @@
+{
+    "requirements": "Invoice and Shadow_Crystal",
+    "arcFileValues": [["F_SP116/R04_00.arc", "EE5E8"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Castle Town", "ARC"],
+    "itemId": "Red_Rupee"
+}

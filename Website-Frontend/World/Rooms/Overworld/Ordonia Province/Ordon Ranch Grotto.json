@@ -1,0 +1,15 @@
+{
+    "neighbours": 
+    [
+        "Ordon Province"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "checks": 
+    [
+        "Ordon Ranch Grotto Lantern Chest"
+    ],
+    "region": "Ordonia Province"
+}

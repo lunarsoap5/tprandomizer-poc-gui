@@ -1,0 +1,8 @@
+{
+    "requirements": "(Palace_of_Twilight_Small_Key, 4) and canDefeatZantHead and canDefeatShadowBeast and (Progressive_Clawshot, 1) and canDefeatPhantomZant",
+    "arcFileValues": [["D_MN08/R04_00.arc", "7A778"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Palace of Twilight", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

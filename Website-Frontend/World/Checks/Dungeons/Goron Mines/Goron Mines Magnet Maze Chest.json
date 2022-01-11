@@ -1,0 +1,8 @@
+{
+    "requirements": "Iron_Boots",
+    "arcFileValues": [["D_MN04/R04_00.arc", "67160"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Goron Mines", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

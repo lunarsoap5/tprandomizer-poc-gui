@@ -1,0 +1,19 @@
+{
+    "neighbours": 
+    [
+        "Temple of Time Entrance", 
+        "Temple of Time Central Mechanical Platform"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "hasRangedItem and canDefeatYoungGohma and canDefeatLizalfos"
+    ],
+    "checks": 
+    [
+        "Temple of Time First Staircase Gohma Gate Chest",
+        "Temple of Time First Staircase Window Chest",
+        "Temple of Time First Staircase Armos Chest"
+     ],
+    "region": "Temple of Time"
+}

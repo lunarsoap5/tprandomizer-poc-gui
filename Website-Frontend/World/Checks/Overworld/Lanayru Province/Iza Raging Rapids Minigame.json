@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Bow, 1) and hasBombs",
+    "arcFileValues": [["bmgres8.arc", "14D27"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],
+    "itemId": "Giant_Bomb_Bag"
+}

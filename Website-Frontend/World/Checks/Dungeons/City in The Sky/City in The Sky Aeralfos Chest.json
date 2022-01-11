@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatAeralfos and (Progressive_Clawshot, 1) and Iron_Boots and canDefeatDinalfos",
+    "arcFileValues": [["D_MN07B/R51_00.arc", "77E98"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "City in The Sky", "ARC"],
+    "itemId": "Progressive_Clawshot"
+}

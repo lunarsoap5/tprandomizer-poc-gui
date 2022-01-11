@@ -1,0 +1,8 @@
+{
+    "requirements": "Boomerang",
+    "arcFileValues": [["D_MN09/R14_00.arc", "62E90"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "Dungeon Items", "Dungeon Map", "ARC"],
+    "itemId": "Hyrule_Castle_Dungeon_Map"
+}

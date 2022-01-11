@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["F_SP108/R06_00.arc", "EB464"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Faron Woods", "ARC"],
+    "itemId": "Yellow_Rupee"
+}

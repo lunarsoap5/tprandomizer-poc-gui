@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["D_MN09/R15_00.arc", "AF898"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "Big Key", "ARC"],
+    "itemId": "Hyrule_Castle_Big_Key"
+}

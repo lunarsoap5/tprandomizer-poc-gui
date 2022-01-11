@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["bmgres6.arc", "192BF"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Faron Woods", "ARC"],
+    "itemId": "Lantern"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "canCompleteTempleofTime",
+    "arcFileValues": [["bmgres2.arc", "18F27"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Eldin Province", "ARC"],
+    "itemId": "Renardos_Letter"
+}

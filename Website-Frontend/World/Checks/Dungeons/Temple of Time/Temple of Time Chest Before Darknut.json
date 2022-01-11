@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatArmos and canDefeatBabyGohma and canDefeatYoungGohma",
+    "arcFileValues": [["D_MN06/R07_00.arc", "4D1B0"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Temple of Time", "ARC"],
+    "itemId": "Purple_Rupee"
+}

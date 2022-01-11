@@ -1,0 +1,15 @@
+{ 
+    "neighbours": 
+    [
+        "Outside Castle Town West"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "checks": 
+    [
+        "West Hyrule Field Helmasaur Grotto Chest"
+    ],
+    "region": "Hyrule Field"
+}

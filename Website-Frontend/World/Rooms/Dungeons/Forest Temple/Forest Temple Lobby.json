@@ -1,0 +1,23 @@
+{ 
+    "neighbours": 
+    [
+        "Forest Temple Entrance", 
+        "Forest Temple East Wing", 
+        "Forest Temple West Wing", 
+        "Ook"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "true",
+        "canBurnWebs and (((Forest_Temple_Small_Key, 4) and canDefeatBokoblin) or (Progressive_Clawshot, 1))",
+        "canBurnWebs and canDefeatBombling and canDefeatWalltula and canDefeatBigBaba and canDefeatBokoblin and canBreakMonkeyCage and (Forest_Temple_Small_Key, 4)"
+    ],
+    "checks": 
+    [
+        "Forest Temple Central Chest Behind Stairs",
+        "Forest Temple Central North Chest",
+        "Forest Temple Central Chest Hanging From Web"
+    ],
+    "region": "Forest Temple"
+}

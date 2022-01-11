@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Clawshot, 1) and Spinner and canDefeatBubble and canDefeatStalfos and (Arbiters_Grounds_Small_Key, 5)",
+    "arcFileValues": [["D_MN10/R13_00.arc", "7F124"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],
+    "itemId": "Bombs_10"
+}

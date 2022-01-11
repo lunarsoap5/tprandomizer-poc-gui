@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Fishing_Rod, 1)",
+    "arcFileValues": [["bmgres1.arc", "237AF"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Ordonia Province", "ARC"],
+    "itemId": "Sera_Bottle"
+}

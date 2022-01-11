@@ -1,0 +1,8 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["F_SP113/R01_00.arc", "BBC10"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Lanayru Province", "ARC"],
+    "itemId": "Yellow_Rupee"
+}

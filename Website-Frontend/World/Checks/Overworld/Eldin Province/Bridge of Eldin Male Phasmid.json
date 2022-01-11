@@ -1,0 +1,9 @@
+{
+    "requirements": "(Progressive_Clawshot, 1) or Boomerang",
+    "hash": "4894",
+    "stageIDX": 56,
+    "dzxTag": "ACTR",
+    "category": ["Overworld", "Golden Bug", "Hyrule Field","DZX"],
+    "itemId": "Male_Phasmid",
+    "data": ["49", "5F", "4E", "61", "6E", "00", "00", "00", "00", "00", "1F", "00", "47", "09", "3F", "00", "43", "7E", "62", "90", "C6", "6C", "2D", "09", "C0", "00", "40", "00", "00", "00", "FF", "FF"]
+}

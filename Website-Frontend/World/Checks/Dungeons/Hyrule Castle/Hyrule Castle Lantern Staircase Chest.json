@@ -1,0 +1,8 @@
+{
+    "requirements": "canDefeatDarknut and Lantern and Boomerang and canDefeatBokoblin and  canDefeatLizalfos and (Progressive_Clawshot, 2)",
+    "arcFileValues": [["D_MN09/R02_00.arc", "7E4A0"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
+    "itemId": "Purple_Rupee"
+}

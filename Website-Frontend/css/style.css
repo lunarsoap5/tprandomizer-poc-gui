@@ -317,19 +317,18 @@ img.flag
 	border-top: none;
   }
 
-  #logicSettingsFieldset
+  #randomizationSettingsTab
   {
 	  text-align: left;
   }
 
-  #accessOptionsFieldset
+  #gameplaySettingsTab
   {
 	  text-align: left;
   }
 
   #itemPoolOptionsFieldset
   {
-	  text-align: left;
 	  width: 45%;
   }
 

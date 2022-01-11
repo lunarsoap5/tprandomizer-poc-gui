@@ -1,0 +1,26 @@
+{
+    "neighbours": 
+    [
+        "Arbiters Grounds Lobby",
+		"Mirror Chamber"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+		"Spinner and Arbiters_Grounds_Big_Key and canDefeatStallord"
+    ],
+    "checks": 
+    [
+        "Arbiters Grounds Big Key Chest",
+		"Arbiters Grounds North Turning Room Chest",
+		"Arbiters Grounds Death Sword Chest",
+		"Arbiters Grounds Spinner Room First Small Chest",
+        "Arbiters Grounds Spinner Room Second Small Chest",
+        "Arbiters Grounds Spinner Room Lower Central Small Chest",
+        "Arbiters Grounds Spinner Room Stalfos Alcove Chest",
+        "Arbiters Grounds Spinner Room Lower North Chest",
+		"Arbiters Grounds Stallord Heart Container",
+        "Arbiters Grounds Dungeon Reward"
+    ], 
+    "region": "Arbiters Grounds"
+}

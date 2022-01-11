@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Clawshot, 2)",
+    "arcFileValues": [["bmgres4.arc", "1F07F"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Castle Town", "ARC"],
+    "itemId": "Progressive_Bow"
+}

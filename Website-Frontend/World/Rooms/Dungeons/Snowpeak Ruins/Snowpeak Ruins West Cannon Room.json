@@ -1,0 +1,18 @@
+{ 
+    "neighbours": 
+    [
+        "Snowpeak Ruins West Courtyard", 
+        "Snowpeak Ruins Wooden Beam Room"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "canSmash"
+    ],
+    "checks": 
+    [
+        "Snowpeak Ruins West Cannon Room Central Chest",
+        "Snowpeak Ruins West Cannon Room Corner Chest"
+    ],
+    "region": "Snowpeak Ruins"
+}

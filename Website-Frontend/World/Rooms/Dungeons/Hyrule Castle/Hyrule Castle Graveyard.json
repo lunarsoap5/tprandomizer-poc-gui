@@ -1,0 +1,18 @@
+{ 
+    "neighbours": 
+    [
+        "Hyrule Castle Outside East Wing"
+    ],
+    "neighbourRequirements":
+    [
+        "Shadow_Crystal"
+    ],
+    "checks": 
+    [
+        "Hyrule Castle Graveyard Grave Switch Room Right Chest",
+        "Hyrule Castle Graveyard Grave Switch Room Front Left Chest",
+        "Hyrule Castle Graveyard Grave Switch Room Back Left Chest",
+        "Hyrule Castle Graveyard Owl Statue Chest"
+    ],
+    "region": "Hyrule Castle"
+}

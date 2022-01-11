@@ -1,0 +1,8 @@
+{
+    "requirements": "canSmash and Lantern and (Progressive_Dominion_Rod, 2)",
+    "arcFileValues": [["D_MN09/R09_00.arc", "6C52C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "Small Key", "ARC"],
+    "itemId": "Hyrule_Castle_Small_Key"
+}

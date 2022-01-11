@@ -1,0 +1,17 @@
+{
+    "neighbours": 
+    [
+        "Snowpeak Ruins East Courtyard", 
+        "Snowpeak Ruins Yeto and Yeta"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "canDefeatChilfos"
+    ],
+    "checks": 
+    [
+        "Snowpeak Ruins Ordon Pumpkin Chest"
+    ],
+    "region": "Snowpeak Ruins"
+}

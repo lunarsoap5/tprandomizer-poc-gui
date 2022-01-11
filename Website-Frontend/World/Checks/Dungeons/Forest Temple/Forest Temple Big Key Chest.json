@@ -1,0 +1,8 @@
+{
+    "requirements": "(canDefeatBombling or canBurnWebs) and Boomerang",
+    "arcFileValues": [["D_MN05/R01_00.arc", "7ED74"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Forest Temple", "Big Key", "ARC"],
+    "itemId": "Forest_Temple_Big_Key"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "Shadow_Crystal or hasSword or canSmash",
+    "arcFileValues": [["D_MN10/R00_00.arc", "6337C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Arbiters Grounds", "Small Key", "ARC"],
+    "itemId": "Arbiters_Grounds_Small_Key"
+}

@@ -1,0 +1,22 @@
+{ 
+    "neighbours": 
+    [
+        "Zoras Domain", 
+        "Snowpeak Summit", 
+        "Snowpeak Freezard Grotto"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "(Progressive_Fishing_Rod, 2) and Shadow_Crystal",
+        "(Progressive_Fishing_Rod, 2) and Shadow_Crystal"
+    ],
+    "checks": 
+    [
+        "Ashei Sketch",
+        "Snowpeak Above Freezard Grotto Poe",
+        "Snowpeak Blizzard Poe",
+        "Snowpeak Poe Among Trees"
+    ], 
+    "region": "Snowpeak Province"
+}

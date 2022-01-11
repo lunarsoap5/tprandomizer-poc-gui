@@ -1,0 +1,18 @@
+{
+    "name": "Arbiters Grounds Entrance",
+    "neighbours": 
+    [
+        "Outside Arbiters Grounds",
+        "Arbiters Grounds Lobby"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "(Arbiters_Grounds_Small_Key,1) and Lantern"
+    ],
+    "checks": 
+    [
+        "Arbiters Grounds Entrance Chest"
+    ],
+    "region": "Arbiters Grounds"
+}

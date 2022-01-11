@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Dominion_Rod, 2)",
+    "arcFileValues": [["F_SP124/R00_00.arc", "102358"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Overworld", "Chest", "Gerudo Desert", "ARC"],
+    "itemId": "Orange_Rupee"
+}

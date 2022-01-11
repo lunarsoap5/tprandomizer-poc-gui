@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Bow, 1)",
+    "arcFileValues": [["D_MN06/R04_00.arc", "7493C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Temple of Time", "Dungeon Items", "Compass", "ARC"],
+    "itemId": "Temple_of_Time_Compass"
+}

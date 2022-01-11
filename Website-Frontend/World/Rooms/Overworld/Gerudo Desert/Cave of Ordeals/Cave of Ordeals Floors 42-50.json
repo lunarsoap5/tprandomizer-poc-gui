@@ -1,0 +1,16 @@
+{ 
+    "neighbours": 
+    [
+        "Lake Hylia"
+    ],
+    "neighbourRequirements":
+    [
+        "canDefeatArmos and (Progressive_Clawshot, 2) and canDefeatBokoblin and canDefeatBabaSerpent and canDefeatLizalfos and canDefeatBulblin and canDefeatDinalfos and canDefeatPoe and canDefeatRedeadKnight and canDefeatChu and canDefeatFreezard and canDefeatChilfos and canDefeatGhoulRat and canDefeatRat and canDefeatStalchild and canDefeatAeralfos and canDefeatDarknut"
+    ],
+    "checks": 
+    [
+        "Cave of Ordeals Floor 44 Poe",
+        "Cave of Ordeals Great Fairy Reward"
+    ], 
+    "region": "Cave of Ordeals"
+}

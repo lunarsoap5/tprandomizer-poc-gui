@@ -1,0 +1,9 @@
+{
+    "requirements": "true",
+    "hash": "CB84",
+    "stageIDX": 61,
+    "dzxTag": "ACTR",
+    "category": ["Overworld", "Golden Bug", "Lanayru Province", "DZX"],
+    "itemId": "Female_Dragonfly",
+    "data": ["49", "5F", "54", "6F", "6D", "00", "00", "00", "00", "00", "0F", "10", "45", "B6", "CC", "66", "42", "A1", "8D", "2A", "C4", "8C", "27", "48", "00", "00", "00", "00", "00", "00", "FF", "FF"]
+}

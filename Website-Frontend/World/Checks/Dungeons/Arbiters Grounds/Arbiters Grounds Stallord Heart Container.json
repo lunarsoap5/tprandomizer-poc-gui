@@ -1,0 +1,6 @@
+{
+    "requirements": "Spinner and Arbiters_Grounds_Big_Key and canDefeatStallord",
+    "stageIDX": 25,
+    "category": ["Heart Container", "Arbiters Grounds", "Dungeon", "Boss"],
+    "itemId": "Heart_Container"
+}

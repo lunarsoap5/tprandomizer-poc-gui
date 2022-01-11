@@ -1,0 +1,8 @@
+{
+    "requirements": "(Snowpeak_Ruins_Small_Key, 3) and Snowpeak_Ruins_Ordon_Goat_Cheese and Ball_and_Chain",
+    "arcFileValues": [["D_MN11/R00_00.arc", "844CC"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Snowpeak Ruins", "ARC"],
+    "itemId": "Piece_of_Heart"
+}

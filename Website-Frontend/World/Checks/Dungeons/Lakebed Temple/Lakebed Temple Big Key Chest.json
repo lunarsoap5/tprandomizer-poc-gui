@@ -1,0 +1,8 @@
+{
+    "requirements": "(Progressive_Clawshot, 1) and canUseWaterBombs and Zora_Armor",
+    "arcFileValues": [["D_MN01/R06_00.arc", "4E160"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "Big Key", "ARC"],
+    "itemId": "Lakebed_Temple_Big_Key"
+}

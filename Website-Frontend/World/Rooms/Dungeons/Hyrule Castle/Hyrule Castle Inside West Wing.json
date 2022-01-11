@@ -1,0 +1,14 @@
+{ 
+    "neighbours": 
+    [
+        "Hyrule Castle Main Hall", 
+        "Hyrule Castle Third Floor Balcony"
+    ],
+    "neighbourRequirements": 
+    [
+        "true",
+        "canKnockDownHCPainting and canDefeatLizalfos and canDefeatDarknut"
+    ],
+    "checks": [""], 
+    "region": "Hyrule Castle"
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "canCompleteGoronMines",
+    "arcFileValues": [["bmgres2.arc", "1A66F"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Eldin Province", "ARC"],
+    "itemId": "Empty_Bomb_Bag"
+}

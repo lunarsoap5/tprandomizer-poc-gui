@@ -1,0 +1,9 @@
+{
+    "requirements": "(Progressive_Clawshot, 1) or Boomerang",
+    "hash": "5BD2",
+    "stageIDX": 56,
+    "dzxTag": "ACTR",
+    "category": ["Overworld", "Golden Bug", "Hyrule Field", "DZX"],
+    "itemId": "Female_Stag_Beetle",
+    "data": ["49", "5F", "4B", "75", "77", "00", "00", "00", "00", "00", "0F", "10", "C7", "3E", "D2", "00", "42", "6C", "94", "10", "C7", "48", "96", "00", "00", "00", "00", "00", "00", "00", "FF", "FF"]
+}

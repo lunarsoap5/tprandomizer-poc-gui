@@ -1,0 +1,17 @@
+{
+    "neighbours": 
+    [
+        "Lanayru Field"
+    ],
+    "neighbourRequirements": 
+    [
+        "true"
+    ],
+    "checks": 
+    [
+        "Cats Hide and Seek Minigame",
+        "Ilia Charm",
+        "Hidden Village Poe"
+    ],
+    "region": "Hidden Village"
+}

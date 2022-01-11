@@ -1,0 +1,9 @@
+{
+    "requirements": "true",
+    "hash": "309E",
+    "stageIDX": 55,
+    "dzxTag": "TRES",
+    "category": ["Overworld", "Chest", "Bulblin Camp", "DZX"],
+    "itemId": "Purple_Rupee",
+    "data":["74", "62", "6F", "78", "41", "30", "00", "00", "FF", "0F", "FF", "40", "45", "15", "50", "BA", "43", "82", "00", "00", "C4", "B8", "2C", "64", "00", "00", "60", "00", "05", "FF", "FF", "FF"]
+}

@@ -1,0 +1,8 @@
+{
+    "requirements": "canSmash",
+    "arcFileValues": [["D_MN09/R09_00.arc", "6C54C"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Hyrule Castle", "ARC"],
+    "itemId": "Orange_Rupee"
+}

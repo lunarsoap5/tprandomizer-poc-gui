@@ -1,0 +1,8 @@
+{
+    "requirements": "canLaunchBombs",
+    "arcFileValues": [["D_MN01/R01_00.arc", "75384"]],
+    "fileDirectoryType": [0],
+    "replacementType": [0],
+    "category": ["Chest", "Dungeon", "Lakebed Temple", "ARC"],
+    "itemId": "Water_Bombs_10"
+}
