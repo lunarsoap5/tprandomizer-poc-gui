@@ -190,16 +190,21 @@
 				  </div>
 				  
 				  <div id="excludedChecksTab" class="tabcontent">
-					<select multiple="multiple" size="10">
+					<select id="checksToBeExcludedListbox" multiple="multiple" size="10" width="20%">
 						<?php 
 							$files = glob('World/Checks/*/*/*.json');
+							 $i = 0;
 							foreach ($files as $file) 
 							{
 								$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file);
-								echo "<option>".pathinfo($file, PATHINFO_BASENAME)."</option>"; 
+								echo "<option value='$i'>".pathinfo($file, PATHINFO_BASENAME)."</option>"; 
+								$i++;
 							}
 						?>
-					</select>				  
+					</select>	
+					<input id="excludeCheckButton" value=">" type="button"> 			  
+					<input id="unexcludeCheckButton" value="<" type="button">
+					<select id="excludedChecksListbox" multiple="multiple" size = "10"  width="20%"><option>volvo</option></select>
 				</div>
 
 				  <div id="startingInventoryTab" class="tabcontent">

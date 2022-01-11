@@ -78,13 +78,41 @@ function GameVer(ver) {
 	}
 }
 
+document.getElementById('excludeCheckButton').addEventListener("click", addExcludedCheck);
+function addExcludedCheck()
+{
+	var checkListLength = document.getElementById('checksToBeExcludedListbox').length;
+	for(i=0;i < checkListLength;i++)	
+	{
+		if(document.drop_list.checksToBeExcludedListbox[i].selected)
+		{
+			let newExcludedCheck = new Option(document.drop_list.checksToBeExcludedListbox[i], document.drop_list.checksToBeExcludedListbox[i].value);
+			document.drop_list.excludedChecksListbox.add(newExcludedCheck, undefined);
+			document.drop_list.checksToBeExcludedListbox.remove(newExcludedCheck,undefined);
+		}
+	}
+}
+
+document.getElementById('unexcludeCheckButton').addEventListener("click", removeExcludedCheck);
+function removeExcludedCheck()
+{
+	for(i=0;i < document.getElementById('excludedChecksListbox').options.length;i++)	
+	{
+		if(document.drop_list.excludedChecksListbox[i].selectedIndex)
+		{
+			let newExcludedCheck = new Option(document.drop_list.excludedChecksListbox[i], document.drop_list.excludedChecksListbox[i].value);
+			document.drop_list.checksToBeExcludedListbox.add(newExcludedCheck, undefined);
+			document.drop_list.excludedChecksListbox.remove(newExcludedCheck,undefined);
+		}
+	}
+}
 
 
 
 
 
 
-//Shit Detector
+
 function isIE() {
   ua = navigator.userAgent;
   var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
