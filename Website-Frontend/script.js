@@ -81,30 +81,22 @@ function GameVer(ver) {
 document.getElementById('excludeCheckButton').addEventListener("click", addExcludedCheck);
 function addExcludedCheck()
 {
-	var checkListLength = document.getElementById('checksToBeExcludedListbox').length;
-	for(i=0;i < checkListLength;i++)	
-	{
-		if(document.drop_list.checksToBeExcludedListbox[i].selected)
-		{
-			let newExcludedCheck = new Option(document.drop_list.checksToBeExcludedListbox[i], document.drop_list.checksToBeExcludedListbox[i].value);
-			document.drop_list.excludedChecksListbox.add(newExcludedCheck, undefined);
-			document.drop_list.checksToBeExcludedListbox.remove(newExcludedCheck,undefined);
-		}
-	}
+
+	var checkList = document.getElementById('checksToBeExcludedListbox');
+	var strUser = checkList[checkList.selectedIndex].value;
+	let newExcludedCheck = new Option(checkList[checkList.selectedIndex].text, strUser);
+	document.getElementById('excludedChecksListbox').add(newExcludedCheck, undefined);
+	checkList.remove(checkList.selectedIndex);
 }
 
 document.getElementById('unexcludeCheckButton').addEventListener("click", removeExcludedCheck);
 function removeExcludedCheck()
 {
-	for(i=0;i < document.getElementById('excludedChecksListbox').options.length;i++)	
-	{
-		if(document.drop_list.excludedChecksListbox[i].selectedIndex)
-		{
-			let newExcludedCheck = new Option(document.drop_list.excludedChecksListbox[i], document.drop_list.excludedChecksListbox[i].value);
-			document.drop_list.checksToBeExcludedListbox.add(newExcludedCheck, undefined);
-			document.drop_list.excludedChecksListbox.remove(newExcludedCheck,undefined);
-		}
-	}
+	var checkList = document.getElementById('excludedChecksListbox');
+	var strUser = checkList[checkList.selectedIndex].value;
+	let newExcludedCheck = new Option(checkList[checkList.selectedIndex].text, strUser);
+	document.getElementById('checksToBeExcludedListbox').add(newExcludedCheck, undefined);
+	checkList.remove(checkList.selectedIndex);
 }
 
 
