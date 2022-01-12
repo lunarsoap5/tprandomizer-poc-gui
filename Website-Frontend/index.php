@@ -61,116 +61,130 @@
 					<button class="tablinks" onclick="tabControl(event, 'excludedChecksTab')">Excluded Checks</button>
 					<button class="tablinks" onclick="tabControl(event, 'startingInventoryTab')">Starting Inventory</button>
 					<button class="tablinks" onclick="tabControl(event, 'cosmeticsAndQuirksTab')">Cosmetics and Quirks</button>
-				  </div>
+				</div>
 				  
 				  <!-- Tab content -->
-				  <div id="randomizationSettingsTab" class="tabcontent">
-					  <div class="leftColumn">
+				<div id="randomizationSettingsTab" class="tabcontent">
+					<div class="leftColumn">
 						<fieldset id="logicSettingsFieldset">
 							<legend>Logic Settings</legend>
-							<label for="Logic Rules">Logic Rules:</label>
-							<select name="Logic Rules" id="logicRules">
-								<option value=””>Glitchless</option>
-								<option value=””>Glitched</option>
-								<option value=””>No Logic</option>
+							<label for="Logic Rules Fieldset">Logic Rules:</label>
+							<select name="Logic Rules Fieldset" id="logicRulesFieldset">
+								<option value="0">Glitchless</option>
+								<option value="1">Glitched</option>
+								<option value="2">No Logic</option>
 							</select>
 							<br/>
-							<label for="Game Region">Game Region:</label>
-							<select name="Game Region" id="gameRegion">
-								<option value=””>NTSC (US)</option>
-								<option value=””>PAL (EUR)</option>
-								<option value=””>JP (JAP)</option>
+							<label for="Game Region Fieldset">Game Region:</label>
+							<select name="Game Region Fieldset" id="gameRegionFieldset">
+								<option value="0">NTSC (US)</option>
+								<option value="1">PAL (EUR)</option>
+								<option value="2">JP (JAP)</option>
+							</select>
+							<br/>
+							<label for="Seed Number Fieldset">Seed Number:</label>
+							<select name="Seed Number Fieldset" id="seedNumberFieldset">
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
 							</select>
 						</fieldset>
 						<fieldset id="accessOptionsFieldset">
 							<legend> Access Options</legend>
 							<label for="Castle Requirements">Hyrule Castle Requirements:</label>
-							  <select name="Castle Requirements" id="castleRequirements">
-								  <option value=””>Open</option>
-								  <option value=””>Fused Shadows</option>
-								  <option value=””>Mirror Shards</option>
-								  <option value="">All Dungeons</option>
-								  <option value="">Vanilla</option>
-							  </select>
-							  <br/>
-							  <label for="Palace Requirements">Palace of Twilight Requirements:</label>
-							  <select name="Palace Requirements" id="palaceRequirements">
-								  <option value=””>Open</option>
-								  <option value=””>Fused Shadows</option>
-								  <option value=””>Mirror Shards</option>
-								  <option value="">Vanilla</option>
-							  </select>
-							  <br/>
-							  <label for="Faron Woods Logic">Faron Woods Logic:</label>
-							  <select name="Faron Woods  Logic" id="faronLogic">
-								  <option value=””>Open</option>
-								  <option value="">Closed</option>
-							  </select>
-							  <br/>
-							  <input type="checkbox" id="mdhCheckbox" name="MDH Logic" value="">
-							  <label for="MDH Logic"> Skip Midna's Desperate Hour</label><br>
-							  <input type="checkbox" id="introCheckbox" name="Intro Logic" value="">
-							  <label for="Intro Logic"> Skip Intro </label><br>
+							<select name="Castle Requirements" id="castleRequirementsFieldset">
+								<option value="0">Open</option>
+								<option value="1">Fused Shadows</option>
+								<option value="2">Mirror Shards</option>
+								<option value="3">All Dungeons</option>
+								<option value="4">Vanilla</option>
+							</select>
+							<br/>
+							<label for="Palace Requirements">Palace of Twilight Requirements:</label>
+							<select name="Palace Requirements" id="palaceRequirementsFieldset">
+								<option value="0">Open</option>
+								<option value="1">Fused Shadows</option>
+								<option value="2">Mirror Shards</option>
+								<option value="3">Vanilla</option>
+							</select>
+							<br/>
+							<label for="Faron Woods Logic">Faron Woods Logic:</label>
+							<select name="Faron Woods  Logic" id="faronLogicFieldset">
+								<option value="0">Open</option>
+								<option value="1">Closed</option>
+							</select>
+							<br/>
+							<input type="checkbox" id="mdhCheckbox" name="MDH Logic" value="">
+							<label for="MDH Logic"> Skip Midna's Desperate Hour</label><br>
+							<input type="checkbox" id="introCheckbox" name="Intro Logic" value="">
+							<label for="Intro Logic"> Skip Intro </label><br>
 						</fieldset>
-					  </div>
-					  <fieldset id="itemPoolOptionsFieldset">
-						<legend>Item Pool Options</legend>
-							<fieldset id="dungeonItemOptionsFieldset">
-							<legend>Dungeon Items</legend>
-								<label for="Small Keys">Small Keys:</label>
-								<select name="Small Keys" id="smallKeyOptions">
-									<option value=””>Vanilla</option>
-									<option value=””>Own Dungeon</option>
-									<option value=””>Any Dungeon</option>
-									<option value="">Keysanity</option>
-									<option value="">Keysey</option>
-								</select>
-								<br/>
-								<label for="Big Keys">Big Keys:</label>
-								<select name="Big Keys" id="bigKeyOptions">
-									<option value=””>Vanilla</option>
-									<option value=””>Own Dungeon</option>
-									<option value=””>Any Dungeon</option>
-									<option value="">Keysanity</option>
-									<option value="">Keysey</option>
-								</select>
-								<br/>
-								<label for="Maps and Compasses">Maps and Compasses:</label>
-								<select name="Maps and Compasses" id="mapAndCompassOptions">
-									<option value=””>Vanilla</option>
-									<option value=””>Own Dungeon</option>
-									<option value=””>Any Dungeon</option>
-									<option value="">Anywhere</option>
-									<option value="">Start With</option>
-								</select>
-							</fieldset>
-							<fieldset id="itemCategoriesFieldset">
-							<legend>Item Categories</legend>
-								<input type="checkbox" id="goldenBugsCheckbox" name="Golden Bugs" value="">
-								<label for="Golden Bugs"> Golden Bugs </label><br>
-								<input type="checkbox" id="skyCharacterCheckbox" name="Sky Characters" value="">
-								<label for="Sky Characters"> Sky Characters </label><br>
-								<input type="checkbox" id="giftsFromNPCsCheckbox" name="Gifts From NPCs" value="">
-								<label for="Gifts From NPCs"> Gifts From NPCs </label><br>
-								<input type="checkbox" id="poesCheckbox" name="Poes" value="">
-								<label for="Poes"> Poes </label><br>
-								<input type="checkbox" id="shopItemsCheckbox" name="Shop Items" value="">
-								<label for="Shop Items"> Shop Items </label><br>
-								<input type="checkbox" id="hiddenSkillsCheckbox" name="Hidden Skills" value="">
-								<label for="Hidden Skills"> Hidden Skills </label><br>
-								<label for="Foolish Items">Foolish Items:</label>
-								<select name="Foolish Items" id="foolishItemOptions">
-									<option value=””>None</option>
-									<option value=””>Few</option>
-									<option value=””>Many</option>
-									<option value="">Mayhem</option>
-									<option value="">Nightmare</option>
-								</select>
-							</fieldset>
+					</div>
+					<fieldset id="itemPoolOptionsFieldset">
+					<legend>Item Pool Options</legend>
+						<fieldset id="dungeonItemOptionsFieldset">
+						<legend>Dungeon Items</legend>
+							<label for="Small Keys">Small Keys:</label>
+							<select name="Small Keys" id="smallKeyOptions">
+								<option value="1">Vanilla</option>
+								<option value="2">Own Dungeon</option>
+								<option value="3">Any Dungeon</option>
+								<option value="4">Keysanity</option>
+								<option value="5">Keysey</option>
+							</select>
+							<br/>
+							<label for="Big Keys">Big Keys:</label>
+							<select name="Big Keys" id="bigKeyOptions">
+								<option value="0">Vanilla</option>
+								<option value="1">Own Dungeon</option>
+								<option value="2">Any Dungeon</option>
+								<option value="3">Keysanity</option>
+								<option value="4">Keysey</option>
+							</select>
+							<br/>
+							<label for="Maps and Compasses">Maps and Compasses:</label>
+							<select name="Maps and Compasses" id="mapAndCompassOptions">
+								<option value="0">Vanilla</option>
+								<option value="1">Own Dungeon</option>
+								<option value="2">Any Dungeon</option>
+								<option value="3">Anywhere</option>
+								<option value="4">Start With</option>
+							</select>
 						</fieldset>
-				  </div>
+						<fieldset id="itemCategoriesFieldset">
+						<legend>Item Categories</legend>
+							<input type="checkbox" id="goldenBugsCheckbox" name="Golden Bugs" value="">
+							<label for="Golden Bugs"> Golden Bugs </label><br>
+							<input type="checkbox" id="skyCharacterCheckbox" name="Sky Characters" value="">
+							<label for="Sky Characters"> Sky Characters </label><br>
+							<input type="checkbox" id="giftsFromNPCsCheckbox" name="Gifts From NPCs" value="">
+							<label for="Gifts From NPCs"> Gifts From NPCs </label><br>
+							<input type="checkbox" id="poesCheckbox" name="Poes" value="">
+							<label for="Poes"> Poes </label><br>
+							<input type="checkbox" id="shopItemsCheckbox" name="Shop Items" value="">
+							<label for="Shop Items"> Shop Items </label><br>
+							<input type="checkbox" id="hiddenSkillsCheckbox" name="Hidden Skills" value="">
+							<label for="Hidden Skills"> Hidden Skills </label><br>
+							<label for="Foolish Items">Foolish Items:</label>
+							<select name="Foolish Items" id="foolishItemOptions">
+								<option value="0">None</option>
+								<option value="1">Few</option>
+								<option value="2">Many</option>
+								<option value="3">Mayhem</option>
+								<option value="4">Nightmare</option>
+							</select>
+						</fieldset>
+					</fieldset>
+				</div>
 				  
-				  <div id="gameplaySettingsTab" class="tabcontent">
+				<div id="gameplaySettingsTab" class="tabcontent">
 					<fieldset id="clearedTwilightsFieldset">
 						<legend>Cleared Twilights</legend>
 						<input type="checkbox" id="faronTwilightCheckbox" name="Faron Twilight Checkbox" value="">
@@ -187,13 +201,13 @@
 						<input type="checkbox" id="msPuzzleCheckbox" name="Master Sword Puzzle Checkbox" value="">
 						<label for="Master Sword Puzzle Checkbox"> Skip Master Sword Puzzle </label><br>
 					</fieldset>
-				  </div>
+				</div>
 				  
-				  <div id="excludedChecksTab" class="tabcontent">
+				<div id="excludedChecksTab" class="tabcontent">
 					<select id="checksToBeExcludedListbox" multiple="multiple" size="10" width="20%">
 						<?php 
 							$files = glob('World/Checks/*/*/*.json');
-							 $i = 0;
+								$i = 0;
 							foreach ($files as $file) 
 							{
 								$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file);
@@ -207,15 +221,169 @@
 					<select id="excludedChecksListbox" multiple="multiple" size = "10"  width="20%"><option>volvo</option></select>
 				</div>
 
-				  <div id="startingInventoryTab" class="tabcontent">
-					<h3>Tokyo</h3>
-					<p>Tokyo is the capital of Japan.</p>
-				  </div>
+				<div id="startingInventoryTab" class="tabcontent">
+					<select id="listOfImportantItemsListbox" multiple="multiple" size="10" width="20%">
+						<?php 
+							$important_items = file_get_contents("StartingItems.txt");
+							$important_items = explode("\n", $important_items);
+							$i = 0;
+							foreach ($important_items as $important_item) 
+							{
+								list($value, $name) = explode(",", $important_item);
+								$name = str_replace("_"," ", $name);
+								echo "<option value='$value'>".$name."</option>"; 
+								$i++;
+							}
+						?>
+					</select>	
+					<input id="addToInventoryButton" value=">" type="button"> 			  
+					<input id="removeFromInventoryButton" value="<" type="button">
+					<select id="startingItemsListbox" multiple="multiple" size = "10"  width="20%"><option>volvo</option></select>
+				</div>
 
-				  <div id="cosmeticsAndQuirksTab" class="tabcontent">
-					<h3>Tokyo</h3>
-					<p>Tokyo is the capital of Japan.</p>
-				  </div>
+				<div id="cosmeticsAndQuirksTab" class="tabcontent">
+					<div class="leftColumn">
+						<fieldset id="additionalSettingsFieldset">
+							<legend>Additional Settings</legend>
+							<input type="checkbox" id="fastIBCheckbox" name="Fast IB Checkbox" value="">
+							<label for="Fast IB Checkbox"> Fast Iron Boots </label><br>
+							<input type="checkbox" id="quickTransformCheckbox" name="Quick Transform Checkbox" value="">
+							<label for="Quick Transform Checkbox"> Quick Transform </label><br>
+							<input type="checkbox" id="transformAnywhereCheckbox" name="Transform Anywhere Checkbox" value="">
+							<label for="Transform Anywhere Checkbox"> Transform Anywhere</label><br>
+						</fieldset>
+						<fieldset id="musicAndSFXFieldset">
+							<legend> Music and SFX </legend>
+							<input type="checkbox" id="randomizeBGMCheckbox" name="Randomize BGM Checkbox" value="">
+							<label for="Randomize BGM Checkbox"> Randomize Background Music </label><br>
+							<input type="checkbox" id="randomizeFanfaresCheckbox" name="Randomize Fanfares Checkbox" value="">
+							<label for="Randomize Fanfares Checkbox"> Randomize Fanfares </label><br>
+							<input type="checkbox" id="disableEnemyBGMCheckbox" name="Disable Enemy BGM Checkbox" value="">
+							<label for="Disable Enemy BGM Checkbox"> Disable Enemy Background Music?</label><br>
+						</fieldset>
+					</div>
+					<fieldset id="itemPoolOptionsFieldset">
+					<legend>Item Pool Options</legend>
+						<label for="Tunic Color Fieldset">Tunic Color:</label>
+						<select name="Tunic Color Fieldset" id="tunicColorFieldset">
+							<option value="0">Default</option>
+							<option value="1">Red</option>
+							<option value="2">Green</option>
+							<option value="3">Blue</option>
+							<option value="4">Yellow</option>
+							<option value="5">Purple</option>
+							<option value="6">Gray</option>
+							<option value="7">Black</option>
+							<option value="8">White</option>
+						</select>
+						<br/>
+						<label for="Lantern Color Fieldset">Lantern Color:</label>
+						<select name="Lantern Color Fieldset" id="lanternColorFieldset">
+							<option value="0">Default</option>
+							<option value="1">Red</option>
+							<option value="2">Orange</option>
+							<option value="3">Yellow</option>
+							<option value="4">Lime Green</option>
+							<option value="5">Dark Green</option>
+							<option value="6">Blue</option>
+							<option value="7">Purple</option>
+							<option value="8">Black</option>
+							<option value="9">White</option>
+							<option value="10">Cyan</option>
+						</select>
+						<br/>
+						<label for="Midna Hair Color Fieldset">Midna Hair Color:</label>
+						<select name="Midna Hair Color Fieldset" id="midnaHairColorFieldset">
+							<option value="0">Default</option>
+							<option value="1">Blue</option>
+						</select>
+						<br/>
+						<label for="Heart Color Fieldset">Heart Color:</label>
+						<select name="Heart Color Fieldset" id="heartColorFieldset">
+							<option value="0">Default</option>
+							<option value="1">Rainbow</option>
+							<option value="2">Teal</option>
+							<option value="3">Pink</option>
+							<option value="4">Orange</option>
+							<option value="5">Blue</option>
+							<option value="6">Purple</option>
+							<option value="7">Green</option>
+							<option value="8">Black</option>
+						</select>
+						<br/>
+						<label for="A Button Color Fieldset">A Button Color:</label>
+						<select name="A Button Color Fieldset" id="aButtonColorFieldset">
+							<option value="0">Default</option>
+							<option value="1">Red</option>
+							<option value="2">Orange</option>
+							<option value="3">Yellow</option>
+							<option value="4">Dark Green</option>
+							<option value="5">Purple</option>
+							<option value="6">Black</option>
+							<option value="7">Grey</option>
+							<option value="8">Pink</option>
+						</select>
+						<br/>
+						<label for="B Button Color Fieldset">B Button Color:</label>
+						<select name="B Button Color Fieldset" id="bButtonColorFieldset">
+							<option value="0">Default</option>
+							<option value="1">Orange</option>
+							<option value="2">Pink</option>
+							<option value="3">Green</option>
+							<option value="4">Blue</option>
+							<option value="5">Purple</option>
+							<option value="6">Black</option>
+							<option value="7">Teal</option> 
+						</select>
+						<br/>
+						<label for="X Button Color Fieldset">X Button Color:</label>
+						<select name="X Button Color Fieldset" id="xButtonColorFieldset">
+							<option value="0">Default</option>
+							<option value="1">Red</option>
+							<option value="2">Orange</option>
+							<option value="3">Yellow</option>
+							<option value="4">Lime Green</option>
+							<option value="5">Dark Green</option>
+							<option value="6">Blue</option>
+							<option value="7">Purple</option>
+							<option value="8">Black</option>
+							<option value="9">Pink</option>
+							<option value="10">Cyan</option>
+						</select>
+						<br/>
+						<label for="Y Button Color Fieldset">Y Button Color:</label>
+						<select name="Y Button Color Fieldset" id="yButtonColorFieldset">
+							<option value="0">Default</option>
+							<option value="1">Red</option>
+							<option value="2">Orange</option>
+							<option value="3">Yellow</option>
+							<option value="4">Lime Green</option>
+							<option value="5">Dark Green</option>
+							<option value="6">Blue</option>
+							<option value="7">Purple</option>
+							<option value="8">Black</option>
+							<option value="9">Pink</option>
+							<option value="10">Cyan</option>
+						</select>
+						<br/>
+						<label for="Z Button Color Fieldset">Z Button Color:</label>
+						<select name="Z Button Color Fieldset" id="zButtonColorFieldset">
+							<option value="0">Default</option>
+							<option value="1">Red</option>
+							<option value="2">Orange</option>
+							<option value="3">Yellow</option>
+							<option value="4">Lime Green</option>
+							<option value="5">Dark Green</option>
+							<option value="6">Purple</option>
+							<option value="7">Black</option>
+							<option value="8">Light Blue</option>
+						</select>
+					</fieldset>
+				</div>
+				<br/>
+				<label for="Settings String Text Box">Settings String:</label>
+  				<input type="text" id="settingsStringTextbox" name="Settings String Text Box">
+				<input id="generateSeedButton" value="Generate" type="button">
 			</div>
 			<div class="blackbg">
 				<h1>Tools and resources</h1>
