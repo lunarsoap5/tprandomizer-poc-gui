@@ -524,24 +524,35 @@ namespace TPRandomizer
 			
 
 			//Check Small Key settings before adding them to the rando pool
-			Randomizer.Items.BaseItemPool.AddRange(RegionSmallKeys);
 			if ((parseSetting.smallKeySettings != "Keysanity") && (parseSetting.smallKeySettings != "Vanilla")) 
 			{
 				RandomizedDungeonRegionItems.AddRange(RegionSmallKeys);
+				Randomizer.Items.BaseItemPool.AddRange(RegionSmallKeys);
+			}
+			else if((parseSetting.smallKeySettings == "Keysanity"))
+			{
+				ImportantItems.AddRange(RegionSmallKeys);
 			}
 
 			//Check Big Key Settings before adding them to the pool
-			Randomizer.Items.BaseItemPool.AddRange(DungeonBigKeys);
 			if ((parseSetting.bossKeySettings != "Keysanity") && (parseSetting.bossKeySettings != "Vanilla")) 
 			{
 				RandomizedDungeonRegionItems.AddRange(DungeonBigKeys);
+				Randomizer.Items.BaseItemPool.AddRange(DungeonBigKeys);
 			}
-
+			else if((parseSetting.bossKeySettings == "Keysanity"))
+			{
+				ImportantItems.AddRange(DungeonBigKeys);
+			}
 			//Check Map and Compass settings before adding to pool
-			Randomizer.Items.BaseItemPool.AddRange(DungeonMapsAndCompasses);
 			if ((parseSetting.mapAndCompassSettings != "Anywhere") && (parseSetting.mapAndCompassSettings != "Vanilla")) 
 			{
 				RandomizedDungeonRegionItems.AddRange(DungeonMapsAndCompasses);
+				Randomizer.Items.BaseItemPool.AddRange(DungeonMapsAndCompasses);
+			}
+			else if((parseSetting.mapAndCompassSettings == "Anywhere"))
+			{
+				ImportantItems.AddRange(DungeonMapsAndCompasses);
 			}
 			
 			//Modifying Item Pool based on ice trap settings

@@ -63,9 +63,9 @@ namespace TPRandomizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] banner_seed {
+        internal static byte[] seedGciImageData {
             get {
-                object obj = ResourceManager.GetObject("banner_seed", resourceCulture);
+                object obj = ResourceManager.GetObject("seedGciImageData", resourceCulture);
                 return ((byte[])(obj));
             }
         }
