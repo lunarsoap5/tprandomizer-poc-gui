@@ -18,6 +18,13 @@ namespace TPRandomizer.Assets
         /// </summary>
         /// <param name="x">The number you want to convert.</param>
 
+        public static byte[] gcBytes(UInt64 x)
+        {
+            var bytes = BitConverter.GetBytes(x);
+            Array.Reverse(bytes);
+
+            return bytes;
+        }
         public static byte[] gcBytes(UInt32 x)
         {
             var bytes = BitConverter.GetBytes(x);

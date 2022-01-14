@@ -63,7 +63,7 @@ namespace TPRandomizer
                     continue;
                 }
                 Console.WriteLine("Generating Seed Data.");
-                SeedData.generateSeedData();
+                Assets.SeedData.generateSeedData();
                 Console.WriteLine("Generating Spoiler Log.");
                 BackendFunctions.generateSpoilerLog(startingRoom);
                 Console.WriteLine("Generation Complete!");

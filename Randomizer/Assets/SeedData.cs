@@ -8,45 +8,41 @@ using System.Text;
 using TPRandomizer.Assets;
 
 
-namespace TPRandomizer
+namespace TPRandomizer.Assets
 { 
     public class SeedData
     {
-        struct regionFlag
-        {
-            internal byte region_id;
-            internal byte bit_id;
-        };
+        internal static List<byte> CheckDataRaw = new List<byte> ();
+        internal static SeedHeader SeedHeaderRaw = new SeedHeader();
+        internal static List<byte> currentSeedData = new List<byte>();
+        internal static List<byte> currentSeedHeader = new List<byte>();
 
-        struct eventFlag
+        public class SeedHeader
         {
-            internal byte offset;
-            internal byte flag;
-        };
-
-        List<eventFlag> seedEventFlags = new List<eventFlag>();
-
-        class dzxCheck
-        {
-            internal ushort hash;
-            internal byte stageIDX;
-            internal byte magicByte;     // ignore this byte in data[]
-            internal byte[] data;
-        };
-
-        struct RELCheck
-        {
-            internal uint stageIDX;
-            internal uint moduleID;
-            internal uint offset;
-            internal uint relOverride;
-        };
-
-        struct POECheck
-        {
-            internal byte stageIDX;
-            internal byte flag;      // Flag used for identification
-            internal ushort item;     // New item id
+            public UInt32 fileSize {get; set;}       // Total number of bytes including the header
+            public UInt64 seed {get; set;}            // Current seed
+            public UInt16 minVersion {get; set;}       // minimal required REL version, u8 Major and u8 Minor
+            public UInt16 maxVersion {get; set;}       // maximum supported REL version, u8 Major and u8 Minor
+            public UInt16 patchInfoNumEntries {get; set;}       // bitArray where each bit represents a patch/modification to be applied for this playthrough
+            public UInt16 patchInfoDataOffset {get; set;}
+            public UInt16 eventFlagsInfoNumEntries {get; set;}       // eventFlags that need to be set for this seed
+            public UInt16 eventFlagsInfoDataOffset {get; set;} 
+            public UInt16 regionFlagsInfoNumEntries {get; set;}       // regionFlags that need to be set, alternating
+            public UInt16 regionFlagsInfoDataOffset {get; set;}
+            public UInt16 dzxCheckInfoNumEntries {get; set;}
+            public UInt16 dzxCheckInfoDataOffset {get; set;} 
+            public UInt16 relCheckInfoNumEntries {get; set;}
+            public UInt16 relCheckInfoDataOffset {get; set;}
+            public UInt16 poeCheckInfoNumEntries {get; set;}
+            public UInt16 poeCheckInfoDataOffset {get; set;}
+            public UInt16 arcCheckInfoNumEntries {get; set;}
+            public UInt16 arcCheckInfoDataOffset {get; set;}
+            public UInt16 bossCheckInfoNumEntries {get; set;}
+            public UInt16 bossCheckInfoDataOffset {get; set;}
+            public UInt16 hiddenSkillCheckInfoNumEntries {get; set;}  
+            public UInt16 hiddenSkillCheckInfoDataOffset {get; set;}
+            public UInt16 bugRewardCheckInfoNumEntries {get; set;}
+            public UInt16 bugRewardCheckInfoDataOffset {get; set;}
         };
 
         public struct ARCReplacement
@@ -59,106 +55,69 @@ namespace TPRandomizer
             internal byte replacementType;     // The type of replacement that is taking place.
         };
 
-        struct BOSSCheck
-        {
-            internal short stageIDX;     // The stage where the replacement is taking place.
-            internal short item;         // New item id
-        };
-
-        struct HiddenSkillCheck
-        {
-            ushort indexNumber;
-            short itemID;
-        };
-
-        struct BugReward
-        {
-            internal ushort bugID;
-            internal ushort itemID;
-        };
-
-        struct SkyCharacter
-        {
-            internal ushort stageIDX;
-            internal byte roomID;
-            internal byte itemID;
-        };
+        
 
         
 
         public static void generateSeedData()
         {
-            var gci = new gci();
-            File.WriteAllBytes("test.gci",gci.header);
-            Random rnd = new Random();
-            string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.txt";
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
-            List<ARCReplacement> listOfArcReplacements = parseARCReplacements();
-            List<dzxCheck> listOfDZXReplacements = parseDZXReplacements();
-            List<POECheck> listOfPOEReplacements = parsePOEReplacements();
-            List<RELCheck> listOfRelReplacements = parseRELOverrides();
-            List<BOSSCheck> listOfBossReplacements = parseBossReplacements();
-            List<BugReward> listOfBugRewards = parseBugRewards();    
-            List<SkyCharacter> listOfSkyCharacters = parseSkyCharacters();
-            List<eventFlag> listOfEventFlags = generateEventFlags();
-            List<regionFlag> listOfRegionFlags = generateRegionFlags();
-           
-            using (StreamWriter file = new(fileHash))
-            {
-                file.WriteLine("//Seed Number: " + randomizerSettings.seedNumber);
-                file.WriteLine("//Event Flags");
-                foreach (eventFlag currentEventFlag in listOfEventFlags)
-                {
-                    file.WriteLine(currentEventFlag.offset + "," + currentEventFlag.flag);
-                }
-                file.WriteLine("//Region Flags");
-                foreach (regionFlag currentRegionFlag in listOfRegionFlags)
-                {
-                    file.WriteLine(currentRegionFlag.region_id + "," + currentRegionFlag.bit_id);
-                }
-                file.WriteLine("//ARC");
-                foreach (ARCReplacement arcCheck in listOfArcReplacements)
-                {
-                    file.WriteLine(arcCheck.offset + "," + arcCheck.arcFileIndex + "," + arcCheck.replacementValue + "," + arcCheck.directory + "," + arcCheck.fileName + "," + arcCheck.replacementType);
-                }
-                file.WriteLine("//DZX");
-                foreach (dzxCheck dzxCheck in listOfDZXReplacements)
-                {
-                    file.WriteLine(dzxCheck.hash + "," + dzxCheck.stageIDX + "," + dzxCheck.data);
-                }
-
-                file.WriteLine("//POE");
-                foreach (POECheck poeCheck in listOfPOEReplacements)
-                {
-                    file.WriteLine(poeCheck.stageIDX + "," + poeCheck.flag + "," + poeCheck.item);
-                }
-                file.WriteLine("//REL");
-                foreach (RELCheck relCheck in listOfRelReplacements)
-                {
-                    file.WriteLine(relCheck.stageIDX + "," + relCheck.moduleID + "," + relCheck.offset + "," + relCheck.relOverride);
-                }
-                file.WriteLine("//Boss");
-                foreach (BOSSCheck bossCheck in listOfBossReplacements)
-                {
-                    file.WriteLine(bossCheck.stageIDX + "," + bossCheck.item);
-                }
-                file.WriteLine("//BugRewards");
-                foreach (BugReward bugReward in listOfBugRewards)
-                {
-                    file.WriteLine(bugReward.bugID + "," + bugReward.itemID);
-                }
-                file.WriteLine("//SkyCharacter");
-                foreach (SkyCharacter skyCharacter in listOfSkyCharacters)
-                {
-                    file.WriteLine(skyCharacter.stageIDX + "," + skyCharacter.roomID + "," + skyCharacter.itemID);
-                }
-                file.Close();
-            }
+            //Header Info
+            
+            
+            
+            CheckDataRaw.AddRange(generateEventFlags());
+            CheckDataRaw.AddRange(generateRegionFlags());
+            CheckDataRaw.AddRange(parseDZXReplacements());
+            CheckDataRaw.AddRange(parseRELOverrides());
+            CheckDataRaw.AddRange(parsePOEReplacements());
+            CheckDataRaw.AddRange(parseARCReplacements());
+            CheckDataRaw.AddRange(parseBossReplacements());
+            CheckDataRaw.AddRange(parseBugRewards()); 
+            //CheckDataRaw.Add(parseSkyCharacters()); 
+            currentSeedHeader.AddRange(generateSeedHeader(randomizerSettings.seedNumber));
+            
+            currentSeedData.AddRange(currentSeedHeader);
+            currentSeedData.AddRange(CheckDataRaw);
+            
+            var gci = new gci((byte)randomizerSettings.seedNumber, randomizerSettings.gameRegion, currentSeedData);
+            string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.gci";
+            File.WriteAllBytes(fileHash,gci.gciFile);
         }
 
-        static List<ARCReplacement> parseARCReplacements()
+        static List <byte> generateSeedHeader(int seedNumber)
         {
-            List<ARCReplacement> listOfArcReplacements = new List<ARCReplacement>();
+            List<byte> seedHeader = new List<byte>();
+            SeedHeaderRaw.fileSize = 0xA040;
+            SeedHeaderRaw.seed = 0x00000000;
+            SeedHeaderRaw.minVersion = 0x0001;
+            SeedHeaderRaw.maxVersion = 0x0001;
+            SeedHeaderRaw.patchInfoNumEntries = 0x0000;
+            SeedHeaderRaw.patchInfoDataOffset = 0x0000;
+            PropertyInfo[] seedHeaderProperties = SeedHeaderRaw.GetType().GetProperties();
+            foreach (PropertyInfo headerObject in seedHeaderProperties)
+            {
+                if (headerObject.PropertyType == typeof(UInt32))
+                {
+                    seedHeader.AddRange(Converter.gcBytes((UInt32)headerObject.GetValue(SeedHeaderRaw, null)));
+                }
+                else if (headerObject.PropertyType == typeof(UInt64))
+                {
+                    seedHeader.AddRange(Converter.gcBytes((UInt64)headerObject.GetValue(SeedHeaderRaw, null)));
+                }
+                else if (headerObject.PropertyType == typeof(UInt16))
+                {
+                    seedHeader.AddRange(Converter.gcBytes((UInt16)headerObject.GetValue(SeedHeaderRaw, null)));
+                }
+            }
+            seedHeader.Add(Converter.gcByte(seedNumber));
+            return seedHeader;
+        }
+
+        static List<byte> parseARCReplacements()
+        {
+            List<byte> listOfArcReplacements = new List<byte>();
+            ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
@@ -169,25 +128,25 @@ namespace TPRandomizer
                     {
                         List<string> listOfArcValues = currentCheck.arcFileValues[i];
                         currentArcCheck.fileName = listOfArcValues[0];
-                        for (int j = 1; j < listOfArcValues.Count; j++)
-                        {
-                            currentArcCheck.offset = uint.Parse(listOfArcValues[j], System.Globalization.NumberStyles.HexNumber);
-                            currentArcCheck.arcFileIndex = 0;
-                            currentArcCheck.replacementValue = (uint)currentCheck.itemId;
-                            currentArcCheck.directory = currentCheck.fileDirectoryType[i];
-                            currentArcCheck.replacementType = currentCheck.replacementType[i]; 
-                            listOfArcReplacements.Add(currentArcCheck);
-                        }
+                        listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)uint.Parse(listOfArcValues[1], System.Globalization.NumberStyles.HexNumber)));
+                        listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)0x00));
+                        listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)currentCheck.itemId));
+                        listOfArcReplacements.Add(Converter.gcByte(currentCheck.fileDirectoryType[i]));
+                        listOfArcReplacements.AddRange(Converter.stringBytes(listOfArcValues[0]));
+                        listOfArcReplacements.Add(Converter.gcByte(currentCheck.replacementType[i])); 
+                        count++;
                     }
                 }
             }
+            SeedHeaderRaw.arcCheckInfoNumEntries = count;
+            SeedHeaderRaw.arcCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38 + 0x40);
             return listOfArcReplacements;
         }
 
-        static List<dzxCheck> parseDZXReplacements()
+        static List<byte> parseDZXReplacements()
         {
-            List<dzxCheck> listOfDZXReplacements = new List<dzxCheck>();
-            dzxCheck currentDZXCheck = new dzxCheck();
+            List<byte> listOfDZXReplacements = new List<byte>();
+            ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
@@ -206,38 +165,41 @@ namespace TPRandomizer
                     {
                         dataArray[11] = (byte)currentCheck.itemId;
                     }
-                    currentDZXCheck.data = dataArray;
-                    currentDZXCheck.hash = ushort.Parse(currentCheck.hash, System.Globalization.NumberStyles.HexNumber);
-                    currentDZXCheck.stageIDX = currentCheck.stageIDX;
-
-                    listOfDZXReplacements.Add(currentDZXCheck);
+                    listOfDZXReplacements.AddRange(Converter.gcBytes((UInt16)ushort.Parse(currentCheck.hash, System.Globalization.NumberStyles.HexNumber)));
+                    listOfDZXReplacements.AddRange(Converter.gcBytes((UInt16)currentCheck.stageIDX));
+                    listOfDZXReplacements.Add(Converter.gcByte(0xFF)); //change to magicByte once we get it set
+                    listOfDZXReplacements.AddRange(dataArray);
                 }
             }
+            SeedHeaderRaw.dzxCheckInfoNumEntries = count;
+            SeedHeaderRaw.dzxCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38 + 0x40);
             return listOfDZXReplacements;
         }
 
-        static List<POECheck> parsePOEReplacements()
+        static List<byte> parsePOEReplacements()
         {
-            List<POECheck> listOfPOEReplacements = new List<POECheck>();
-            POECheck currentPOECheck = new POECheck();
+            List<byte> listOfPOEReplacements = new List<byte>();
+            ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("Poe"))
                 {
-                    currentPOECheck.stageIDX = currentCheck.stageIDX;
-                    currentPOECheck.flag = byte.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber);
-                    currentPOECheck.item = (ushort)currentCheck.itemId;
-                    listOfPOEReplacements.Add(currentPOECheck);
+                    listOfPOEReplacements.Add(Converter.gcByte(currentCheck.stageIDX));
+                    listOfPOEReplacements.Add(Converter.gcByte(byte.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber)));
+                    listOfPOEReplacements.AddRange(Converter.gcBytes((UInt16)currentCheck.itemId));
+                    count++;
                 }
             }
+            SeedHeaderRaw.poeCheckInfoNumEntries = count;
+            SeedHeaderRaw.poeCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38 + 0x40);
             return listOfPOEReplacements;
         }
 
-        static List<RELCheck> parseRELOverrides()
+        static List<byte> parseRELOverrides()
         {
-            List<RELCheck> listOfRELReplacements = new List<RELCheck>();
-            RELCheck currentRELCheck = new RELCheck();
+            List<byte> listOfRELReplacements = new List<byte>();
+            ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
@@ -245,74 +207,78 @@ namespace TPRandomizer
                 {
                     for (int i = 0; i < currentCheck.offsets.Count; i++)
                     {
-                        currentRELCheck.stageIDX = currentCheck.stageIDX;
-                        currentRELCheck.moduleID = uint.Parse(currentCheck.moduleID, System.Globalization.NumberStyles.HexNumber);
-                        currentRELCheck.offset = uint.Parse(currentCheck.offsets[i], System.Globalization.NumberStyles.HexNumber);
-                        currentRELCheck.relOverride = (uint.Parse(currentCheck.relOverride, System.Globalization.NumberStyles.HexNumber) + (byte)currentCheck.itemId);
-                        listOfRELReplacements.Add(currentRELCheck);
+                        listOfRELReplacements.AddRange(Converter.gcBytes((UInt32)currentCheck.stageIDX));
+                        listOfRELReplacements.AddRange(Converter.gcBytes((UInt32)uint.Parse(currentCheck.moduleID, System.Globalization.NumberStyles.HexNumber)));
+                        listOfRELReplacements.AddRange(Converter.gcBytes((UInt32)uint.Parse(currentCheck.offsets[i], System.Globalization.NumberStyles.HexNumber)));
+                        listOfRELReplacements.AddRange(Converter.gcBytes((UInt32)(uint.Parse(currentCheck.relOverride, System.Globalization.NumberStyles.HexNumber) + (byte)currentCheck.itemId)));
+                        count++;
                     }
                 }
             }
+            SeedHeaderRaw.relCheckInfoNumEntries = count;
+            SeedHeaderRaw.relCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38 + 0x40);
             return listOfRELReplacements;
         }
 
-        static List<BOSSCheck> parseBossReplacements()
+        static List<byte> parseBossReplacements()
         {
-            List<BOSSCheck> listOfBossReplacements = new List<BOSSCheck>();
-            BOSSCheck currentBossCheck = new BOSSCheck();
+            List<byte> listOfBossReplacements = new List<byte>();
+            ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("Boss"))
                 {
-                    currentBossCheck.stageIDX = currentCheck.stageIDX;
-                    currentBossCheck.item = (short)currentCheck.itemId; 
-                    listOfBossReplacements.Add(currentBossCheck);
+                    listOfBossReplacements.AddRange(Converter.gcBytes((UInt16)currentCheck.stageIDX));
+                    listOfBossReplacements.AddRange(Converter.gcBytes((UInt16)currentCheck.itemId)); 
+                    count++;
                 }
             }
+            SeedHeaderRaw.bossCheckInfoNumEntries = count;
+            SeedHeaderRaw.bossCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38 + 0x40);
             return listOfBossReplacements;
         }
 
-        static List<BugReward> parseBugRewards()
+        static List<byte> parseBugRewards()
         {
-            List<BugReward> listOfBugRewards = new List<BugReward>();
-            BugReward currentBugReward = new BugReward();
+            List<byte> listOfBugRewards = new List<byte>();
+            ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("Bug Reward"))
                 {
-                    currentBugReward.bugID = byte.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber);
-                    currentBugReward.itemID = (byte)currentCheck.itemId;
-                    listOfBugRewards.Add(currentBugReward);
+                    listOfBugRewards.AddRange(Converter.gcBytes((UInt16)byte.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber)));
+                    listOfBugRewards.AddRange(Converter.gcBytes((UInt16)(byte)currentCheck.itemId));
+                    count++;
                 }
             }
+            SeedHeaderRaw.bugRewardCheckInfoNumEntries = count;
+            SeedHeaderRaw.bugRewardCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38 + 0x40);
             return listOfBugRewards;    
         }
 
-        static List<SkyCharacter> parseSkyCharacters()
+        static List<byte> parseSkyCharacters()
         {
-            List<SkyCharacter> listOfSkyCharacters = new List<SkyCharacter>();
-            SkyCharacter currentSkyCharacter = new SkyCharacter();
+            List<byte> listOfSkyCharacters = new List<byte>();
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("Sky Book"))
                 {
-                    currentSkyCharacter.stageIDX = currentCheck.stageIDX;
-                    currentSkyCharacter.roomID = currentCheck.roomIDX;
-                    currentSkyCharacter.itemID = (byte)currentCheck.itemId;
-                    listOfSkyCharacters.Add(currentSkyCharacter);
+                    listOfSkyCharacters.Add(Converter.gcByte((byte)currentCheck.itemId));
+                    listOfSkyCharacters.AddRange(Converter.gcBytes((UInt16)currentCheck.stageIDX));
+                    listOfSkyCharacters.Add(Converter.gcByte(currentCheck.roomIDX));
                 }
             }
             return listOfSkyCharacters;    
         }
 
-        static List<eventFlag> generateEventFlags()
+        static List<byte> generateEventFlags()
         {
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
-            List<eventFlag> listOfEventFlags = new List<eventFlag>();
-            eventFlag currentEventFlag = new eventFlag();
+            List<byte> listOfEventFlags = new List<byte>();
+            ushort count = 0;
             byte[,] arrayOfEventFlags = {};
             byte[,] faronTwilightEventFlags = new byte[,]
             {
@@ -328,18 +294,20 @@ namespace TPRandomizer
 
             for (int i = 0; i < arrayOfEventFlags.GetLength(0); i++)
             {
-                currentEventFlag.offset = arrayOfEventFlags[i,0];
-                currentEventFlag.flag = arrayOfEventFlags[i,1];
-                listOfEventFlags.Add(currentEventFlag);
+                listOfEventFlags.Add(Converter.gcByte(arrayOfEventFlags[i,0]));
+                listOfEventFlags.Add(Converter.gcByte(arrayOfEventFlags[i,1]));
+                count++;
             }
+            SeedHeaderRaw.eventFlagsInfoNumEntries = count;
+            SeedHeaderRaw.eventFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38 + 0x40);
             return listOfEventFlags;
         }
 
-        static List<regionFlag> generateRegionFlags()
+        static List<byte> generateRegionFlags()
         {
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
-            List<regionFlag> listOfRegionFlags = new List<regionFlag>();
-            regionFlag currentRegionFlag = new regionFlag();
+            List<byte> listOfRegionFlags = new List<byte>();
+            ushort count = 0;
             byte[,] arrayOfRegionFlags = {};
             byte[,] faronTwilightRegionFlags = new byte[,]
             {
@@ -359,10 +327,12 @@ namespace TPRandomizer
 
             for (int i = 0; i < arrayOfRegionFlags.GetLength(0); i++)
             {
-                currentRegionFlag.region_id = arrayOfRegionFlags[i,0];
-                currentRegionFlag.bit_id = arrayOfRegionFlags[i,1];
-                listOfRegionFlags.Add(currentRegionFlag);
+                listOfRegionFlags.Add(Converter.gcByte(arrayOfRegionFlags[i,0]));
+                listOfRegionFlags.Add(Converter.gcByte(arrayOfRegionFlags[i,1]));
+                count++;
             }
+            SeedHeaderRaw.regionFlagsInfoNumEntries = count;
+            SeedHeaderRaw.regionFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38 + 0x40);
             return listOfRegionFlags;
         }
     }
