@@ -293,7 +293,7 @@ namespace TPRandomizer
                 if (property.PropertyType == typeof(int)) //Settings that have multiple options (Hyrule Castle Requirements, etc.)
                 {
                     value = property.GetValue(settings, null);
-                    //Pad the integer value to 4 bits. No drop down menu uses more than 8 options so this is a safe bet.
+                    //Pad the integer value to 4 bits. No drop down menu uses more than 15 options so this is a safe bet.
                     i_bits = Convert.ToString((int)value, 2).PadLeft(4, '0'); 
                 }
                 if (property.PropertyType == typeof(List<Item>)) //Starting Items list
@@ -338,7 +338,6 @@ namespace TPRandomizer
             settingsString = BackendFunctions.Base64Decode(settingsString);
             //Convert the settings string into a binary string to be interpreted.
             string bitString = BackendFunctions.textToBitString(settingsString);
-            List<byte> bits = new List<byte>();
 			PropertyInfo[] properties = settings.GetType().GetProperties();
 			foreach (PropertyInfo property in properties)
 			{

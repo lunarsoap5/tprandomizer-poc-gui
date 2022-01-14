@@ -132,7 +132,7 @@
 						<fieldset id="dungeonItemOptionsFieldset">
 						<legend>Dungeon Items</legend>
 							<label for="Small Keys">Small Keys:</label>
-							<select name="Small Keys" id="smallKeyOptions">
+							<select name="Small Keys" id="smallKeyFieldset">
 								<option value="1">Vanilla</option>
 								<option value="2">Own Dungeon</option>
 								<option value="3">Any Dungeon</option>
@@ -141,7 +141,7 @@
 							</select>
 							<br/>
 							<label for="Big Keys">Big Keys:</label>
-							<select name="Big Keys" id="bigKeyOptions">
+							<select name="Big Keys" id="bigKeyFieldset">
 								<option value="0">Vanilla</option>
 								<option value="1">Own Dungeon</option>
 								<option value="2">Any Dungeon</option>
@@ -150,7 +150,7 @@
 							</select>
 							<br/>
 							<label for="Maps and Compasses">Maps and Compasses:</label>
-							<select name="Maps and Compasses" id="mapAndCompassOptions">
+							<select name="Maps and Compasses" id="mapAndCompassFieldset">
 								<option value="0">Vanilla</option>
 								<option value="1">Own Dungeon</option>
 								<option value="2">Any Dungeon</option>
@@ -173,7 +173,7 @@
 							<input type="checkbox" id="hiddenSkillsCheckbox" name="Hidden Skills" value="">
 							<label for="Hidden Skills"> Hidden Skills </label><br>
 							<label for="Foolish Items">Foolish Items:</label>
-							<select name="Foolish Items" id="foolishItemOptions">
+							<select name="Foolish Items" id="foolishItemFieldset">
 								<option value="0">None</option>
 								<option value="1">Few</option>
 								<option value="2">Many</option>
@@ -204,7 +204,7 @@
 				</div>
 				  
 				<div id="excludedChecksTab" class="tabcontent">
-					<select id="checksToBeExcludedListbox" multiple="multiple" size="10" width="20%">
+					<select id="baseExcludedChecksListbox" multiple="multiple" size="10" width="20%">
 						<?php 
 							$files = glob('World/Checks/*/*/*.json');
 								$i = 0;
@@ -218,27 +218,25 @@
 					</select>	
 					<input id="excludeCheckButton" value=">" type="button"> 			  
 					<input id="unexcludeCheckButton" value="<" type="button">
-					<select id="excludedChecksListbox" multiple="multiple" size = "10"  width="20%"><option>volvo</option></select>
+					<select id="addedExcludedChecksListbox" multiple="multiple" size = "10"  width="20%"></select>
 				</div>
 
 				<div id="startingInventoryTab" class="tabcontent">
-					<select id="listOfImportantItemsListbox" multiple="multiple" size="10" width="20%">
+					<select id="baseImportantItemsListbox" multiple="multiple" size="10" width="20%">
 						<?php 
 							$important_items = file_get_contents("StartingItems.txt");
 							$important_items = explode("\n", $important_items);
-							$i = 0;
 							foreach ($important_items as $important_item) 
 							{
 								list($value, $name) = explode(",", $important_item);
 								$name = str_replace("_"," ", $name);
 								echo "<option value='$value'>".$name."</option>"; 
-								$i++;
 							}
 						?>
 					</select>	
 					<input id="addToInventoryButton" value=">" type="button"> 			  
 					<input id="removeFromInventoryButton" value="<" type="button">
-					<select id="startingItemsListbox" multiple="multiple" size = "10"  width="20%"><option>volvo</option></select>
+					<select id="addedImportantItemsListbox" multiple="multiple" size = "10"  width="20%"></select>
 				</div>
 
 				<div id="cosmeticsAndQuirksTab" class="tabcontent">
@@ -383,6 +381,8 @@
 				<br/>
 				<label for="Settings String Text Box">Settings String:</label>
   				<input type="text" id="settingsStringTextbox" name="Settings String Text Box">
+				<input id="importSettingsStringButton" value="Import" type="button">
+				<br/>
 				<input id="generateSeedButton" value="Generate" type="button">
 			</div>
 			<div class="blackbg">
