@@ -1,0 +1,8 @@
+{
+    "requirements": "Shadow_Crystal",
+    "stageIDX": 59,
+    "roomIDX": 0,
+    "flag": "3C01",
+    "category": ["Overworld", "Hidden Skill", "Gerudo Desert"],
+    "itemId": "Progressive_Hidden_Skill"
+}

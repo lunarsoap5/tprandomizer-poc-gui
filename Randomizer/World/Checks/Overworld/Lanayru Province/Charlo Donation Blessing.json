@@ -1,7 +1,7 @@
 {
     "requirements": "true",
     "arcFileValues": [["Prayer.arc", "D587"]],
-    "fileDirectoryType": [2],
+    "fileDirectoryType": [1],
     "replacementType": [0],
     "stageIDX": 53,
     "category": ["Overworld", "Npc", "Castle Town", "ARC", "Boss"],

@@ -1,0 +1,8 @@
+{
+    "requirements": "Shadow_Crystal",
+    "stageIDX": 44,
+    "roomIDX": 1,
+    "flag": "3C08",
+    "category": ["Overworld", "Hidden Skill", "Lanayru Province"],
+    "itemId": "Progressive_Hidden_Skill"
+}

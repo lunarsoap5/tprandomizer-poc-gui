@@ -234,7 +234,7 @@ namespace TPRandomizer
 		Ancient_Sky_Book_Fourth_Character	=	0xDE, /*custom*/
 		Ancient_Sky_Book_Fifth_Character	=	0xDF, /*custom*/
 		Poe_Soul	=	0xE0,
-		Ending_Blow	=	0xE1,
+		Progressive_Hidden_Skill	=	0xE1,
 		Shield_Attack	=	0xE2,
 		Back_Slice	=	0xE3,
 		Helm_Splitter	=	0xE4,

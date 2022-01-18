@@ -1,0 +1,8 @@
+{
+    "requirements": "Shadow_Crystal",
+    "stageIDX": 48,
+    "roomIDX": 0,
+    "flag": "3D80",
+    "category": ["Overworld", "Hidden Skill", "Eldin Province"],
+    "itemId": "Progressive_Hidden_Skill"
+}

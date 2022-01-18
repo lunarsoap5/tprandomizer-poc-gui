@@ -43,6 +43,8 @@ namespace TPRandomizer.Assets
             public UInt16 hiddenSkillCheckInfoDataOffset {get; set;}
             public UInt16 bugRewardCheckInfoNumEntries {get; set;}
             public UInt16 bugRewardCheckInfoDataOffset {get; set;}
+            public UInt16 skyCharacterCheckInfoNumEntries {get; set;}
+            public UInt16 skyCharacterCheckInfoDataOffset {get; set;}
         };
 
         public struct ARCReplacement
@@ -63,9 +65,6 @@ namespace TPRandomizer.Assets
         {
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             //Header Info
-            
-            
-            
             CheckDataRaw.AddRange(generateEventFlags());
             CheckDataRaw.AddRange(generateRegionFlags());
             CheckDataRaw.AddRange(parseDZXReplacements());
@@ -73,8 +72,9 @@ namespace TPRandomizer.Assets
             CheckDataRaw.AddRange(parsePOEReplacements());
             CheckDataRaw.AddRange(parseARCReplacements());
             CheckDataRaw.AddRange(parseBossReplacements());
+            CheckDataRaw.AddRange(parseHiddenSkills());
             CheckDataRaw.AddRange(parseBugRewards()); 
-            //CheckDataRaw.Add(parseSkyCharacters()); 
+            CheckDataRaw.AddRange(parseSkyCharacters()); 
             currentSeedHeader.AddRange(generateSeedHeader(randomizerSettings.seedNumber));
             
             currentSeedData.AddRange(currentSeedHeader);
@@ -132,14 +132,21 @@ namespace TPRandomizer.Assets
                         listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)0x00));
                         listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)currentCheck.itemId));
                         listOfArcReplacements.Add(Converter.gcByte(currentCheck.fileDirectoryType[i]));
-                        listOfArcReplacements.AddRange(Converter.stringBytes(listOfArcValues[0]));
+                        List<byte> fileNameBytes = new List<byte>();
+                        fileNameBytes.AddRange(Converter.stringBytes(listOfArcValues[0]));
+                        for (int numberofFileNameBytes = fileNameBytes.Count; numberofFileNameBytes < 18; numberofFileNameBytes++)
+                        {
+                            //pad the length of the file name to 0x12 bytes.
+                            fileNameBytes.Add(Converter.gcByte(0x00));
+                        }
+                        listOfArcReplacements.AddRange(fileNameBytes);
                         listOfArcReplacements.Add(Converter.gcByte(currentCheck.replacementType[i])); 
                         count++;
                     }
                 }
             }
             SeedHeaderRaw.arcCheckInfoNumEntries = count;
-            SeedHeaderRaw.arcCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38);
+            SeedHeaderRaw.arcCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
             return listOfArcReplacements;
         }
 
@@ -173,7 +180,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.dzxCheckInfoNumEntries = count;
-            SeedHeaderRaw.dzxCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38);
+            SeedHeaderRaw.dzxCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
             return listOfDZXReplacements;
         }
 
@@ -193,7 +200,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.poeCheckInfoNumEntries = count;
-            SeedHeaderRaw.poeCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38);
+            SeedHeaderRaw.poeCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
             return listOfPOEReplacements;
         }
 
@@ -217,7 +224,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.relCheckInfoNumEntries = count;
-            SeedHeaderRaw.relCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38);
+            SeedHeaderRaw.relCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
             return listOfRELReplacements;
         }
 
@@ -236,7 +243,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.bossCheckInfoNumEntries = count;
-            SeedHeaderRaw.bossCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38);
+            SeedHeaderRaw.bossCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
             return listOfBossReplacements;
         }
 
@@ -255,13 +262,14 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.bugRewardCheckInfoNumEntries = count;
-            SeedHeaderRaw.bugRewardCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38);
+            SeedHeaderRaw.bugRewardCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
             return listOfBugRewards;    
         }
 
         static List<byte> parseSkyCharacters()
         {
             List<byte> listOfSkyCharacters = new List<byte>();
+            ushort count = 0;
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
@@ -270,9 +278,33 @@ namespace TPRandomizer.Assets
                     listOfSkyCharacters.Add(Converter.gcByte((byte)currentCheck.itemId));
                     listOfSkyCharacters.AddRange(Converter.gcBytes((UInt16)currentCheck.stageIDX));
                     listOfSkyCharacters.Add(Converter.gcByte(currentCheck.roomIDX));
+                    count++;
                 }
             }
+            SeedHeaderRaw.skyCharacterCheckInfoNumEntries = count;
+            SeedHeaderRaw.skyCharacterCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
             return listOfSkyCharacters;    
+        }
+
+        static List<byte> parseHiddenSkills()
+        {
+            List<byte> listOfHiddenSkills = new List<byte>();
+            ushort count = 0;
+            foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
+            {
+                Check currentCheck = checkList.Value;
+                if (currentCheck.category.Contains("Hidden Skill"))
+                {
+                    listOfHiddenSkills.AddRange(Converter.gcBytes((UInt16)short.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber)));
+                    listOfHiddenSkills.AddRange(Converter.gcBytes((UInt16)currentCheck.itemId));
+                    listOfHiddenSkills.AddRange(Converter.gcBytes((UInt16)currentCheck.stageIDX));
+                    listOfHiddenSkills.AddRange(Converter.gcBytes((UInt16)currentCheck.roomIDX));
+                    count++;
+                }
+            }
+            SeedHeaderRaw.hiddenSkillCheckInfoNumEntries = count;
+            SeedHeaderRaw.hiddenSkillCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            return listOfHiddenSkills;    
         }
 
         static List<byte> generateEventFlags()
@@ -300,7 +332,7 @@ namespace TPRandomizer.Assets
                 count++;
             }
             SeedHeaderRaw.eventFlagsInfoNumEntries = count;
-            SeedHeaderRaw.eventFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38);
+            SeedHeaderRaw.eventFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
             return listOfEventFlags;
         }
 
@@ -333,7 +365,7 @@ namespace TPRandomizer.Assets
                 count++;
             }
             SeedHeaderRaw.regionFlagsInfoNumEntries = count;
-            SeedHeaderRaw.regionFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x38);
+            SeedHeaderRaw.regionFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
             return listOfRegionFlags;
         }
     }

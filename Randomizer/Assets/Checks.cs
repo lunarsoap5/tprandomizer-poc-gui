@@ -89,6 +89,13 @@ namespace TPRandomizer
                             Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
                         }
                     }
+                    if (!parseSetting.shuffleHiddenSkills)
+                    {
+                        if (currentCheck.category.Contains("Hidden Skill"))
+                        {
+                            Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                        }
+                    }
                 }
                 else
                 {
