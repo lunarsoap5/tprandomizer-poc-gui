@@ -20,7 +20,8 @@ namespace TPRandomizer
         public static ItemFunctions Items = new ItemFunctions();
         public static RandomizerSetting RandoSetting = new RandomizerSetting();
         public static SettingData RandoSettingData = new SettingData();
-
+        public static byte RANDOMIER_VERSION_MAJOR = 1;
+        public static byte RANDOMIER_VERSION_MINOR = 0;
         public static string seedHash = null;
 
 
@@ -30,6 +31,7 @@ namespace TPRandomizer
         /// <param name="settingsString"> The Settings String to be read in. </param>
         public void start(string settingsString)
         {
+            Console.WriteLine("Twilight Princess Randomizer Version "+ RANDOMIER_VERSION_MAJOR + "." + RANDOMIER_VERSION_MINOR);
             Random rnd = new Random();
             seedHash = HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)];
             int remainingGenerationAttempts = 30;

@@ -14,15 +14,14 @@ namespace TPRandomizer.Assets
     {
         internal static List<byte> CheckDataRaw = new List<byte> ();
         internal static SeedHeader SeedHeaderRaw = new SeedHeader();
-        internal static List<byte> currentSeedData = new List<byte>();
-        internal static List<byte> currentSeedHeader = new List<byte>();
+        internal static byte seedHeaderSize = 0x3C;
 
-        public class SeedHeader
+        internal class SeedHeader
         {
             public UInt32 fileSize {get; set;}       // Total number of bytes including the header
             public UInt64 seed {get; set;}            // Current seed
-            public UInt16 minVersion {get; set;}       // minimal required REL version, u8 Major and u8 Minor
-            public UInt16 maxVersion {get; set;}       // maximum supported REL version, u8 Major and u8 Minor
+            public UInt16 minVersion {get; set;}       // minimal required REL version
+            public UInt16 maxVersion {get; set;}       // maximum supported REL version
             public UInt16 patchInfoNumEntries {get; set;}       // bitArray where each bit represents a patch/modification to be applied for this playthrough
             public UInt16 patchInfoDataOffset {get; set;}
             public UInt16 eventFlagsInfoNumEntries {get; set;}       // eventFlags that need to be set for this seed
@@ -47,23 +46,11 @@ namespace TPRandomizer.Assets
             public UInt16 skyCharacterCheckInfoDataOffset {get; set;}
         };
 
-        public struct ARCReplacement
-        {
-            internal uint offset;                         // The offset of the byte where the item is stored from the start of the file.
-            internal int arcFileIndex;                   // The index of the file that contains the check.
-            internal uint replacementValue;              // Used to be item, but can be more now.
-            internal byte directory;                // The type of directory where the check is stored.
-            internal string fileName;                // The name of the file where the check is stored
-            internal byte replacementType;     // The type of replacement that is taking place.
-        };
-
-        
-
-        
-
         public static void generateSeedData()
         {
             RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
+            List<byte> currentSeedHeader = new List<byte>();
+            List<byte> currentSeedData = new List<byte>();
             //Header Info
             CheckDataRaw.AddRange(generateEventFlags());
             CheckDataRaw.AddRange(generateRegionFlags());
@@ -89,9 +76,9 @@ namespace TPRandomizer.Assets
         {
             List<byte> seedHeader = new List<byte>();
             SeedHeaderRaw.fileSize = 0xA000;
-            SeedHeaderRaw.seed = 0x7461636F62656C6C;
-            SeedHeaderRaw.minVersion = 0x0100;
-            SeedHeaderRaw.maxVersion = 0x0100;
+            SeedHeaderRaw.seed = BackendFunctions.GetChecksum(Randomizer.seedHash, 64);
+            SeedHeaderRaw.minVersion = (ushort)(Randomizer.RANDOMIER_VERSION_MAJOR << 8 | Randomizer.RANDOMIER_VERSION_MINOR);
+            SeedHeaderRaw.maxVersion = (ushort)(Randomizer.RANDOMIER_VERSION_MAJOR << 8 | Randomizer.RANDOMIER_VERSION_MINOR);
             SeedHeaderRaw.patchInfoNumEntries = 0x0000;
             SeedHeaderRaw.patchInfoDataOffset = 0x0000;
             PropertyInfo[] seedHeaderProperties = SeedHeaderRaw.GetType().GetProperties();
@@ -123,11 +110,9 @@ namespace TPRandomizer.Assets
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("ARC"))
                 {
-                    ARCReplacement currentArcCheck = new ARCReplacement();
                     for (int i = 0; i < currentCheck.arcFileValues.Count; i++)
                     {
                         List<string> listOfArcValues = currentCheck.arcFileValues[i];
-                        currentArcCheck.fileName = listOfArcValues[0];
                         listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)uint.Parse(listOfArcValues[1], System.Globalization.NumberStyles.HexNumber)));
                         listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)0x00));
                         listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)currentCheck.itemId));
@@ -146,7 +131,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.arcCheckInfoNumEntries = count;
-            SeedHeaderRaw.arcCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.arcCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfArcReplacements;
         }
 
@@ -180,7 +165,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.dzxCheckInfoNumEntries = count;
-            SeedHeaderRaw.dzxCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.dzxCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfDZXReplacements;
         }
 
@@ -200,7 +185,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.poeCheckInfoNumEntries = count;
-            SeedHeaderRaw.poeCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.poeCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfPOEReplacements;
         }
 
@@ -224,7 +209,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.relCheckInfoNumEntries = count;
-            SeedHeaderRaw.relCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.relCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfRELReplacements;
         }
 
@@ -243,7 +228,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.bossCheckInfoNumEntries = count;
-            SeedHeaderRaw.bossCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.bossCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfBossReplacements;
         }
 
@@ -262,7 +247,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.bugRewardCheckInfoNumEntries = count;
-            SeedHeaderRaw.bugRewardCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.bugRewardCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfBugRewards;    
         }
 
@@ -282,7 +267,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.skyCharacterCheckInfoNumEntries = count;
-            SeedHeaderRaw.skyCharacterCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.skyCharacterCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfSkyCharacters;    
         }
 
@@ -303,7 +288,7 @@ namespace TPRandomizer.Assets
                 }
             }
             SeedHeaderRaw.hiddenSkillCheckInfoNumEntries = count;
-            SeedHeaderRaw.hiddenSkillCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.hiddenSkillCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfHiddenSkills;    
         }
 
@@ -332,7 +317,7 @@ namespace TPRandomizer.Assets
                 count++;
             }
             SeedHeaderRaw.eventFlagsInfoNumEntries = count;
-            SeedHeaderRaw.eventFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.eventFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfEventFlags;
         }
 
@@ -365,7 +350,7 @@ namespace TPRandomizer.Assets
                 count++;
             }
             SeedHeaderRaw.regionFlagsInfoNumEntries = count;
-            SeedHeaderRaw.regionFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + 0x3C);
+            SeedHeaderRaw.regionFlagsInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfRegionFlags;
         }
     }
