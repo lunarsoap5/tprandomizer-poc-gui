@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal",
+    "requirements": "Shadow_Crystal and Room.Zoras_Domain and (Progressive_Sword, 1)",
     "stageIDX": 57,
     "roomIDX": 8,
     "flag": "3C04",

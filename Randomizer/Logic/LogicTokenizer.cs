@@ -43,7 +43,7 @@ namespace TPRandomizer
 
         private bool ParseBoolean()
         {
-            
+            var parseBool = false;
             if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is BooleanValueToken)
             {
                 var current = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key;
@@ -54,9 +54,7 @@ namespace TPRandomizer
 
                 return false;
             }
-            var parseBool = false;
-
-            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is OpenParenthesisToken)
+            else if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is OpenParenthesisToken)
             {
                 tokenValue++;
 
@@ -76,11 +74,11 @@ namespace TPRandomizer
 
                 return expInPars;
             }
-            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is ClosedParenthesisToken)
+            else if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is ClosedParenthesisToken)
             {
                 throw new Exception("Unexpected Closed Parenthesis");
             }
-            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is itemToken)
+            else if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is itemToken)
             {
                 string evaluatedItem = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value; 
                 tokenValue++;
@@ -92,11 +90,11 @@ namespace TPRandomizer
                 }
                 else
                 {
-                    parseBool = LogicFunctions.canUseTest(evaluatedItem);
+                    parseBool = LogicFunctions.canUse(evaluatedItem);
                 }
                 return parseBool;
             }
-            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is logicFunctionToken)
+            else if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is logicFunctionToken)
             {
                 string evaluatedFunction = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value; 
                 tokenValue++;
@@ -119,7 +117,7 @@ namespace TPRandomizer
                 }
                 return parseBool;
             }
-            if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is settingsToken)
+            else if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is settingsToken)
             {
                 string evaluatedItem = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value; 
                 tokenValue++;
@@ -131,7 +129,15 @@ namespace TPRandomizer
                 }
                 return parseBool;
             }
-            
+            else if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is roomToken)
+            {
+                string evaluatedToken = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value; 
+                string roomName = evaluatedToken.Replace("Room.", "");
+                roomName = roomName.Replace("_", " ");
+                tokenValue++;
+                parseBool = Randomizer.Rooms.RoomDict[roomName].visited;
+                return parseBool;
+            }
             // since its not a BooleanConstant or Expression in parenthesis, it must be a expression again
             var val = Parse();
             return val;
@@ -219,6 +225,11 @@ namespace TPRandomizer
                                     tokens.Add(new settingsToken(), potentialKeyword.ToString());
                                     break;
                                 }
+                                else if (potentialKeyword.Contains("Room."))
+                                {
+                                    tokens.Add(new roomToken(), potentialKeyword.ToString());
+                                    break;
+                                }
                                 //If it isnt a keyword, we assume that it is a logic function
                                 else
                                 {
@@ -261,6 +272,7 @@ namespace TPRandomizer
     public class ParenthesisToken : Token {}
     public class EqualsToken : OperandToken {}
     public class settingsToken : OperandToken {}
+    public class roomToken : OperandToken {}
     public class CommaToken : Token {}
     public class canUseToken : Token {}
     public class ClosedParenthesisToken : ParenthesisToken {}

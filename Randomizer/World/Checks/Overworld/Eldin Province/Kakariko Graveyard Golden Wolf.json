@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal",
+    "requirements": "Shadow_Crystal and Room.Snowpeak_Climb and (Progressive_Fishing_Rod, 2)",
     "stageIDX": 48,
     "roomIDX": 0,
     "flag": "3D80",

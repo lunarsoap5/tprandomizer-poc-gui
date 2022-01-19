@@ -36,7 +36,7 @@ namespace TPRandomizer
 			return canUseItem;
 		}
 
-        public static bool canUseTest(string item)
+        public static bool canUse(string item)
 		{
             bool canUseItem = false;
             foreach (var listItem in Randomizer.Items.heldItems)
