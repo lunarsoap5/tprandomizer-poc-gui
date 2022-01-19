@@ -3,7 +3,7 @@
 # Logic Writing Guide:
 The logic for the randomizer is supported by a custom designed backend for easy understanding, implementation, and collaboration. Below are a list of "tokens" that are used when defining logic:
 * `!` is a negation token, which refers to the inverse of the token that is to follow it.
-* `(` and `)` are open parenthesis tokens. You must always have a closing parenthesis for every openin parenthesis.
+* `(` and `)` are open parenthesis tokens. You must always have a closing parenthesis for every open in parenthesis.
 * `, #` is a comma token and is always followed by a number. This token is commonly used when grouping items together and used for checking quantity.
 * `True` is an affirmation token. If a check has no requirements then this can be used as a default. When comparing to settings, the "T" in true must be capitalized
 * `False` is a negation token. Similar to `!`, this token refers to the inverse of the token that preceeded it. When comparing to settings, the "F" in false must be capialized.
@@ -16,7 +16,7 @@ There are a number of special tokens that are used when defining logic that can 
 * Item tokens are just the enum name that item IDs use for the randomizer. (see /Assets/Items.cs for a list of enum definitions)
 * Setting tokens are used to identify certain settings and perform checks on their values. These tokens must always contain `Setting.`
 * Room tokens are used to identify if the player has reached a certain room. These tokens must always contain `Room.`
-* Any other text that is not defined as a token listed above is listed as a `Function` token. This means that the randomizer will identify it as a macro for a function and try to run it as such.
+* Any other text that is not defined as a token listed above is listed as a `Function` token. This means that the randomizer will identify it as a macro for a function and try to run it as such. Unfortunately the logic does not support line breaks at the moment.
 
 # Logic Writing Demonstration and Translation
 Using the above notes, we can now write logic for a room or check in a token form. This section breaks down the tokens into a raw code format so that you understand how it looks to the frontend.
