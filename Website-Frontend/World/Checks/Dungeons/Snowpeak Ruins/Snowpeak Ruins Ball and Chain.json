@@ -1,8 +1,0 @@
-{
-    "requirements": "canDefeatDarkhammer",
-    "moduleID": "ED",
-    "offsets": ["2CB4"],
-    "relOverride": "38800000",
-    "category": ["Dungeon", "Snowpeak Ruins", "REL"],
-    "itemId": "Ball_and_Chain"
-}

@@ -1,8 +1,0 @@
-{
-    "requirements": "(Shadow_Crystal or hasSword or Ball_and_Chain or hasBombs) and (Arbiters_Grounds_Small_Key, 4) and canDefeatRedeadKnight and canDefeatStalchild and canDefeatBubble and canDefeatGhoulRat",
-    "arcFileValues": [["D_MN10/R07_00.arc", "30E0C"]],
-    "fileDirectoryType": [0],
-    "replacementType": [0],
-    "category": ["Chest", "Dungeon", "Arbiters Grounds", "ARC"],
-    "itemId": "Bombs_5"
-}

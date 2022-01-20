@@ -221,12 +221,7 @@ namespace TPRandomizer
              bool areAllChecksReachable = true;
              bool areAllRoomsReachable = true;
              Random rnd = new Random();
-            List<string> availableChecks = new List<string>();
-            List<Item> ItemsToBeRandomized = new List<Item>();
             List<Item> playthroughItems = new List<Item>();
-            List<Item> currentItemPool = new List<Item>();
-            currentItemPool.AddRange(Randomizer.Items.heldItems);
-            ItemsToBeRandomized.AddRange(Randomizer.Items.heldItems);
             //Console.WriteLine("Item to place: " + itemToPlace);
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -266,10 +261,6 @@ namespace TPRandomizer
                                 {
                                     playthroughItems.Add(currentCheck.itemId);
                                     //Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
-                                }
-                                else
-                                {
-                                    availableChecks.Add(currentCheck.checkName);
                                 }
                                 currentCheck.hasBeenReached = true;
                             }
