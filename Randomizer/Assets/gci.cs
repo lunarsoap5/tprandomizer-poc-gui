@@ -99,7 +99,7 @@ namespace TPRandomizer.Assets
             // Add seed banner
             GCIFile.AddRange(Properties.Resources.seedGciImageData);
             GCIFile.AddRange(Converter.stringBytes("TPR 1.0 Seed Data", 0x20, regionCode));
-            GCIFile.AddRange(Converter.stringBytes("XYZ ABC DEF GHI -", 0x20, regionCode));
+            GCIFile.AddRange(Converter.stringBytes(Randomizer.seedHash, 0x20, regionCode));
 
             //Pad
             while (GCIFile.Count < (5 * (0x2000)) +0x40) //Pad to 5 blocks

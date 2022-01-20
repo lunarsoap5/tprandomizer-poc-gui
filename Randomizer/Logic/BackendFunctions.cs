@@ -364,6 +364,7 @@ namespace TPRandomizer
                                         break;
                                     }
                                 }
+                                
                                 if (!currentCheck.hasBeenReached)
                                 {
                                     var areCheckRequirementsMet = Randomizer.Logic.evaluateRequirements(currentCheck.requirements);
