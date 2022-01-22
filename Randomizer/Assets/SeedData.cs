@@ -14,7 +14,7 @@ namespace TPRandomizer.Assets
     {
         internal static List<byte> CheckDataRaw = new List<byte> ();
         internal static SeedHeader SeedHeaderRaw = new SeedHeader();
-        internal static byte seedHeaderSize = 0x3C;
+        internal static byte seedHeaderSize = 0x40;
 
         internal class SeedHeader
         {
@@ -44,6 +44,8 @@ namespace TPRandomizer.Assets
             public UInt16 bugRewardCheckInfoDataOffset {get; set;}
             public UInt16 skyCharacterCheckInfoNumEntries {get; set;}
             public UInt16 skyCharacterCheckInfoDataOffset {get; set;}
+            public UInt16 shopCheckInfoNumEntries {get; set;}
+            public UInt16 shopCheckInfoDataOffset {get; set;}
         };
 
         public static void generateSeedData()
@@ -62,6 +64,7 @@ namespace TPRandomizer.Assets
             CheckDataRaw.AddRange(parseHiddenSkills());
             CheckDataRaw.AddRange(parseBugRewards()); 
             CheckDataRaw.AddRange(parseSkyCharacters()); 
+            CheckDataRaw.AddRange(parseShopItems()); 
             currentSeedHeader.AddRange(generateSeedHeader(randomizerSettings.seedNumber));
             
             currentSeedData.AddRange(currentSeedHeader);
@@ -290,6 +293,25 @@ namespace TPRandomizer.Assets
             SeedHeaderRaw.hiddenSkillCheckInfoNumEntries = count;
             SeedHeaderRaw.hiddenSkillCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
             return listOfHiddenSkills;    
+        }
+
+        static List<byte> parseShopItems()
+        {
+            List<byte> listOfShopItems = new List<byte>();
+            ushort count = 0;
+            foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
+            {
+                Check currentCheck = checkList.Value;
+                if (currentCheck.category.Contains("Shop"))
+                {
+                    listOfShopItems.AddRange(Converter.gcBytes((UInt16)short.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber)));
+                    listOfShopItems.AddRange(Converter.gcBytes((UInt16)currentCheck.itemId));
+                    count++;
+                }
+            }
+            SeedHeaderRaw.shopCheckInfoNumEntries = count;
+            SeedHeaderRaw.shopCheckInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
+            return listOfShopItems;    
         }
 
         static List<byte> generateEventFlags()

@@ -3,6 +3,7 @@
     "arcFileValues": [["bmgres1.arc", "22747"]],
     "fileDirectoryType": [1],
     "replacementType": [0],
-    "category": ["Overworld", "Shop", "Ordonia Province", "ARC"],
+    "flag": "10",
+    "category": ["Overworld", "Shop", "Ordonia Province", "ARC", "Npc"],
     "itemId": "Slingshot"
 }

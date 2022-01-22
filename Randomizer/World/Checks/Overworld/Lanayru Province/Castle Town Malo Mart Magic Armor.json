@@ -1,0 +1,9 @@
+{
+    "requirements": "true",
+    "arcFileValues": [["bmgres4.arc", "20DB7"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "flag": "13",
+    "category": ["Overworld", "Npc", "Lanayru Province", "ARC", "Shop"],
+    "itemId": "Magic_Armor"
+}
