@@ -69,6 +69,7 @@ namespace TPRandomizer
                 Console.WriteLine("Generating Spoiler Log.");
                 BackendFunctions.generateSpoilerLog(startingRoom);
                 Console.WriteLine("Generation Complete!");
+                cleanUp();
                 break;
             }
         } 
@@ -103,7 +104,7 @@ namespace TPRandomizer
             //Once all of the items that have some restriction on their placement are placed, we then place all of the items that can
             //be logically important (swords, clawshot, bow, etc.)
             Console.WriteLine("Placing Important Items.");
-            placeItemsRestricted(startingRoom, Items.ImportantItems, Randomizer.Items.heldItems, "");
+            placeItemsRestricted(startingRoom, Items.RandomizedImportantItems, Randomizer.Items.heldItems, "");
             
             //Next we will place the "always" items. Basically the constants in every seed, so Heart Pieces, Heart Containers, etc.
             //These items do not affect logic at all so there is very little contraint to this method .
@@ -446,5 +447,18 @@ namespace TPRandomizer
             }
             return PlaythroughGraph; 
         }
+
+        void cleanUp()
+        {
+            Checks.CheckDict.Clear();
+            Rooms.RoomDict.Clear();
+            Items.ShuffledDungeonRewards.Clear();
+            Items.RandomizedDungeonRegionItems.Clear();
+            Items.RandomizedImportantItems.Clear();
+            Items.JunkItems.Clear();
+            Randomizer.Items.heldItems.Clear();
+            Randomizer.Items.BaseItemPool.Clear();
+        }
+        
     } 
 }

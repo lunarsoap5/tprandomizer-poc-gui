@@ -305,11 +305,11 @@ namespace TPRandomizer
                             foreach (Item item in itemList)
                             {
                                 //We pad the byte to 8 bits since item IDs don't go over 0xFF
-                                i_bits = i_bits + Convert.ToString((byte)item, 2).PadLeft(8, '0');
+                                i_bits = i_bits + Convert.ToString((byte)item, 2).PadLeft(9, '0');
                             }
                         }
                         //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
-                        i_bits = i_bits + "11111111"; 
+                        i_bits = i_bits + "111111111"; 
                     }
                 if (property.PropertyType == typeof(List<string>)) //List of Excluded Checks
                     {
@@ -372,7 +372,7 @@ namespace TPRandomizer
                 {
                     List<Item> startingItems = new List<Item>();
                     //We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
-                    settingBitWidth = 8;
+                    settingBitWidth = 9;
                     while (!reachedEndofList)
                     {
                         for (int j = 0; j < settingBitWidth; j++)
@@ -381,7 +381,7 @@ namespace TPRandomizer
                             bitString = bitString.Remove(0,1);
                         }
                         int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
-                        if (itemIndex != 255) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
+                        if (itemIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
                             foreach (Item item in Items.ImportantItems)
                             {
@@ -450,7 +450,7 @@ namespace TPRandomizer
             switch (currentItem)
             {
                 case "Standard":
-                    settingsStringTextbox.Text = "QUlJTUFBRjZBUDc3NEFBQUFBQUFBQUE=";
+                    settingsStringTextbox.Text = "QUlJTUlSSDdZUDc3NkFBQUFBQUFBQUE=";
                     parseSettingsString(settingsStringTextbox.Text);
                     break;
             }

@@ -89,7 +89,7 @@ namespace TPRandomizer
                     {
                         List<Item> startingItems = new List<Item>();
                         //We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
-                        settingBitWidth = 8;
+                        settingBitWidth = 9;
                         while (!reachedEndofList)
                         {
                             for (int j = 0; j < settingBitWidth; j++)
@@ -98,7 +98,7 @@ namespace TPRandomizer
                                 bitString = bitString.Remove(0,1);
                             }
                             int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
-                            if (itemIndex != 255) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
+                            if (itemIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                             {
                                 foreach (Item item in Randomizer.Items.ImportantItems)
                                 {

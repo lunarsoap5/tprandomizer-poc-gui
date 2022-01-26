@@ -67,9 +67,9 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Npc"))
                         {
-                            if (Randomizer.Items.ImportantItems.Contains(currentCheck.itemId))
+                            if (Randomizer.Items.RandomizedImportantItems.Contains(currentCheck.itemId))
                             {
-                                Randomizer.Items.ImportantItems.Remove(currentCheck.itemId);
+                                Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                             }
                             
                             Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
@@ -107,9 +107,9 @@ namespace TPRandomizer
                 //We want to set Uli Cradle Delivery vanilla if intro is not skipped since a Fishing Rod has to be there in order to progress the seed.
                 //We also place the Lantern vanilla because it is a big logic hole and since we don't know how to make coro give both items in one state yet, it's safer to do this.
                 Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkName);
-                Randomizer.Items.ImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
+                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
                 Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Coro Lantern"].checkName);
-                Randomizer.Items.ImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
+                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
             }
             else
             {
