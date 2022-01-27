@@ -114,8 +114,6 @@ namespace TPRandomizer
             else
             {
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].isExcluded = true;
-                Randomizer.Checks.CheckDict["Ordon Cat Rescue"].isExcluded = true;
-                Randomizer.Checks.CheckDict["Sera Shop Slingshot"].isExcluded = true;
                 Randomizer.Checks.CheckDict["Ordon Sword"].isExcluded = true;
                 Randomizer.Checks.CheckDict["Ordon Shield"].isExcluded = true;
                 Randomizer.Checks.CheckDict["Coro Lantern"].isExcluded = true;

@@ -1,5 +1,5 @@
 {
-    "requirements": "(Progressive_Fishing_Rod, 1)",
+    "requirements": "(Progressive_Fishing_Rod, 1) or (Setting.introSkipped equals True)",
     "arcFileValues": [["bmgres1.arc", "237AF"]],
     "fileDirectoryType": [1],
     "replacementType": [0],
