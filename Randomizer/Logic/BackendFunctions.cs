@@ -403,7 +403,7 @@ namespace TPRandomizer
             Random rnd = new Random();
             Randomizer.Items.generateItemPool();
 
-            string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + ".txt";
+            string fileHash = "TPR-v1.0-" + Randomizer.seedHash + ".txt";
             //Once everything is complete, we want to write the results to a spoiler log.
             using (StreamWriter file = new(fileHash))
             {

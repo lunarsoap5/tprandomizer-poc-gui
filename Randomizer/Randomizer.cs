@@ -33,7 +33,7 @@ namespace TPRandomizer
         {
             Console.WriteLine("Twilight Princess Randomizer Version "+ RANDOMIER_VERSION_MAJOR + "." + RANDOMIER_VERSION_MINOR);
             Random rnd = new Random();
-            seedHash = HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + " " + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)];
+            seedHash = HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + "-" + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)];
             int remainingGenerationAttempts = 30;
             //Generate the dictionary values that are needed and initialize the data for the selected logic type.
             deserializeChecks();

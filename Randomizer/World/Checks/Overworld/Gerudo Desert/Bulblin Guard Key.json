@@ -1,5 +1,9 @@
 {
     "requirements": "canDefeatBulblin",
-    "category": ["Overworld", "Bulblin Camp", "Small Key"],
+    "moduleID": "26D",
+    "stageIDX": 55,
+    "offsets": ["155C"],
+    "relOverride": "38800000",
+    "category": ["Overworld", "Bulblin Camp", "Small Key", "REL"],
     "itemId": "Gerudo_Desert_Bulblin_Camp_Key"
 }

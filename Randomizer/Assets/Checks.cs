@@ -31,6 +31,7 @@ namespace TPRandomizer
         public List<byte> replacementType { get; set;} //Used by ARC checks. The type of replacement taking place
         public string moduleID { get; set;} //Used by REL checks. The module ID for the rel file being loaded.
         public List<string> offsets { get; set;} //Used by REL checks.
+        public string magicByte { get; set;}
         public string relOverride { get; set;} //Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }
 
@@ -110,6 +111,10 @@ namespace TPRandomizer
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
                 Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Coro Lantern"].checkName);
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
+                Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Ordon Sword"].checkName);
+                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Sword"].itemId);
+                Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Ordon Shield"].checkName);
+                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Shield"].itemId);
             }
             else
             {

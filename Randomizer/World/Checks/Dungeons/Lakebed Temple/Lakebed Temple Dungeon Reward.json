@@ -1,5 +1,12 @@
 {
     "requirements": "canDefeatMorpheel",
-    "category": ["Dungeon", "Lakebed Temple", "Dungeon Reward"],
+    "moduleID": "5B",
+    "stageIDX": 1,
+    "offsets": ["1880"],
+    "relOverride": "38600000",
+    "arcFileValues": [["D_MN01A/STG_00.arc", "449A"]],
+    "fileDirectoryType": [0],
+    "replacementType": [2],
+    "category": ["Dungeon", "Lakebed Temple", "Dungeon Reward", "REL", "ARC"],
     "itemId": "Progressive_Fused_Shadow"
 }

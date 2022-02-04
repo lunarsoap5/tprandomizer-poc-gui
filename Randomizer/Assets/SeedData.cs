@@ -14,7 +14,7 @@ namespace TPRandomizer.Assets
     {
         internal static List<byte> CheckDataRaw = new List<byte> ();
         internal static SeedHeader SeedHeaderRaw = new SeedHeader();
-        internal static byte seedHeaderSize = 0x40;
+        internal static byte seedHeaderSize = 0x48;
 
         internal class SeedHeader
         {
@@ -54,6 +54,7 @@ namespace TPRandomizer.Assets
             List<byte> currentSeedHeader = new List<byte>();
             List<byte> currentSeedData = new List<byte>();
             //Header Info
+            CheckDataRaw.AddRange(generatePatchSettings());
             CheckDataRaw.AddRange(generateEventFlags());
             CheckDataRaw.AddRange(generateRegionFlags());
             CheckDataRaw.AddRange(parseDZXReplacements());
@@ -71,19 +72,18 @@ namespace TPRandomizer.Assets
             currentSeedData.AddRange(CheckDataRaw);
             
             var gci = new gci((byte)randomizerSettings.seedNumber, randomizerSettings.gameRegion, currentSeedData);
-            string fileHash = "TPR - v1.0 - " + Randomizer.seedHash + "-Seed-Data.gci";
+            string fileHash = "TPR-v1.0-" + Randomizer.seedHash + "-Seed-Data.gci";
             File.WriteAllBytes(fileHash,gci.gciFile);
         }
 
         static List <byte> generateSeedHeader(int seedNumber)
         {
             List<byte> seedHeader = new List<byte>();
+            RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
             SeedHeaderRaw.fileSize = 0xA000;
             SeedHeaderRaw.seed = BackendFunctions.GetChecksum(Randomizer.seedHash, 64);
             SeedHeaderRaw.minVersion = (ushort)(Randomizer.RANDOMIER_VERSION_MAJOR << 8 | Randomizer.RANDOMIER_VERSION_MINOR);
             SeedHeaderRaw.maxVersion = (ushort)(Randomizer.RANDOMIER_VERSION_MAJOR << 8 | Randomizer.RANDOMIER_VERSION_MINOR);
-            SeedHeaderRaw.patchInfoNumEntries = 0x0000;
-            SeedHeaderRaw.patchInfoDataOffset = 0x0000;
             PropertyInfo[] seedHeaderProperties = SeedHeaderRaw.GetType().GetProperties();
             foreach (PropertyInfo headerObject in seedHeaderProperties)
             {
@@ -100,8 +100,44 @@ namespace TPRandomizer.Assets
                     seedHeader.AddRange(Converter.gcBytes((UInt16)headerObject.GetValue(SeedHeaderRaw, null)));
                 }
             }
+            seedHeader.Add(Converter.gcByte(randomizerSettings.heartColor));
+            seedHeader.Add(Converter.gcByte(randomizerSettings.aButtonColor));
+            seedHeader.Add(Converter.gcByte(randomizerSettings.bButtonColor));
+            seedHeader.Add(Converter.gcByte(randomizerSettings.xButtonColor));
+            seedHeader.Add(Converter.gcByte(randomizerSettings.yButtonColor));
+            seedHeader.Add(Converter.gcByte(randomizerSettings.zButtonColor));
+            seedHeader.Add(Converter.gcByte(randomizerSettings.lanternColor));
+            seedHeader.Add(Converter.gcByte((randomizerSettings.transformAnywhere ? 1:0)));
+
             seedHeader.Add(Converter.gcByte(seedNumber));
             return seedHeader;
+        }
+
+        static List<byte> generatePatchSettings()
+        {
+            RandomizerSetting randomizerSettings = Randomizer.RandoSetting;
+            List<byte> listOfPatches = new List<byte>();
+            byte patchOptions = 0x0;
+            /*if (randomizerSettings.increaseWallet)
+            {
+                patchOptions |= 0x80;
+            }*/
+            if (randomizerSettings.shuffleBackgroundMusic)
+            {
+                patchOptions |= 0x40;
+            }
+            if (randomizerSettings.disableEnemyBackgoundMusic)
+            {
+                patchOptions |= 0x20;
+            }
+            if (randomizerSettings.fastIronBoots)
+            {
+                patchOptions |= 0x10;
+            }
+            listOfPatches.Add(Converter.gcByte(patchOptions));
+            SeedHeaderRaw.patchInfoNumEntries = 0x1;
+            SeedHeaderRaw.patchInfoDataOffset = (ushort)(CheckDataRaw.Count + 1 + seedHeaderSize);
+            return listOfPatches;
         }
 
         static List<byte> parseARCReplacements()
@@ -120,6 +156,7 @@ namespace TPRandomizer.Assets
                         listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)0x00));
                         listOfArcReplacements.AddRange(Converter.gcBytes((UInt32)currentCheck.itemId));
                         listOfArcReplacements.Add(Converter.gcByte(currentCheck.fileDirectoryType[i]));
+                        listOfArcReplacements.Add(Converter.gcByte(currentCheck.replacementType[i])); 
                         List<byte> fileNameBytes = new List<byte>();
                         fileNameBytes.AddRange(Converter.stringBytes(listOfArcValues[0]));
                         for (int numberofFileNameBytes = fileNameBytes.Count; numberofFileNameBytes < 18; numberofFileNameBytes++)
@@ -128,7 +165,6 @@ namespace TPRandomizer.Assets
                             fileNameBytes.Add(Converter.gcByte(0x00));
                         }
                         listOfArcReplacements.AddRange(fileNameBytes);
-                        listOfArcReplacements.Add(Converter.gcByte(currentCheck.replacementType[i])); 
                         count++;
                     }
                 }
@@ -162,7 +198,14 @@ namespace TPRandomizer.Assets
                     }
                     listOfDZXReplacements.AddRange(Converter.gcBytes((UInt16)ushort.Parse(currentCheck.hash, System.Globalization.NumberStyles.HexNumber)));
                     listOfDZXReplacements.Add(Converter.gcByte(currentCheck.stageIDX));
-                    listOfDZXReplacements.Add(Converter.gcByte(0xFF)); //change to magicByte once we get it set
+                    if (currentCheck.magicByte == null)
+                    {
+                        listOfDZXReplacements.Add(Converter.gcByte(0xFF)); //change to magicByte once we get it set
+                    }
+                    else
+                    {
+                        listOfDZXReplacements.Add(Converter.gcByte(byte.Parse(currentCheck.magicByte, System.Globalization.NumberStyles.HexNumber))); //change to magicByte once we get it set
+                    }
                     listOfDZXReplacements.AddRange(dataArray);
                     count++;
                 }
@@ -320,13 +363,23 @@ namespace TPRandomizer.Assets
             List<byte> listOfEventFlags = new List<byte>();
             ushort count = 0;
             byte[,] arrayOfEventFlags = {};
-            byte[,] faronTwilightEventFlags = new byte[,]
+            byte[,] baseRandomizerEventFlags = new byte[,]
             {
-                {0x5, 0xFF},
-                {0x6, 0x10},
-                {0xC, 0x8}
+                {0x6, 0x1}, //Tame Epona
+                {0x14, 0x10}, //Put Bo outside, ready to wrestle
+                {0xA, 0x20}, //Bridge of Eldin Stolen
+                {0xF, 0x8}, //Bridge of Eldin Warped Back
+                {0x40, 0x8} //Visited Gerudo Desert for the first time.
             };
 
+            byte[,] faronTwilightEventFlags = new byte[,]
+            {
+                {0x5, 0x7F}, //Midna Charge Unlocked, Finished Sewers, Midna text after entering Faron Twilight, Met Zelda in sewers, Midna cut prison chain, Watched Sewers intro CS, Escaped cell in sewers.
+                {0x6, 0x10}, //Cleared Faron Twilight
+                {0xC, 0x8} //Midna accompanies Wolf
+            };
+
+            arrayOfEventFlags = BackendFunctions.concatFlagArrays(arrayOfEventFlags, baseRandomizerEventFlags);
             if (randomizerSettings.faronTwilightCleared)
             {
                 arrayOfEventFlags = BackendFunctions.concatFlagArrays(arrayOfEventFlags, faronTwilightEventFlags);
@@ -349,16 +402,26 @@ namespace TPRandomizer.Assets
             List<byte> listOfRegionFlags = new List<byte>();
             ushort count = 0;
             byte[,] arrayOfRegionFlags = {};
+            //Flag translation: 
+            //shift: 0 = 0x80 and 7 = 0x1
+            // 
             byte[,] faronTwilightRegionFlags = new byte[,]
             {
-                {0x2, 0x1F},
-                {0x2, 0x1E},
-                {0x2, 0x1C},
-                {0x2, 0x1B},
-                {0x2, 0x1A},
-                {0x2, 0x19},
-                {0x2, 0x18}
+                {0x2, 0x40},
+                {0x2, 0x41},
+                {0x2, 0x43},
+                {0x2, 0x44},
+                {0x2, 0x46},
+                {0x2, 0x47}
             };
+
+            byte[,] baseRandomizerRegionFlags = new byte[,]
+            {
+                {0x0, 0x57}, //Spider on Link's Ladder killed.
+                {0x16, 0x47} //West Bridge in CiTS Broken
+            };
+
+            arrayOfRegionFlags = BackendFunctions.concatFlagArrays(arrayOfRegionFlags, baseRandomizerRegionFlags);
 
             if (randomizerSettings.faronTwilightCleared)
             {
