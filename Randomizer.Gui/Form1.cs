@@ -96,6 +96,7 @@ namespace TPRandomizer
             skyCharacterCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             outputTextBox.TextChanged += new System.EventHandler(this.outputTextBox_textChanged);
             seedNumberComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            walletCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
 
             foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Checks/", "*",SearchOption.AllDirectories))
             {
@@ -181,6 +182,7 @@ namespace TPRandomizer
                 settings.ExcludedChecks = excludedChecksListBox.Items.OfType<string>().ToList();
                 settings.TunicColor = tunicColorComboBox.SelectedIndex;
                 settings.MidnaHairColor = midnaHairColorComboBox.SelectedIndex;
+                settings.upgradeWallet = walletCheckBox.Checked;
                 settingsStringTextbox.Text = getSettingsString();
             }
         }
@@ -262,6 +264,7 @@ namespace TPRandomizer
             }
             tunicColorComboBox.SelectedIndex = settings.TunicColor;
             midnaHairColorComboBox.SelectedIndex = settings.MidnaHairColor;
+            walletCheckBox.Checked = settings.upgradeWallet;
 
             settingsStringTextbox.Text = getSettingsString();  
         }

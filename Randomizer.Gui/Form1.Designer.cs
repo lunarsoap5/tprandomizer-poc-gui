@@ -151,6 +151,7 @@ namespace TPRandomizer
             this.cutsceneTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.seedNumberLabel = new System.Windows.Forms.Label();
             this.seedNumberComboBox = new System.Windows.Forms.ComboBox();
+            this.walletCheckBox = new System.Windows.Forms.CheckBox();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -859,6 +860,7 @@ namespace TPRandomizer
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.walletCheckBox);
             this.groupBox1.Controls.Add(this.fastIronBootsCheckBox);
             this.groupBox1.Controls.Add(this.quickTransformCheckBox);
             this.groupBox1.Controls.Add(this.transformAnywhereCheckBox);
@@ -1385,6 +1387,17 @@ namespace TPRandomizer
             this.seedNumberComboBox.Size = new System.Drawing.Size(121, 23);
             this.seedNumberComboBox.TabIndex = 15;
             // 
+            // walletCheckBox
+            // 
+            this.walletCheckBox.AutoSize = true;
+            this.walletCheckBox.Location = new System.Drawing.Point(6, 95);
+            this.walletCheckBox.Name = "walletCheckBox";
+            this.walletCheckBox.Size = new System.Drawing.Size(159, 19);
+            this.walletCheckBox.TabIndex = 9;
+            this.walletCheckBox.Text = "Increase Wallet Capacity?";
+            this.walletCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.walletCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1563,6 +1576,7 @@ namespace TPRandomizer
         private System.Windows.Forms.ToolTip cutsceneTooltip;
         private System.Windows.Forms.Label seedNumberLabel;
         private System.Windows.Forms.ComboBox seedNumberComboBox;
+        private System.Windows.Forms.CheckBox walletCheckBox;
     }
 }
 

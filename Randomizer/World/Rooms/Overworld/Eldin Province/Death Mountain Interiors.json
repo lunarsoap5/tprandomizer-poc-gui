@@ -7,7 +7,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "true"
+        "Iron_Boots"
     ],
     "checks": [""], 
     "region": "Eldin Province"

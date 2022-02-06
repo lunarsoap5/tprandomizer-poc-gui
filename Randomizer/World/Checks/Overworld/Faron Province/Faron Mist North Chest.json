@@ -1,5 +1,5 @@
 {
-    "requirements": "Lantern",
+    "requirements": "(Lantern and ((Setting.introSkipped equals True) or North_Faron_Woods_Gate_Key))",
     "hash": "BF66",
     "stageIDX": 45,
     "dzxTag": "TRES",

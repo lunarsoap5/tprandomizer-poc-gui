@@ -50,7 +50,7 @@ namespace TPRandomizer
         public bool shuffleHiddenSkills {get; set;}
         public bool shuffleSkyCharacters {get; set;}
         public int seedNumber {get; set;}
-        //public bool increaseWallet {get; set;}
+        public bool increaseWallet {get; set;}
     }
 
     public class SettingData
@@ -272,5 +272,6 @@ namespace TPRandomizer
             "8",
             "9"
         };
+        public bool increaseWallet {get; set;}
     }
 }
