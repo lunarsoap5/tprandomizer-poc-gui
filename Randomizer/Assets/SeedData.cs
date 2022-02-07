@@ -374,7 +374,9 @@ namespace TPRandomizer.Assets
                 {0xF, 0x8}, //Bridge of Eldin Warped Back
                 {0x40, 0x8}, //Visited Gerudo Desert for the first time.
                 {0x7, 0x80}, //Watched Colin CS after KB1
-                {0x20, 0x20} //Master Sword Story Progression
+                {0x20, 0x20}, //Master Sword Story Progression
+                {0x20, 0x10}, //Arbiters Grounds Story Progression
+                {0x2C, 0x10} //Raised the mirror in the Mirror Chamber
             };
 
             byte[,] faronTwilightEventFlags = new byte[,]
@@ -423,7 +425,9 @@ namespace TPRandomizer.Assets
             byte[,] baseRandomizerRegionFlags = new byte[,]
             {
                 {0x0, 0x57}, //Spider on Link's Ladder killed.
-                {0x16, 0x47} //West Bridge in CiTS Broken
+                {0x16, 0x47}, //West Bridge in CiTS Broken
+                {0x2, 0x63}, //Trill lets you shop at his store.
+                {0x6, 0x4C} //Bridge of Eldin Warped back CS
             };
 
             arrayOfRegionFlags = BackendFunctions.concatFlagArrays(arrayOfRegionFlags, baseRandomizerRegionFlags);

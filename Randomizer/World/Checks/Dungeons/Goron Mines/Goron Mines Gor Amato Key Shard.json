@@ -1,7 +1,8 @@
 {
     "requirements": "Iron_Boots",
-    "arcFileValues": [["", ""]],
+    "arcFileValues": [["bmgres5.arc", "1948F"]],
     "fileDirectoryType": [1],
-    "category": ["Npc", "Dungeon", "Goron Mines", "Dungeon Items", "Big Key"],
+    "replacementType": [0],
+    "category": ["Npc", "Dungeon", "Goron Mines", "Dungeon Items", "Big Key", "ARC"],
     "itemId": "Goron_Mines_Key_Shard_1"
 }

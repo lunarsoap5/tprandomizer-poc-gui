@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal",
+    "requirements": "Shadow_Crystal and ((Setting.mdhSkipped equals True) or (Room.Lakebed_Temple_Boss_Room and canDefeatMorpheel))",
     "stageIDX": 56,
     "flag": "33",
     "category": ["Overworld", "Poe", "Lanayru Province"],

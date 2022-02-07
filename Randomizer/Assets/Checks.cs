@@ -123,6 +123,8 @@ namespace TPRandomizer
                 Randomizer.Checks.CheckDict["Ordon Shield"].isExcluded = true;
                 Randomizer.Checks.CheckDict["Coro Lantern"].isExcluded = true;
             }
+            //Excluded until we figure out how to fix this chest.
+            Randomizer.Checks.CheckDict["Flight By Fowl Top Platform Chest"].isExcluded = true;
         } 
     }
 }
