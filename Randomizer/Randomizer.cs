@@ -1,17 +1,11 @@
-using System;
-using System.Linq;
-using System.Reflection;
 using Newtonsoft.Json;
-using System.IO;
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
-using System.CodeDom.Compiler;
-using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Linq;
 
 namespace TPRandomizer
-{ 
+{
     public class Randomizer
     {
         public static LogicFunctions Logic = new LogicFunctions();
@@ -24,16 +18,23 @@ namespace TPRandomizer
         public static byte RANDOMIER_VERSION_MINOR = 0;
         public static string seedHash = null;
 
-
         /// <summary>
         /// Generates a randomizer seed given a settings string
         /// </summary>
         /// <param name="settingsString"> The Settings String to be read in. </param>
         public void start(string settingsString)
         {
-            Console.WriteLine("Twilight Princess Randomizer Version "+ RANDOMIER_VERSION_MAJOR + "." + RANDOMIER_VERSION_MINOR);
+            Console.WriteLine(
+                "Twilight Princess Randomizer Version "
+                    + RANDOMIER_VERSION_MAJOR
+                    + "."
+                    + RANDOMIER_VERSION_MINOR
+            );
             Random rnd = new Random();
-            seedHash = HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count()-1)] + "-" + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count()-1)];
+            seedHash =
+                HashAssets.hashAdjectives[rnd.Next(HashAssets.hashAdjectives.Count() - 1)]
+                + "-"
+                + HashAssets.characterNames[rnd.Next(HashAssets.characterNames.Count() - 1)];
             int remainingGenerationAttempts = 30;
             //Generate the dictionary values that are needed and initialize the data for the selected logic type.
             deserializeChecks();
@@ -42,17 +43,17 @@ namespace TPRandomizer
             //Read in the settings string and set the settings values accordingly
             BackendFunctions.interpretSettingsString(settingsString);
 
-            //Generate the item pool based on user settings/input.  
-            Randomizer.Items.generateItemPool();
-            Checks.generateCheckList();
-            
+            //Generate the item pool based on user settings/input.
+            Randomizer.Items.GenerateItemPool();
+            Checks.GenerateCheckList();
+
             //Generate the world based on the room class values and their neighbour values. If we want to randomize entrances, we would do it before this step.
             Room startingRoom = setupGraph();
             while (remainingGenerationAttempts > 0)
             {
                 Randomizer.Items.heldItems.AddRange(Randomizer.Items.BaseItemPool);
-                remainingGenerationAttempts --;
-                try 
+                remainingGenerationAttempts--;
+                try
                 {
                     //Place the items in the world based on the starting room.
                     placeItemsInWorld(startingRoom);
@@ -72,7 +73,7 @@ namespace TPRandomizer
                 cleanUp();
                 break;
             }
-        } 
+        }
 
         /// <summary>
         /// Places the generated item pool's items into the world graph that has been created
@@ -80,37 +81,52 @@ namespace TPRandomizer
         /// <param name="startingRoom"> The room node that the generation algorithm will begin with. </param>
         void placeItemsInWorld(Room startingRoom)
         {
-            //Any vanilla checks will be placed first for the sake of logic. Even if they aren't available to be randomized in the game yet, 
+            //Any vanilla checks will be placed first for the sake of logic. Even if they aren't available to be randomized in the game yet,
             //we may need to logically account for their placement.
             Console.WriteLine("Placing Vanilla Checks.");
-            placeVanillaChecks (Checks.vanillaChecks);
-            
+            placeVanillaChecks(Checks.vanillaChecks);
+
             //Excluded checks are next and will just be filled with "junk" items (i.e. ammo refills, etc.). This is to
             //prevent important items from being placed in checks that the player or randomizer has requested to be not
             //considered in logic.
             Console.WriteLine("Placing Excluded Checks.");
             placeExcludedChecks();
-            
+
             //Dungeon rewards have a very limited item pool, so we want to place them first to prevent the generator from putting
             //an unnecessary item in one of the checks.
             //starting room, list of checks to be randomized, items to be randomized, item pool, restriction
             Console.WriteLine("Placing Dungeon Rewards.");
-            placeItemsRestricted(startingRoom, Items.ShuffledDungeonRewards, Randomizer.Items.heldItems, "Dungeon Rewards"); 
-            
+            placeItemsRestricted(
+                startingRoom,
+                Items.ShuffledDungeonRewards,
+                Randomizer.Items.heldItems,
+                "Dungeon Rewards"
+            );
+
             //Next we want to place items that are locked to a specific region such as keys, maps, compasses, etc.
             Console.WriteLine("Placing Region-restriced Checks.");
-            placeItemsRestricted(startingRoom, Items.RandomizedDungeonRegionItems, Randomizer.Items.heldItems, "Region");
-            
+            placeItemsRestricted(
+                startingRoom,
+                Items.RandomizedDungeonRegionItems,
+                Randomizer.Items.heldItems,
+                "Region"
+            );
+
             //Once all of the items that have some restriction on their placement are placed, we then place all of the items that can
             //be logically important (swords, clawshot, bow, etc.)
             Console.WriteLine("Placing Important Items.");
-            placeItemsRestricted(startingRoom, Items.RandomizedImportantItems, Randomizer.Items.heldItems, "");
-            
+            placeItemsRestricted(
+                startingRoom,
+                Items.RandomizedImportantItems,
+                Randomizer.Items.heldItems,
+                ""
+            );
+
             //Next we will place the "always" items. Basically the constants in every seed, so Heart Pieces, Heart Containers, etc.
             //These items do not affect logic at all so there is very little contraint to this method .
             Console.WriteLine("Placing Non Impact Items.");
             placeNonImpactItems(startingRoom, Items.alwaysItems);
-            
+
             //Any extra checks that have not been filled at this point are filled with "junk" items such as ammunition, foolish items, etc.
             Console.WriteLine("Placing Junk Items.");
             placeJunkItems(startingRoom, Items.JunkItems);
@@ -122,7 +138,7 @@ namespace TPRandomizer
         /// Fills locations with their original items.
         /// </summary>
         /// <param name="vanillaChecks"> A list of checks that will have their original item placed in them </param>
-        void placeVanillaChecks (List<string> vanillaChecks)
+        void placeVanillaChecks(List<string> vanillaChecks)
         {
             foreach (var check in vanillaChecks)
             {
@@ -143,7 +159,10 @@ namespace TPRandomizer
                 Check currentCheck = checkList.Value;
                 if (!currentCheck.itemWasPlaced && currentCheck.isExcluded)
                 {
-                    placeItemInCheck(Items.JunkItems[rnd.Next(Items.JunkItems.Count() - 1)], currentCheck);
+                    placeItemInCheck(
+                        Items.JunkItems[rnd.Next(Items.JunkItems.Count() - 1)],
+                        currentCheck
+                    );
                 }
             }
         }
@@ -155,7 +174,12 @@ namespace TPRandomizer
         /// <param name="ItemGroup"> The group of items that are to be randomized in with the current restriction </param>
         /// <param name="itemPool"> The current item pool. </param>
         /// <param name="restriction"> The restriction the randomizer must follow when checking where to place items. </param>
-        void placeItemsRestricted (Room startingRoom, List<Item> ItemGroup, List<Item> itemPool, string restriction)
+        void placeItemsRestricted(
+            Room startingRoom,
+            List<Item> ItemGroup,
+            List<Item> itemPool,
+            string restriction
+        )
         {
             //Essentially we want to do the following: make a copy of our item pool for safe keeping so we can modify
             //the current item pool as the playthrough happens. We ONLY modify our copied item pool if we place an item.
@@ -178,7 +202,7 @@ namespace TPRandomizer
                     //the item pool will compound and be way too big affecting both memory and logic.
                     itemPool.Clear();
                     itemPool.AddRange(currentItemPool);
-                    itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)];
+                    itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count() - 1)];
                     //Console.WriteLine("Item to place: " + itemToPlace);
                     itemPool.Remove(itemToPlace);
                     ItemsToBeRandomized.Remove(itemToPlace);
@@ -203,7 +227,12 @@ namespace TPRandomizer
                             {
                                 //Create reference to the dictionary entry of the check whose logic we are evaluating
                                 Check currentCheck;
-                                if (!Checks.CheckDict.TryGetValue(graphRoom.checks[i], out currentCheck))
+                                if (
+                                    !Checks.CheckDict.TryGetValue(
+                                        graphRoom.checks[i],
+                                        out currentCheck
+                                    )
+                                )
                                 {
                                     if (graphRoom.checks[i].ToString() == "")
                                     {
@@ -213,7 +242,9 @@ namespace TPRandomizer
                                 }
                                 if (!currentCheck.hasBeenReached)
                                 {
-                                    var areCheckRequirementsMet = Logic.evaluateRequirements(currentCheck.requirements);
+                                    var areCheckRequirementsMet = Logic.evaluateRequirements(
+                                        currentCheck.requirements
+                                    );
                                     if (((bool)areCheckRequirementsMet == true))
                                     {
                                         if (currentCheck.itemWasPlaced)
@@ -225,7 +256,13 @@ namespace TPRandomizer
                                         {
                                             if (restriction == "Region")
                                             {
-                                                if (Rooms.isRegionCheck(itemToPlace, currentCheck, graphRoom))
+                                                if (
+                                                    Rooms.isRegionCheck(
+                                                        itemToPlace,
+                                                        currentCheck,
+                                                        graphRoom
+                                                    )
+                                                )
                                                 {
                                                     //Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
                                                     availableChecks.Add(currentCheck.checkName);
@@ -233,7 +270,9 @@ namespace TPRandomizer
                                             }
                                             else if (restriction == "Dungeon Rewards")
                                             {
-                                                if (currentCheck.category.Contains("Dungeon Reward"))
+                                                if (
+                                                    currentCheck.category.Contains("Dungeon Reward")
+                                                )
                                                 {
                                                     //Console.WriteLine("Added " + currentCheck.checkName + " to check list.");
                                                     availableChecks.Add(currentCheck.checkName);
@@ -247,16 +286,17 @@ namespace TPRandomizer
                                         }
                                         currentCheck.hasBeenReached = true;
                                     }
-                                }    
+                                }
                             }
                         }
                         itemPool.AddRange(playthroughItems);
-                    }
-                    while (playthroughItems.Count() > 0);
-                    
-                    checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
+                    } while (playthroughItems.Count() > 0);
+
+                    checkToReciveItem = Checks.CheckDict[
+                        availableChecks[rnd.Next(availableChecks.Count() - 1)].ToString()
+                    ];
                     currentItemPool.Remove(itemToPlace);
-                    placeItemInCheck(itemToPlace,checkToReciveItem);
+                    placeItemInCheck(itemToPlace, checkToReciveItem);
                     availableChecks.Clear();
                 }
                 itemPool.Clear();
@@ -270,7 +310,7 @@ namespace TPRandomizer
         /// </summary>
         /// <param name="startingRoom"> The room node that the randomizer begins its graph building from. </param>
         /// <param name="ItemsToBeRandomized"> The group of items that are to be randomized. </param>
-        void placeNonImpactItems (Room startingRoom, List<Item> ItemsToBeRandomized)
+        void placeNonImpactItems(Room startingRoom, List<Item> ItemsToBeRandomized)
         {
             Random rnd = new Random();
             List<string> availableChecks = new List<string>();
@@ -279,7 +319,7 @@ namespace TPRandomizer
 
             while (ItemsToBeRandomized.Count() > 0)
             {
-                itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)];
+                itemToPlace = ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count() - 1)];
                 //Console.WriteLine("Item to place: " + itemToPlace);
                 ItemsToBeRandomized.Remove(itemToPlace);
                 foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
@@ -290,9 +330,11 @@ namespace TPRandomizer
                         availableChecks.Add(checkToReciveItem.checkName);
                     }
                 }
-                
-                checkToReciveItem = Checks.CheckDict[availableChecks[rnd.Next(availableChecks.Count()-1)].ToString()];
-                placeItemInCheck(itemToPlace,checkToReciveItem);
+
+                checkToReciveItem = Checks.CheckDict[
+                    availableChecks[rnd.Next(availableChecks.Count() - 1)].ToString()
+                ];
+                placeItemInCheck(itemToPlace, checkToReciveItem);
 
                 availableChecks.Clear();
             }
@@ -304,7 +346,7 @@ namespace TPRandomizer
         /// </summary>
         /// <param name="startingRoom"> The room node that the randomizer begins its graph building from. </param>
         /// <param name="ItemsToBeRandomized"> The group of items that are to be randomized. </param>
-        void placeJunkItems (Room startingRoom, List<Item> ItemsToBeRandomized)
+        void placeJunkItems(Room startingRoom, List<Item> ItemsToBeRandomized)
         {
             Random rnd = new Random();
             foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
@@ -312,7 +354,10 @@ namespace TPRandomizer
                 Check currentCheck = checkList.Value;
                 if (!currentCheck.itemWasPlaced)
                 {
-                    placeItemInCheck(ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count()-1)],currentCheck);
+                    placeItemInCheck(
+                        ItemsToBeRandomized[rnd.Next(ItemsToBeRandomized.Count() - 1)],
+                        currentCheck
+                    );
                 }
             }
             return;
@@ -332,7 +377,7 @@ namespace TPRandomizer
             return;
         }
 
-         void startOver()
+        void startOver()
         {
             Randomizer.Items.heldItems.Clear();
             Console.WriteLine("Logical error. Starting Over.");
@@ -369,7 +414,13 @@ namespace TPRandomizer
 
         public void deserializeChecks()
         {
-            foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Checks/", "*",SearchOption.AllDirectories))
+            foreach (
+                string file in System.IO.Directory.GetFiles(
+                    "./Randomizer/World/Checks/",
+                    "*",
+                    SearchOption.AllDirectories
+                )
+            )
             {
                 string contents = File.ReadAllText(file);
                 string fileName = Path.GetFileNameWithoutExtension(file);
@@ -377,18 +428,24 @@ namespace TPRandomizer
                 Checks.CheckDict[fileName] = JsonConvert.DeserializeObject<Check>(contents);
                 Check currentCheck = Checks.CheckDict[fileName];
                 currentCheck.checkName = fileName;
-                currentCheck.requirements = "(" + currentCheck.requirements +")";
+                currentCheck.requirements = "(" + currentCheck.requirements + ")";
                 currentCheck.isExcluded = false;
                 currentCheck.itemWasPlaced = false;
                 Checks.CheckDict[fileName] = currentCheck;
                 //Console.WriteLine("Check File Loaded " + fileName);
             }
             return;
-        } 
+        }
 
         public void deserializeRooms()
         {
-            foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Rooms/", "*", SearchOption.AllDirectories))
+            foreach (
+                string file in System.IO.Directory.GetFiles(
+                    "./Randomizer/World/Rooms/",
+                    "*",
+                    SearchOption.AllDirectories
+                )
+            )
             {
                 string contents = File.ReadAllText(file);
                 string fileName = Path.GetFileNameWithoutExtension(file);
@@ -401,7 +458,8 @@ namespace TPRandomizer
                 for (int i = 0; i < currentRoom.neighbourRequirements.Count(); i++)
                 {
                     string newRequirement = currentRoom.neighbourRequirements[i];
-                    currentRoom.neighbourRequirements[i] = "(" + currentRoom.neighbourRequirements[i] + ")";
+                    currentRoom.neighbourRequirements[i] =
+                        "(" + currentRoom.neighbourRequirements[i] + ")";
                 }
                 Randomizer.Rooms.RoomDict[fileName] = currentRoom;
                 //Console.WriteLine("Room File Loaded " + fileName);
@@ -412,10 +470,10 @@ namespace TPRandomizer
         public static List<Room> generatePlaythroughGraph(Room startingRoom)
         {
             List<Room> PlaythroughGraph = new List<Room>();
-            
+
             List<string> roomChecks = new List<string>();
             List<Room> roomsToExplore = new List<Room>();
-            
+
             foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
             {
                 Room currentRoom = roomList.Value;
@@ -433,19 +491,31 @@ namespace TPRandomizer
                 for (int i = 0; i < roomsToExplore[0].neighbours.Count(); i++)
                 {
                     //Parse the neighbour's requirements to find out if we can access it
-                    var areNeighbourRequirementsMet = Logic.evaluateRequirements(roomsToExplore[0].neighbourRequirements[i]);
+                    var areNeighbourRequirementsMet = Logic.evaluateRequirements(
+                        roomsToExplore[0].neighbourRequirements[i]
+                    );
                     //If you can access the neighbour and it hasnt been visited yet.
-                    if ((((bool)areNeighbourRequirementsMet == true)) && (Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited == false))
+                    if (
+                        (((bool)areNeighbourRequirementsMet == true))
+                        && (
+                            Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited
+                            == false
+                        )
+                    )
                     {
                         Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]].visited = true;
                         //Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
-                        roomsToExplore.Add(Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]]);
-                        PlaythroughGraph.Add(Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]]);
+                        roomsToExplore.Add(
+                            Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]]
+                        );
+                        PlaythroughGraph.Add(
+                            Randomizer.Rooms.RoomDict[roomsToExplore[0].neighbours[i]]
+                        );
                     }
                 }
                 roomsToExplore.Remove(roomsToExplore[0]);
             }
-            return PlaythroughGraph; 
+            return PlaythroughGraph;
         }
 
         void cleanUp()
@@ -459,6 +529,5 @@ namespace TPRandomizer
             Randomizer.Items.heldItems.Clear();
             Randomizer.Items.BaseItemPool.Clear();
         }
-        
-    } 
+    }
 }

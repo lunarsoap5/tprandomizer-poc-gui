@@ -1,0 +1,23 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = crlf
+charset = utf-8
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+# See https://github.com/dotnet/format/blob/master/docs/Supported-.editorconfig-options/index.md for reference
+[*.cs]
+csharp_new_line_before_open_brace =all
+csharp_new_line_before_catch =true
+csharp_new_line_before_else =true
+csharp_new_line_before_finally =true
+csharp_new_line_before_members_in_anonymous_types = false
+csharp_new_line_before_members_in_object_initializers = false
+csharp_new_line_between_query_expression_clauses =false
+csharp_space_between_method_call_parameter_list_parentheses=false

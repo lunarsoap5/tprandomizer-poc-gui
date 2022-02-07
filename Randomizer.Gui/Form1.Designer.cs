@@ -1524,7 +1524,6 @@ namespace TPRandomizer
         private System.Windows.Forms.ComboBox foolishItemsComboBox;
         private System.Windows.Forms.Label foolishItemsLabel;
         private System.Windows.Forms.ToolTip logicTooltip;
-        private System.Windows.Forms.MenuStrip MainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;

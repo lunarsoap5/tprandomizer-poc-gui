@@ -1,10 +1,13 @@
-using System.Collections.Generic;
-
 namespace TPRandomizer
-{ 
+{
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class HashAssets
     {
-        public static List<string> characterNames = new List<string> ()
+        public static List<string> characterNames = new List<string>()
         {
             "Link",
             "Wolf Link",
@@ -86,7 +89,10 @@ namespace TPRandomizer
             "Aeralfos",
         };
 
-        public static List<string> hashAdjectives = new List<string> ()
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static List<string> hashAdjectives = new List<string>()
         {
             "Anxious",
             "Naughty",
@@ -197,4 +203,3 @@ namespace TPRandomizer
         };
     }
 }
-

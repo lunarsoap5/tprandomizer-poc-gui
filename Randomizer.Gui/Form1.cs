@@ -1,25 +1,16 @@
-﻿using System;
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 
 //Settings string formula based on the Ocarina of Time Randomizer https://github.com/TestRunnerSRL/OoT-Randomizer/blob/Dev/Settings.py
 
-namespace TPRandomizer
-{
-    public partial class Form1 : Form
-    {
+namespace TPRandomizer {
+    public partial class Form1 : Form {
         Randomizer randomizer = new Randomizer();
         GuiSetting settings = new GuiSetting();
         ItemFunctions Items = new ItemFunctions();
@@ -28,8 +19,7 @@ namespace TPRandomizer
 
         public static List<string> RandomizerChecks = new List<string>();
 
-        public Form1()
-        {
+        public Form1() {
             InitializeComponent();
             TextBoxWriter writer = new TextBoxWriter(outputTextBox);
             Console.SetOut(writer);
@@ -59,18 +49,32 @@ namespace TPRandomizer
             palaceLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             faronWoodsLogicComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             mdhCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            smallKeyShuffleComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
-            bossKeyShuffleComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
-            mapsAndCompassesComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            smallKeyShuffleComboBox.SelectedIndexChanged += new System.EventHandler(
+                this.updateFlags
+            );
+            bossKeyShuffleComboBox.SelectedIndexChanged += new System.EventHandler(
+                this.updateFlags
+            );
+            mapsAndCompassesComboBox.SelectedIndexChanged += new System.EventHandler(
+                this.updateFlags
+            );
             goldenBugsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             giftFromNPCsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             poeCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             shopItemsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            faronTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            eldinTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            lanayruTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            faronTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(
+                this.updateFlags
+            );
+            eldinTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(
+                this.updateFlags
+            );
+            lanayruTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(
+                this.updateFlags
+            );
             skipMinorCutscenesCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
-            skipMasterSwordPuzzleCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
+            skipMasterSwordPuzzleCheckBox.CheckedChanged += new System.EventHandler(
+                this.updateFlags
+            );
             fastIronBootsCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
             transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
@@ -80,7 +84,9 @@ namespace TPRandomizer
             listofChecksListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             itemPoolListBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             tunicColorComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
-            midnaHairColorComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
+            midnaHairColorComboBox.SelectedIndexChanged += new System.EventHandler(
+                this.updateFlags
+            );
             lanternColorComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             heartColorComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             aButtonComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
@@ -98,19 +104,21 @@ namespace TPRandomizer
             seedNumberComboBox.SelectedIndexChanged += new System.EventHandler(this.updateFlags);
             walletCheckBox.CheckedChanged += new System.EventHandler(this.updateFlags);
 
-            foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Checks/", "*",SearchOption.AllDirectories))
-            {
+            foreach (
+                string file in System.IO.Directory.GetFiles(
+                    "./Randomizer/World/Checks/",
+                    "*",
+                    SearchOption.AllDirectories
+                )
+            ) {
                 string contents = File.ReadAllText(file);
                 string fileName = Path.GetFileNameWithoutExtension(file);
                 RandomizerChecks.Add(fileName);
             }
-            foreach (string check in RandomizerChecks)
-            {
+            foreach (string check in RandomizerChecks) {
                 listofChecksListBox.Items.Add(check);
-                
             }
-            foreach (var item in Items.ImportantItems)
-            {
+            foreach (var item in Items.ImportantItems) {
                 string itemName = item.ToString();
                 itemName = itemName.Replace("_", " ");
                 itemPoolListBox.Items.Add(itemName);
@@ -122,11 +130,9 @@ namespace TPRandomizer
         /// </summary>
         /// <param name="sender"> The object parameter triggering the function. </param>
         /// <param name="e"> The event being triggered. </param>
-        private void updateFlags(object sender, EventArgs e)
-        {
+        private void updateFlags(object sender, EventArgs e) {
             //We have this small gatekeep to allow us to run functions against the senders without triggering this event.
-            if (!dontrunhandler)
-            { 
+            if (!dontrunhandler) {
                 settings.logicRules = logicRulesBox.SelectedIndex;
                 settings.castleRequirements = castleLogicComboBox.SelectedIndex;
                 settings.palaceRequirements = palaceLogicComboBox.SelectedIndex;
@@ -166,14 +172,11 @@ namespace TPRandomizer
                 settings.shuffleHiddenSkills = skillsCheckBox.Checked;
                 settings.shuffleSkyCharacters = skyCharacterCheckBox.Checked;
                 settings.seedNumber = seedNumberComboBox.SelectedIndex;
-                foreach (string startingItem in startingItemsListBox.Items)
-                {
+                foreach (string startingItem in startingItemsListBox.Items) {
                     string itemName = startingItem;
                     itemName = itemName.Replace(" ", "_");
-                    foreach (Item item in Items.ImportantItems)
-                    {
-                        if (item.ToString() == itemName)
-                        {
+                    foreach (Item item in Items.ImportantItems) {
+                        if (item.ToString() == itemName) {
                             settings.StartingItems.Add(item);
                             break;
                         }
@@ -190,27 +193,23 @@ namespace TPRandomizer
         /// <summary>
         /// Decrypts the Settings string and updates the GUI with the appropriate settings.
         /// </summary>
-        private void updateInterface()
-        {
+        private void updateInterface() {
             startingItemsListBox.Items.Clear();
             excludedChecksListBox.Items.Clear();
             listofChecksListBox.Items.Clear();
             itemPoolListBox.Items.Clear();
 
-            foreach (string check in RandomizerChecks)
-            {
+            foreach (string check in RandomizerChecks) {
                 listofChecksListBox.Items.Add(check);
-                
             }
-            foreach (var item in Items.ImportantItems)
-            {
+            foreach (var item in Items.ImportantItems) {
                 string itemName = item.ToString();
                 itemName = itemName.Replace("_", " ");
                 itemPoolListBox.Items.Add(itemName);
             }
 
             parseSettingsString(settingsStringTextbox.Text);
-        
+
             logicRulesBox.SelectedIndex = settings.logicRules;
             castleLogicComboBox.SelectedIndex = settings.castleRequirements;
             palaceLogicComboBox.SelectedIndex = settings.palaceRequirements;
@@ -250,15 +249,13 @@ namespace TPRandomizer
             skyCharacterCheckBox.Checked = settings.shuffleSkyCharacters;
             seedNumberComboBox.SelectedIndex = settings.seedNumber;
 
-            foreach (Item startingItem in settings.StartingItems)
-            {
+            foreach (Item startingItem in settings.StartingItems) {
                 string itemName = startingItem.ToString();
                 itemName = itemName.Replace("_", " ");
                 startingItemsListBox.Items.Add(itemName);
                 itemPoolListBox.Items.Remove(itemName);
             }
-            foreach (string excludedCheck in settings.ExcludedChecks)
-            {
+            foreach (string excludedCheck in settings.ExcludedChecks) {
                 excludedChecksListBox.Items.Add(excludedCheck);
                 listofChecksListBox.Items.Remove(excludedCheck);
             }
@@ -266,67 +263,60 @@ namespace TPRandomizer
             midnaHairColorComboBox.SelectedIndex = settings.MidnaHairColor;
             walletCheckBox.Checked = settings.upgradeWallet;
 
-            settingsStringTextbox.Text = getSettingsString();  
+            settingsStringTextbox.Text = getSettingsString();
         }
 
         /// <summary>
         /// Generates a settings string based on the current settings
         /// </summary>
         /// <returns> A string, representing the Settings String that is visible to the user.</returns>
-        public string getSettingsString()
-        {
+        public string getSettingsString() {
             string bits = "";
             //Get the properties of the class that contains the settings values so we can iterate through them.
-			PropertyInfo[] properties = settings.GetType().GetProperties(); 
-			foreach (PropertyInfo property in properties)
-			{
+            PropertyInfo[] properties = settings.GetType().GetProperties();
+            foreach (PropertyInfo property in properties) {
                 var value = property.GetValue(settings, null);
                 string i_bits = "";
                 if (property.PropertyType == typeof(bool)) //Settings that only have two options (Shuffle Golden Bugs, etc.)
                 {
-                    if ((bool)value == true)
-                    {
+                    if ((bool)value == true) {
                         i_bits = "1";
                     }
-                    else
-                    {
+                    else {
                         i_bits = "0";
-                    } 
+                    }
                 }
                 if (property.PropertyType == typeof(int)) //Settings that have multiple options (Hyrule Castle Requirements, etc.)
                 {
                     value = property.GetValue(settings, null);
                     //Pad the integer value to 4 bits. No drop down menu uses more than 15 options so this is a safe bet.
-                    i_bits = Convert.ToString((int)value, 2).PadLeft(4, '0'); 
+                    i_bits = Convert.ToString((int)value, 2).PadLeft(4, '0');
                 }
                 if (property.PropertyType == typeof(List<Item>)) //Starting Items list
-                    {
-                        if ((List<Item>)value != null)
-                        {
-                            List<Item> itemList = new List<Item>();
-                            itemList.AddRange((List<Item>)value);
-                            foreach (Item item in itemList)
-                            {
-                                //We pad the byte to 8 bits since item IDs don't go over 0xFF
-                                i_bits = i_bits + Convert.ToString((byte)item, 2).PadLeft(9, '0');
-                            }
+                {
+                    if ((List<Item>)value != null) {
+                        List<Item> itemList = new List<Item>();
+                        itemList.AddRange((List<Item>)value);
+                        foreach (Item item in itemList) {
+                            //We pad the byte to 8 bits since item IDs don't go over 0xFF
+                            i_bits = i_bits + Convert.ToString((byte)item, 2).PadLeft(9, '0');
                         }
-                        //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
-                        i_bits = i_bits + "111111111"; 
                     }
+                    //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
+                    i_bits = i_bits + "111111111";
+                }
                 if (property.PropertyType == typeof(List<string>)) //List of Excluded Checks
-                    {
-                        List<string> checkList = new List<string>();
-                        checkList.AddRange((List<string>)value);
-                        foreach (string check in checkList)
-                        {
-                            int index = Randomizer.Checks.CheckDict.Keys.ToList().IndexOf(check);
-                            //We have to pad to 9 bits here because there are hundreds of checks. Will need to be changed to 10 if we go over 512 checks though.
-                            i_bits = i_bits + Convert.ToString(index, 2).PadLeft(9, '0');
-                        }
-                        //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
-                        i_bits = i_bits + "111111111";
+                {
+                    List<string> checkList = new List<string>();
+                    checkList.AddRange((List<string>)value);
+                    foreach (string check in checkList) {
+                        int index = Randomizer.Checks.CheckDict.Keys.ToList().IndexOf(check);
+                        //We have to pad to 9 bits here because there are hundreds of checks. Will need to be changed to 10 if we go over 512 checks though.
+                        i_bits = i_bits + Convert.ToString(index, 2).PadLeft(9, '0');
                     }
+                    //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
+                    i_bits = i_bits + "111111111";
+                }
                 bits = bits + i_bits;
             }
             return BackendFunctions.Base64Encode(BackendFunctions.bitStringToText(bits));
@@ -336,92 +326,77 @@ namespace TPRandomizer
         /// Sets the appropriate settings based off of an inputted settings string.
         /// </summary>
         /// <param name="settingsString"> The Settings String that is to be deciphered. </param>
-        public void parseSettingsString(string settingsString)
-        {
+        public void parseSettingsString(string settingsString) {
             settingsString = BackendFunctions.Base64Decode(settingsString);
             //Convert the settings string into a binary string to be interpreted.
             string bitString = BackendFunctions.textToBitString(settingsString);
-			PropertyInfo[] properties = settings.GetType().GetProperties();
-			foreach (PropertyInfo property in properties)
-			{
+            PropertyInfo[] properties = settings.GetType().GetProperties();
+            foreach (PropertyInfo property in properties) {
                 string evaluatedByteString = "";
                 int settingBitWidth = 0;
                 bool reachedEndofList = false;
-                if (property.PropertyType == typeof(bool))
-                {
+                if (property.PropertyType == typeof(bool)) {
                     int value = Convert.ToInt32(bitString[0].ToString(), 2);
-                    if (value == 1)
-                    {
+                    if (value == 1) {
                         property.SetValue(settings, true, null);
-                    } 
-                    else
-                    {
+                    }
+                    else {
                         property.SetValue(settings, false, null);
                     }
-                    bitString = bitString.Remove(0,1);
+                    bitString = bitString.Remove(0, 1);
                 }
-                if (property.PropertyType == typeof(int))
-                {
+                if (property.PropertyType == typeof(int)) {
                     settingBitWidth = 4;
                     //We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
-                    for (int j = 0; j < settingBitWidth; j++)
-                    {
+                    for (int j = 0; j < settingBitWidth; j++) {
                         evaluatedByteString = evaluatedByteString + bitString[0];
-                        bitString = bitString.Remove(0,1);
+                        bitString = bitString.Remove(0, 1);
                     }
                     property.SetValue(settings, Convert.ToInt32(evaluatedByteString, 2), null);
                 }
-                if (property.PropertyType == typeof(List<Item>))
-                {
+                if (property.PropertyType == typeof(List<Item>)) {
                     List<Item> startingItems = new List<Item>();
                     //We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
                     settingBitWidth = 9;
-                    while (!reachedEndofList)
-                    {
-                        for (int j = 0; j < settingBitWidth; j++)
-                        {
+                    while (!reachedEndofList) {
+                        for (int j = 0; j < settingBitWidth; j++) {
                             evaluatedByteString = evaluatedByteString + bitString[0];
-                            bitString = bitString.Remove(0,1);
+                            bitString = bitString.Remove(0, 1);
                         }
                         int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
                         if (itemIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
-                            foreach (Item item in Items.ImportantItems)
-                            {
-                                if (itemIndex == (byte)item)
-                                {
+                            foreach (Item item in Items.ImportantItems) {
+                                if (itemIndex == (byte)item) {
                                     startingItems.Add(item);
                                     break;
                                 }
                             }
                         }
-                        else
-                        {
+                        else {
                             reachedEndofList = true;
                         }
                         evaluatedByteString = "";
                     }
                     property.SetValue(settings, startingItems, null);
                 }
-                if (property.PropertyType == typeof(List<string>))
-                {
+                if (property.PropertyType == typeof(List<string>)) {
                     List<string> excludedChecks = new List<string>();
                     //We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
                     settingBitWidth = 9;
-                    while (!reachedEndofList)
-                    {
-                        for (int j = 0; j < settingBitWidth; j++)
-                        {
+                    while (!reachedEndofList) {
+                        for (int j = 0; j < settingBitWidth; j++) {
                             evaluatedByteString = evaluatedByteString + bitString[0];
-                            bitString = bitString.Remove(0,1);
+                            bitString = bitString.Remove(0, 1);
                         }
                         int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
                         if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
-                            excludedChecks.Add(Randomizer.Checks.CheckDict.ElementAt(checkIndex).Key);
+                            excludedChecks.Add(
+                                Randomizer.Checks.CheckDict.ElementAt(checkIndex).Key
+                            );
                         }
-                        else
-                        {
+                        else {
                             reachedEndofList = true;
                         }
                         evaluatedByteString = "";
@@ -432,8 +407,7 @@ namespace TPRandomizer
             return;
         }
 
-        private void moveCheckToExcludedButton_Click(object sender, EventArgs e)
-        {
+        private void moveCheckToExcludedButton_Click(object sender, EventArgs e) {
             if (listofChecksListBox.SelectedItem != null) //A little security feature in case the user mis-clicks
             {
                 excludedChecksListBox.Items.Add(listofChecksListBox.SelectedItem);
@@ -441,119 +415,142 @@ namespace TPRandomizer
             }
         }
 
-        private void generateButton_Click(object sender, EventArgs e)
-        {
+        private void generateButton_Click(object sender, EventArgs e) {
             randomizer.start(settingsStringTextbox.Text);
-            MessageBox.Show("Seed Generated! Check the folder for the randomizer gci and spoiler log!");
+            MessageBox.Show(
+                "Seed Generated! Check the folder for the randomizer gci and spoiler log!"
+            );
         }
 
-        private void settingsPresetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void settingsPresetsComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             string currentItem = settingsPresetsComboBox.SelectedItem.ToString();
-            switch (currentItem)
-            {
+            switch (currentItem) {
                 case "Standard":
                     settingsStringTextbox.Text = "QUlJTUlSSDdZUDc3NkFBQUFBQUFBQUE=";
                     parseSettingsString(settingsStringTextbox.Text);
                     break;
             }
-            
         }
 
-        private void moveExcludedToCheckButton_Click(object sender, EventArgs e)
-        {
+        private void moveExcludedToCheckButton_Click(object sender, EventArgs e) {
             listofChecksListBox.Items.Add(excludedChecksListBox.SelectedItem);
             excludedChecksListBox.Items.Remove(excludedChecksListBox.SelectedItem);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            logicTooltip.SetToolTip(logicRulesBox,
-                "Sets the main logic rules for the seed:" + Environment.NewLine +
-                "Glitchless: Does not require any glitches, tricks, etc. Recommended for beginners." + Environment.NewLine +
-                "Glitched: assumes most glitches are in logic. Consult the Wiki for a complete list." + Environment.NewLine +
-                "No Logic: generates a seed without using logic, meaning it may not be completable.");
-            
-            regionTooltip.SetToolTip(regionComboBox,
-                "The region of the game that you wish to play on.");
-            
-            dungeonItemsTooltip.SetToolTip(dungeonItemsGroupBox,
-                "Vanilla: Places the items in their original spot." + Environment.NewLine +
-                "Own Dungeon: Randomizes items in the same dungeon as the vanilla check." + Environment.NewLine +
-                "Any Dungeon: Randomizes items among all dungeons." + Environment.NewLine +
-                "Keysanity/Anywhere: Places items anywhere in the world." + Environment.NewLine +
-                "Keysey/Start With: Removes the locks to the respective doors and starts with the specified item.");
-            
-            categoriesTooltip.SetToolTip(itemCategoriesGroupBox,
-                "These options allow you to decide which groups of locations are to be randomized." + Environment.NewLine + 
-                "If unchecked, the location will be vanilla.");
-            
-            foolishItemsTooltip.SetToolTip(foolishItemsComboBox,
-                "Determines the number of foolish (trap) items to be placed into the item pool." + Environment.NewLine +
-                "None: No foolish items are in the item pool." + Environment.NewLine +
-                "Few: There is a small chance that a foolish item can appear." + Environment.NewLine +
-                "Many: There is an increased chance that a foolish item can appear." + Environment.NewLine +
-                "Mayhem: More than half of the junk items in the item pool are replaced with foolish items." + Environment.NewLine +
-                "Nightmare: All junk items in the item fool are foolish items.");
-            
-            settingsToolTip.SetToolTip(settingsPresetsComboBox,
-                "Standard: Whatever settings are commonly being used." + Environment.NewLine +
-                "Beginner: Designed for people who are not familiar with the game. Smaller item pool and less skips." + Environment.NewLine +
-                "Experienced: Created for players who are very familiar with the game. Expects minimal, easy to perform glitches." + Environment.NewLine +
-                "Insanity (Cheese Logic): The ultimate test of knowledge for Twilight Princess." + Environment.NewLine + 
-                "Only with skill, precision, and knowledge of the most obscure glitches will you obtain victory.");
+        private void Form1_Load(object sender, EventArgs e) {
+            logicTooltip.SetToolTip(
+                logicRulesBox,
+                "Sets the main logic rules for the seed:"
+                    + Environment.NewLine
+                    + "Glitchless: Does not require any glitches, tricks, etc. Recommended for beginners."
+                    + Environment.NewLine
+                    + "Glitched: assumes most glitches are in logic. Consult the Wiki for a complete list."
+                    + Environment.NewLine
+                    + "No Logic: generates a seed without using logic, meaning it may not be completable."
+            );
 
-            twilightTooltip.SetToolTip(clearedTwilightsGroupBox,
-            "Clears the Twilight in the selected regions.");
+            regionTooltip.SetToolTip(
+                regionComboBox,
+                "The region of the game that you wish to play on."
+            );
 
-            cutsceneTooltip.SetToolTip(cutsceneMundaneSkipsGroupBox,
-                "Skips small events that do not usually take up much time." +Environment.NewLine +
-                "Skip Minor Cutscenes: Removes CS that plays when entering certain areas for the first time and the random Midna text prompts.");
+            dungeonItemsTooltip.SetToolTip(
+                dungeonItemsGroupBox,
+                "Vanilla: Places the items in their original spot."
+                    + Environment.NewLine
+                    + "Own Dungeon: Randomizes items in the same dungeon as the vanilla check."
+                    + Environment.NewLine
+                    + "Any Dungeon: Randomizes items among all dungeons."
+                    + Environment.NewLine
+                    + "Keysanity/Anywhere: Places items anywhere in the world."
+                    + Environment.NewLine
+                    + "Keysey/Start With: Removes the locks to the respective doors and starts with the specified item."
+            );
+
+            categoriesTooltip.SetToolTip(
+                itemCategoriesGroupBox,
+                "These options allow you to decide which groups of locations are to be randomized."
+                    + Environment.NewLine
+                    + "If unchecked, the location will be vanilla."
+            );
+
+            foolishItemsTooltip.SetToolTip(
+                foolishItemsComboBox,
+                "Determines the number of foolish (trap) items to be placed into the item pool."
+                    + Environment.NewLine
+                    + "None: No foolish items are in the item pool."
+                    + Environment.NewLine
+                    + "Few: There is a small chance that a foolish item can appear."
+                    + Environment.NewLine
+                    + "Many: There is an increased chance that a foolish item can appear."
+                    + Environment.NewLine
+                    + "Mayhem: More than half of the junk items in the item pool are replaced with foolish items."
+                    + Environment.NewLine
+                    + "Nightmare: All junk items in the item fool are foolish items."
+            );
+
+            settingsToolTip.SetToolTip(
+                settingsPresetsComboBox,
+                "Standard: Whatever settings are commonly being used."
+                    + Environment.NewLine
+                    + "Beginner: Designed for people who are not familiar with the game. Smaller item pool and less skips."
+                    + Environment.NewLine
+                    + "Experienced: Created for players who are very familiar with the game. Expects minimal, easy to perform glitches."
+                    + Environment.NewLine
+                    + "Insanity (Cheese Logic): The ultimate test of knowledge for Twilight Princess."
+                    + Environment.NewLine
+                    + "Only with skill, precision, and knowledge of the most obscure glitches will you obtain victory."
+            );
+
+            twilightTooltip.SetToolTip(
+                clearedTwilightsGroupBox,
+                "Clears the Twilight in the selected regions."
+            );
+
+            cutsceneTooltip.SetToolTip(
+                cutsceneMundaneSkipsGroupBox,
+                "Skips small events that do not usually take up much time."
+                    + Environment.NewLine
+                    + "Skip Minor Cutscenes: Removes CS that plays when entering certain areas for the first time and the random Midna text prompts."
+            );
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e) { }
 
-        }
-
-        private void addItemToStartingItemsButton_Click(object sender, EventArgs e)
-        {
+        private void addItemToStartingItemsButton_Click(object sender, EventArgs e) {
             startingItemsListBox.Items.Add(itemPoolListBox.SelectedItem);
             itemPoolListBox.Items.Remove(itemPoolListBox.SelectedItem);
         }
 
-        private void removeItemFromStartingItemsButton_Click(object sender, EventArgs e)
-        {
+        private void removeItemFromStartingItemsButton_Click(object sender, EventArgs e) {
             itemPoolListBox.Items.Add(startingItemsListBox.SelectedItem);
             startingItemsListBox.Items.Remove(startingItemsListBox.SelectedItem);
         }
 
-        private void darkModeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!isDarkModeEnabled)
-            {
+        private void darkModeToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (!isDarkModeEnabled) {
                 this.BackColor = Color.FromArgb(34, 36, 49);
                 this.ForeColor = Color.LightGray;
                 optionsMenu.BackColor = Color.FromArgb(34, 36, 49);
                 randomizationSettingsTabPage.BackColor = Color.FromArgb(34, 36, 49);
                 randomizationSettingsBox.BackColor = Color.FromArgb(34, 36, 49);
-                logicRulesBox.BackColor = Color.FromArgb(34, 36, 49); 
-                logicRulesLabel.BackColor = Color.FromArgb(34, 36, 49); 
-                itemPoolOptionsGroupBox.BackColor = Color.FromArgb(34, 36, 49); 
+                logicRulesBox.BackColor = Color.FromArgb(34, 36, 49);
+                logicRulesLabel.BackColor = Color.FromArgb(34, 36, 49);
+                itemPoolOptionsGroupBox.BackColor = Color.FromArgb(34, 36, 49);
                 itemCategoriesGroupBox.BackColor = Color.FromArgb(34, 36, 49);
-                foolishItemsComboBox.BackColor = Color.FromArgb(34, 36, 49); 
-                foolishItemsLabel.BackColor = Color.FromArgb(34, 36, 49); 
-                shopItemsCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
-                poeCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
-                giftFromNPCsCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
-                goldenBugsCheckBox.BackColor = Color.FromArgb(34, 36, 49); 
-                dungeonItemsGroupBox.BackColor = Color.FromArgb(34, 36, 49); 
-                smallKeyShuffleComboBox.BackColor = Color.FromArgb(34, 36, 49); 
-                mapsAndCompassesComboBox.BackColor = Color.FromArgb(34, 36, 49); 
-                smallKeyShuffleLabel.BackColor = Color.FromArgb(34, 36, 49); 
-                bossKeyShuffleComboBox.BackColor = Color.FromArgb(34, 36, 49); 
+                foolishItemsComboBox.BackColor = Color.FromArgb(34, 36, 49);
+                foolishItemsLabel.BackColor = Color.FromArgb(34, 36, 49);
+                shopItemsCheckBox.BackColor = Color.FromArgb(34, 36, 49);
+                poeCheckBox.BackColor = Color.FromArgb(34, 36, 49);
+                giftFromNPCsCheckBox.BackColor = Color.FromArgb(34, 36, 49);
+                goldenBugsCheckBox.BackColor = Color.FromArgb(34, 36, 49);
+                dungeonItemsGroupBox.BackColor = Color.FromArgb(34, 36, 49);
+                smallKeyShuffleComboBox.BackColor = Color.FromArgb(34, 36, 49);
+                mapsAndCompassesComboBox.BackColor = Color.FromArgb(34, 36, 49);
+                smallKeyShuffleLabel.BackColor = Color.FromArgb(34, 36, 49);
+                bossKeyShuffleComboBox.BackColor = Color.FromArgb(34, 36, 49);
                 bossKeyShuffleLabel.BackColor = Color.FromArgb(34, 36, 49);
-                mapsAndCompassesLabel.BackColor = Color.FromArgb(34, 36, 49); 
+                mapsAndCompassesLabel.BackColor = Color.FromArgb(34, 36, 49);
                 accessOptionsGroupBox.BackColor = Color.FromArgb(34, 36, 49);
                 skipIntroCheckBox.BackColor = Color.FromArgb(34, 36, 49);
                 faronWoodsLogicComboBox.BackColor = Color.FromArgb(34, 36, 49);
@@ -563,7 +560,7 @@ namespace TPRandomizer
                 palaceLogicLabel.BackColor = Color.FromArgb(34, 36, 49);
                 castleLogicLabel.BackColor = Color.FromArgb(34, 36, 49);
                 castleLogicComboBox.BackColor = Color.FromArgb(34, 36, 49);
-                gameplaySettingsTabPage.BackColor = Color.FromArgb(34, 36, 49); 
+                gameplaySettingsTabPage.BackColor = Color.FromArgb(34, 36, 49);
                 cutsceneMundaneSkipsGroupBox.BackColor = Color.FromArgb(34, 36, 49);
                 skipMasterSwordPuzzleCheckBox.BackColor = Color.FromArgb(34, 36, 49);
                 skipMinorCutscenesCheckBox.BackColor = Color.FromArgb(34, 36, 49);
@@ -594,24 +591,25 @@ namespace TPRandomizer
                 lanternColorLabel.BackColor = Color.FromArgb(34, 36, 49);
                 tunicColorComboBox.BackColor = Color.FromArgb(34, 36, 49);
                 fastIronBootsCheckBox.BackColor = Color.FromArgb(34, 36, 49);
-                tunicColorLabel.BackColor = Color.FromArgb(34, 36, 49); 
+                tunicColorLabel.BackColor = Color.FromArgb(34, 36, 49);
                 generateButton.BackColor = Color.FromArgb(34, 36, 49);
-                settingPresetsLabel.BackColor = Color.FromArgb(34, 36, 49); 
+                settingPresetsLabel.BackColor = Color.FromArgb(34, 36, 49);
                 settingsPresetsComboBox.BackColor = Color.FromArgb(34, 36, 49);
-                listBox1.BackColor = Color.FromArgb(34, 36, 49); 
-                outputTextBox.BackColor = Color.FromArgb(34, 36, 49); 
-                MainMenuStrip.BackColor = Color.FromArgb(34, 36, 49); 
-                fileToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49); 
-                openToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49); 
-                toolStripSeparator.BackColor = Color.FromArgb(34, 36, 49); 
-                saveToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49); 
-                toolStripSeparator1.BackColor = Color.FromArgb(34, 36, 49); 
+                listBox1.BackColor = Color.FromArgb(34, 36, 49);
+                outputTextBox.BackColor = Color.FromArgb(34, 36, 49);
+                MainMenuStrip.BackColor = Color.FromArgb(34, 36, 49);
+                fileToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49);
+                openToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49);
+                toolStripSeparator.BackColor = Color.FromArgb(34, 36, 49);
+                saveToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49);
+                toolStripSeparator1.BackColor = Color.FromArgb(34, 36, 49);
                 exitToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49);
-                helpToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49); 
-                WikiMenuItem.BackColor = Color.FromArgb(34, 36, 49); 
-                toolStripSeparator5.BackColor = Color.FromArgb(34, 36, 49); ;
-                aboutToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49); 
-                settingsStringLabel.BackColor = Color.FromArgb(34, 36, 49); 
+                helpToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49);
+                WikiMenuItem.BackColor = Color.FromArgb(34, 36, 49);
+                toolStripSeparator5.BackColor = Color.FromArgb(34, 36, 49);
+                ;
+                aboutToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49);
+                settingsStringLabel.BackColor = Color.FromArgb(34, 36, 49);
                 settingsStringTextbox.BackColor = Color.LightGray;
                 importButton.BackColor = Color.FromArgb(34, 36, 49);
                 darkModeToolStripMenuItem.BackColor = Color.FromArgb(34, 36, 49);
@@ -621,23 +619,23 @@ namespace TPRandomizer
                 optionsMenu.ForeColor = Color.LightGray;
                 randomizationSettingsTabPage.ForeColor = Color.LightGray;
                 randomizationSettingsBox.ForeColor = Color.LightGray;
-                logicRulesBox.ForeColor = Color.LightGray; 
-                logicRulesLabel.ForeColor = Color.LightGray; 
-                itemPoolOptionsGroupBox.ForeColor = Color.LightGray; 
+                logicRulesBox.ForeColor = Color.LightGray;
+                logicRulesLabel.ForeColor = Color.LightGray;
+                itemPoolOptionsGroupBox.ForeColor = Color.LightGray;
                 itemCategoriesGroupBox.ForeColor = Color.LightGray;
-                foolishItemsComboBox.ForeColor = Color.LightGray; 
-                foolishItemsLabel.ForeColor = Color.LightGray; 
-                shopItemsCheckBox.ForeColor = Color.LightGray; 
-                poeCheckBox.ForeColor = Color.LightGray; 
-                giftFromNPCsCheckBox.ForeColor = Color.LightGray; 
-                goldenBugsCheckBox.ForeColor = Color.LightGray; 
-                dungeonItemsGroupBox.ForeColor = Color.LightGray; 
-                smallKeyShuffleComboBox.ForeColor = Color.LightGray; 
-                mapsAndCompassesComboBox.ForeColor = Color.LightGray; 
-                smallKeyShuffleLabel.ForeColor = Color.LightGray; 
-                bossKeyShuffleComboBox.ForeColor = Color.LightGray; 
+                foolishItemsComboBox.ForeColor = Color.LightGray;
+                foolishItemsLabel.ForeColor = Color.LightGray;
+                shopItemsCheckBox.ForeColor = Color.LightGray;
+                poeCheckBox.ForeColor = Color.LightGray;
+                giftFromNPCsCheckBox.ForeColor = Color.LightGray;
+                goldenBugsCheckBox.ForeColor = Color.LightGray;
+                dungeonItemsGroupBox.ForeColor = Color.LightGray;
+                smallKeyShuffleComboBox.ForeColor = Color.LightGray;
+                mapsAndCompassesComboBox.ForeColor = Color.LightGray;
+                smallKeyShuffleLabel.ForeColor = Color.LightGray;
+                bossKeyShuffleComboBox.ForeColor = Color.LightGray;
                 bossKeyShuffleLabel.ForeColor = Color.LightGray;
-                mapsAndCompassesLabel.ForeColor = Color.LightGray; 
+                mapsAndCompassesLabel.ForeColor = Color.LightGray;
                 accessOptionsGroupBox.ForeColor = Color.LightGray;
                 skipIntroCheckBox.ForeColor = Color.LightGray;
                 faronWoodsLogicComboBox.ForeColor = Color.LightGray;
@@ -647,7 +645,7 @@ namespace TPRandomizer
                 palaceLogicLabel.ForeColor = Color.LightGray;
                 castleLogicLabel.ForeColor = Color.LightGray;
                 castleLogicComboBox.ForeColor = Color.LightGray;
-                gameplaySettingsTabPage.ForeColor = Color.LightGray; 
+                gameplaySettingsTabPage.ForeColor = Color.LightGray;
                 cutsceneMundaneSkipsGroupBox.ForeColor = Color.LightGray;
                 skipMasterSwordPuzzleCheckBox.ForeColor = Color.LightGray;
                 skipMinorCutscenesCheckBox.ForeColor = Color.LightGray;
@@ -674,54 +672,54 @@ namespace TPRandomizer
                 lanternColorLabel.ForeColor = Color.LightGray;
                 tunicColorComboBox.ForeColor = Color.LightGray;
                 fastIronBootsCheckBox.ForeColor = Color.LightGray;
-                tunicColorLabel.ForeColor = Color.LightGray; 
+                tunicColorLabel.ForeColor = Color.LightGray;
                 generateButton.ForeColor = Color.LightGray;
-                settingPresetsLabel.ForeColor = Color.LightGray; 
+                settingPresetsLabel.ForeColor = Color.LightGray;
                 settingsPresetsComboBox.ForeColor = Color.LightGray;
-                listBox1.ForeColor = Color.LightGray; 
-                outputTextBox.ForeColor = Color.LightGray; 
-                MainMenuStrip.ForeColor = Color.LightGray; 
-                fileToolStripMenuItem.ForeColor = Color.LightGray; 
-                openToolStripMenuItem.ForeColor = Color.LightGray; 
-                toolStripSeparator.ForeColor = Color.LightGray; 
-                saveToolStripMenuItem.ForeColor = Color.LightGray; 
-                toolStripSeparator1.ForeColor = Color.LightGray; 
+                listBox1.ForeColor = Color.LightGray;
+                outputTextBox.ForeColor = Color.LightGray;
+                MainMenuStrip.ForeColor = Color.LightGray;
+                fileToolStripMenuItem.ForeColor = Color.LightGray;
+                openToolStripMenuItem.ForeColor = Color.LightGray;
+                toolStripSeparator.ForeColor = Color.LightGray;
+                saveToolStripMenuItem.ForeColor = Color.LightGray;
+                toolStripSeparator1.ForeColor = Color.LightGray;
                 exitToolStripMenuItem.ForeColor = Color.LightGray;
-                helpToolStripMenuItem.ForeColor = Color.LightGray; 
-                WikiMenuItem.ForeColor = Color.LightGray; 
-                toolStripSeparator5.ForeColor = Color.LightGray; ;
-                aboutToolStripMenuItem.ForeColor = Color.LightGray; 
-                settingsStringLabel.ForeColor = Color.LightGray; 
+                helpToolStripMenuItem.ForeColor = Color.LightGray;
+                WikiMenuItem.ForeColor = Color.LightGray;
+                toolStripSeparator5.ForeColor = Color.LightGray;
+                ;
+                aboutToolStripMenuItem.ForeColor = Color.LightGray;
+                settingsStringLabel.ForeColor = Color.LightGray;
                 importButton.ForeColor = Color.LightGray;
                 darkModeToolStripMenuItem.ForeColor = Color.LightGray;
                 toolStripSeparator.ForeColor = Color.LightGray;
                 toolStripSeparator1.ForeColor = Color.LightGray;
                 isDarkModeEnabled = true;
             }
-            else
-            {
+            else {
                 this.BackColor = Color.White;
                 this.ForeColor = Color.Black;
                 optionsMenu.BackColor = Color.White;
                 randomizationSettingsTabPage.BackColor = Color.White;
                 randomizationSettingsBox.BackColor = Color.White;
-                logicRulesBox.BackColor = Color.White; 
-                logicRulesLabel.BackColor = Color.White; 
-                itemPoolOptionsGroupBox.BackColor = Color.White; 
+                logicRulesBox.BackColor = Color.White;
+                logicRulesLabel.BackColor = Color.White;
+                itemPoolOptionsGroupBox.BackColor = Color.White;
                 itemCategoriesGroupBox.BackColor = Color.White;
-                foolishItemsComboBox.BackColor = Color.White; 
-                foolishItemsLabel.BackColor = Color.White; 
-                shopItemsCheckBox.BackColor = Color.White; 
-                poeCheckBox.BackColor = Color.White; 
-                giftFromNPCsCheckBox.BackColor = Color.White; 
-                goldenBugsCheckBox.BackColor = Color.White; 
-                dungeonItemsGroupBox.BackColor = Color.White; 
-                smallKeyShuffleComboBox.BackColor = Color.White; 
-                mapsAndCompassesComboBox.BackColor = Color.White; 
-                smallKeyShuffleLabel.BackColor = Color.White; 
-                bossKeyShuffleComboBox.BackColor = Color.White; 
+                foolishItemsComboBox.BackColor = Color.White;
+                foolishItemsLabel.BackColor = Color.White;
+                shopItemsCheckBox.BackColor = Color.White;
+                poeCheckBox.BackColor = Color.White;
+                giftFromNPCsCheckBox.BackColor = Color.White;
+                goldenBugsCheckBox.BackColor = Color.White;
+                dungeonItemsGroupBox.BackColor = Color.White;
+                smallKeyShuffleComboBox.BackColor = Color.White;
+                mapsAndCompassesComboBox.BackColor = Color.White;
+                smallKeyShuffleLabel.BackColor = Color.White;
+                bossKeyShuffleComboBox.BackColor = Color.White;
                 bossKeyShuffleLabel.BackColor = Color.White;
-                mapsAndCompassesLabel.BackColor = Color.White; 
+                mapsAndCompassesLabel.BackColor = Color.White;
                 accessOptionsGroupBox.BackColor = Color.White;
                 skipIntroCheckBox.BackColor = Color.White;
                 faronWoodsLogicComboBox.BackColor = Color.White;
@@ -731,7 +729,7 @@ namespace TPRandomizer
                 palaceLogicLabel.BackColor = Color.White;
                 castleLogicLabel.BackColor = Color.White;
                 castleLogicComboBox.BackColor = Color.White;
-                gameplaySettingsTabPage.BackColor = Color.White; 
+                gameplaySettingsTabPage.BackColor = Color.White;
                 cutsceneMundaneSkipsGroupBox.BackColor = Color.White;
                 skipMasterSwordPuzzleCheckBox.BackColor = Color.White;
                 skipMinorCutscenesCheckBox.BackColor = Color.White;
@@ -762,24 +760,25 @@ namespace TPRandomizer
                 lanternColorLabel.BackColor = Color.White;
                 tunicColorComboBox.BackColor = Color.White;
                 fastIronBootsCheckBox.BackColor = Color.White;
-                tunicColorLabel.BackColor = Color.White; 
+                tunicColorLabel.BackColor = Color.White;
                 generateButton.BackColor = Color.White;
-                settingPresetsLabel.BackColor = Color.White; 
+                settingPresetsLabel.BackColor = Color.White;
                 settingsPresetsComboBox.BackColor = Color.White;
-                listBox1.BackColor = Color.White; 
-                outputTextBox.BackColor = Color.White; 
-                MainMenuStrip.BackColor = Color.White; 
-                fileToolStripMenuItem.BackColor = Color.White; 
-                openToolStripMenuItem.BackColor = Color.White; 
-                toolStripSeparator.BackColor = Color.White; 
-                saveToolStripMenuItem.BackColor = Color.White; 
-                toolStripSeparator1.BackColor = Color.White; 
+                listBox1.BackColor = Color.White;
+                outputTextBox.BackColor = Color.White;
+                MainMenuStrip.BackColor = Color.White;
+                fileToolStripMenuItem.BackColor = Color.White;
+                openToolStripMenuItem.BackColor = Color.White;
+                toolStripSeparator.BackColor = Color.White;
+                saveToolStripMenuItem.BackColor = Color.White;
+                toolStripSeparator1.BackColor = Color.White;
                 exitToolStripMenuItem.BackColor = Color.White;
-                helpToolStripMenuItem.BackColor = Color.White; 
-                WikiMenuItem.BackColor = Color.White; 
-                toolStripSeparator5.BackColor = Color.White; ;
-                aboutToolStripMenuItem.BackColor = Color.White; 
-                settingsStringLabel.BackColor = Color.White; 
+                helpToolStripMenuItem.BackColor = Color.White;
+                WikiMenuItem.BackColor = Color.White;
+                toolStripSeparator5.BackColor = Color.White;
+                ;
+                aboutToolStripMenuItem.BackColor = Color.White;
+                settingsStringLabel.BackColor = Color.White;
                 settingsStringTextbox.BackColor = Color.White;
                 importButton.BackColor = Color.White;
                 darkModeToolStripMenuItem.BackColor = Color.White;
@@ -789,23 +788,23 @@ namespace TPRandomizer
                 optionsMenu.ForeColor = Color.Black;
                 randomizationSettingsTabPage.ForeColor = Color.Black;
                 randomizationSettingsBox.ForeColor = Color.Black;
-                logicRulesBox.ForeColor = Color.Black; 
-                logicRulesLabel.ForeColor = Color.Black; 
-                itemPoolOptionsGroupBox.ForeColor = Color.Black; 
+                logicRulesBox.ForeColor = Color.Black;
+                logicRulesLabel.ForeColor = Color.Black;
+                itemPoolOptionsGroupBox.ForeColor = Color.Black;
                 itemCategoriesGroupBox.ForeColor = Color.Black;
-                foolishItemsComboBox.ForeColor = Color.Black; 
-                foolishItemsLabel.ForeColor = Color.Black; 
-                shopItemsCheckBox.ForeColor = Color.Black; 
-                poeCheckBox.ForeColor = Color.Black; 
-                giftFromNPCsCheckBox.ForeColor = Color.Black; 
-                goldenBugsCheckBox.ForeColor = Color.Black; 
-                dungeonItemsGroupBox.ForeColor = Color.Black; 
-                smallKeyShuffleComboBox.ForeColor = Color.Black; 
-                mapsAndCompassesComboBox.ForeColor = Color.Black; 
-                smallKeyShuffleLabel.ForeColor = Color.Black; 
-                bossKeyShuffleComboBox.ForeColor = Color.Black; 
+                foolishItemsComboBox.ForeColor = Color.Black;
+                foolishItemsLabel.ForeColor = Color.Black;
+                shopItemsCheckBox.ForeColor = Color.Black;
+                poeCheckBox.ForeColor = Color.Black;
+                giftFromNPCsCheckBox.ForeColor = Color.Black;
+                goldenBugsCheckBox.ForeColor = Color.Black;
+                dungeonItemsGroupBox.ForeColor = Color.Black;
+                smallKeyShuffleComboBox.ForeColor = Color.Black;
+                mapsAndCompassesComboBox.ForeColor = Color.Black;
+                smallKeyShuffleLabel.ForeColor = Color.Black;
+                bossKeyShuffleComboBox.ForeColor = Color.Black;
                 bossKeyShuffleLabel.ForeColor = Color.Black;
-                mapsAndCompassesLabel.ForeColor = Color.Black; 
+                mapsAndCompassesLabel.ForeColor = Color.Black;
                 accessOptionsGroupBox.ForeColor = Color.Black;
                 skipIntroCheckBox.ForeColor = Color.Black;
                 faronWoodsLogicComboBox.ForeColor = Color.Black;
@@ -815,7 +814,7 @@ namespace TPRandomizer
                 palaceLogicLabel.ForeColor = Color.Black;
                 castleLogicLabel.ForeColor = Color.Black;
                 castleLogicComboBox.ForeColor = Color.Black;
-                gameplaySettingsTabPage.ForeColor = Color.Black; 
+                gameplaySettingsTabPage.ForeColor = Color.Black;
                 cutsceneMundaneSkipsGroupBox.ForeColor = Color.Black;
                 skipMasterSwordPuzzleCheckBox.ForeColor = Color.Black;
                 skipMinorCutscenesCheckBox.ForeColor = Color.Black;
@@ -842,24 +841,25 @@ namespace TPRandomizer
                 lanternColorLabel.ForeColor = Color.Black;
                 tunicColorComboBox.ForeColor = Color.Black;
                 fastIronBootsCheckBox.ForeColor = Color.Black;
-                tunicColorLabel.ForeColor = Color.Black; 
+                tunicColorLabel.ForeColor = Color.Black;
                 generateButton.ForeColor = Color.Black;
-                settingPresetsLabel.ForeColor = Color.Black; 
+                settingPresetsLabel.ForeColor = Color.Black;
                 settingsPresetsComboBox.ForeColor = Color.Black;
-                listBox1.ForeColor = Color.Black; 
-                outputTextBox.ForeColor = Color.Black; 
-                MainMenuStrip.ForeColor = Color.Black; 
-                fileToolStripMenuItem.ForeColor = Color.Black; 
-                openToolStripMenuItem.ForeColor = Color.Black; 
-                toolStripSeparator.ForeColor = Color.Black; 
-                saveToolStripMenuItem.ForeColor = Color.Black; 
-                toolStripSeparator1.ForeColor = Color.Black; 
+                listBox1.ForeColor = Color.Black;
+                outputTextBox.ForeColor = Color.Black;
+                MainMenuStrip.ForeColor = Color.Black;
+                fileToolStripMenuItem.ForeColor = Color.Black;
+                openToolStripMenuItem.ForeColor = Color.Black;
+                toolStripSeparator.ForeColor = Color.Black;
+                saveToolStripMenuItem.ForeColor = Color.Black;
+                toolStripSeparator1.ForeColor = Color.Black;
                 exitToolStripMenuItem.ForeColor = Color.Black;
-                helpToolStripMenuItem.ForeColor = Color.Black; 
-                WikiMenuItem.ForeColor = Color.Black; 
-                toolStripSeparator5.ForeColor = Color.Black; ;
-                aboutToolStripMenuItem.ForeColor = Color.Black; 
-                settingsStringLabel.ForeColor = Color.Black; 
+                helpToolStripMenuItem.ForeColor = Color.Black;
+                WikiMenuItem.ForeColor = Color.Black;
+                toolStripSeparator5.ForeColor = Color.Black;
+                ;
+                aboutToolStripMenuItem.ForeColor = Color.Black;
+                settingsStringLabel.ForeColor = Color.Black;
                 importButton.ForeColor = Color.Black;
                 darkModeToolStripMenuItem.ForeColor = Color.Black;
                 toolStripSeparator.ForeColor = Color.Black;
@@ -868,46 +868,36 @@ namespace TPRandomizer
             }
         }
 
-
-        private void importButton_Click(object sender, EventArgs e)
-        {
+        private void importButton_Click(object sender, EventArgs e) {
             dontrunhandler = true;
             updateInterface();
             dontrunhandler = false;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
-        }
-
-        private void outputTextBox_textChanged(object sender, EventArgs e)
-        {
+        private void outputTextBox_textChanged(object sender, EventArgs e) {
             outputTextBox.SelectionStart = outputTextBox.Text.Length;
             outputTextBox.ScrollToCaret();
         }
 
-        public class TextBoxWriter : TextWriter
-        {
+        public class TextBoxWriter : TextWriter {
             // The control where we will write text.
             private Control MyControl;
-            public TextBoxWriter(Control control)
-            {
+
+            public TextBoxWriter(Control control) {
                 MyControl = control;
             }
 
-            public override void Write(char value)
-            {
+            public override void Write(char value) {
                 MyControl.Text += value;
             }
 
-            public override void Write(string value)
-            {
+            public override void Write(string value) {
                 MyControl.Text += value;
             }
 
-            public override Encoding Encoding
-            {
+            public override Encoding Encoding {
                 get { return Encoding.Unicode; }
             }
         }

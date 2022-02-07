@@ -1,20 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace TPRandomizer.Assets
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
     class Converter
     {
         public static byte gcByte(int x)
         {
-            return (byte) x;
+            return (byte)x;
         }
 
         /// <summary>
-        /// Returns x as BigEndian (GC)
+        /// Returns x as BigEndian (GC).
         /// </summary>
         /// <param name="x">The number you want to convert.</param>
 
@@ -25,6 +24,7 @@ namespace TPRandomizer.Assets
 
             return bytes;
         }
+
         public static byte[] gcBytes(UInt32 x)
         {
             var bytes = BitConverter.GetBytes(x);
@@ -41,7 +41,7 @@ namespace TPRandomizer.Assets
             return bytes;
         }
 
-         public static byte[] gcBytes(Int32 x)
+        public static byte[] gcBytes(Int32 x)
         {
             var bytes = BitConverter.GetBytes(x);
             Array.Reverse(bytes);
@@ -58,16 +58,18 @@ namespace TPRandomizer.Assets
         }
 
         /// <summary>
-        /// Get bytes from text (without null terminator)
+        /// Get bytes from text (without null terminator).
         /// </summary>
         /// <param name="text"> The ASCII text you want to convert.</param>
-        /// <returns></returns>
-        public static byte[] stringBytes(String text, int desiredLength = 0, char region = 'E')
+        /// <param name="desiredLength"> The length of the string in bytes.</param>
+        /// <param name="region"> The language region of the text you want to convert.</param>
+        /// <returns>Array of Bytes processed.</returns>
+        public static byte[] StringBytes(string text, int desiredLength = 0, char region = 'E')
         {
             List<byte> textData = new List<byte>();
 
             if (region == 'J')
-            {   
+            {
                 textData.AddRange(Encoding.GetEncoding("shift_jis").GetBytes(text));
             }
             else
@@ -75,7 +77,7 @@ namespace TPRandomizer.Assets
                 textData.AddRange(Encoding.ASCII.GetBytes(text));
             }
 
-            //Account for padding
+            // Account for padding
             while (textData.Count < desiredLength)
             {
                 textData.Add(0);
@@ -84,7 +86,10 @@ namespace TPRandomizer.Assets
             return textData.ToArray<byte>();
         }
 
-        public static byte stringBytes(char text)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static byte StringBytes(char text)
         {
             return (byte)text;
         }
