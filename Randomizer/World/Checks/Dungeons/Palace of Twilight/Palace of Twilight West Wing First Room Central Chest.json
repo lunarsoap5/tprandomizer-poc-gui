@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatZantHead",
+    "requirements": "CanDefeatZantHead",
     "arcFileValues": [["D_MN08/R01_00.arc", "703E0"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

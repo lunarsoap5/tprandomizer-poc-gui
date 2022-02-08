@@ -5,7 +5,7 @@
     ],
     "neighbourRequirements": 
     [
-        "canDefeatChilfos"
+        "CanDefeatChilfos"
     ],
     "checks": 
     [

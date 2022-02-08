@@ -319,7 +319,7 @@ namespace TPRandomizer {
                 }
                 bits = bits + i_bits;
             }
-            return BackendFunctions.Base64Encode(BackendFunctions.bitStringToText(bits));
+            return BackendFunctions.Base64Encode(BackendFunctions.BitStringToText(bits));
         }
 
         /// <summary>
@@ -329,7 +329,7 @@ namespace TPRandomizer {
         public void parseSettingsString(string settingsString) {
             settingsString = BackendFunctions.Base64Decode(settingsString);
             //Convert the settings string into a binary string to be interpreted.
-            string bitString = BackendFunctions.textToBitString(settingsString);
+            string bitString = BackendFunctions.TextToBitString(settingsString);
             PropertyInfo[] properties = settings.GetType().GetProperties();
             foreach (PropertyInfo property in properties) {
                 string evaluatedByteString = "";
@@ -416,7 +416,7 @@ namespace TPRandomizer {
         }
 
         private void generateButton_Click(object sender, EventArgs e) {
-            randomizer.start(settingsStringTextbox.Text);
+            randomizer.Start(settingsStringTextbox.Text);
             MessageBox.Show(
                 "Seed Generated! Check the folder for the randomizer gci and spoiler log!"
             );
@@ -697,7 +697,8 @@ namespace TPRandomizer {
                 toolStripSeparator1.ForeColor = Color.LightGray;
                 isDarkModeEnabled = true;
             }
-            else {
+            else 
+            {
                 this.BackColor = Color.White;
                 this.ForeColor = Color.Black;
                 optionsMenu.BackColor = Color.White;
@@ -881,6 +882,9 @@ namespace TPRandomizer {
             outputTextBox.ScrollToCaret();
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public class TextBoxWriter : TextWriter {
             // The control where we will write text.
             private Control MyControl;

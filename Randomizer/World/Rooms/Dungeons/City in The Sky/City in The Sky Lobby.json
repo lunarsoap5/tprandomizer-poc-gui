@@ -11,7 +11,7 @@
         "true",
         "Spinner and (City_in_The_Sky_Small_Key, 1)",
         "(Progressive_Clawshot, 2)",
-        "(Progressive_Clawshot, 2) and canDefeatBabaSerpent and canDefeatKargarok and Shadow_Crystal and Iron_Boots"
+        "(Progressive_Clawshot, 2) and CanDefeatBabaSerpent and CanDefeatKargarok and Shadow_Crystal and Iron_Boots"
     ],
     "isStartingRoom": "false",
     "checks": [""],

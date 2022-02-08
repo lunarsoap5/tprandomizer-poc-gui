@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatFyrus",
+    "requirements": "CanDefeatFyrus",
     "moduleID": "5B",
     "stageIDX": 4,
     "offsets": ["1880"],

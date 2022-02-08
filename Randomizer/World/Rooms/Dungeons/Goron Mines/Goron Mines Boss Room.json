@@ -5,7 +5,7 @@
     ],
     "neighbourRequirements": 
     [
-        "canDefeatFyrus"
+        "CanDefeatFyrus"
     ],
     "checks": 
     [

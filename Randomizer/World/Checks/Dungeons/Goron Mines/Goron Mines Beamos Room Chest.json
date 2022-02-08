@@ -1,5 +1,5 @@
 {
-    "requirements": " Iron_Boots and canDefeatDangoro and (Progressive_Bow, 1)",
+    "requirements": " Iron_Boots and CanDefeatDangoro and (Progressive_Bow, 1)",
     "arcFileValues": [["D_MN04/R11_00.arc", "73878"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

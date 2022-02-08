@@ -1,5 +1,5 @@
 {
-    "requirements": "canUseWaterBombs and Iron_Boots",
+    "requirements": "CanUseWaterBombs and Iron_Boots",
     "arcFileValues": [["bmgres7.arc", "13D77"]],
     "fileDirectoryType": [1],
     "replacementType": [0],

@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatBokoblin",
+    "requirements": "CanDefeatBokoblin",
     "arcFileValues": [["D_MN09/R13_00.arc", "636C0"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

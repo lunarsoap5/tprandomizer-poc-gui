@@ -10,7 +10,7 @@
     [
         "true",
         "true",
-        "canDefeatPhantomZant and (Progressive_Clawshot, 1) and canDefeatZantHead and (Palace_of_Twilight_Small_Key, 2)",
+        "CanDefeatPhantomZant and (Progressive_Clawshot, 1) and CanDefeatZantHead and (Palace_of_Twilight_Small_Key, 2)",
         "(Progressive_Sword, 4)"
     ],
     "checks": 

@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatAeralfos",
+    "requirements": "CanDefeatAeralfos",
     "arcFileValues": [["D_MN09/R15_00.arc", "AF878"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

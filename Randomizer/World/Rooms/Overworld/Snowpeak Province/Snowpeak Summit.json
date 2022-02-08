@@ -7,7 +7,7 @@
     "neighbourRequirements":
     [
         "Shadow_Crystal",
-        "canDefeatShadowBeast"
+        "CanDefeatShadowBeast"
     ],
     "checks": 
     [

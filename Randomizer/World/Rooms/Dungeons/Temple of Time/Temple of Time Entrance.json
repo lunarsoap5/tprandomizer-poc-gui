@@ -9,7 +9,7 @@
     [
         "true",
         "(Temple_of_Time_Small_Key, 1)",
-        "(Progressive_Dominion_Rod, 1) and (Progressive_Bow, 1) and Spinner and canDefeatLizalfos and canDefeatDinalfos and canDefeatDarknut and (Temple_of_Time_Small_Key, 3)"
+        "(Progressive_Dominion_Rod, 1) and (Progressive_Bow, 1) and Spinner and CanDefeatLizalfos and CanDefeatDinalfos and CanDefeatDarknut and (Temple_of_Time_Small_Key, 3)"
     ],
     "checks": 
     [

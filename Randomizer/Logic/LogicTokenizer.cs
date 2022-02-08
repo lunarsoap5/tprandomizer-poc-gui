@@ -10,16 +10,25 @@ namespace TPRandomizer
     // BooleanOperator    := "And" | "Or"
     // BooleanConstant    := "True" | "False"
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class Parser
     {
         public int tokenValue;
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public void ParserReset()
         {
             tokenValue = 0;
             Randomizer.Logic.TokenDict.Clear();
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public bool Parse()
         {
             while (
@@ -48,6 +57,9 @@ namespace TPRandomizer
             throw new Exception("Empty expression");
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         private bool ParseBoolean()
         {
             var parseBool = false;
@@ -67,7 +79,7 @@ namespace TPRandomizer
 
                 var expInPars = Parse();
 
-                //If there are no more characters and we have a hanging parenthesis, throw an error
+                // If there are no more characters and we have a hanging parenthesis, throw an error
                 if (
                     !(
                         Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key
@@ -110,7 +122,7 @@ namespace TPRandomizer
                 }
                 else
                 {
-                    parseBool = LogicFunctions.canUse(evaluatedItem);
+                    parseBool = LogicFunctions.CanUse(evaluatedItem);
                 }
                 return parseBool;
             }
@@ -118,8 +130,8 @@ namespace TPRandomizer
             {
                 string evaluatedFunction = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value;
                 tokenValue++;
-                //If a comma follows a function, we assume it is needing to be compared to an integer
-                if ((Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is CommaToken))
+                // If a comma follows a function, we assume it is needing to be compared to an integer
+                if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is CommaToken)
                 {
                     tokenValue++;
                     int getQuantity = 0;
@@ -135,7 +147,8 @@ namespace TPRandomizer
                     }
                     tokenValue++;
                 }
-                //If there is no comma following the function, then it doesnt need to return an int value, and we can continue to evaluate it
+
+                // If there is no comma following the function, then it doesnt need to return an int value, and we can continue to evaluate it
                 else
                 {
                     parseBool = (bool)typeof(LogicFunctions)
@@ -151,7 +164,7 @@ namespace TPRandomizer
                 if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is EqualsToken)
                 {
                     tokenValue++;
-                    parseBool = LogicFunctions.evaluateSetting(
+                    parseBool = LogicFunctions.EvaluateSetting(
                         evaluatedItem,
                         Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value.ToString()
                     );
@@ -162,18 +175,22 @@ namespace TPRandomizer
             else if (Randomizer.Logic.TokenDict.ElementAt(tokenValue).Key is roomToken)
             {
                 string evaluatedToken = Randomizer.Logic.TokenDict.ElementAt(tokenValue).Value;
-                string roomName = evaluatedToken.Replace("Room.", "");
+                string roomName = evaluatedToken.Replace("Room.", string.Empty);
                 roomName = roomName.Replace("_", " ");
                 tokenValue++;
                 parseBool = Randomizer.Rooms.RoomDict[roomName].visited;
                 return parseBool;
             }
+
             // since its not a BooleanConstant or Expression in parenthesis, it must be a expression again
             var val = Parse();
             return val;
         }
     }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class Tokenizer
     {
         private char[] _reader;
@@ -185,6 +202,9 @@ namespace TPRandomizer
             _reader = text.ToCharArray();
         }
 
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public Dictionary<Token, string> Tokenize()
         {
             Dictionary<Token, string> tokens = new Dictionary<Token, String>();
@@ -255,7 +275,7 @@ namespace TPRandomizer
                                         tokens.Add(new itemToken(), potentialKeyword.ToString());
                                         break;
                                     }
-                                    //if it is a setting, it needs to be evaluated as such later on
+                                    // if it is a setting, it needs to be evaluated as such later on
                                     else if (potentialKeyword.Contains("Setting."))
                                     {
                                         tokens.Add(
@@ -269,7 +289,7 @@ namespace TPRandomizer
                                         tokens.Add(new roomToken(), potentialKeyword.ToString());
                                         break;
                                     }
-                                    //If it isnt a keyword, we assume that it is a logic function
+                                    // If it isnt a keyword, we assume that it is a logic function
                                     else
                                     {
                                         tokens.Add(
@@ -280,7 +300,8 @@ namespace TPRandomizer
                                     }
                             }
                         }
-                        //If the char is an integer, we need to see if it is a larger number (one that is more than one char)
+
+                        // If the char is an integer, we need to see if it is a larger number (one that is more than one char)
                         else if (Char.IsNumber(_reader[i]))
                         {
                             var num = new StringBuilder();
@@ -303,41 +324,98 @@ namespace TPRandomizer
         }
     }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class OperandToken : Token { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class OrToken : OperandToken { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class AndToken : OperandToken { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class BooleanValueToken : Token { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class logicFunctionToken : Token { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class IntegerToken : Token { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class itemToken : Token { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class FalseToken : BooleanValueToken { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class TrueToken : BooleanValueToken { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class ParenthesisToken : Token { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class EqualsToken : OperandToken { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class settingsToken : OperandToken { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class roomToken : OperandToken { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class CommaToken : Token { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class canUseToken : Token { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class ClosedParenthesisToken : ParenthesisToken { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class OpenParenthesisToken : ParenthesisToken { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class NegationToken : Token { }
 
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public abstract class Token { }
 }

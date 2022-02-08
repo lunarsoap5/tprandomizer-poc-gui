@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatDarknut",
+    "requirements": "CanDefeatDarknut",
     "arcFileValues": [["D_MN06B/R51_00.arc", "8D28C"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

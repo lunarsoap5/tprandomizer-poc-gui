@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatDinalfos and canDefeatWalltula and canDefeatKargarok and Shadow_Crystal",
+    "requirements": "CanDefeatDinalfos and CanDefeatWalltula and CanDefeatKargarok and Shadow_Crystal",
     "arcFileValues": [["D_MN07/R13_00.arc", "98458"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

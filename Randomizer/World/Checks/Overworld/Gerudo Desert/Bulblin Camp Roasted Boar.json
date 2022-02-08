@@ -1,5 +1,5 @@
 {
-    "requirements": "hasSword",
+    "requirements": "HasSword",
     "stageIDX": 55,
     "roomIDX": 1,
     "category": ["Overworld", "Bulblin Camp", "Boss"],

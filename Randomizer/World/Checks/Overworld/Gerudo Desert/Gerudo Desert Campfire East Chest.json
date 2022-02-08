@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatBulblin",
+    "requirements": "CanDefeatBulblin",
     "arcFileValues": [["F_SP124/R00_00.arc", "1023D8"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

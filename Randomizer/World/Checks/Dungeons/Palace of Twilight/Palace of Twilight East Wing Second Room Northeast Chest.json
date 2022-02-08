@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatZantHead and canDefeatShadowBeast and (Progressive_Clawshot, 2) and (Palace_of_Twilight_Small_Key, 3)",
+    "requirements": "CanDefeatZantHead and CanDefeatShadowBeast and (Progressive_Clawshot, 2) and (Palace_of_Twilight_Small_Key, 3)",
     "arcFileValues": [["D_MN08/R05_00.arc", "9ADE0"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

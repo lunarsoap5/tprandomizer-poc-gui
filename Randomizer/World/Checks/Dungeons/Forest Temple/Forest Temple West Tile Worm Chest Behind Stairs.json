@@ -1,5 +1,5 @@
 {
-    "requirements": "Boomerang and canDefeatBombling",
+    "requirements": "Boomerang and CanDefeatBombling",
     "arcFileValues": [["D_MN05/R05_00.arc", "79934"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

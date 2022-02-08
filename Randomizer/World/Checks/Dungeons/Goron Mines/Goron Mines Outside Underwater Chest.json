@@ -1,5 +1,5 @@
 {
-    "requirements": "hasSword and Iron_Boots",
+    "requirements": "HasSword and Iron_Boots",
     "arcFileValues": [["D_MN04/R07_00.arc", "87E98"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

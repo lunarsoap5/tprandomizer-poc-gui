@@ -8,8 +8,8 @@
     ],
     "neighbourRequirements":
     [
-        "canDefeatShadowBeast and (Progressive_Clawshot, 1)",
-        "canDefeatBulblin",
+        "CanDefeatShadowBeast and (Progressive_Clawshot, 1)",
+        "CanDefeatBulblin",
         "Shadow_Crystal and (Progressive_Clawshot, 1)",
         "Shadow_Crystal"
     ],

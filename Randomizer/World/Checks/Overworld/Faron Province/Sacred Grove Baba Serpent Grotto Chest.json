@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatBabaSerpent and canKnockDownHangingBaba",
+    "requirements": "CanDefeatBabaSerpent and canKnockDownHangingBaba",
     "hash": "F29C",
     "stageIDX": 36,
     "dzxTag": "TRES",

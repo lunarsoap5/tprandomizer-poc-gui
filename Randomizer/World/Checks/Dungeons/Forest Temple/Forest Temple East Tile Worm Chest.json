@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatTileWorm and canDefeatSkulltula and canDefeatWalltula and Boomerang and (Forest_Temple_Small_Key, 4)",
+    "requirements": "CanDefeatTileWorm and CanDefeatSkulltula and CanDefeatWalltula and Boomerang and (Forest_Temple_Small_Key, 4)",
     "arcFileValues": [["D_MN05/R11_00.arc", "634F8"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatBulblin",
+    "requirements": "CanDefeatBulblin",
     "moduleID": "26D",
     "stageIDX": 55,
     "offsets": ["155C"],

@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatDarkhammer and Ball_and_Chain",
+    "requirements": "CanDefeatDarkhammer and Ball_and_Chain",
     "arcFileValues": [["D_MN11B/R51_00.arc", "9ECB0"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

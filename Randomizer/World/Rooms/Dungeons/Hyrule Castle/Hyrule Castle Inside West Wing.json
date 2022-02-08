@@ -7,7 +7,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "canKnockDownHCPainting and canDefeatLizalfos and canDefeatDarknut"
+        "canKnockDownHCPainting and CanDefeatLizalfos and CanDefeatDarknut"
     ],
     "checks": [""], 
     "region": "Hyrule Castle"

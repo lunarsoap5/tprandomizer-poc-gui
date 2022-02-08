@@ -5,7 +5,7 @@
     ],
     "neighbourRequirements":
     [
-        "canDefeatMorpheel"
+        "CanDefeatMorpheel"
     ],
     "checks": 
     [

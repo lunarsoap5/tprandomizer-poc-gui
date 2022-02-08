@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatKingBulblinCastle",
+    "requirements": "CanDefeatKingBulblinCastle",
     "moduleID": "E0",
     "stageIDX": 20,
     "offsets": ["367C"],

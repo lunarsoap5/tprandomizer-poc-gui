@@ -9,36 +9,38 @@ namespace TPRandomizer.Assets
     /// </summary>
     public class Gci
     {
-        private List<byte> GCIHeader;
-        private char regionCode;
-        private List<byte> GCIFile;
-        private List<byte> GCIData;
-        public SeedData currentSeedData = new SeedData();
+        private readonly List<byte> gciHeader;
+        private readonly char regionCode;
+        public List<byte> gciFile;
+        private readonly List<byte> gciData;
 
-        byte[] header
+        private byte[] Header
         {
-            get { return GCIHeader.ToArray<byte>(); }
+            get { return gciHeader.ToArray<byte>(); }
         }
 
-        byte[] data
+        private byte[] Data
         {
-            get { return GCIData.ToArray<byte>(); }
+            get { return this.gciData.ToArray<byte>(); }
         }
 
-        public byte[] gciFile
+        private byte[] GCIFile
         {
-            get { return GCIFile.ToArray<byte>(); }
+            get { return this.gciFile.ToArray<byte>(); }
         }
-        public int length
+
+        private int Length
         {
-            get { return GCIHeader.Count + GCIData.Count; }
+            get { return this.gciHeader.Count + this.gciData.Count; }
         }
 
         /// <summary>
-        /// The class used to generate a seed data gci file.
+        /// text.
         /// </summary>
-        /// <param name="length">Number of bytes to store in the gci</param>
-        /// <param name="regionCode"> E, P, or J</param>
+        /// <param name="seedNumber">The current seed number that the memory card will read.</param>
+        /// <param name="seedRegion">The region of the game that the seed is being generated for.</param>
+        /// <param name="seedData">Any data that needs to be read into the GCI file.</param>
+        /// <returns> The inserted value as a byte. </returns>
         public Gci(byte seedNumber = 0, string seedRegion = "NTSC", List<byte> seedData = null)
         {
             char regionCode;
@@ -55,61 +57,61 @@ namespace TPRandomizer.Assets
                     break;
             }
 
-            GCIHeader = new List<byte>();
-            GCIData = new List<byte>();
-            GCIFile = new List<byte>();
+            this.gciHeader = new List<byte>();
+            this.gciData = new List<byte>();
+            this.gciFile = new List<byte>();
+
             // Populate GCI Header
             /*x0*/
-            GCIHeader.AddRange(Converter.StringBytes("GZ2"));
+            this.gciHeader.AddRange(Converter.StringBytes("GZ2"));
             /*x3*/
-            GCIHeader.Add(Converter.StringBytes(regionCode));
+            this.gciHeader.Add(Converter.StringBytes(regionCode));
             /*x4*/
-            GCIHeader.AddRange(Converter.StringBytes("01"));
+            this.gciHeader.AddRange(Converter.StringBytes("01"));
             /*x6*/
-            GCIHeader.Add(Converter.gcByte(0xFF));
+            this.gciHeader.Add(Converter.GcByte(0xFF));
             /*x7*/
-            GCIHeader.Add(Converter.gcByte(1));
+            this.gciHeader.Add(Converter.GcByte(1));
             /*x8*/
-            GCIHeader.AddRange(Converter.StringBytes($"rando-data{seedNumber}", 0x20));
+            this.gciHeader.AddRange(Converter.StringBytes($"rando-data{seedNumber}", 0x20));
             /*x28*/
-            GCIHeader.AddRange(
-                Converter.gcBytes((UInt32)(DateTime.UtcNow - new DateTime(2000, 1, 1)).TotalSeconds)
+            this.gciHeader.AddRange(
+                Converter.GcBytes((UInt32)(DateTime.UtcNow - new DateTime(2000, 1, 1)).TotalSeconds)
             );
             /*x2c*/
-            GCIHeader.AddRange(Converter.gcBytes((UInt32)0x8000));
+            this.gciHeader.AddRange(Converter.GcBytes((UInt32)0x8000));
             /*x30*/
-            GCIHeader.AddRange(Converter.gcBytes((UInt16)0x0001)); // iconFormats
+            this.gciHeader.AddRange(Converter.GcBytes((UInt16)0x0001)); // iconFormats
             /*x32*/
-            GCIHeader.AddRange(Converter.gcBytes((UInt16)0x0002)); // iconAnimationSpeeds
+            this.gciHeader.AddRange(Converter.GcBytes((UInt16)0x0002)); // iconAnimationSpeeds
             /*x34*/
-            GCIHeader.Add(Converter.gcByte(0x04));
+            this.gciHeader.Add(Converter.GcByte(0x04));
             /*x35*/
-            GCIHeader.Add(Converter.gcByte(0x00));
+            this.gciHeader.Add(Converter.GcByte(0x00));
             /*x36*/
-            GCIHeader.AddRange(Converter.gcBytes((UInt16)0x00));
+            this.gciHeader.AddRange(Converter.GcBytes((UInt16)0x00));
             /*x38*/
-            GCIHeader.AddRange(Converter.gcBytes((UInt16)0x05)); // Actual num of blocks.
+            this.gciHeader.AddRange(Converter.GcBytes((UInt16)0x05)); // Actual num of blocks.
             /*x3A*/
-            GCIHeader.AddRange(Converter.gcBytes((UInt16)0xFFFF));
+            this.gciHeader.AddRange(Converter.GcBytes((UInt16)0xFFFF));
             /*x3C*/
-            GCIHeader.AddRange(Converter.gcBytes((UInt32)0x9400));
+            this.gciHeader.AddRange(Converter.GcBytes((UInt32)0x9400));
 
-
-            GCIFile.AddRange(GCIHeader);
-            GCIFile.AddRange(seedData);
-
-            //Pad
-            while (GCIFile.Count < (4 * 0x2000) + 0x40) // Pad to 4 blocks.
-                GCIFile.Add((byte)0x0);
-
-            // Add seed banner
-            GCIFile.AddRange(Properties.Resources.seedGciImageData);
-            GCIFile.AddRange(Converter.StringBytes("TPR 1.0 Seed Data", 0x20, regionCode));
-            GCIFile.AddRange(Converter.StringBytes(Randomizer.seedHash, 0x20, regionCode));
+            this.gciFile.AddRange(this.gciHeader);
+            this.gciFile.AddRange(seedData);
 
             // Pad
-            while (GCIFile.Count < (5 * 0x2000) + 0x40) // Pad to 5 blocks.
-                GCIFile.Add((byte)0x0);
+            while (this.gciFile.Count < (4 * 0x2000) + 0x40) // Pad to 4 blocks.
+                this.gciFile.Add((byte)0x0);
+
+            // Add seed banner
+            this.gciFile.AddRange(Properties.Resources.seedGciImageData);
+            this.gciFile.AddRange(Converter.StringBytes("TPR 1.0 Seed Data", 0x20, regionCode));
+            this.gciFile.AddRange(Converter.StringBytes(Randomizer.seedHash, 0x20, regionCode));
+
+            // Pad
+            while (this.gciFile.Count < (5 * 0x2000) + 0x40) // Pad to 5 blocks.
+                this.gciFile.Add((byte)0x0);
         }
     }
 }

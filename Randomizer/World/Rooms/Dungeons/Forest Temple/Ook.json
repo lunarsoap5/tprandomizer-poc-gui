@@ -5,7 +5,7 @@
     ],
     "neighbourRequirements":
     [
-        "canDefeatOok and Boomerang"
+        "CanDefeatOok and Boomerang"
     ],
     "checks": ["Forest Temple Gale Boomerang"], 
     "region": "Forest Temple"

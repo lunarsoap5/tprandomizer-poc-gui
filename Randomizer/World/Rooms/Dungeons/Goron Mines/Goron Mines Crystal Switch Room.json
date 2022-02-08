@@ -7,7 +7,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "((Iron_Boots and hasSword) or (Progressive_Bow, 1)) and (Goron_Mines_Small_Key, 2)"
+        "((Iron_Boots and HasSword) or (Progressive_Bow, 1)) and (Goron_Mines_Small_Key, 2)"
     ],
     "checks": 
     [

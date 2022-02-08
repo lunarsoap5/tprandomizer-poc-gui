@@ -7,7 +7,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "Lantern and canDefeatDinalfos"
+        "Lantern and CanDefeatDinalfos"
     ],
     "checks": [""], 
     "region": "Hyrule Castle"

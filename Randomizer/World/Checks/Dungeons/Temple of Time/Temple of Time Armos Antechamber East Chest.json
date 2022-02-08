@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatArmos",
+    "requirements": "CanDefeatArmos",
     "arcFileValues": [["D_MN06/R03_00.arc", "4B78C"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

@@ -1,5 +1,5 @@
 {
-    "requirements": "hasDamagingItem and (Arbiters_Grounds_Small_Key, 2)",
+    "requirements": "HasDamagingItem and (Arbiters_Grounds_Small_Key, 2)",
     "arcFileValues": [["D_MN10/R04_00.arc", "562B4"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

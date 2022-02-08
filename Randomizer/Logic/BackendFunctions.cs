@@ -1,35 +1,45 @@
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-
 namespace TPRandomizer
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using Newtonsoft.Json;
+
+    /// <summary>
+    /// summary text.
+    /// </summary>
     public class BackendFunctions
     {
         public static string settingsLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789";
 
-        //Encode the settings string.
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static string Base64Encode(string plainText)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
             return System.Convert.ToBase64String(plainTextBytes);
         }
 
-        //Decode the settings string.
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static string Base64Decode(string base64EncodedData)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
-        public static void interpretSettingsString(string settingsString)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static void InterpretSettingsString(string settingsString)
         {
-            //Convert the settings string into a binary string to be interpreted.
-            string bitString = textToBitString(Base64Decode(settingsString));
+            // Convert the settings string into a binary string to be interpreted.
+            string bitString = TextToBitString(Base64Decode(settingsString));
             List<byte> bits = new List<byte>();
             PropertyInfo[] randoSettingProperties = Randomizer.RandoSetting
                 .GetType()
@@ -39,7 +49,7 @@ namespace TPRandomizer
                 .GetProperties();
             foreach (PropertyInfo settingProperty in randoSettingProperties)
             {
-                string evaluatedByteString = "";
+                string evaluatedByteString = string.Empty;
                 int settingBitWidth = 0;
                 bool reachedEndofList = false;
                 if (settingProperty.PropertyType == typeof(bool))
@@ -53,18 +63,21 @@ namespace TPRandomizer
                     {
                         settingProperty.SetValue(Randomizer.RandoSetting, false, null);
                     }
+
                     bitString = bitString.Remove(0, 1);
                 }
+
                 if (settingProperty.PropertyType == typeof(string))
                 {
-                    //We loop through the Settings Data to match the index with the appropriate value.
+                    // We loop through the Settings Data to match the index with the appropriate value.
                     foreach (PropertyInfo dataProperty in settingDataProperties)
                     {
                         var dataValue = dataProperty.GetValue(Randomizer.RandoSettingData, null);
                         if (settingProperty.Name == dataProperty.Name)
                         {
                             settingBitWidth = 4;
-                            //We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
+
+                            // We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
                             for (int j = 0; j < settingBitWidth; j++)
                             {
                                 evaluatedByteString = evaluatedByteString + bitString[0];
@@ -81,25 +94,30 @@ namespace TPRandomizer
                         }
                     }
                 }
+
                 if (settingProperty.PropertyType == typeof(int))
                 {
                     settingBitWidth = 4;
-                    //We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
+
+                    // We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
                     for (int j = 0; j < settingBitWidth; j++)
                     {
                         evaluatedByteString = evaluatedByteString + bitString[0];
                         bitString = bitString.Remove(0, 1);
                     }
+
                     settingProperty.SetValue(
                         Randomizer.RandoSetting,
                         Convert.ToInt32(evaluatedByteString, 2),
                         null
                     );
                 }
+
                 if (settingProperty.PropertyType == typeof(List<Item>))
                 {
                     List<Item> startingItems = new List<Item>();
-                    //We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
+
+                    // We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
                     settingBitWidth = 9;
                     while (!reachedEndofList)
                     {
@@ -109,7 +127,7 @@ namespace TPRandomizer
                             bitString = bitString.Remove(0, 1);
                         }
                         int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
-                        if (itemIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
+                        if (itemIndex != 511) // Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
                             foreach (Item item in Randomizer.Items.ImportantItems)
                             {
@@ -124,14 +142,18 @@ namespace TPRandomizer
                         {
                             reachedEndofList = true;
                         }
+
                         evaluatedByteString = "";
                     }
+
                     settingProperty.SetValue(Randomizer.RandoSetting, startingItems, null);
                 }
+
                 if (settingProperty.PropertyType == typeof(List<string>))
                 {
                     List<string> excludedChecks = new List<string>();
-                    //We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
+
+                    // We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
                     settingBitWidth = 9;
                     while (!reachedEndofList)
                     {
@@ -140,6 +162,7 @@ namespace TPRandomizer
                             evaluatedByteString = evaluatedByteString + bitString[0];
                             bitString = bitString.Remove(0, 1);
                         }
+
                         int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
                         if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
@@ -151,10 +174,13 @@ namespace TPRandomizer
                         {
                             reachedEndofList = true;
                         }
-                        evaluatedByteString = "";
+
+                        evaluatedByteString = string.Empty;
                     }
+
                     settingProperty.SetValue(Randomizer.RandoSetting, excludedChecks, null);
                 }
+
                 Console.WriteLine(
                     settingProperty.Name
                         + ": "
@@ -171,21 +197,28 @@ namespace TPRandomizer
                     Check currentCheck = checkList.Value;
                     if (excludedCheck == currentCheck.checkName)
                     {
-                        currentCheck.isExcluded = true;
+                        currentCheck.checkStatus = "Excluded";
                         Randomizer.Checks.CheckDict[currentCheck.checkName] = currentCheck;
                     }
                 }
             }
+
             return;
         }
 
-        public static char index_to_letter(int index)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static char IndexToLetter(int index)
         {
             char c = settingsLetters[index];
             return c;
         }
 
-        public static int letter_to_index(char letter)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static int LetterToIndex(char letter)
         {
             for (int i = 0; i < settingsLetters.Length; i++)
             {
@@ -194,13 +227,18 @@ namespace TPRandomizer
                     return i;
                 }
             }
+
             return 0;
         }
 
-        public static string bitStringToText(string bits)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static string BitStringToText(string bits)
         {
-            string result = "";
-            //Pad the string to a value of 5
+            string result = string.Empty;
+
+            // Pad the string to a value of 5
             while (bits.Length % 5 != 0)
             {
                 bits = bits + "0";
@@ -208,40 +246,49 @@ namespace TPRandomizer
 
             for (int i = 0; i < bits.Length; i += 5)
             {
-                string value = "";
+                string value = string.Empty;
                 for (int j = 0; j < 5; j++)
                 {
                     value = value + bits[i + j];
                 }
+
                 int byteValue = Convert.ToInt32(value, 2);
-                result += index_to_letter(byteValue);
+                result += IndexToLetter(byteValue);
             }
+
             return result;
         }
 
-        public static string textToBitString(string text)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static string TextToBitString(string text)
         {
-            string byteToBinary = "";
+            string byteToBinary = string.Empty;
             foreach (char c in text)
             {
-                int index = letter_to_index(c);
+                int index = LetterToIndex(c);
                 byteToBinary = byteToBinary + Convert.ToString(index, 2).PadLeft(5, '0');
             }
             while (byteToBinary.Length % 5 != 0)
             {
                 byteToBinary.TrimEnd('0');
             }
+
             Console.WriteLine("Read in settings string: " + byteToBinary);
             return byteToBinary;
         }
 
-        static bool validatePlaythrough(Room startingRoom)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        private static bool ValidatePlaythrough(Room startingRoom)
         {
             bool areAllChecksReachable = true;
             bool areAllRoomsReachable = true;
             Random rnd = new Random();
             List<Item> playthroughItems = new List<Item>();
-            //Console.WriteLine("Item to place: " + itemToPlace);
+            // Console.WriteLine("Item to place: " + itemToPlace);
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
                 Check currentCheck = checkList.Value;
@@ -249,21 +296,21 @@ namespace TPRandomizer
                 Randomizer.Checks.CheckDict[currentCheck.checkName] = currentCheck;
             }
 
-            //Walk through the current graph and get a list of rooms that we can currently access
-            //If we collect any items during the playthrough, we add them to the player's inventory
-            //and try walking through the graph again until we have collected every item that we can.
+            // Walk through the current graph and get a list of rooms that we can currently access
+            // If we collect any items during the playthrough, we add them to the player's inventory
+            // and try walking through the graph again until we have collected every item that we can.
             do
             {
                 playthroughItems.Clear();
-                List<Room> currentPlaythroughGraph = Randomizer.generatePlaythroughGraph(
+                List<Room> currentPlaythroughGraph = Randomizer.GeneratePlaythroughGraph(
                     startingRoom
                 );
                 foreach (Room graphRoom in currentPlaythroughGraph)
                 {
-                    //Console.WriteLine("Currently Exploring: " + graphRoom.name);
+                    // Console.WriteLine("Currently Exploring: " + graphRoom.name);
                     for (int i = 0; i < graphRoom.checks.Count(); i++)
                     {
-                        //Create reference to the dictionary entry of the check whose logic we are evaluating
+                        // Create reference to the dictionary entry of the check whose logic we are evaluating
                         Check currentCheck;
                         if (
                             !Randomizer.Checks.CheckDict.TryGetValue(
@@ -274,29 +321,31 @@ namespace TPRandomizer
                         {
                             if (graphRoom.checks[i].ToString() == "")
                             {
-                                //Console.WriteLine("Room has no checks, continuing on....");
+                                // Console.WriteLine("Room has no checks, continuing on....");
                                 break;
                             }
                         }
                         if (!currentCheck.hasBeenReached)
                         {
-                            var areCheckRequirementsMet = Randomizer.Logic.evaluateRequirements(
+                            var areCheckRequirementsMet = Randomizer.Logic.EvaluateRequirements(
                                 currentCheck.requirements
                             );
-                            if (((bool)areCheckRequirementsMet == true))
+                            if ((bool)areCheckRequirementsMet == true)
                             {
                                 if (currentCheck.itemWasPlaced)
                                 {
                                     playthroughItems.Add(currentCheck.itemId);
-                                    //Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
+                                    // Console.WriteLine("Added " + currentCheck.itemId + " to item list.");
                                 }
+
                                 currentCheck.hasBeenReached = true;
                             }
                         }
                     }
                 }
+
                 Randomizer.Items.heldItems.AddRange(playthroughItems);
-            } while (playthroughItems.Count() > 0);
+            } while (playthroughItems.Count > 0);
 
             foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
@@ -307,6 +356,7 @@ namespace TPRandomizer
                     Console.WriteLine(listedCheck.checkName + " is not reachable!");
                 }
             }
+
             foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
             {
                 Room currentRoom = roomList.Value;
@@ -316,6 +366,7 @@ namespace TPRandomizer
                     Console.WriteLine(currentRoom.name + " is not reachable!");
                 }
             }
+
             if (areAllChecksReachable && areAllRoomsReachable)
             {
                 return true;
@@ -326,7 +377,10 @@ namespace TPRandomizer
             }
         }
 
-        static List<string> calculateOptimalPlaythrough(Room startingRoom)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        private static List<string> CalculateOptimalPlaythrough(Room startingRoom)
         {
             bool hasCompletedSphere;
             Check currentCheck;
@@ -358,20 +412,21 @@ namespace TPRandomizer
                 while (!Randomizer.Rooms.RoomDict["Ganondorf Castle"].visited)
                 {
                     hasCompletedSphere = false;
-                    currentPlaythroughGraph = Randomizer.generatePlaythroughGraph(startingRoom);
+                    currentPlaythroughGraph = Randomizer.GeneratePlaythroughGraph(startingRoom);
                     currentPlaythrough.Add("Sphere: " + sphereCount);
-                    //Walk through the current graph and get a list of rooms that we can currently access
-                    //If we collect any items during the playthrough, we add them to the player's inventory
-                    //and try walking through the graph again until we have collected every item that we can.
+
+                    // Walk through the current graph and get a list of rooms that we can currently access
+                    // If we collect any items during the playthrough, we add them to the player's inventory
+                    // and try walking through the graph again until we have collected every item that we can.
                     do
                     {
                         playthroughItems.Clear();
                         foreach (Room graphRoom in currentPlaythroughGraph)
                         {
-                            //Console.WriteLine("Currently Exploring: " + graphRoom.name);
+                            // Console.WriteLine("Currently Exploring: " + graphRoom.name);
                             for (int i = 0; i < graphRoom.checks.Count(); i++)
                             {
-                                //Create reference to the dictionary entry of the check whose logic we are evaluating
+                                // Create reference to the dictionary entry of the check whose logic we are evaluating
                                 if (
                                     !Randomizer.Checks.CheckDict.TryGetValue(
                                         graphRoom.checks[i],
@@ -381,7 +436,7 @@ namespace TPRandomizer
                                 {
                                     if (graphRoom.checks[i].ToString() == "")
                                     {
-                                        //Console.WriteLine("Room has no checks, continuing on....");
+                                        // Console.WriteLine("Room has no checks, continuing on....");
                                         break;
                                     }
                                 }
@@ -389,10 +444,10 @@ namespace TPRandomizer
                                 if (!currentCheck.hasBeenReached)
                                 {
                                     var areCheckRequirementsMet =
-                                        Randomizer.Logic.evaluateRequirements(
+                                        Randomizer.Logic.EvaluateRequirements(
                                             currentCheck.requirements
                                         );
-                                    if (((bool)areCheckRequirementsMet == true))
+                                    if ((bool)areCheckRequirementsMet == true)
                                     {
                                         playthroughItems.Add(currentCheck.itemId);
                                         currentCheck.hasBeenReached = true;
@@ -424,7 +479,7 @@ namespace TPRandomizer
                             }
                         }
                         Randomizer.Items.heldItems.AddRange(playthroughItems);
-                    } while (playthroughItems.Count() > 0);
+                    } while (playthroughItems.Count > 0);
 
                     sphereCount++;
                     if (hasCompletedSphere == false)
@@ -448,23 +503,27 @@ namespace TPRandomizer
             return listofPlaythroughs[shortestPlaythrough];
         }
 
-        public static void generateSpoilerLog(Room startingRoom)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static void GenerateSpoilerLog(Room startingRoom, string seedHash)
         {
             Check currentCheck;
             bool isPlaythroughValid;
             Random rnd = new Random();
             Randomizer.Items.GenerateItemPool();
 
-            string fileHash = "TPR-v1.0-" + Randomizer.seedHash + ".txt";
-            //Once everything is complete, we want to write the results to a spoiler log.
-            using (StreamWriter file = new(fileHash))
+            string fileHash = "TPR-v1.0-" + seedHash + ".txt";
+
+            // Once everything is complete, we want to write the results to a spoiler log.
+            using (StreamWriter file = new (fileHash))
             {
                 file.WriteLine("Randomizer Version: 1.0b");
                 file.WriteLine("Settings: ");
                 file.WriteLine(
                     JsonConvert.SerializeObject(Randomizer.RandoSetting, Formatting.Indented)
                 );
-                file.WriteLine("");
+                file.WriteLine(string.Empty);
                 file.WriteLine("Item Locations: ");
                 foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
                 {
@@ -478,11 +537,12 @@ namespace TPRandomizer
                         Console.WriteLine("Check: " + currentCheck.checkName + " has no item.");
                     }
                 }
-                file.WriteLine("");
-                file.WriteLine("");
-                file.WriteLine("");
+
+                file.WriteLine(string.Empty);
+                file.WriteLine(string.Empty);
+                file.WriteLine(string.Empty);
                 file.WriteLine("Playthrough: ");
-                isPlaythroughValid = validatePlaythrough(startingRoom);
+                isPlaythroughValid = ValidatePlaythrough(startingRoom);
                 if (isPlaythroughValid)
                 {
                     Console.WriteLine("Playthrough Validated");
@@ -491,7 +551,8 @@ namespace TPRandomizer
                 {
                     Console.WriteLine("ERROR. Seed not beatable");
                 }
-                List<string> optimalPlaythrough = calculateOptimalPlaythrough(startingRoom);
+
+                List<string> optimalPlaythrough = CalculateOptimalPlaythrough(startingRoom);
                 optimalPlaythrough.ForEach(
                     delegate (string playthroughItem)
                     {
@@ -502,7 +563,10 @@ namespace TPRandomizer
             }
         }
 
-        public static byte[,] concatFlagArrays(byte[,] destArray, byte[,] sourceArray)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        public static byte[,] ConcatFlagArrays(byte[,] destArray, byte[,] sourceArray)
         {
             byte[,] array3 = new byte[
                 destArray.GetLength(0) + sourceArray.GetLength(0),
@@ -514,12 +578,14 @@ namespace TPRandomizer
                 array3[i, 0] = destArray[i, 0];
                 array3[i, 1] = destArray[i, 1];
             }
+
             for (int i = destArray.GetLength(0); i < array3.GetLength(0); i++)
             {
                 array3[i, 0] = sourceArray[j, 0];
                 array3[i, 1] = sourceArray[j, 1];
                 j++;
             }
+
             return array3;
         }
 
@@ -527,43 +593,47 @@ namespace TPRandomizer
         {
             int i = 0;
 
-            //UInt64 used since that is the biggest possible value we can return.
-            //Using an unsigned type is important - otherwise an arithmetic overflow will result
+            // UInt64 used since that is the biggest possible value we can return.
+            // Using an unsigned type is important - otherwise an arithmetic overflow will result
             UInt64 block = 0;
 
-            //Run through all the bytes
+            // Run through all the bytes
             while (i < inputAsBytes.Length)
             {
-                //Keep stacking them side by side by shifting left and OR-ing
+                // Keep stacking them side by side by shifting left and OR-ing
                 block = block << 8 | inputAsBytes[i];
 
                 i++;
 
-                //Return a block whenever we meet a boundary
+                // Return a block whenever we meet a boundary
                 if (i % blockSize == 0 || i == inputAsBytes.Length)
                 {
                     yield return block;
 
-                    //Set to 0 for next iteration
+                    // Set to 0 for next iteration
                     block = 0;
                 }
             }
         }
 
-        //Generates a Fletcher 16,32,or 64 based on an input string
-        //https://regularcoder.wordpress.com/2014/01/04/fletchers-checksum-in-c/
+        // Generates a Fletcher 16,32,or 64 based on an input string
+        // https://regularcoder.wordpress.com/2014/01/04/fletchers-checksum-in-c/
+
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static UInt64 GetChecksum(String inputWord, int n)
         {
-            //Fletcher 16: Read a single byte
-            //Fletcher 32: Read a 16 bit block (two bytes)
-            //Fletcher 64: Read a 32 bit block (four bytes)
+            // Fletcher 16: Read a single byte
+            // Fletcher 32: Read a 16 bit block (two bytes)
+            // Fletcher 64: Read a 32 bit block (four bytes)
             int bytesPerCycle = n / 16;
 
-            //2^x gives max value that can be stored in x bits
-            //no of bits here is 8 * bytesPerCycle (8 bits to a byte)
+            // 2^x gives max value that can be stored in x bits
+            // no of bits here is 8 * bytesPerCycle (8 bits to a byte)
             UInt64 modValue = (UInt64)(Math.Pow(2, 8 * bytesPerCycle) - 1);
 
-            //ASCII encoding conveniently gives us 1 byte per character
+            // ASCII encoding conveniently gives us 1 byte per character
             byte[] inputAsBytes = Encoding.ASCII.GetBytes(inputWord);
 
             UInt64 sum1 = 0;

@@ -5,9 +5,17 @@ namespace TPRandomizer.Assets
     using System.Linq;
     using System.Text;
 
-    class Converter
+    /// <summary>
+    /// text.
+    /// </summary>
+    internal class Converter
     {
-        public static byte gcByte(int x)
+        /// <summary>
+        /// text.
+        /// </summary>
+        /// <param name="x">The number you want to convert.</param>
+        /// <returns> The inserted value as a byte. </returns>
+        public static byte GcByte(int x)
         {
             return (byte)x;
         }
@@ -16,8 +24,8 @@ namespace TPRandomizer.Assets
         /// Returns x as BigEndian (GC).
         /// </summary>
         /// <param name="x">The number you want to convert.</param>
-
-        public static byte[] gcBytes(UInt64 x)
+        /// <returns> The inserted value as a Big Endian byte. </returns>
+        public static byte[] GcBytes(UInt64 x)
         {
             var bytes = BitConverter.GetBytes(x);
             Array.Reverse(bytes);
@@ -25,7 +33,12 @@ namespace TPRandomizer.Assets
             return bytes;
         }
 
-        public static byte[] gcBytes(UInt32 x)
+        /// <summary>
+        /// text.
+        /// </summary>
+        /// <param name="x">The number you want to convert.</param>
+        /// <returns> The inserted value as a byte. </returns>
+        public static byte[] GcBytes(UInt32 x)
         {
             var bytes = BitConverter.GetBytes(x);
             Array.Reverse(bytes);
@@ -33,7 +46,12 @@ namespace TPRandomizer.Assets
             return bytes;
         }
 
-        public static byte[] gcBytes(UInt16 x)
+        /// <summary>
+        /// text.
+        /// </summary>
+        /// <param name="x">The number you want to convert.</param>
+        /// <returns> The inserted value as a byte. </returns>
+        public static byte[] GcBytes(UInt16 x)
         {
             var bytes = BitConverter.GetBytes(x);
             Array.Reverse(bytes);
@@ -41,7 +59,12 @@ namespace TPRandomizer.Assets
             return bytes;
         }
 
-        public static byte[] gcBytes(Int32 x)
+        /// <summary>
+        /// text.
+        /// </summary>
+        /// <param name="x">The number you want to convert.</param>
+        /// <returns> The inserted value as a byte. </returns>
+        public static byte[] GcBytes(Int32 x)
         {
             var bytes = BitConverter.GetBytes(x);
             Array.Reverse(bytes);
@@ -49,7 +72,12 @@ namespace TPRandomizer.Assets
             return bytes;
         }
 
-        public static byte[] gcBytes(Int16 x)
+        /// <summary>
+        /// text.
+        /// </summary>
+        /// <param name="x">The number you want to convert.</param>
+        /// <returns> The inserted value as a byte. </returns>
+        public static byte[] GcBytes(Int16 x)
         {
             var bytes = BitConverter.GetBytes(x);
             Array.Reverse(bytes);
@@ -87,8 +115,10 @@ namespace TPRandomizer.Assets
         }
 
         /// <summary>
-        /// summary text.
+        /// text.
         /// </summary>
+        /// <param name="text">The number you want to convert.</param>
+        /// <returns> The inserted value as a byte. </returns>
         public static byte StringBytes(char text)
         {
             return (byte)text;

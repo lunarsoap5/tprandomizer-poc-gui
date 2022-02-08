@@ -7,7 +7,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "canDefeatWalltula and canDefeatBokoblin and canBreakMonkeyCage"
+        "CanDefeatWalltula and CanDefeatBokoblin and canBreakMonkeyCage"
     ],
     "checks": 
     [

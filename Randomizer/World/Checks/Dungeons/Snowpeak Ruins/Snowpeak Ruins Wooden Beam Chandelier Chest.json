@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatChilfos and Snowpeak_Ruins_Ordon_Goat_Cheese and Ball_and_Chain",
+    "requirements": "CanDefeatChilfos and Snowpeak_Ruins_Ordon_Goat_Cheese and Ball_and_Chain",
     "arcFileValues": [["D_MN11/R08_00.arc", "599A0"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

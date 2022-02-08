@@ -9,7 +9,7 @@
     [
         "Shadow_Crystal or Ball_and_Chain",
         "Ball_and_Chain",
-        "(Snowpeak_Ruins_Small_Key, 4) and canDefeatMiniFreezard"
+        "(Snowpeak_Ruins_Small_Key, 4) and CanDefeatMiniFreezard"
     ],
     "checks": 
     [

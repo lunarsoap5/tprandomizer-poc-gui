@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatArmogohma",
+    "requirements": "CanDefeatArmogohma",
     "moduleID": "5B",
     "stageIDX": 10,
     "offsets": ["1880"],

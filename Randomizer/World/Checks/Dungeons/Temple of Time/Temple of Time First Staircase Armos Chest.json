@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatArmos and hasRangedItem",
+    "requirements": "CanDefeatArmos and hasRangedItem",
     "arcFileValues": [["D_MN06/R01_00.arc", "41EB8"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

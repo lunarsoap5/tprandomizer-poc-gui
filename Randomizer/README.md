@@ -42,7 +42,7 @@ To take it to a much farther step. We now want the check to have the following r
 
 After using the above guide and looking at function, item, room, and setting definitions: we would come up with the following:
 ```
-(Progressive_Sword, 3) and Lantern and (Room.Diababa and canDefeatDiababa) and ((Progressive_Clawshot, 1) or Boomerang) and Setting.faronWoodsLogic equals Closed
+(Progressive_Sword, 3) and Lantern and (Room.Diababa and CanDefeatDiababa) and ((Progressive_Clawshot, 1) or Boomerang) and Setting.faronWoodsLogic equals Closed
 ```
 If you have any other questions about writing logic, please ask in the discord or message me personally 
 - Lunar Soap

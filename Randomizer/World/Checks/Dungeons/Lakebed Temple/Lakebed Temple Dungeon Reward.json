@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatMorpheel",
+    "requirements": "CanDefeatMorpheel",
     "moduleID": "5B",
     "stageIDX": 1,
     "offsets": ["1880"],

@@ -7,6 +7,9 @@ namespace TPRandomizer
     /// </summary>
     public class HashAssets
     {
+        /// <summary>
+        /// summary text.
+        /// </summary>
         public static List<string> characterNames = new List<string>()
         {
             "Link",

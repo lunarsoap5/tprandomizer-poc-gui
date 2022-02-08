@@ -7,7 +7,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "(Palace_of_Twilight_Small_Key, 7) and canDefeatZantHead and (Progressive_Sword, 4) and Palace_of_Twilight_Big_Key and canDefeatShadowBeast"
+        "(Palace_of_Twilight_Small_Key, 7) and CanDefeatZantHead and (Progressive_Sword, 4) and Palace_of_Twilight_Big_Key and CanDefeatShadowBeast"
     ],
     "checks": 
     [

@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatBombling or canBurnWebs",
+    "requirements": "CanDefeatBombling or canBurnWebs",
     "arcFileValues": [["D_MN05/R01_00.arc", "7ED54"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

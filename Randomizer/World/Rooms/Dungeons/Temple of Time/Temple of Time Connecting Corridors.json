@@ -7,7 +7,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "hasRangedItem and canDefeatYoungGohma and canDefeatLizalfos"
+        "hasRangedItem and CanDefeatYoungGohma and CanDefeatLizalfos"
     ],
     "checks": 
     [

@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatDarkhammer",
+    "requirements": "CanDefeatDarkhammer",
     "moduleID": "ED",
     "stageIDX": 29,
     "offsets": ["2CB4"],

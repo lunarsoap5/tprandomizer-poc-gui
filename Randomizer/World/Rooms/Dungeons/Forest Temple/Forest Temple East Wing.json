@@ -7,7 +7,7 @@
     "neighbourRequirements":
     [
         "true",
-        "canBurnWebs or canDefeatBombling"
+        "canBurnWebs or CanDefeatBombling"
     ],
     "checks": 
     [

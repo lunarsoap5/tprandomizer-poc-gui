@@ -9,7 +9,7 @@
     [
         "true",
         "(Goron_Mines_Small_Key, 3)",
-        "(Progressive_Bow, 1) and Iron_Boots and canDefeatBulblin and Goron_Mines_Big_Key"
+        "(Progressive_Bow, 1) and Iron_Boots and CanDefeatBulblin and Goron_Mines_Big_Key"
     ],
     "checks": 
     [

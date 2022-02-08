@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal or hasSword or canSmash",
+    "requirements": "Shadow_Crystal or HasSword or canSmash",
     "arcFileValues": [["D_MN10/R00_00.arc", "6337C"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

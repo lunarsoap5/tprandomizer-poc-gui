@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatWalltula",
+    "requirements": "CanDefeatWalltula",
     "arcFileValues": [["D_MN05/R22_00.arc", "86960"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

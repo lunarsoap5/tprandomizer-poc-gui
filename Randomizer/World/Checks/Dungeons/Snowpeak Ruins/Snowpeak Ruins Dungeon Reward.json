@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatBlizzeta",
+    "requirements": "CanDefeatBlizzeta",
     "moduleID": "5B",
     "stageIDX": 28,
     "offsets": ["1880"],

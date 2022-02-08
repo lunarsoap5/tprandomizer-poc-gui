@@ -5,7 +5,7 @@
     ],
     "neighbourRequirements":
     [
-        "canDefeatDarknut and (Progressive_Dominion_Rod, 1)"
+        "CanDefeatDarknut and (Progressive_Dominion_Rod, 1)"
     ],
     "checks": 
     [

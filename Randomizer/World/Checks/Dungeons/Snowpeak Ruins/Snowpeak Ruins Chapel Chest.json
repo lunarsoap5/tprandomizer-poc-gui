@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatChilfos",
+    "requirements": "CanDefeatChilfos",
     "arcFileValues": [["D_MN11/R11_00.arc", "62034"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

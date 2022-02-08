@@ -1,5 +1,5 @@
 {
-    "requirements": "(canDefeatBombling or canBurnWebs) and Boomerang",
+    "requirements": "(CanDefeatBombling or canBurnWebs) and Boomerang",
     "arcFileValues": [["D_MN05/R01_00.arc", "7ED74"]],
     "fileDirectoryType": [0],
     "replacementType": [0],

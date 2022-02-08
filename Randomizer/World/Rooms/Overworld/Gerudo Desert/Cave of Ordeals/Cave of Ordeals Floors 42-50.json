@@ -5,7 +5,7 @@
     ],
     "neighbourRequirements":
     [
-        "canDefeatArmos and (Progressive_Clawshot, 2) and canDefeatBokoblin and canDefeatBabaSerpent and canDefeatLizalfos and canDefeatBulblin and canDefeatDinalfos and canDefeatPoe and canDefeatRedeadKnight and canDefeatChu and canDefeatFreezard and canDefeatChilfos and canDefeatGhoulRat and canDefeatRat and canDefeatStalchild and canDefeatAeralfos and canDefeatDarknut"
+        "CanDefeatArmos and (Progressive_Clawshot, 2) and CanDefeatBokoblin and CanDefeatBabaSerpent and CanDefeatLizalfos and CanDefeatBulblin and CanDefeatDinalfos and CanDefeatPoe and CanDefeatRedeadKnight and CanDefeatChu and CanDefeatFreezard and CanDefeatChilfos and CanDefeatGhoulRat and CanDefeatRat and CanDefeatStalchild and CanDefeatAeralfos and CanDefeatDarknut"
     ],
     "checks": 
     [

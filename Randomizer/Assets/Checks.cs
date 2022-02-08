@@ -3,16 +3,15 @@ namespace TPRandomizer
     using System.Collections.Generic;
 
     /// <summary>
-    /// summary text.
+    /// Identifies the basic structure containing multiple fields used to identify a check in the randomizer..
     /// </summary>
     public class Check
     {
-        // For seed generation purposes only.
         public string checkName { get; set; } // The common name for the check this can be used in the randomizer to identify the check."
 
         public string requirements { get; set; } // List of requirements to obtain this check while inside the room (so does not include the items needed to enter the room)
 
-        public bool isExcluded { get; set; } // Identifies if the check is excluded or not. We can write the randomizer to not place important items in excluded checks
+        public string checkStatus { get; set; } // Identifies if the check is excluded or not. We can write the randomizer to not place important items in excluded checks
 
         public List<string> category { get; set; } // Allows grouping of checks to make it easier to randomize them based on their type, region, exclusion status, etc.
 
@@ -51,21 +50,21 @@ namespace TPRandomizer
     }
 
     /// <summary>
-    /// summary text.
+    /// Contains function and structure definitions for all usages related to the Check class.
     /// </summary>
     public class CheckFunctions
     {
+        /// <summary>
+        /// A dictionary of all randomizer locations.
+        /// </summary>
         public Dictionary<string, Check> CheckDict = new Dictionary<string, Check>();
 
-        public List<string> vanillaChecks = new List<string>();
 
         /// <summary>
         /// summary text.
         /// </summary>
         public void GenerateCheckList()
         {
-            Randomizer.Checks.vanillaChecks.Clear();
-
             RandomizerSetting parseSetting = Randomizer.RandoSetting;
             foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
             {
@@ -74,18 +73,18 @@ namespace TPRandomizer
                 {
                     if ((parseSetting.smallKeySettings == "Vanilla") && currentCheck.category.Contains("Small Key"))
                     {
-                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                        currentCheck.checkStatus = "Vanilla";
                     }
 
                     if ((parseSetting.bossKeySettings == "Vanilla") && currentCheck.category.Contains("Big Key"))
                     {
-                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                        currentCheck.checkStatus = "Vanilla";
                     }
 
                     if ((parseSetting.mapAndCompassSettings == "Vanilla") && (currentCheck.category.Contains("Dungeon Map")
                         || currentCheck.category.Contains("Compass")))
                     {
-                        Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                        currentCheck.checkStatus = "Vanilla";
                     }
 
                     if (!parseSetting.npcItemsShuffled)
@@ -97,7 +96,7 @@ namespace TPRandomizer
                                 Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                             }
 
-                            Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                            currentCheck.checkStatus = "Vanilla";
                         }
                     }
 
@@ -105,7 +104,7 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Poe"))
                         {
-                            Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                            currentCheck.checkStatus = "Vanilla";
                         }
                     }
 
@@ -113,7 +112,7 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Golden Bug"))
                         {
-                            Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                            currentCheck.checkStatus = "Vanilla";
                         }
                     }
 
@@ -121,13 +120,13 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Hidden Skill"))
                         {
-                            Randomizer.Checks.vanillaChecks.Add(currentCheck.checkName);
+                            currentCheck.checkStatus = "Vanilla";
                         }
                     }
                 }
                 else
                 {
-                    currentCheck.isExcluded = true;
+                    currentCheck.checkStatus = "Excluded";
                 }
             }
 
@@ -135,25 +134,25 @@ namespace TPRandomizer
             {
                 // We want to set Uli Cradle Delivery vanilla if intro is not skipped since a Fishing Rod has to be there in order to progress the seed.
                 // We also place the Lantern vanilla because it is a big logic hole and since we don't know how to make coro give both items in one state yet, it's safer to do this.
-                Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkName);
+                Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
-                Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Coro Lantern"].checkName);
+                Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
-                Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Ordon Sword"].checkName);
+                Randomizer.Checks.CheckDict["Ordon Sword"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Sword"].itemId);
-                Randomizer.Checks.vanillaChecks.Add(Randomizer.Checks.CheckDict["Ordon Shield"].checkName);
+                Randomizer.Checks.CheckDict["Ordon Shield"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Shield"].itemId);
             }
             else
             {
-                Randomizer.Checks.CheckDict["Uli Cradle Delivery"].isExcluded = true;
-                Randomizer.Checks.CheckDict["Ordon Sword"].isExcluded = true;
-                Randomizer.Checks.CheckDict["Ordon Shield"].isExcluded = true;
-                Randomizer.Checks.CheckDict["Coro Lantern"].isExcluded = true;
+                Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Excluded";
+                Randomizer.Checks.CheckDict["Ordon Sword"].checkStatus = "Excluded";
+                Randomizer.Checks.CheckDict["Ordon Shield"].checkStatus = "Excluded";
+                Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Excluded";
             }
 
             // Excluded until we figure out how to fix this chest.
-            Randomizer.Checks.CheckDict["Flight By Fowl Top Platform Chest"].isExcluded = true;
+            Randomizer.Checks.CheckDict["Flight By Fowl Top Platform Chest"].checkStatus = "Excluded";
         }
     }
 }

@@ -7,7 +7,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "Iron_Boots and canDefeatDangoro and (Progressive_Bow, 1)"
+        "Iron_Boots and CanDefeatDangoro and (Progressive_Bow, 1)"
     ],
     "checks": 
     [

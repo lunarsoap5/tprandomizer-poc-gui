@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatBubble and canDefeatFireBubble and canDefeatIceBubble",
+    "requirements": "CanDefeatBubble and CanDefeatFireBubble and CanDefeatIceBubble",
     "hash": "6D05",
     "stageIDX": 38,
     "dzxTag": "TRES",

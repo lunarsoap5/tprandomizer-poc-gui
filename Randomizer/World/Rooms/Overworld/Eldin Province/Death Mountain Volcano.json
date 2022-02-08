@@ -7,7 +7,7 @@
     "neighbourRequirements": 
     [
         "true",
-        "Iron_Boots and canDefeatGoron"
+        "Iron_Boots and CanDefeatGoron"
     ],
     "checks": [""], 
     "region": "Eldin Province"

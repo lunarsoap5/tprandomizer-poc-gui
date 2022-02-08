@@ -10,8 +10,8 @@
     [
         "true",
         "(Hyrule_Castle_Small_Key, 1)",
-        "canDefeatBokoblin and canDefeatKargarok",
-        "canDefeatBokoblin and canDefeatKargarok"
+        "CanDefeatBokoblin and CanDefeatKargarok",
+        "CanDefeatBokoblin and CanDefeatKargarok"
     ],
     "checks": [""], 
     "region": "Hyrule Castle"

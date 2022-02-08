@@ -1,5 +1,5 @@
 {
-    "requirements": "canDefeatFyrus",
+    "requirements": "CanDefeatFyrus",
     "stageIdx": 4,
     "category": ["Heart Container", "Dungeon", "Goron Mines", "Boss"],
     "itemId": "Heart_Container"

@@ -5,7 +5,7 @@
     ],
     "neighbourRequirements":
     [
-        "canDefeatArmogohma"
+        "CanDefeatArmogohma"
     ],
     "checks": 
     [

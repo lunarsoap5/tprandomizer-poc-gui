@@ -1,5 +1,5 @@
 {
-    "requirements": "Spinner and Arbiters_Grounds_Big_Key and canDefeatStallord",
+    "requirements": "Spinner and Arbiters_Grounds_Big_Key and CanDefeatStallord",
     "moduleID": "5B",
     "stageIDX": 25,
     "offsets": ["1880"],
