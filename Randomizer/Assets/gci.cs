@@ -41,7 +41,7 @@ namespace TPRandomizer.Assets
         /// <param name="seedRegion">The region of the game that the seed is being generated for.</param>
         /// <param name="seedData">Any data that needs to be read into the GCI file.</param>
         /// <returns> The inserted value as a byte. </returns>
-        public Gci(byte seedNumber = 0, string seedRegion = "NTSC", List<byte> seedData = null)
+        public Gci(byte seedNumber = 0, string seedRegion = "NTSC", List<byte> seedData = null, string seedHash = "")
         {
             char regionCode;
             switch (seedRegion)
@@ -107,7 +107,7 @@ namespace TPRandomizer.Assets
             // Add seed banner
             this.gciFile.AddRange(Properties.Resources.seedGciImageData);
             this.gciFile.AddRange(Converter.StringBytes("TPR 1.0 Seed Data", 0x20, regionCode));
-            this.gciFile.AddRange(Converter.StringBytes(Randomizer.seedHash, 0x20, regionCode));
+            this.gciFile.AddRange(Converter.StringBytes(seedHash, 0x20, regionCode));
 
             // Pad
             while (this.gciFile.Count < (5 * 0x2000) + 0x40) // Pad to 5 blocks.

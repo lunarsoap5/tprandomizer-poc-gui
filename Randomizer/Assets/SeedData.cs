@@ -101,7 +101,7 @@ namespace TPRandomizer.Assets
             var gci = new Gci(
                 (byte)randomizerSettings.seedNumber,
                 randomizerSettings.gameRegion,
-                currentSeedData);
+                currentSeedData, seedHash);
             string fileHash = "TPR-v1.0-" + seedHash + "-Seed-Data.gci";
             File.WriteAllBytes(fileHash, gci.gciFile.ToArray());
         }
@@ -549,9 +549,10 @@ namespace TPRandomizer.Assets
             byte[,] baseRandomizerRegionFlags = new byte[,]
             {
                 { 0x0, 0x57 }, // Spider on Link's Ladder killed.
-                { 0x16, 0x47 }, // West Bridge in CiTS Broken
+                { 0x16, 0x47 }, // West Bridge in CiTS Broken.
                 { 0x2, 0x63 }, // Trill lets you shop at his store.
-                { 0x6, 0x4C }, // Bridge of Eldin Warped back CS
+                { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
+                { 0xA, 0x69}, // Desert Entrance CS.
             };
 
             arrayOfRegionFlags = BackendFunctions.ConcatFlagArrays(

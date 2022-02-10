@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal and Room.North_Faron_Woods and (Progressive_Sword, 1) and Boomerang",
+    "requirements": "Shadow_Crystal and Room.North_Faron_Woods and (Progressive_Sword, 1) and Boomerang and ((Setting.mdhSkipped equals True) or (Room.Lakebed_Temple_Boss_Room and CanDefeatMorpheel))",
     "arcFileValues": [["bmgres6.arc", "4014"],["bmgres6.arc", "3BDC"],["bmgres6.arc", "4244"],["bmgres6.arc", "46A4"],["bmgres6.arc", "4488"],["bmgres6.arc", "48FC"],["bmgres6.arc", "4B68"]],
     "fileDirectoryType": [1,1,1,1,1,1,1],
     "replacementType": [1,1,1,1,1,1,1],
