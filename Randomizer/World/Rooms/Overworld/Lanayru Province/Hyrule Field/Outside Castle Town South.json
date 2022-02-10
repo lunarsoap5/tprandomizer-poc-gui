@@ -1,19 +1,19 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Castle Town", 
         "Faron Field", 
         "Outside South Castle Town Tetike Grotto", 
         "Lake Hylia"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "true",
         "Shadow_Crystal",
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Outside South Castle Town Tightrope Chest",
         "Outside South Castle Town Fountain Chest",
@@ -24,5 +24,5 @@
         "Outside South Castle Town Poe",
         "Outside South Castle Town Golden Wolf"
     ],
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

@@ -7,13 +7,40 @@ namespace TPRandomizer
     /// </summary>
     public class Room
     {
-        public string name { get; set; } // Name we give the room to identify it (it can be a series of rooms that don't have requirements between each other to make the algorithm go faster)
-        public List<string> neighbours { get; set; } // Refers to the rooms of the same stage that can be accesed from this room
-        public List<string> neighbourRequirements { get; set; } // List of list of requirements to enter each neighbouring room
-        public bool isStartingRoom { get; set; } // Defines if it is the stage you start the game in
-        public List<string> checks { get; set; } // Checks contained inside the room
-        public bool visited { get; set; }
-        public string region { get; set; }
+        /// <summary>
+        /// Gets or sets the name of the room. This is the name we give the room to identify it (it can be a series of rooms that don't have requirements between each other to make the algorithm go faster).
+        /// </summary>
+        public string RoomName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the room name of the rooms adjacent to the current room.
+        /// </summary>
+        public List<string> Neighbours { get; set; }
+
+        /// <summary>
+        /// Gets or sets a list of list of requirements to enter each neighbouring roo.
+        /// </summary>
+        public List<string> NeighbourRequirements { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the current room is the starting room. If true, this room will always be the starting point of the graph.
+        /// </summary>
+        public bool IsStartingRoom { get; set; }
+
+        /// <summary>
+        /// Gets or sets a list of checks contained inside the room.
+        /// </summary>
+        public List<string> Checks { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the current room has been visited in the current playthrough.
+        /// </summary>
+        public bool Visited { get; set; }
+
+        /// <summary>
+        /// Gets or sets the logical region that the room is contained in.
+        /// </summary>
+        public string Region { get; set; }
     }
 
     /// <summary>
@@ -21,9 +48,19 @@ namespace TPRandomizer
     /// </summary>
     public class RoomFunctions
     {
+        /// <summary>
+        /// A dictionary of all of the rooms that will be used to generate a playthrough graph.
+        /// </summary>
         public Dictionary<string, Room> RoomDict = new Dictionary<string, Room>();
 
-        public bool isRegionCheck(Item itemToPlace, Check currentCheck, Room currentRoom)
+        /// <summary>
+        /// summary text.
+        /// </summary>
+        /// <param name="itemToPlace">The item being checked.</param>
+        /// <param name="currentCheck">The check being verified.</param>
+        /// <param name="currentRoom">The room where the check is located.</param>
+        /// <returns>A value that determines if the specified item and check meet the regional requirements set by the generation.</returns>
+        public static bool IsRegionCheck(Item itemToPlace, Check currentCheck, Room currentRoom)
         {
             RandomizerSetting parseSetting = Randomizer.RandoSetting;
             string itemName = itemToPlace.ToString();
@@ -32,7 +69,7 @@ namespace TPRandomizer
             {
                 if (
                     (parseSetting.smallKeySettings == "Own_Dungeon")
-                    && itemName.Contains(currentRoom.region))
+                    && itemName.Contains(currentRoom.Region))
                 {
                     return true;
                 }
@@ -47,7 +84,7 @@ namespace TPRandomizer
             {
                 if (parseSetting.bossKeySettings == "Own_Dungeon")
                 {
-                    if (itemName.Contains(currentRoom.region))
+                    if (itemName.Contains(currentRoom.Region))
                     {
                         return true;
                     }
@@ -64,7 +101,7 @@ namespace TPRandomizer
             {
                 if (parseSetting.mapAndCompassSettings == "Own_Dungeon")
                 {
-                    if (itemName.Contains(currentRoom.region))
+                    if (itemName.Contains(currentRoom.Region))
                     {
                         return true;
                     }

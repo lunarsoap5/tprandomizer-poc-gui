@@ -1,5 +1,5 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Kakariko Gorge", 
         "Kakariko Village", 
@@ -9,7 +9,7 @@
         "Eldin Field Water Bomb Fish Grotto", 
         "Eldin Field Bomskit Grotto"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "canSmash",
         "true",
@@ -19,7 +19,7 @@
         "Shadow_Crystal",
         "Shadow_Crystal"
     ],
-    "checks": 
+    "Checks": 
     [
         "Eldin Field Bomb Rock Chest",
         "Bridge of Eldin Owl Statue Chest",
@@ -30,5 +30,5 @@
         "Bridge of Eldin Male Phasmid",
         "Bridge of Eldin Female Phasmid"
     ],
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

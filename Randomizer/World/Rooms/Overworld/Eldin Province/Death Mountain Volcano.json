@@ -1,14 +1,14 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Death Mountain Trail", 
         "Death Mountain Interiors"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "Iron_Boots and CanDefeatGoron"
     ],
-    "checks": [""], 
-    "region": "Eldin Province"
+    "Checks": [""], 
+    "Region": "Eldin Province"
 }

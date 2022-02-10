@@ -59,7 +59,6 @@ namespace TPRandomizer
         /// </summary>
         public Dictionary<string, Check> CheckDict = new Dictionary<string, Check>();
 
-
         /// <summary>
         /// summary text.
         /// </summary>

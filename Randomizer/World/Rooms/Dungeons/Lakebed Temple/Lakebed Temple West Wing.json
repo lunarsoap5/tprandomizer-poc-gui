@@ -1,13 +1,13 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Lakebed Temple Central Room"
     ],
-    "neighbourRequirements":
+    "NeighbourRequirements":
     [
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Lakebed Temple West Lower Small Chest",
         "Lakebed Temple West Second Floor Central Small Chest",
@@ -19,5 +19,5 @@
         "Lakebed Temple West Water Supply Small Chest",
         "Lakebed Temple West Water Supply Chest"
     ],
-    "region": "Lakebed Temple"
+    "Region": "Lakebed Temple"
 }

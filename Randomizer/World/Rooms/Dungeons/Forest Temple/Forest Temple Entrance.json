@@ -1,17 +1,17 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "North Faron Woods", 
         "Forest Temple Lobby"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "CanDefeatWalltula and CanDefeatBokoblin and canBreakMonkeyCage"
     ],
-    "checks": 
+    "Checks": 
     [
         "Forest Temple Entrance Vines Chest"
     ],
-    "region": "Forest Temple"
+    "Region": "Forest Temple"
 }

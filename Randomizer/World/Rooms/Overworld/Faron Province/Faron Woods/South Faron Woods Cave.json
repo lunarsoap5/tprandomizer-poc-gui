@@ -1,17 +1,17 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "South Faron Woods", 
         "Faron Mist Area"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "South Faron Cave Chest"
     ],
-    "region": "Faron Woods"
+    "Region": "Faron Woods"
 }

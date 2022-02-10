@@ -1,21 +1,21 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Mirror Chamber", 
         "Palace of Twilight West Wing", 
         "Palace of Twilight East Wing", 
         "Palace of Twilight North Tower"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "true",
         "CanDefeatPhantomZant and (Progressive_Clawshot, 1) and CanDefeatZantHead and (Palace_of_Twilight_Small_Key, 2)",
         "(Progressive_Sword, 4)"
     ],
-    "checks": 
+    "Checks": 
     [
         "Palace of Twilight Collect Both Sols"
      ],
-    "region": "Palace of Twilight"
+    "Region": "Palace of Twilight"
 }

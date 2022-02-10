@@ -1,5 +1,5 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Snowpeak Ruins Yeto and Yeta", 
         "Snowpeak Ruins East Courtyard", 
@@ -8,7 +8,7 @@
         "Snowpeak Ruins Darkhammer Room", 
         "Snowpeak Ruins Boss Room"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "Ball_and_Chain",
@@ -17,10 +17,10 @@
         "Ball_and_Chain or ((Snowpeak_Ruins_Small_Key, 4) and hasBombs)",
         "Snowpeak_Ruins_Ordon_Goat_Cheese and Ball_and_Chain and CanDefeatChilfos and CanDefeatMiniFreezard and CanDefeatFreezard and (Snowpeak_Ruins_Small_Key, 4) and hasBombs and Snowpeak_Ruins_Bedroom_Key"
     ],
-    "checks": 
+    "Checks": 
     [
         "Snowpeak Ruins West Courtyard Buried Chest",
         "Snowpeak Ruins Courtyard Central Chest"
     ],
-    "region": "Snowpeak Ruins"
+    "Region": "Snowpeak Ruins"
 }

@@ -1,20 +1,20 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Goron Mines Entrance", 
         "Goron Mines Lower West Wing", 
         "Goron Mines Crystal Switch Room"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "(Goron_Mines_Small_Key, 1)",
         "(Goron_Mines_Small_Key, 1) and Iron_Boots"
     ],
-    "checks": 
+    "Checks": 
     [
         "Goron Mines Main Magnet Room Bottom Chest",
         "Goron Mines Main Magnet Room Top Chest"
     ],
-    "region": "Goron Mines"
+    "Region": "Goron Mines"
 }

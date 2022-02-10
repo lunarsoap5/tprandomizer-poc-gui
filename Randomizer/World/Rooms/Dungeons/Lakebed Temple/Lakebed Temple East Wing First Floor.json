@@ -1,13 +1,13 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Lakebed Temple Central Room"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Lakebed Temple East Lower Waterwheel Stalactite Chest",
         "Lakebed Temple East Lower Waterwheel Bridge Chest",
@@ -16,5 +16,5 @@
         "Lakebed Temple Before Deku Toad Underwater Right Chest",
         "Lakebed Temple Deku Toad Chest"
     ], 
-    "region": "Lakebed Temple"
+    "Region": "Lakebed Temple"
 }

@@ -1,16 +1,16 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Lanayru Field"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Lanayru Field Poe Grotto Left Poe",
         "Lanayru Field Poe Grotto Right Poe"
     ], 
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

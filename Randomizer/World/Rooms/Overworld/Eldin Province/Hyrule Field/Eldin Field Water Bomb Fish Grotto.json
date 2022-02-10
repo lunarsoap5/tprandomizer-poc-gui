@@ -1,15 +1,15 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Eldin Field"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Eldin Field Water Bomb Fish Grotto Chest"
     ],
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

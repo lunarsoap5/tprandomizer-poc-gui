@@ -1,15 +1,15 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Lanayru Field", 
         "Snowpeak Climb"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Zoras Domain Chest By Mother and Child Isles",
         "Zoras Domain Chest Behind Waterfall",
@@ -25,5 +25,5 @@
         "Zoras Domain Mother and Child Isle Poe",
         "Zoras Domain Waterfall Poe"
      ],
-    "region": "Lanayru Province"
+    "Region": "Lanayru Province"
 }

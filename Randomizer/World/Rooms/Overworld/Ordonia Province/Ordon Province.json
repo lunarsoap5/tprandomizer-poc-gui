@@ -1,15 +1,15 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "South Faron Woods",
         "Ordon Ranch Grotto"
     ],
-    "neighbourRequirements":
+    "NeighbourRequirements":
     [
         "((Progressive_Sword, 1) and Slingshot) or (Setting.introSkipped equals True)",
         "Shadow_Crystal"
     ],
-    "checks": 
+    "Checks": 
     [
         "Uli Cradle Delivery",
         "Ordon Cat Rescue",
@@ -22,5 +22,5 @@
         "Herding Goats Reward",
         "Ordon Spring Golden Wolf"
     ],
-    "region": "Ordonia Province"
+    "Region": "Ordonia Province"
 }

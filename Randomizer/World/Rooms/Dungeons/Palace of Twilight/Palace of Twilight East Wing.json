@@ -1,13 +1,13 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Palace of Twilight Entrance"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Palace of Twilight East Wing First Room North Small Chest",
         "Palace of Twilight East Wing First Room Zant Head Chest",
@@ -18,5 +18,5 @@
         "Palace of Twilight East Wing Second Room Southwest Chest",
         "Palace of Twilight East Wing Second Room Southeast Chest"
      ],
-    "region": "Palace of Twilight"
+    "Region": "Palace of Twilight"
 }

@@ -1,5 +1,5 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Eldin Field", 
         "Zoras Domain", 
@@ -11,7 +11,7 @@
         "Lanayru Field Skulltula Grotto", 
         "Lanayru Field Poe Grotto"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "canSmash",
         "canSmash",
@@ -23,7 +23,7 @@
         "Shadow_Crystal",
         "Shadow_Crystal"
     ],
-    "checks": 
+    "Checks": 
     [
         "Lanayru Field Behind Gate Underwater Chest",
         "Lanayru Field Spinner Track Chest",
@@ -31,5 +31,5 @@
         "Lanayru Field Female Stag Beetle",
         "Lanayru Field Bridge Poe"
     ],
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

@@ -1,5 +1,5 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Faron Field", 
         "Lake Hylia", 
@@ -7,7 +7,7 @@
         "Outside Castle Town West", 
         "Lake Hylia Bridge Bubble Grotto"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "Gate_Keys",
         "true",
@@ -15,7 +15,7 @@
         "true",
         "Shadow_Crystal and canLaunchBombs and (Progressive_Clawshot, 1)"
     ],
-    "checks": 
+    "Checks": 
     [
         "Lake Hylia Bridge Vines Chest",
         "Lake Hylia Bridge Cliff Chest",
@@ -25,5 +25,5 @@
         "Lake Hylia Bridge Female Mantis",
         "Lake Hylia Bridge Cliff Poe"
     ],
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

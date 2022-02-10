@@ -1,12 +1,12 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Hyrule Castle Tower Climb"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
-    "checks": [""], 
-    "region": "Ganondorf"
+    "Checks": [""], 
+    "Region": "Ganondorf"
 }

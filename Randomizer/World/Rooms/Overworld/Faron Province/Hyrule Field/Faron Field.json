@@ -1,5 +1,5 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "South Faron Woods", 
         "Outside Castle Town South", 
@@ -7,7 +7,7 @@
         "Lake Hylia Bridge", 
         "Faron Field Corner Grotto"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "Gate_Keys",
@@ -15,7 +15,7 @@
         "Gate_Keys",
         "Shadow_Crystal"
     ],
-    "checks": 
+    "Checks": 
     [
         "Faron Field Bridge Chest",
         "Faron Field Tree Heart Piece",
@@ -23,5 +23,5 @@
         "Faron Field Female Beetle",
         "Faron Field Poe"
     ],
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

@@ -1,18 +1,18 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Castle Town", 
         "Hyrule Castle Main Hall", 
         "Hyrule Castle Outside West Wing", 
         "Hyrule Castle Outside East Wing"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "(Hyrule_Castle_Small_Key, 1)",
         "CanDefeatBokoblin and CanDefeatKargarok",
         "CanDefeatBokoblin and CanDefeatKargarok"
     ],
-    "checks": [""], 
-    "region": "Hyrule Castle"
+    "Checks": [""], 
+    "Region": "Hyrule Castle"
 }

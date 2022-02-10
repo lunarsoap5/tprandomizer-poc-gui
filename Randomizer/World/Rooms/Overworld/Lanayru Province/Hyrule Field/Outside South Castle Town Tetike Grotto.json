@@ -1,15 +1,15 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Outside Castle Town South"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Outside South Castle Town Tetike Grotto Chest"
     ],
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

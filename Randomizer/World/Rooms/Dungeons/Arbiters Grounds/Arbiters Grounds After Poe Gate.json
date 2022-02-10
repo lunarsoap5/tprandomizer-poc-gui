@@ -1,15 +1,15 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Arbiters Grounds Lobby",
 		"Mirror Chamber"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
 		"Spinner and Arbiters_Grounds_Big_Key and CanDefeatStallord"
     ],
-    "checks": 
+    "Checks": 
     [
         "Arbiters Grounds Big Key Chest",
 		"Arbiters Grounds North Turning Room Chest",
@@ -22,5 +22,5 @@
 		"Arbiters Grounds Stallord Heart Container",
         "Arbiters Grounds Dungeon Reward"
     ], 
-    "region": "Arbiters Grounds"
+    "Region": "Arbiters Grounds"
 }

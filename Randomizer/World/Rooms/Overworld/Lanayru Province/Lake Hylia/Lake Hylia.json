@@ -1,5 +1,5 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Gerudo Desert", 
         "Lake Hylia Long Cave", 
@@ -10,7 +10,7 @@
         "Lake Hylia Bridge", 
         "Zoras Domain"
     ],
-    "neighbourRequirements":
+    "NeighbourRequirements":
     [
         "Aurus_Memo and Shadow_Crystal",
         "canSmash",
@@ -21,7 +21,7 @@
         "true",
         "Shadow_Crystal"
     ],
-    "checks": 
+    "Checks": 
     [
         "Lake Hylia Underwater Chest",
         "Outside Lanayru Spring Left Statue Chest",
@@ -47,5 +47,5 @@
         "Lake Hylia Dock Poe",
         "Lake Hylia Tower Poe"
      ],
-    "region": "Lanayru Province"
+    "Region": "Lanayru Province"
 }

@@ -1,19 +1,19 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Eldin Field", 
         "Faron Field", 
         "Kakariko Village", 
         "Eldin Long Cave"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "canSmash",
         "true",
         "true",
         "canSmash"
     ],
-    "checks": 
+    "Checks": 
     [
         "Kakariko Gorge Owl Statue Chest",
         "Kakariko Gorge Double Clawshot Chest",
@@ -23,5 +23,5 @@
         "Kakariko Gorge Female Pill Bug",
         "Kakariko Gorge Poe"
     ],
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

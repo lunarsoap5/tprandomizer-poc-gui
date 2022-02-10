@@ -21,7 +21,6 @@ namespace TPRandomizer
         /// </summary>
         public static bool EvaluateSetting(string setting, string value)
         {
-            RandomizerSetting parseSetting = Randomizer.RandoSetting;
             PropertyInfo[] settingProperties = Randomizer.RandoSetting.GetType().GetProperties();
             setting = setting.Replace("Setting.", "");
             bool isEqual = false;
@@ -71,15 +70,14 @@ namespace TPRandomizer
         /// </summary>
         public static bool HasDamagingItem()
         {
-            return (
+            return 
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || hasBombs()
                 || CanUse(Item.Iron_Boots)
                 || CanUse(Item.Spinner)
-                || CanUse(Item.Shadow_Crystal)
-            );
+                || CanUse(Item.Shadow_Crystal);
         }
 
         /// <summary>
@@ -111,14 +109,13 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatBabaSerpent()
         {
-            return (
+            return 
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
                 || CanUse(Item.Spinner)
-                || CanUse(Item.Shadow_Crystal)
-            );
+                || CanUse(Item.Shadow_Crystal);
         }
 
         /// <summary>
@@ -126,15 +123,14 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatBabyGohma()
         {
-            return (
+            return 
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
                 || CanUse(Item.Spinner)
                 || CanUse(Item.Slingshot)
-                || (getItemCount(Item.Progressive_Clawshot) >= 1)
-            );
+                || (getItemCount(Item.Progressive_Clawshot) >= 1);
         }
 
         /// <summary>
@@ -142,7 +138,7 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatBari()
         {
-            return (CanUseWaterBombs() || (getItemCount(Item.Progressive_Clawshot) >= 1));
+            return CanUseWaterBombs() || (getItemCount(Item.Progressive_Clawshot) >= 1);
         }
 
         /// <summary>
@@ -150,11 +146,10 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatBeamos()
         {
-            return (
+            return 
                 CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
-                || hasBombs()
-            );
+                || hasBombs();
         }
 
         /// <summary>
@@ -162,14 +157,13 @@ namespace TPRandomizer
         /// </summary>
         public static bool CanDefeatBigBaba()
         {
-            return (
+            return 
                 HasSword()
                 || CanUse(Item.Ball_and_Chain)
                 || (getItemCount(Item.Progressive_Bow) >= 1)
                 || CanUse(Item.Iron_Boots)
                 || CanUse(Item.Spinner)
-                || CanUse(Item.Shadow_Crystal)
-            );
+                || CanUse(Item.Shadow_Crystal);
         }
 
         /// <summary>

@@ -1,15 +1,15 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Snowpeak Climb"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Snowpeak Freezard Grotto Chest"
     ],
-    "region": "Snowpeak Province"
+    "Region": "Snowpeak Province"
 }

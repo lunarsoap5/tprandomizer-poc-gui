@@ -1,17 +1,17 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Eldin Field"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Eldin Stockcave Upper Chest",
         "Eldin Stockcave Lantern Chest",
         "Eldin Stockcave Lowest Chest"
     ],
-    "region": "Hyrule Field"
+    "Region": "Hyrule Field"
 }

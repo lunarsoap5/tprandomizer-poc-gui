@@ -178,7 +178,7 @@ namespace TPRandomizer
                 string roomName = evaluatedToken.Replace("Room.", string.Empty);
                 roomName = roomName.Replace("_", " ");
                 tokenValue++;
-                parseBool = Randomizer.Rooms.RoomDict[roomName].visited;
+                parseBool = Randomizer.Rooms.RoomDict[roomName].Visited;
                 return parseBool;
             }
 
@@ -238,13 +238,7 @@ namespace TPRandomizer
                         var text = new StringBuilder();
                         if (Char.IsLetter(_reader[i]))
                         {
-                            while (
-                                (
-                                    Char.IsLetter(_reader[i])
-                                    || (_reader[i] == '_')
-                                    || (_reader[i] == '.')
-                                )
-                            )
+                            while (Char.IsLetter(_reader[i]) || (_reader[i] == '_') || (_reader[i] == '.'))
                             {
                                 text.Append(_reader[i]);
                                 i++;
@@ -275,13 +269,11 @@ namespace TPRandomizer
                                         tokens.Add(new itemToken(), potentialKeyword.ToString());
                                         break;
                                     }
+
                                     // if it is a setting, it needs to be evaluated as such later on
                                     else if (potentialKeyword.Contains("Setting."))
                                     {
-                                        tokens.Add(
-                                            new settingsToken(),
-                                            potentialKeyword.ToString()
-                                        );
+                                        tokens.Add(new settingsToken(), potentialKeyword.ToString());
                                         break;
                                     }
                                     else if (potentialKeyword.Contains("Room."))
@@ -289,13 +281,11 @@ namespace TPRandomizer
                                         tokens.Add(new roomToken(), potentialKeyword.ToString());
                                         break;
                                     }
+
                                     // If it isnt a keyword, we assume that it is a logic function
                                     else
                                     {
-                                        tokens.Add(
-                                            new logicFunctionToken(),
-                                            potentialKeyword.ToString()
-                                        );
+                                        tokens.Add(new logicFunctionToken(), potentialKeyword.ToString());
                                         break;
                                     }
                             }

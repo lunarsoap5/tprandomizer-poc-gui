@@ -1,17 +1,17 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Snowpeak Ruins Northeast Chilfos Room First Floor", 
         "Snowpeak Ruins Yeto and Yeta"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "Ball_and_Chain"
     ],
-    "checks": 
+    "Checks": 
     [
         "Snowpeak Ruins Northeast Chandelier Chest"
     ],
-    "region": "Snowpeak Ruins"
+    "Region": "Snowpeak Ruins"
 }

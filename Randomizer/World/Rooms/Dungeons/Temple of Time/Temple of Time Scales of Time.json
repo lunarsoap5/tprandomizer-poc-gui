@@ -1,21 +1,21 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Temple of Time Moving Wall Hallways", 
         "Temple of Time Floor Switch Puzzle Room", 
         "Temple of Time Upper Spike Trap Corridor"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "(Progressive_Clawshot, 1) and Spinner",
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Temple of Time Scales Gohma Chest",
         "Temple of Time Scales Upper Chest",
         "Temple of Time Poe Above Scales"
      ],
-    "region": "Temple of Time"
+    "Region": "Temple of Time"
 }

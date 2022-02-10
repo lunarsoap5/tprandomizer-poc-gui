@@ -1,15 +1,15 @@
 {
     "name": "Arbiters Grounds West Wing",
-    "neighbours": 
+    "Neighbours": 
     [
         "Arbiters Grounds Lobby"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
     "isStartingRoom": "false",
-    "checks": 
+    "Checks": 
     [
         "Arbiters Grounds West Small Chest Behind Block",
         "Arbiters Grounds West Chandelier Chest",
@@ -19,5 +19,5 @@
 		
      ],
     "visited": "false",
-    "region": "Arbiters Grounds"
+    "Region": "Arbiters Grounds"
 }

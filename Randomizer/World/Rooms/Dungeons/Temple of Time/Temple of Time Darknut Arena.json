@@ -1,15 +1,15 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Temple of Time Upper Spike Trap Corridor"
     ],
-    "neighbourRequirements":
+    "NeighbourRequirements":
     [
         "CanDefeatDarknut and (Progressive_Dominion_Rod, 1)"
     ],
-    "checks": 
+    "Checks": 
     [
         "Temple of Time Darknut Chest"    
     ],
-    "region": "Temple of Time"
+    "Region": "Temple of Time"
 }

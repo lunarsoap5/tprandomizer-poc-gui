@@ -1,15 +1,15 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Snowpeak Ruins West Courtyard"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "CanDefeatChilfos"
     ],
-    "checks": 
+    "Checks": 
     [
         "Snowpeak Ruins Chapel Chest"
     ],
-    "region": "Snowpeak Ruins"
+    "Region": "Snowpeak Ruins"
 }

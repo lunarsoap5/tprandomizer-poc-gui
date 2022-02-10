@@ -1,15 +1,15 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Snowpeak Summit", 
         "Snowpeak Ruins Yeto and Yeta"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Snowpeak Ruins Lobby Chandelier Chest",
         "Snowpeak Ruins Lobby West Armor Chest",
@@ -17,5 +17,5 @@
         "Snowpeak Ruins Lobby Armor Poe",
         "Snowpeak Ruins Lobby Poe"
     ],
-    "region": "Snowpeak Ruins"
+    "Region": "Snowpeak Ruins"
 }

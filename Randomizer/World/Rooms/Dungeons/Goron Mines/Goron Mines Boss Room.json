@@ -1,16 +1,16 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Kakariko Village"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "CanDefeatFyrus"
     ],
-    "checks": 
+    "Checks": 
     [
         "Goron Mines Fyrus Heart Container",
         "Goron Mines Dungeon Reward"
     ], 
-    "region": "Goron Mines"
+    "Region": "Goron Mines"
 }

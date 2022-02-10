@@ -1,19 +1,19 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Lakebed Temple Central Room", 
         "Lakebed Temple East Wing First Floor"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [   "true",
         "canLaunchBombs"
     ],
-    "checks": 
+    "Checks": 
     [
         "Lakebed Temple East Second Floor Southwest Chest",
         "Lakebed Temple East Second Floor Southeast Chest",
         "Lakebed Temple East Water Supply Small Chest",
         "Lakebed Temple East Water Supply Clawshot Chest"
     ],
-    "region": "Lakebed Temple"
+    "Region": "Lakebed Temple"
 }

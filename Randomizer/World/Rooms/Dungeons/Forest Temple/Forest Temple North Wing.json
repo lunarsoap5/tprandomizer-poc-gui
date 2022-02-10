@@ -1,15 +1,15 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Forest Temple East Wing", 
         "South Faron Woods"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "Forest_Temple_Big_Key and (canFreeAllMonkeys or (Progressive_Clawshot, 1))"
     ],
-    "checks": 
+    "Checks": 
     [
         "Forest Temple Windless Bridge Chest",
         "Forest Temple North Deku Like Chest",
@@ -17,5 +17,5 @@
         "Forest Temple Diababa Heart Container",
         "Forest Temple Dungeon Reward"
     ], 
-    "region": "Forest Temple"
+    "Region": "Forest Temple"
 }

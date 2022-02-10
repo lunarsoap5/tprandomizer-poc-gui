@@ -1,19 +1,19 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Forest Temple Lobby",
         "Forest Temple North Wing"
     ],
-    "neighbourRequirements":
+    "NeighbourRequirements":
     [
         "true",
         "canBurnWebs or CanDefeatBombling"
     ],
-    "checks": 
+    "Checks": 
     [
         "Forest Temple Second Monkey Under Bridge Chest",
         "Forest Temple Big Key Chest",
         "Forest Temple East Water Cave Chest"
     ],
-    "region": "Forest Temple"
+    "Region": "Forest Temple"
 }

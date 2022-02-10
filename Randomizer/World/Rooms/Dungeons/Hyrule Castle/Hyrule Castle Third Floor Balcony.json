@@ -1,20 +1,20 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Hyrule Castle Inside West Wing", 
         "Hyrule Castle Inside East Wing", 
         "Hyrule Castle Tower Climb"
     ],
-    "neighbourRequirements":
+    "NeighbourRequirements":
     [
         "CanDefeatDarknut and CanDefeatLizalfos and canKnockDownHCPainting",
         "Lantern and CanDefeatDinalfos",
         "(Hyrule_Castle_Small_Key, 2)"
     ],
-    "checks": 
+    "Checks": 
     [
         "Hyrule Castle Southeast Balcony Tower Chest",
         "Hyrule Castle Big Key Chest"
     ],
-    "region": "Hyrule Castle"
+    "Region": "Hyrule Castle"
 }

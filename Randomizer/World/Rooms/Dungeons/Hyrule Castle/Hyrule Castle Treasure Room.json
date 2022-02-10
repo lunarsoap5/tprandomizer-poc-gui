@@ -1,13 +1,13 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Hyrule Castle Tower Climb"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
-    "checks": 
+    "Checks": 
     [
         "Hyrule Castle Treasure Room Eighth Small Chest",
         "Hyrule Castle Treasure Room Seventh Small Chest",
@@ -23,5 +23,5 @@
         "Hyrule Castle Treasure Room Second Chest",
         "Hyrule Castle Treasure Room First Chest"
      ],
-    "region": "Hyrule Castle"
+    "Region": "Hyrule Castle"
 }

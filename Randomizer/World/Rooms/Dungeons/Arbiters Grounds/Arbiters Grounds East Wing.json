@@ -1,15 +1,15 @@
 {
     "name": "Arbiters Grounds East Wing",
-    "neighbours": 
+    "Neighbours": 
     [
         "Arbiters Grounds Lobby"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true"
     ],
     "isStartingRoom": "false",
-    "checks": 
+    "Checks": 
     [
         "Arbiters Grounds East Lower Turnable Redead Chest",
 		"Arbiters Grounds East Upper Turnable Chest",
@@ -19,5 +19,5 @@
         "Arbiters Grounds Hidden Wall Poe"
      ],
     "visited": "false",
-    "region": "Arbiters Grounds"
+    "Region": "Arbiters Grounds"
 }

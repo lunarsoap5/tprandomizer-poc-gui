@@ -1,12 +1,12 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "City in The Sky Entrance", 
         "City in The Sky East Wing", 
         "City in The Sky West Wing", 
         "City in The Sky North Wing"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "Spinner and (City_in_The_Sky_Small_Key, 1)",
@@ -14,7 +14,7 @@
         "(Progressive_Clawshot, 2) and CanDefeatBabaSerpent and CanDefeatKargarok and Shadow_Crystal and Iron_Boots"
     ],
     "isStartingRoom": "false",
-    "checks": [""],
+    "Checks": [""],
     "visited": "false",
-    "region": "City in The Sky"
+    "Region": "City in The Sky"
 }

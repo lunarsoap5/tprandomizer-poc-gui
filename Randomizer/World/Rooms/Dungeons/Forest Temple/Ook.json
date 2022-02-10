@@ -1,12 +1,12 @@
 {
-    "neighbours": 
+    "Neighbours": 
     [
         "Forest Temple West Wing"
     ],
-    "neighbourRequirements":
+    "NeighbourRequirements":
     [
         "CanDefeatOok and Boomerang"
     ],
-    "checks": ["Forest Temple Gale Boomerang"], 
-    "region": "Forest Temple"
+    "Checks": ["Forest Temple Gale Boomerang"], 
+    "Region": "Forest Temple"
 }

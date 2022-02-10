@@ -1,19 +1,19 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "City in The Sky Lobby", 
         "City in The Sky Entrance"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "(Progressive_Clawshot, 2) and CanDefeatAeralfos and City_in_The_Sky_Big_Key and CanDefeatArgorok"
     ],
-    "checks": 
+    "Checks": 
     [
         "City in The Sky Chest Behind North Fan",
         "City in The Sky Argorok Heart Container",
         "City in The Sky Dungeon Reward"
     ], 
-    "region": "City in The Sky"
+    "Region": "City in The Sky"
 }

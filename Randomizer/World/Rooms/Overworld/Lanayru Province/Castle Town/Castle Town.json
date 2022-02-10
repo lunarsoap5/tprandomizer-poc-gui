@@ -1,19 +1,19 @@
 { 
-    "neighbours": 
+    "Neighbours": 
     [
         "Outside Castle Town West", 
         "Eldin Field", 
         "Outside Castle Town South", 
         "Hyrule Castle Entrance"
     ],
-    "neighbourRequirements": 
+    "NeighbourRequirements": 
     [
         "true",
         "true",
         "true",
         "((Setting.castleRequirements equals Open) or ((Setting.castleRequirements equals Vanilla) and canCompletePalaceofTwilight) or ((Setting.castleRequirements equals Fused_Shadows) and (Progressive_Fused_Shadow, 3)) or ((Setting.castleRequirements equals Mirror_Shards) and (Progressive_Mirror_Shard, 4)) or ((Setting.castleRequirements equals All_Dungeons) and canCompleteAllDungeons) or ((Setting.castleRequirements equals Random_Dungeons) and randomDungeonsCompleted)) and (canCompleteLakebedTemple or (Setting.mdhSkipped equals True))"
     ],
-    "checks": 
+    "Checks": 
     [
         "Doctors Office Balcony Chest",
         "STAR Prize 1",
@@ -49,5 +49,5 @@
         "North Castle Town Golden Wolf",
         "Castle Town Malo Mart Magic Armor"
     ],
-    "region": "Castle Town"
+    "Region": "Castle Town"
 }
