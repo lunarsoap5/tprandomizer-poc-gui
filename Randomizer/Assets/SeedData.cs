@@ -124,7 +124,7 @@ namespace TPRandomizer.Assets
             SeedHeaderRaw.minVersion = (ushort)(
                 Randomizer.RandomizerVersionMajor << 8 | Randomizer.RandomizerVersionMinor);
             SeedHeaderRaw.maxVersion = (ushort)(
-                Randomizer.RandomizerVersionMinor << 8 | Randomizer.RandomizerVersionMinor);
+                Randomizer.RandomizerVersionMajor << 8 | Randomizer.RandomizerVersionMinor);
             PropertyInfo[] seedHeaderProperties = SeedHeaderRaw.GetType().GetProperties();
             foreach (PropertyInfo headerObject in seedHeaderProperties)
             {
@@ -213,8 +213,14 @@ namespace TPRandomizer.Assets
                                     listOfArcValues[1],
                                     System.Globalization.NumberStyles.HexNumber)));
                         listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)0x00));
-                        listOfArcReplacements.AddRange(
-                            Converter.GcBytes((UInt32)currentCheck.itemId));
+                        if (currentCheck.replacementType[i] != 3)
+                        {
+                            listOfArcReplacements.AddRange(Converter.GcBytes((UInt32)currentCheck.itemId));
+                        }
+                        else
+                        {
+                            Converter.GcBytes((UInt32)uint.Parse(currentCheck.flag, System.Globalization.NumberStyles.HexNumber));
+                        }
                         listOfArcReplacements.Add(
                             Converter.GcByte(currentCheck.fileDirectoryType[i]));
                         listOfArcReplacements.Add(
