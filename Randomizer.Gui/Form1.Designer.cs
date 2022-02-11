@@ -67,7 +67,7 @@ namespace TPRandomizer
             this.castleLogicComboBox = new System.Windows.Forms.ComboBox();
             this.gameplaySettingsTabPage = new System.Windows.Forms.TabPage();
             this.cutsceneMundaneSkipsGroupBox = new System.Windows.Forms.GroupBox();
-            this.skipMasterSwordPuzzleCheckBox = new System.Windows.Forms.CheckBox();
+            this.repairSkyCannonCheckBox = new System.Windows.Forms.CheckBox();
             this.skipMinorCutscenesCheckBox = new System.Windows.Forms.CheckBox();
             this.clearedTwilightsGroupBox = new System.Windows.Forms.GroupBox();
             this.lanayruTwilightClearedCheckBox = new System.Windows.Forms.CheckBox();
@@ -93,6 +93,7 @@ namespace TPRandomizer
             this.fanfareCheckBox = new System.Windows.Forms.CheckBox();
             this.bgmCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.walletCheckBox = new System.Windows.Forms.CheckBox();
             this.fastIronBootsCheckBox = new System.Windows.Forms.CheckBox();
             this.quickTransformCheckBox = new System.Windows.Forms.CheckBox();
             this.transformAnywhereCheckBox = new System.Windows.Forms.CheckBox();
@@ -121,15 +122,12 @@ namespace TPRandomizer
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.outputTextBox = new System.Windows.Forms.TextBox();
             this.logicTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WikiMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,7 +149,14 @@ namespace TPRandomizer
             this.cutsceneTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.seedNumberLabel = new System.Windows.Forms.Label();
             this.seedNumberComboBox = new System.Windows.Forms.ComboBox();
-            this.walletCheckBox = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -168,7 +173,7 @@ namespace TPRandomizer
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.cosmeticsGroupBox.SuspendLayout();
-            this.MainMenuStrip.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // optionsMenu
@@ -457,6 +462,7 @@ namespace TPRandomizer
             // 
             // accessOptionsGroupBox
             // 
+            this.accessOptionsGroupBox.Controls.Add(this.checkBox1);
             this.accessOptionsGroupBox.Controls.Add(this.skipIntroCheckBox);
             this.accessOptionsGroupBox.Controls.Add(this.faronWoodsLogicComboBox);
             this.accessOptionsGroupBox.Controls.Add(this.faronWoodsLogicLabel);
@@ -564,6 +570,7 @@ namespace TPRandomizer
             // 
             // gameplaySettingsTabPage
             // 
+            this.gameplaySettingsTabPage.Controls.Add(this.groupBox3);
             this.gameplaySettingsTabPage.Controls.Add(this.cutsceneMundaneSkipsGroupBox);
             this.gameplaySettingsTabPage.Controls.Add(this.clearedTwilightsGroupBox);
             this.gameplaySettingsTabPage.Location = new System.Drawing.Point(4, 24);
@@ -577,24 +584,24 @@ namespace TPRandomizer
             // 
             // cutsceneMundaneSkipsGroupBox
             // 
-            this.cutsceneMundaneSkipsGroupBox.Controls.Add(this.skipMasterSwordPuzzleCheckBox);
+            this.cutsceneMundaneSkipsGroupBox.Controls.Add(this.repairSkyCannonCheckBox);
             this.cutsceneMundaneSkipsGroupBox.Controls.Add(this.skipMinorCutscenesCheckBox);
-            this.cutsceneMundaneSkipsGroupBox.Location = new System.Drawing.Point(11, 125);
+            this.cutsceneMundaneSkipsGroupBox.Location = new System.Drawing.Point(11, 114);
             this.cutsceneMundaneSkipsGroupBox.Name = "cutsceneMundaneSkipsGroupBox";
-            this.cutsceneMundaneSkipsGroupBox.Size = new System.Drawing.Size(647, 100);
+            this.cutsceneMundaneSkipsGroupBox.Size = new System.Drawing.Size(403, 111);
             this.cutsceneMundaneSkipsGroupBox.TabIndex = 3;
             this.cutsceneMundaneSkipsGroupBox.TabStop = false;
             this.cutsceneMundaneSkipsGroupBox.Text = "Cutscene/Mundane Skips";
             // 
-            // skipMasterSwordPuzzleCheckBox
+            // repairSkyCannonCheckBox
             // 
-            this.skipMasterSwordPuzzleCheckBox.AutoSize = true;
-            this.skipMasterSwordPuzzleCheckBox.Location = new System.Drawing.Point(7, 48);
-            this.skipMasterSwordPuzzleCheckBox.Name = "skipMasterSwordPuzzleCheckBox";
-            this.skipMasterSwordPuzzleCheckBox.Size = new System.Drawing.Size(159, 19);
-            this.skipMasterSwordPuzzleCheckBox.TabIndex = 1;
-            this.skipMasterSwordPuzzleCheckBox.Text = "Skip Master Sword Puzzle";
-            this.skipMasterSwordPuzzleCheckBox.UseVisualStyleBackColor = true;
+            this.repairSkyCannonCheckBox.AutoSize = true;
+            this.repairSkyCannonCheckBox.Location = new System.Drawing.Point(7, 48);
+            this.repairSkyCannonCheckBox.Name = "repairSkyCannonCheckBox";
+            this.repairSkyCannonCheckBox.Size = new System.Drawing.Size(156, 19);
+            this.repairSkyCannonCheckBox.TabIndex = 1;
+            this.repairSkyCannonCheckBox.Text = "Auto-Repair Sky Cannon";
+            this.repairSkyCannonCheckBox.UseVisualStyleBackColor = true;
             // 
             // skipMinorCutscenesCheckBox
             // 
@@ -615,7 +622,7 @@ namespace TPRandomizer
             this.clearedTwilightsGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clearedTwilightsGroupBox.Name = "clearedTwilightsGroupBox";
             this.clearedTwilightsGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.clearedTwilightsGroupBox.Size = new System.Drawing.Size(647, 94);
+            this.clearedTwilightsGroupBox.Size = new System.Drawing.Size(403, 94);
             this.clearedTwilightsGroupBox.TabIndex = 2;
             this.clearedTwilightsGroupBox.TabStop = false;
             this.clearedTwilightsGroupBox.Text = "Cleared Twilights";
@@ -870,6 +877,17 @@ namespace TPRandomizer
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Additional Settings";
+            // 
+            // walletCheckBox
+            // 
+            this.walletCheckBox.AutoSize = true;
+            this.walletCheckBox.Location = new System.Drawing.Point(6, 95);
+            this.walletCheckBox.Name = "walletCheckBox";
+            this.walletCheckBox.Size = new System.Drawing.Size(159, 19);
+            this.walletCheckBox.TabIndex = 9;
+            this.walletCheckBox.Text = "Increase Wallet Capacity?";
+            this.walletCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.walletCheckBox.UseVisualStyleBackColor = true;
             // 
             // fastIronBootsCheckBox
             // 
@@ -1239,31 +1257,6 @@ namespace TPRandomizer
             this.outputTextBox.Size = new System.Drawing.Size(679, 139);
             this.outputTextBox.TabIndex = 9;
             // 
-            // MainMenuStrip
-            // 
-            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Size = new System.Drawing.Size(700, 24);
-            this.MainMenuStrip.TabIndex = 10;
-            this.MainMenuStrip.Text = "menuStrip1";
-            this.MainMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.darkModeToolStripMenuItem,
-            this.toolStripSeparator,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
-            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
@@ -1304,16 +1297,6 @@ namespace TPRandomizer
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.WikiMenuItem,
-            this.toolStripSeparator5,
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // WikiMenuItem
             // 
@@ -1387,16 +1370,90 @@ namespace TPRandomizer
             this.seedNumberComboBox.Size = new System.Drawing.Size(121, 23);
             this.seedNumberComboBox.TabIndex = 15;
             // 
-            // walletCheckBox
+            // checkBox1
             // 
-            this.walletCheckBox.AutoSize = true;
-            this.walletCheckBox.Location = new System.Drawing.Point(6, 95);
-            this.walletCheckBox.Name = "walletCheckBox";
-            this.walletCheckBox.Size = new System.Drawing.Size(159, 19);
-            this.walletCheckBox.TabIndex = 9;
-            this.walletCheckBox.Text = "Increase Wallet Capacity?";
-            this.walletCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.walletCheckBox.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(6, 170);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(253, 19);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Goron Mines Requires Wrestling Gor Coron";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.checkBox7);
+            this.groupBox3.Controls.Add(this.checkBox6);
+            this.groupBox3.Controls.Add(this.checkBox5);
+            this.groupBox3.Controls.Add(this.checkBox4);
+            this.groupBox3.Controls.Add(this.checkBox3);
+            this.groupBox3.Controls.Add(this.checkBox2);
+            this.groupBox3.Location = new System.Drawing.Point(420, 15);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(245, 210);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Dungeon Access";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(6, 20);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(195, 19);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "Goron Mines Requires Wrestling";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(6, 42);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(192, 19);
+            this.checkBox3.TabIndex = 1;
+            this.checkBox3.Text = "Lakebed Requires Water Bombs";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(6, 64);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(190, 19);
+            this.checkBox4.TabIndex = 2;
+            this.checkBox4.Text = "Arbiters Requires Bulblin Camp";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(6, 85);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(207, 19);
+            this.checkBox5.TabIndex = 3;
+            this.checkBox5.Text = "Snowpeak Requires Reekfish Scent";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(6, 106);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(230, 19);
+            this.checkBox6.TabIndex = 4;
+            this.checkBox6.Text = "Temple of Time Requires Master Sword";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(6, 126);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(199, 19);
+            this.checkBox7.TabIndex = 5;
+            this.checkBox7.Text = "City in The Sky Requires Skybook";
+            this.checkBox7.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1413,7 +1470,6 @@ namespace TPRandomizer
             this.Controls.Add(this.settingPresetsLabel);
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.optionsMenu);
-            this.Controls.Add(this.MainMenuStrip);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Import";
@@ -1445,8 +1501,8 @@ namespace TPRandomizer
             this.groupBox1.PerformLayout();
             this.cosmeticsGroupBox.ResumeLayout(false);
             this.cosmeticsGroupBox.PerformLayout();
-            this.MainMenuStrip.ResumeLayout(false);
-            this.MainMenuStrip.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1494,7 +1550,7 @@ namespace TPRandomizer
         private System.Windows.Forms.Label faronWoodsLogicLabel;
         private System.Windows.Forms.CheckBox mdhCheckBox;
         private System.Windows.Forms.GroupBox cutsceneMundaneSkipsGroupBox;
-        private System.Windows.Forms.CheckBox skipMasterSwordPuzzleCheckBox;
+        private System.Windows.Forms.CheckBox repairSkyCannonCheckBox;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.ComboBox midnaHairColorComboBox;
         private System.Windows.Forms.Label midnaHairColorLabel;
@@ -1576,6 +1632,14 @@ namespace TPRandomizer
         private System.Windows.Forms.Label seedNumberLabel;
         private System.Windows.Forms.ComboBox seedNumberComboBox;
         private System.Windows.Forms.CheckBox walletCheckBox;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 

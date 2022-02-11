@@ -3,7 +3,7 @@
     "arcFileValues": [["bmgres.arc", "139C8"]],
     "fileDirectoryType": [0],
     "replacementType": [0],
-    "stageIDX": 62,
+    "stageIDX": [62],
     "moduleID": "32",
     "offsets": ["B2AC"],
     "relOverride": "38600000",

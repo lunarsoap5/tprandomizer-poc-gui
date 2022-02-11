@@ -22,15 +22,15 @@ namespace TPRandomizer
         // Data that will be stored in the rando-data .gci file.
         public Item itemId { get; set; } // The original item id of the check. This allows us to make an array of all items in the item pool for randomization purposes. Also is useful for documentation purposes.
 
-        public byte stageIDX { get; set; } // Used by DZX, SHOP, POE, and BOSS checks. The index of the stage where the check is located.
+        public List<byte> stageIDX { get; set; } // Used by DZX, SHOP, POE, and BOSS checks. The index of the stage where the check is located.
 
         public byte roomIDX { get; set; } // Used by SKILL checks to determine which wolf is being learned from.
 
-        public string hash { get; set; } // Used by DZX checks. The hash of the actor that will be modified by a DZX-based check replacement.
+        public List<string> hash { get; set; } // Used by DZX checks. The hash of the actor that will be modified by a DZX-based check replacement.
 
-        public string dzxTag { get; set; } // Used by DZX checks. The type of actor that will be modified.
+        public List<string> dzxTag { get; set; } // Used by DZX checks. The type of actor that will be modified.
 
-        public string[] data { get; set; } // Used by DZX checks. The data structure that will replace the current loaded ACTR.
+        public List<string[]> actrData { get; set; } // Used by DZX checks. The data structure that will replace the current loaded ACTR.
 
         public string flag { get; set; } // Used by POE and SKILL checks. The flag to check to determine which check to replace.
 
@@ -44,7 +44,7 @@ namespace TPRandomizer
 
         public List<string> offsets { get; set; } // Used by REL checks.
 
-        public string magicByte { get; set; }
+        public List<string> magicByte { get; set; }
 
         public string relOverride { get; set; } // Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }
@@ -136,22 +136,36 @@ namespace TPRandomizer
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
                 Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Vanilla";
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
-                Randomizer.Checks.CheckDict["Ordon Sword"].checkStatus = "Vanilla";
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Sword"].itemId);
-                Randomizer.Checks.CheckDict["Ordon Shield"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Shield"].itemId);
             }
             else
             {
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Excluded";
+                Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Excluded";
+            }
+
+            if (parseSetting.faronTwilightCleared)
+            {
                 Randomizer.Checks.CheckDict["Ordon Sword"].checkStatus = "Excluded";
                 Randomizer.Checks.CheckDict["Ordon Shield"].checkStatus = "Excluded";
-                Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Excluded";
+            }
+            else
+            {
+                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
+                Randomizer.Checks.CheckDict["Ordon Sword"].checkStatus = "Vanilla";
+                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Sword"].itemId);
+                Randomizer.Checks.CheckDict["Ordon Shield"].checkStatus = "Vanilla";
             }
 
             // Excluded until we figure out how to fix this chest.
             Randomizer.Checks.CheckDict["Flight By Fowl Top Platform Chest"].checkStatus = "Excluded";
+
+            // Vanilla until all of the flag issues are figured out.
+            Randomizer.Checks.CheckDict["Renardos Letter"].checkStatus = "Vanilla";
+            Randomizer.Checks.CheckDict["Telma Invoice"].checkStatus = "Vanilla";
+            Randomizer.Checks.CheckDict["Wooden Statue"].checkStatus = "Vanilla";
+            Randomizer.Checks.CheckDict["Ilia Charm"].checkStatus = "Vanilla";
+            Randomizer.Checks.CheckDict["Ilia Memory Reward"].checkStatus = "Vanilla";
         }
     }
 }

@@ -257,41 +257,46 @@ namespace TPRandomizer.Assets
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("DZX"))
                 {
-                    byte[] dataArray = new byte[32];
-                    for (int i = 0; i < currentCheck.data.Length; i++)
-                    {
-                        dataArray[i] = byte.Parse(
-                            currentCheck.data[i],
-                            System.Globalization.NumberStyles.HexNumber);
-                    }
 
-                    if (currentCheck.dzxTag == "TRES")
+                    // We will use the number of hashes to count DZX replacements per check for now.
+                    for (int i = 0; i < currentCheck.hash.Count; i++)
                     {
-                        dataArray[28] = (byte)currentCheck.itemId;
-                    }
-                    else if (currentCheck.dzxTag == "ACTR")
-                    {
-                        dataArray[11] = (byte)currentCheck.itemId;
-                    }
+                        byte[] dataArray = new byte[32];
+                        for (int j = 0; j < currentCheck.actrData[i].Length; j++)
+                        {
+                            dataArray[j] = byte.Parse(
+                                currentCheck.actrData[i][j],
+                                System.Globalization.NumberStyles.HexNumber);
+                        }
 
-                    listOfDZXReplacements.AddRange(
-                        Converter.GcBytes((UInt16)ushort.Parse(currentCheck.hash, System.Globalization.NumberStyles.HexNumber)));
-                    listOfDZXReplacements.Add(Converter.GcByte(currentCheck.stageIDX));
-                    if (currentCheck.magicByte == null)
-                    {
-                        listOfDZXReplacements.Add(Converter.GcByte(0xFF)); // If a magic byte is not set, use 0xFF as a default.
-                    }
-                    else
-                    {
-                        listOfDZXReplacements.Add(
-                            Converter.GcByte(
-                                byte.Parse(
-                                    currentCheck.magicByte,
-                                    System.Globalization.NumberStyles.HexNumber)));
-                    }
+                        if (currentCheck.dzxTag[i] == "TRES")
+                        {
+                            dataArray[28] = (byte)currentCheck.itemId;
+                        }
+                        else if (currentCheck.dzxTag[i] == "ACTR")
+                        {
+                            dataArray[11] = (byte)currentCheck.itemId;
+                        }
 
-                    listOfDZXReplacements.AddRange(dataArray);
-                    count++;
+                        listOfDZXReplacements.AddRange(
+                            Converter.GcBytes((UInt16)ushort.Parse(currentCheck.hash[i], System.Globalization.NumberStyles.HexNumber)));
+                        listOfDZXReplacements.Add(Converter.GcByte(currentCheck.stageIDX[i]));
+                        if (currentCheck.magicByte == null)
+                        {
+                            listOfDZXReplacements.Add(Converter.GcByte(0xFF)); // If a magic byte is not set, use 0xFF as a default.
+                        }
+                        else
+                        {
+                            listOfDZXReplacements.Add(
+                                Converter.GcByte(
+                                    byte.Parse(
+                                        currentCheck.magicByte[i],
+                                        System.Globalization.NumberStyles.HexNumber)));
+                        }
+
+                        listOfDZXReplacements.AddRange(dataArray);
+                        count++;
+                    }
                 }
             }
 
@@ -310,7 +315,7 @@ namespace TPRandomizer.Assets
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("Poe"))
                 {
-                    listOfPOEReplacements.Add(Converter.GcByte(currentCheck.stageIDX));
+                    listOfPOEReplacements.Add(Converter.GcByte(currentCheck.stageIDX[0]));
                     listOfPOEReplacements.Add(
                         Converter.GcByte(
                             byte.Parse(
@@ -338,7 +343,7 @@ namespace TPRandomizer.Assets
                     for (int i = 0; i < currentCheck.offsets.Count; i++)
                     {
                         listOfRELReplacements.AddRange(
-                            Converter.GcBytes((UInt32)currentCheck.stageIDX));
+                            Converter.GcBytes((UInt32)currentCheck.stageIDX[0]));
                         listOfRELReplacements.AddRange(
                             Converter.GcBytes(
                                 (UInt32)uint.Parse(currentCheck.moduleID, System.Globalization.NumberStyles.HexNumber)));
@@ -374,7 +379,7 @@ namespace TPRandomizer.Assets
                 if (currentCheck.category.Contains("Boss"))
                 {
                     listOfBossReplacements.AddRange(
-                        Converter.GcBytes((UInt16)currentCheck.stageIDX));
+                        Converter.GcBytes((UInt16)currentCheck.stageIDX[0]));
                     listOfBossReplacements.AddRange(Converter.GcBytes((UInt16)currentCheck.itemId));
                     count++;
                 }
@@ -421,7 +426,7 @@ namespace TPRandomizer.Assets
                 if (currentCheck.category.Contains("Sky Book"))
                 {
                     listOfSkyCharacters.Add(Converter.GcByte((byte)currentCheck.itemId));
-                    listOfSkyCharacters.AddRange(Converter.GcBytes((UInt16)currentCheck.stageIDX));
+                    listOfSkyCharacters.AddRange(Converter.GcBytes((UInt16)currentCheck.stageIDX[0]));
                     listOfSkyCharacters.Add(Converter.GcByte(currentCheck.roomIDX));
                     count++;
                 }
@@ -448,7 +453,7 @@ namespace TPRandomizer.Assets
                                 currentCheck.flag,
                                 System.Globalization.NumberStyles.HexNumber)));
                     listOfHiddenSkills.AddRange(Converter.GcBytes((UInt16)currentCheck.itemId));
-                    listOfHiddenSkills.AddRange(Converter.GcBytes((UInt16)currentCheck.stageIDX));
+                    listOfHiddenSkills.AddRange(Converter.GcBytes((UInt16)currentCheck.stageIDX[0]));
                     listOfHiddenSkills.AddRange(Converter.GcBytes((UInt16)currentCheck.roomIDX));
                     count++;
                 }

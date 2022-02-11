@@ -1,7 +1,7 @@
 {
     "requirements": "CanDefeatFyrus",
     "moduleID": "5B",
-    "stageIDX": 4,
+    "stageIDX": [4],
     "offsets": ["1880"],
     "relOverride": "38600000",
     "arcFileValues": [["D_MN04A/STG_00.arc", "147E6"]],

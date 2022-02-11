@@ -1,7 +1,7 @@
 {
     "requirements": "CanDefeatBigBaba and CanDefeatWalltula",
     "moduleID": "26D",
-    "stageIDX": 6,
+    "stageIDX": [6],
     "offsets": ["155C"],
     "relOverride": "38800000",
     "category": ["Small Key", "Dungeon", "Forest Temple", "REL"],

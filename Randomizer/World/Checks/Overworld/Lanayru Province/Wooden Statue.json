@@ -1,6 +1,6 @@
 {
     "requirements": "Invoice",
-    "stageIDX": 57,
+    "stageIDX": [57],
     "moduleID": "2B3",
     "relOverride": "38800000",
     "offsets": ["F24"],

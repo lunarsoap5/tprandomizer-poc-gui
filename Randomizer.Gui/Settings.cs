@@ -21,7 +21,7 @@ namespace TPRandomizer
         public bool eldinTwilightCleared { get; set; }
         public bool lanayruTwilightCleared { get; set; }
         public bool skipMinorCutscenes { get; set; }
-        public bool skipMasterSwordPuzzle { get; set; }
+        public bool autoRepairSkyCannon { get; set; }
         public bool fastIronBoots { get; set; }
         public bool quickTransform { get; set; }
         public bool transformAnywhere { get; set; }

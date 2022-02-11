@@ -1,7 +1,7 @@
 {
     "requirements": "CanDefeatDarkhammer",
     "moduleID": "ED",
-    "stageIDX": 29,
+    "stageIDX": [29],
     "offsets": ["2CB4"],
     "relOverride": "38800000",
     "category": ["Dungeon", "Snowpeak Ruins", "REL"],

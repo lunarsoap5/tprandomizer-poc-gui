@@ -41,7 +41,7 @@ namespace TPRandomizer
 
         public bool skipMinorCutscenes { get; set; }
 
-        public bool skipMasterSwordPuzzle { get; set; }
+        public bool autoRepairSkyCannon { get; set; }
 
         public bool fastIronBoots { get; set; }
 
@@ -140,7 +140,7 @@ namespace TPRandomizer
 
         public bool skipMinorCutscenes { get; set; }
 
-        public bool skipMasterSwordPuzzle { get; set; }
+        public bool autoRepairSkyCannon { get; set; }
 
         public bool fastIronBoots { get; set; }
 

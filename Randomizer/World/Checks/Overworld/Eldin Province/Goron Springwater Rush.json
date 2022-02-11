@@ -1,6 +1,6 @@
 {
     "requirements": "Gate_Keys or canSmash",
-    "stageIDX": 56,
+    "stageIDX": [56],
     "category": ["Overworld", "Npc", "Hyrule Field", "Boss"],
     "itemId": "Piece_of_Heart"
 }

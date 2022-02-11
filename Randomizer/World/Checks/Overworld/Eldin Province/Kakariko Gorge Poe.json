@@ -1,6 +1,6 @@
 {
     "requirements": "Shadow_Crystal and ((Setting.mdhSkipped equals True) or (Room.Lakebed_Temple_Boss_Room and CanDefeatMorpheel))",
-    "stageIDX": 56,
+    "stageIDX": [56],
     "flag": "3A",
     "category": ["Overworld", "Poe", "Hyrule Field"],
     "itemId": "Poe_Soul"

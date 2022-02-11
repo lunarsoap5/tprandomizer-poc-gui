@@ -3,7 +3,7 @@
     "arcFileValues": [["bmgres6.arc", "4014"],["bmgres6.arc", "3BDC"],["bmgres6.arc", "4244"],["bmgres6.arc", "46A4"],["bmgres6.arc", "4488"],["bmgres6.arc", "48FC"],["bmgres6.arc", "4B68"]],
     "fileDirectoryType": [1,1,1,1,1,1,1],
     "replacementType": [1,1,1,1,1,1,1],
-    "stageIDX": 57,
+    "stageIDX": [57],
     "roomIDX": 8,
     "flag": "3C04",
     "category": ["Overworld", "Hidden Skill", "Lanayru Province", "ARC"],

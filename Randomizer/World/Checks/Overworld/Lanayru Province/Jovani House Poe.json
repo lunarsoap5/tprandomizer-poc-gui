@@ -1,6 +1,6 @@
 {
     "requirements": "Shadow_Crystal",
-    "stageIDX": 73,
+    "stageIDX": [73],
     "flag": "1F",
     "category": ["Overworld", "Lanayru Province", "Poe"],
     "itemId": "Poe_Soul"
