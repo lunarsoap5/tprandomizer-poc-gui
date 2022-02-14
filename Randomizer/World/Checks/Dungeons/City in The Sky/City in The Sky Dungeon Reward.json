@@ -1,9 +1,9 @@
 {
     "requirements": "CanDefeatArgorok and City_in_The_Sky_Big_Key",
-    "moduleID": "5B",
+    "moduleID": ["5B"],
     "stageIDX": [13],
     "offsets": ["1880"],
-    "relOverride": "38600000",
+    "relOverride": ["38600000"],
     "arcFileValues": [["D_MN07A/STG_00.arc", "4104E"]],
     "fileDirectoryType": [0],
     "replacementType": [2],

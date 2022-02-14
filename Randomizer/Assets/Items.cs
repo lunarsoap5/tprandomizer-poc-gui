@@ -285,7 +285,6 @@ namespace TPRandomizer
             Item.Progressive_Mirror_Shard,
             Item.Progressive_Mirror_Shard,
             Item.Progressive_Mirror_Shard,
-            Item.Progressive_Mirror_Shard,
         };
 
         internal List<Item> RegionSmallKeys = new List<Item>()
@@ -356,6 +355,8 @@ namespace TPRandomizer
             Item.Arbiters_Grounds_Compass,
             Item.Snowpeak_Ruins_Dungeon_Map,
             Item.Snowpeak_Ruins_Compass,
+            Item.Temple_of_Time_Dungeon_Map,
+            Item.Temple_of_Time_Compass,
             Item.City_in_The_Sky_Dungeon_Map,
             Item.City_in_The_Sky_Compass,
             Item.Palace_of_Twilight_Dungeon_Map,

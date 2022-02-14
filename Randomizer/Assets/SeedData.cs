@@ -340,13 +340,13 @@ namespace TPRandomizer.Assets
                 Check currentCheck = checkList.Value;
                 if (currentCheck.category.Contains("REL"))
                 {
-                    for (int i = 0; i < currentCheck.offsets.Count; i++)
+                    for (int i = 0; i < currentCheck.moduleID.Count; i++)
                     {
                         listOfRELReplacements.AddRange(
-                            Converter.GcBytes((UInt32)currentCheck.stageIDX[0]));
+                            Converter.GcBytes((UInt32)currentCheck.stageIDX[i]));
                         listOfRELReplacements.AddRange(
                             Converter.GcBytes(
-                                (UInt32)uint.Parse(currentCheck.moduleID, System.Globalization.NumberStyles.HexNumber)));
+                                (UInt32)uint.Parse(currentCheck.moduleID[i], System.Globalization.NumberStyles.HexNumber)));
                         listOfRELReplacements.AddRange(
                             Converter.GcBytes(
                                 (UInt32)uint.Parse(
@@ -356,7 +356,7 @@ namespace TPRandomizer.Assets
                             Converter.GcBytes(
                                 (UInt32)(
                                     uint.Parse(
-                                        currentCheck.relOverride,
+                                        currentCheck.relOverride[i],
                                         System.Globalization.NumberStyles.HexNumber)
                                         + (byte)currentCheck.itemId)));
                         count++;
@@ -507,6 +507,7 @@ namespace TPRandomizer.Assets
                 { 0x20, 0x20 }, // Master Sword Story Progression
                 { 0x20, 0x10 }, // Arbiters Grounds Story Progression
                 { 0x2C, 0x10 }, // Raised the mirror in the Mirror Chamber
+                { 0x1E, 0x80 }, // Gor Ebizo ready to start fundraising for CT
             };
 
             byte[,] faronTwilightEventFlags = new byte[,]
@@ -559,6 +560,10 @@ namespace TPRandomizer.Assets
             {
                 { 0x0, 0x57 }, // Spider on Link's Ladder killed.
                 { 0x16, 0x47 }, // West Bridge in CiTS Broken.
+                { 0x16, 0x4D }, // West Bridge in CiTS Extended.
+                { 0x16, 0x5D }, // West Bridge in CiTS Spinner Slot Closed.
+                { 0x16, 0x6D }, // West Bridge in CiTS Extended.
+                { 0x16, 0x6B }, // West Bridge in CiTS Destroyed CS Trigger.
                 { 0x2, 0x63 }, // Trill lets you shop at his store.
                 { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
                 { 0xA, 0x69 }, // Desert Entrance CS.

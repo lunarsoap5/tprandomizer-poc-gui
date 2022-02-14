@@ -40,13 +40,13 @@ namespace TPRandomizer
 
         public List<byte> replacementType { get; set; } // Used by ARC checks. The type of replacement taking place.
 
-        public string moduleID { get; set; } // Used by REL checks. The module ID for the rel file being loaded.
+        public List<string> moduleID { get; set; } // Used by REL checks. The module ID for the rel file being loaded.
 
         public List<string> offsets { get; set; } // Used by REL checks.
 
         public List<string> magicByte { get; set; }
 
-        public string relOverride { get; set; } // Used by REL checks. The override instruction to be used when replacing the item in the rel.
+        public List<string> relOverride { get; set; } // Used by REL checks. The override instruction to be used when replacing the item in the rel.
     }
 
     /// <summary>
@@ -166,6 +166,11 @@ namespace TPRandomizer
             Randomizer.Checks.CheckDict["Wooden Statue"].checkStatus = "Vanilla";
             Randomizer.Checks.CheckDict["Ilia Charm"].checkStatus = "Vanilla";
             Randomizer.Checks.CheckDict["Ilia Memory Reward"].checkStatus = "Vanilla";
+            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Renardos Letter"].itemId);
+            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Telma Invoice"].itemId);
+            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Wooden Statue"].itemId);
+            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ilia Charm"].itemId);
+            Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ilia Memory Reward"].itemId);
         }
     }
 }
