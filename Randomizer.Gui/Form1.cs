@@ -68,7 +68,6 @@ namespace TPRandomizer
             this.eldinTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
             this.lanayruTwilightClearedCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
             this.skipMinorCutscenesCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
-            this.repairSkyCannonCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
             this.fastIronBootsCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
             this.quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
             this.transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
@@ -140,7 +139,6 @@ namespace TPRandomizer
                 this.settings.eldinTwilightCleared = this.eldinTwilightClearedCheckBox.Checked;
                 this.settings.lanayruTwilightCleared = this.lanayruTwilightClearedCheckBox.Checked;
                 this.settings.skipMinorCutscenes = this.skipMinorCutscenesCheckBox.Checked;
-                this.settings.autoRepairSkyCannon = this.repairSkyCannonCheckBox.Checked;
                 this.settings.fastIronBoots = this.fastIronBootsCheckBox.Checked;
                 this.settings.quickTransform = this.quickTransformCheckBox.Checked;
                 this.settings.transformAnywhere = this.transformAnywhereCheckBox.Checked;
@@ -223,7 +221,6 @@ namespace TPRandomizer
             this.eldinTwilightClearedCheckBox.Checked = this.settings.eldinTwilightCleared;
             this.lanayruTwilightClearedCheckBox.Checked = this.settings.lanayruTwilightCleared;
             this.skipMinorCutscenesCheckBox.Checked = this.settings.skipMinorCutscenes;
-            this.repairSkyCannonCheckBox.Checked = this.settings.autoRepairSkyCannon;
             this.fastIronBootsCheckBox.Checked = this.settings.fastIronBoots;
             this.quickTransformCheckBox.Checked = this.settings.quickTransform;
             this.transformAnywhereCheckBox.Checked = this.settings.transformAnywhere;
@@ -593,7 +590,6 @@ namespace TPRandomizer
                 this.castleLogicComboBox.BackColor = Color.FromArgb(34, 36, 49);
                 this.gameplaySettingsTabPage.BackColor = Color.FromArgb(34, 36, 49);
                 this.cutsceneMundaneSkipsGroupBox.BackColor = Color.FromArgb(34, 36, 49);
-                this.repairSkyCannonCheckBox.BackColor = Color.FromArgb(34, 36, 49);
                 this.skipMinorCutscenesCheckBox.BackColor = Color.FromArgb(34, 36, 49);
                 this.clearedTwilightsGroupBox.BackColor = Color.FromArgb(34, 36, 49);
                 this.lanayruTwilightClearedCheckBox.BackColor = Color.FromArgb(34, 36, 49);
@@ -678,7 +674,6 @@ namespace TPRandomizer
                 castleLogicComboBox.ForeColor = Color.LightGray;
                 gameplaySettingsTabPage.ForeColor = Color.LightGray;
                 cutsceneMundaneSkipsGroupBox.ForeColor = Color.LightGray;
-                repairSkyCannonCheckBox.ForeColor = Color.LightGray;
                 skipMinorCutscenesCheckBox.ForeColor = Color.LightGray;
                 clearedTwilightsGroupBox.ForeColor = Color.LightGray;
                 lanayruTwilightClearedCheckBox.ForeColor = Color.LightGray;
@@ -763,7 +758,6 @@ namespace TPRandomizer
                 castleLogicComboBox.BackColor = Color.White;
                 gameplaySettingsTabPage.BackColor = Color.White;
                 cutsceneMundaneSkipsGroupBox.BackColor = Color.White;
-                repairSkyCannonCheckBox.BackColor = Color.White;
                 skipMinorCutscenesCheckBox.BackColor = Color.White;
                 clearedTwilightsGroupBox.BackColor = Color.White;
                 lanayruTwilightClearedCheckBox.BackColor = Color.White;
@@ -848,7 +842,6 @@ namespace TPRandomizer
                 castleLogicComboBox.ForeColor = Color.Black;
                 gameplaySettingsTabPage.ForeColor = Color.Black;
                 cutsceneMundaneSkipsGroupBox.ForeColor = Color.Black;
-                repairSkyCannonCheckBox.ForeColor = Color.Black;
                 skipMinorCutscenesCheckBox.ForeColor = Color.Black;
                 clearedTwilightsGroupBox.ForeColor = Color.Black;
                 lanayruTwilightClearedCheckBox.ForeColor = Color.Black;

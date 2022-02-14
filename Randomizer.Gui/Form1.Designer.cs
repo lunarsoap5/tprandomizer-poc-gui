@@ -66,8 +66,14 @@ namespace TPRandomizer
             this.castleLogicLabel = new System.Windows.Forms.Label();
             this.castleLogicComboBox = new System.Windows.Forms.ComboBox();
             this.gameplaySettingsTabPage = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.citsAccessCheckbox = new System.Windows.Forms.CheckBox();
+            this.totAccessCheckbox = new System.Windows.Forms.CheckBox();
+            this.snowpeakAccessCheckbox = new System.Windows.Forms.CheckBox();
+            this.agAccessCheckbox = new System.Windows.Forms.CheckBox();
+            this.lbtAccessCheckBox = new System.Windows.Forms.CheckBox();
+            this.gmAccessCheckbox = new System.Windows.Forms.CheckBox();
             this.cutsceneMundaneSkipsGroupBox = new System.Windows.Forms.GroupBox();
-            this.repairSkyCannonCheckBox = new System.Windows.Forms.CheckBox();
             this.skipMinorCutscenesCheckBox = new System.Windows.Forms.CheckBox();
             this.clearedTwilightsGroupBox = new System.Windows.Forms.GroupBox();
             this.lanayruTwilightClearedCheckBox = new System.Windows.Forms.CheckBox();
@@ -149,14 +155,6 @@ namespace TPRandomizer
             this.cutsceneTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.seedNumberLabel = new System.Windows.Forms.Label();
             this.seedNumberComboBox = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -165,6 +163,7 @@ namespace TPRandomizer
             this.dungeonItemsGroupBox.SuspendLayout();
             this.accessOptionsGroupBox.SuspendLayout();
             this.gameplaySettingsTabPage.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.cutsceneMundaneSkipsGroupBox.SuspendLayout();
             this.clearedTwilightsGroupBox.SuspendLayout();
             this.excludedChecksTabPage.SuspendLayout();
@@ -173,7 +172,6 @@ namespace TPRandomizer
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.cosmeticsGroupBox.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // optionsMenu
@@ -462,7 +460,6 @@ namespace TPRandomizer
             // 
             // accessOptionsGroupBox
             // 
-            this.accessOptionsGroupBox.Controls.Add(this.checkBox1);
             this.accessOptionsGroupBox.Controls.Add(this.skipIntroCheckBox);
             this.accessOptionsGroupBox.Controls.Add(this.faronWoodsLogicComboBox);
             this.accessOptionsGroupBox.Controls.Add(this.faronWoodsLogicLabel);
@@ -582,9 +579,83 @@ namespace TPRandomizer
             this.gameplaySettingsTabPage.Text = "Gameplay Settings";
             this.gameplaySettingsTabPage.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.citsAccessCheckbox);
+            this.groupBox3.Controls.Add(this.totAccessCheckbox);
+            this.groupBox3.Controls.Add(this.snowpeakAccessCheckbox);
+            this.groupBox3.Controls.Add(this.agAccessCheckbox);
+            this.groupBox3.Controls.Add(this.lbtAccessCheckBox);
+            this.groupBox3.Controls.Add(this.gmAccessCheckbox);
+            this.groupBox3.Location = new System.Drawing.Point(420, 15);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(245, 210);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Dungeon Access";
+            // 
+            // citsAccessCheckbox
+            // 
+            this.citsAccessCheckbox.AutoSize = true;
+            this.citsAccessCheckbox.Location = new System.Drawing.Point(6, 126);
+            this.citsAccessCheckbox.Name = "citsAccessCheckbox";
+            this.citsAccessCheckbox.Size = new System.Drawing.Size(199, 19);
+            this.citsAccessCheckbox.TabIndex = 5;
+            this.citsAccessCheckbox.Text = "City in The Sky Requires Skybook";
+            this.citsAccessCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // totAccessCheckbox
+            // 
+            this.totAccessCheckbox.AutoSize = true;
+            this.totAccessCheckbox.Location = new System.Drawing.Point(6, 106);
+            this.totAccessCheckbox.Name = "totAccessCheckbox";
+            this.totAccessCheckbox.Size = new System.Drawing.Size(230, 19);
+            this.totAccessCheckbox.TabIndex = 4;
+            this.totAccessCheckbox.Text = "Temple of Time Requires Master Sword";
+            this.totAccessCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // snowpeakAccessCheckbox
+            // 
+            this.snowpeakAccessCheckbox.AutoSize = true;
+            this.snowpeakAccessCheckbox.Location = new System.Drawing.Point(6, 85);
+            this.snowpeakAccessCheckbox.Name = "snowpeakAccessCheckbox";
+            this.snowpeakAccessCheckbox.Size = new System.Drawing.Size(207, 19);
+            this.snowpeakAccessCheckbox.TabIndex = 3;
+            this.snowpeakAccessCheckbox.Text = "Snowpeak Requires Reekfish Scent";
+            this.snowpeakAccessCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // agAccessCheckbox
+            // 
+            this.agAccessCheckbox.AutoSize = true;
+            this.agAccessCheckbox.Location = new System.Drawing.Point(6, 64);
+            this.agAccessCheckbox.Name = "agAccessCheckbox";
+            this.agAccessCheckbox.Size = new System.Drawing.Size(190, 19);
+            this.agAccessCheckbox.TabIndex = 2;
+            this.agAccessCheckbox.Text = "Arbiters Requires Bulblin Camp";
+            this.agAccessCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // lbtAccessCheckBox
+            // 
+            this.lbtAccessCheckBox.AutoSize = true;
+            this.lbtAccessCheckBox.Location = new System.Drawing.Point(6, 42);
+            this.lbtAccessCheckBox.Name = "lbtAccessCheckBox";
+            this.lbtAccessCheckBox.Size = new System.Drawing.Size(192, 19);
+            this.lbtAccessCheckBox.TabIndex = 1;
+            this.lbtAccessCheckBox.Text = "Lakebed Requires Water Bombs";
+            this.lbtAccessCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // gmAccessCheckbox
+            // 
+            this.gmAccessCheckbox.AutoSize = true;
+            this.gmAccessCheckbox.Location = new System.Drawing.Point(6, 20);
+            this.gmAccessCheckbox.Name = "gmAccessCheckbox";
+            this.gmAccessCheckbox.Size = new System.Drawing.Size(195, 19);
+            this.gmAccessCheckbox.TabIndex = 0;
+            this.gmAccessCheckbox.Text = "Goron Mines Requires Wrestling";
+            this.gmAccessCheckbox.UseVisualStyleBackColor = true;
+            // 
             // cutsceneMundaneSkipsGroupBox
             // 
-            this.cutsceneMundaneSkipsGroupBox.Controls.Add(this.repairSkyCannonCheckBox);
             this.cutsceneMundaneSkipsGroupBox.Controls.Add(this.skipMinorCutscenesCheckBox);
             this.cutsceneMundaneSkipsGroupBox.Location = new System.Drawing.Point(11, 114);
             this.cutsceneMundaneSkipsGroupBox.Name = "cutsceneMundaneSkipsGroupBox";
@@ -592,16 +663,6 @@ namespace TPRandomizer
             this.cutsceneMundaneSkipsGroupBox.TabIndex = 3;
             this.cutsceneMundaneSkipsGroupBox.TabStop = false;
             this.cutsceneMundaneSkipsGroupBox.Text = "Cutscene/Mundane Skips";
-            // 
-            // repairSkyCannonCheckBox
-            // 
-            this.repairSkyCannonCheckBox.AutoSize = true;
-            this.repairSkyCannonCheckBox.Location = new System.Drawing.Point(7, 48);
-            this.repairSkyCannonCheckBox.Name = "repairSkyCannonCheckBox";
-            this.repairSkyCannonCheckBox.Size = new System.Drawing.Size(156, 19);
-            this.repairSkyCannonCheckBox.TabIndex = 1;
-            this.repairSkyCannonCheckBox.Text = "Auto-Repair Sky Cannon";
-            this.repairSkyCannonCheckBox.UseVisualStyleBackColor = true;
             // 
             // skipMinorCutscenesCheckBox
             // 
@@ -839,9 +900,9 @@ namespace TPRandomizer
             this.enemyBgmCheckBox.AutoSize = true;
             this.enemyBgmCheckBox.Location = new System.Drawing.Point(6, 79);
             this.enemyBgmCheckBox.Name = "enemyBgmCheckBox";
-            this.enemyBgmCheckBox.Size = new System.Drawing.Size(206, 19);
+            this.enemyBgmCheckBox.Size = new System.Drawing.Size(201, 19);
             this.enemyBgmCheckBox.TabIndex = 2;
-            this.enemyBgmCheckBox.Text = "Disable Enemy Backgound Music?";
+            this.enemyBgmCheckBox.Text = "Disable Enemy Backgound Music";
             this.enemyBgmCheckBox.UseVisualStyleBackColor = true;
             // 
             // fanfareCheckBox
@@ -849,9 +910,9 @@ namespace TPRandomizer
             this.fanfareCheckBox.AutoSize = true;
             this.fanfareCheckBox.Location = new System.Drawing.Point(6, 54);
             this.fanfareCheckBox.Name = "fanfareCheckBox";
-            this.fanfareCheckBox.Size = new System.Drawing.Size(137, 19);
+            this.fanfareCheckBox.Size = new System.Drawing.Size(132, 19);
             this.fanfareCheckBox.TabIndex = 1;
-            this.fanfareCheckBox.Text = "Randomize Fanfares?";
+            this.fanfareCheckBox.Text = "Randomize Fanfares";
             this.fanfareCheckBox.UseVisualStyleBackColor = true;
             // 
             // bgmCheckBox
@@ -860,9 +921,9 @@ namespace TPRandomizer
             this.bgmCheckBox.Location = new System.Drawing.Point(6, 30);
             this.bgmCheckBox.Name = "bgmCheckBox";
             this.bgmCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bgmCheckBox.Size = new System.Drawing.Size(188, 19);
+            this.bgmCheckBox.Size = new System.Drawing.Size(183, 19);
             this.bgmCheckBox.TabIndex = 0;
-            this.bgmCheckBox.Text = "Randomize Backgound Music?";
+            this.bgmCheckBox.Text = "Randomize Backgound Music";
             this.bgmCheckBox.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -883,9 +944,9 @@ namespace TPRandomizer
             this.walletCheckBox.AutoSize = true;
             this.walletCheckBox.Location = new System.Drawing.Point(6, 95);
             this.walletCheckBox.Name = "walletCheckBox";
-            this.walletCheckBox.Size = new System.Drawing.Size(159, 19);
+            this.walletCheckBox.Size = new System.Drawing.Size(154, 19);
             this.walletCheckBox.TabIndex = 9;
-            this.walletCheckBox.Text = "Increase Wallet Capacity?";
+            this.walletCheckBox.Text = "Increase Wallet Capacity";
             this.walletCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.walletCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -1370,91 +1431,6 @@ namespace TPRandomizer
             this.seedNumberComboBox.Size = new System.Drawing.Size(121, 23);
             this.seedNumberComboBox.TabIndex = 15;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 170);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(253, 19);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Goron Mines Requires Wrestling Gor Coron";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.checkBox7);
-            this.groupBox3.Controls.Add(this.checkBox6);
-            this.groupBox3.Controls.Add(this.checkBox5);
-            this.groupBox3.Controls.Add(this.checkBox4);
-            this.groupBox3.Controls.Add(this.checkBox3);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Location = new System.Drawing.Point(420, 15);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(245, 210);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Dungeon Access";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 20);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(195, 19);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "Goron Mines Requires Wrestling";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(6, 42);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(192, 19);
-            this.checkBox3.TabIndex = 1;
-            this.checkBox3.Text = "Lakebed Requires Water Bombs";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(6, 64);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(190, 19);
-            this.checkBox4.TabIndex = 2;
-            this.checkBox4.Text = "Arbiters Requires Bulblin Camp";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(6, 85);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(207, 19);
-            this.checkBox5.TabIndex = 3;
-            this.checkBox5.Text = "Snowpeak Requires Reekfish Scent";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(6, 106);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(230, 19);
-            this.checkBox6.TabIndex = 4;
-            this.checkBox6.Text = "Temple of Time Requires Master Sword";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(6, 126);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(199, 19);
-            this.checkBox7.TabIndex = 5;
-            this.checkBox7.Text = "City in The Sky Requires Skybook";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1486,6 +1462,8 @@ namespace TPRandomizer
             this.accessOptionsGroupBox.ResumeLayout(false);
             this.accessOptionsGroupBox.PerformLayout();
             this.gameplaySettingsTabPage.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.cutsceneMundaneSkipsGroupBox.ResumeLayout(false);
             this.cutsceneMundaneSkipsGroupBox.PerformLayout();
             this.clearedTwilightsGroupBox.ResumeLayout(false);
@@ -1501,8 +1479,6 @@ namespace TPRandomizer
             this.groupBox1.PerformLayout();
             this.cosmeticsGroupBox.ResumeLayout(false);
             this.cosmeticsGroupBox.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1550,7 +1526,6 @@ namespace TPRandomizer
         private System.Windows.Forms.Label faronWoodsLogicLabel;
         private System.Windows.Forms.CheckBox mdhCheckBox;
         private System.Windows.Forms.GroupBox cutsceneMundaneSkipsGroupBox;
-        private System.Windows.Forms.CheckBox repairSkyCannonCheckBox;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.ComboBox midnaHairColorComboBox;
         private System.Windows.Forms.Label midnaHairColorLabel;
@@ -1632,14 +1607,13 @@ namespace TPRandomizer
         private System.Windows.Forms.Label seedNumberLabel;
         private System.Windows.Forms.ComboBox seedNumberComboBox;
         private System.Windows.Forms.CheckBox walletCheckBox;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox citsAccessCheckbox;
+        private System.Windows.Forms.CheckBox totAccessCheckbox;
+        private System.Windows.Forms.CheckBox snowpeakAccessCheckbox;
+        private System.Windows.Forms.CheckBox agAccessCheckbox;
+        private System.Windows.Forms.CheckBox lbtAccessCheckBox;
+        private System.Windows.Forms.CheckBox gmAccessCheckbox;
     }
 }
 

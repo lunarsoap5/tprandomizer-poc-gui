@@ -169,6 +169,9 @@ namespace TPRandomizer.Assets
                 randomizerSettings.shuffleBackgroundMusic,
                 randomizerSettings.disableEnemyBackgoundMusic,
                 randomizerSettings.fastIronBoots,
+                randomizerSettings.faronTwilightCleared,
+                randomizerSettings.eldinTwilightCleared,
+                randomizerSettings.lanayruTwilightCleared,
             };
             int patchOptions = 0x0;
             int bitwiseOperator = 0;
@@ -548,12 +551,14 @@ namespace TPRandomizer.Assets
             byte[,] arrayOfRegionFlags = { };
             byte[,] faronTwilightRegionFlags = new byte[,]
             {
-                { 0x2, 0x40 },
-                { 0x2, 0x41 },
-                { 0x2, 0x43 },
-                { 0x2, 0x44 },
-                { 0x2, 0x46 },
-                { 0x2, 0x47 },
+                { 0x2, 0x40 }, // Explored east section of Mist Area after Midna Jump 1.
+                { 0x2, 0x41 }, // Explored section south of entrance of Mist Area.
+                { 0x2, 0x43 }, // Went up east section of mist area after Midna Jump 1.
+                { 0x2, 0x44 }, // S Faron Warp Twilight Fences fall CS.
+                { 0x2, 0x46 }, // Midna jump 1 mist area.
+                { 0x2, 0x47 }, // Midna jump 1 mist area.
+                { 0x2, 0xB8 }, // Killed Light Bug in Coro's house.
+                { 0x2, 0xB9 }, // Killed Light Bug in Coro's house.
             };
 
             byte[,] baseRandomizerRegionFlags = new byte[,]
@@ -567,6 +572,7 @@ namespace TPRandomizer.Assets
                 { 0x2, 0x63 }, // Trill lets you shop at his store.
                 { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
                 { 0xA, 0x69 }, // Desert Entrance CS.
+                { 0x3, 0xA4 }, // Barnes Sells Bombs.
             };
 
             arrayOfRegionFlags = BackendFunctions.ConcatFlagArrays(
