@@ -72,10 +72,6 @@ namespace TPRandomizer
             this.quickTransformCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
             this.transformAnywhereCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
             this.skipIntroCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
-            this.startingItemsListBox.SelectedIndexChanged += new System.EventHandler(this.UpdateFlags);
-            this.excludedChecksListBox.SelectedIndexChanged += new System.EventHandler(this.UpdateFlags);
-            this.listofChecksListBox.SelectedIndexChanged += new System.EventHandler(this.UpdateFlags);
-            this.itemPoolListBox.SelectedIndexChanged += new System.EventHandler(this.UpdateFlags);
             this.tunicColorComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdateFlags);
             this.midnaHairColorComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdateFlags);
             this.lanternColorComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdateFlags);
@@ -101,16 +97,17 @@ namespace TPRandomizer
                 string fileName = Path.GetFileNameWithoutExtension(file);
                 RandomizerChecks.Add(fileName);
             }
-            foreach (string check in RandomizerChecks) 
+            for ( int i = 0; i < RandomizerChecks.Count; i++) 
             {
-                this.listofChecksListBox.Items.Add(check);
+                this.listofChecksListBox.Items.Add(new ListItem { Name = RandomizerChecks[i], Value = i});
             }
             foreach (var item in items.ImportantItems) 
             {
                 string itemName = item.ToString();
                 itemName = itemName.Replace("_", " ");
-                this.itemPoolListBox.Items.Add(itemName);
+                this.itemPoolListBox.Items.Add(new ListItem { Name = itemName, Value = (byte)item});
             }
+            settings.ExcludedChecks = new ();
         }
 
         /// <summary>
@@ -161,6 +158,7 @@ namespace TPRandomizer
                 this.settings.shuffleHiddenSkills = this.skillsCheckBox.Checked;
                 this.settings.shuffleSkyCharacters = this.skyCharacterCheckBox.Checked;
                 this.settings.seedNumber = this.seedNumberComboBox.SelectedIndex;
+                this.settings.ExcludedChecks.Clear();
                 foreach (string startingItem in this.startingItemsListBox.Items) 
                 {
                     string itemName = startingItem;
@@ -174,7 +172,11 @@ namespace TPRandomizer
                         }
                     }
                 }
-                this.settings.ExcludedChecks = this.excludedChecksListBox.Items.OfType<string>().ToList();
+                foreach (ListItem excludedCheck in excludedChecksListBox.Items)
+                {
+                    settings.ExcludedChecks.Add((int)excludedCheck.Value);
+                }
+                 
                 this.settings.TunicColor = this.tunicColorComboBox.SelectedIndex;
                 this.settings.MidnaHairColor = this.midnaHairColorComboBox.SelectedIndex;
                 this.settings.upgradeWallet = this.walletCheckBox.Checked;
@@ -192,15 +194,15 @@ namespace TPRandomizer
             this.listofChecksListBox.Items.Clear();
             this.itemPoolListBox.Items.Clear();
 
-            foreach (string check in RandomizerChecks) 
+            for ( int i = 0; i < RandomizerChecks.Count; i++) 
             {
-                this.listofChecksListBox.Items.Add(check);
+                this.listofChecksListBox.Items.Add(new ListItem { Name = RandomizerChecks[i], Value = i});
             }
-            foreach (var item in this.items.ImportantItems) 
+            foreach (var item in items.ImportantItems) 
             {
                 string itemName = item.ToString();
                 itemName = itemName.Replace("_", " ");
-                this.itemPoolListBox.Items.Add(itemName);
+                this.itemPoolListBox.Items.Add(new ListItem { Name = itemName, Value = (byte)item});
             }
 
             this.ParseSettingsString(this.settingsStringTextbox.Text);
@@ -250,11 +252,18 @@ namespace TPRandomizer
                 this.startingItemsListBox.Items.Add(itemName);
                 this.itemPoolListBox.Items.Remove(itemName);
             }
-            foreach (string excludedCheck in this.settings.ExcludedChecks) 
+            foreach (int excludedCheck in this.settings.ExcludedChecks) 
             {
-                this.excludedChecksListBox.Items.Add(excludedCheck);
-                this.listofChecksListBox.Items.Remove(excludedCheck);
+                foreach (ListItem check in listofChecksListBox.Items)
+                {
+                    if (excludedCheck == check.Value)
+                    {
+                        this.excludedChecksListBox.Items.Add( new ListItem { Name = check.Name, Value = check.Value});
+                        this.listofChecksListBox.Items.Remove(excludedCheck);
+                    }
+                } 
             }
+
             this.tunicColorComboBox.SelectedIndex = this.settings.TunicColor;
             this.midnaHairColorComboBox.SelectedIndex = this.settings.MidnaHairColor;
             this.walletCheckBox.Checked = this.settings.upgradeWallet;
@@ -307,15 +316,14 @@ namespace TPRandomizer
                     //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
                     i_bits = i_bits + "111111111";
                 }
-                if (property.PropertyType == typeof(List<string>)) //List of Excluded Checks
+                if (property.PropertyType == typeof(List<int>)) //List of Excluded Checks
                 {
-                    List<string> checkList = new ();
-                    checkList.AddRange((List<string>)value);
-                    foreach (string check in checkList) 
+                    List<int> checkList = new ();
+                    checkList.AddRange((List<int>)value);
+                    foreach (int check in checkList) 
                     {
-                        int index = Randomizer.Checks.CheckDict.Keys.ToList().IndexOf(check);
                         //We have to pad to 9 bits here because there are hundreds of checks. Will need to be changed to 10 if we go over 512 checks though.
-                        i_bits = i_bits + Convert.ToString(index, 2).PadLeft(9, '0');
+                        i_bits = i_bits + Convert.ToString((int)check, 2).PadLeft(9, '0');
                     }
                     //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
                     i_bits = i_bits + "111111111";
@@ -396,9 +404,9 @@ namespace TPRandomizer
                     }
                     property.SetValue(this.settings, startingItems, null);
                 }
-                if (property.PropertyType == typeof(List<string>)) 
+                if (property.PropertyType == typeof(List<int>)) 
                 {
-                    List<string> excludedChecks = new ();
+                    List<int> excludedChecks = new ();
                     //We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
                     settingBitWidth = 9;
                     while (!reachedEndofList) 
@@ -411,7 +419,8 @@ namespace TPRandomizer
                         int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
                         if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         {
-                            excludedChecks.Add(Randomizer.Checks.CheckDict.ElementAt(checkIndex).Key);
+
+                            excludedChecks.Add(checkIndex);
                         }
                         else 
                         {
@@ -429,8 +438,19 @@ namespace TPRandomizer
         {
             if (this.listofChecksListBox.SelectedItem != null) //A little security feature in case the user mis-clicks
             {
-                this.excludedChecksListBox.Items.Add(this.listofChecksListBox.SelectedItem);
+                this.excludedChecksListBox.Items.Add( new ListItem { Name = ((ListItem)this.listofChecksListBox.SelectedItem).Name, Value = ((ListItem)this.listofChecksListBox.SelectedItem).Value});
                 this.listofChecksListBox.Items.Remove(this.listofChecksListBox.SelectedItem);
+                UpdateFlags(sender, e);
+            }
+        }
+
+        private void moveExcludedToCheckButton_Click(object sender, EventArgs e) 
+        {
+            if (this.excludedChecksListBox.SelectedItem != null)
+            {
+                this.listofChecksListBox.Items.Add( new ListItem { Name = ((ListItem)this.excludedChecksListBox.SelectedItem).Name, Value = ((ListItem)this.excludedChecksListBox.SelectedItem).Value});
+                this.excludedChecksListBox.Items.Remove(this.excludedChecksListBox.SelectedItem);
+                UpdateFlags(sender, e);
             }
         }
 
@@ -453,11 +473,7 @@ namespace TPRandomizer
             }
         }
 
-        private void moveExcludedToCheckButton_Click(object sender, EventArgs e) 
-        {
-            this.listofChecksListBox.Items.Add(this.excludedChecksListBox.SelectedItem);
-            this.excludedChecksListBox.Items.Remove(this.excludedChecksListBox.SelectedItem);
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e) 
         {
@@ -893,6 +909,16 @@ namespace TPRandomizer
             }
         }
 
+        public class ListItem
+        {
+            public string Name {get; set;}
+            public int Value {get; set;}
+
+            public override string ToString()
+            {
+                return Name;
+            }
+        }
         private void importButton_Click(object sender, EventArgs e) 
         {
             dontrunhandler = true;

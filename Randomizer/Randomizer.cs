@@ -101,9 +101,10 @@ namespace TPRandomizer
                 Console.WriteLine("Generating Spoiler Log.");
                 BackendFunctions.GenerateSpoilerLog(startingRoom, seedHash);
                 Console.WriteLine("Generation Complete!");
-                CleanUp();
                 break;
             }
+
+            CleanUp();
         }
 
         /// <summary>

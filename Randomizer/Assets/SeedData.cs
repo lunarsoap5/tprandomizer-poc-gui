@@ -527,9 +527,9 @@ namespace TPRandomizer.Assets
                 { 0x45, 0x10 }, // Saved Talo
                 { 0x10, 0x1 }, // Cat got Fish
                 { 0x3, 0x2 }, // Gave Wooden Sword to Talo
-                { 0x4A, 0x40 }, //Completed Ordon Day 1.
-                { 0x16, 0x1 }, //Completed Ordon Day 2.
-                { 0x15, 0x80 }, //Watched CS for Goats 2 Done.
+                { 0x4A, 0x40 }, // Completed Ordon Day 1.
+                { 0x16, 0x1 }, // Completed Ordon Day 2.
+                { 0x15, 0x80 }, // Watched CS for Goats 2 Done.
             };
 
             arrayOfEventFlags = BackendFunctions.ConcatFlagArrays(

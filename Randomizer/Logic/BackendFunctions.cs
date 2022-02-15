@@ -149,7 +149,7 @@ namespace TPRandomizer
                     settingProperty.SetValue(Randomizer.RandoSetting, startingItems, null);
                 }
 
-                if (settingProperty.PropertyType == typeof(List<string>))
+                if (settingProperty.PropertyType == typeof(List<int>))
                 {
                     List<string> excludedChecks = new ();
 
@@ -168,7 +168,7 @@ namespace TPRandomizer
                         // Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
                         if (checkIndex != 511)
                         {
-                            excludedChecks.Add(Randomizer.Checks.CheckDict.ElementAt(checkIndex).Key);
+                            Randomizer.Checks.CheckDict.Values.ElementAt(checkIndex).checkStatus = "Excluded";
                         }
                         else
                         {

@@ -26,7 +26,7 @@ namespace TPRandomizer
         public bool transformAnywhere { get; set; }
         public int iceTrapSettings { get; set; }
         public List<Item> StartingItems { get; set; }
-        public List<string> ExcludedChecks { get; set; }
+        public List<int> ExcludedChecks { get; set; }
         public int TunicColor { get; set; }
         public int MidnaHairColor { get; set; }
         public int lanternColor { get; set; }

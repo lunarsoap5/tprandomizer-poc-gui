@@ -94,7 +94,7 @@ namespace TPRandomizer.Assets
         /// <returns>Array of Bytes processed.</returns>
         public static byte[] StringBytes(string text, int desiredLength = 0, char region = 'E')
         {
-            List<byte> textData = new List<byte>();
+            List<byte> textData = new ();
 
             if (region == 'J')
             {
