@@ -517,7 +517,19 @@ namespace TPRandomizer.Assets
             {
                 { 0x5, 0x7F }, // Midna Charge Unlocked, Finished Sewers, Midna text after entering Faron Twilight, Met Zelda in sewers, Midna cut prison chain, Watched Sewers intro CS, Escaped cell in sewers.
                 { 0x6, 0x10 }, // Cleared Faron Twilight
-                { 0xC, 0x8 }, // Midna accompanies Wolf
+                { 0xC, 0x18 }, // Midna accompanies Wolf, sword and shield removed from wolf's back.
+                { 0x3, 0x2 }, // Gave Wooden Sword to Talo
+            };
+
+            byte[,] introEventFlags = new byte[,]
+            {
+                { 0x4, 0x4 }, // Talked to Uli Day 1.
+                { 0x45, 0x10 }, // Saved Talo
+                { 0x10, 0x1 }, // Cat got Fish
+                { 0x3, 0x2 }, // Gave Wooden Sword to Talo
+                { 0x4A, 0x40 }, //Completed Ordon Day 1.
+                { 0x16, 0x1 }, //Completed Ordon Day 2.
+                { 0x15, 0x80 }, //Watched CS for Goats 2 Done.
             };
 
             arrayOfEventFlags = BackendFunctions.ConcatFlagArrays(
