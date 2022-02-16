@@ -123,10 +123,6 @@ namespace TPRandomizer
                         }
                     }
                 }
-                else
-                {
-                    currentCheck.checkStatus = "Excluded";
-                }
             }
 
             if (!parseSetting.introSkipped)
@@ -136,7 +132,7 @@ namespace TPRandomizer
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Uli Cradle Delivery"].itemId);
                 Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Vanilla";
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Shield"].itemId);
+                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
             }
             else
             {
@@ -151,9 +147,9 @@ namespace TPRandomizer
             }
             else
             {
-                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Coro Lantern"].itemId);
-                Randomizer.Checks.CheckDict["Ordon Sword"].checkStatus = "Vanilla";
                 Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Sword"].itemId);
+                Randomizer.Checks.CheckDict["Ordon Sword"].checkStatus = "Vanilla";
+                Randomizer.Items.RandomizedImportantItems.Remove(Randomizer.Checks.CheckDict["Ordon Shield"].itemId);
                 Randomizer.Checks.CheckDict["Ordon Shield"].checkStatus = "Vanilla";
             }
 

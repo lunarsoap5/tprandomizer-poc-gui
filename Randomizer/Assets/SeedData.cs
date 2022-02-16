@@ -530,6 +530,7 @@ namespace TPRandomizer.Assets
                 { 0x4A, 0x40 }, // Completed Ordon Day 1.
                 { 0x16, 0x1 }, // Completed Ordon Day 2.
                 { 0x15, 0x80 }, // Watched CS for Goats 2 Done.
+                { 0x46, 0x10 }, // Rode Epona back to Link's House
             };
 
             arrayOfEventFlags = BackendFunctions.ConcatFlagArrays(
@@ -540,6 +541,10 @@ namespace TPRandomizer.Assets
                 arrayOfEventFlags = BackendFunctions.ConcatFlagArrays(
                     arrayOfEventFlags,
                     faronTwilightEventFlags);
+            }
+            if (randomizerSettings.introSkipped)
+            {
+                arrayOfEventFlags = BackendFunctions.ConcatFlagArrays( arrayOfEventFlags, introEventFlags);
             }
 
             for (int i = 0; i < arrayOfEventFlags.GetLength(0); i++)
@@ -573,6 +578,11 @@ namespace TPRandomizer.Assets
                 { 0x2, 0xB9 }, // Killed Light Bug in Coro's house.
             };
 
+            byte[,] introRegionFlags = new byte [,]
+            {
+                { 0x0, 0x63 }, // Spawn the Chest in Link's House
+            };
+
             byte[,] baseRandomizerRegionFlags = new byte[,]
             {
                 { 0x0, 0x57 }, // Spider on Link's Ladder killed.
@@ -596,6 +606,10 @@ namespace TPRandomizer.Assets
                 arrayOfRegionFlags = BackendFunctions.ConcatFlagArrays(
                     arrayOfRegionFlags,
                     faronTwilightRegionFlags);
+            }
+            if (randomizerSettings.introSkipped)
+            {
+                arrayOfRegionFlags = BackendFunctions.ConcatFlagArrays( arrayOfRegionFlags, introRegionFlags);
             }
 
             for (int i = 0; i < arrayOfRegionFlags.GetLength(0); i++)
