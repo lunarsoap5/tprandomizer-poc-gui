@@ -149,7 +149,7 @@ namespace TPRandomizer
                     settingProperty.SetValue(Randomizer.RandoSetting, startingItems, null);
                 }
 
-                if (settingProperty.PropertyType == typeof(List<int>))
+                if (settingProperty.PropertyType == typeof(List<string>))
                 {
                     List<string> excludedChecks = new ();
 
@@ -169,6 +169,7 @@ namespace TPRandomizer
                         if (checkIndex != 511)
                         {
                             Randomizer.Checks.CheckDict.Values.ElementAt(checkIndex).checkStatus = "Excluded";
+                            excludedChecks.Add(Randomizer.Checks.CheckDict.Values.ElementAt(checkIndex).checkName);
                         }
                         else
                         {
@@ -185,19 +186,6 @@ namespace TPRandomizer
                     settingProperty.Name
                         + ": "
                         + settingProperty.GetValue(Randomizer.RandoSetting, null));
-            }
-
-            foreach (string excludedCheck in Randomizer.RandoSetting.ExcludedChecks)
-            {
-                foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
-                {
-                    Check currentCheck = checkList.Value;
-                    if (excludedCheck == currentCheck.checkName)
-                    {
-                        currentCheck.checkStatus = "Excluded";
-                        Randomizer.Checks.CheckDict[currentCheck.checkName] = currentCheck;
-                    }
-                }
             }
 
             return;

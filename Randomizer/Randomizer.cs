@@ -286,6 +286,7 @@ namespace TPRandomizer
                         List<Room> currentPlaythroughGraph = GeneratePlaythroughGraph(startingRoom);
                         foreach (Room graphRoom in currentPlaythroughGraph)
                         {
+                            graphRoom.Visited = true;
                             // Console.WriteLine("Currently Exploring: " + graphRoom.name);
                             for (int i = 0; i < graphRoom.Checks.Count; i++)
                             {

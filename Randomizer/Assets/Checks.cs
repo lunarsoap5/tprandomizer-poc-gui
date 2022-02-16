@@ -68,7 +68,7 @@ namespace TPRandomizer
             foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
             {
                 Check currentCheck = check.Value;
-                if (!parseSetting.ExcludedChecks.Contains(currentCheck.checkName))
+                if (currentCheck.checkStatus == "Ready")
                 {
                     if ((parseSetting.smallKeySettings == "Vanilla") && currentCheck.category.Contains("Small Key"))
                     {
