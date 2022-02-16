@@ -578,7 +578,7 @@ namespace TPRandomizer.Assets
                 { 0x2, 0xB9 }, // Killed Light Bug in Coro's house.
             };
 
-            byte[,] introRegionFlags = new byte [,]
+            byte[,] introRegionFlags = new byte[,]
             {
                 { 0x0, 0x63 }, // Spawn the Chest in Link's House
             };

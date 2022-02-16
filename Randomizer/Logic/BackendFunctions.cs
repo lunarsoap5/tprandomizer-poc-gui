@@ -364,6 +364,7 @@ namespace TPRandomizer
         private static List<string> CalculateOptimalPlaythrough(Room startingRoom)
         {
             bool hasCompletedSphere;
+            bool hasConcludedPlaythrough;
             int shortestPlaythrough = 0;
             List<List<string>> listofPlaythroughs = new ();
             int sphereCount;
@@ -392,6 +393,7 @@ namespace TPRandomizer
                 while (!Randomizer.Rooms.RoomDict["Ganondorf Castle"].Visited)
                 {
                     hasCompletedSphere = false;
+                    hasConcludedPlaythrough = false;
                     currentPlaythroughGraph = Randomizer.GeneratePlaythroughGraph(startingRoom);
                     currentPlaythrough.Add("Sphere: " + sphereCount);
 
@@ -404,6 +406,12 @@ namespace TPRandomizer
                         foreach (Room graphRoom in currentPlaythroughGraph)
                         {
                             // Console.WriteLine("Currently Exploring: " + graphRoom.name);
+                            if (graphRoom.RoomName == "Ganondorf Castle")
+                            {
+                                hasConcludedPlaythrough = true;
+                                break;
+                            }
+
                             for (int i = 0; i < graphRoom.Checks.Count; i++)
                             {
                                 // Create reference to the dictionary entry of the check whose logic we are evaluating
@@ -451,7 +459,7 @@ namespace TPRandomizer
                     while (playthroughItems.Count > 0);
 
                     sphereCount++;
-                    if (hasCompletedSphere == false)
+                    if ((hasCompletedSphere == false) && !hasConcludedPlaythrough)
                     {
                         Console.WriteLine(
                             "Could not validate playthrough. There possibly is an error in logic. Please debug and try again.");
