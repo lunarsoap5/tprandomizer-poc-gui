@@ -521,7 +521,7 @@ namespace TPRandomizer
             Rooms.RoomDict.Clear();
             Items.ShuffledDungeonRewards.Clear();
             Items.RandomizedDungeonRegionItems.Clear();
-            Items.RandomizedImportantItems.Clear();
+            Randomizer.Items.RandomizedImportantItems.Clear();
             Items.JunkItems.Clear();
             Randomizer.Items.heldItems.Clear();
             Randomizer.Items.BaseItemPool.Clear();

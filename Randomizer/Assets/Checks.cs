@@ -90,11 +90,6 @@ namespace TPRandomizer
                     {
                         if (currentCheck.category.Contains("Npc"))
                         {
-                            if (Randomizer.Items.RandomizedImportantItems.Contains(currentCheck.itemId))
-                            {
-                                Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
-                            }
-
                             currentCheck.checkStatus = "Vanilla";
                         }
                     }
