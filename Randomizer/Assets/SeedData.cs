@@ -521,6 +521,12 @@ namespace TPRandomizer.Assets
                 { 0x3, 0x2 }, // Gave Wooden Sword to Talo
             };
 
+            byte[,] eldinTwilightEventFlags = new byte[,]
+            {
+                { 0x7, 0x8 }, // Cleared Eldin Twilight
+                { 0x6, 0x24 }, // Warped Kakariko Bridge Back and Map Warping unlocked.
+            };
+
             byte[,] introEventFlags = new byte[,]
             {
                 { 0x4, 0x4 }, // Talked to Uli Day 1.
@@ -533,15 +539,17 @@ namespace TPRandomizer.Assets
                 { 0x46, 0x10 }, // Rode Epona back to Link's House
             };
 
-            arrayOfEventFlags = BackendFunctions.ConcatFlagArrays(
-                arrayOfEventFlags,
-                baseRandomizerEventFlags);
+            arrayOfEventFlags = BackendFunctions.ConcatFlagArrays(arrayOfEventFlags, baseRandomizerEventFlags);
             if (randomizerSettings.faronTwilightCleared)
             {
-                arrayOfEventFlags = BackendFunctions.ConcatFlagArrays(
-                    arrayOfEventFlags,
-                    faronTwilightEventFlags);
+                arrayOfEventFlags = BackendFunctions.ConcatFlagArrays(arrayOfEventFlags, faronTwilightEventFlags);
             }
+
+            if (randomizerSettings.eldinTwilightCleared)
+            {
+                arrayOfEventFlags = BackendFunctions.ConcatFlagArrays(arrayOfEventFlags, eldinTwilightEventFlags);
+            }
+
             if (randomizerSettings.introSkipped)
             {
                 arrayOfEventFlags = BackendFunctions.ConcatFlagArrays( arrayOfEventFlags, introEventFlags);
@@ -568,14 +576,20 @@ namespace TPRandomizer.Assets
             byte[,] arrayOfRegionFlags = { };
             byte[,] faronTwilightRegionFlags = new byte[,]
             {
-                { 0x2, 0x40 }, // Explored east section of Mist Area after Midna Jump 1.
-                { 0x2, 0x41 }, // Explored section south of entrance of Mist Area.
-                { 0x2, 0x43 }, // Went up east section of mist area after Midna Jump 1.
-                { 0x2, 0x44 }, // S Faron Warp Twilight Fences fall CS.
                 { 0x2, 0x46 }, // Midna jump 1 mist area.
                 { 0x2, 0x47 }, // Midna jump 1 mist area.
-                { 0x2, 0xB8 }, // Killed Light Bug in Coro's house.
-                { 0x2, 0xB9 }, // Killed Light Bug in Coro's house.
+                { 0x2, 0x5D }, // North Faron Portal.
+                { 0x2, 0x98 }, // South Faron Portal.
+            };
+
+            byte[,] eldinTwilightRegionFlags = new byte[,]
+            {
+                { 0x3, 0x14 }, // Collected Tear From Bomb Storage
+                { 0x3, 0x1A }, // Collected Tear From Bomb Storage
+                { 0x3, 0x1B }, // Collected Tear From Bomb Storage
+                { 0x3, 0x40 }, // Kakariko Village Portal
+                { 0x3, 0x4A }, // Death Mountain Portal
+                { 0x3, 0xA7 }, // Unlock Jumps to top of Sanctuary
             };
 
             byte[,] introRegionFlags = new byte[,]
@@ -607,9 +621,17 @@ namespace TPRandomizer.Assets
                     arrayOfRegionFlags,
                     faronTwilightRegionFlags);
             }
+
+            if (randomizerSettings.eldinTwilightCleared)
+            {
+                arrayOfRegionFlags = BackendFunctions.ConcatFlagArrays(
+                    arrayOfRegionFlags,
+                    eldinTwilightRegionFlags);
+            }
+
             if (randomizerSettings.introSkipped)
             {
-                arrayOfRegionFlags = BackendFunctions.ConcatFlagArrays( arrayOfRegionFlags, introRegionFlags);
+                arrayOfRegionFlags = BackendFunctions.ConcatFlagArrays(arrayOfRegionFlags, introRegionFlags);
             }
 
             for (int i = 0; i < arrayOfRegionFlags.GetLength(0); i++)

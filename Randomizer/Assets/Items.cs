@@ -269,15 +269,15 @@ namespace TPRandomizer
 
     public class ItemFunctions
     {
-        public List<Item> RandomizedImportantItems = new List<Item>();
-        public List<Item> StartingItems = new List<Item>(); // Any items that the player starts with as selected by the gui.
-        public List<Item> RandomizedDungeonRegionItems = new List<Item>(); // Items that are shuffled among dungeons.
-        public List<Item> JunkItems = new List<Item>(); // Extra junk items that are put in the pool if there are checks left and all items have been placed..
-        public List<Item> BaseItemPool = new List<Item>(); // The list of Items that have yet to be randomized..
-        public List<Item> heldItems = new List<Item>(); // The list of items that the player currently has. This is to be used when emulating the playthrough..
+        public List<Item> RandomizedImportantItems = new ();
+        public List<Item> StartingItems = new (); // Any items that the player starts with as selected by the gui.
+        public List<Item> RandomizedDungeonRegionItems = new (); // Items that are shuffled among dungeons.
+        public List<Item> JunkItems = new (); // Extra junk items that are put in the pool if there are checks left and all items have been placed..
+        public List<Item> BaseItemPool = new (); // The list of Items that have yet to be randomized..
+        public List<Item> heldItems = new (); // The list of items that the player currently has. This is to be used when emulating the playthrough..
 
-        public List<Item> ShuffledDungeonRewards = new List<Item>();
-        internal List<Item> VanillaDungeonRewards = new List<Item>()
+        public List<Item> ShuffledDungeonRewards = new ();
+        internal List<Item> VanillaDungeonRewards = new ()
         {
             Item.Progressive_Fused_Shadow,
             Item.Progressive_Fused_Shadow,
@@ -287,7 +287,7 @@ namespace TPRandomizer
             Item.Progressive_Mirror_Shard,
         };
 
-        internal List<Item> RegionSmallKeys = new List<Item>()
+        internal List<Item> RegionSmallKeys = new ()
         {
             Item.Gerudo_Desert_Bulblin_Camp_Key,
             Item.North_Faron_Woods_Gate_Key,
@@ -328,7 +328,7 @@ namespace TPRandomizer
             Item.Snowpeak_Ruins_Ordon_Goat_Cheese,
         };
 
-        internal List<Item> DungeonBigKeys = new List<Item>()
+        internal List<Item> DungeonBigKeys = new ()
         {
             Item.Forest_Temple_Big_Key,
             Item.Goron_Mines_Key_Shard_1,
@@ -343,7 +343,7 @@ namespace TPRandomizer
             Item.Hyrule_Castle_Big_Key,
         };
 
-        internal List<Item> DungeonMapsAndCompasses = new List<Item>()
+        internal List<Item> DungeonMapsAndCompasses = new ()
         {
             Item.Forest_Temple_Dungeon_Map,
             Item.Forest_Temple_Compass,
@@ -365,7 +365,7 @@ namespace TPRandomizer
             Item.Hyrule_Castle_Compass,
         };
 
-        internal List<Item> ImportantItems = new List<Item>()
+        internal List<Item> ImportantItems = new ()
         {
             Item.Progressive_Sword,
             Item.Progressive_Sword,
@@ -403,9 +403,10 @@ namespace TPRandomizer
             Item.Horse_Call,
             Item.Gate_Keys,
             Item.Empty_Bottle,
+            Item.Progressive_Hidden_Skill,
         };
 
-        private readonly List<Item> goldenBugs = new List<Item>()
+        private readonly List<Item> goldenBugs = new ()
         {
             Item.Male_Ant,
             Item.Female_Ant,
@@ -436,7 +437,7 @@ namespace TPRandomizer
         /// <summary>
         /// summary text.
         /// </summary>
-        public List<Item> alwaysItems = new List<Item>() // Items from the vanilla pool that are guaranteed to be in every seed
+        public List<Item> alwaysItems = new () // Items from the vanilla pool that are guaranteed to be in every seed
         {
             Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
             Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart, Item.Piece_of_Heart,
@@ -478,9 +479,11 @@ namespace TPRandomizer
             Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Silver_Rupee, Item.Silver_Rupee,
             Item.Progressive_Wallet, Item.Progressive_Wallet, Item.Progressive_Bow, Item.Progressive_Bow,
             Item.Bomb_Bag_And_Bombs, Item.Bomb_Bag_And_Bombs, Item.Giant_Bomb_Bag, Item.Sera_Bottle, Item.Coro_Bottle,
+            Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill, 
+            Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill,
         };
 
-        private readonly List<Item> vanillaJunkItems = new List<Item>() // Junk items from the vanilla pool
+        private readonly List<Item> vanillaJunkItems = new () // Junk items from the vanilla pool
         {
             Item.Bombs_5, Item.Bombs_5, Item.Bombs_5, Item.Bombs_5, Item.Bombs_5, Item.Bombs_5, Item.Bombs_5,
             Item.Bombs_5, Item.Bombs_10, Item.Bombs_10, Item.Bombs_20, Item.Bombs_30, Item.Arrows_10, Item.Arrows_10,
