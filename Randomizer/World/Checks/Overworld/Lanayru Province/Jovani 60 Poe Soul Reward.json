@@ -1,0 +1,8 @@
+{
+    "requirements": "(Poe_Soul, 60)",
+    "arcFileValues": [["bmgres4.arc", "21FC7"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],
+    "itemId": "Silver_Rupee"
+}

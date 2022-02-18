@@ -1,0 +1,8 @@
+{
+    "requirements": "(Poe_Soul, 20)",
+    "arcFileValues": [["bmgres4.arc", "21F3F"]],
+    "fileDirectoryType": [1],
+    "replacementType": [0],
+    "category": ["Overworld", "Npc", "Lanayru Province", "ARC"],
+    "itemId": "Jovani_Bottle"
+}

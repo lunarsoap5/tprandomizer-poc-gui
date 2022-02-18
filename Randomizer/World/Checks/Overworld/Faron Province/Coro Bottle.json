@@ -1,8 +1,8 @@
 {
     "requirements": "true",
-    "arcFileValues": [["bmgres6.arc", "18927"]],
-    "fileDirectoryType": [1],
-    "replacementType": [0],
+    "arcFileValues": [["bmgres6.arc", "18927"], ["bmgres6.arc", "1888F"]],
+    "fileDirectoryType": [1,1],
+    "replacementType": [0,0],
     "category": ["Overworld", "Npc", "Faron Woods", "ARC"],
     "itemId": "Coro_Bottle"
 }

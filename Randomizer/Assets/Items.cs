@@ -500,6 +500,10 @@ namespace TPRandomizer
         public void GenerateItemPool()
         {
             RandomizerSetting parseSetting = Randomizer.RandoSetting;
+            if (parseSetting.poesShuffled)
+            {
+                this.RandomizedImportantItems.AddRange(Enumerable.Repeat(Item.Poe_Soul, 60));
+            }
 
             if (parseSetting.goldenBugsShuffled)
             {
