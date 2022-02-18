@@ -74,7 +74,7 @@ namespace TPRandomizer
 
             // Generate the item pool based on user settings/input.
             Randomizer.Items.GenerateItemPool();
-            Checks.GenerateCheckList();
+            CheckFunctions.GenerateCheckList();
 
             // Generate the world based on the room class values and their neighbour values. If we want to randomize entrances, we would do it before this step.
             Room startingRoom = SetupGraph();
@@ -100,6 +100,8 @@ namespace TPRandomizer
                 Assets.SeedData.GenerateSeedData(seedHash);
                 Console.WriteLine("Generating Spoiler Log.");
                 BackendFunctions.GenerateSpoilerLog(startingRoom, seedHash);
+                IEnumerable<string> fileList = new string[] {"TPR-v1.0-" + seedHash + ".txt", "TPR-v1.0-" + seedHash + "-Seed-Data.gci"};
+                BackendFunctions.CreateZipFile("TPR-v1.0-" + seedHash + ".zip", fileList);
                 Console.WriteLine("Generation Complete!");
                 break;
             }

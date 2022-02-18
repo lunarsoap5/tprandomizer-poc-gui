@@ -12,7 +12,7 @@ namespace TPRandomizer
         /// <summary>
         /// summary text.
         /// </summary>
-        public Dictionary<Token, string> TokenDict = new Dictionary<Token, String>();
+        public Dictionary<Token, string> TokenDict = new ();
 
         //Evaluate the tokenized settings to their respective values that are set by the settings string.
 
@@ -1547,15 +1547,6 @@ namespace TPRandomizer
                 && canCompleteCityinTheSky()
                 && canCompletePalaceofTwilight()
             );
-        }
-
-        /// <summary>
-        /// summary text.
-        /// </summary>
-        public static bool randomDungeonsCompleted()
-        {
-            //This is placeholder until I figure out how I want to do random dungeons. may remove it completely. Idk yet.
-            return true;
         }
 
         public static int getItemCount(Item itemToBeCounted)

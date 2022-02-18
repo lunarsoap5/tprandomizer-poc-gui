@@ -7,6 +7,7 @@ namespace TPRandomizer
     using System.Reflection;
     using System.Text;
     using Newtonsoft.Json;
+    using System.IO.Compression;
 
     /// <summary>
     /// summary text.
@@ -271,7 +272,6 @@ namespace TPRandomizer
         {
             bool areAllChecksReachable = true;
             bool areAllRoomsReachable = true;
-            Random rnd = new ();
             List<Item> playthroughItems = new ();
 
             // Console.WriteLine("Item to place: " + itemToPlace);
@@ -623,6 +623,20 @@ namespace TPRandomizer
             }
 
             return sum1 + (sum2 * (modValue + 1));
+        }
+
+        public static void CreateZipFile(string fileName, IEnumerable<string> files)
+        {
+            // Create and open a new ZIP file
+            var zip = ZipFile.Open(fileName, ZipArchiveMode.Create);
+            foreach (var file in files)
+            {
+                // Add the entry for each file
+                zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
+                File.Delete(file);
+            }
+            // Dispose of the object when we are done
+            zip.Dispose();
         }
     }
 }

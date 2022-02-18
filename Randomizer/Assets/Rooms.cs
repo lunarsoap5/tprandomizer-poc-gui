@@ -51,7 +51,7 @@ namespace TPRandomizer
         /// <summary>
         /// A dictionary of all of the rooms that will be used to generate a playthrough graph.
         /// </summary>
-        public Dictionary<string, Room> RoomDict = new Dictionary<string, Room>();
+        public Dictionary<string, Room> RoomDict = new ();
 
         /// <summary>
         /// summary text.

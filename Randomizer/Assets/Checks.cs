@@ -57,12 +57,12 @@ namespace TPRandomizer
         /// <summary>
         /// A dictionary of all randomizer locations.
         /// </summary>
-        public Dictionary<string, Check> CheckDict = new Dictionary<string, Check>();
+        public Dictionary<string, Check> CheckDict = new ();
 
         /// <summary>
         /// summary text.
         /// </summary>
-        public void GenerateCheckList()
+        public static void GenerateCheckList()
         {
             RandomizerSetting parseSetting = Randomizer.RandoSetting;
             foreach (KeyValuePair<string, Check> check in Randomizer.Checks.CheckDict)
