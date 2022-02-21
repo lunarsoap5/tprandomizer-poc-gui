@@ -10,9 +10,9 @@
     "NeighbourRequirements": 
     [
         "true",
-        "Gate_Keys",
+        "(Gate_Keys and Shadow_Crystal) or canSmash or (Setting.lanayruTwilightCleared equals True))",
         "true",
-        "Gate_Keys",
+        "(Gate_Keys and Shadow_Crystal) or canSmash or (Setting.lanayruTwilightCleared equals True))",
         "Shadow_Crystal"
     ],
     "Checks": 

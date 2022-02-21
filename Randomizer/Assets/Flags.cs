@@ -29,6 +29,7 @@ namespace TPRandomizer.Assets
                 { 0x3, 0x40 }, // Kakariko Village Portal
                 { 0x3, 0x4A }, // Death Mountain Portal
                 { 0x3, 0xA7 }, // Unlock Jumps to top of Sanctuary
+                { 0x6, 0x7E }, // Kakariko Gorge placed CS
             };
 
         /// <summary>
@@ -81,6 +82,7 @@ namespace TPRandomizer.Assets
             { 0x20, 0x10 }, // Arbiters Grounds Story Progression
             { 0x2C, 0x10 }, // Raised the mirror in the Mirror Chamber
             { 0x1E, 0x80 }, // Gor Ebizo ready to start fundraising for CT
+            { 0x1B, 0x38 }, // Skip Monkey Escort
         };
 
         /// <summary>
@@ -116,6 +118,7 @@ namespace TPRandomizer.Assets
             { 0x16, 0x1 }, // Completed Ordon Day 2.
             { 0x15, 0x80 }, // Watched CS for Goats 2 Done.
             { 0x46, 0x10 }, // Rode Epona back to Link's House
+            { 0x12, 0x8 }, // Can use Sera's Shop.
         };
 
         /// <summary>
