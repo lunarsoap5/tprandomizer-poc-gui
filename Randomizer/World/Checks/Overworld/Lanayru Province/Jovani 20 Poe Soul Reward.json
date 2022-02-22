@@ -1,5 +1,5 @@
 {
-    "requirements": "(Poe_Soul, 20)",
+    "requirements": "(Poe_Soul, 20) and Shadow_Crystal",
     "arcFileValues": [["bmgres4.arc", "21F3F"]],
     "fileDirectoryType": [1],
     "replacementType": [0],

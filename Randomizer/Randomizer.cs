@@ -55,8 +55,9 @@ namespace TPRandomizer
         /// Generates a randomizer seed given a settings string.
         /// </summary>
         /// <param name="settingsString"> The Settings String to be read in. </param>
-        public static void Start(string settingsString)
+        public static bool Start(string settingsString)
         {
+            bool generationStatus = false;
             int remainingGenerationAttempts = 30;
             Console.WriteLine("Twilight Princess Randomizer Version " + RandomizerVersionMajor + "." + RandomizerVersionMinor);
             Random rnd = new ();
@@ -86,6 +87,15 @@ namespace TPRandomizer
                 {
                     // Place the items in the world based on the starting room.
                     PlaceItemsInWorld(startingRoom);
+                    Console.WriteLine("Generating Seed Data.");
+                    Assets.SeedData.GenerateSeedData(seedHash);
+                    Console.WriteLine("Generating Spoiler Log.");
+                    BackendFunctions.GenerateSpoilerLog(startingRoom, seedHash);
+                    IEnumerable<string> fileList = new string[] {"TPR-v1.0-" + seedHash + ".txt", "TPR-v1.0-" + seedHash + "-Seed-Data.gci"};
+                    BackendFunctions.CreateZipFile("TPR-v1.0-" + seedHash + ".zip", fileList);
+                    Console.WriteLine("Generation Complete!");
+                    generationStatus = true;
+                    break;
                 }
 
                 // If for some reason the assumed fill fails, we want to dump everything and start over.
@@ -95,18 +105,10 @@ namespace TPRandomizer
                     StartOver();
                     continue;
                 }
-
-                Console.WriteLine("Generating Seed Data.");
-                Assets.SeedData.GenerateSeedData(seedHash);
-                Console.WriteLine("Generating Spoiler Log.");
-                BackendFunctions.GenerateSpoilerLog(startingRoom, seedHash);
-                IEnumerable<string> fileList = new string[] {"TPR-v1.0-" + seedHash + ".txt", "TPR-v1.0-" + seedHash + "-Seed-Data.gci"};
-                BackendFunctions.CreateZipFile("TPR-v1.0-" + seedHash + ".zip", fileList);
-                Console.WriteLine("Generation Complete!");
-                break;
             }
 
             CleanUp();
+            return generationStatus;
         }
 
         /// <summary>

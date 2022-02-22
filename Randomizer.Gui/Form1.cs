@@ -19,7 +19,7 @@ namespace TPRandomizer
     public partial class Form1 : Form 
     {
         private readonly Randomizer randomizer = new Randomizer();
-        private readonly GuiSetting settings = new GuiSetting();
+        public static readonly GuiSetting settings = new GuiSetting();
         private readonly ItemFunctions items = new ItemFunctions();
         private bool dontrunhandler;
         private bool isDarkModeEnabled;
@@ -120,45 +120,45 @@ namespace TPRandomizer
             //We have this small gatekeep to allow us to run functions against the senders without triggering this event.
             if (!this.dontrunhandler) 
             {
-                this.settings.logicRules = this.logicRulesBox.SelectedIndex;
-                this.settings.castleRequirements = this.castleLogicComboBox.SelectedIndex;
-                this.settings.palaceRequirements = this.palaceLogicComboBox.SelectedIndex;
-                this.settings.faronWoodsLogic = this.faronWoodsLogicComboBox.SelectedIndex;
-                this.settings.mdhSkipped = this.mdhCheckBox.Checked;
-                this.settings.smallKeySettings = this.smallKeyShuffleComboBox.SelectedIndex;
-                this.settings.bossKeySettings = this.bossKeyShuffleComboBox.SelectedIndex;
-                this.settings.mapAndCompassSettings = this.mapsAndCompassesComboBox.SelectedIndex;
-                this.settings.goldenBugsShuffled = this.goldenBugsCheckBox.Checked;
-                this.settings.npcItemsShuffled = this.giftFromNPCsCheckBox.Checked;
-                this.settings.poesShuffled = this.poeCheckBox.Checked;
-                this.settings.shopItemsShuffled = this.shopItemsCheckBox.Checked;
-                this.settings.faronTwilightCleared = this.faronTwilightClearedCheckBox.Checked;
-                this.settings.eldinTwilightCleared = this.eldinTwilightClearedCheckBox.Checked;
-                this.settings.lanayruTwilightCleared = this.lanayruTwilightClearedCheckBox.Checked;
-                this.settings.skipMinorCutscenes = this.skipMinorCutscenesCheckBox.Checked;
-                this.settings.fastIronBoots = this.fastIronBootsCheckBox.Checked;
-                this.settings.quickTransform = this.quickTransformCheckBox.Checked;
-                this.settings.transformAnywhere = this.transformAnywhereCheckBox.Checked;
-                this.settings.introSkipped = this.skipIntroCheckBox.Checked;
-                this.settings.iceTrapSettings = this.foolishItemsComboBox.SelectedIndex;
-                this.settings.StartingItems = this.startingItemsListBox.Items.OfType<Item>().ToList();
-                this.settings.TunicColor = this.tunicColorComboBox.SelectedIndex;
-                this.settings.lanternColor = this.lanternColorComboBox.SelectedIndex;
-                this.settings.MidnaHairColor = this.midnaHairColorComboBox.SelectedIndex;
-                this.settings.heartColor = this.heartColorComboBox.SelectedIndex;
-                this.settings.aButtonColor = this.aButtonComboBox.SelectedIndex;
-                this.settings.bButtonColor = this.bButtonComboBox.SelectedIndex;
-                this.settings.xButtonColor = this.xButtonComboBox.SelectedIndex;
-                this.settings.yButtonColor = this.yButtonComboBox.SelectedIndex;
-                this.settings.zButtonColor = this.zButtonComboBox.SelectedIndex;
-                this.settings.shuffleBackgroundMusic = this.bgmCheckBox.Checked;
-                this.settings.shuffleItemFanfares = this.fanfareCheckBox.Checked;
-                this.settings.disableEnemyBackgoundMusic = this.enemyBgmCheckBox.Checked;
-                this.settings.gameRegion = this.regionComboBox.SelectedIndex;
-                this.settings.shuffleHiddenSkills = this.skillsCheckBox.Checked;
-                this.settings.shuffleSkyCharacters = this.skyCharacterCheckBox.Checked;
-                this.settings.seedNumber = this.seedNumberComboBox.SelectedIndex;
-                this.settings.ExcludedChecks.Clear();
+                settings.logicRules = this.logicRulesBox.SelectedIndex;
+                settings.castleRequirements = this.castleLogicComboBox.SelectedIndex;
+                settings.palaceRequirements = this.palaceLogicComboBox.SelectedIndex;
+                settings.faronWoodsLogic = this.faronWoodsLogicComboBox.SelectedIndex;
+                settings.mdhSkipped = this.mdhCheckBox.Checked;
+                settings.smallKeySettings = this.smallKeyShuffleComboBox.SelectedIndex;
+                settings.bossKeySettings = this.bossKeyShuffleComboBox.SelectedIndex;
+                settings.mapAndCompassSettings = this.mapsAndCompassesComboBox.SelectedIndex;
+                settings.goldenBugsShuffled = this.goldenBugsCheckBox.Checked;
+                settings.npcItemsShuffled = this.giftFromNPCsCheckBox.Checked;
+                settings.poesShuffled = this.poeCheckBox.Checked;
+                settings.shopItemsShuffled = this.shopItemsCheckBox.Checked;
+                settings.faronTwilightCleared = this.faronTwilightClearedCheckBox.Checked;
+                settings.eldinTwilightCleared = this.eldinTwilightClearedCheckBox.Checked;
+                settings.lanayruTwilightCleared = this.lanayruTwilightClearedCheckBox.Checked;
+                settings.skipMinorCutscenes = this.skipMinorCutscenesCheckBox.Checked;
+                settings.fastIronBoots = this.fastIronBootsCheckBox.Checked;
+                settings.quickTransform = this.quickTransformCheckBox.Checked;
+                settings.transformAnywhere = this.transformAnywhereCheckBox.Checked;
+                settings.introSkipped = this.skipIntroCheckBox.Checked;
+                settings.iceTrapSettings = this.foolishItemsComboBox.SelectedIndex;
+                settings.StartingItems = this.startingItemsListBox.Items.OfType<Item>().ToList();
+                settings.TunicColor = this.tunicColorComboBox.SelectedIndex;
+                settings.lanternColor = this.lanternColorComboBox.SelectedIndex;
+                settings.MidnaHairColor = this.midnaHairColorComboBox.SelectedIndex;
+                settings.heartColor = this.heartColorComboBox.SelectedIndex;
+                settings.aButtonColor = this.aButtonComboBox.SelectedIndex;
+                settings.bButtonColor = this.bButtonComboBox.SelectedIndex;
+                settings.xButtonColor = this.xButtonComboBox.SelectedIndex;
+                settings.yButtonColor = this.yButtonComboBox.SelectedIndex;
+                settings.zButtonColor = this.zButtonComboBox.SelectedIndex;
+                settings.shuffleBackgroundMusic = this.bgmCheckBox.Checked;
+                settings.shuffleItemFanfares = this.fanfareCheckBox.Checked;
+                settings.disableEnemyBackgoundMusic = this.enemyBgmCheckBox.Checked;
+                settings.gameRegion = this.regionComboBox.SelectedIndex;
+                settings.shuffleHiddenSkills = this.skillsCheckBox.Checked;
+                settings.shuffleSkyCharacters = this.skyCharacterCheckBox.Checked;
+                settings.seedNumber = this.seedNumberComboBox.SelectedIndex;
+                settings.ExcludedChecks.Clear();
                 foreach (string startingItem in this.startingItemsListBox.Items) 
                 {
                     string itemName = startingItem;
@@ -167,7 +167,7 @@ namespace TPRandomizer
                     {
                         if (item.ToString() == itemName) 
                         {
-                            this.settings.StartingItems.Add(item);
+                            settings.StartingItems.Add(item);
                             break;
                         }
                     }
@@ -177,10 +177,10 @@ namespace TPRandomizer
                     settings.ExcludedChecks.Add((int)excludedCheck.Value);
                 }
                  
-                this.settings.TunicColor = this.tunicColorComboBox.SelectedIndex;
-                this.settings.MidnaHairColor = this.midnaHairColorComboBox.SelectedIndex;
-                this.settings.upgradeWallet = this.walletCheckBox.Checked;
-                this.settingsStringTextbox.Text = this.GetSettingsString();
+                settings.TunicColor = this.tunicColorComboBox.SelectedIndex;
+                settings.MidnaHairColor = this.midnaHairColorComboBox.SelectedIndex;
+                settings.upgradeWallet = this.walletCheckBox.Checked;
+                settingsStringTextbox.Text = GuiBackendFunctions.GetSettingsString();
             }
         }
 
@@ -205,54 +205,54 @@ namespace TPRandomizer
                 this.itemPoolListBox.Items.Add(new ListItem { Name = itemName, Value = (byte)item});
             }
 
-            this.ParseSettingsString(this.settingsStringTextbox.Text);
+            GuiBackendFunctions.ParseSettingsString(this.settingsStringTextbox.Text);
 
-            this.logicRulesBox.SelectedIndex = this.settings.logicRules;
-            this.castleLogicComboBox.SelectedIndex = this.settings.castleRequirements;
-            this.palaceLogicComboBox.SelectedIndex = this.settings.palaceRequirements;
-            this.faronWoodsLogicComboBox.SelectedIndex = this.settings.faronWoodsLogic;
-            this.mdhCheckBox.Checked = this.settings.mdhSkipped;
-            this.smallKeyShuffleComboBox.SelectedIndex = this.settings.smallKeySettings;
-            this.bossKeyShuffleComboBox.SelectedIndex = this.settings.bossKeySettings;
-            this.mapsAndCompassesComboBox.SelectedIndex = this.settings.mapAndCompassSettings;
-            this.goldenBugsCheckBox.Checked = this.settings.goldenBugsShuffled;
-            this.giftFromNPCsCheckBox.Checked = this.settings.npcItemsShuffled;
-            this.poeCheckBox.Checked = this.settings.poesShuffled;
-            this.shopItemsCheckBox.Checked = this.settings.shopItemsShuffled;
-            this.faronTwilightClearedCheckBox.Checked = this.settings.faronTwilightCleared;
-            this.eldinTwilightClearedCheckBox.Checked = this.settings.eldinTwilightCleared;
-            this.lanayruTwilightClearedCheckBox.Checked = this.settings.lanayruTwilightCleared;
-            this.skipMinorCutscenesCheckBox.Checked = this.settings.skipMinorCutscenes;
-            this.fastIronBootsCheckBox.Checked = this.settings.fastIronBoots;
-            this.quickTransformCheckBox.Checked = this.settings.quickTransform;
-            this.transformAnywhereCheckBox.Checked = this.settings.transformAnywhere;
-            this.skipIntroCheckBox.Checked = this.settings.introSkipped;
-            this.foolishItemsComboBox.SelectedIndex = this.settings.iceTrapSettings;
-            this.tunicColorComboBox.SelectedIndex = this.settings.TunicColor;
-            this.midnaHairColorComboBox.SelectedIndex = this.settings.MidnaHairColor;
-            this.lanternColorComboBox.SelectedIndex = this.settings.lanternColor;
-            this.heartColorComboBox.SelectedIndex = this.settings.heartColor;
-            this.aButtonComboBox.SelectedIndex = this.settings.aButtonColor;
-            this.bButtonComboBox.SelectedIndex = this.settings.bButtonColor;
-            this.xButtonComboBox.SelectedIndex = this.settings.xButtonColor;
-            this.yButtonComboBox.SelectedIndex = this.settings.yButtonColor;
-            this.zButtonComboBox.SelectedIndex = this.settings.zButtonColor;
-            this.bgmCheckBox.Checked = this.settings.shuffleBackgroundMusic;
-            this.fanfareCheckBox.Checked = this.settings.shuffleItemFanfares;
-            this.enemyBgmCheckBox.Checked = this.settings.disableEnemyBackgoundMusic;
-            this.regionComboBox.SelectedIndex = this.settings.gameRegion;
-            this.skillsCheckBox.Checked = this.settings.shuffleHiddenSkills;
-            this.skyCharacterCheckBox.Checked = this.settings.shuffleSkyCharacters;
-            this.seedNumberComboBox.SelectedIndex = this.settings.seedNumber;
+            this.logicRulesBox.SelectedIndex = settings.logicRules;
+            this.castleLogicComboBox.SelectedIndex = settings.castleRequirements;
+            this.palaceLogicComboBox.SelectedIndex = settings.palaceRequirements;
+            this.faronWoodsLogicComboBox.SelectedIndex = settings.faronWoodsLogic;
+            this.mdhCheckBox.Checked = settings.mdhSkipped;
+            this.smallKeyShuffleComboBox.SelectedIndex = settings.smallKeySettings;
+            this.bossKeyShuffleComboBox.SelectedIndex = settings.bossKeySettings;
+            this.mapsAndCompassesComboBox.SelectedIndex = settings.mapAndCompassSettings;
+            this.goldenBugsCheckBox.Checked = settings.goldenBugsShuffled;
+            this.giftFromNPCsCheckBox.Checked = settings.npcItemsShuffled;
+            this.poeCheckBox.Checked = settings.poesShuffled;
+            this.shopItemsCheckBox.Checked = settings.shopItemsShuffled;
+            this.faronTwilightClearedCheckBox.Checked = settings.faronTwilightCleared;
+            this.eldinTwilightClearedCheckBox.Checked = settings.eldinTwilightCleared;
+            this.lanayruTwilightClearedCheckBox.Checked = settings.lanayruTwilightCleared;
+            this.skipMinorCutscenesCheckBox.Checked = settings.skipMinorCutscenes;
+            this.fastIronBootsCheckBox.Checked = settings.fastIronBoots;
+            this.quickTransformCheckBox.Checked = settings.quickTransform;
+            this.transformAnywhereCheckBox.Checked = settings.transformAnywhere;
+            this.skipIntroCheckBox.Checked = settings.introSkipped;
+            this.foolishItemsComboBox.SelectedIndex = settings.iceTrapSettings;
+            this.tunicColorComboBox.SelectedIndex = settings.TunicColor;
+            this.midnaHairColorComboBox.SelectedIndex = settings.MidnaHairColor;
+            this.lanternColorComboBox.SelectedIndex = settings.lanternColor;
+            this.heartColorComboBox.SelectedIndex = settings.heartColor;
+            this.aButtonComboBox.SelectedIndex = settings.aButtonColor;
+            this.bButtonComboBox.SelectedIndex = settings.bButtonColor;
+            this.xButtonComboBox.SelectedIndex = settings.xButtonColor;
+            this.yButtonComboBox.SelectedIndex = settings.yButtonColor;
+            this.zButtonComboBox.SelectedIndex = settings.zButtonColor;
+            this.bgmCheckBox.Checked = settings.shuffleBackgroundMusic;
+            this.fanfareCheckBox.Checked = settings.shuffleItemFanfares;
+            this.enemyBgmCheckBox.Checked = settings.disableEnemyBackgoundMusic;
+            this.regionComboBox.SelectedIndex = settings.gameRegion;
+            this.skillsCheckBox.Checked = settings.shuffleHiddenSkills;
+            this.skyCharacterCheckBox.Checked = settings.shuffleSkyCharacters;
+            this.seedNumberComboBox.SelectedIndex = settings.seedNumber;
 
-            foreach (Item startingItem in this.settings.StartingItems) 
+            foreach (Item startingItem in settings.StartingItems) 
             {
                 string itemName = startingItem.ToString();
                 itemName = itemName.Replace("_", " ");
                 this.startingItemsListBox.Items.Add(itemName);
                 this.itemPoolListBox.Items.Remove(itemName);
             }
-            foreach (int excludedCheck in this.settings.ExcludedChecks) 
+            foreach (int excludedCheck in settings.ExcludedChecks) 
             {
                 foreach (ListItem check in listofChecksListBox.Items)
                 {
@@ -264,175 +264,16 @@ namespace TPRandomizer
                 } 
             }
 
-            this.tunicColorComboBox.SelectedIndex = this.settings.TunicColor;
-            this.midnaHairColorComboBox.SelectedIndex = this.settings.MidnaHairColor;
-            this.walletCheckBox.Checked = this.settings.upgradeWallet;
+            this.tunicColorComboBox.SelectedIndex = settings.TunicColor;
+            this.midnaHairColorComboBox.SelectedIndex = settings.MidnaHairColor;
+            this.walletCheckBox.Checked = settings.upgradeWallet;
 
-            this.settingsStringTextbox.Text = this.GetSettingsString();
+            this.settingsStringTextbox.Text = GuiBackendFunctions.GetSettingsString();
         }
 
-        /// <summary>
-        /// Generates a settings string based on the current settings.
-        /// </summary>
-        /// <returns> A string, representing the Settings String that is visible to the user.</returns>
-        private string GetSettingsString() 
-        {
-            string bits = "";
-            //Get the properties of the class that contains the settings values so we can iterate through them.
-            PropertyInfo[] properties = this.settings.GetType().GetProperties();
-            foreach (PropertyInfo property in properties) 
-            {
-                var value = property.GetValue(this.settings, null);
-                string i_bits = "";
-                if (property.PropertyType == typeof(bool)) //Settings that only have two options (Shuffle Golden Bugs, etc.)
-                {
-                    if ((bool)value == true) 
-                    {
-                        i_bits = "1";
-                    }
-                    else 
-                    {
-                        i_bits = "0";
-                    }
-                }
-                if (property.PropertyType == typeof(int)) //Settings that have multiple options (Hyrule Castle Requirements, etc.)
-                {
-                    value = property.GetValue(this.settings, null);
-                    //Pad the integer value to 4 bits. No drop down menu uses more than 15 options so this is a safe bet.
-                    i_bits = Convert.ToString((int)value, 2).PadLeft(4, '0');
-                }
-                if (property.PropertyType == typeof(List<Item>)) //Starting Items list
-                {
-                    if ((List<Item>)value != null) 
-                    {
-                        List<Item> itemList = new ();
-                        itemList.AddRange((List<Item>)value);
-                        foreach (Item item in itemList) 
-                        {
-                            //We pad the byte to 8 bits since item IDs don't go over 0xFF
-                            i_bits = i_bits + Convert.ToString((byte)item, 2).PadLeft(9, '0');
-                        }
-                    }
-                    //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
-                    i_bits = i_bits + "111111111";
-                }
-                if (property.PropertyType == typeof(List<int>)) //List of Excluded Checks
-                {
-                    List<int> checkList = new ();
-                    checkList.AddRange((List<int>)value);
-                    foreach (int check in checkList) 
-                    {
-                        //We have to pad to 9 bits here because there are hundreds of checks. Will need to be changed to 10 if we go over 512 checks though.
-                        i_bits = i_bits + Convert.ToString((int)check, 2).PadLeft(9, '0');
-                    }
-                    //Place this at the end of the bit string. Will be useful when decoding to know when we've reached the end of the list.
-                    i_bits = i_bits + "111111111";
-                }
-                bits = bits + i_bits;
-            }
-            return BackendFunctions.Base64Encode(BackendFunctions.BitStringToText(bits));
-        }
+        
 
-        /// <summary>
-        /// Sets the appropriate settings based off of an inputted settings string.
-        /// </summary>
-        /// <param name="settingsString"> The Settings String that is to be deciphered. </param>
-        private void ParseSettingsString(string settingsString) 
-        {
-            settingsString = BackendFunctions.Base64Decode(settingsString);
-            //Convert the settings string into a binary string to be interpreted.
-            string bitString = BackendFunctions.TextToBitString(settingsString);
-            PropertyInfo[] properties = this.settings.GetType().GetProperties();
-            foreach (PropertyInfo property in properties) 
-            {
-                string evaluatedByteString = "";
-                int settingBitWidth = 0;
-                bool reachedEndofList = false;
-                if (property.PropertyType == typeof(bool)) 
-                {
-                    int value = Convert.ToInt32(bitString[0].ToString(), 2);
-                    if (value == 1) 
-                    {
-                        property.SetValue(this.settings, true, null);
-                    }
-                    else 
-                    {
-                        property.SetValue(this.settings, false, null);
-                    }
-                    bitString = bitString.Remove(0, 1);
-                }
-                if (property.PropertyType == typeof(int)) 
-                {
-                    settingBitWidth = 4;
-                    //We want to get the binary values in the string in 4 bit pieces since that is what is was encrypted with.
-                    for (int j = 0; j < settingBitWidth; j++) 
-                    {
-                        evaluatedByteString = evaluatedByteString + bitString[0];
-                        bitString = bitString.Remove(0, 1);
-                    }
-                    property.SetValue(this.settings, Convert.ToInt32(evaluatedByteString, 2), null);
-                }
-                if (property.PropertyType == typeof(List<Item>)) 
-                {
-                    List<Item> startingItems = new ();
-                    //We want to get the binary values in the string in 8 bit pieces since that is what is was encrypted with.
-                    settingBitWidth = 9;
-                    while (!reachedEndofList) 
-                    {
-                        for (int j = 0; j < settingBitWidth; j++) 
-                        {
-                            evaluatedByteString = evaluatedByteString + bitString[0];
-                            bitString = bitString.Remove(0, 1);
-                        }
-                        int itemIndex = Convert.ToInt32(evaluatedByteString, 2);
-                        if (itemIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
-                        {
-                            foreach (Item item in items.ImportantItems) 
-                            {
-                                if (itemIndex == (byte)item) 
-                                {
-                                    startingItems.Add(item);
-                                    break;
-                                }
-                            }
-                        }
-                        else 
-                        {
-                            reachedEndofList = true;
-                        }
-                        evaluatedByteString = "";
-                    }
-                    property.SetValue(this.settings, startingItems, null);
-                }
-                if (property.PropertyType == typeof(List<int>)) 
-                {
-                    List<int> excludedChecks = new ();
-                    //We want to get the binary values in the string in 9 bit pieces since that is what is was encrypted with.
-                    settingBitWidth = 9;
-                    while (!reachedEndofList) 
-                    {
-                        for (int j = 0; j < settingBitWidth; j++) 
-                        {
-                            evaluatedByteString = evaluatedByteString + bitString[0];
-                            bitString = bitString.Remove(0, 1);
-                        }
-                        int checkIndex = Convert.ToInt32(evaluatedByteString, 2);
-                        if (checkIndex != 511) //Checks for the padding that was put in place upon encryption to know it has reached the end of the list.
-                        {
-
-                            excludedChecks.Add(checkIndex);
-                        }
-                        else 
-                        {
-                            reachedEndofList = true;
-                        }
-                        evaluatedByteString = "";
-                    }
-                    property.SetValue(this.settings, excludedChecks, null);
-                }
-            }
-            return;
-        }
+        
 
         private void moveCheckToExcludedButton_Click(object sender, EventArgs e) 
         {
@@ -456,10 +297,15 @@ namespace TPRandomizer
 
         private void generateButton_Click(object sender, EventArgs e) 
         {
-            Randomizer.Start(this.settingsStringTextbox.Text);
-            MessageBox.Show(
-                "Seed Generated! Check the folder for the randomizer gci and spoiler log!"
-            );
+            bool generateSeed = Randomizer.Start(this.settingsStringTextbox.Text);
+            if (generateSeed)
+            {
+                MessageBox.Show("Seed Generated! Check the folder for the randomizer gci and spoiler log!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to generate a seed! Please check the console output for more details!");
+            }
         }
 
         private void settingsPresetsComboBox_SelectedIndexChanged(object sender, EventArgs e) 
@@ -468,7 +314,7 @@ namespace TPRandomizer
             switch (currentItem) {
                 case "Standard":
                     this.settingsStringTextbox.Text = "QUlJTUlSSDdZUDc3NkFBQUFBQUFBQUE=";
-                    ParseSettingsString(this.settingsStringTextbox.Text);
+                    GuiBackendFunctions.ParseSettingsString(this.settingsStringTextbox.Text);
                     break;
             }
         }
