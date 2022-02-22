@@ -44,6 +44,7 @@ namespace TPRandomizer.Assets
                 { 0x16, 0x6D }, // West Bridge in CiTS Extended.
                 { 0x16, 0x6B }, // West Bridge in CiTS Destroyed CS Trigger.
                 { 0x2, 0x63 }, // Trill lets you shop at his store.
+                { 0x2, 0x60 }, // Got Lantern Back from Monkey
                 { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
                 { 0xA, 0x69 }, // Desert Entrance CS.
                 { 0x3, 0xA4 }, // Barnes Sells Bombs.
