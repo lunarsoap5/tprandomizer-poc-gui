@@ -84,6 +84,7 @@ namespace TPRandomizer.Assets
             { 0x2C, 0x10 }, // Raised the mirror in the Mirror Chamber
             { 0x1E, 0x80 }, // Gor Ebizo ready to start fundraising for CT
             { 0x1B, 0x38 }, // Skip Monkey Escort
+            { 0x6, 0x20 }, // Warped Kakariko Bridge Back.
         };
 
         /// <summary>
@@ -103,7 +104,7 @@ namespace TPRandomizer.Assets
         public static readonly byte[,] EldinTwilightEventFlags = new byte[,]
         {
             { 0x7, 0x8 }, // Cleared Eldin Twilight
-            { 0x6, 0x24 }, // Warped Kakariko Bridge Back and Map Warping unlocked.
+            { 0x6, 0x4 }, // Map Warping unlocked.
         };
 
         /// <summary>
