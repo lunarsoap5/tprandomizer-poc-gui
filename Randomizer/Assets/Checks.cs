@@ -117,6 +117,22 @@ namespace TPRandomizer
                             currentCheck.checkStatus = "Vanilla";
                         }
                     }
+
+                    if (!parseSetting.shuffleSkyCharacters)
+                    {
+                        if (currentCheck.category.Contains("Sky Book"))
+                        {
+                            currentCheck.checkStatus = "Vanilla";
+                        }
+                    }
+
+                    if (!parseSetting.shopItemsShuffled)
+                    {
+                        if (currentCheck.category.Contains("Shop"))
+                        {
+                            currentCheck.checkStatus = "Vanilla";
+                        }
+                    }
                 }
             }
 
