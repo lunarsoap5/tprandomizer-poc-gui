@@ -90,6 +90,7 @@ namespace TPRandomizer
             this.outputTextBox.TextChanged += new System.EventHandler(this.outputTextBox_textChanged);
             this.seedNumberComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdateFlags);
             this.walletCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
+            this.donationCheckBox.CheckedChanged += new System.EventHandler(this.UpdateFlags);
 
             foreach (string file in System.IO.Directory.GetFiles("./Randomizer/World/Checks/","*",SearchOption.AllDirectories)) 
             {
@@ -180,6 +181,7 @@ namespace TPRandomizer
                 settings.TunicColor = this.tunicColorComboBox.SelectedIndex;
                 settings.MidnaHairColor = this.midnaHairColorComboBox.SelectedIndex;
                 settings.upgradeWallet = this.walletCheckBox.Checked;
+                settings.reduceDonations = this.donationCheckBox.Checked;
                 settingsStringTextbox.Text = GuiBackendFunctions.GetSettingsString();
             }
         }
@@ -267,6 +269,7 @@ namespace TPRandomizer
             this.tunicColorComboBox.SelectedIndex = settings.TunicColor;
             this.midnaHairColorComboBox.SelectedIndex = settings.MidnaHairColor;
             this.walletCheckBox.Checked = settings.upgradeWallet;
+            this.donationCheckBox.Checked = settings.reduceDonations;
 
             this.settingsStringTextbox.Text = GuiBackendFunctions.GetSettingsString();
         }

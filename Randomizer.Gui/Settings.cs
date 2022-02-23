@@ -44,5 +44,6 @@ namespace TPRandomizer
         public bool shuffleSkyCharacters { get; set; }
         public int seedNumber { get; set; }
         public bool upgradeWallet { get; set; }
+        public bool reduceDonations { get; set; }
     }
 }

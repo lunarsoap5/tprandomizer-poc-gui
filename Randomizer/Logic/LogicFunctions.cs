@@ -1393,9 +1393,9 @@ namespace TPRandomizer
         public static bool canCompleteForestTemple()
         {
             return (
-                (getItemCount(Item.Forest_Temple_Small_Key) >= 4)
+                ((getItemCount(Item.Forest_Temple_Small_Key) >= 4))
                 && CanUse(Item.Boomerang)
-                && CanUse(Item.North_Faron_Woods_Gate_Key)
+                && (CanUse(Item.North_Faron_Woods_Gate_Key) || Randomizer.RandoSetting.introSkipped)
                 && canBreakMonkeyCage()
                 && CanDefeatWalltula()
                 && CanDefeatBigBaba()

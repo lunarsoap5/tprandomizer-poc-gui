@@ -1,0 +1,18 @@
+{
+    "Neighbours": 
+    [
+        "Forest Temple North Wing", 
+        "South Faron Woods"
+    ],
+    "NeighbourRequirements": 
+    [
+        "true",
+        "CanDefeatDiababa"
+    ],
+    "Checks": 
+    [
+        "Forest Temple Diababa Heart Container",
+        "Forest Temple Dungeon Reward"
+    ], 
+    "Region": "Forest Temple"
+}

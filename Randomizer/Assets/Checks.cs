@@ -91,6 +91,7 @@ namespace TPRandomizer
                         if (currentCheck.category.Contains("Npc"))
                         {
                             currentCheck.checkStatus = "Vanilla";
+                            Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                         }
                     }
 
@@ -123,6 +124,7 @@ namespace TPRandomizer
                         if (currentCheck.category.Contains("Sky Book"))
                         {
                             currentCheck.checkStatus = "Vanilla";
+                            Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                         }
                     }
 
@@ -148,8 +150,10 @@ namespace TPRandomizer
             else
             {
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Excluded";
+                Randomizer.Checks.CheckDict["Ordon Cat Rescue"].checkStatus = "Excluded";
                 Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Excluded";
                 Randomizer.Items.RandomizedImportantItems.Remove(Item.North_Faron_Woods_Gate_Key);
+                Randomizer.Items.RandomizedDungeonRegionItems.Remove(Item.North_Faron_Woods_Gate_Key);
             }
 
             if (parseSetting.faronTwilightCleared)

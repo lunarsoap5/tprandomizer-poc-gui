@@ -9,7 +9,7 @@
     "NeighbourRequirements": 
     [
         "true",
-        "canLeaveForest",
+        "Room.Forest_Temple_Boss_Room and CanDefeatDiababa",
         "true",
         "canSmash and (Progressive_Dominion_Rod, 2) and Shadow_Crystal"
     ],

@@ -155,6 +155,7 @@ namespace TPRandomizer
             this.cutsceneTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.seedNumberLabel = new System.Windows.Forms.Label();
             this.seedNumberComboBox = new System.Windows.Forms.ComboBox();
+            this.donationCheckBox = new System.Windows.Forms.CheckBox();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -656,6 +657,7 @@ namespace TPRandomizer
             // 
             // cutsceneMundaneSkipsGroupBox
             // 
+            this.cutsceneMundaneSkipsGroupBox.Controls.Add(this.donationCheckBox);
             this.cutsceneMundaneSkipsGroupBox.Controls.Add(this.skipMinorCutscenesCheckBox);
             this.cutsceneMundaneSkipsGroupBox.Location = new System.Drawing.Point(11, 114);
             this.cutsceneMundaneSkipsGroupBox.Name = "cutsceneMundaneSkipsGroupBox";
@@ -1431,6 +1433,16 @@ namespace TPRandomizer
             this.seedNumberComboBox.Size = new System.Drawing.Size(121, 23);
             this.seedNumberComboBox.TabIndex = 15;
             // 
+            // donationCheckBox
+            // 
+            this.donationCheckBox.AutoSize = true;
+            this.donationCheckBox.Location = new System.Drawing.Point(7, 48);
+            this.donationCheckBox.Name = "donationCheckBox";
+            this.donationCheckBox.Size = new System.Drawing.Size(169, 19);
+            this.donationCheckBox.TabIndex = 1;
+            this.donationCheckBox.Text = "Reduce Donation Amounts";
+            this.donationCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1614,6 +1626,7 @@ namespace TPRandomizer
         private System.Windows.Forms.CheckBox agAccessCheckbox;
         private System.Windows.Forms.CheckBox lbtAccessCheckBox;
         private System.Windows.Forms.CheckBox gmAccessCheckbox;
+        private System.Windows.Forms.CheckBox donationCheckBox;
     }
 }
 

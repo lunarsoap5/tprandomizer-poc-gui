@@ -48,6 +48,7 @@ namespace TPRandomizer.Assets
                 { 0xA, 0x69 }, // Desert Entrance CS.
                 { 0x3, 0xA4 }, // Barnes Sells Bombs.
                 { 0x6, 0x7E }, // Kakariko Gorge placed CS
+                { 0x10, 0x49 }, // FT Ook Bridge Destroyed
             };
 
         /// <summary>
@@ -143,7 +144,5 @@ namespace TPRandomizer.Assets
             RandomizerSettings.faronTwilightCleared,
             RandomizerSettings.eldinTwilightCleared,
         };
-
-        
     }
 }

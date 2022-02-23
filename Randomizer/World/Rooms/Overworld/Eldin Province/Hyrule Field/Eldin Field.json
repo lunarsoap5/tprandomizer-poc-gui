@@ -14,7 +14,7 @@
         "canSmash",
         "true",
         "(Progressive_Clawshot, 1)",
-        "Shadow_Crystal or canSmash",
+        "(Shadow_Crystal and (Setting.reducedDonations equals True)) or canSmash",
         "canSmash",
         "Shadow_Crystal",
         "Shadow_Crystal"

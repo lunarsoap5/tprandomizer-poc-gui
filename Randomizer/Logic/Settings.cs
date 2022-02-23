@@ -86,6 +86,8 @@ namespace TPRandomizer
         public int seedNumber { get; set; }
 
         public bool increaseWallet { get; set; }
+
+        public bool reduceDonations { get; set; }
     }
 
     public class SettingData
@@ -296,5 +298,7 @@ namespace TPRandomizer
             new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
         public bool increaseWallet { get; set; }
+
+        public bool reduceDonations { get; set; }
     }
 }

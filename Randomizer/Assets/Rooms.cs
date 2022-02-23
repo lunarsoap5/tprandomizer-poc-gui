@@ -38,6 +38,11 @@ namespace TPRandomizer
         public bool Visited { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether the current room has been visited at least once in the current world generation.
+        /// </summary>
+        public bool ReachedByPlaythrough { get; set; }
+
+        /// <summary>
         /// Gets or sets the logical region that the room is contained in.
         /// </summary>
         public string Region { get; set; }

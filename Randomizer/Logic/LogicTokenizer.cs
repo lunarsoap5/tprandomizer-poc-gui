@@ -178,7 +178,7 @@ namespace TPRandomizer
                 string roomName = evaluatedToken.Replace("Room.", string.Empty);
                 roomName = roomName.Replace("_", " ");
                 tokenValue++;
-                parseBool = Randomizer.Rooms.RoomDict[roomName].Visited;
+                parseBool = Randomizer.Rooms.RoomDict[roomName].ReachedByPlaythrough;
                 return parseBool;
             }
 
