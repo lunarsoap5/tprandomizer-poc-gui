@@ -29,7 +29,6 @@ namespace TPRandomizer.Assets
                 { 0x3, 0x40 }, // Kakariko Village Portal
                 { 0x3, 0x4A }, // Death Mountain Portal
                 { 0x3, 0xA7 }, // Unlock Jumps to top of Sanctuary
-                { 0x6, 0x7E }, // Kakariko Gorge placed CS
             };
 
         /// <summary>
@@ -48,6 +47,7 @@ namespace TPRandomizer.Assets
                 { 0x6, 0x4C }, // Bridge of Eldin Warped back CS.
                 { 0xA, 0x69 }, // Desert Entrance CS.
                 { 0x3, 0xA4 }, // Barnes Sells Bombs.
+                { 0x6, 0x7E }, // Kakariko Gorge placed CS
             };
 
         /// <summary>
@@ -56,6 +56,7 @@ namespace TPRandomizer.Assets
         public static readonly byte[,] IntroRegionFlags = new byte[,]
             {
                 { 0x0, 0x63 }, // Spawn the Chest in Link's House
+                { 0x2, 0x5B }, // Unlock North Faron Woods Gate
             };
 
         /// <summary>

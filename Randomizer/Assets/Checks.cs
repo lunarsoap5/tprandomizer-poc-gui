@@ -149,6 +149,7 @@ namespace TPRandomizer
             {
                 Randomizer.Checks.CheckDict["Uli Cradle Delivery"].checkStatus = "Excluded";
                 Randomizer.Checks.CheckDict["Coro Lantern"].checkStatus = "Excluded";
+                Randomizer.Items.RandomizedImportantItems.Remove(Item.North_Faron_Woods_Gate_Key);
             }
 
             if (parseSetting.faronTwilightCleared)
