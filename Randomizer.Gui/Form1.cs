@@ -30,7 +30,7 @@ namespace TPRandomizer
         public Form1() {
             InitializeComponent();
             TextBoxWriter writer = new TextBoxWriter(this.outputTextBox);
-            Console.SetOut(writer);
+            //Console.SetOut(writer);
             this.dontrunhandler = false;
             this.isDarkModeEnabled = false;
             this.logicRulesBox.SelectedIndex = 0;

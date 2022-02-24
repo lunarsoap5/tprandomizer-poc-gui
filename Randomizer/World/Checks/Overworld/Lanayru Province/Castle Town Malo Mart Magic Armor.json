@@ -1,5 +1,5 @@
 {
-    "requirements": "true",
+    "requirements": "(Setting.increaseWallet equals True) or (Progressive_Wallet, 2)",
     "arcFileValues": [["bmgres4.arc", "20DB7"]],
     "fileDirectoryType": [1],
     "replacementType": [0],

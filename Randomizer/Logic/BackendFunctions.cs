@@ -370,116 +370,139 @@ namespace TPRandomizer
             int sphereCount;
             List<Room> currentPlaythroughGraph;
             List<Item> playthroughItems = new ();
-            for (int playthroughCount = 0; playthroughCount < 30; playthroughCount++)
+            List<Item> sphereItems = new ();
+            Dictionary<string, Item> playthroughDictionary = new ();
+            sphereCount = 0;
+            List<string> currentPlaythrough = new ();
+            foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
             {
-                sphereCount = 0;
-                List<string> currentPlaythrough = new ();
-                foreach (KeyValuePair<string, Check> checkList in Randomizer.Checks.CheckDict.ToList())
+                Check listedCheck = checkList.Value;
+                listedCheck.hasBeenReached = false;
+                Randomizer.Checks.CheckDict[listedCheck.checkName] = listedCheck;
+            }
+
+            foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                currentRoom.Visited = false;
+                Randomizer.Rooms.RoomDict[currentRoom.RoomName] = currentRoom;
+            }
+
+            Randomizer.Items.heldItems.Clear();
+
+            while (!Randomizer.Rooms.RoomDict["Ganondorf Castle"].Visited)
+            {
+                hasCompletedSphere = false;
+                hasConcludedPlaythrough = false;
+                currentPlaythroughGraph = Randomizer.GeneratePlaythroughGraph(startingRoom);
+                playthroughDictionary.Add("Sphere: " + sphereCount, 0x0);
+
+                // Walk through the current graph and get a list of rooms that we can currently access
+                // If we collect any items during the playthrough, we add them to the player's inventory
+                // and try walking through the graph again until we have collected every item that we can.
+                do
                 {
-                    Check listedCheck = checkList.Value;
-                    listedCheck.hasBeenReached = false;
-                    Randomizer.Checks.CheckDict[listedCheck.checkName] = listedCheck;
-                }
-
-                foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
-                {
-                    Room currentRoom = roomList.Value;
-                    currentRoom.Visited = false;
-                    Randomizer.Rooms.RoomDict[currentRoom.RoomName] = currentRoom;
-                }
-
-                Randomizer.Items.heldItems.Clear();
-
-                while (!Randomizer.Rooms.RoomDict["Ganondorf Castle"].Visited)
-                {
-                    hasCompletedSphere = false;
-                    hasConcludedPlaythrough = false;
-                    currentPlaythroughGraph = Randomizer.GeneratePlaythroughGraph(startingRoom);
-                    currentPlaythrough.Add("Sphere: " + sphereCount);
-
-                    // Walk through the current graph and get a list of rooms that we can currently access
-                    // If we collect any items during the playthrough, we add them to the player's inventory
-                    // and try walking through the graph again until we have collected every item that we can.
-                    do
+                    sphereItems.Clear();
+                    foreach (Room graphRoom in currentPlaythroughGraph)
                     {
-                        playthroughItems.Clear();
-                        foreach (Room graphRoom in currentPlaythroughGraph)
+                        // Console.WriteLine("Currently Exploring: " + graphRoom.name);
+                        if (graphRoom.RoomName == "Ganondorf Castle")
                         {
-                            // Console.WriteLine("Currently Exploring: " + graphRoom.name);
-                            if (graphRoom.RoomName == "Ganondorf Castle")
+                            graphRoom.Visited = true;
+                            hasConcludedPlaythrough = true;
+                            break;
+                        }
+
+                        for (int i = 0; i < graphRoom.Checks.Count; i++)
+                        {
+                            // Create reference to the dictionary entry of the check whose logic we are evaluating
+                            if (
+                                !Randomizer.Checks.CheckDict.TryGetValue(
+                                    graphRoom.Checks[i],
+                                    out Check currentCheck))
                             {
-                                hasConcludedPlaythrough = true;
-                                break;
+                                if (graphRoom.Checks[i].ToString() == string.Empty)
+                                {
+                                    // Console.WriteLine("Room has no checks, continuing on....");
+                                    break;
+                                }
                             }
 
-                            for (int i = 0; i < graphRoom.Checks.Count; i++)
+                            if (!currentCheck.hasBeenReached)
                             {
-                                // Create reference to the dictionary entry of the check whose logic we are evaluating
-                                if (
-                                    !Randomizer.Checks.CheckDict.TryGetValue(
-                                        graphRoom.Checks[i],
-                                        out Check currentCheck))
+                                var areCheckRequirementsMet =
+                                    Randomizer.Logic.EvaluateRequirements(
+                                        currentCheck.requirements);
+                                if ((bool)areCheckRequirementsMet == true)
                                 {
-                                    if (graphRoom.Checks[i].ToString() == string.Empty)
+                                    sphereItems.Add(currentCheck.itemId);
+                                    currentCheck.hasBeenReached = true;
+                                    if (
+                                        Randomizer.Items.ImportantItems.Contains(
+                                            currentCheck.itemId)
+                                        || Randomizer.Items.RegionSmallKeys.Contains(
+                                            currentCheck.itemId)
+                                        || Randomizer.Items.DungeonBigKeys.Contains(
+                                            currentCheck.itemId)
+                                        || Randomizer.Items.VanillaDungeonRewards.Contains(
+                                            currentCheck.itemId))
                                     {
-                                        // Console.WriteLine("Room has no checks, continuing on....");
-                                        break;
-                                    }
-                                }
-
-                                if (!currentCheck.hasBeenReached)
-                                {
-                                    var areCheckRequirementsMet =
-                                        Randomizer.Logic.EvaluateRequirements(
-                                            currentCheck.requirements);
-                                    if ((bool)areCheckRequirementsMet == true)
-                                    {
-                                        playthroughItems.Add(currentCheck.itemId);
-                                        currentCheck.hasBeenReached = true;
-                                        if (
-                                            Randomizer.Items.ImportantItems.Contains(
-                                                currentCheck.itemId)
-                                            || Randomizer.Items.RegionSmallKeys.Contains(
-                                                currentCheck.itemId)
-                                            || Randomizer.Items.DungeonBigKeys.Contains(
-                                                currentCheck.itemId)
-                                            || Randomizer.Items.VanillaDungeonRewards.Contains(
-                                                currentCheck.itemId))
-                                        {
-                                            currentPlaythrough.Add("    " + currentCheck.checkName + ": " + currentCheck.itemId);
-                                            hasCompletedSphere = true;
-                                        }
+                                        playthroughDictionary.Add("    " + currentCheck.checkName + ": " + currentCheck.itemId, currentCheck.itemId);
+                                        hasCompletedSphere = true;
                                     }
                                 }
                             }
                         }
-
-                        Randomizer.Items.heldItems.AddRange(playthroughItems);
                     }
-                    while (playthroughItems.Count > 0);
 
-                    sphereCount++;
-                    if ((hasCompletedSphere == false) && !hasConcludedPlaythrough)
-                    {
-                        Console.WriteLine(
-                            "Could not validate playthrough. There possibly is an error in logic. Please debug and try again.");
-                        break;
-                    }
+                    Randomizer.Items.heldItems.AddRange(sphereItems);
                 }
+                while (sphereItems.Count > 0);
 
-                currentPlaythrough.Add("    Ganondorf Castle: Ganondorf Defeated");
-                listofPlaythroughs.Add(currentPlaythrough);
-            }
-
-            for (int i = 0; i < 30; i++)
-            {
-                if (i > 0 && (listofPlaythroughs[i].Count > listofPlaythroughs[i - 1].Count))
+                sphereCount++;
+                if ((hasCompletedSphere == false) && !hasConcludedPlaythrough)
                 {
-                    shortestPlaythrough = i;
+                    Console.WriteLine(
+                        "Could not validate playthrough. There possibly is an error in logic. Please debug and try again.");
+                    break;
                 }
             }
 
-            return listofPlaythroughs[shortestPlaythrough];
+            /*foreach (KeyValuePair<string,Item> dictEntry in playthroughDictionary.Reverse())
+            {
+                Randomizer.Items.heldItems.Remove(dictEntry.Value);
+                Randomizer.GeneratePlaythroughGraph(startingRoom);
+                if (Randomizer.Rooms.RoomDict["Ganondorf Castle"].Visited && (dictEntry.Value != 0))
+                {
+                    playthroughDictionary.Remove(dictEntry.Key);
+                }
+                else
+                {
+                    Randomizer.Items.heldItems.Add(dictEntry.Value);
+                }
+            }*/
+            int index = 1;
+            currentPlaythrough.Add("Sphere: " + 0);
+            for (int i = 0; i < playthroughDictionary.Count; i++)
+            {
+                KeyValuePair<string,Item> dictEntry = playthroughDictionary.ElementAt(i);
+                if (dictEntry.Value == 0)
+                {
+                    if ( (i > 0) && playthroughDictionary.ElementAt(i-1).Value != 0x0)
+                    {
+                        currentPlaythrough.Add("Sphere: " + index);
+                        index++;
+                    }
+                }
+                else
+                {
+                    currentPlaythrough.Add(dictEntry.Key);
+                }
+            }
+
+            currentPlaythrough.Add("    Ganondorf Castle: Ganondorf Defeated");
+
+            return currentPlaythrough;
         }
 
         /// <summary>

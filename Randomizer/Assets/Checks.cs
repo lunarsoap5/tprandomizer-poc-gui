@@ -169,8 +169,9 @@ namespace TPRandomizer
                 Randomizer.Checks.CheckDict["Ordon Shield"].checkStatus = "Vanilla";
             }
 
-            // Excluded until we figure out how to fix this chest.
+            // Excluded until we figure out how to fix this check.
             Randomizer.Checks.CheckDict["Flight By Fowl Top Platform Chest"].checkStatus = "Excluded";
+            Randomizer.Checks.CheckDict["Jovani 60 Poe Soul Reward"].checkStatus = "Vanilla";
 
             // Vanilla until all of the flag issues are figured out.
             Randomizer.Checks.CheckDict["Renardos Letter"].checkStatus = "Vanilla";

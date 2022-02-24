@@ -7,7 +7,7 @@
     "NeighbourRequirements": 
     [
         "true",
-        "((Setting.palaceRequirements equals Open) or ((Setting.palaceRequirements equals Fused_Shadows) and (Progressive_Fused_Shadow, 3)) or ((Setting.palaceRequirements equals Mirror_Shards) and (Progressive_Mirror_Shard, 4)) or ((Setting.palaceRequirements equals Vanilla) and canCompleteCityinTheSky)) and CanDefeatShadowBeast"
+        "((Setting.palaceRequirements equals Open) or ((Setting.palaceRequirements equals Fused_Shadows) and (Progressive_Fused_Shadow, 3)) or ((Setting.palaceRequirements equals Mirror_Shards) and (Progressive_Mirror_Shard, 4)) or ((Setting.palaceRequirements equals Vanilla) and (Room.City_in_The_Sky_North_Wing and CanDefeatArgorok and City_in_The_Sky_Big_Key))) and CanDefeatShadowBeast"
     ],
     "Checks": [""], 
     "Region": "Gerudo Desert"

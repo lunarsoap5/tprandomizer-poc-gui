@@ -149,23 +149,25 @@ namespace TPRandomizer
                 {
                     for (int i = 0; i < roomsToExplore[0].Neighbours.Count; i++)
                     {
-                        // Parse the neighbour's requirements to find out if we can access it
-                        var areNeighbourRequirementsMet = Logic.EvaluateRequirements(
-                            roomsToExplore[0].NeighbourRequirements[i]);
-
                         // If you can access the neighbour and it hasnt been visited yet.
-                        if (((bool)areNeighbourRequirementsMet == true) && (Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]].Visited == false))
+                        if (Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]].Visited == false)
                         {
-                            if (!Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]].ReachedByPlaythrough)
+                            // Parse the neighbour's requirements to find out if we can access it
+                            var areNeighbourRequirementsMet = Logic.EvaluateRequirements(
+                            roomsToExplore[0].NeighbourRequirements[i]);
+                            if ((bool)areNeighbourRequirementsMet == true)
                             {
-                                availableRooms++;
-                                Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]].ReachedByPlaythrough = true;
-                                playthroughGraph.Add(Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]]);
-                            }
-                            roomsToExplore.Add(Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]]);
-                            Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]].Visited = true;
+                                if (!Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]].ReachedByPlaythrough)
+                                {
+                                    availableRooms++;
+                                    Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]].ReachedByPlaythrough = true;
+                                    playthroughGraph.Add(Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]]);
+                                }
+                                roomsToExplore.Add(Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]]);
+                                Randomizer.Rooms.RoomDict[roomsToExplore[0].Neighbours[i]].Visited = true;
 
-                            // Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                                // Console.WriteLine("Neighbour: " + currentNeighbour.name + " added to room list.");
+                            }
                         }
                     }
 

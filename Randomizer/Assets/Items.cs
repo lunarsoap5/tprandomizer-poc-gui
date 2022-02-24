@@ -378,7 +378,7 @@ namespace TPRandomizer
             Item.Progressive_Fishing_Rod,
             Item.Iron_Boots,
             Item.Progressive_Bow,
-            Item.Empty_Bomb_Bag,
+            Item.Bomb_Bag_And_Bombs,
             Item.Zora_Armor,
             Item.Progressive_Clawshot,
             Item.Progressive_Clawshot,
@@ -480,7 +480,7 @@ namespace TPRandomizer
             Item.Orange_Rupee, Item.Orange_Rupee, Item.Orange_Rupee, Item.Silver_Rupee, Item.Silver_Rupee,
             Item.Progressive_Wallet, Item.Progressive_Wallet, Item.Progressive_Bow, Item.Progressive_Bow,
             Item.Bomb_Bag_And_Bombs, Item.Bomb_Bag_And_Bombs, Item.Giant_Bomb_Bag, Item.Sera_Bottle, Item.Coro_Bottle,
-            Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill,
+            Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill, Item.Jovani_Bottle,
             Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill, Item.Progressive_Hidden_Skill,
             Item.Hylian_Shield, Item.Hawkeye,
         };
