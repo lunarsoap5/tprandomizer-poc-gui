@@ -11,7 +11,7 @@
         "true",
         "true",
         "true",
-        "((Setting.castleRequirements equals Open) or ((Setting.castleRequirements equals Vanilla) and canCompletePalaceofTwilight) or ((Setting.castleRequirements equals Fused_Shadows) and (Progressive_Fused_Shadow, 3)) or ((Setting.castleRequirements equals Mirror_Shards) and (Progressive_Mirror_Shard, 4)) or ((Setting.castleRequirements equals All_Dungeons) and canCompleteAllDungeons) and (canCompleteLakebedTemple or (Setting.mdhSkipped equals True)))"
+        "((Setting.castleRequirements equals Open) or ((Setting.castleRequirements equals Vanilla) and Room.Palace_of_Twilight_Boss_Room and CanDefeatZant) or ((Setting.castleRequirements equals Fused_Shadows) and (Progressive_Fused_Shadow, 3)) or ((Setting.castleRequirements equals Mirror_Shards) and (Progressive_Mirror_Shard, 4)) or ((Setting.castleRequirements equals All_Dungeons) and canCompleteAllDungeons) and (canCompleteLakebedTemple or (Setting.mdhSkipped equals True)))"
     ],
     "Checks": 
     [
