@@ -1,5 +1,5 @@
 {
-    "requirements": "(Poe_Soul, 20) and Shadow_Crystal",
+    "requirements": "(Poe_Soul, 20) and Shadow_Crystal and ((Setting.mdhSkipped equals True) or (Room.Lakebed_Temple_Boss_Room and CanDefeatMorpheel))",
     "arcFileValues": [["bmgres4.arc", "21F3F"]],
     "fileDirectoryType": [1],
     "replacementType": [0],

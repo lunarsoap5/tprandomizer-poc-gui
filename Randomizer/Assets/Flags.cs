@@ -57,7 +57,7 @@ namespace TPRandomizer.Assets
         public static readonly byte[,] IntroRegionFlags = new byte[,]
             {
                 { 0x0, 0x63 }, // Spawn the Chest in Link's House
-                { 0x2, 0x5B }, // Unlock North Faron Woods Gate
+                { 0x2, 0x4B }, // Unlock North Faron Woods Gate
             };
 
         /// <summary>
@@ -84,9 +84,9 @@ namespace TPRandomizer.Assets
             { 0x20, 0x20 }, // Master Sword Story Progression
             { 0x20, 0x10 }, // Arbiters Grounds Story Progression
             { 0x2C, 0x10 }, // Raised the mirror in the Mirror Chamber
-            { 0x1E, 0x80 }, // Gor Ebizo ready to start fundraising for CT
             { 0x1B, 0x38 }, // Skip Monkey Escort
             { 0x6, 0x20 }, // Warped Kakariko Bridge Back.
+            { 0x5F, 0x20 }, // Shad leaves sanctuary.
         };
 
         /// <summary>
