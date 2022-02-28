@@ -133,6 +133,7 @@ namespace TPRandomizer
                         if (currentCheck.category.Contains("Shop"))
                         {
                             currentCheck.checkStatus = "Vanilla";
+                            Randomizer.Items.RandomizedImportantItems.Remove(currentCheck.itemId);
                         }
                     }
                 }

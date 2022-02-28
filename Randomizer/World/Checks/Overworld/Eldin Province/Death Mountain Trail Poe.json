@@ -1,5 +1,5 @@
 {
-    "requirements": "Shadow_Crystal and (canCompleteGoronMines or (Progressive_Clawshot,1))",
+    "requirements": "Shadow_Crystal and (Room.Goron_Mines_Boss_Room and CanDefeatFyrus)",
     "stageIDX": [47],
     "flag": "59",
     "category": ["Overworld", "Poe", "Eldin Province"],

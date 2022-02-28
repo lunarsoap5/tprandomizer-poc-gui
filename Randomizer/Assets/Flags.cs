@@ -16,6 +16,7 @@ namespace TPRandomizer.Assets
                 { 0x2, 0x47 }, // Midna jump 1 mist area.
                 { 0x2, 0x5D }, // North Faron Portal.
                 { 0x2, 0x98 }, // South Faron Portal.
+                { 0x0, 0x6B }, // Ordon Spring Portal.
             };
 
         /// <summary>
@@ -80,7 +81,7 @@ namespace TPRandomizer.Assets
             { 0xA, 0x2F }, // Bridge of Eldin Stolen, KB1 defeated, KB1 started
             { 0xF, 0x8 }, // Bridge of Eldin Warped Back
             { 0x40, 0x8 }, // Visited Gerudo Desert for the first time.
-            { 0x7, 0x80 }, // Watched Colin CS after KB1
+            { 0x7, 0xA0 }, // Watched Colin CS after KB1, talked to Bo before sumo
             { 0x20, 0x20 }, // Master Sword Story Progression
             { 0x20, 0x10 }, // Arbiters Grounds Story Progression
             { 0x2C, 0x10 }, // Raised the mirror in the Mirror Chamber
@@ -98,6 +99,7 @@ namespace TPRandomizer.Assets
             { 0x6, 0x10 }, // Cleared Faron Twilight
             { 0xC, 0x18 }, // Midna accompanies Wolf, sword and shield removed from wolf's back.
             { 0x3, 0x2 }, // Gave Wooden Sword to Talo
+            { 0x43, 0x8 }, // Senses unlocked
         };
 
         /// <summary>

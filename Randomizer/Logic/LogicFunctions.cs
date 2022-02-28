@@ -1334,6 +1334,7 @@ namespace TPRandomizer
                 && CanUse(Item.Boomerang)
                 && CanDefeatBokoblin()
                 && CanDefeatBigBaba()
+                && (getItemCount(Item.Forest_Temple_Small_Key) >= 4)
             );
         }
 
