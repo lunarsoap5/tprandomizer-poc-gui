@@ -460,7 +460,7 @@ namespace TPRandomizer
                 if ((hasCompletedSphere == false) && !hasConcludedPlaythrough)
                 {
                     Console.WriteLine(
-                        "Could not validate playthrough. There possibly is an error in logic. Please debug and try again.");
+                        "Could not validate playthrough. There possibly is an error in logic or the specific playthrough has failed.");
                     break;
                 }
             }

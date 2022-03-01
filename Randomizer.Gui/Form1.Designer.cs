@@ -74,6 +74,7 @@ namespace TPRandomizer
             this.lbtAccessCheckBox = new System.Windows.Forms.CheckBox();
             this.gmAccessCheckbox = new System.Windows.Forms.CheckBox();
             this.cutsceneMundaneSkipsGroupBox = new System.Windows.Forms.GroupBox();
+            this.donationCheckBox = new System.Windows.Forms.CheckBox();
             this.skipMinorCutscenesCheckBox = new System.Windows.Forms.CheckBox();
             this.clearedTwilightsGroupBox = new System.Windows.Forms.GroupBox();
             this.lanayruTwilightClearedCheckBox = new System.Windows.Forms.CheckBox();
@@ -155,7 +156,6 @@ namespace TPRandomizer
             this.cutsceneTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.seedNumberLabel = new System.Windows.Forms.Label();
             this.seedNumberComboBox = new System.Windows.Forms.ComboBox();
-            this.donationCheckBox = new System.Windows.Forms.CheckBox();
             this.optionsMenu.SuspendLayout();
             this.randomizationSettingsTabPage.SuspendLayout();
             this.randomizationSettingsBox.SuspendLayout();
@@ -598,6 +598,7 @@ namespace TPRandomizer
             // citsAccessCheckbox
             // 
             this.citsAccessCheckbox.AutoSize = true;
+            this.citsAccessCheckbox.Enabled = false;
             this.citsAccessCheckbox.Location = new System.Drawing.Point(6, 126);
             this.citsAccessCheckbox.Name = "citsAccessCheckbox";
             this.citsAccessCheckbox.Size = new System.Drawing.Size(199, 19);
@@ -608,6 +609,7 @@ namespace TPRandomizer
             // totAccessCheckbox
             // 
             this.totAccessCheckbox.AutoSize = true;
+            this.totAccessCheckbox.Enabled = false;
             this.totAccessCheckbox.Location = new System.Drawing.Point(6, 106);
             this.totAccessCheckbox.Name = "totAccessCheckbox";
             this.totAccessCheckbox.Size = new System.Drawing.Size(230, 19);
@@ -618,6 +620,7 @@ namespace TPRandomizer
             // snowpeakAccessCheckbox
             // 
             this.snowpeakAccessCheckbox.AutoSize = true;
+            this.snowpeakAccessCheckbox.Enabled = false;
             this.snowpeakAccessCheckbox.Location = new System.Drawing.Point(6, 85);
             this.snowpeakAccessCheckbox.Name = "snowpeakAccessCheckbox";
             this.snowpeakAccessCheckbox.Size = new System.Drawing.Size(207, 19);
@@ -628,6 +631,7 @@ namespace TPRandomizer
             // agAccessCheckbox
             // 
             this.agAccessCheckbox.AutoSize = true;
+            this.agAccessCheckbox.Enabled = false;
             this.agAccessCheckbox.Location = new System.Drawing.Point(6, 64);
             this.agAccessCheckbox.Name = "agAccessCheckbox";
             this.agAccessCheckbox.Size = new System.Drawing.Size(190, 19);
@@ -638,6 +642,7 @@ namespace TPRandomizer
             // lbtAccessCheckBox
             // 
             this.lbtAccessCheckBox.AutoSize = true;
+            this.lbtAccessCheckBox.Enabled = false;
             this.lbtAccessCheckBox.Location = new System.Drawing.Point(6, 42);
             this.lbtAccessCheckBox.Name = "lbtAccessCheckBox";
             this.lbtAccessCheckBox.Size = new System.Drawing.Size(192, 19);
@@ -648,6 +653,7 @@ namespace TPRandomizer
             // gmAccessCheckbox
             // 
             this.gmAccessCheckbox.AutoSize = true;
+            this.gmAccessCheckbox.Enabled = false;
             this.gmAccessCheckbox.Location = new System.Drawing.Point(6, 20);
             this.gmAccessCheckbox.Name = "gmAccessCheckbox";
             this.gmAccessCheckbox.Size = new System.Drawing.Size(195, 19);
@@ -666,9 +672,21 @@ namespace TPRandomizer
             this.cutsceneMundaneSkipsGroupBox.TabStop = false;
             this.cutsceneMundaneSkipsGroupBox.Text = "Cutscene/Mundane Skips";
             // 
+            // donationCheckBox
+            // 
+            this.donationCheckBox.AutoSize = true;
+            this.donationCheckBox.Enabled = false;
+            this.donationCheckBox.Location = new System.Drawing.Point(7, 48);
+            this.donationCheckBox.Name = "donationCheckBox";
+            this.donationCheckBox.Size = new System.Drawing.Size(169, 19);
+            this.donationCheckBox.TabIndex = 1;
+            this.donationCheckBox.Text = "Reduce Donation Amounts";
+            this.donationCheckBox.UseVisualStyleBackColor = true;
+            // 
             // skipMinorCutscenesCheckBox
             // 
             this.skipMinorCutscenesCheckBox.AutoSize = true;
+            this.skipMinorCutscenesCheckBox.Enabled = false;
             this.skipMinorCutscenesCheckBox.Location = new System.Drawing.Point(7, 23);
             this.skipMinorCutscenesCheckBox.Name = "skipMinorCutscenesCheckBox";
             this.skipMinorCutscenesCheckBox.Size = new System.Drawing.Size(140, 19);
@@ -965,6 +983,7 @@ namespace TPRandomizer
             // quickTransformCheckBox
             // 
             this.quickTransformCheckBox.AutoSize = true;
+            this.quickTransformCheckBox.Enabled = false;
             this.quickTransformCheckBox.Location = new System.Drawing.Point(6, 47);
             this.quickTransformCheckBox.Name = "quickTransformCheckBox";
             this.quickTransformCheckBox.Size = new System.Drawing.Size(113, 19);
@@ -975,6 +994,7 @@ namespace TPRandomizer
             // transformAnywhereCheckBox
             // 
             this.transformAnywhereCheckBox.AutoSize = true;
+            this.transformAnywhereCheckBox.Enabled = false;
             this.transformAnywhereCheckBox.Location = new System.Drawing.Point(6, 72);
             this.transformAnywhereCheckBox.Name = "transformAnywhereCheckBox";
             this.transformAnywhereCheckBox.Size = new System.Drawing.Size(135, 19);
@@ -1432,16 +1452,6 @@ namespace TPRandomizer
             this.seedNumberComboBox.Name = "seedNumberComboBox";
             this.seedNumberComboBox.Size = new System.Drawing.Size(121, 23);
             this.seedNumberComboBox.TabIndex = 15;
-            // 
-            // donationCheckBox
-            // 
-            this.donationCheckBox.AutoSize = true;
-            this.donationCheckBox.Location = new System.Drawing.Point(7, 48);
-            this.donationCheckBox.Name = "donationCheckBox";
-            this.donationCheckBox.Size = new System.Drawing.Size(169, 19);
-            this.donationCheckBox.TabIndex = 1;
-            this.donationCheckBox.Text = "Reduce Donation Amounts";
-            this.donationCheckBox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
